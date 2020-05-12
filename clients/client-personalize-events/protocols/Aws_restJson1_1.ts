@@ -151,11 +151,7 @@ const serializeAws_restJson1_1EventList = (
   input: Event[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Event(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1Event(entry, context));
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

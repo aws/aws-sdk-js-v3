@@ -7381,22 +7381,16 @@ const serializeAws_restJson1_1SharePrincipalList = (
   input: SharePrincipal[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1SharePrincipal(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1SharePrincipal(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1SharedLabels = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1StorageRuleType = (

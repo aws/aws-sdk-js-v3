@@ -395,11 +395,7 @@ const serializeAws_json1_0StatementParameters = (
   input: ValueHolder[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_0ValueHolder(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_0ValueHolder(entry, context));
 };
 
 const serializeAws_json1_0ValueHolder = (

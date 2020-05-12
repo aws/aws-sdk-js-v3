@@ -3791,22 +3791,14 @@ const serializeAws_json1_1DataResourceValues = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1DataResources = (
   input: DataResource[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1DataResource(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1DataResource(entry, context));
 };
 
 const serializeAws_json1_1DeleteTrailRequest = (
@@ -3869,22 +3861,14 @@ const serializeAws_json1_1EventSelectors = (
   input: EventSelector[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1EventSelector(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1EventSelector(entry, context));
 };
 
 const serializeAws_json1_1ExcludeManagementEventSources = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1GetEventSelectorsRequest = (
@@ -3946,11 +3930,9 @@ const serializeAws_json1_1InsightSelectors = (
   input: InsightSelector[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1InsightSelector(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1InsightSelector(entry, context)
+  );
 };
 
 const serializeAws_json1_1ListPublicKeysRequest = (
@@ -4016,11 +3998,9 @@ const serializeAws_json1_1LookupAttributesList = (
   input: LookupAttribute[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1LookupAttribute(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1LookupAttribute(entry, context)
+  );
 };
 
 const serializeAws_json1_1LookupEventsRequest = (
@@ -4107,11 +4087,7 @@ const serializeAws_json1_1ResourceIdList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1StartLoggingRequest = (
@@ -4151,22 +4127,14 @@ const serializeAws_json1_1TagsList = (
   input: Tag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Tag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
 const serializeAws_json1_1TrailNameList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1UpdateTrailRequest = (

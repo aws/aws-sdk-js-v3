@@ -13199,11 +13199,9 @@ const serializeAws_restJson1_1CalculatedColumnList = (
   input: CalculatedColumn[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1CalculatedColumn(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1CalculatedColumn(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1CastColumnTypeOperation = (
@@ -13243,22 +13241,16 @@ const serializeAws_restJson1_1ColumnGroupList = (
   input: ColumnGroup[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1ColumnGroup(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1ColumnGroup(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1ColumnList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1ColumnTag = (
@@ -13276,11 +13268,7 @@ const serializeAws_restJson1_1ColumnTagList = (
   input: ColumnTag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1ColumnTag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1ColumnTag(entry, context));
 };
 
 const serializeAws_restJson1_1CreateColumnsOperation = (
@@ -13417,11 +13405,9 @@ const serializeAws_restJson1_1DataSetReferenceList = (
   input: DataSetReference[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1DataSetReference(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1DataSetReference(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1DataSourceCredentials = (
@@ -13599,11 +13585,9 @@ const serializeAws_restJson1_1DateTimeParameterList = (
   input: DateTimeParameter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1DateTimeParameter(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1DateTimeParameter(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1DecimalParameter = (
@@ -13627,11 +13611,9 @@ const serializeAws_restJson1_1DecimalParameterList = (
   input: DecimalParameter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1DecimalParameter(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1DecimalParameter(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1ExportToCSVOption = (
@@ -13690,11 +13672,7 @@ const serializeAws_restJson1_1IdentityNameList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1InputColumn = (
@@ -13715,11 +13693,9 @@ const serializeAws_restJson1_1InputColumnList = (
   input: InputColumn[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1InputColumn(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1InputColumn(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1IntegerParameter = (
@@ -13743,11 +13719,9 @@ const serializeAws_restJson1_1IntegerParameterList = (
   input: IntegerParameter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1IntegerParameter(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1IntegerParameter(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1JiraParameters = (
@@ -14011,11 +13985,7 @@ const serializeAws_restJson1_1ProjectedColumnList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1RdsParameters = (
@@ -14244,11 +14214,9 @@ const serializeAws_restJson1_1StringParameterList = (
   input: StringParameter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1StringParameter(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1StringParameter(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1TagColumnOperation = (
@@ -14395,11 +14363,9 @@ const serializeAws_restJson1_1TransformOperationList = (
   input: TransformOperation[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1TransformOperation(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1TransformOperation(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1TwitterParameters = (
@@ -14420,11 +14386,9 @@ const serializeAws_restJson1_1UpdateResourcePermissionList = (
   input: ResourcePermission[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1ResourcePermission(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1ResourcePermission(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1UploadSettings = (
@@ -14465,33 +14429,21 @@ const serializeAws_restJson1_1ActionList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1DoubleList = (
   input: number[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1LongList = (
   input: number[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1ResourcePermission = (
@@ -14515,22 +14467,16 @@ const serializeAws_restJson1_1ResourcePermissionList = (
   input: ResourcePermission[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1ResourcePermission(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1ResourcePermission(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1StringList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1Tag = (
@@ -14551,22 +14497,14 @@ const serializeAws_restJson1_1TagList = (
   input: Tag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Tag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1Tag(entry, context));
 };
 
 const serializeAws_restJson1_1TimestampList = (
   input: Date[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(Math.round(entry.getTime() / 1000));
-  }
-  return contents;
+  return input.map(entry => Math.round(entry.getTime() / 1000));
 };
 
 const deserializeAws_restJson1_1ActiveIAMPolicyAssignment = (

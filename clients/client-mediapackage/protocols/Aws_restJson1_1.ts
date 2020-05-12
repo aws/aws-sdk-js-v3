@@ -3267,11 +3267,7 @@ const serializeAws_restJson1_1AdTriggers = (
   input: (__AdTriggersElement | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1Authorization = (
@@ -3649,38 +3645,23 @@ const serializeAws_restJson1_1__listOfHlsManifestCreateOrUpdateParameters = (
   input: HlsManifestCreateOrUpdateParameters[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_restJson1_1HlsManifestCreateOrUpdateParameters(
-        entry,
-        context
-      )
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1HlsManifestCreateOrUpdateParameters(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1__listOf__PeriodTriggersElement = (
   input: (__PeriodTriggersElement | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1__listOf__string = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1__mapOf__string = (

@@ -8262,11 +8262,7 @@ const serializeAws_json1_1CreateAccountStates = (
   input: (CreateAccountState | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1CreateGovCloudAccountRequest = (
@@ -8837,11 +8833,7 @@ const serializeAws_json1_1TagKeys = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1TagResourceRequest = (
@@ -8862,11 +8854,7 @@ const serializeAws_json1_1Tags = (
   input: Tag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Tag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
 const serializeAws_json1_1UntagResourceRequest = (

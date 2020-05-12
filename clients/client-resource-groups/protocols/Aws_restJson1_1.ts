@@ -2102,22 +2102,16 @@ const serializeAws_restJson1_1GroupFilterList = (
   input: GroupFilter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1GroupFilter(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1GroupFilter(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1GroupFilterValues = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1ResourceFilter = (
@@ -2141,22 +2135,16 @@ const serializeAws_restJson1_1ResourceFilterList = (
   input: ResourceFilter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1ResourceFilter(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1ResourceFilter(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1ResourceFilterValues = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1ResourceQuery = (
@@ -2177,11 +2165,7 @@ const serializeAws_restJson1_1TagKeyList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1Tags = (

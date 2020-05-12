@@ -3856,22 +3856,14 @@ const serializeAws_json1_1ListOfModelVersions = (
   input: ModelVersion[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1ModelVersion(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1ModelVersion(entry, context));
 };
 
 const serializeAws_json1_1ListOfStrings = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ModelEndpointDataBlob = (
@@ -3953,11 +3945,7 @@ const serializeAws_json1_1ModelVariablesList = (
   input: ModelVariable[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1ModelVariable(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1ModelVariable(entry, context));
 };
 
 const serializeAws_json1_1ModelVersion = (
@@ -3981,22 +3969,14 @@ const serializeAws_json1_1NameList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1NonEmptyListOfStrings = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1PutDetectorRequest = (
@@ -4133,11 +4113,7 @@ const serializeAws_json1_1RuleList = (
   input: Rule[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Rule(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Rule(entry, context));
 };
 
 const serializeAws_json1_1TrainingDataSource = (
@@ -4333,11 +4309,7 @@ const serializeAws_json1_1VariableEntryList = (
   input: VariableEntry[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1VariableEntry(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1VariableEntry(entry, context));
 };
 
 const deserializeAws_json1_1BatchCreateVariableError = (

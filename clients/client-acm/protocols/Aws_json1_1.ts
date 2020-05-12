@@ -1718,11 +1718,7 @@ const serializeAws_json1_1CertificateStatuses = (
   input: (CertificateStatus | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1DeleteCertificateRequest = (
@@ -1751,11 +1747,7 @@ const serializeAws_json1_1DomainList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1DomainValidationOption = (
@@ -1776,11 +1768,9 @@ const serializeAws_json1_1DomainValidationOptionList = (
   input: DomainValidationOption[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1DomainValidationOption(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1DomainValidationOption(entry, context)
+  );
 };
 
 const serializeAws_json1_1ExportCertificateRequest = (
@@ -1801,11 +1791,7 @@ const serializeAws_json1_1ExtendedKeyUsageFilterList = (
   input: (ExtendedKeyUsageName | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1Filters = (
@@ -1876,22 +1862,14 @@ const serializeAws_json1_1KeyAlgorithmList = (
   input: (KeyAlgorithm | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1KeyUsageFilterList = (
   input: (KeyUsageName | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ListCertificatesRequest = (
@@ -2031,11 +2009,7 @@ const serializeAws_json1_1TagList = (
   input: Tag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Tag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
 const serializeAws_json1_1UpdateCertificateOptionsRequest = (

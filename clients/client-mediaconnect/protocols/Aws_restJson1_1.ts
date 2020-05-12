@@ -3115,35 +3115,25 @@ const serializeAws_restJson1_1__listOfAddOutputRequest = (
   input: AddOutputRequest[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1AddOutputRequest(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1AddOutputRequest(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1__listOfGrantEntitlementRequest = (
   input: GrantEntitlementRequest[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_restJson1_1GrantEntitlementRequest(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1GrantEntitlementRequest(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1__listOf__string = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1__mapOf__string = (

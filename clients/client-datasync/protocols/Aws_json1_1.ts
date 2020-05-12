@@ -2563,11 +2563,7 @@ const serializeAws_json1_1AgentArnList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1CancelTaskExecutionRequest = (
@@ -2902,22 +2898,14 @@ const serializeAws_json1_1Ec2SecurityGroupArnList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1FilterList = (
   input: FilterRule[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1FilterRule(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1FilterRule(entry, context));
 };
 
 const serializeAws_json1_1FilterRule = (
@@ -3080,22 +3068,14 @@ const serializeAws_json1_1PLSecurityGroupArnList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1PLSubnetArnList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1S3Config = (
@@ -3147,22 +3127,14 @@ const serializeAws_json1_1TagKeyList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1TagList = (
   input: TagListEntry[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1TagListEntry(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1TagListEntry(entry, context));
 };
 
 const serializeAws_json1_1TagListEntry = (

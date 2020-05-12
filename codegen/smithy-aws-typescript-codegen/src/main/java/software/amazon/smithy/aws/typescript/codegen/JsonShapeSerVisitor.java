@@ -58,11 +58,9 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
         TypeScriptWriter writer = context.getWriter();
         Shape target = context.getModel().expectShape(shape.getMember().getTarget());
 
-        writer.write("const contents = [];");
-        writer.openBlock("for (let entry of input) {", "}", () ->
+        writer.openBlock("return input.map(entry => ", ");", () ->
                 // Dispatch to the input value provider for any additional handling.
-                writer.write("contents.push($L);", target.accept(getMemberVisitor("entry"))));
-        writer.write("return contents;");
+                writer.write("$L", target.accept(getMemberVisitor("entry"))));
     }
 
     @Override

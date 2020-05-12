@@ -4096,11 +4096,7 @@ const serializeAws_json1_1ArnList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1AutoMLConfig = (
@@ -4169,24 +4165,16 @@ const serializeAws_json1_1CategoricalHyperParameterRanges = (
   input: CategoricalHyperParameterRange[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_json1_1CategoricalHyperParameterRange(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1CategoricalHyperParameterRange(entry, context)
+  );
 };
 
 const serializeAws_json1_1CategoricalValues = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ContinuousHyperParameterRange = (
@@ -4210,13 +4198,9 @@ const serializeAws_json1_1ContinuousHyperParameterRanges = (
   input: ContinuousHyperParameterRange[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_json1_1ContinuousHyperParameterRange(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1ContinuousHyperParameterRange(entry, context)
+  );
 };
 
 const serializeAws_json1_1CreateBatchInferenceJobRequest = (
@@ -4754,13 +4738,9 @@ const serializeAws_json1_1IntegerHyperParameterRanges = (
   input: IntegerHyperParameterRange[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_json1_1IntegerHyperParameterRange(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1IntegerHyperParameterRange(entry, context)
+  );
 };
 
 const serializeAws_json1_1ListBatchInferenceJobsRequest = (

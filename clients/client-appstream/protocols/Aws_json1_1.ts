@@ -5192,11 +5192,7 @@ const serializeAws_json1_1AccessEndpointList = (
   input: AccessEndpoint[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1AccessEndpoint(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1AccessEndpoint(entry, context));
 };
 
 const serializeAws_json1_1ApplicationSettings = (
@@ -5217,11 +5213,7 @@ const serializeAws_json1_1ArnList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1AssociateFleetRequest = (
@@ -5242,11 +5234,7 @@ const serializeAws_json1_1AwsAccountIdList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1BatchAssociateUserStackRequest = (
@@ -5877,11 +5865,7 @@ const serializeAws_json1_1DirectoryNameList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1DisableUserRequest = (
@@ -5931,22 +5915,14 @@ const serializeAws_json1_1DomainList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1EmbedHostDomains = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1EnableUserRequest = (
@@ -5978,11 +5954,7 @@ const serializeAws_json1_1FleetAttributes = (
   input: (FleetAttribute | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ImagePermissions = (
@@ -6042,22 +6014,14 @@ const serializeAws_json1_1OrganizationalUnitDistinguishedNamesList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1SecurityGroupIdList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ServiceAccountCredentials = (
@@ -6078,11 +6042,7 @@ const serializeAws_json1_1StackAttributes = (
   input: (StackAttribute | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1StartFleetRequest = (
@@ -6156,44 +6116,30 @@ const serializeAws_json1_1StorageConnectorList = (
   input: StorageConnector[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1StorageConnector(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1StorageConnector(entry, context)
+  );
 };
 
 const serializeAws_json1_1StringList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1SubnetIdList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1TagKeyList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1TagResourceRequest = (
@@ -6434,11 +6380,7 @@ const serializeAws_json1_1UserSettingList = (
   input: UserSetting[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1UserSetting(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1UserSetting(entry, context));
 };
 
 const serializeAws_json1_1UserStackAssociation = (
@@ -6465,11 +6407,9 @@ const serializeAws_json1_1UserStackAssociationList = (
   input: UserStackAssociation[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1UserStackAssociation(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1UserStackAssociation(entry, context)
+  );
 };
 
 const serializeAws_json1_1VpcConfig = (

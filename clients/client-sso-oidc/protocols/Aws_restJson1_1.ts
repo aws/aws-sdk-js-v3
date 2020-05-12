@@ -841,11 +841,7 @@ const serializeAws_restJson1_1Scopes = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

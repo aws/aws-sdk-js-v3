@@ -427,55 +427,35 @@ const serializeAws_json1_1ListOfKitchenSinks = (
   input: KitchenSink[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1KitchenSink(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1KitchenSink(entry, context));
 };
 
 const serializeAws_json1_1ListOfListOfStrings = (
   input: string[][],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1ListOfStrings(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1ListOfStrings(entry, context));
 };
 
 const serializeAws_json1_1ListOfMapsOfStrings = (
   input: { [key: string]: string }[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1MapOfStrings(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1MapOfStrings(entry, context));
 };
 
 const serializeAws_json1_1ListOfStrings = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ListOfStructs = (
   input: SimpleStruct[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1SimpleStruct(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1SimpleStruct(entry, context));
 };
 
 const serializeAws_json1_1MapOfKitchenSinks = (

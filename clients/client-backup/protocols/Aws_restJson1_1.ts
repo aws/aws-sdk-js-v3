@@ -7232,11 +7232,9 @@ const serializeAws_restJson1_1BackupRulesInput = (
   input: BackupRuleInput[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1BackupRuleInput(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1BackupRuleInput(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1BackupSelection = (
@@ -7269,11 +7267,7 @@ const serializeAws_restJson1_1BackupVaultEvents = (
   input: (BackupVaultEvent | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1Condition = (
@@ -7314,11 +7308,7 @@ const serializeAws_restJson1_1CopyActions = (
   input: CopyAction[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1CopyAction(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1CopyAction(entry, context));
 };
 
 const serializeAws_restJson1_1Lifecycle = (
@@ -7339,11 +7329,7 @@ const serializeAws_restJson1_1ListOfTags = (
   input: Condition[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Condition(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1Condition(entry, context));
 };
 
 const serializeAws_restJson1_1Metadata = (
@@ -7360,22 +7346,14 @@ const serializeAws_restJson1_1ResourceArns = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1TagKeyList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1Tags = (

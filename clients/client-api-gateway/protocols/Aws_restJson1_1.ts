@@ -22762,44 +22762,28 @@ const serializeAws_restJson1_1ListOfARNs = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1ListOfApiStage = (
   input: ApiStage[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1ApiStage(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1ApiStage(entry, context));
 };
 
 const serializeAws_restJson1_1ListOfEndpointType = (
   input: (EndpointType | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1ListOfStageKeys = (
   input: StageKey[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1StageKey(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1StageKey(entry, context));
 };
 
 const serializeAws_restJson1_1MapOfApiStageThrottleSettings = (
@@ -22891,22 +22875,16 @@ const serializeAws_restJson1_1ListOfPatchOperation = (
   input: PatchOperation[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1PatchOperation(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1PatchOperation(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1ListOfString = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1PatchOperation = (

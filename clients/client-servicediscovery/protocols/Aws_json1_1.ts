@@ -2558,22 +2558,14 @@ const serializeAws_json1_1DnsRecordList = (
   input: DnsRecord[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1DnsRecord(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1DnsRecord(entry, context));
 };
 
 const serializeAws_json1_1FilterValues = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1GetInstanceRequest = (
@@ -2678,11 +2670,7 @@ const serializeAws_json1_1InstanceIdList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ListInstancesRequest = (
@@ -2786,11 +2774,9 @@ const serializeAws_json1_1NamespaceFilters = (
   input: NamespaceFilter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1NamespaceFilter(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1NamespaceFilter(entry, context)
+  );
 };
 
 const serializeAws_json1_1OperationFilter = (
@@ -2817,11 +2803,9 @@ const serializeAws_json1_1OperationFilters = (
   input: OperationFilter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1OperationFilter(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1OperationFilter(entry, context)
+  );
 };
 
 const serializeAws_json1_1RegisterInstanceRequest = (
@@ -2897,11 +2881,7 @@ const serializeAws_json1_1ServiceFilters = (
   input: ServiceFilter[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1ServiceFilter(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1ServiceFilter(entry, context));
 };
 
 const serializeAws_json1_1UpdateInstanceCustomHealthStatusRequest = (

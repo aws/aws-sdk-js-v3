@@ -32039,11 +32039,7 @@ const serializeAws_restJson1_1PolicyNames = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1Tag = (
@@ -32064,22 +32060,14 @@ const serializeAws_restJson1_1TagKeyList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1TagList = (
   input: Tag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Tag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1Tag(entry, context));
 };
 
 const serializeAws_restJson1_1Action = (
@@ -32197,11 +32185,7 @@ const serializeAws_restJson1_1ActionList = (
   input: Action[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Action(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1Action(entry, context));
 };
 
 const serializeAws_restJson1_1AssetPropertyTimestamp = (
@@ -32245,11 +32229,9 @@ const serializeAws_restJson1_1AssetPropertyValueList = (
   input: AssetPropertyValue[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1AssetPropertyValue(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1AssetPropertyValue(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1AssetPropertyVariant = (
@@ -32417,11 +32399,9 @@ const serializeAws_restJson1_1HeaderList = (
   input: HttpActionHeader[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1HttpActionHeader(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1HttpActionHeader(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1HttpAction = (
@@ -32630,13 +32610,9 @@ const serializeAws_restJson1_1PutAssetPropertyValueEntryList = (
   input: PutAssetPropertyValueEntry[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_restJson1_1PutAssetPropertyValueEntry(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1PutAssetPropertyValueEntry(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1PutItemInput = (
@@ -32838,11 +32814,7 @@ const serializeAws_restJson1_1AuthInfos = (
   input: AuthInfo[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1AuthInfo(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1AuthInfo(entry, context));
 };
 
 const serializeAws_restJson1_1AuthorizerConfig = (
@@ -32941,22 +32913,14 @@ const serializeAws_restJson1_1Resources = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1ServerCertificateArns = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1TlsContext = (
@@ -32988,22 +32952,14 @@ const serializeAws_restJson1_1Fields = (
   input: Field[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Field(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1Field(entry, context));
 };
 
 const serializeAws_restJson1_1PercentList = (
   input: number[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1ThingGroupIndexingConfiguration = (
@@ -33094,11 +33050,9 @@ const serializeAws_restJson1_1AbortCriteriaList = (
   input: AbortCriteria[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1AbortCriteria(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1AbortCriteria(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1ExponentialRolloutRate = (
@@ -33146,11 +33100,7 @@ const serializeAws_restJson1_1JobTargets = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1PresignedUrlConfig = (
@@ -33392,22 +33342,16 @@ const serializeAws_restJson1_1OTAUpdateFiles = (
   input: OTAUpdateFile[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1OTAUpdateFile(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1OTAUpdateFile(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1Protocols = (
   input: (Protocol | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1S3Destination = (
@@ -33484,11 +33428,7 @@ const serializeAws_restJson1_1Targets = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1AttributePayload = (
@@ -33533,22 +33473,14 @@ const serializeAws_restJson1_1SearchableAttributes = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1ThingGroupList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1ThingGroupProperties = (
@@ -33700,11 +33632,7 @@ const serializeAws_restJson1_1ThingGroupNames = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1UpdateCACertificateParams = (
@@ -33838,22 +33766,14 @@ const serializeAws_restJson1_1FindingIds = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1MitigationActionNameList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1PolicyVersionIdentifier = (
@@ -33874,11 +33794,7 @@ const serializeAws_restJson1_1ReasonForNonComplianceCodes = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1ResourceIdentifier = (
@@ -33922,22 +33838,14 @@ const serializeAws_restJson1_1TargetAuditCheckNames = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1AdditionalMetricsToRetainList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1AlertTarget = (
@@ -34024,22 +33932,14 @@ const serializeAws_restJson1_1Behaviors = (
   input: Behavior[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Behavior(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1Behavior(entry, context));
 };
 
 const serializeAws_restJson1_1Cidrs = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1MetricValue = (
@@ -34063,11 +33963,7 @@ const serializeAws_restJson1_1Ports = (
   input: number[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1StatisticalThreshold = (
@@ -34102,11 +33998,7 @@ const serializeAws_restJson1_1StreamFiles = (
   input: StreamFile[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1StreamFile(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1StreamFile(entry, context));
 };
 
 const serializeAws_restJson1_1S3Location = (

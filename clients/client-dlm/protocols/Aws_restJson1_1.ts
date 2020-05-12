@@ -1174,11 +1174,7 @@ const serializeAws_restJson1_1AvailabilityZoneList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1CreateRule = (
@@ -1247,11 +1243,9 @@ const serializeAws_restJson1_1CrossRegionCopyRules = (
   input: CrossRegionCopyRule[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1CrossRegionCopyRule(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1CrossRegionCopyRule(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1FastRestoreRule = (
@@ -1331,11 +1325,7 @@ const serializeAws_restJson1_1ResourceTypeValuesList = (
   input: (ResourceTypeValues | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1RetainRule = (
@@ -1411,11 +1401,7 @@ const serializeAws_restJson1_1ScheduleList = (
   input: Schedule[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Schedule(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1Schedule(entry, context));
 };
 
 const serializeAws_restJson1_1Tag = (
@@ -1446,44 +1432,28 @@ const serializeAws_restJson1_1TagsToAddList = (
   input: Tag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Tag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1Tag(entry, context));
 };
 
 const serializeAws_restJson1_1TargetTagList = (
   input: Tag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Tag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1Tag(entry, context));
 };
 
 const serializeAws_restJson1_1TimesList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1VariableTagsList = (
   input: Tag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Tag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1Tag(entry, context));
 };
 
 const deserializeAws_restJson1_1AvailabilityZoneList = (

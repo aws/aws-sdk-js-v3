@@ -1889,11 +1889,7 @@ const serializeAws_json1_1Phrases = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1Settings = (
@@ -2012,11 +2008,7 @@ const serializeAws_json1_1Words = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const deserializeAws_json1_1BadRequestException = (

@@ -2566,22 +2566,14 @@ const serializeAws_json1_1SourceCode = (
   input: Code[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Code(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Code(entry, context));
 };
 
 const serializeAws_json1_1TagKeys = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1TagProjectRequest = (

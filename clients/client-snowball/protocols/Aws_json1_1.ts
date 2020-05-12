@@ -2265,11 +2265,7 @@ const serializeAws_json1_1Ec2AmiResourceList = (
   input: Ec2AmiResource[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Ec2AmiResource(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Ec2AmiResource(entry, context));
 };
 
 const serializeAws_json1_1EventTriggerDefinition = (
@@ -2287,11 +2283,9 @@ const serializeAws_json1_1EventTriggerDefinitionList = (
   input: EventTriggerDefinition[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1EventTriggerDefinition(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1EventTriggerDefinition(entry, context)
+  );
 };
 
 const serializeAws_json1_1GetJobManifestRequest = (
@@ -2365,11 +2359,7 @@ const serializeAws_json1_1JobStateList = (
   input: (JobState | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1KeyRange = (
@@ -2409,11 +2399,7 @@ const serializeAws_json1_1LambdaResourceList = (
   input: LambdaResource[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1LambdaResource(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1LambdaResource(entry, context));
 };
 
 const serializeAws_json1_1ListClusterJobsRequest = (
@@ -2516,11 +2502,7 @@ const serializeAws_json1_1S3ResourceList = (
   input: S3Resource[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1S3Resource(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1S3Resource(entry, context));
 };
 
 const serializeAws_json1_1UpdateClusterRequest = (

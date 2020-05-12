@@ -3755,24 +3755,18 @@ const serializeAws_restJson1_1ListOfAssetDestinationEntry = (
   input: AssetDestinationEntry[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_restJson1_1AssetDestinationEntry(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1AssetDestinationEntry(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1ListOfAssetSourceEntry = (
   input: AssetSourceEntry[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1AssetSourceEntry(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1AssetSourceEntry(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1MapOf__string = (

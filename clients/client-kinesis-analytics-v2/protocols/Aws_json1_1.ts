@@ -4043,24 +4043,18 @@ const serializeAws_json1_1CloudWatchLoggingOptionUpdates = (
   input: CloudWatchLoggingOptionUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_json1_1CloudWatchLoggingOptionUpdate(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1CloudWatchLoggingOptionUpdate(entry, context)
+  );
 };
 
 const serializeAws_json1_1CloudWatchLoggingOptions = (
   input: CloudWatchLoggingOption[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1CloudWatchLoggingOption(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1CloudWatchLoggingOption(entry, context)
+  );
 };
 
 const serializeAws_json1_1CodeContent = (
@@ -4674,22 +4668,14 @@ const serializeAws_json1_1InputUpdates = (
   input: InputUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1InputUpdate(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1InputUpdate(entry, context));
 };
 
 const serializeAws_json1_1Inputs = (
   input: Input[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Input(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Input(entry, context));
 };
 
 const serializeAws_json1_1JSONMappingParameters = (
@@ -5000,22 +4986,14 @@ const serializeAws_json1_1OutputUpdates = (
   input: OutputUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1OutputUpdate(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1OutputUpdate(entry, context));
 };
 
 const serializeAws_json1_1Outputs = (
   input: Output[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Output(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Output(entry, context));
 };
 
 const serializeAws_json1_1ParallelismConfiguration = (
@@ -5079,11 +5057,7 @@ const serializeAws_json1_1PropertyGroups = (
   input: PropertyGroup[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1PropertyGroup(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1PropertyGroup(entry, context));
 };
 
 const serializeAws_json1_1PropertyMap = (
@@ -5117,11 +5091,7 @@ const serializeAws_json1_1RecordColumns = (
   input: RecordColumn[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1RecordColumn(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1RecordColumn(entry, context));
 };
 
 const serializeAws_json1_1RecordFormat = (
@@ -5198,24 +5168,18 @@ const serializeAws_json1_1ReferenceDataSourceUpdates = (
   input: ReferenceDataSourceUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_json1_1ReferenceDataSourceUpdate(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1ReferenceDataSourceUpdate(entry, context)
+  );
 };
 
 const serializeAws_json1_1ReferenceDataSources = (
   input: ReferenceDataSource[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1ReferenceDataSource(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1ReferenceDataSource(entry, context)
+  );
 };
 
 const serializeAws_json1_1RunConfiguration = (
@@ -5354,11 +5318,7 @@ const serializeAws_json1_1SecurityGroupIds = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1SourceSchema = (
@@ -5457,11 +5417,9 @@ const serializeAws_json1_1SqlRunConfigurations = (
   input: SqlRunConfiguration[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1SqlRunConfiguration(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1SqlRunConfiguration(entry, context)
+  );
 };
 
 const serializeAws_json1_1StartApplicationRequest = (
@@ -5496,11 +5454,7 @@ const serializeAws_json1_1SubnetIds = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
@@ -5518,11 +5472,7 @@ const serializeAws_json1_1TagKeys = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1TagResourceRequest = (
@@ -5543,11 +5493,7 @@ const serializeAws_json1_1Tags = (
   input: Tag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Tag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
 const serializeAws_json1_1UntagResourceRequest = (
@@ -5653,22 +5599,18 @@ const serializeAws_json1_1VpcConfigurationUpdates = (
   input: VpcConfigurationUpdate[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1VpcConfigurationUpdate(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1VpcConfigurationUpdate(entry, context)
+  );
 };
 
 const serializeAws_json1_1VpcConfigurations = (
   input: VpcConfiguration[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1VpcConfiguration(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1VpcConfiguration(entry, context)
+  );
 };
 
 const deserializeAws_json1_1AddApplicationCloudWatchLoggingOptionResponse = (

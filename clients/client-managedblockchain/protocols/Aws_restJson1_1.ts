@@ -3142,11 +3142,9 @@ const serializeAws_restJson1_1InviteActionList = (
   input: InviteAction[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1InviteAction(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1InviteAction(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1MemberConfiguration = (
@@ -3273,11 +3271,9 @@ const serializeAws_restJson1_1RemoveActionList = (
   input: RemoveAction[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1RemoveAction(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1RemoveAction(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1VotingPolicy = (

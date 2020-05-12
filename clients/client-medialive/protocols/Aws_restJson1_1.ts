@@ -12556,270 +12556,204 @@ const serializeAws_restJson1_1__listOfAudioChannelMapping = (
   input: AudioChannelMapping[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1AudioChannelMapping(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1AudioChannelMapping(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1__listOfAudioDescription = (
   input: AudioDescription[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1AudioDescription(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1AudioDescription(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1__listOfAudioSelector = (
   input: AudioSelector[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1AudioSelector(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1AudioSelector(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1__listOfCaptionDescription = (
   input: CaptionDescription[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1CaptionDescription(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1CaptionDescription(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1__listOfCaptionLanguageMapping = (
   input: CaptionLanguageMapping[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_restJson1_1CaptionLanguageMapping(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1CaptionLanguageMapping(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1__listOfCaptionSelector = (
   input: CaptionSelector[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1CaptionSelector(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1CaptionSelector(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1__listOfHlsAdMarkers = (
   input: (HlsAdMarkers | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1__listOfInputAttachment = (
   input: InputAttachment[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1InputAttachment(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1InputAttachment(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1__listOfInputChannelLevel = (
   input: InputChannelLevel[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1InputChannelLevel(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1InputChannelLevel(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1__listOfInputDestinationRequest = (
   input: InputDestinationRequest[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_restJson1_1InputDestinationRequest(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1InputDestinationRequest(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1__listOfInputSourceRequest = (
   input: InputSourceRequest[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1InputSourceRequest(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1InputSourceRequest(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1__listOfInputWhitelistRuleCidr = (
   input: InputWhitelistRuleCidr[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_restJson1_1InputWhitelistRuleCidr(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1InputWhitelistRuleCidr(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1__listOfMediaConnectFlowRequest = (
   input: MediaConnectFlowRequest[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_restJson1_1MediaConnectFlowRequest(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1MediaConnectFlowRequest(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1__listOfMediaPackageOutputDestinationSettings = (
   input: MediaPackageOutputDestinationSettings[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_restJson1_1MediaPackageOutputDestinationSettings(
-        entry,
-        context
-      )
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1MediaPackageOutputDestinationSettings(
+      entry,
+      context
+    )
+  );
 };
 
 const serializeAws_restJson1_1__listOfOutput = (
   input: Output[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Output(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1Output(entry, context));
 };
 
 const serializeAws_restJson1_1__listOfOutputDestination = (
   input: OutputDestination[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1OutputDestination(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1OutputDestination(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1__listOfOutputDestinationSettings = (
   input: OutputDestinationSettings[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_restJson1_1OutputDestinationSettings(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1OutputDestinationSettings(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1__listOfOutputGroup = (
   input: OutputGroup[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1OutputGroup(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1OutputGroup(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1__listOfPipelinePauseStateSettings = (
   input: PipelinePauseStateSettings[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_restJson1_1PipelinePauseStateSettings(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1PipelinePauseStateSettings(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1__listOfScheduleAction = (
   input: ScheduleAction[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1ScheduleAction(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1ScheduleAction(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1__listOfScte35Descriptor = (
   input: Scte35Descriptor[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Scte35Descriptor(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1Scte35Descriptor(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1__listOfVideoDescription = (
   input: VideoDescription[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1VideoDescription(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1VideoDescription(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1__listOf__string = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const deserializeAws_restJson1_1AacSettings = (

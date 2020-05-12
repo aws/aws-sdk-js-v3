@@ -5221,11 +5221,7 @@ const serializeAws_json1_1PermissionValues = (
   input: (PermissionType | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1PutMailboxPermissionsRequest = (

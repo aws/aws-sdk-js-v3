@@ -5929,11 +5929,7 @@ const serializeAws_restJson1_1AutoBranchCreationPatterns = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1CustomRule = (
@@ -5960,11 +5956,7 @@ const serializeAws_restJson1_1CustomRules = (
   input: CustomRule[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1CustomRule(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1CustomRule(entry, context));
 };
 
 const serializeAws_restJson1_1EnvironmentVariables = (
@@ -6005,11 +5997,9 @@ const serializeAws_restJson1_1SubDomainSettings = (
   input: SubDomainSetting[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1SubDomainSetting(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1SubDomainSetting(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1TagMap = (

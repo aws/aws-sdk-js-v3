@@ -4714,11 +4714,7 @@ const serializeAws_json1_1AddRemoveAttributesFindingArnList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1AgentFilter = (
@@ -4745,33 +4741,21 @@ const serializeAws_json1_1AgentHealthCodeList = (
   input: (AgentHealthCode | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1AgentHealthList = (
   input: (AgentHealth | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1AgentIdList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1AssessmentRunFilter = (
@@ -4827,11 +4811,7 @@ const serializeAws_json1_1AssessmentRunStateList = (
   input: (AssessmentRunState | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1AssessmentTargetFilter = (
@@ -4875,11 +4855,7 @@ const serializeAws_json1_1AssessmentTemplateRulesPackageArnList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1Attribute = (
@@ -4900,44 +4876,28 @@ const serializeAws_json1_1AttributeList = (
   input: Attribute[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Attribute(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Attribute(entry, context));
 };
 
 const serializeAws_json1_1AutoScalingGroupList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1BatchDescribeArnList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1BatchDescribeExclusionsArnList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1CreateAssessmentTargetRequest = (
@@ -5176,11 +5136,7 @@ const serializeAws_json1_1FilterRulesPackageArnList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1FindingFilter = (
@@ -5453,11 +5409,7 @@ const serializeAws_json1_1ListParentArnList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ListRulesPackagesRequest = (
@@ -5553,22 +5505,16 @@ const serializeAws_json1_1ResourceGroupTags = (
   input: ResourceGroupTag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1ResourceGroupTag(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1ResourceGroupTag(entry, context)
+  );
 };
 
 const serializeAws_json1_1RuleNameList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1SetTagsForResourceRequest = (
@@ -5589,11 +5535,7 @@ const serializeAws_json1_1SeverityList = (
   input: (Severity | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1StartAssessmentRunRequest = (
@@ -5656,11 +5598,7 @@ const serializeAws_json1_1TagList = (
   input: Tag[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Tag(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Tag(entry, context));
 };
 
 const serializeAws_json1_1TimestampRange = (
@@ -5715,22 +5653,14 @@ const serializeAws_json1_1UserAttributeKeyList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1UserAttributeList = (
   input: Attribute[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1Attribute(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1Attribute(entry, context));
 };
 
 const deserializeAws_json1_1AccessDeniedException = (

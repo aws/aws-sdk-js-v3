@@ -496,11 +496,7 @@ const serializeAws_json1_1AdditionalArtifactList = (
   input: (AdditionalArtifact | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1DeleteReportDefinitionRequest = (
@@ -614,11 +610,7 @@ const serializeAws_json1_1SchemaElementList = (
   input: (SchemaElement | string)[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const deserializeAws_json1_1AdditionalArtifactList = (

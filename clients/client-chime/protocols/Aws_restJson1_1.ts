@@ -16857,11 +16857,7 @@ const serializeAws_restJson1_1CallingRegionList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1CreateAttendeeRequestItem = (
@@ -16879,13 +16875,9 @@ const serializeAws_restJson1_1CreateAttendeeRequestItemList = (
   input: CreateAttendeeRequestItem[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_restJson1_1CreateAttendeeRequestItem(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1CreateAttendeeRequestItem(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1Credential = (
@@ -16906,22 +16898,14 @@ const serializeAws_restJson1_1CredentialList = (
   input: Credential[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1Credential(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_restJson1_1Credential(entry, context));
 };
 
 const serializeAws_restJson1_1E164PhoneNumberList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1LoggingConfiguration = (
@@ -16967,22 +16951,16 @@ const serializeAws_restJson1_1MembershipItemList = (
   input: MembershipItem[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1MembershipItem(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1MembershipItem(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1NonEmptyStringList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1Origination = (
@@ -17029,22 +17007,16 @@ const serializeAws_restJson1_1OriginationRouteList = (
   input: OriginationRoute[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1OriginationRoute(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1OriginationRoute(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1SensitiveStringList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1SigninDelegateGroup = (
@@ -17062,11 +17034,9 @@ const serializeAws_restJson1_1SigninDelegateGroupList = (
   input: SigninDelegateGroup[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1SigninDelegateGroup(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1SigninDelegateGroup(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1StreamingConfiguration = (
@@ -17087,11 +17057,7 @@ const serializeAws_restJson1_1StringList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1TelephonySettings = (
@@ -17161,13 +17127,9 @@ const serializeAws_restJson1_1UpdatePhoneNumberRequestItemList = (
   input: UpdatePhoneNumberRequestItem[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_restJson1_1UpdatePhoneNumberRequestItem(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1UpdatePhoneNumberRequestItem(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1UpdateUserRequestItem = (
@@ -17199,35 +17161,23 @@ const serializeAws_restJson1_1UpdateUserRequestItemList = (
   input: UpdateUserRequestItem[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(
-      serializeAws_restJson1_1UpdateUserRequestItem(entry, context)
-    );
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1UpdateUserRequestItem(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1UserEmailList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1UserIdList = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_restJson1_1UserSettings = (
@@ -17262,11 +17212,9 @@ const serializeAws_restJson1_1VoiceConnectorItemList = (
   input: VoiceConnectorItem[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_restJson1_1VoiceConnectorItem(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_restJson1_1VoiceConnectorItem(entry, context)
+  );
 };
 
 const serializeAws_restJson1_1VoiceConnectorSettings = (

@@ -1598,11 +1598,9 @@ const serializeAws_json1_1MetricDimensions = (
   input: MetricDimension[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1MetricDimension(entry, context));
-  }
-  return contents;
+  return input.map(entry =>
+    serializeAws_json1_1MetricDimension(entry, context)
+  );
 };
 
 const serializeAws_json1_1PredefinedMetricSpecification = (
@@ -1731,11 +1729,7 @@ const serializeAws_json1_1ResourceIdsMaxLen1600 = (
   input: string[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(entry);
-  }
-  return contents;
+  return input.map(entry => entry);
 };
 
 const serializeAws_json1_1ScalableTargetAction = (
@@ -1773,11 +1767,7 @@ const serializeAws_json1_1StepAdjustments = (
   input: StepAdjustment[],
   context: __SerdeContext
 ): any => {
-  const contents = [];
-  for (let entry of input) {
-    contents.push(serializeAws_json1_1StepAdjustment(entry, context));
-  }
-  return contents;
+  return input.map(entry => serializeAws_json1_1StepAdjustment(entry, context));
 };
 
 const serializeAws_json1_1StepScalingPolicyConfiguration = (
