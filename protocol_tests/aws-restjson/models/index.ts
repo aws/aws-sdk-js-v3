@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   SmithyException as __SmithyException,
   isa as __isa
 } from "@aws-sdk/smithy-client";
@@ -27,6 +28,9 @@ export interface AllQueryStringTypesInput {
 }
 
 export namespace AllQueryStringTypesInput {
+  export const filterSensitiveLog = (obj: AllQueryStringTypesInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is AllQueryStringTypesInput =>
     __isa(o, "AllQueryStringTypesInput");
 }
@@ -43,6 +47,12 @@ export interface ComplexError extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ComplexError {
+  export const filterSensitiveLog = (obj: ComplexError): any => ({
+    ...obj,
+    ...(obj.Nested && {
+      Nested: ComplexNestedErrorData.filterSensitiveLog(obj.Nested)
+    })
+  });
   export const isa = (o: any): o is ComplexError => __isa(o, "ComplexError");
 }
 
@@ -52,6 +62,9 @@ export interface ComplexNestedErrorData {
 }
 
 export namespace ComplexNestedErrorData {
+  export const filterSensitiveLog = (obj: ComplexNestedErrorData): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ComplexNestedErrorData =>
     __isa(o, "ComplexNestedErrorData");
 }
@@ -63,6 +76,11 @@ export interface ConstantAndVariableQueryStringInput {
 }
 
 export namespace ConstantAndVariableQueryStringInput {
+  export const filterSensitiveLog = (
+    obj: ConstantAndVariableQueryStringInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConstantAndVariableQueryStringInput =>
     __isa(o, "ConstantAndVariableQueryStringInput");
 }
@@ -73,6 +91,9 @@ export interface ConstantQueryStringInput {
 }
 
 export namespace ConstantQueryStringInput {
+  export const filterSensitiveLog = (obj: ConstantQueryStringInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ConstantQueryStringInput =>
     __isa(o, "ConstantQueryStringInput");
 }
@@ -82,6 +103,11 @@ export interface EmptyInputAndEmptyOutputInput {
 }
 
 export namespace EmptyInputAndEmptyOutputInput {
+  export const filterSensitiveLog = (
+    obj: EmptyInputAndEmptyOutputInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is EmptyInputAndEmptyOutputInput =>
     __isa(o, "EmptyInputAndEmptyOutputInput");
 }
@@ -91,6 +117,11 @@ export interface EmptyInputAndEmptyOutputOutput {
 }
 
 export namespace EmptyInputAndEmptyOutputOutput {
+  export const filterSensitiveLog = (
+    obj: EmptyInputAndEmptyOutputOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is EmptyInputAndEmptyOutputOutput =>
     __isa(o, "EmptyInputAndEmptyOutputOutput");
 }
@@ -105,6 +136,9 @@ export interface FooError extends __SmithyException, $MetadataBearer {
 }
 
 export namespace FooError {
+  export const filterSensitiveLog = (obj: FooError): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is FooError => __isa(o, "FooError");
 }
 
@@ -114,6 +148,9 @@ export interface GreetingWithErrorsOutput {
 }
 
 export namespace GreetingWithErrorsOutput {
+  export const filterSensitiveLog = (obj: GreetingWithErrorsOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GreetingWithErrorsOutput =>
     __isa(o, "GreetingWithErrorsOutput");
 }
@@ -125,6 +162,11 @@ export interface HttpPayloadTraitsInputOutput {
 }
 
 export namespace HttpPayloadTraitsInputOutput {
+  export const filterSensitiveLog = (
+    obj: HttpPayloadTraitsInputOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is HttpPayloadTraitsInputOutput =>
     __isa(o, "HttpPayloadTraitsInputOutput");
 }
@@ -136,6 +178,11 @@ export interface HttpPayloadTraitsWithMediaTypeInputOutput {
 }
 
 export namespace HttpPayloadTraitsWithMediaTypeInputOutput {
+  export const filterSensitiveLog = (
+    obj: HttpPayloadTraitsWithMediaTypeInputOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is HttpPayloadTraitsWithMediaTypeInputOutput =>
     __isa(o, "HttpPayloadTraitsWithMediaTypeInputOutput");
 }
@@ -146,6 +193,12 @@ export interface HttpPayloadWithStructureInputOutput {
 }
 
 export namespace HttpPayloadWithStructureInputOutput {
+  export const filterSensitiveLog = (
+    obj: HttpPayloadWithStructureInputOutput
+  ): any => ({
+    ...obj,
+    ...(obj.nested && { nested: NestedPayload.filterSensitiveLog(obj.nested) })
+  });
   export const isa = (o: any): o is HttpPayloadWithStructureInputOutput =>
     __isa(o, "HttpPayloadWithStructureInputOutput");
 }
@@ -157,6 +210,11 @@ export interface HttpPrefixHeadersInputOutput {
 }
 
 export namespace HttpPrefixHeadersInputOutput {
+  export const filterSensitiveLog = (
+    obj: HttpPrefixHeadersInputOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is HttpPrefixHeadersInputOutput =>
     __isa(o, "HttpPrefixHeadersInputOutput");
 }
@@ -168,6 +226,11 @@ export interface HttpRequestWithGreedyLabelInPathInput {
 }
 
 export namespace HttpRequestWithGreedyLabelInPathInput {
+  export const filterSensitiveLog = (
+    obj: HttpRequestWithGreedyLabelInPathInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is HttpRequestWithGreedyLabelInPathInput =>
     __isa(o, "HttpRequestWithGreedyLabelInPathInput");
 }
@@ -184,6 +247,11 @@ export interface HttpRequestWithLabelsAndTimestampFormatInput {
 }
 
 export namespace HttpRequestWithLabelsAndTimestampFormatInput {
+  export const filterSensitiveLog = (
+    obj: HttpRequestWithLabelsAndTimestampFormatInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (
     o: any
   ): o is HttpRequestWithLabelsAndTimestampFormatInput =>
@@ -210,6 +278,9 @@ export interface HttpRequestWithLabelsInput {
 }
 
 export namespace HttpRequestWithLabelsInput {
+  export const filterSensitiveLog = (obj: HttpRequestWithLabelsInput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is HttpRequestWithLabelsInput =>
     __isa(o, "HttpRequestWithLabelsInput");
 }
@@ -220,6 +291,11 @@ export interface IgnoreQueryParamsInResponseOutput {
 }
 
 export namespace IgnoreQueryParamsInResponseOutput {
+  export const filterSensitiveLog = (
+    obj: IgnoreQueryParamsInResponseOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is IgnoreQueryParamsInResponseOutput =>
     __isa(o, "IgnoreQueryParamsInResponseOutput");
 }
@@ -245,6 +321,11 @@ export interface InputAndOutputWithHeadersIO {
 }
 
 export namespace InputAndOutputWithHeadersIO {
+  export const filterSensitiveLog = (
+    obj: InputAndOutputWithHeadersIO
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InputAndOutputWithHeadersIO =>
     __isa(o, "InputAndOutputWithHeadersIO");
 }
@@ -259,6 +340,9 @@ export interface InvalidGreeting extends __SmithyException, $MetadataBearer {
 }
 
 export namespace InvalidGreeting {
+  export const filterSensitiveLog = (obj: InvalidGreeting): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is InvalidGreeting =>
     __isa(o, "InvalidGreeting");
 }
@@ -269,6 +353,9 @@ export interface JsonBlobsInputOutput {
 }
 
 export namespace JsonBlobsInputOutput {
+  export const filterSensitiveLog = (obj: JsonBlobsInputOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is JsonBlobsInputOutput =>
     __isa(o, "JsonBlobsInputOutput");
 }
@@ -284,6 +371,9 @@ export interface JsonEnumsInputOutput {
 }
 
 export namespace JsonEnumsInputOutput {
+  export const filterSensitiveLog = (obj: JsonEnumsInputOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is JsonEnumsInputOutput =>
     __isa(o, "JsonEnumsInputOutput");
 }
@@ -305,6 +395,14 @@ export interface JsonListsInputOutput {
 }
 
 export namespace JsonListsInputOutput {
+  export const filterSensitiveLog = (obj: JsonListsInputOutput): any => ({
+    ...obj,
+    ...(obj.structureList && {
+      structureList: obj.structureList.map(
+        StructureListMember.filterSensitiveLog
+      )
+    })
+  });
   export const isa = (o: any): o is JsonListsInputOutput =>
     __isa(o, "JsonListsInputOutput");
 }
@@ -315,6 +413,18 @@ export interface JsonMapsInputOutput {
 }
 
 export namespace JsonMapsInputOutput {
+  export const filterSensitiveLog = (obj: JsonMapsInputOutput): any => ({
+    ...obj,
+    ...(obj.myMap && {
+      myMap: Object.entries(obj.myMap).reduce(
+        (acc: any, [key, value]: [string, GreetingStruct]) => {
+          acc[key] = GreetingStruct.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    })
+  });
   export const isa = (o: any): o is JsonMapsInputOutput =>
     __isa(o, "JsonMapsInputOutput");
 }
@@ -328,6 +438,9 @@ export interface JsonTimestampsInputOutput {
 }
 
 export namespace JsonTimestampsInputOutput {
+  export const filterSensitiveLog = (obj: JsonTimestampsInputOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is JsonTimestampsInputOutput =>
     __isa(o, "JsonTimestampsInputOutput");
 }
@@ -339,6 +452,9 @@ export interface NestedPayload {
 }
 
 export namespace NestedPayload {
+  export const filterSensitiveLog = (obj: NestedPayload): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is NestedPayload => __isa(o, "NestedPayload");
 }
 
@@ -347,6 +463,9 @@ export interface NoInputAndOutputOutput {
 }
 
 export namespace NoInputAndOutputOutput {
+  export const filterSensitiveLog = (obj: NoInputAndOutputOutput): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is NoInputAndOutputOutput =>
     __isa(o, "NoInputAndOutputOutput");
 }
@@ -359,6 +478,9 @@ export interface NullAndEmptyHeadersIO {
 }
 
 export namespace NullAndEmptyHeadersIO {
+  export const filterSensitiveLog = (obj: NullAndEmptyHeadersIO): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is NullAndEmptyHeadersIO =>
     __isa(o, "NullAndEmptyHeadersIO");
 }
@@ -370,6 +492,11 @@ export interface OmitsNullSerializesEmptyStringInput {
 }
 
 export namespace OmitsNullSerializesEmptyStringInput {
+  export const filterSensitiveLog = (
+    obj: OmitsNullSerializesEmptyStringInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is OmitsNullSerializesEmptyStringInput =>
     __isa(o, "OmitsNullSerializesEmptyStringInput");
 }
@@ -380,6 +507,11 @@ export interface QueryIdempotencyTokenAutoFillInput {
 }
 
 export namespace QueryIdempotencyTokenAutoFillInput {
+  export const filterSensitiveLog = (
+    obj: QueryIdempotencyTokenAutoFillInput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is QueryIdempotencyTokenAutoFillInput =>
     __isa(o, "QueryIdempotencyTokenAutoFillInput");
 }
@@ -390,6 +522,12 @@ export interface RecursiveShapesInputOutput {
 }
 
 export namespace RecursiveShapesInputOutput {
+  export const filterSensitiveLog = (obj: RecursiveShapesInputOutput): any => ({
+    ...obj,
+    ...(obj.nested && {
+      nested: RecursiveShapesInputOutputNested1.filterSensitiveLog(obj.nested)
+    })
+  });
   export const isa = (o: any): o is RecursiveShapesInputOutput =>
     __isa(o, "RecursiveShapesInputOutput");
 }
@@ -401,6 +539,14 @@ export interface RecursiveShapesInputOutputNested1 {
 }
 
 export namespace RecursiveShapesInputOutputNested1 {
+  export const filterSensitiveLog = (
+    obj: RecursiveShapesInputOutputNested1
+  ): any => ({
+    ...obj,
+    ...(obj.nested && {
+      nested: RecursiveShapesInputOutputNested2.filterSensitiveLog(obj.nested)
+    })
+  });
   export const isa = (o: any): o is RecursiveShapesInputOutputNested1 =>
     __isa(o, "RecursiveShapesInputOutputNested1");
 }
@@ -412,6 +558,16 @@ export interface RecursiveShapesInputOutputNested2 {
 }
 
 export namespace RecursiveShapesInputOutputNested2 {
+  export const filterSensitiveLog = (
+    obj: RecursiveShapesInputOutputNested2
+  ): any => ({
+    ...obj,
+    ...(obj.recursiveMember && {
+      recursiveMember: RecursiveShapesInputOutputNested1.filterSensitiveLog(
+        obj.recursiveMember
+      )
+    })
+  });
   export const isa = (o: any): o is RecursiveShapesInputOutputNested2 =>
     __isa(o, "RecursiveShapesInputOutputNested2");
 }
@@ -431,6 +587,11 @@ export interface SimpleScalarPropertiesInputOutput {
 }
 
 export namespace SimpleScalarPropertiesInputOutput {
+  export const filterSensitiveLog = (
+    obj: SimpleScalarPropertiesInputOutput
+  ): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SimpleScalarPropertiesInputOutput =>
     __isa(o, "SimpleScalarPropertiesInputOutput");
 }
@@ -442,6 +603,9 @@ export interface StructureListMember {
 }
 
 export namespace StructureListMember {
+  export const filterSensitiveLog = (obj: StructureListMember): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is StructureListMember =>
     __isa(o, "StructureListMember");
 }
@@ -458,6 +622,9 @@ export interface TimestampFormatHeadersIO {
 }
 
 export namespace TimestampFormatHeadersIO {
+  export const filterSensitiveLog = (obj: TimestampFormatHeadersIO): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is TimestampFormatHeadersIO =>
     __isa(o, "TimestampFormatHeadersIO");
 }
@@ -470,6 +637,9 @@ export interface GreetingStruct {
 }
 
 export namespace GreetingStruct {
+  export const filterSensitiveLog = (obj: GreetingStruct): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is GreetingStruct =>
     __isa(o, "GreetingStruct");
 }

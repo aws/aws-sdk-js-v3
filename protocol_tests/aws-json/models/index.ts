@@ -1,4 +1,5 @@
 import {
+  SENSITIVE_STRING,
   LazyJsonString as __LazyJsonString,
   SmithyException as __SmithyException,
   isa as __isa
@@ -10,6 +11,9 @@ export interface EmptyStruct {
 }
 
 export namespace EmptyStruct {
+  export const filterSensitiveLog = (obj: EmptyStruct): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is EmptyStruct => __isa(o, "EmptyStruct");
 }
 
@@ -29,6 +33,12 @@ export interface ErrorWithMembers extends __SmithyException, $MetadataBearer {
 }
 
 export namespace ErrorWithMembers {
+  export const filterSensitiveLog = (obj: ErrorWithMembers): any => ({
+    ...obj,
+    ...(obj.ComplexData && {
+      ComplexData: KitchenSink.filterSensitiveLog(obj.ComplexData)
+    })
+  });
   export const isa = (o: any): o is ErrorWithMembers =>
     __isa(o, "ErrorWithMembers");
 }
@@ -41,6 +51,9 @@ export interface ErrorWithoutMembers
 }
 
 export namespace ErrorWithoutMembers {
+  export const filterSensitiveLog = (obj: ErrorWithoutMembers): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is ErrorWithoutMembers =>
     __isa(o, "ErrorWithoutMembers");
 }
@@ -76,6 +89,47 @@ export interface KitchenSink {
 }
 
 export namespace KitchenSink {
+  export const filterSensitiveLog = (obj: KitchenSink): any => ({
+    ...obj,
+    ...(obj.EmptyStruct && {
+      EmptyStruct: EmptyStruct.filterSensitiveLog(obj.EmptyStruct)
+    }),
+    ...(obj.ListOfStructs && {
+      ListOfStructs: obj.ListOfStructs.map(SimpleStruct.filterSensitiveLog)
+    }),
+    ...(obj.MapOfStructs && {
+      MapOfStructs: Object.entries(obj.MapOfStructs).reduce(
+        (acc: any, [key, value]: [string, SimpleStruct]) => {
+          acc[key] = SimpleStruct.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
+    ...(obj.RecursiveList && {
+      RecursiveList: obj.RecursiveList.map(KitchenSink.filterSensitiveLog)
+    }),
+    ...(obj.RecursiveMap && {
+      RecursiveMap: Object.entries(obj.RecursiveMap).reduce(
+        (acc: any, [key, value]: [string, KitchenSink]) => {
+          acc[key] = KitchenSink.filterSensitiveLog(value);
+          return acc;
+        },
+        {}
+      )
+    }),
+    ...(obj.RecursiveStruct && {
+      RecursiveStruct: KitchenSink.filterSensitiveLog(obj.RecursiveStruct)
+    }),
+    ...(obj.SimpleStruct && {
+      SimpleStruct: SimpleStruct.filterSensitiveLog(obj.SimpleStruct)
+    }),
+    ...(obj.StructWithLocationName && {
+      StructWithLocationName: StructWithLocationName.filterSensitiveLog(
+        obj.StructWithLocationName
+      )
+    })
+  });
   export const isa = (o: any): o is KitchenSink => __isa(o, "KitchenSink");
 }
 
@@ -85,6 +139,9 @@ export interface SimpleStruct {
 }
 
 export namespace SimpleStruct {
+  export const filterSensitiveLog = (obj: SimpleStruct): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is SimpleStruct => __isa(o, "SimpleStruct");
 }
 
@@ -94,6 +151,9 @@ export interface StructWithLocationName {
 }
 
 export namespace StructWithLocationName {
+  export const filterSensitiveLog = (obj: StructWithLocationName): any => ({
+    ...obj
+  });
   export const isa = (o: any): o is StructWithLocationName =>
     __isa(o, "StructWithLocationName");
 }
