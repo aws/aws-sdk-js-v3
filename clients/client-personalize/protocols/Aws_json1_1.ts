@@ -4103,62 +4103,52 @@ const serializeAws_json1_1AutoMLConfig = (
   input: AutoMLConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.metricName !== undefined) {
-    bodyParams["metricName"] = input.metricName;
-  }
-  if (input.recipeList !== undefined) {
-    bodyParams["recipeList"] = serializeAws_json1_1ArnList(
-      input.recipeList,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.metricName !== undefined && { metricName: input.metricName }),
+    ...(input.recipeList !== undefined && {
+      recipeList: serializeAws_json1_1ArnList(input.recipeList, context)
+    })
+  };
 };
 
 const serializeAws_json1_1BatchInferenceJobInput = (
   input: BatchInferenceJobInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.s3DataSource !== undefined) {
-    bodyParams["s3DataSource"] = serializeAws_json1_1S3DataConfig(
-      input.s3DataSource,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.s3DataSource !== undefined && {
+      s3DataSource: serializeAws_json1_1S3DataConfig(
+        input.s3DataSource,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1BatchInferenceJobOutput = (
   input: BatchInferenceJobOutput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.s3DataDestination !== undefined) {
-    bodyParams["s3DataDestination"] = serializeAws_json1_1S3DataConfig(
-      input.s3DataDestination,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.s3DataDestination !== undefined && {
+      s3DataDestination: serializeAws_json1_1S3DataConfig(
+        input.s3DataDestination,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1CategoricalHyperParameterRange = (
   input: CategoricalHyperParameterRange,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.values !== undefined) {
-    bodyParams["values"] = serializeAws_json1_1CategoricalValues(
-      input.values,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.values !== undefined && {
+      values: serializeAws_json1_1CategoricalValues(input.values, context)
+    })
+  };
 };
 
 const serializeAws_json1_1CategoricalHyperParameterRanges = (
@@ -4181,17 +4171,11 @@ const serializeAws_json1_1ContinuousHyperParameterRange = (
   input: ContinuousHyperParameterRange,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.maxValue !== undefined) {
-    bodyParams["maxValue"] = input.maxValue;
-  }
-  if (input.minValue !== undefined) {
-    bodyParams["minValue"] = input.minValue;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  return bodyParams;
+  return {
+    ...(input.maxValue !== undefined && { maxValue: input.maxValue }),
+    ...(input.minValue !== undefined && { minValue: input.minValue }),
+    ...(input.name !== undefined && { name: input.name })
+  };
 };
 
 const serializeAws_json1_1ContinuousHyperParameterRanges = (
@@ -4207,392 +4191,329 @@ const serializeAws_json1_1CreateBatchInferenceJobRequest = (
   input: CreateBatchInferenceJobRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.jobInput !== undefined) {
-    bodyParams["jobInput"] = serializeAws_json1_1BatchInferenceJobInput(
-      input.jobInput,
-      context
-    );
-  }
-  if (input.jobName !== undefined) {
-    bodyParams["jobName"] = input.jobName;
-  }
-  if (input.jobOutput !== undefined) {
-    bodyParams["jobOutput"] = serializeAws_json1_1BatchInferenceJobOutput(
-      input.jobOutput,
-      context
-    );
-  }
-  if (input.numResults !== undefined) {
-    bodyParams["numResults"] = input.numResults;
-  }
-  if (input.roleArn !== undefined) {
-    bodyParams["roleArn"] = input.roleArn;
-  }
-  if (input.solutionVersionArn !== undefined) {
-    bodyParams["solutionVersionArn"] = input.solutionVersionArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.jobInput !== undefined && {
+      jobInput: serializeAws_json1_1BatchInferenceJobInput(
+        input.jobInput,
+        context
+      )
+    }),
+    ...(input.jobName !== undefined && { jobName: input.jobName }),
+    ...(input.jobOutput !== undefined && {
+      jobOutput: serializeAws_json1_1BatchInferenceJobOutput(
+        input.jobOutput,
+        context
+      )
+    }),
+    ...(input.numResults !== undefined && { numResults: input.numResults }),
+    ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
+    ...(input.solutionVersionArn !== undefined && {
+      solutionVersionArn: input.solutionVersionArn
+    })
+  };
 };
 
 const serializeAws_json1_1CreateCampaignRequest = (
   input: CreateCampaignRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.minProvisionedTPS !== undefined) {
-    bodyParams["minProvisionedTPS"] = input.minProvisionedTPS;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.solutionVersionArn !== undefined) {
-    bodyParams["solutionVersionArn"] = input.solutionVersionArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.minProvisionedTPS !== undefined && {
+      minProvisionedTPS: input.minProvisionedTPS
+    }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.solutionVersionArn !== undefined && {
+      solutionVersionArn: input.solutionVersionArn
+    })
+  };
 };
 
 const serializeAws_json1_1CreateDatasetGroupRequest = (
   input: CreateDatasetGroupRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.kmsKeyArn !== undefined) {
-    bodyParams["kmsKeyArn"] = input.kmsKeyArn;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.roleArn !== undefined) {
-    bodyParams["roleArn"] = input.roleArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.kmsKeyArn !== undefined && { kmsKeyArn: input.kmsKeyArn }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.roleArn !== undefined && { roleArn: input.roleArn })
+  };
 };
 
 const serializeAws_json1_1CreateDatasetImportJobRequest = (
   input: CreateDatasetImportJobRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.dataSource !== undefined) {
-    bodyParams["dataSource"] = serializeAws_json1_1DataSource(
-      input.dataSource,
-      context
-    );
-  }
-  if (input.datasetArn !== undefined) {
-    bodyParams["datasetArn"] = input.datasetArn;
-  }
-  if (input.jobName !== undefined) {
-    bodyParams["jobName"] = input.jobName;
-  }
-  if (input.roleArn !== undefined) {
-    bodyParams["roleArn"] = input.roleArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.dataSource !== undefined && {
+      dataSource: serializeAws_json1_1DataSource(input.dataSource, context)
+    }),
+    ...(input.datasetArn !== undefined && { datasetArn: input.datasetArn }),
+    ...(input.jobName !== undefined && { jobName: input.jobName }),
+    ...(input.roleArn !== undefined && { roleArn: input.roleArn })
+  };
 };
 
 const serializeAws_json1_1CreateDatasetRequest = (
   input: CreateDatasetRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.datasetGroupArn !== undefined) {
-    bodyParams["datasetGroupArn"] = input.datasetGroupArn;
-  }
-  if (input.datasetType !== undefined) {
-    bodyParams["datasetType"] = input.datasetType;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.schemaArn !== undefined) {
-    bodyParams["schemaArn"] = input.schemaArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.datasetGroupArn !== undefined && {
+      datasetGroupArn: input.datasetGroupArn
+    }),
+    ...(input.datasetType !== undefined && { datasetType: input.datasetType }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.schemaArn !== undefined && { schemaArn: input.schemaArn })
+  };
 };
 
 const serializeAws_json1_1CreateEventTrackerRequest = (
   input: CreateEventTrackerRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.datasetGroupArn !== undefined) {
-    bodyParams["datasetGroupArn"] = input.datasetGroupArn;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  return bodyParams;
+  return {
+    ...(input.datasetGroupArn !== undefined && {
+      datasetGroupArn: input.datasetGroupArn
+    }),
+    ...(input.name !== undefined && { name: input.name })
+  };
 };
 
 const serializeAws_json1_1CreateSchemaRequest = (
   input: CreateSchemaRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.schema !== undefined) {
-    bodyParams["schema"] = input.schema;
-  }
-  return bodyParams;
+  return {
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.schema !== undefined && { schema: input.schema })
+  };
 };
 
 const serializeAws_json1_1CreateSolutionRequest = (
   input: CreateSolutionRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.datasetGroupArn !== undefined) {
-    bodyParams["datasetGroupArn"] = input.datasetGroupArn;
-  }
-  if (input.eventType !== undefined) {
-    bodyParams["eventType"] = input.eventType;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.performAutoML !== undefined) {
-    bodyParams["performAutoML"] = input.performAutoML;
-  }
-  if (input.performHPO !== undefined) {
-    bodyParams["performHPO"] = input.performHPO;
-  }
-  if (input.recipeArn !== undefined) {
-    bodyParams["recipeArn"] = input.recipeArn;
-  }
-  if (input.solutionConfig !== undefined) {
-    bodyParams["solutionConfig"] = serializeAws_json1_1SolutionConfig(
-      input.solutionConfig,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.datasetGroupArn !== undefined && {
+      datasetGroupArn: input.datasetGroupArn
+    }),
+    ...(input.eventType !== undefined && { eventType: input.eventType }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.performAutoML !== undefined && {
+      performAutoML: input.performAutoML
+    }),
+    ...(input.performHPO !== undefined && { performHPO: input.performHPO }),
+    ...(input.recipeArn !== undefined && { recipeArn: input.recipeArn }),
+    ...(input.solutionConfig !== undefined && {
+      solutionConfig: serializeAws_json1_1SolutionConfig(
+        input.solutionConfig,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1CreateSolutionVersionRequest = (
   input: CreateSolutionVersionRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.solutionArn !== undefined) {
-    bodyParams["solutionArn"] = input.solutionArn;
-  }
-  if (input.trainingMode !== undefined) {
-    bodyParams["trainingMode"] = input.trainingMode;
-  }
-  return bodyParams;
+  return {
+    ...(input.solutionArn !== undefined && { solutionArn: input.solutionArn }),
+    ...(input.trainingMode !== undefined && {
+      trainingMode: input.trainingMode
+    })
+  };
 };
 
 const serializeAws_json1_1DataSource = (
   input: DataSource,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.dataLocation !== undefined) {
-    bodyParams["dataLocation"] = input.dataLocation;
-  }
-  return bodyParams;
+  return {
+    ...(input.dataLocation !== undefined && {
+      dataLocation: input.dataLocation
+    })
+  };
 };
 
 const serializeAws_json1_1DeleteCampaignRequest = (
   input: DeleteCampaignRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.campaignArn !== undefined) {
-    bodyParams["campaignArn"] = input.campaignArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.campaignArn !== undefined && { campaignArn: input.campaignArn })
+  };
 };
 
 const serializeAws_json1_1DeleteDatasetGroupRequest = (
   input: DeleteDatasetGroupRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.datasetGroupArn !== undefined) {
-    bodyParams["datasetGroupArn"] = input.datasetGroupArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.datasetGroupArn !== undefined && {
+      datasetGroupArn: input.datasetGroupArn
+    })
+  };
 };
 
 const serializeAws_json1_1DeleteDatasetRequest = (
   input: DeleteDatasetRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.datasetArn !== undefined) {
-    bodyParams["datasetArn"] = input.datasetArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.datasetArn !== undefined && { datasetArn: input.datasetArn })
+  };
 };
 
 const serializeAws_json1_1DeleteEventTrackerRequest = (
   input: DeleteEventTrackerRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.eventTrackerArn !== undefined) {
-    bodyParams["eventTrackerArn"] = input.eventTrackerArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.eventTrackerArn !== undefined && {
+      eventTrackerArn: input.eventTrackerArn
+    })
+  };
 };
 
 const serializeAws_json1_1DeleteSchemaRequest = (
   input: DeleteSchemaRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.schemaArn !== undefined) {
-    bodyParams["schemaArn"] = input.schemaArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.schemaArn !== undefined && { schemaArn: input.schemaArn })
+  };
 };
 
 const serializeAws_json1_1DeleteSolutionRequest = (
   input: DeleteSolutionRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.solutionArn !== undefined) {
-    bodyParams["solutionArn"] = input.solutionArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.solutionArn !== undefined && { solutionArn: input.solutionArn })
+  };
 };
 
 const serializeAws_json1_1DescribeAlgorithmRequest = (
   input: DescribeAlgorithmRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.algorithmArn !== undefined) {
-    bodyParams["algorithmArn"] = input.algorithmArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.algorithmArn !== undefined && {
+      algorithmArn: input.algorithmArn
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeBatchInferenceJobRequest = (
   input: DescribeBatchInferenceJobRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.batchInferenceJobArn !== undefined) {
-    bodyParams["batchInferenceJobArn"] = input.batchInferenceJobArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.batchInferenceJobArn !== undefined && {
+      batchInferenceJobArn: input.batchInferenceJobArn
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeCampaignRequest = (
   input: DescribeCampaignRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.campaignArn !== undefined) {
-    bodyParams["campaignArn"] = input.campaignArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.campaignArn !== undefined && { campaignArn: input.campaignArn })
+  };
 };
 
 const serializeAws_json1_1DescribeDatasetGroupRequest = (
   input: DescribeDatasetGroupRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.datasetGroupArn !== undefined) {
-    bodyParams["datasetGroupArn"] = input.datasetGroupArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.datasetGroupArn !== undefined && {
+      datasetGroupArn: input.datasetGroupArn
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeDatasetImportJobRequest = (
   input: DescribeDatasetImportJobRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.datasetImportJobArn !== undefined) {
-    bodyParams["datasetImportJobArn"] = input.datasetImportJobArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.datasetImportJobArn !== undefined && {
+      datasetImportJobArn: input.datasetImportJobArn
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeDatasetRequest = (
   input: DescribeDatasetRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.datasetArn !== undefined) {
-    bodyParams["datasetArn"] = input.datasetArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.datasetArn !== undefined && { datasetArn: input.datasetArn })
+  };
 };
 
 const serializeAws_json1_1DescribeEventTrackerRequest = (
   input: DescribeEventTrackerRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.eventTrackerArn !== undefined) {
-    bodyParams["eventTrackerArn"] = input.eventTrackerArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.eventTrackerArn !== undefined && {
+      eventTrackerArn: input.eventTrackerArn
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeFeatureTransformationRequest = (
   input: DescribeFeatureTransformationRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.featureTransformationArn !== undefined) {
-    bodyParams["featureTransformationArn"] = input.featureTransformationArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.featureTransformationArn !== undefined && {
+      featureTransformationArn: input.featureTransformationArn
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeRecipeRequest = (
   input: DescribeRecipeRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.recipeArn !== undefined) {
-    bodyParams["recipeArn"] = input.recipeArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.recipeArn !== undefined && { recipeArn: input.recipeArn })
+  };
 };
 
 const serializeAws_json1_1DescribeSchemaRequest = (
   input: DescribeSchemaRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.schemaArn !== undefined) {
-    bodyParams["schemaArn"] = input.schemaArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.schemaArn !== undefined && { schemaArn: input.schemaArn })
+  };
 };
 
 const serializeAws_json1_1DescribeSolutionRequest = (
   input: DescribeSolutionRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.solutionArn !== undefined) {
-    bodyParams["solutionArn"] = input.solutionArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.solutionArn !== undefined && { solutionArn: input.solutionArn })
+  };
 };
 
 const serializeAws_json1_1DescribeSolutionVersionRequest = (
   input: DescribeSolutionVersionRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.solutionVersionArn !== undefined) {
-    bodyParams["solutionVersionArn"] = input.solutionVersionArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.solutionVersionArn !== undefined && {
+      solutionVersionArn: input.solutionVersionArn
+    })
+  };
 };
 
 const serializeAws_json1_1FeatureTransformationParameters = (
@@ -4609,102 +4530,88 @@ const serializeAws_json1_1GetSolutionMetricsRequest = (
   input: GetSolutionMetricsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.solutionVersionArn !== undefined) {
-    bodyParams["solutionVersionArn"] = input.solutionVersionArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.solutionVersionArn !== undefined && {
+      solutionVersionArn: input.solutionVersionArn
+    })
+  };
 };
 
 const serializeAws_json1_1HPOConfig = (
   input: HPOConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.algorithmHyperParameterRanges !== undefined) {
-    bodyParams[
-      "algorithmHyperParameterRanges"
-    ] = serializeAws_json1_1HyperParameterRanges(
-      input.algorithmHyperParameterRanges,
-      context
-    );
-  }
-  if (input.hpoObjective !== undefined) {
-    bodyParams["hpoObjective"] = serializeAws_json1_1HPOObjective(
-      input.hpoObjective,
-      context
-    );
-  }
-  if (input.hpoResourceConfig !== undefined) {
-    bodyParams["hpoResourceConfig"] = serializeAws_json1_1HPOResourceConfig(
-      input.hpoResourceConfig,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.algorithmHyperParameterRanges !== undefined && {
+      algorithmHyperParameterRanges: serializeAws_json1_1HyperParameterRanges(
+        input.algorithmHyperParameterRanges,
+        context
+      )
+    }),
+    ...(input.hpoObjective !== undefined && {
+      hpoObjective: serializeAws_json1_1HPOObjective(
+        input.hpoObjective,
+        context
+      )
+    }),
+    ...(input.hpoResourceConfig !== undefined && {
+      hpoResourceConfig: serializeAws_json1_1HPOResourceConfig(
+        input.hpoResourceConfig,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1HPOObjective = (
   input: HPOObjective,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.metricName !== undefined) {
-    bodyParams["metricName"] = input.metricName;
-  }
-  if (input.metricRegex !== undefined) {
-    bodyParams["metricRegex"] = input.metricRegex;
-  }
-  if (input.type !== undefined) {
-    bodyParams["type"] = input.type;
-  }
-  return bodyParams;
+  return {
+    ...(input.metricName !== undefined && { metricName: input.metricName }),
+    ...(input.metricRegex !== undefined && { metricRegex: input.metricRegex }),
+    ...(input.type !== undefined && { type: input.type })
+  };
 };
 
 const serializeAws_json1_1HPOResourceConfig = (
   input: HPOResourceConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.maxNumberOfTrainingJobs !== undefined) {
-    bodyParams["maxNumberOfTrainingJobs"] = input.maxNumberOfTrainingJobs;
-  }
-  if (input.maxParallelTrainingJobs !== undefined) {
-    bodyParams["maxParallelTrainingJobs"] = input.maxParallelTrainingJobs;
-  }
-  return bodyParams;
+  return {
+    ...(input.maxNumberOfTrainingJobs !== undefined && {
+      maxNumberOfTrainingJobs: input.maxNumberOfTrainingJobs
+    }),
+    ...(input.maxParallelTrainingJobs !== undefined && {
+      maxParallelTrainingJobs: input.maxParallelTrainingJobs
+    })
+  };
 };
 
 const serializeAws_json1_1HyperParameterRanges = (
   input: HyperParameterRanges,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.categoricalHyperParameterRanges !== undefined) {
-    bodyParams[
-      "categoricalHyperParameterRanges"
-    ] = serializeAws_json1_1CategoricalHyperParameterRanges(
-      input.categoricalHyperParameterRanges,
-      context
-    );
-  }
-  if (input.continuousHyperParameterRanges !== undefined) {
-    bodyParams[
-      "continuousHyperParameterRanges"
-    ] = serializeAws_json1_1ContinuousHyperParameterRanges(
-      input.continuousHyperParameterRanges,
-      context
-    );
-  }
-  if (input.integerHyperParameterRanges !== undefined) {
-    bodyParams[
-      "integerHyperParameterRanges"
-    ] = serializeAws_json1_1IntegerHyperParameterRanges(
-      input.integerHyperParameterRanges,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.categoricalHyperParameterRanges !== undefined && {
+      categoricalHyperParameterRanges: serializeAws_json1_1CategoricalHyperParameterRanges(
+        input.categoricalHyperParameterRanges,
+        context
+      )
+    }),
+    ...(input.continuousHyperParameterRanges !== undefined && {
+      continuousHyperParameterRanges: serializeAws_json1_1ContinuousHyperParameterRanges(
+        input.continuousHyperParameterRanges,
+        context
+      )
+    }),
+    ...(input.integerHyperParameterRanges !== undefined && {
+      integerHyperParameterRanges: serializeAws_json1_1IntegerHyperParameterRanges(
+        input.integerHyperParameterRanges,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1HyperParameters = (
@@ -4721,17 +4628,11 @@ const serializeAws_json1_1IntegerHyperParameterRange = (
   input: IntegerHyperParameterRange,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.maxValue !== undefined) {
-    bodyParams["maxValue"] = input.maxValue;
-  }
-  if (input.minValue !== undefined) {
-    bodyParams["minValue"] = input.minValue;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  return bodyParams;
+  return {
+    ...(input.maxValue !== undefined && { maxValue: input.maxValue }),
+    ...(input.minValue !== undefined && { minValue: input.minValue }),
+    ...(input.name !== undefined && { name: input.name })
+  };
 };
 
 const serializeAws_json1_1IntegerHyperParameterRanges = (
@@ -4747,234 +4648,175 @@ const serializeAws_json1_1ListBatchInferenceJobsRequest = (
   input: ListBatchInferenceJobsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.solutionVersionArn !== undefined) {
-    bodyParams["solutionVersionArn"] = input.solutionVersionArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.solutionVersionArn !== undefined && {
+      solutionVersionArn: input.solutionVersionArn
+    })
+  };
 };
 
 const serializeAws_json1_1ListCampaignsRequest = (
   input: ListCampaignsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.solutionArn !== undefined) {
-    bodyParams["solutionArn"] = input.solutionArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.solutionArn !== undefined && { solutionArn: input.solutionArn })
+  };
 };
 
 const serializeAws_json1_1ListDatasetGroupsRequest = (
   input: ListDatasetGroupsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
 };
 
 const serializeAws_json1_1ListDatasetImportJobsRequest = (
   input: ListDatasetImportJobsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.datasetArn !== undefined) {
-    bodyParams["datasetArn"] = input.datasetArn;
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.datasetArn !== undefined && { datasetArn: input.datasetArn }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
 };
 
 const serializeAws_json1_1ListDatasetsRequest = (
   input: ListDatasetsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.datasetGroupArn !== undefined) {
-    bodyParams["datasetGroupArn"] = input.datasetGroupArn;
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.datasetGroupArn !== undefined && {
+      datasetGroupArn: input.datasetGroupArn
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
 };
 
 const serializeAws_json1_1ListEventTrackersRequest = (
   input: ListEventTrackersRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.datasetGroupArn !== undefined) {
-    bodyParams["datasetGroupArn"] = input.datasetGroupArn;
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.datasetGroupArn !== undefined && {
+      datasetGroupArn: input.datasetGroupArn
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
 };
 
 const serializeAws_json1_1ListRecipesRequest = (
   input: ListRecipesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.recipeProvider !== undefined) {
-    bodyParams["recipeProvider"] = input.recipeProvider;
-  }
-  return bodyParams;
+  return {
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.recipeProvider !== undefined && {
+      recipeProvider: input.recipeProvider
+    })
+  };
 };
 
 const serializeAws_json1_1ListSchemasRequest = (
   input: ListSchemasRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
 };
 
 const serializeAws_json1_1ListSolutionVersionsRequest = (
   input: ListSolutionVersionsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.solutionArn !== undefined) {
-    bodyParams["solutionArn"] = input.solutionArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.solutionArn !== undefined && { solutionArn: input.solutionArn })
+  };
 };
 
 const serializeAws_json1_1ListSolutionsRequest = (
   input: ListSolutionsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.datasetGroupArn !== undefined) {
-    bodyParams["datasetGroupArn"] = input.datasetGroupArn;
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.datasetGroupArn !== undefined && {
+      datasetGroupArn: input.datasetGroupArn
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
 };
 
 const serializeAws_json1_1S3DataConfig = (
   input: S3DataConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.kmsKeyArn !== undefined) {
-    bodyParams["kmsKeyArn"] = input.kmsKeyArn;
-  }
-  if (input.path !== undefined) {
-    bodyParams["path"] = input.path;
-  }
-  return bodyParams;
+  return {
+    ...(input.kmsKeyArn !== undefined && { kmsKeyArn: input.kmsKeyArn }),
+    ...(input.path !== undefined && { path: input.path })
+  };
 };
 
 const serializeAws_json1_1SolutionConfig = (
   input: SolutionConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.algorithmHyperParameters !== undefined) {
-    bodyParams[
-      "algorithmHyperParameters"
-    ] = serializeAws_json1_1HyperParameters(
-      input.algorithmHyperParameters,
-      context
-    );
-  }
-  if (input.autoMLConfig !== undefined) {
-    bodyParams["autoMLConfig"] = serializeAws_json1_1AutoMLConfig(
-      input.autoMLConfig,
-      context
-    );
-  }
-  if (input.eventValueThreshold !== undefined) {
-    bodyParams["eventValueThreshold"] = input.eventValueThreshold;
-  }
-  if (input.featureTransformationParameters !== undefined) {
-    bodyParams[
-      "featureTransformationParameters"
-    ] = serializeAws_json1_1FeatureTransformationParameters(
-      input.featureTransformationParameters,
-      context
-    );
-  }
-  if (input.hpoConfig !== undefined) {
-    bodyParams["hpoConfig"] = serializeAws_json1_1HPOConfig(
-      input.hpoConfig,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.algorithmHyperParameters !== undefined && {
+      algorithmHyperParameters: serializeAws_json1_1HyperParameters(
+        input.algorithmHyperParameters,
+        context
+      )
+    }),
+    ...(input.autoMLConfig !== undefined && {
+      autoMLConfig: serializeAws_json1_1AutoMLConfig(
+        input.autoMLConfig,
+        context
+      )
+    }),
+    ...(input.eventValueThreshold !== undefined && {
+      eventValueThreshold: input.eventValueThreshold
+    }),
+    ...(input.featureTransformationParameters !== undefined && {
+      featureTransformationParameters: serializeAws_json1_1FeatureTransformationParameters(
+        input.featureTransformationParameters,
+        context
+      )
+    }),
+    ...(input.hpoConfig !== undefined && {
+      hpoConfig: serializeAws_json1_1HPOConfig(input.hpoConfig, context)
+    })
+  };
 };
 
 const serializeAws_json1_1UpdateCampaignRequest = (
   input: UpdateCampaignRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.campaignArn !== undefined) {
-    bodyParams["campaignArn"] = input.campaignArn;
-  }
-  if (input.minProvisionedTPS !== undefined) {
-    bodyParams["minProvisionedTPS"] = input.minProvisionedTPS;
-  }
-  if (input.solutionVersionArn !== undefined) {
-    bodyParams["solutionVersionArn"] = input.solutionVersionArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.campaignArn !== undefined && { campaignArn: input.campaignArn }),
+    ...(input.minProvisionedTPS !== undefined && {
+      minProvisionedTPS: input.minProvisionedTPS
+    }),
+    ...(input.solutionVersionArn !== undefined && {
+      solutionVersionArn: input.solutionVersionArn
+    })
+  };
 };
 
 const deserializeAws_json1_1Algorithm = (

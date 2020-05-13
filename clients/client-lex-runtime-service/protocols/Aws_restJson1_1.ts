@@ -1394,64 +1394,50 @@ const serializeAws_restJson1_1DialogAction = (
   input: DialogAction,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.fulfillmentState !== undefined) {
-    bodyParams["fulfillmentState"] = input.fulfillmentState;
-  }
-  if (input.intentName !== undefined) {
-    bodyParams["intentName"] = input.intentName;
-  }
-  if (input.message !== undefined) {
-    bodyParams["message"] = input.message;
-  }
-  if (input.messageFormat !== undefined) {
-    bodyParams["messageFormat"] = input.messageFormat;
-  }
-  if (input.slotToElicit !== undefined) {
-    bodyParams["slotToElicit"] = input.slotToElicit;
-  }
-  if (input.slots !== undefined) {
-    bodyParams["slots"] = serializeAws_restJson1_1StringMap(
-      input.slots,
-      context
-    );
-  }
-  if (input.type !== undefined) {
-    bodyParams["type"] = input.type;
-  }
-  return bodyParams;
+  return {
+    ...(input.fulfillmentState !== undefined && {
+      fulfillmentState: input.fulfillmentState
+    }),
+    ...(input.intentName !== undefined && { intentName: input.intentName }),
+    ...(input.message !== undefined && { message: input.message }),
+    ...(input.messageFormat !== undefined && {
+      messageFormat: input.messageFormat
+    }),
+    ...(input.slotToElicit !== undefined && {
+      slotToElicit: input.slotToElicit
+    }),
+    ...(input.slots !== undefined && {
+      slots: serializeAws_restJson1_1StringMap(input.slots, context)
+    }),
+    ...(input.type !== undefined && { type: input.type })
+  };
 };
 
 const serializeAws_restJson1_1IntentSummary = (
   input: IntentSummary,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.checkpointLabel !== undefined) {
-    bodyParams["checkpointLabel"] = input.checkpointLabel;
-  }
-  if (input.confirmationStatus !== undefined) {
-    bodyParams["confirmationStatus"] = input.confirmationStatus;
-  }
-  if (input.dialogActionType !== undefined) {
-    bodyParams["dialogActionType"] = input.dialogActionType;
-  }
-  if (input.fulfillmentState !== undefined) {
-    bodyParams["fulfillmentState"] = input.fulfillmentState;
-  }
-  if (input.intentName !== undefined) {
-    bodyParams["intentName"] = input.intentName;
-  }
-  if (input.slotToElicit !== undefined) {
-    bodyParams["slotToElicit"] = input.slotToElicit;
-  }
-  if (input.slots !== undefined) {
-    bodyParams["slots"] = serializeAws_restJson1_1StringMap(
-      input.slots,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.checkpointLabel !== undefined && {
+      checkpointLabel: input.checkpointLabel
+    }),
+    ...(input.confirmationStatus !== undefined && {
+      confirmationStatus: input.confirmationStatus
+    }),
+    ...(input.dialogActionType !== undefined && {
+      dialogActionType: input.dialogActionType
+    }),
+    ...(input.fulfillmentState !== undefined && {
+      fulfillmentState: input.fulfillmentState
+    }),
+    ...(input.intentName !== undefined && { intentName: input.intentName }),
+    ...(input.slotToElicit !== undefined && {
+      slotToElicit: input.slotToElicit
+    }),
+    ...(input.slots !== undefined && {
+      slots: serializeAws_restJson1_1StringMap(input.slots, context)
+    })
+  };
 };
 
 const serializeAws_restJson1_1IntentSummaryList = (

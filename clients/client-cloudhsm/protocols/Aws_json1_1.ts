@@ -2108,163 +2108,124 @@ const serializeAws_json1_1AddTagsToResourceRequest = (
   input: AddTagsToResourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ResourceArn !== undefined) {
-    bodyParams["ResourceArn"] = input.ResourceArn;
-  }
-  if (input.TagList !== undefined) {
-    bodyParams["TagList"] = serializeAws_json1_1TagList(input.TagList, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.TagList !== undefined && {
+      TagList: serializeAws_json1_1TagList(input.TagList, context)
+    })
+  };
 };
 
 const serializeAws_json1_1CreateHapgRequest = (
   input: CreateHapgRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Label !== undefined) {
-    bodyParams["Label"] = input.Label;
-  }
-  return bodyParams;
+  return {
+    ...(input.Label !== undefined && { Label: input.Label })
+  };
 };
 
 const serializeAws_json1_1CreateHsmRequest = (
   input: CreateHsmRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ClientToken !== undefined) {
-    bodyParams["ClientToken"] = input.ClientToken;
-  }
-  if (input.EniIp !== undefined) {
-    bodyParams["EniIp"] = input.EniIp;
-  }
-  if (input.ExternalId !== undefined) {
-    bodyParams["ExternalId"] = input.ExternalId;
-  }
-  if (input.IamRoleArn !== undefined) {
-    bodyParams["IamRoleArn"] = input.IamRoleArn;
-  }
-  if (input.SshKey !== undefined) {
-    bodyParams["SshKey"] = input.SshKey;
-  }
-  if (input.SubnetId !== undefined) {
-    bodyParams["SubnetId"] = input.SubnetId;
-  }
-  if (input.SubscriptionType !== undefined) {
-    bodyParams["SubscriptionType"] = input.SubscriptionType;
-  }
-  if (input.SyslogIp !== undefined) {
-    bodyParams["SyslogIp"] = input.SyslogIp;
-  }
-  return bodyParams;
+  return {
+    ...(input.ClientToken !== undefined && { ClientToken: input.ClientToken }),
+    ...(input.EniIp !== undefined && { EniIp: input.EniIp }),
+    ...(input.ExternalId !== undefined && { ExternalId: input.ExternalId }),
+    ...(input.IamRoleArn !== undefined && { IamRoleArn: input.IamRoleArn }),
+    ...(input.SshKey !== undefined && { SshKey: input.SshKey }),
+    ...(input.SubnetId !== undefined && { SubnetId: input.SubnetId }),
+    ...(input.SubscriptionType !== undefined && {
+      SubscriptionType: input.SubscriptionType
+    }),
+    ...(input.SyslogIp !== undefined && { SyslogIp: input.SyslogIp })
+  };
 };
 
 const serializeAws_json1_1CreateLunaClientRequest = (
   input: CreateLunaClientRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Certificate !== undefined) {
-    bodyParams["Certificate"] = input.Certificate;
-  }
-  if (input.Label !== undefined) {
-    bodyParams["Label"] = input.Label;
-  }
-  return bodyParams;
+  return {
+    ...(input.Certificate !== undefined && { Certificate: input.Certificate }),
+    ...(input.Label !== undefined && { Label: input.Label })
+  };
 };
 
 const serializeAws_json1_1DeleteHapgRequest = (
   input: DeleteHapgRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.HapgArn !== undefined) {
-    bodyParams["HapgArn"] = input.HapgArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.HapgArn !== undefined && { HapgArn: input.HapgArn })
+  };
 };
 
 const serializeAws_json1_1DeleteHsmRequest = (
   input: DeleteHsmRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.HsmArn !== undefined) {
-    bodyParams["HsmArn"] = input.HsmArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.HsmArn !== undefined && { HsmArn: input.HsmArn })
+  };
 };
 
 const serializeAws_json1_1DeleteLunaClientRequest = (
   input: DeleteLunaClientRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ClientArn !== undefined) {
-    bodyParams["ClientArn"] = input.ClientArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.ClientArn !== undefined && { ClientArn: input.ClientArn })
+  };
 };
 
 const serializeAws_json1_1DescribeHapgRequest = (
   input: DescribeHapgRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.HapgArn !== undefined) {
-    bodyParams["HapgArn"] = input.HapgArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.HapgArn !== undefined && { HapgArn: input.HapgArn })
+  };
 };
 
 const serializeAws_json1_1DescribeHsmRequest = (
   input: DescribeHsmRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.HsmArn !== undefined) {
-    bodyParams["HsmArn"] = input.HsmArn;
-  }
-  if (input.HsmSerialNumber !== undefined) {
-    bodyParams["HsmSerialNumber"] = input.HsmSerialNumber;
-  }
-  return bodyParams;
+  return {
+    ...(input.HsmArn !== undefined && { HsmArn: input.HsmArn }),
+    ...(input.HsmSerialNumber !== undefined && {
+      HsmSerialNumber: input.HsmSerialNumber
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeLunaClientRequest = (
   input: DescribeLunaClientRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateFingerprint !== undefined) {
-    bodyParams["CertificateFingerprint"] = input.CertificateFingerprint;
-  }
-  if (input.ClientArn !== undefined) {
-    bodyParams["ClientArn"] = input.ClientArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateFingerprint !== undefined && {
+      CertificateFingerprint: input.CertificateFingerprint
+    }),
+    ...(input.ClientArn !== undefined && { ClientArn: input.ClientArn })
+  };
 };
 
 const serializeAws_json1_1GetConfigRequest = (
   input: GetConfigRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ClientArn !== undefined) {
-    bodyParams["ClientArn"] = input.ClientArn;
-  }
-  if (input.ClientVersion !== undefined) {
-    bodyParams["ClientVersion"] = input.ClientVersion;
-  }
-  if (input.HapgList !== undefined) {
-    bodyParams["HapgList"] = serializeAws_json1_1HapgList(
-      input.HapgList,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.ClientArn !== undefined && { ClientArn: input.ClientArn }),
+    ...(input.ClientVersion !== undefined && {
+      ClientVersion: input.ClientVersion
+    }),
+    ...(input.HapgList !== undefined && {
+      HapgList: serializeAws_json1_1HapgList(input.HapgList, context)
+    })
+  };
 };
 
 const serializeAws_json1_1HapgList = (
@@ -2278,112 +2239,83 @@ const serializeAws_json1_1ListAvailableZonesRequest = (
   input: ListAvailableZonesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  return bodyParams;
+  return {};
 };
 
 const serializeAws_json1_1ListHapgsRequest = (
   input: ListHapgsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1ListHsmsRequest = (
   input: ListHsmsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1ListLunaClientsRequest = (
   input: ListLunaClientsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1ListTagsForResourceRequest = (
   input: ListTagsForResourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ResourceArn !== undefined) {
-    bodyParams["ResourceArn"] = input.ResourceArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn })
+  };
 };
 
 const serializeAws_json1_1ModifyHapgRequest = (
   input: ModifyHapgRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.HapgArn !== undefined) {
-    bodyParams["HapgArn"] = input.HapgArn;
-  }
-  if (input.Label !== undefined) {
-    bodyParams["Label"] = input.Label;
-  }
-  if (input.PartitionSerialList !== undefined) {
-    bodyParams["PartitionSerialList"] = serializeAws_json1_1PartitionSerialList(
-      input.PartitionSerialList,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.HapgArn !== undefined && { HapgArn: input.HapgArn }),
+    ...(input.Label !== undefined && { Label: input.Label }),
+    ...(input.PartitionSerialList !== undefined && {
+      PartitionSerialList: serializeAws_json1_1PartitionSerialList(
+        input.PartitionSerialList,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1ModifyHsmRequest = (
   input: ModifyHsmRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EniIp !== undefined) {
-    bodyParams["EniIp"] = input.EniIp;
-  }
-  if (input.ExternalId !== undefined) {
-    bodyParams["ExternalId"] = input.ExternalId;
-  }
-  if (input.HsmArn !== undefined) {
-    bodyParams["HsmArn"] = input.HsmArn;
-  }
-  if (input.IamRoleArn !== undefined) {
-    bodyParams["IamRoleArn"] = input.IamRoleArn;
-  }
-  if (input.SubnetId !== undefined) {
-    bodyParams["SubnetId"] = input.SubnetId;
-  }
-  if (input.SyslogIp !== undefined) {
-    bodyParams["SyslogIp"] = input.SyslogIp;
-  }
-  return bodyParams;
+  return {
+    ...(input.EniIp !== undefined && { EniIp: input.EniIp }),
+    ...(input.ExternalId !== undefined && { ExternalId: input.ExternalId }),
+    ...(input.HsmArn !== undefined && { HsmArn: input.HsmArn }),
+    ...(input.IamRoleArn !== undefined && { IamRoleArn: input.IamRoleArn }),
+    ...(input.SubnetId !== undefined && { SubnetId: input.SubnetId }),
+    ...(input.SyslogIp !== undefined && { SyslogIp: input.SyslogIp })
+  };
 };
 
 const serializeAws_json1_1ModifyLunaClientRequest = (
   input: ModifyLunaClientRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Certificate !== undefined) {
-    bodyParams["Certificate"] = input.Certificate;
-  }
-  if (input.ClientArn !== undefined) {
-    bodyParams["ClientArn"] = input.ClientArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.Certificate !== undefined && { Certificate: input.Certificate }),
+    ...(input.ClientArn !== undefined && { ClientArn: input.ClientArn })
+  };
 };
 
 const serializeAws_json1_1PartitionSerialList = (
@@ -2397,28 +2329,19 @@ const serializeAws_json1_1RemoveTagsFromResourceRequest = (
   input: RemoveTagsFromResourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ResourceArn !== undefined) {
-    bodyParams["ResourceArn"] = input.ResourceArn;
-  }
-  if (input.TagKeyList !== undefined) {
-    bodyParams["TagKeyList"] = serializeAws_json1_1TagKeyList(
-      input.TagKeyList,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.TagKeyList !== undefined && {
+      TagKeyList: serializeAws_json1_1TagKeyList(input.TagKeyList, context)
+    })
+  };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_json1_1TagKeyList = (

@@ -16818,39 +16818,37 @@ const serializeAws_restJson1_1AccountSettings = (
   input: AccountSettings,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DisableRemoteControl !== undefined) {
-    bodyParams["DisableRemoteControl"] = input.DisableRemoteControl;
-  }
-  if (input.EnableDialOut !== undefined) {
-    bodyParams["EnableDialOut"] = input.EnableDialOut;
-  }
-  return bodyParams;
+  return {
+    ...(input.DisableRemoteControl !== undefined && {
+      DisableRemoteControl: input.DisableRemoteControl
+    }),
+    ...(input.EnableDialOut !== undefined && {
+      EnableDialOut: input.EnableDialOut
+    })
+  };
 };
 
 const serializeAws_restJson1_1AlexaForBusinessMetadata = (
   input: AlexaForBusinessMetadata,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AlexaForBusinessRoomArn !== undefined) {
-    bodyParams["AlexaForBusinessRoomArn"] = input.AlexaForBusinessRoomArn;
-  }
-  if (input.IsAlexaForBusinessEnabled !== undefined) {
-    bodyParams["IsAlexaForBusinessEnabled"] = input.IsAlexaForBusinessEnabled;
-  }
-  return bodyParams;
+  return {
+    ...(input.AlexaForBusinessRoomArn !== undefined && {
+      AlexaForBusinessRoomArn: input.AlexaForBusinessRoomArn
+    }),
+    ...(input.IsAlexaForBusinessEnabled !== undefined && {
+      IsAlexaForBusinessEnabled: input.IsAlexaForBusinessEnabled
+    })
+  };
 };
 
 const serializeAws_restJson1_1BusinessCallingSettings = (
   input: BusinessCallingSettings,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CdrBucket !== undefined) {
-    bodyParams["CdrBucket"] = input.CdrBucket;
-  }
-  return bodyParams;
+  return {
+    ...(input.CdrBucket !== undefined && { CdrBucket: input.CdrBucket })
+  };
 };
 
 const serializeAws_restJson1_1CallingRegionList = (
@@ -16864,11 +16862,11 @@ const serializeAws_restJson1_1CreateAttendeeRequestItem = (
   input: CreateAttendeeRequestItem,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ExternalUserId !== undefined) {
-    bodyParams["ExternalUserId"] = input.ExternalUserId;
-  }
-  return bodyParams;
+  return {
+    ...(input.ExternalUserId !== undefined && {
+      ExternalUserId: input.ExternalUserId
+    })
+  };
 };
 
 const serializeAws_restJson1_1CreateAttendeeRequestItemList = (
@@ -16884,14 +16882,10 @@ const serializeAws_restJson1_1Credential = (
   input: Credential,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Password !== undefined) {
-    bodyParams["Password"] = input.Password;
-  }
-  if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
-  }
-  return bodyParams;
+  return {
+    ...(input.Password !== undefined && { Password: input.Password }),
+    ...(input.Username !== undefined && { Username: input.Username })
+  };
 };
 
 const serializeAws_restJson1_1CredentialList = (
@@ -16912,39 +16906,31 @@ const serializeAws_restJson1_1LoggingConfiguration = (
   input: LoggingConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EnableSIPLogs !== undefined) {
-    bodyParams["EnableSIPLogs"] = input.EnableSIPLogs;
-  }
-  return bodyParams;
+  return {
+    ...(input.EnableSIPLogs !== undefined && {
+      EnableSIPLogs: input.EnableSIPLogs
+    })
+  };
 };
 
 const serializeAws_restJson1_1MeetingNotificationConfiguration = (
   input: MeetingNotificationConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.SnsTopicArn !== undefined) {
-    bodyParams["SnsTopicArn"] = input.SnsTopicArn;
-  }
-  if (input.SqsQueueArn !== undefined) {
-    bodyParams["SqsQueueArn"] = input.SqsQueueArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.SnsTopicArn !== undefined && { SnsTopicArn: input.SnsTopicArn }),
+    ...(input.SqsQueueArn !== undefined && { SqsQueueArn: input.SqsQueueArn })
+  };
 };
 
 const serializeAws_restJson1_1MembershipItem = (
   input: MembershipItem,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MemberId !== undefined) {
-    bodyParams["MemberId"] = input.MemberId;
-  }
-  if (input.Role !== undefined) {
-    bodyParams["Role"] = input.Role;
-  }
-  return bodyParams;
+  return {
+    ...(input.MemberId !== undefined && { MemberId: input.MemberId }),
+    ...(input.Role !== undefined && { Role: input.Role })
+  };
 };
 
 const serializeAws_restJson1_1MembershipItemList = (
@@ -16967,40 +16953,28 @@ const serializeAws_restJson1_1Origination = (
   input: Origination,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Disabled !== undefined) {
-    bodyParams["Disabled"] = input.Disabled;
-  }
-  if (input.Routes !== undefined) {
-    bodyParams["Routes"] = serializeAws_restJson1_1OriginationRouteList(
-      input.Routes,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Disabled !== undefined && { Disabled: input.Disabled }),
+    ...(input.Routes !== undefined && {
+      Routes: serializeAws_restJson1_1OriginationRouteList(
+        input.Routes,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1OriginationRoute = (
   input: OriginationRoute,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Host !== undefined) {
-    bodyParams["Host"] = input.Host;
-  }
-  if (input.Port !== undefined) {
-    bodyParams["Port"] = input.Port;
-  }
-  if (input.Priority !== undefined) {
-    bodyParams["Priority"] = input.Priority;
-  }
-  if (input.Protocol !== undefined) {
-    bodyParams["Protocol"] = input.Protocol;
-  }
-  if (input.Weight !== undefined) {
-    bodyParams["Weight"] = input.Weight;
-  }
-  return bodyParams;
+  return {
+    ...(input.Host !== undefined && { Host: input.Host }),
+    ...(input.Port !== undefined && { Port: input.Port }),
+    ...(input.Priority !== undefined && { Priority: input.Priority }),
+    ...(input.Protocol !== undefined && { Protocol: input.Protocol }),
+    ...(input.Weight !== undefined && { Weight: input.Weight })
+  };
 };
 
 const serializeAws_restJson1_1OriginationRouteList = (
@@ -17023,11 +16997,9 @@ const serializeAws_restJson1_1SigninDelegateGroup = (
   input: SigninDelegateGroup,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.GroupName !== undefined) {
-    bodyParams["GroupName"] = input.GroupName;
-  }
-  return bodyParams;
+  return {
+    ...(input.GroupName !== undefined && { GroupName: input.GroupName })
+  };
 };
 
 const serializeAws_restJson1_1SigninDelegateGroupList = (
@@ -17043,14 +17015,12 @@ const serializeAws_restJson1_1StreamingConfiguration = (
   input: StreamingConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DataRetentionInHours !== undefined) {
-    bodyParams["DataRetentionInHours"] = input.DataRetentionInHours;
-  }
-  if (input.Disabled !== undefined) {
-    bodyParams["Disabled"] = input.Disabled;
-  }
-  return bodyParams;
+  return {
+    ...(input.DataRetentionInHours !== undefined && {
+      DataRetentionInHours: input.DataRetentionInHours
+    }),
+    ...(input.Disabled !== undefined && { Disabled: input.Disabled })
+  };
 };
 
 const serializeAws_restJson1_1StringList = (
@@ -17064,63 +17034,53 @@ const serializeAws_restJson1_1TelephonySettings = (
   input: TelephonySettings,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.InboundCalling !== undefined) {
-    bodyParams["InboundCalling"] = input.InboundCalling;
-  }
-  if (input.OutboundCalling !== undefined) {
-    bodyParams["OutboundCalling"] = input.OutboundCalling;
-  }
-  if (input.SMS !== undefined) {
-    bodyParams["SMS"] = input.SMS;
-  }
-  return bodyParams;
+  return {
+    ...(input.InboundCalling !== undefined && {
+      InboundCalling: input.InboundCalling
+    }),
+    ...(input.OutboundCalling !== undefined && {
+      OutboundCalling: input.OutboundCalling
+    }),
+    ...(input.SMS !== undefined && { SMS: input.SMS })
+  };
 };
 
 const serializeAws_restJson1_1Termination = (
   input: Termination,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CallingRegions !== undefined) {
-    bodyParams["CallingRegions"] = serializeAws_restJson1_1CallingRegionList(
-      input.CallingRegions,
-      context
-    );
-  }
-  if (input.CidrAllowedList !== undefined) {
-    bodyParams["CidrAllowedList"] = serializeAws_restJson1_1StringList(
-      input.CidrAllowedList,
-      context
-    );
-  }
-  if (input.CpsLimit !== undefined) {
-    bodyParams["CpsLimit"] = input.CpsLimit;
-  }
-  if (input.DefaultPhoneNumber !== undefined) {
-    bodyParams["DefaultPhoneNumber"] = input.DefaultPhoneNumber;
-  }
-  if (input.Disabled !== undefined) {
-    bodyParams["Disabled"] = input.Disabled;
-  }
-  return bodyParams;
+  return {
+    ...(input.CallingRegions !== undefined && {
+      CallingRegions: serializeAws_restJson1_1CallingRegionList(
+        input.CallingRegions,
+        context
+      )
+    }),
+    ...(input.CidrAllowedList !== undefined && {
+      CidrAllowedList: serializeAws_restJson1_1StringList(
+        input.CidrAllowedList,
+        context
+      )
+    }),
+    ...(input.CpsLimit !== undefined && { CpsLimit: input.CpsLimit }),
+    ...(input.DefaultPhoneNumber !== undefined && {
+      DefaultPhoneNumber: input.DefaultPhoneNumber
+    }),
+    ...(input.Disabled !== undefined && { Disabled: input.Disabled })
+  };
 };
 
 const serializeAws_restJson1_1UpdatePhoneNumberRequestItem = (
   input: UpdatePhoneNumberRequestItem,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CallingName !== undefined) {
-    bodyParams["CallingName"] = input.CallingName;
-  }
-  if (input.PhoneNumberId !== undefined) {
-    bodyParams["PhoneNumberId"] = input.PhoneNumberId;
-  }
-  if (input.ProductType !== undefined) {
-    bodyParams["ProductType"] = input.ProductType;
-  }
-  return bodyParams;
+  return {
+    ...(input.CallingName !== undefined && { CallingName: input.CallingName }),
+    ...(input.PhoneNumberId !== undefined && {
+      PhoneNumberId: input.PhoneNumberId
+    }),
+    ...(input.ProductType !== undefined && { ProductType: input.ProductType })
+  };
 };
 
 const serializeAws_restJson1_1UpdatePhoneNumberRequestItemList = (
@@ -17136,25 +17096,17 @@ const serializeAws_restJson1_1UpdateUserRequestItem = (
   input: UpdateUserRequestItem,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AlexaForBusinessMetadata !== undefined) {
-    bodyParams[
-      "AlexaForBusinessMetadata"
-    ] = serializeAws_restJson1_1AlexaForBusinessMetadata(
-      input.AlexaForBusinessMetadata,
-      context
-    );
-  }
-  if (input.LicenseType !== undefined) {
-    bodyParams["LicenseType"] = input.LicenseType;
-  }
-  if (input.UserId !== undefined) {
-    bodyParams["UserId"] = input.UserId;
-  }
-  if (input.UserType !== undefined) {
-    bodyParams["UserType"] = input.UserType;
-  }
-  return bodyParams;
+  return {
+    ...(input.AlexaForBusinessMetadata !== undefined && {
+      AlexaForBusinessMetadata: serializeAws_restJson1_1AlexaForBusinessMetadata(
+        input.AlexaForBusinessMetadata,
+        context
+      )
+    }),
+    ...(input.LicenseType !== undefined && { LicenseType: input.LicenseType }),
+    ...(input.UserId !== undefined && { UserId: input.UserId }),
+    ...(input.UserType !== undefined && { UserType: input.UserType })
+  };
 };
 
 const serializeAws_restJson1_1UpdateUserRequestItemList = (
@@ -17184,28 +17136,26 @@ const serializeAws_restJson1_1UserSettings = (
   input: UserSettings,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Telephony !== undefined) {
-    bodyParams["Telephony"] = serializeAws_restJson1_1TelephonySettings(
-      input.Telephony,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Telephony !== undefined && {
+      Telephony: serializeAws_restJson1_1TelephonySettings(
+        input.Telephony,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1VoiceConnectorItem = (
   input: VoiceConnectorItem,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Priority !== undefined) {
-    bodyParams["Priority"] = input.Priority;
-  }
-  if (input.VoiceConnectorId !== undefined) {
-    bodyParams["VoiceConnectorId"] = input.VoiceConnectorId;
-  }
-  return bodyParams;
+  return {
+    ...(input.Priority !== undefined && { Priority: input.Priority }),
+    ...(input.VoiceConnectorId !== undefined && {
+      VoiceConnectorId: input.VoiceConnectorId
+    })
+  };
 };
 
 const serializeAws_restJson1_1VoiceConnectorItemList = (
@@ -17221,11 +17171,9 @@ const serializeAws_restJson1_1VoiceConnectorSettings = (
   input: VoiceConnectorSettings,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CdrBucket !== undefined) {
-    bodyParams["CdrBucket"] = input.CdrBucket;
-  }
-  return bodyParams;
+  return {
+    ...(input.CdrBucket !== undefined && { CdrBucket: input.CdrBucket })
+  };
 };
 
 const deserializeAws_restJson1_1Account = (

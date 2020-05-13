@@ -815,171 +815,141 @@ const serializeAws_json1_1AssociateMemberAccountRequest = (
   input: AssociateMemberAccountRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.memberAccountId !== undefined) {
-    bodyParams["memberAccountId"] = input.memberAccountId;
-  }
-  return bodyParams;
+  return {
+    ...(input.memberAccountId !== undefined && {
+      memberAccountId: input.memberAccountId
+    })
+  };
 };
 
 const serializeAws_json1_1AssociateS3ResourcesRequest = (
   input: AssociateS3ResourcesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.memberAccountId !== undefined) {
-    bodyParams["memberAccountId"] = input.memberAccountId;
-  }
-  if (input.s3Resources !== undefined) {
-    bodyParams["s3Resources"] = serializeAws_json1_1S3ResourcesClassification(
-      input.s3Resources,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.memberAccountId !== undefined && {
+      memberAccountId: input.memberAccountId
+    }),
+    ...(input.s3Resources !== undefined && {
+      s3Resources: serializeAws_json1_1S3ResourcesClassification(
+        input.s3Resources,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1ClassificationType = (
   input: ClassificationType,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.continuous !== undefined) {
-    bodyParams["continuous"] = input.continuous;
-  }
-  if (input.oneTime !== undefined) {
-    bodyParams["oneTime"] = input.oneTime;
-  }
-  return bodyParams;
+  return {
+    ...(input.continuous !== undefined && { continuous: input.continuous }),
+    ...(input.oneTime !== undefined && { oneTime: input.oneTime })
+  };
 };
 
 const serializeAws_json1_1ClassificationTypeUpdate = (
   input: ClassificationTypeUpdate,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.continuous !== undefined) {
-    bodyParams["continuous"] = input.continuous;
-  }
-  if (input.oneTime !== undefined) {
-    bodyParams["oneTime"] = input.oneTime;
-  }
-  return bodyParams;
+  return {
+    ...(input.continuous !== undefined && { continuous: input.continuous }),
+    ...(input.oneTime !== undefined && { oneTime: input.oneTime })
+  };
 };
 
 const serializeAws_json1_1DisassociateMemberAccountRequest = (
   input: DisassociateMemberAccountRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.memberAccountId !== undefined) {
-    bodyParams["memberAccountId"] = input.memberAccountId;
-  }
-  return bodyParams;
+  return {
+    ...(input.memberAccountId !== undefined && {
+      memberAccountId: input.memberAccountId
+    })
+  };
 };
 
 const serializeAws_json1_1DisassociateS3ResourcesRequest = (
   input: DisassociateS3ResourcesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.associatedS3Resources !== undefined) {
-    bodyParams["associatedS3Resources"] = serializeAws_json1_1S3Resources(
-      input.associatedS3Resources,
-      context
-    );
-  }
-  if (input.memberAccountId !== undefined) {
-    bodyParams["memberAccountId"] = input.memberAccountId;
-  }
-  return bodyParams;
+  return {
+    ...(input.associatedS3Resources !== undefined && {
+      associatedS3Resources: serializeAws_json1_1S3Resources(
+        input.associatedS3Resources,
+        context
+      )
+    }),
+    ...(input.memberAccountId !== undefined && {
+      memberAccountId: input.memberAccountId
+    })
+  };
 };
 
 const serializeAws_json1_1ListMemberAccountsRequest = (
   input: ListMemberAccountsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
 };
 
 const serializeAws_json1_1ListS3ResourcesRequest = (
   input: ListS3ResourcesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.memberAccountId !== undefined) {
-    bodyParams["memberAccountId"] = input.memberAccountId;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.memberAccountId !== undefined && {
+      memberAccountId: input.memberAccountId
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
 };
 
 const serializeAws_json1_1S3Resource = (
   input: S3Resource,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.bucketName !== undefined) {
-    bodyParams["bucketName"] = input.bucketName;
-  }
-  if (input.prefix !== undefined) {
-    bodyParams["prefix"] = input.prefix;
-  }
-  return bodyParams;
+  return {
+    ...(input.bucketName !== undefined && { bucketName: input.bucketName }),
+    ...(input.prefix !== undefined && { prefix: input.prefix })
+  };
 };
 
 const serializeAws_json1_1S3ResourceClassification = (
   input: S3ResourceClassification,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.bucketName !== undefined) {
-    bodyParams["bucketName"] = input.bucketName;
-  }
-  if (input.classificationType !== undefined) {
-    bodyParams["classificationType"] = serializeAws_json1_1ClassificationType(
-      input.classificationType,
-      context
-    );
-  }
-  if (input.prefix !== undefined) {
-    bodyParams["prefix"] = input.prefix;
-  }
-  return bodyParams;
+  return {
+    ...(input.bucketName !== undefined && { bucketName: input.bucketName }),
+    ...(input.classificationType !== undefined && {
+      classificationType: serializeAws_json1_1ClassificationType(
+        input.classificationType,
+        context
+      )
+    }),
+    ...(input.prefix !== undefined && { prefix: input.prefix })
+  };
 };
 
 const serializeAws_json1_1S3ResourceClassificationUpdate = (
   input: S3ResourceClassificationUpdate,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.bucketName !== undefined) {
-    bodyParams["bucketName"] = input.bucketName;
-  }
-  if (input.classificationTypeUpdate !== undefined) {
-    bodyParams[
-      "classificationTypeUpdate"
-    ] = serializeAws_json1_1ClassificationTypeUpdate(
-      input.classificationTypeUpdate,
-      context
-    );
-  }
-  if (input.prefix !== undefined) {
-    bodyParams["prefix"] = input.prefix;
-  }
-  return bodyParams;
+  return {
+    ...(input.bucketName !== undefined && { bucketName: input.bucketName }),
+    ...(input.classificationTypeUpdate !== undefined && {
+      classificationTypeUpdate: serializeAws_json1_1ClassificationTypeUpdate(
+        input.classificationTypeUpdate,
+        context
+      )
+    }),
+    ...(input.prefix !== undefined && { prefix: input.prefix })
+  };
 };
 
 const serializeAws_json1_1S3Resources = (
@@ -1011,19 +981,17 @@ const serializeAws_json1_1UpdateS3ResourcesRequest = (
   input: UpdateS3ResourcesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.memberAccountId !== undefined) {
-    bodyParams["memberAccountId"] = input.memberAccountId;
-  }
-  if (input.s3ResourcesUpdate !== undefined) {
-    bodyParams[
-      "s3ResourcesUpdate"
-    ] = serializeAws_json1_1S3ResourcesClassificationUpdate(
-      input.s3ResourcesUpdate,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.memberAccountId !== undefined && {
+      memberAccountId: input.memberAccountId
+    }),
+    ...(input.s3ResourcesUpdate !== undefined && {
+      s3ResourcesUpdate: serializeAws_json1_1S3ResourcesClassificationUpdate(
+        input.s3ResourcesUpdate,
+        context
+      )
+    })
+  };
 };
 
 const deserializeAws_json1_1AccessDeniedException = (

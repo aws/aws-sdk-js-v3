@@ -3042,339 +3042,295 @@ const serializeAws_json1_1CreateApplicationRequest = (
   input: CreateApplicationRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.OpsCenterEnabled !== undefined) {
-    bodyParams["OpsCenterEnabled"] = input.OpsCenterEnabled;
-  }
-  if (input.OpsItemSNSTopicArn !== undefined) {
-    bodyParams["OpsItemSNSTopicArn"] = input.OpsItemSNSTopicArn;
-  }
-  if (input.ResourceGroupName !== undefined) {
-    bodyParams["ResourceGroupName"] = input.ResourceGroupName;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.OpsCenterEnabled !== undefined && {
+      OpsCenterEnabled: input.OpsCenterEnabled
+    }),
+    ...(input.OpsItemSNSTopicArn !== undefined && {
+      OpsItemSNSTopicArn: input.OpsItemSNSTopicArn
+    }),
+    ...(input.ResourceGroupName !== undefined && {
+      ResourceGroupName: input.ResourceGroupName
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1TagList(input.Tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_1CreateComponentRequest = (
   input: CreateComponentRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ComponentName !== undefined) {
-    bodyParams["ComponentName"] = input.ComponentName;
-  }
-  if (input.ResourceGroupName !== undefined) {
-    bodyParams["ResourceGroupName"] = input.ResourceGroupName;
-  }
-  if (input.ResourceList !== undefined) {
-    bodyParams["ResourceList"] = serializeAws_json1_1ResourceList(
-      input.ResourceList,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.ComponentName !== undefined && {
+      ComponentName: input.ComponentName
+    }),
+    ...(input.ResourceGroupName !== undefined && {
+      ResourceGroupName: input.ResourceGroupName
+    }),
+    ...(input.ResourceList !== undefined && {
+      ResourceList: serializeAws_json1_1ResourceList(
+        input.ResourceList,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1CreateLogPatternRequest = (
   input: CreateLogPatternRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Pattern !== undefined) {
-    bodyParams["Pattern"] = input.Pattern;
-  }
-  if (input.PatternName !== undefined) {
-    bodyParams["PatternName"] = input.PatternName;
-  }
-  if (input.PatternSetName !== undefined) {
-    bodyParams["PatternSetName"] = input.PatternSetName;
-  }
-  if (input.Rank !== undefined) {
-    bodyParams["Rank"] = input.Rank;
-  }
-  if (input.ResourceGroupName !== undefined) {
-    bodyParams["ResourceGroupName"] = input.ResourceGroupName;
-  }
-  return bodyParams;
+  return {
+    ...(input.Pattern !== undefined && { Pattern: input.Pattern }),
+    ...(input.PatternName !== undefined && { PatternName: input.PatternName }),
+    ...(input.PatternSetName !== undefined && {
+      PatternSetName: input.PatternSetName
+    }),
+    ...(input.Rank !== undefined && { Rank: input.Rank }),
+    ...(input.ResourceGroupName !== undefined && {
+      ResourceGroupName: input.ResourceGroupName
+    })
+  };
 };
 
 const serializeAws_json1_1DeleteApplicationRequest = (
   input: DeleteApplicationRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ResourceGroupName !== undefined) {
-    bodyParams["ResourceGroupName"] = input.ResourceGroupName;
-  }
-  return bodyParams;
+  return {
+    ...(input.ResourceGroupName !== undefined && {
+      ResourceGroupName: input.ResourceGroupName
+    })
+  };
 };
 
 const serializeAws_json1_1DeleteComponentRequest = (
   input: DeleteComponentRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ComponentName !== undefined) {
-    bodyParams["ComponentName"] = input.ComponentName;
-  }
-  if (input.ResourceGroupName !== undefined) {
-    bodyParams["ResourceGroupName"] = input.ResourceGroupName;
-  }
-  return bodyParams;
+  return {
+    ...(input.ComponentName !== undefined && {
+      ComponentName: input.ComponentName
+    }),
+    ...(input.ResourceGroupName !== undefined && {
+      ResourceGroupName: input.ResourceGroupName
+    })
+  };
 };
 
 const serializeAws_json1_1DeleteLogPatternRequest = (
   input: DeleteLogPatternRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.PatternName !== undefined) {
-    bodyParams["PatternName"] = input.PatternName;
-  }
-  if (input.PatternSetName !== undefined) {
-    bodyParams["PatternSetName"] = input.PatternSetName;
-  }
-  if (input.ResourceGroupName !== undefined) {
-    bodyParams["ResourceGroupName"] = input.ResourceGroupName;
-  }
-  return bodyParams;
+  return {
+    ...(input.PatternName !== undefined && { PatternName: input.PatternName }),
+    ...(input.PatternSetName !== undefined && {
+      PatternSetName: input.PatternSetName
+    }),
+    ...(input.ResourceGroupName !== undefined && {
+      ResourceGroupName: input.ResourceGroupName
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeApplicationRequest = (
   input: DescribeApplicationRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ResourceGroupName !== undefined) {
-    bodyParams["ResourceGroupName"] = input.ResourceGroupName;
-  }
-  return bodyParams;
+  return {
+    ...(input.ResourceGroupName !== undefined && {
+      ResourceGroupName: input.ResourceGroupName
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeComponentConfigurationRecommendationRequest = (
   input: DescribeComponentConfigurationRecommendationRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ComponentName !== undefined) {
-    bodyParams["ComponentName"] = input.ComponentName;
-  }
-  if (input.ResourceGroupName !== undefined) {
-    bodyParams["ResourceGroupName"] = input.ResourceGroupName;
-  }
-  if (input.Tier !== undefined) {
-    bodyParams["Tier"] = input.Tier;
-  }
-  return bodyParams;
+  return {
+    ...(input.ComponentName !== undefined && {
+      ComponentName: input.ComponentName
+    }),
+    ...(input.ResourceGroupName !== undefined && {
+      ResourceGroupName: input.ResourceGroupName
+    }),
+    ...(input.Tier !== undefined && { Tier: input.Tier })
+  };
 };
 
 const serializeAws_json1_1DescribeComponentConfigurationRequest = (
   input: DescribeComponentConfigurationRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ComponentName !== undefined) {
-    bodyParams["ComponentName"] = input.ComponentName;
-  }
-  if (input.ResourceGroupName !== undefined) {
-    bodyParams["ResourceGroupName"] = input.ResourceGroupName;
-  }
-  return bodyParams;
+  return {
+    ...(input.ComponentName !== undefined && {
+      ComponentName: input.ComponentName
+    }),
+    ...(input.ResourceGroupName !== undefined && {
+      ResourceGroupName: input.ResourceGroupName
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeComponentRequest = (
   input: DescribeComponentRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ComponentName !== undefined) {
-    bodyParams["ComponentName"] = input.ComponentName;
-  }
-  if (input.ResourceGroupName !== undefined) {
-    bodyParams["ResourceGroupName"] = input.ResourceGroupName;
-  }
-  return bodyParams;
+  return {
+    ...(input.ComponentName !== undefined && {
+      ComponentName: input.ComponentName
+    }),
+    ...(input.ResourceGroupName !== undefined && {
+      ResourceGroupName: input.ResourceGroupName
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeLogPatternRequest = (
   input: DescribeLogPatternRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.PatternName !== undefined) {
-    bodyParams["PatternName"] = input.PatternName;
-  }
-  if (input.PatternSetName !== undefined) {
-    bodyParams["PatternSetName"] = input.PatternSetName;
-  }
-  if (input.ResourceGroupName !== undefined) {
-    bodyParams["ResourceGroupName"] = input.ResourceGroupName;
-  }
-  return bodyParams;
+  return {
+    ...(input.PatternName !== undefined && { PatternName: input.PatternName }),
+    ...(input.PatternSetName !== undefined && {
+      PatternSetName: input.PatternSetName
+    }),
+    ...(input.ResourceGroupName !== undefined && {
+      ResourceGroupName: input.ResourceGroupName
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeObservationRequest = (
   input: DescribeObservationRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ObservationId !== undefined) {
-    bodyParams["ObservationId"] = input.ObservationId;
-  }
-  return bodyParams;
+  return {
+    ...(input.ObservationId !== undefined && {
+      ObservationId: input.ObservationId
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeProblemObservationsRequest = (
   input: DescribeProblemObservationsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ProblemId !== undefined) {
-    bodyParams["ProblemId"] = input.ProblemId;
-  }
-  return bodyParams;
+  return {
+    ...(input.ProblemId !== undefined && { ProblemId: input.ProblemId })
+  };
 };
 
 const serializeAws_json1_1DescribeProblemRequest = (
   input: DescribeProblemRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ProblemId !== undefined) {
-    bodyParams["ProblemId"] = input.ProblemId;
-  }
-  return bodyParams;
+  return {
+    ...(input.ProblemId !== undefined && { ProblemId: input.ProblemId })
+  };
 };
 
 const serializeAws_json1_1ListApplicationsRequest = (
   input: ListApplicationsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1ListComponentsRequest = (
   input: ListComponentsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ResourceGroupName !== undefined) {
-    bodyParams["ResourceGroupName"] = input.ResourceGroupName;
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ResourceGroupName !== undefined && {
+      ResourceGroupName: input.ResourceGroupName
+    })
+  };
 };
 
 const serializeAws_json1_1ListConfigurationHistoryRequest = (
   input: ListConfigurationHistoryRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EndTime !== undefined) {
-    bodyParams["EndTime"] = Math.round(input.EndTime.getTime() / 1000);
-  }
-  if (input.EventStatus !== undefined) {
-    bodyParams["EventStatus"] = input.EventStatus;
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ResourceGroupName !== undefined) {
-    bodyParams["ResourceGroupName"] = input.ResourceGroupName;
-  }
-  if (input.StartTime !== undefined) {
-    bodyParams["StartTime"] = Math.round(input.StartTime.getTime() / 1000);
-  }
-  return bodyParams;
+  return {
+    ...(input.EndTime !== undefined && {
+      EndTime: Math.round(input.EndTime.getTime() / 1000)
+    }),
+    ...(input.EventStatus !== undefined && { EventStatus: input.EventStatus }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ResourceGroupName !== undefined && {
+      ResourceGroupName: input.ResourceGroupName
+    }),
+    ...(input.StartTime !== undefined && {
+      StartTime: Math.round(input.StartTime.getTime() / 1000)
+    })
+  };
 };
 
 const serializeAws_json1_1ListLogPatternSetsRequest = (
   input: ListLogPatternSetsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ResourceGroupName !== undefined) {
-    bodyParams["ResourceGroupName"] = input.ResourceGroupName;
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ResourceGroupName !== undefined && {
+      ResourceGroupName: input.ResourceGroupName
+    })
+  };
 };
 
 const serializeAws_json1_1ListLogPatternsRequest = (
   input: ListLogPatternsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.PatternSetName !== undefined) {
-    bodyParams["PatternSetName"] = input.PatternSetName;
-  }
-  if (input.ResourceGroupName !== undefined) {
-    bodyParams["ResourceGroupName"] = input.ResourceGroupName;
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.PatternSetName !== undefined && {
+      PatternSetName: input.PatternSetName
+    }),
+    ...(input.ResourceGroupName !== undefined && {
+      ResourceGroupName: input.ResourceGroupName
+    })
+  };
 };
 
 const serializeAws_json1_1ListProblemsRequest = (
   input: ListProblemsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EndTime !== undefined) {
-    bodyParams["EndTime"] = Math.round(input.EndTime.getTime() / 1000);
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ResourceGroupName !== undefined) {
-    bodyParams["ResourceGroupName"] = input.ResourceGroupName;
-  }
-  if (input.StartTime !== undefined) {
-    bodyParams["StartTime"] = Math.round(input.StartTime.getTime() / 1000);
-  }
-  return bodyParams;
+  return {
+    ...(input.EndTime !== undefined && {
+      EndTime: Math.round(input.EndTime.getTime() / 1000)
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ResourceGroupName !== undefined && {
+      ResourceGroupName: input.ResourceGroupName
+    }),
+    ...(input.StartTime !== undefined && {
+      StartTime: Math.round(input.StartTime.getTime() / 1000)
+    })
+  };
 };
 
 const serializeAws_json1_1ListTagsForResourceRequest = (
   input: ListTagsForResourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ResourceARN !== undefined) {
-    bodyParams["ResourceARN"] = input.ResourceARN;
-  }
-  return bodyParams;
+  return {
+    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN })
+  };
 };
 
 const serializeAws_json1_1ResourceList = (
@@ -3385,14 +3341,10 @@ const serializeAws_json1_1ResourceList = (
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_json1_1TagKeyList = (
@@ -3413,120 +3365,103 @@ const serializeAws_json1_1TagResourceRequest = (
   input: TagResourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ResourceARN !== undefined) {
-    bodyParams["ResourceARN"] = input.ResourceARN;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1TagList(input.Tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (
   input: UntagResourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ResourceARN !== undefined) {
-    bodyParams["ResourceARN"] = input.ResourceARN;
-  }
-  if (input.TagKeys !== undefined) {
-    bodyParams["TagKeys"] = serializeAws_json1_1TagKeyList(
-      input.TagKeys,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.TagKeys !== undefined && {
+      TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context)
+    })
+  };
 };
 
 const serializeAws_json1_1UpdateApplicationRequest = (
   input: UpdateApplicationRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.OpsCenterEnabled !== undefined) {
-    bodyParams["OpsCenterEnabled"] = input.OpsCenterEnabled;
-  }
-  if (input.OpsItemSNSTopicArn !== undefined) {
-    bodyParams["OpsItemSNSTopicArn"] = input.OpsItemSNSTopicArn;
-  }
-  if (input.RemoveSNSTopic !== undefined) {
-    bodyParams["RemoveSNSTopic"] = input.RemoveSNSTopic;
-  }
-  if (input.ResourceGroupName !== undefined) {
-    bodyParams["ResourceGroupName"] = input.ResourceGroupName;
-  }
-  return bodyParams;
+  return {
+    ...(input.OpsCenterEnabled !== undefined && {
+      OpsCenterEnabled: input.OpsCenterEnabled
+    }),
+    ...(input.OpsItemSNSTopicArn !== undefined && {
+      OpsItemSNSTopicArn: input.OpsItemSNSTopicArn
+    }),
+    ...(input.RemoveSNSTopic !== undefined && {
+      RemoveSNSTopic: input.RemoveSNSTopic
+    }),
+    ...(input.ResourceGroupName !== undefined && {
+      ResourceGroupName: input.ResourceGroupName
+    })
+  };
 };
 
 const serializeAws_json1_1UpdateComponentConfigurationRequest = (
   input: UpdateComponentConfigurationRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ComponentConfiguration !== undefined) {
-    bodyParams["ComponentConfiguration"] = input.ComponentConfiguration;
-  }
-  if (input.ComponentName !== undefined) {
-    bodyParams["ComponentName"] = input.ComponentName;
-  }
-  if (input.Monitor !== undefined) {
-    bodyParams["Monitor"] = input.Monitor;
-  }
-  if (input.ResourceGroupName !== undefined) {
-    bodyParams["ResourceGroupName"] = input.ResourceGroupName;
-  }
-  if (input.Tier !== undefined) {
-    bodyParams["Tier"] = input.Tier;
-  }
-  return bodyParams;
+  return {
+    ...(input.ComponentConfiguration !== undefined && {
+      ComponentConfiguration: input.ComponentConfiguration
+    }),
+    ...(input.ComponentName !== undefined && {
+      ComponentName: input.ComponentName
+    }),
+    ...(input.Monitor !== undefined && { Monitor: input.Monitor }),
+    ...(input.ResourceGroupName !== undefined && {
+      ResourceGroupName: input.ResourceGroupName
+    }),
+    ...(input.Tier !== undefined && { Tier: input.Tier })
+  };
 };
 
 const serializeAws_json1_1UpdateComponentRequest = (
   input: UpdateComponentRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ComponentName !== undefined) {
-    bodyParams["ComponentName"] = input.ComponentName;
-  }
-  if (input.NewComponentName !== undefined) {
-    bodyParams["NewComponentName"] = input.NewComponentName;
-  }
-  if (input.ResourceGroupName !== undefined) {
-    bodyParams["ResourceGroupName"] = input.ResourceGroupName;
-  }
-  if (input.ResourceList !== undefined) {
-    bodyParams["ResourceList"] = serializeAws_json1_1ResourceList(
-      input.ResourceList,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.ComponentName !== undefined && {
+      ComponentName: input.ComponentName
+    }),
+    ...(input.NewComponentName !== undefined && {
+      NewComponentName: input.NewComponentName
+    }),
+    ...(input.ResourceGroupName !== undefined && {
+      ResourceGroupName: input.ResourceGroupName
+    }),
+    ...(input.ResourceList !== undefined && {
+      ResourceList: serializeAws_json1_1ResourceList(
+        input.ResourceList,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1UpdateLogPatternRequest = (
   input: UpdateLogPatternRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Pattern !== undefined) {
-    bodyParams["Pattern"] = input.Pattern;
-  }
-  if (input.PatternName !== undefined) {
-    bodyParams["PatternName"] = input.PatternName;
-  }
-  if (input.PatternSetName !== undefined) {
-    bodyParams["PatternSetName"] = input.PatternSetName;
-  }
-  if (input.Rank !== undefined) {
-    bodyParams["Rank"] = input.Rank;
-  }
-  if (input.ResourceGroupName !== undefined) {
-    bodyParams["ResourceGroupName"] = input.ResourceGroupName;
-  }
-  return bodyParams;
+  return {
+    ...(input.Pattern !== undefined && { Pattern: input.Pattern }),
+    ...(input.PatternName !== undefined && { PatternName: input.PatternName }),
+    ...(input.PatternSetName !== undefined && {
+      PatternSetName: input.PatternSetName
+    }),
+    ...(input.Rank !== undefined && { Rank: input.Rank }),
+    ...(input.ResourceGroupName !== undefined && {
+      ResourceGroupName: input.ResourceGroupName
+    })
+  };
 };
 
 const deserializeAws_json1_1ApplicationComponent = (

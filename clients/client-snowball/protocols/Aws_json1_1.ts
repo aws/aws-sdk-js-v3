@@ -2027,238 +2027,172 @@ const serializeAws_json1_1Address = (
   input: Address,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AddressId !== undefined) {
-    bodyParams["AddressId"] = input.AddressId;
-  }
-  if (input.City !== undefined) {
-    bodyParams["City"] = input.City;
-  }
-  if (input.Company !== undefined) {
-    bodyParams["Company"] = input.Company;
-  }
-  if (input.Country !== undefined) {
-    bodyParams["Country"] = input.Country;
-  }
-  if (input.IsRestricted !== undefined) {
-    bodyParams["IsRestricted"] = input.IsRestricted;
-  }
-  if (input.Landmark !== undefined) {
-    bodyParams["Landmark"] = input.Landmark;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.PhoneNumber !== undefined) {
-    bodyParams["PhoneNumber"] = input.PhoneNumber;
-  }
-  if (input.PostalCode !== undefined) {
-    bodyParams["PostalCode"] = input.PostalCode;
-  }
-  if (input.PrefectureOrDistrict !== undefined) {
-    bodyParams["PrefectureOrDistrict"] = input.PrefectureOrDistrict;
-  }
-  if (input.StateOrProvince !== undefined) {
-    bodyParams["StateOrProvince"] = input.StateOrProvince;
-  }
-  if (input.Street1 !== undefined) {
-    bodyParams["Street1"] = input.Street1;
-  }
-  if (input.Street2 !== undefined) {
-    bodyParams["Street2"] = input.Street2;
-  }
-  if (input.Street3 !== undefined) {
-    bodyParams["Street3"] = input.Street3;
-  }
-  return bodyParams;
+  return {
+    ...(input.AddressId !== undefined && { AddressId: input.AddressId }),
+    ...(input.City !== undefined && { City: input.City }),
+    ...(input.Company !== undefined && { Company: input.Company }),
+    ...(input.Country !== undefined && { Country: input.Country }),
+    ...(input.IsRestricted !== undefined && {
+      IsRestricted: input.IsRestricted
+    }),
+    ...(input.Landmark !== undefined && { Landmark: input.Landmark }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.PhoneNumber !== undefined && { PhoneNumber: input.PhoneNumber }),
+    ...(input.PostalCode !== undefined && { PostalCode: input.PostalCode }),
+    ...(input.PrefectureOrDistrict !== undefined && {
+      PrefectureOrDistrict: input.PrefectureOrDistrict
+    }),
+    ...(input.StateOrProvince !== undefined && {
+      StateOrProvince: input.StateOrProvince
+    }),
+    ...(input.Street1 !== undefined && { Street1: input.Street1 }),
+    ...(input.Street2 !== undefined && { Street2: input.Street2 }),
+    ...(input.Street3 !== undefined && { Street3: input.Street3 })
+  };
 };
 
 const serializeAws_json1_1CancelClusterRequest = (
   input: CancelClusterRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ClusterId !== undefined) {
-    bodyParams["ClusterId"] = input.ClusterId;
-  }
-  return bodyParams;
+  return {
+    ...(input.ClusterId !== undefined && { ClusterId: input.ClusterId })
+  };
 };
 
 const serializeAws_json1_1CancelJobRequest = (
   input: CancelJobRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.JobId !== undefined) {
-    bodyParams["JobId"] = input.JobId;
-  }
-  return bodyParams;
+  return {
+    ...(input.JobId !== undefined && { JobId: input.JobId })
+  };
 };
 
 const serializeAws_json1_1CreateAddressRequest = (
   input: CreateAddressRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Address !== undefined) {
-    bodyParams["Address"] = serializeAws_json1_1Address(input.Address, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.Address !== undefined && {
+      Address: serializeAws_json1_1Address(input.Address, context)
+    })
+  };
 };
 
 const serializeAws_json1_1CreateClusterRequest = (
   input: CreateClusterRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AddressId !== undefined) {
-    bodyParams["AddressId"] = input.AddressId;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.ForwardingAddressId !== undefined) {
-    bodyParams["ForwardingAddressId"] = input.ForwardingAddressId;
-  }
-  if (input.JobType !== undefined) {
-    bodyParams["JobType"] = input.JobType;
-  }
-  if (input.KmsKeyARN !== undefined) {
-    bodyParams["KmsKeyARN"] = input.KmsKeyARN;
-  }
-  if (input.Notification !== undefined) {
-    bodyParams["Notification"] = serializeAws_json1_1Notification(
-      input.Notification,
-      context
-    );
-  }
-  if (input.Resources !== undefined) {
-    bodyParams["Resources"] = serializeAws_json1_1JobResource(
-      input.Resources,
-      context
-    );
-  }
-  if (input.RoleARN !== undefined) {
-    bodyParams["RoleARN"] = input.RoleARN;
-  }
-  if (input.ShippingOption !== undefined) {
-    bodyParams["ShippingOption"] = input.ShippingOption;
-  }
-  if (input.SnowballType !== undefined) {
-    bodyParams["SnowballType"] = input.SnowballType;
-  }
-  return bodyParams;
+  return {
+    ...(input.AddressId !== undefined && { AddressId: input.AddressId }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.ForwardingAddressId !== undefined && {
+      ForwardingAddressId: input.ForwardingAddressId
+    }),
+    ...(input.JobType !== undefined && { JobType: input.JobType }),
+    ...(input.KmsKeyARN !== undefined && { KmsKeyARN: input.KmsKeyARN }),
+    ...(input.Notification !== undefined && {
+      Notification: serializeAws_json1_1Notification(
+        input.Notification,
+        context
+      )
+    }),
+    ...(input.Resources !== undefined && {
+      Resources: serializeAws_json1_1JobResource(input.Resources, context)
+    }),
+    ...(input.RoleARN !== undefined && { RoleARN: input.RoleARN }),
+    ...(input.ShippingOption !== undefined && {
+      ShippingOption: input.ShippingOption
+    }),
+    ...(input.SnowballType !== undefined && {
+      SnowballType: input.SnowballType
+    })
+  };
 };
 
 const serializeAws_json1_1CreateJobRequest = (
   input: CreateJobRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AddressId !== undefined) {
-    bodyParams["AddressId"] = input.AddressId;
-  }
-  if (input.ClusterId !== undefined) {
-    bodyParams["ClusterId"] = input.ClusterId;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.ForwardingAddressId !== undefined) {
-    bodyParams["ForwardingAddressId"] = input.ForwardingAddressId;
-  }
-  if (input.JobType !== undefined) {
-    bodyParams["JobType"] = input.JobType;
-  }
-  if (input.KmsKeyARN !== undefined) {
-    bodyParams["KmsKeyARN"] = input.KmsKeyARN;
-  }
-  if (input.Notification !== undefined) {
-    bodyParams["Notification"] = serializeAws_json1_1Notification(
-      input.Notification,
-      context
-    );
-  }
-  if (input.Resources !== undefined) {
-    bodyParams["Resources"] = serializeAws_json1_1JobResource(
-      input.Resources,
-      context
-    );
-  }
-  if (input.RoleARN !== undefined) {
-    bodyParams["RoleARN"] = input.RoleARN;
-  }
-  if (input.ShippingOption !== undefined) {
-    bodyParams["ShippingOption"] = input.ShippingOption;
-  }
-  if (input.SnowballCapacityPreference !== undefined) {
-    bodyParams["SnowballCapacityPreference"] = input.SnowballCapacityPreference;
-  }
-  if (input.SnowballType !== undefined) {
-    bodyParams["SnowballType"] = input.SnowballType;
-  }
-  return bodyParams;
+  return {
+    ...(input.AddressId !== undefined && { AddressId: input.AddressId }),
+    ...(input.ClusterId !== undefined && { ClusterId: input.ClusterId }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.ForwardingAddressId !== undefined && {
+      ForwardingAddressId: input.ForwardingAddressId
+    }),
+    ...(input.JobType !== undefined && { JobType: input.JobType }),
+    ...(input.KmsKeyARN !== undefined && { KmsKeyARN: input.KmsKeyARN }),
+    ...(input.Notification !== undefined && {
+      Notification: serializeAws_json1_1Notification(
+        input.Notification,
+        context
+      )
+    }),
+    ...(input.Resources !== undefined && {
+      Resources: serializeAws_json1_1JobResource(input.Resources, context)
+    }),
+    ...(input.RoleARN !== undefined && { RoleARN: input.RoleARN }),
+    ...(input.ShippingOption !== undefined && {
+      ShippingOption: input.ShippingOption
+    }),
+    ...(input.SnowballCapacityPreference !== undefined && {
+      SnowballCapacityPreference: input.SnowballCapacityPreference
+    }),
+    ...(input.SnowballType !== undefined && {
+      SnowballType: input.SnowballType
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeAddressRequest = (
   input: DescribeAddressRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AddressId !== undefined) {
-    bodyParams["AddressId"] = input.AddressId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AddressId !== undefined && { AddressId: input.AddressId })
+  };
 };
 
 const serializeAws_json1_1DescribeAddressesRequest = (
   input: DescribeAddressesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1DescribeClusterRequest = (
   input: DescribeClusterRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ClusterId !== undefined) {
-    bodyParams["ClusterId"] = input.ClusterId;
-  }
-  return bodyParams;
+  return {
+    ...(input.ClusterId !== undefined && { ClusterId: input.ClusterId })
+  };
 };
 
 const serializeAws_json1_1DescribeJobRequest = (
   input: DescribeJobRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.JobId !== undefined) {
-    bodyParams["JobId"] = input.JobId;
-  }
-  return bodyParams;
+  return {
+    ...(input.JobId !== undefined && { JobId: input.JobId })
+  };
 };
 
 const serializeAws_json1_1Ec2AmiResource = (
   input: Ec2AmiResource,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AmiId !== undefined) {
-    bodyParams["AmiId"] = input.AmiId;
-  }
-  if (input.SnowballAmiId !== undefined) {
-    bodyParams["SnowballAmiId"] = input.SnowballAmiId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AmiId !== undefined && { AmiId: input.AmiId }),
+    ...(input.SnowballAmiId !== undefined && {
+      SnowballAmiId: input.SnowballAmiId
+    })
+  };
 };
 
 const serializeAws_json1_1Ec2AmiResourceList = (
@@ -2272,11 +2206,11 @@ const serializeAws_json1_1EventTriggerDefinition = (
   input: EventTriggerDefinition,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EventResourceARN !== undefined) {
-    bodyParams["EventResourceARN"] = input.EventResourceARN;
-  }
-  return bodyParams;
+  return {
+    ...(input.EventResourceARN !== undefined && {
+      EventResourceARN: input.EventResourceARN
+    })
+  };
 };
 
 const serializeAws_json1_1EventTriggerDefinitionList = (
@@ -2292,67 +2226,60 @@ const serializeAws_json1_1GetJobManifestRequest = (
   input: GetJobManifestRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.JobId !== undefined) {
-    bodyParams["JobId"] = input.JobId;
-  }
-  return bodyParams;
+  return {
+    ...(input.JobId !== undefined && { JobId: input.JobId })
+  };
 };
 
 const serializeAws_json1_1GetJobUnlockCodeRequest = (
   input: GetJobUnlockCodeRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.JobId !== undefined) {
-    bodyParams["JobId"] = input.JobId;
-  }
-  return bodyParams;
+  return {
+    ...(input.JobId !== undefined && { JobId: input.JobId })
+  };
 };
 
 const serializeAws_json1_1GetSnowballUsageRequest = (
   input: GetSnowballUsageRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  return bodyParams;
+  return {};
 };
 
 const serializeAws_json1_1GetSoftwareUpdatesRequest = (
   input: GetSoftwareUpdatesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.JobId !== undefined) {
-    bodyParams["JobId"] = input.JobId;
-  }
-  return bodyParams;
+  return {
+    ...(input.JobId !== undefined && { JobId: input.JobId })
+  };
 };
 
 const serializeAws_json1_1JobResource = (
   input: JobResource,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Ec2AmiResources !== undefined) {
-    bodyParams["Ec2AmiResources"] = serializeAws_json1_1Ec2AmiResourceList(
-      input.Ec2AmiResources,
-      context
-    );
-  }
-  if (input.LambdaResources !== undefined) {
-    bodyParams["LambdaResources"] = serializeAws_json1_1LambdaResourceList(
-      input.LambdaResources,
-      context
-    );
-  }
-  if (input.S3Resources !== undefined) {
-    bodyParams["S3Resources"] = serializeAws_json1_1S3ResourceList(
-      input.S3Resources,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Ec2AmiResources !== undefined && {
+      Ec2AmiResources: serializeAws_json1_1Ec2AmiResourceList(
+        input.Ec2AmiResources,
+        context
+      )
+    }),
+    ...(input.LambdaResources !== undefined && {
+      LambdaResources: serializeAws_json1_1LambdaResourceList(
+        input.LambdaResources,
+        context
+      )
+    }),
+    ...(input.S3Resources !== undefined && {
+      S3Resources: serializeAws_json1_1S3ResourceList(
+        input.S3Resources,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1JobStateList = (
@@ -2366,33 +2293,25 @@ const serializeAws_json1_1KeyRange = (
   input: KeyRange,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.BeginMarker !== undefined) {
-    bodyParams["BeginMarker"] = input.BeginMarker;
-  }
-  if (input.EndMarker !== undefined) {
-    bodyParams["EndMarker"] = input.EndMarker;
-  }
-  return bodyParams;
+  return {
+    ...(input.BeginMarker !== undefined && { BeginMarker: input.BeginMarker }),
+    ...(input.EndMarker !== undefined && { EndMarker: input.EndMarker })
+  };
 };
 
 const serializeAws_json1_1LambdaResource = (
   input: LambdaResource,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EventTriggers !== undefined) {
-    bodyParams[
-      "EventTriggers"
-    ] = serializeAws_json1_1EventTriggerDefinitionList(
-      input.EventTriggers,
-      context
-    );
-  }
-  if (input.LambdaArn !== undefined) {
-    bodyParams["LambdaArn"] = input.LambdaArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.EventTriggers !== undefined && {
+      EventTriggers: serializeAws_json1_1EventTriggerDefinitionList(
+        input.EventTriggers,
+        context
+      )
+    }),
+    ...(input.LambdaArn !== undefined && { LambdaArn: input.LambdaArn })
+  };
 };
 
 const serializeAws_json1_1LambdaResourceList = (
@@ -2406,96 +2325,69 @@ const serializeAws_json1_1ListClusterJobsRequest = (
   input: ListClusterJobsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ClusterId !== undefined) {
-    bodyParams["ClusterId"] = input.ClusterId;
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.ClusterId !== undefined && { ClusterId: input.ClusterId }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1ListClustersRequest = (
   input: ListClustersRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1ListCompatibleImagesRequest = (
   input: ListCompatibleImagesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1ListJobsRequest = (
   input: ListJobsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1Notification = (
   input: Notification,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.JobStatesToNotify !== undefined) {
-    bodyParams["JobStatesToNotify"] = serializeAws_json1_1JobStateList(
-      input.JobStatesToNotify,
-      context
-    );
-  }
-  if (input.NotifyAll !== undefined) {
-    bodyParams["NotifyAll"] = input.NotifyAll;
-  }
-  if (input.SnsTopicARN !== undefined) {
-    bodyParams["SnsTopicARN"] = input.SnsTopicARN;
-  }
-  return bodyParams;
+  return {
+    ...(input.JobStatesToNotify !== undefined && {
+      JobStatesToNotify: serializeAws_json1_1JobStateList(
+        input.JobStatesToNotify,
+        context
+      )
+    }),
+    ...(input.NotifyAll !== undefined && { NotifyAll: input.NotifyAll }),
+    ...(input.SnsTopicARN !== undefined && { SnsTopicARN: input.SnsTopicARN })
+  };
 };
 
 const serializeAws_json1_1S3Resource = (
   input: S3Resource,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.BucketArn !== undefined) {
-    bodyParams["BucketArn"] = input.BucketArn;
-  }
-  if (input.KeyRange !== undefined) {
-    bodyParams["KeyRange"] = serializeAws_json1_1KeyRange(
-      input.KeyRange,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.BucketArn !== undefined && { BucketArn: input.BucketArn }),
+    ...(input.KeyRange !== undefined && {
+      KeyRange: serializeAws_json1_1KeyRange(input.KeyRange, context)
+    })
+  };
 };
 
 const serializeAws_json1_1S3ResourceList = (
@@ -2509,79 +2401,57 @@ const serializeAws_json1_1UpdateClusterRequest = (
   input: UpdateClusterRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AddressId !== undefined) {
-    bodyParams["AddressId"] = input.AddressId;
-  }
-  if (input.ClusterId !== undefined) {
-    bodyParams["ClusterId"] = input.ClusterId;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.ForwardingAddressId !== undefined) {
-    bodyParams["ForwardingAddressId"] = input.ForwardingAddressId;
-  }
-  if (input.Notification !== undefined) {
-    bodyParams["Notification"] = serializeAws_json1_1Notification(
-      input.Notification,
-      context
-    );
-  }
-  if (input.Resources !== undefined) {
-    bodyParams["Resources"] = serializeAws_json1_1JobResource(
-      input.Resources,
-      context
-    );
-  }
-  if (input.RoleARN !== undefined) {
-    bodyParams["RoleARN"] = input.RoleARN;
-  }
-  if (input.ShippingOption !== undefined) {
-    bodyParams["ShippingOption"] = input.ShippingOption;
-  }
-  return bodyParams;
+  return {
+    ...(input.AddressId !== undefined && { AddressId: input.AddressId }),
+    ...(input.ClusterId !== undefined && { ClusterId: input.ClusterId }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.ForwardingAddressId !== undefined && {
+      ForwardingAddressId: input.ForwardingAddressId
+    }),
+    ...(input.Notification !== undefined && {
+      Notification: serializeAws_json1_1Notification(
+        input.Notification,
+        context
+      )
+    }),
+    ...(input.Resources !== undefined && {
+      Resources: serializeAws_json1_1JobResource(input.Resources, context)
+    }),
+    ...(input.RoleARN !== undefined && { RoleARN: input.RoleARN }),
+    ...(input.ShippingOption !== undefined && {
+      ShippingOption: input.ShippingOption
+    })
+  };
 };
 
 const serializeAws_json1_1UpdateJobRequest = (
   input: UpdateJobRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AddressId !== undefined) {
-    bodyParams["AddressId"] = input.AddressId;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.ForwardingAddressId !== undefined) {
-    bodyParams["ForwardingAddressId"] = input.ForwardingAddressId;
-  }
-  if (input.JobId !== undefined) {
-    bodyParams["JobId"] = input.JobId;
-  }
-  if (input.Notification !== undefined) {
-    bodyParams["Notification"] = serializeAws_json1_1Notification(
-      input.Notification,
-      context
-    );
-  }
-  if (input.Resources !== undefined) {
-    bodyParams["Resources"] = serializeAws_json1_1JobResource(
-      input.Resources,
-      context
-    );
-  }
-  if (input.RoleARN !== undefined) {
-    bodyParams["RoleARN"] = input.RoleARN;
-  }
-  if (input.ShippingOption !== undefined) {
-    bodyParams["ShippingOption"] = input.ShippingOption;
-  }
-  if (input.SnowballCapacityPreference !== undefined) {
-    bodyParams["SnowballCapacityPreference"] = input.SnowballCapacityPreference;
-  }
-  return bodyParams;
+  return {
+    ...(input.AddressId !== undefined && { AddressId: input.AddressId }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.ForwardingAddressId !== undefined && {
+      ForwardingAddressId: input.ForwardingAddressId
+    }),
+    ...(input.JobId !== undefined && { JobId: input.JobId }),
+    ...(input.Notification !== undefined && {
+      Notification: serializeAws_json1_1Notification(
+        input.Notification,
+        context
+      )
+    }),
+    ...(input.Resources !== undefined && {
+      Resources: serializeAws_json1_1JobResource(input.Resources, context)
+    }),
+    ...(input.RoleARN !== undefined && { RoleARN: input.RoleARN }),
+    ...(input.ShippingOption !== undefined && {
+      ShippingOption: input.ShippingOption
+    }),
+    ...(input.SnowballCapacityPreference !== undefined && {
+      SnowballCapacityPreference: input.SnowballCapacityPreference
+    })
+  };
 };
 
 const deserializeAws_json1_1Address = (

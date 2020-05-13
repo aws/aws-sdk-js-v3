@@ -1040,119 +1040,101 @@ const serializeAws_json1_1DescribeReportCreationInput = (
   input: DescribeReportCreationInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  return bodyParams;
+  return {};
 };
 
 const serializeAws_json1_1GetComplianceSummaryInput = (
   input: GetComplianceSummaryInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.GroupBy !== undefined) {
-    bodyParams["GroupBy"] = serializeAws_json1_1GroupBy(input.GroupBy, context);
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.PaginationToken !== undefined) {
-    bodyParams["PaginationToken"] = input.PaginationToken;
-  }
-  if (input.RegionFilters !== undefined) {
-    bodyParams["RegionFilters"] = serializeAws_json1_1RegionFilterList(
-      input.RegionFilters,
-      context
-    );
-  }
-  if (input.ResourceTypeFilters !== undefined) {
-    bodyParams[
-      "ResourceTypeFilters"
-    ] = serializeAws_json1_1ResourceTypeFilterList(
-      input.ResourceTypeFilters,
-      context
-    );
-  }
-  if (input.TagKeyFilters !== undefined) {
-    bodyParams["TagKeyFilters"] = serializeAws_json1_1TagKeyFilterList(
-      input.TagKeyFilters,
-      context
-    );
-  }
-  if (input.TargetIdFilters !== undefined) {
-    bodyParams["TargetIdFilters"] = serializeAws_json1_1TargetIdFilterList(
-      input.TargetIdFilters,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.GroupBy !== undefined && {
+      GroupBy: serializeAws_json1_1GroupBy(input.GroupBy, context)
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.PaginationToken !== undefined && {
+      PaginationToken: input.PaginationToken
+    }),
+    ...(input.RegionFilters !== undefined && {
+      RegionFilters: serializeAws_json1_1RegionFilterList(
+        input.RegionFilters,
+        context
+      )
+    }),
+    ...(input.ResourceTypeFilters !== undefined && {
+      ResourceTypeFilters: serializeAws_json1_1ResourceTypeFilterList(
+        input.ResourceTypeFilters,
+        context
+      )
+    }),
+    ...(input.TagKeyFilters !== undefined && {
+      TagKeyFilters: serializeAws_json1_1TagKeyFilterList(
+        input.TagKeyFilters,
+        context
+      )
+    }),
+    ...(input.TargetIdFilters !== undefined && {
+      TargetIdFilters: serializeAws_json1_1TargetIdFilterList(
+        input.TargetIdFilters,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1GetResourcesInput = (
   input: GetResourcesInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ExcludeCompliantResources !== undefined) {
-    bodyParams["ExcludeCompliantResources"] = input.ExcludeCompliantResources;
-  }
-  if (input.IncludeComplianceDetails !== undefined) {
-    bodyParams["IncludeComplianceDetails"] = input.IncludeComplianceDetails;
-  }
-  if (input.PaginationToken !== undefined) {
-    bodyParams["PaginationToken"] = input.PaginationToken;
-  }
-  if (input.ResourceTypeFilters !== undefined) {
-    bodyParams[
-      "ResourceTypeFilters"
-    ] = serializeAws_json1_1ResourceTypeFilterList(
-      input.ResourceTypeFilters,
-      context
-    );
-  }
-  if (input.ResourcesPerPage !== undefined) {
-    bodyParams["ResourcesPerPage"] = input.ResourcesPerPage;
-  }
-  if (input.TagFilters !== undefined) {
-    bodyParams["TagFilters"] = serializeAws_json1_1TagFilterList(
-      input.TagFilters,
-      context
-    );
-  }
-  if (input.TagsPerPage !== undefined) {
-    bodyParams["TagsPerPage"] = input.TagsPerPage;
-  }
-  return bodyParams;
+  return {
+    ...(input.ExcludeCompliantResources !== undefined && {
+      ExcludeCompliantResources: input.ExcludeCompliantResources
+    }),
+    ...(input.IncludeComplianceDetails !== undefined && {
+      IncludeComplianceDetails: input.IncludeComplianceDetails
+    }),
+    ...(input.PaginationToken !== undefined && {
+      PaginationToken: input.PaginationToken
+    }),
+    ...(input.ResourceTypeFilters !== undefined && {
+      ResourceTypeFilters: serializeAws_json1_1ResourceTypeFilterList(
+        input.ResourceTypeFilters,
+        context
+      )
+    }),
+    ...(input.ResourcesPerPage !== undefined && {
+      ResourcesPerPage: input.ResourcesPerPage
+    }),
+    ...(input.TagFilters !== undefined && {
+      TagFilters: serializeAws_json1_1TagFilterList(input.TagFilters, context)
+    }),
+    ...(input.TagsPerPage !== undefined && { TagsPerPage: input.TagsPerPage })
+  };
 };
 
 const serializeAws_json1_1GetTagKeysInput = (
   input: GetTagKeysInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.PaginationToken !== undefined) {
-    bodyParams["PaginationToken"] = input.PaginationToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.PaginationToken !== undefined && {
+      PaginationToken: input.PaginationToken
+    })
+  };
 };
 
 const serializeAws_json1_1GetTagValuesInput = (
   input: GetTagValuesInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.PaginationToken !== undefined) {
-    bodyParams["PaginationToken"] = input.PaginationToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.PaginationToken !== undefined && {
+      PaginationToken: input.PaginationToken
+    })
+  };
 };
 
 const serializeAws_json1_1GroupBy = (
@@ -1187,28 +1169,21 @@ const serializeAws_json1_1StartReportCreationInput = (
   input: StartReportCreationInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.S3Bucket !== undefined) {
-    bodyParams["S3Bucket"] = input.S3Bucket;
-  }
-  return bodyParams;
+  return {
+    ...(input.S3Bucket !== undefined && { S3Bucket: input.S3Bucket })
+  };
 };
 
 const serializeAws_json1_1TagFilter = (
   input: TagFilter,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.Values !== undefined) {
-    bodyParams["Values"] = serializeAws_json1_1TagValueList(
-      input.Values,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Values !== undefined && {
+      Values: serializeAws_json1_1TagValueList(input.Values, context)
+    })
+  };
 };
 
 const serializeAws_json1_1TagFilterList = (
@@ -1246,17 +1221,17 @@ const serializeAws_json1_1TagResourcesInput = (
   input: TagResourcesInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ResourceARNList !== undefined) {
-    bodyParams["ResourceARNList"] = serializeAws_json1_1ResourceARNList(
-      input.ResourceARNList,
-      context
-    );
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1TagMap(input.Tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.ResourceARNList !== undefined && {
+      ResourceARNList: serializeAws_json1_1ResourceARNList(
+        input.ResourceARNList,
+        context
+      )
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1TagMap(input.Tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_1TagValueList = (
@@ -1277,20 +1252,17 @@ const serializeAws_json1_1UntagResourcesInput = (
   input: UntagResourcesInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ResourceARNList !== undefined) {
-    bodyParams["ResourceARNList"] = serializeAws_json1_1ResourceARNList(
-      input.ResourceARNList,
-      context
-    );
-  }
-  if (input.TagKeys !== undefined) {
-    bodyParams["TagKeys"] = serializeAws_json1_1TagKeyListForUntag(
-      input.TagKeys,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.ResourceARNList !== undefined && {
+      ResourceARNList: serializeAws_json1_1ResourceARNList(
+        input.ResourceARNList,
+        context
+      )
+    }),
+    ...(input.TagKeys !== undefined && {
+      TagKeys: serializeAws_json1_1TagKeyListForUntag(input.TagKeys, context)
+    })
+  };
 };
 
 const deserializeAws_json1_1ComplianceDetails = (

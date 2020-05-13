@@ -836,27 +836,25 @@ const serializeAws_restJson1_1HumanLoopInputContent = (
   input: HumanLoopInputContent,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.InputContent !== undefined) {
-    bodyParams["InputContent"] = input.InputContent;
-  }
-  return bodyParams;
+  return {
+    ...(input.InputContent !== undefined && {
+      InputContent: input.InputContent
+    })
+  };
 };
 
 const serializeAws_restJson1_1HumanReviewDataAttributes = (
   input: HumanReviewDataAttributes,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ContentClassifiers !== undefined) {
-    bodyParams[
-      "ContentClassifiers"
-    ] = serializeAws_restJson1_1ContentClassifiers(
-      input.ContentClassifiers,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.ContentClassifiers !== undefined && {
+      ContentClassifiers: serializeAws_restJson1_1ContentClassifiers(
+        input.ContentClassifiers,
+        context
+      )
+    })
+  };
 };
 
 const deserializeAws_restJson1_1HumanLoopActivationReason = (

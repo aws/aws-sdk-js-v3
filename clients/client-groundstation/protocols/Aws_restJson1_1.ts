@@ -3494,62 +3494,57 @@ const serializeAws_restJson1_1AntennaDownlinkConfig = (
   input: AntennaDownlinkConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.spectrumConfig !== undefined) {
-    bodyParams["spectrumConfig"] = serializeAws_restJson1_1SpectrumConfig(
-      input.spectrumConfig,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.spectrumConfig !== undefined && {
+      spectrumConfig: serializeAws_restJson1_1SpectrumConfig(
+        input.spectrumConfig,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1AntennaDownlinkDemodDecodeConfig = (
   input: AntennaDownlinkDemodDecodeConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.decodeConfig !== undefined) {
-    bodyParams["decodeConfig"] = serializeAws_restJson1_1DecodeConfig(
-      input.decodeConfig,
-      context
-    );
-  }
-  if (input.demodulationConfig !== undefined) {
-    bodyParams[
-      "demodulationConfig"
-    ] = serializeAws_restJson1_1DemodulationConfig(
-      input.demodulationConfig,
-      context
-    );
-  }
-  if (input.spectrumConfig !== undefined) {
-    bodyParams["spectrumConfig"] = serializeAws_restJson1_1SpectrumConfig(
-      input.spectrumConfig,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.decodeConfig !== undefined && {
+      decodeConfig: serializeAws_restJson1_1DecodeConfig(
+        input.decodeConfig,
+        context
+      )
+    }),
+    ...(input.demodulationConfig !== undefined && {
+      demodulationConfig: serializeAws_restJson1_1DemodulationConfig(
+        input.demodulationConfig,
+        context
+      )
+    }),
+    ...(input.spectrumConfig !== undefined && {
+      spectrumConfig: serializeAws_restJson1_1SpectrumConfig(
+        input.spectrumConfig,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1AntennaUplinkConfig = (
   input: AntennaUplinkConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.spectrumConfig !== undefined) {
-    bodyParams["spectrumConfig"] = serializeAws_restJson1_1UplinkSpectrumConfig(
-      input.spectrumConfig,
-      context
-    );
-  }
-  if (input.targetEirp !== undefined) {
-    bodyParams["targetEirp"] = serializeAws_restJson1_1Eirp(
-      input.targetEirp,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.spectrumConfig !== undefined && {
+      spectrumConfig: serializeAws_restJson1_1UplinkSpectrumConfig(
+        input.spectrumConfig,
+        context
+      )
+    }),
+    ...(input.targetEirp !== undefined && {
+      targetEirp: serializeAws_restJson1_1Eirp(input.targetEirp, context)
+    })
+  };
 };
 
 const serializeAws_restJson1_1ConfigTypeData = (
@@ -3593,73 +3588,66 @@ const serializeAws_restJson1_1DataflowEndpoint = (
   input: DataflowEndpoint,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.address !== undefined) {
-    bodyParams["address"] = serializeAws_restJson1_1SocketAddress(
-      input.address,
-      context
-    );
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.status !== undefined) {
-    bodyParams["status"] = input.status;
-  }
-  return bodyParams;
+  return {
+    ...(input.address !== undefined && {
+      address: serializeAws_restJson1_1SocketAddress(input.address, context)
+    }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.status !== undefined && { status: input.status })
+  };
 };
 
 const serializeAws_restJson1_1DataflowEndpointConfig = (
   input: DataflowEndpointConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.dataflowEndpointName !== undefined) {
-    bodyParams["dataflowEndpointName"] = input.dataflowEndpointName;
-  }
-  return bodyParams;
+  return {
+    ...(input.dataflowEndpointName !== undefined && {
+      dataflowEndpointName: input.dataflowEndpointName
+    })
+  };
 };
 
 const serializeAws_restJson1_1DecodeConfig = (
   input: DecodeConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.unvalidatedJSON !== undefined) {
-    bodyParams["unvalidatedJSON"] = input.unvalidatedJSON;
-  }
-  return bodyParams;
+  return {
+    ...(input.unvalidatedJSON !== undefined && {
+      unvalidatedJSON: input.unvalidatedJSON
+    })
+  };
 };
 
 const serializeAws_restJson1_1DemodulationConfig = (
   input: DemodulationConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.unvalidatedJSON !== undefined) {
-    bodyParams["unvalidatedJSON"] = input.unvalidatedJSON;
-  }
-  return bodyParams;
+  return {
+    ...(input.unvalidatedJSON !== undefined && {
+      unvalidatedJSON: input.unvalidatedJSON
+    })
+  };
 };
 
 const serializeAws_restJson1_1EndpointDetails = (
   input: EndpointDetails,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.endpoint !== undefined) {
-    bodyParams["endpoint"] = serializeAws_restJson1_1DataflowEndpoint(
-      input.endpoint,
-      context
-    );
-  }
-  if (input.securityDetails !== undefined) {
-    bodyParams["securityDetails"] = serializeAws_restJson1_1SecurityDetails(
-      input.securityDetails,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.endpoint !== undefined && {
+      endpoint: serializeAws_restJson1_1DataflowEndpoint(
+        input.endpoint,
+        context
+      )
+    }),
+    ...(input.securityDetails !== undefined && {
+      securityDetails: serializeAws_restJson1_1SecurityDetails(
+        input.securityDetails,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1EndpointDetailsList = (
@@ -3682,92 +3670,69 @@ const serializeAws_restJson1_1TrackingConfig = (
   input: TrackingConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.autotrack !== undefined) {
-    bodyParams["autotrack"] = input.autotrack;
-  }
-  return bodyParams;
+  return {
+    ...(input.autotrack !== undefined && { autotrack: input.autotrack })
+  };
 };
 
 const serializeAws_restJson1_1UplinkEchoConfig = (
   input: UplinkEchoConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.antennaUplinkConfigArn !== undefined) {
-    bodyParams["antennaUplinkConfigArn"] = input.antennaUplinkConfigArn;
-  }
-  if (input.enabled !== undefined) {
-    bodyParams["enabled"] = input.enabled;
-  }
-  return bodyParams;
+  return {
+    ...(input.antennaUplinkConfigArn !== undefined && {
+      antennaUplinkConfigArn: input.antennaUplinkConfigArn
+    }),
+    ...(input.enabled !== undefined && { enabled: input.enabled })
+  };
 };
 
 const serializeAws_restJson1_1Eirp = (
   input: Eirp,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.units !== undefined) {
-    bodyParams["units"] = input.units;
-  }
-  if (input.value !== undefined) {
-    bodyParams["value"] = input.value;
-  }
-  return bodyParams;
+  return {
+    ...(input.units !== undefined && { units: input.units }),
+    ...(input.value !== undefined && { value: input.value })
+  };
 };
 
 const serializeAws_restJson1_1Frequency = (
   input: Frequency,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.units !== undefined) {
-    bodyParams["units"] = input.units;
-  }
-  if (input.value !== undefined) {
-    bodyParams["value"] = input.value;
-  }
-  return bodyParams;
+  return {
+    ...(input.units !== undefined && { units: input.units }),
+    ...(input.value !== undefined && { value: input.value })
+  };
 };
 
 const serializeAws_restJson1_1FrequencyBandwidth = (
   input: FrequencyBandwidth,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.units !== undefined) {
-    bodyParams["units"] = input.units;
-  }
-  if (input.value !== undefined) {
-    bodyParams["value"] = input.value;
-  }
-  return bodyParams;
+  return {
+    ...(input.units !== undefined && { units: input.units }),
+    ...(input.value !== undefined && { value: input.value })
+  };
 };
 
 const serializeAws_restJson1_1SecurityDetails = (
   input: SecurityDetails,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.roleArn !== undefined) {
-    bodyParams["roleArn"] = input.roleArn;
-  }
-  if (input.securityGroupIds !== undefined) {
-    bodyParams[
-      "securityGroupIds"
-    ] = serializeAws_restJson1_1SecurityGroupIdList(
-      input.securityGroupIds,
-      context
-    );
-  }
-  if (input.subnetIds !== undefined) {
-    bodyParams["subnetIds"] = serializeAws_restJson1_1SubnetList(
-      input.subnetIds,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
+    ...(input.securityGroupIds !== undefined && {
+      securityGroupIds: serializeAws_restJson1_1SecurityGroupIdList(
+        input.securityGroupIds,
+        context
+      )
+    }),
+    ...(input.subnetIds !== undefined && {
+      subnetIds: serializeAws_restJson1_1SubnetList(input.subnetIds, context)
+    })
+  };
 };
 
 const serializeAws_restJson1_1SecurityGroupIdList = (
@@ -3781,37 +3746,33 @@ const serializeAws_restJson1_1SocketAddress = (
   input: SocketAddress,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.port !== undefined) {
-    bodyParams["port"] = input.port;
-  }
-  return bodyParams;
+  return {
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.port !== undefined && { port: input.port })
+  };
 };
 
 const serializeAws_restJson1_1SpectrumConfig = (
   input: SpectrumConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.bandwidth !== undefined) {
-    bodyParams["bandwidth"] = serializeAws_restJson1_1FrequencyBandwidth(
-      input.bandwidth,
-      context
-    );
-  }
-  if (input.centerFrequency !== undefined) {
-    bodyParams["centerFrequency"] = serializeAws_restJson1_1Frequency(
-      input.centerFrequency,
-      context
-    );
-  }
-  if (input.polarization !== undefined) {
-    bodyParams["polarization"] = input.polarization;
-  }
-  return bodyParams;
+  return {
+    ...(input.bandwidth !== undefined && {
+      bandwidth: serializeAws_restJson1_1FrequencyBandwidth(
+        input.bandwidth,
+        context
+      )
+    }),
+    ...(input.centerFrequency !== undefined && {
+      centerFrequency: serializeAws_restJson1_1Frequency(
+        input.centerFrequency,
+        context
+      )
+    }),
+    ...(input.polarization !== undefined && {
+      polarization: input.polarization
+    })
+  };
 };
 
 const serializeAws_restJson1_1SubnetList = (
@@ -3835,17 +3796,17 @@ const serializeAws_restJson1_1UplinkSpectrumConfig = (
   input: UplinkSpectrumConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.centerFrequency !== undefined) {
-    bodyParams["centerFrequency"] = serializeAws_restJson1_1Frequency(
-      input.centerFrequency,
-      context
-    );
-  }
-  if (input.polarization !== undefined) {
-    bodyParams["polarization"] = input.polarization;
-  }
-  return bodyParams;
+  return {
+    ...(input.centerFrequency !== undefined && {
+      centerFrequency: serializeAws_restJson1_1Frequency(
+        input.centerFrequency,
+        context
+      )
+    }),
+    ...(input.polarization !== undefined && {
+      polarization: input.polarization
+    })
+  };
 };
 
 const deserializeAws_restJson1_1AntennaDownlinkConfig = (

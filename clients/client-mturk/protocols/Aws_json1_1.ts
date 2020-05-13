@@ -3774,31 +3774,31 @@ const serializeAws_json1_1AcceptQualificationRequestRequest = (
   input: AcceptQualificationRequestRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.IntegerValue !== undefined) {
-    bodyParams["IntegerValue"] = input.IntegerValue;
-  }
-  if (input.QualificationRequestId !== undefined) {
-    bodyParams["QualificationRequestId"] = input.QualificationRequestId;
-  }
-  return bodyParams;
+  return {
+    ...(input.IntegerValue !== undefined && {
+      IntegerValue: input.IntegerValue
+    }),
+    ...(input.QualificationRequestId !== undefined && {
+      QualificationRequestId: input.QualificationRequestId
+    })
+  };
 };
 
 const serializeAws_json1_1ApproveAssignmentRequest = (
   input: ApproveAssignmentRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AssignmentId !== undefined) {
-    bodyParams["AssignmentId"] = input.AssignmentId;
-  }
-  if (input.OverrideRejection !== undefined) {
-    bodyParams["OverrideRejection"] = input.OverrideRejection;
-  }
-  if (input.RequesterFeedback !== undefined) {
-    bodyParams["RequesterFeedback"] = input.RequesterFeedback;
-  }
-  return bodyParams;
+  return {
+    ...(input.AssignmentId !== undefined && {
+      AssignmentId: input.AssignmentId
+    }),
+    ...(input.OverrideRejection !== undefined && {
+      OverrideRejection: input.OverrideRejection
+    }),
+    ...(input.RequesterFeedback !== undefined && {
+      RequesterFeedback: input.RequesterFeedback
+    })
+  };
 };
 
 const serializeAws_json1_1AssignmentStatusList = (
@@ -3812,247 +3812,190 @@ const serializeAws_json1_1AssociateQualificationWithWorkerRequest = (
   input: AssociateQualificationWithWorkerRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.IntegerValue !== undefined) {
-    bodyParams["IntegerValue"] = input.IntegerValue;
-  }
-  if (input.QualificationTypeId !== undefined) {
-    bodyParams["QualificationTypeId"] = input.QualificationTypeId;
-  }
-  if (input.SendNotification !== undefined) {
-    bodyParams["SendNotification"] = input.SendNotification;
-  }
-  if (input.WorkerId !== undefined) {
-    bodyParams["WorkerId"] = input.WorkerId;
-  }
-  return bodyParams;
+  return {
+    ...(input.IntegerValue !== undefined && {
+      IntegerValue: input.IntegerValue
+    }),
+    ...(input.QualificationTypeId !== undefined && {
+      QualificationTypeId: input.QualificationTypeId
+    }),
+    ...(input.SendNotification !== undefined && {
+      SendNotification: input.SendNotification
+    }),
+    ...(input.WorkerId !== undefined && { WorkerId: input.WorkerId })
+  };
 };
 
 const serializeAws_json1_1CreateAdditionalAssignmentsForHITRequest = (
   input: CreateAdditionalAssignmentsForHITRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.HITId !== undefined) {
-    bodyParams["HITId"] = input.HITId;
-  }
-  if (input.NumberOfAdditionalAssignments !== undefined) {
-    bodyParams["NumberOfAdditionalAssignments"] =
-      input.NumberOfAdditionalAssignments;
-  }
-  if (input.UniqueRequestToken !== undefined) {
-    bodyParams["UniqueRequestToken"] = input.UniqueRequestToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.HITId !== undefined && { HITId: input.HITId }),
+    ...(input.NumberOfAdditionalAssignments !== undefined && {
+      NumberOfAdditionalAssignments: input.NumberOfAdditionalAssignments
+    }),
+    ...(input.UniqueRequestToken !== undefined && {
+      UniqueRequestToken: input.UniqueRequestToken
+    })
+  };
 };
 
 const serializeAws_json1_1CreateHITRequest = (
   input: CreateHITRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AssignmentDurationInSeconds !== undefined) {
-    bodyParams["AssignmentDurationInSeconds"] =
-      input.AssignmentDurationInSeconds;
-  }
-  if (input.AssignmentReviewPolicy !== undefined) {
-    bodyParams["AssignmentReviewPolicy"] = serializeAws_json1_1ReviewPolicy(
-      input.AssignmentReviewPolicy,
-      context
-    );
-  }
-  if (input.AutoApprovalDelayInSeconds !== undefined) {
-    bodyParams["AutoApprovalDelayInSeconds"] = input.AutoApprovalDelayInSeconds;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.HITLayoutId !== undefined) {
-    bodyParams["HITLayoutId"] = input.HITLayoutId;
-  }
-  if (input.HITLayoutParameters !== undefined) {
-    bodyParams[
-      "HITLayoutParameters"
-    ] = serializeAws_json1_1HITLayoutParameterList(
-      input.HITLayoutParameters,
-      context
-    );
-  }
-  if (input.HITReviewPolicy !== undefined) {
-    bodyParams["HITReviewPolicy"] = serializeAws_json1_1ReviewPolicy(
-      input.HITReviewPolicy,
-      context
-    );
-  }
-  if (input.Keywords !== undefined) {
-    bodyParams["Keywords"] = input.Keywords;
-  }
-  if (input.LifetimeInSeconds !== undefined) {
-    bodyParams["LifetimeInSeconds"] = input.LifetimeInSeconds;
-  }
-  if (input.MaxAssignments !== undefined) {
-    bodyParams["MaxAssignments"] = input.MaxAssignments;
-  }
-  if (input.QualificationRequirements !== undefined) {
-    bodyParams[
-      "QualificationRequirements"
-    ] = serializeAws_json1_1QualificationRequirementList(
-      input.QualificationRequirements,
-      context
-    );
-  }
-  if (input.Question !== undefined) {
-    bodyParams["Question"] = input.Question;
-  }
-  if (input.RequesterAnnotation !== undefined) {
-    bodyParams["RequesterAnnotation"] = input.RequesterAnnotation;
-  }
-  if (input.Reward !== undefined) {
-    bodyParams["Reward"] = input.Reward;
-  }
-  if (input.Title !== undefined) {
-    bodyParams["Title"] = input.Title;
-  }
-  if (input.UniqueRequestToken !== undefined) {
-    bodyParams["UniqueRequestToken"] = input.UniqueRequestToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.AssignmentDurationInSeconds !== undefined && {
+      AssignmentDurationInSeconds: input.AssignmentDurationInSeconds
+    }),
+    ...(input.AssignmentReviewPolicy !== undefined && {
+      AssignmentReviewPolicy: serializeAws_json1_1ReviewPolicy(
+        input.AssignmentReviewPolicy,
+        context
+      )
+    }),
+    ...(input.AutoApprovalDelayInSeconds !== undefined && {
+      AutoApprovalDelayInSeconds: input.AutoApprovalDelayInSeconds
+    }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.HITLayoutId !== undefined && { HITLayoutId: input.HITLayoutId }),
+    ...(input.HITLayoutParameters !== undefined && {
+      HITLayoutParameters: serializeAws_json1_1HITLayoutParameterList(
+        input.HITLayoutParameters,
+        context
+      )
+    }),
+    ...(input.HITReviewPolicy !== undefined && {
+      HITReviewPolicy: serializeAws_json1_1ReviewPolicy(
+        input.HITReviewPolicy,
+        context
+      )
+    }),
+    ...(input.Keywords !== undefined && { Keywords: input.Keywords }),
+    ...(input.LifetimeInSeconds !== undefined && {
+      LifetimeInSeconds: input.LifetimeInSeconds
+    }),
+    ...(input.MaxAssignments !== undefined && {
+      MaxAssignments: input.MaxAssignments
+    }),
+    ...(input.QualificationRequirements !== undefined && {
+      QualificationRequirements: serializeAws_json1_1QualificationRequirementList(
+        input.QualificationRequirements,
+        context
+      )
+    }),
+    ...(input.Question !== undefined && { Question: input.Question }),
+    ...(input.RequesterAnnotation !== undefined && {
+      RequesterAnnotation: input.RequesterAnnotation
+    }),
+    ...(input.Reward !== undefined && { Reward: input.Reward }),
+    ...(input.Title !== undefined && { Title: input.Title }),
+    ...(input.UniqueRequestToken !== undefined && {
+      UniqueRequestToken: input.UniqueRequestToken
+    })
+  };
 };
 
 const serializeAws_json1_1CreateHITTypeRequest = (
   input: CreateHITTypeRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AssignmentDurationInSeconds !== undefined) {
-    bodyParams["AssignmentDurationInSeconds"] =
-      input.AssignmentDurationInSeconds;
-  }
-  if (input.AutoApprovalDelayInSeconds !== undefined) {
-    bodyParams["AutoApprovalDelayInSeconds"] = input.AutoApprovalDelayInSeconds;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Keywords !== undefined) {
-    bodyParams["Keywords"] = input.Keywords;
-  }
-  if (input.QualificationRequirements !== undefined) {
-    bodyParams[
-      "QualificationRequirements"
-    ] = serializeAws_json1_1QualificationRequirementList(
-      input.QualificationRequirements,
-      context
-    );
-  }
-  if (input.Reward !== undefined) {
-    bodyParams["Reward"] = input.Reward;
-  }
-  if (input.Title !== undefined) {
-    bodyParams["Title"] = input.Title;
-  }
-  return bodyParams;
+  return {
+    ...(input.AssignmentDurationInSeconds !== undefined && {
+      AssignmentDurationInSeconds: input.AssignmentDurationInSeconds
+    }),
+    ...(input.AutoApprovalDelayInSeconds !== undefined && {
+      AutoApprovalDelayInSeconds: input.AutoApprovalDelayInSeconds
+    }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Keywords !== undefined && { Keywords: input.Keywords }),
+    ...(input.QualificationRequirements !== undefined && {
+      QualificationRequirements: serializeAws_json1_1QualificationRequirementList(
+        input.QualificationRequirements,
+        context
+      )
+    }),
+    ...(input.Reward !== undefined && { Reward: input.Reward }),
+    ...(input.Title !== undefined && { Title: input.Title })
+  };
 };
 
 const serializeAws_json1_1CreateHITWithHITTypeRequest = (
   input: CreateHITWithHITTypeRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AssignmentReviewPolicy !== undefined) {
-    bodyParams["AssignmentReviewPolicy"] = serializeAws_json1_1ReviewPolicy(
-      input.AssignmentReviewPolicy,
-      context
-    );
-  }
-  if (input.HITLayoutId !== undefined) {
-    bodyParams["HITLayoutId"] = input.HITLayoutId;
-  }
-  if (input.HITLayoutParameters !== undefined) {
-    bodyParams[
-      "HITLayoutParameters"
-    ] = serializeAws_json1_1HITLayoutParameterList(
-      input.HITLayoutParameters,
-      context
-    );
-  }
-  if (input.HITReviewPolicy !== undefined) {
-    bodyParams["HITReviewPolicy"] = serializeAws_json1_1ReviewPolicy(
-      input.HITReviewPolicy,
-      context
-    );
-  }
-  if (input.HITTypeId !== undefined) {
-    bodyParams["HITTypeId"] = input.HITTypeId;
-  }
-  if (input.LifetimeInSeconds !== undefined) {
-    bodyParams["LifetimeInSeconds"] = input.LifetimeInSeconds;
-  }
-  if (input.MaxAssignments !== undefined) {
-    bodyParams["MaxAssignments"] = input.MaxAssignments;
-  }
-  if (input.Question !== undefined) {
-    bodyParams["Question"] = input.Question;
-  }
-  if (input.RequesterAnnotation !== undefined) {
-    bodyParams["RequesterAnnotation"] = input.RequesterAnnotation;
-  }
-  if (input.UniqueRequestToken !== undefined) {
-    bodyParams["UniqueRequestToken"] = input.UniqueRequestToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.AssignmentReviewPolicy !== undefined && {
+      AssignmentReviewPolicy: serializeAws_json1_1ReviewPolicy(
+        input.AssignmentReviewPolicy,
+        context
+      )
+    }),
+    ...(input.HITLayoutId !== undefined && { HITLayoutId: input.HITLayoutId }),
+    ...(input.HITLayoutParameters !== undefined && {
+      HITLayoutParameters: serializeAws_json1_1HITLayoutParameterList(
+        input.HITLayoutParameters,
+        context
+      )
+    }),
+    ...(input.HITReviewPolicy !== undefined && {
+      HITReviewPolicy: serializeAws_json1_1ReviewPolicy(
+        input.HITReviewPolicy,
+        context
+      )
+    }),
+    ...(input.HITTypeId !== undefined && { HITTypeId: input.HITTypeId }),
+    ...(input.LifetimeInSeconds !== undefined && {
+      LifetimeInSeconds: input.LifetimeInSeconds
+    }),
+    ...(input.MaxAssignments !== undefined && {
+      MaxAssignments: input.MaxAssignments
+    }),
+    ...(input.Question !== undefined && { Question: input.Question }),
+    ...(input.RequesterAnnotation !== undefined && {
+      RequesterAnnotation: input.RequesterAnnotation
+    }),
+    ...(input.UniqueRequestToken !== undefined && {
+      UniqueRequestToken: input.UniqueRequestToken
+    })
+  };
 };
 
 const serializeAws_json1_1CreateQualificationTypeRequest = (
   input: CreateQualificationTypeRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AnswerKey !== undefined) {
-    bodyParams["AnswerKey"] = input.AnswerKey;
-  }
-  if (input.AutoGranted !== undefined) {
-    bodyParams["AutoGranted"] = input.AutoGranted;
-  }
-  if (input.AutoGrantedValue !== undefined) {
-    bodyParams["AutoGrantedValue"] = input.AutoGrantedValue;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Keywords !== undefined) {
-    bodyParams["Keywords"] = input.Keywords;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.QualificationTypeStatus !== undefined) {
-    bodyParams["QualificationTypeStatus"] = input.QualificationTypeStatus;
-  }
-  if (input.RetryDelayInSeconds !== undefined) {
-    bodyParams["RetryDelayInSeconds"] = input.RetryDelayInSeconds;
-  }
-  if (input.Test !== undefined) {
-    bodyParams["Test"] = input.Test;
-  }
-  if (input.TestDurationInSeconds !== undefined) {
-    bodyParams["TestDurationInSeconds"] = input.TestDurationInSeconds;
-  }
-  return bodyParams;
+  return {
+    ...(input.AnswerKey !== undefined && { AnswerKey: input.AnswerKey }),
+    ...(input.AutoGranted !== undefined && { AutoGranted: input.AutoGranted }),
+    ...(input.AutoGrantedValue !== undefined && {
+      AutoGrantedValue: input.AutoGrantedValue
+    }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Keywords !== undefined && { Keywords: input.Keywords }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.QualificationTypeStatus !== undefined && {
+      QualificationTypeStatus: input.QualificationTypeStatus
+    }),
+    ...(input.RetryDelayInSeconds !== undefined && {
+      RetryDelayInSeconds: input.RetryDelayInSeconds
+    }),
+    ...(input.Test !== undefined && { Test: input.Test }),
+    ...(input.TestDurationInSeconds !== undefined && {
+      TestDurationInSeconds: input.TestDurationInSeconds
+    })
+  };
 };
 
 const serializeAws_json1_1CreateWorkerBlockRequest = (
   input: CreateWorkerBlockRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Reason !== undefined) {
-    bodyParams["Reason"] = input.Reason;
-  }
-  if (input.WorkerId !== undefined) {
-    bodyParams["WorkerId"] = input.WorkerId;
-  }
-  return bodyParams;
+  return {
+    ...(input.Reason !== undefined && { Reason: input.Reason }),
+    ...(input.WorkerId !== undefined && { WorkerId: input.WorkerId })
+  };
 };
 
 const serializeAws_json1_1CustomerIdList = (
@@ -4066,53 +4009,43 @@ const serializeAws_json1_1DeleteHITRequest = (
   input: DeleteHITRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.HITId !== undefined) {
-    bodyParams["HITId"] = input.HITId;
-  }
-  return bodyParams;
+  return {
+    ...(input.HITId !== undefined && { HITId: input.HITId })
+  };
 };
 
 const serializeAws_json1_1DeleteQualificationTypeRequest = (
   input: DeleteQualificationTypeRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.QualificationTypeId !== undefined) {
-    bodyParams["QualificationTypeId"] = input.QualificationTypeId;
-  }
-  return bodyParams;
+  return {
+    ...(input.QualificationTypeId !== undefined && {
+      QualificationTypeId: input.QualificationTypeId
+    })
+  };
 };
 
 const serializeAws_json1_1DeleteWorkerBlockRequest = (
   input: DeleteWorkerBlockRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Reason !== undefined) {
-    bodyParams["Reason"] = input.Reason;
-  }
-  if (input.WorkerId !== undefined) {
-    bodyParams["WorkerId"] = input.WorkerId;
-  }
-  return bodyParams;
+  return {
+    ...(input.Reason !== undefined && { Reason: input.Reason }),
+    ...(input.WorkerId !== undefined && { WorkerId: input.WorkerId })
+  };
 };
 
 const serializeAws_json1_1DisassociateQualificationFromWorkerRequest = (
   input: DisassociateQualificationFromWorkerRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.QualificationTypeId !== undefined) {
-    bodyParams["QualificationTypeId"] = input.QualificationTypeId;
-  }
-  if (input.Reason !== undefined) {
-    bodyParams["Reason"] = input.Reason;
-  }
-  if (input.WorkerId !== undefined) {
-    bodyParams["WorkerId"] = input.WorkerId;
-  }
-  return bodyParams;
+  return {
+    ...(input.QualificationTypeId !== undefined && {
+      QualificationTypeId: input.QualificationTypeId
+    }),
+    ...(input.Reason !== undefined && { Reason: input.Reason }),
+    ...(input.WorkerId !== undefined && { WorkerId: input.WorkerId })
+  };
 };
 
 const serializeAws_json1_1EventTypeList = (
@@ -4126,83 +4059,74 @@ const serializeAws_json1_1GetAccountBalanceRequest = (
   input: GetAccountBalanceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  return bodyParams;
+  return {};
 };
 
 const serializeAws_json1_1GetAssignmentRequest = (
   input: GetAssignmentRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AssignmentId !== undefined) {
-    bodyParams["AssignmentId"] = input.AssignmentId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AssignmentId !== undefined && {
+      AssignmentId: input.AssignmentId
+    })
+  };
 };
 
 const serializeAws_json1_1GetFileUploadURLRequest = (
   input: GetFileUploadURLRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AssignmentId !== undefined) {
-    bodyParams["AssignmentId"] = input.AssignmentId;
-  }
-  if (input.QuestionIdentifier !== undefined) {
-    bodyParams["QuestionIdentifier"] = input.QuestionIdentifier;
-  }
-  return bodyParams;
+  return {
+    ...(input.AssignmentId !== undefined && {
+      AssignmentId: input.AssignmentId
+    }),
+    ...(input.QuestionIdentifier !== undefined && {
+      QuestionIdentifier: input.QuestionIdentifier
+    })
+  };
 };
 
 const serializeAws_json1_1GetHITRequest = (
   input: GetHITRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.HITId !== undefined) {
-    bodyParams["HITId"] = input.HITId;
-  }
-  return bodyParams;
+  return {
+    ...(input.HITId !== undefined && { HITId: input.HITId })
+  };
 };
 
 const serializeAws_json1_1GetQualificationScoreRequest = (
   input: GetQualificationScoreRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.QualificationTypeId !== undefined) {
-    bodyParams["QualificationTypeId"] = input.QualificationTypeId;
-  }
-  if (input.WorkerId !== undefined) {
-    bodyParams["WorkerId"] = input.WorkerId;
-  }
-  return bodyParams;
+  return {
+    ...(input.QualificationTypeId !== undefined && {
+      QualificationTypeId: input.QualificationTypeId
+    }),
+    ...(input.WorkerId !== undefined && { WorkerId: input.WorkerId })
+  };
 };
 
 const serializeAws_json1_1GetQualificationTypeRequest = (
   input: GetQualificationTypeRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.QualificationTypeId !== undefined) {
-    bodyParams["QualificationTypeId"] = input.QualificationTypeId;
-  }
-  return bodyParams;
+  return {
+    ...(input.QualificationTypeId !== undefined && {
+      QualificationTypeId: input.QualificationTypeId
+    })
+  };
 };
 
 const serializeAws_json1_1HITLayoutParameter = (
   input: HITLayoutParameter,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_json1_1HITLayoutParameterList = (
@@ -4225,211 +4149,153 @@ const serializeAws_json1_1ListAssignmentsForHITRequest = (
   input: ListAssignmentsForHITRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AssignmentStatuses !== undefined) {
-    bodyParams["AssignmentStatuses"] = serializeAws_json1_1AssignmentStatusList(
-      input.AssignmentStatuses,
-      context
-    );
-  }
-  if (input.HITId !== undefined) {
-    bodyParams["HITId"] = input.HITId;
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.AssignmentStatuses !== undefined && {
+      AssignmentStatuses: serializeAws_json1_1AssignmentStatusList(
+        input.AssignmentStatuses,
+        context
+      )
+    }),
+    ...(input.HITId !== undefined && { HITId: input.HITId }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1ListBonusPaymentsRequest = (
   input: ListBonusPaymentsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AssignmentId !== undefined) {
-    bodyParams["AssignmentId"] = input.AssignmentId;
-  }
-  if (input.HITId !== undefined) {
-    bodyParams["HITId"] = input.HITId;
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.AssignmentId !== undefined && {
+      AssignmentId: input.AssignmentId
+    }),
+    ...(input.HITId !== undefined && { HITId: input.HITId }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1ListHITsForQualificationTypeRequest = (
   input: ListHITsForQualificationTypeRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.QualificationTypeId !== undefined) {
-    bodyParams["QualificationTypeId"] = input.QualificationTypeId;
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.QualificationTypeId !== undefined && {
+      QualificationTypeId: input.QualificationTypeId
+    })
+  };
 };
 
 const serializeAws_json1_1ListHITsRequest = (
   input: ListHITsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1ListQualificationRequestsRequest = (
   input: ListQualificationRequestsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.QualificationTypeId !== undefined) {
-    bodyParams["QualificationTypeId"] = input.QualificationTypeId;
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.QualificationTypeId !== undefined && {
+      QualificationTypeId: input.QualificationTypeId
+    })
+  };
 };
 
 const serializeAws_json1_1ListQualificationTypesRequest = (
   input: ListQualificationTypesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.MustBeOwnedByCaller !== undefined) {
-    bodyParams["MustBeOwnedByCaller"] = input.MustBeOwnedByCaller;
-  }
-  if (input.MustBeRequestable !== undefined) {
-    bodyParams["MustBeRequestable"] = input.MustBeRequestable;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.Query !== undefined) {
-    bodyParams["Query"] = input.Query;
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.MustBeOwnedByCaller !== undefined && {
+      MustBeOwnedByCaller: input.MustBeOwnedByCaller
+    }),
+    ...(input.MustBeRequestable !== undefined && {
+      MustBeRequestable: input.MustBeRequestable
+    }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Query !== undefined && { Query: input.Query })
+  };
 };
 
 const serializeAws_json1_1ListReviewPolicyResultsForHITRequest = (
   input: ListReviewPolicyResultsForHITRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.HITId !== undefined) {
-    bodyParams["HITId"] = input.HITId;
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.PolicyLevels !== undefined) {
-    bodyParams["PolicyLevels"] = serializeAws_json1_1ReviewPolicyLevelList(
-      input.PolicyLevels,
-      context
-    );
-  }
-  if (input.RetrieveActions !== undefined) {
-    bodyParams["RetrieveActions"] = input.RetrieveActions;
-  }
-  if (input.RetrieveResults !== undefined) {
-    bodyParams["RetrieveResults"] = input.RetrieveResults;
-  }
-  return bodyParams;
+  return {
+    ...(input.HITId !== undefined && { HITId: input.HITId }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.PolicyLevels !== undefined && {
+      PolicyLevels: serializeAws_json1_1ReviewPolicyLevelList(
+        input.PolicyLevels,
+        context
+      )
+    }),
+    ...(input.RetrieveActions !== undefined && {
+      RetrieveActions: input.RetrieveActions
+    }),
+    ...(input.RetrieveResults !== undefined && {
+      RetrieveResults: input.RetrieveResults
+    })
+  };
 };
 
 const serializeAws_json1_1ListReviewableHITsRequest = (
   input: ListReviewableHITsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.HITTypeId !== undefined) {
-    bodyParams["HITTypeId"] = input.HITTypeId;
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.Status !== undefined) {
-    bodyParams["Status"] = input.Status;
-  }
-  return bodyParams;
+  return {
+    ...(input.HITTypeId !== undefined && { HITTypeId: input.HITTypeId }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Status !== undefined && { Status: input.Status })
+  };
 };
 
 const serializeAws_json1_1ListWorkerBlocksRequest = (
   input: ListWorkerBlocksRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1ListWorkersWithQualificationTypeRequest = (
   input: ListWorkersWithQualificationTypeRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.QualificationTypeId !== undefined) {
-    bodyParams["QualificationTypeId"] = input.QualificationTypeId;
-  }
-  if (input.Status !== undefined) {
-    bodyParams["Status"] = input.Status;
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.QualificationTypeId !== undefined && {
+      QualificationTypeId: input.QualificationTypeId
+    }),
+    ...(input.Status !== undefined && { Status: input.Status })
+  };
 };
 
 const serializeAws_json1_1Locale = (
   input: Locale,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Country !== undefined) {
-    bodyParams["Country"] = input.Country;
-  }
-  if (input.Subdivision !== undefined) {
-    bodyParams["Subdivision"] = input.Subdivision;
-  }
-  return bodyParams;
+  return {
+    ...(input.Country !== undefined && { Country: input.Country }),
+    ...(input.Subdivision !== undefined && { Subdivision: input.Subdivision })
+  };
 };
 
 const serializeAws_json1_1LocaleList = (
@@ -4443,60 +4309,39 @@ const serializeAws_json1_1NotificationSpecification = (
   input: NotificationSpecification,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Destination !== undefined) {
-    bodyParams["Destination"] = input.Destination;
-  }
-  if (input.EventTypes !== undefined) {
-    bodyParams["EventTypes"] = serializeAws_json1_1EventTypeList(
-      input.EventTypes,
-      context
-    );
-  }
-  if (input.Transport !== undefined) {
-    bodyParams["Transport"] = input.Transport;
-  }
-  if (input.Version !== undefined) {
-    bodyParams["Version"] = input.Version;
-  }
-  return bodyParams;
+  return {
+    ...(input.Destination !== undefined && { Destination: input.Destination }),
+    ...(input.EventTypes !== undefined && {
+      EventTypes: serializeAws_json1_1EventTypeList(input.EventTypes, context)
+    }),
+    ...(input.Transport !== undefined && { Transport: input.Transport }),
+    ...(input.Version !== undefined && { Version: input.Version })
+  };
 };
 
 const serializeAws_json1_1NotifyWorkersRequest = (
   input: NotifyWorkersRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MessageText !== undefined) {
-    bodyParams["MessageText"] = input.MessageText;
-  }
-  if (input.Subject !== undefined) {
-    bodyParams["Subject"] = input.Subject;
-  }
-  if (input.WorkerIds !== undefined) {
-    bodyParams["WorkerIds"] = serializeAws_json1_1CustomerIdList(
-      input.WorkerIds,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.MessageText !== undefined && { MessageText: input.MessageText }),
+    ...(input.Subject !== undefined && { Subject: input.Subject }),
+    ...(input.WorkerIds !== undefined && {
+      WorkerIds: serializeAws_json1_1CustomerIdList(input.WorkerIds, context)
+    })
+  };
 };
 
 const serializeAws_json1_1ParameterMapEntry = (
   input: ParameterMapEntry,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.Values !== undefined) {
-    bodyParams["Values"] = serializeAws_json1_1StringList(
-      input.Values,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Values !== undefined && {
+      Values: serializeAws_json1_1StringList(input.Values, context)
+    })
+  };
 };
 
 const serializeAws_json1_1ParameterMapEntryList = (
@@ -4512,23 +4357,18 @@ const serializeAws_json1_1PolicyParameter = (
   input: PolicyParameter,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.MapEntries !== undefined) {
-    bodyParams["MapEntries"] = serializeAws_json1_1ParameterMapEntryList(
-      input.MapEntries,
-      context
-    );
-  }
-  if (input.Values !== undefined) {
-    bodyParams["Values"] = serializeAws_json1_1StringList(
-      input.Values,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.MapEntries !== undefined && {
+      MapEntries: serializeAws_json1_1ParameterMapEntryList(
+        input.MapEntries,
+        context
+      )
+    }),
+    ...(input.Values !== undefined && {
+      Values: serializeAws_json1_1StringList(input.Values, context)
+    })
+  };
 };
 
 const serializeAws_json1_1PolicyParameterList = (
@@ -4544,32 +4384,27 @@ const serializeAws_json1_1QualificationRequirement = (
   input: QualificationRequirement,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ActionsGuarded !== undefined) {
-    bodyParams["ActionsGuarded"] = input.ActionsGuarded;
-  }
-  if (input.Comparator !== undefined) {
-    bodyParams["Comparator"] = input.Comparator;
-  }
-  if (input.IntegerValues !== undefined) {
-    bodyParams["IntegerValues"] = serializeAws_json1_1IntegerList(
-      input.IntegerValues,
-      context
-    );
-  }
-  if (input.LocaleValues !== undefined) {
-    bodyParams["LocaleValues"] = serializeAws_json1_1LocaleList(
-      input.LocaleValues,
-      context
-    );
-  }
-  if (input.QualificationTypeId !== undefined) {
-    bodyParams["QualificationTypeId"] = input.QualificationTypeId;
-  }
-  if (input.RequiredToPreview !== undefined) {
-    bodyParams["RequiredToPreview"] = input.RequiredToPreview;
-  }
-  return bodyParams;
+  return {
+    ...(input.ActionsGuarded !== undefined && {
+      ActionsGuarded: input.ActionsGuarded
+    }),
+    ...(input.Comparator !== undefined && { Comparator: input.Comparator }),
+    ...(input.IntegerValues !== undefined && {
+      IntegerValues: serializeAws_json1_1IntegerList(
+        input.IntegerValues,
+        context
+      )
+    }),
+    ...(input.LocaleValues !== undefined && {
+      LocaleValues: serializeAws_json1_1LocaleList(input.LocaleValues, context)
+    }),
+    ...(input.QualificationTypeId !== undefined && {
+      QualificationTypeId: input.QualificationTypeId
+    }),
+    ...(input.RequiredToPreview !== undefined && {
+      RequiredToPreview: input.RequiredToPreview
+    })
+  };
 };
 
 const serializeAws_json1_1QualificationRequirementList = (
@@ -4585,45 +4420,41 @@ const serializeAws_json1_1RejectAssignmentRequest = (
   input: RejectAssignmentRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AssignmentId !== undefined) {
-    bodyParams["AssignmentId"] = input.AssignmentId;
-  }
-  if (input.RequesterFeedback !== undefined) {
-    bodyParams["RequesterFeedback"] = input.RequesterFeedback;
-  }
-  return bodyParams;
+  return {
+    ...(input.AssignmentId !== undefined && {
+      AssignmentId: input.AssignmentId
+    }),
+    ...(input.RequesterFeedback !== undefined && {
+      RequesterFeedback: input.RequesterFeedback
+    })
+  };
 };
 
 const serializeAws_json1_1RejectQualificationRequestRequest = (
   input: RejectQualificationRequestRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.QualificationRequestId !== undefined) {
-    bodyParams["QualificationRequestId"] = input.QualificationRequestId;
-  }
-  if (input.Reason !== undefined) {
-    bodyParams["Reason"] = input.Reason;
-  }
-  return bodyParams;
+  return {
+    ...(input.QualificationRequestId !== undefined && {
+      QualificationRequestId: input.QualificationRequestId
+    }),
+    ...(input.Reason !== undefined && { Reason: input.Reason })
+  };
 };
 
 const serializeAws_json1_1ReviewPolicy = (
   input: ReviewPolicy,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Parameters !== undefined) {
-    bodyParams["Parameters"] = serializeAws_json1_1PolicyParameterList(
-      input.Parameters,
-      context
-    );
-  }
-  if (input.PolicyName !== undefined) {
-    bodyParams["PolicyName"] = input.PolicyName;
-  }
-  return bodyParams;
+  return {
+    ...(input.Parameters !== undefined && {
+      Parameters: serializeAws_json1_1PolicyParameterList(
+        input.Parameters,
+        context
+      )
+    }),
+    ...(input.PolicyName !== undefined && { PolicyName: input.PolicyName })
+  };
 };
 
 const serializeAws_json1_1ReviewPolicyLevelList = (
@@ -4637,40 +4468,34 @@ const serializeAws_json1_1SendBonusRequest = (
   input: SendBonusRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AssignmentId !== undefined) {
-    bodyParams["AssignmentId"] = input.AssignmentId;
-  }
-  if (input.BonusAmount !== undefined) {
-    bodyParams["BonusAmount"] = input.BonusAmount;
-  }
-  if (input.Reason !== undefined) {
-    bodyParams["Reason"] = input.Reason;
-  }
-  if (input.UniqueRequestToken !== undefined) {
-    bodyParams["UniqueRequestToken"] = input.UniqueRequestToken;
-  }
-  if (input.WorkerId !== undefined) {
-    bodyParams["WorkerId"] = input.WorkerId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AssignmentId !== undefined && {
+      AssignmentId: input.AssignmentId
+    }),
+    ...(input.BonusAmount !== undefined && { BonusAmount: input.BonusAmount }),
+    ...(input.Reason !== undefined && { Reason: input.Reason }),
+    ...(input.UniqueRequestToken !== undefined && {
+      UniqueRequestToken: input.UniqueRequestToken
+    }),
+    ...(input.WorkerId !== undefined && { WorkerId: input.WorkerId })
+  };
 };
 
 const serializeAws_json1_1SendTestEventNotificationRequest = (
   input: SendTestEventNotificationRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Notification !== undefined) {
-    bodyParams["Notification"] = serializeAws_json1_1NotificationSpecification(
-      input.Notification,
-      context
-    );
-  }
-  if (input.TestEventType !== undefined) {
-    bodyParams["TestEventType"] = input.TestEventType;
-  }
-  return bodyParams;
+  return {
+    ...(input.Notification !== undefined && {
+      Notification: serializeAws_json1_1NotificationSpecification(
+        input.Notification,
+        context
+      )
+    }),
+    ...(input.TestEventType !== undefined && {
+      TestEventType: input.TestEventType
+    })
+  };
 };
 
 const serializeAws_json1_1StringList = (
@@ -4684,97 +4509,75 @@ const serializeAws_json1_1UpdateExpirationForHITRequest = (
   input: UpdateExpirationForHITRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ExpireAt !== undefined) {
-    bodyParams["ExpireAt"] = Math.round(input.ExpireAt.getTime() / 1000);
-  }
-  if (input.HITId !== undefined) {
-    bodyParams["HITId"] = input.HITId;
-  }
-  return bodyParams;
+  return {
+    ...(input.ExpireAt !== undefined && {
+      ExpireAt: Math.round(input.ExpireAt.getTime() / 1000)
+    }),
+    ...(input.HITId !== undefined && { HITId: input.HITId })
+  };
 };
 
 const serializeAws_json1_1UpdateHITReviewStatusRequest = (
   input: UpdateHITReviewStatusRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.HITId !== undefined) {
-    bodyParams["HITId"] = input.HITId;
-  }
-  if (input.Revert !== undefined) {
-    bodyParams["Revert"] = input.Revert;
-  }
-  return bodyParams;
+  return {
+    ...(input.HITId !== undefined && { HITId: input.HITId }),
+    ...(input.Revert !== undefined && { Revert: input.Revert })
+  };
 };
 
 const serializeAws_json1_1UpdateHITTypeOfHITRequest = (
   input: UpdateHITTypeOfHITRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.HITId !== undefined) {
-    bodyParams["HITId"] = input.HITId;
-  }
-  if (input.HITTypeId !== undefined) {
-    bodyParams["HITTypeId"] = input.HITTypeId;
-  }
-  return bodyParams;
+  return {
+    ...(input.HITId !== undefined && { HITId: input.HITId }),
+    ...(input.HITTypeId !== undefined && { HITTypeId: input.HITTypeId })
+  };
 };
 
 const serializeAws_json1_1UpdateNotificationSettingsRequest = (
   input: UpdateNotificationSettingsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Active !== undefined) {
-    bodyParams["Active"] = input.Active;
-  }
-  if (input.HITTypeId !== undefined) {
-    bodyParams["HITTypeId"] = input.HITTypeId;
-  }
-  if (input.Notification !== undefined) {
-    bodyParams["Notification"] = serializeAws_json1_1NotificationSpecification(
-      input.Notification,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Active !== undefined && { Active: input.Active }),
+    ...(input.HITTypeId !== undefined && { HITTypeId: input.HITTypeId }),
+    ...(input.Notification !== undefined && {
+      Notification: serializeAws_json1_1NotificationSpecification(
+        input.Notification,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1UpdateQualificationTypeRequest = (
   input: UpdateQualificationTypeRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AnswerKey !== undefined) {
-    bodyParams["AnswerKey"] = input.AnswerKey;
-  }
-  if (input.AutoGranted !== undefined) {
-    bodyParams["AutoGranted"] = input.AutoGranted;
-  }
-  if (input.AutoGrantedValue !== undefined) {
-    bodyParams["AutoGrantedValue"] = input.AutoGrantedValue;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.QualificationTypeId !== undefined) {
-    bodyParams["QualificationTypeId"] = input.QualificationTypeId;
-  }
-  if (input.QualificationTypeStatus !== undefined) {
-    bodyParams["QualificationTypeStatus"] = input.QualificationTypeStatus;
-  }
-  if (input.RetryDelayInSeconds !== undefined) {
-    bodyParams["RetryDelayInSeconds"] = input.RetryDelayInSeconds;
-  }
-  if (input.Test !== undefined) {
-    bodyParams["Test"] = input.Test;
-  }
-  if (input.TestDurationInSeconds !== undefined) {
-    bodyParams["TestDurationInSeconds"] = input.TestDurationInSeconds;
-  }
-  return bodyParams;
+  return {
+    ...(input.AnswerKey !== undefined && { AnswerKey: input.AnswerKey }),
+    ...(input.AutoGranted !== undefined && { AutoGranted: input.AutoGranted }),
+    ...(input.AutoGrantedValue !== undefined && {
+      AutoGrantedValue: input.AutoGrantedValue
+    }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.QualificationTypeId !== undefined && {
+      QualificationTypeId: input.QualificationTypeId
+    }),
+    ...(input.QualificationTypeStatus !== undefined && {
+      QualificationTypeStatus: input.QualificationTypeStatus
+    }),
+    ...(input.RetryDelayInSeconds !== undefined && {
+      RetryDelayInSeconds: input.RetryDelayInSeconds
+    }),
+    ...(input.Test !== undefined && { Test: input.Test }),
+    ...(input.TestDurationInSeconds !== undefined && {
+      TestDurationInSeconds: input.TestDurationInSeconds
+    })
+  };
 };
 
 const deserializeAws_json1_1AcceptQualificationRequestResponse = (

@@ -284,143 +284,117 @@ const serializeAws_json1_1EmptyStruct = (
   input: EmptyStruct,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  return bodyParams;
+  return {};
 };
 
 const serializeAws_json1_1KitchenSink = (
   input: KitchenSink,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Blob !== undefined) {
-    bodyParams["Blob"] = context.base64Encoder(input.Blob);
-  }
-  if (input.Boolean !== undefined) {
-    bodyParams["Boolean"] = input.Boolean;
-  }
-  if (input.Double !== undefined) {
-    bodyParams["Double"] = input.Double;
-  }
-  if (input.EmptyStruct !== undefined) {
-    bodyParams["EmptyStruct"] = serializeAws_json1_1EmptyStruct(
-      input.EmptyStruct,
-      context
-    );
-  }
-  if (input.Float !== undefined) {
-    bodyParams["Float"] = input.Float;
-  }
-  if (input.HttpdateTimestamp !== undefined) {
-    bodyParams["HttpdateTimestamp"] = __dateToUtcString(
-      input.HttpdateTimestamp
-    );
-  }
-  if (input.Integer !== undefined) {
-    bodyParams["Integer"] = input.Integer;
-  }
-  if (input.Iso8601Timestamp !== undefined) {
-    bodyParams["Iso8601Timestamp"] =
-      input.Iso8601Timestamp.toISOString().split(".")[0] + "Z";
-  }
-  if (input.JsonValue !== undefined) {
-    bodyParams["JsonValue"] = __LazyJsonString.fromObject(input.JsonValue);
-  }
-  if (input.ListOfLists !== undefined) {
-    bodyParams["ListOfLists"] = serializeAws_json1_1ListOfListOfStrings(
-      input.ListOfLists,
-      context
-    );
-  }
-  if (input.ListOfMapsOfStrings !== undefined) {
-    bodyParams["ListOfMapsOfStrings"] = serializeAws_json1_1ListOfMapsOfStrings(
-      input.ListOfMapsOfStrings,
-      context
-    );
-  }
-  if (input.ListOfStrings !== undefined) {
-    bodyParams["ListOfStrings"] = serializeAws_json1_1ListOfStrings(
-      input.ListOfStrings,
-      context
-    );
-  }
-  if (input.ListOfStructs !== undefined) {
-    bodyParams["ListOfStructs"] = serializeAws_json1_1ListOfStructs(
-      input.ListOfStructs,
-      context
-    );
-  }
-  if (input.Long !== undefined) {
-    bodyParams["Long"] = input.Long;
-  }
-  if (input.MapOfListsOfStrings !== undefined) {
-    bodyParams["MapOfListsOfStrings"] = serializeAws_json1_1MapOfListsOfStrings(
-      input.MapOfListsOfStrings,
-      context
-    );
-  }
-  if (input.MapOfMaps !== undefined) {
-    bodyParams["MapOfMaps"] = serializeAws_json1_1MapOfMapOfStrings(
-      input.MapOfMaps,
-      context
-    );
-  }
-  if (input.MapOfStrings !== undefined) {
-    bodyParams["MapOfStrings"] = serializeAws_json1_1MapOfStrings(
-      input.MapOfStrings,
-      context
-    );
-  }
-  if (input.MapOfStructs !== undefined) {
-    bodyParams["MapOfStructs"] = serializeAws_json1_1MapOfStructs(
-      input.MapOfStructs,
-      context
-    );
-  }
-  if (input.RecursiveList !== undefined) {
-    bodyParams["RecursiveList"] = serializeAws_json1_1ListOfKitchenSinks(
-      input.RecursiveList,
-      context
-    );
-  }
-  if (input.RecursiveMap !== undefined) {
-    bodyParams["RecursiveMap"] = serializeAws_json1_1MapOfKitchenSinks(
-      input.RecursiveMap,
-      context
-    );
-  }
-  if (input.RecursiveStruct !== undefined) {
-    bodyParams["RecursiveStruct"] = serializeAws_json1_1KitchenSink(
-      input.RecursiveStruct,
-      context
-    );
-  }
-  if (input.SimpleStruct !== undefined) {
-    bodyParams["SimpleStruct"] = serializeAws_json1_1SimpleStruct(
-      input.SimpleStruct,
-      context
-    );
-  }
-  if (input.String !== undefined) {
-    bodyParams["String"] = input.String;
-  }
-  if (input.StructWithLocationName !== undefined) {
-    bodyParams[
-      "StructWithLocationName"
-    ] = serializeAws_json1_1StructWithLocationName(
-      input.StructWithLocationName,
-      context
-    );
-  }
-  if (input.Timestamp !== undefined) {
-    bodyParams["Timestamp"] = Math.round(input.Timestamp.getTime() / 1000);
-  }
-  if (input.UnixTimestamp !== undefined) {
-    bodyParams["UnixTimestamp"] = Math.round(
-      input.UnixTimestamp.getTime() / 1000
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Blob !== undefined && {
+      Blob: context.base64Encoder(input.Blob)
+    }),
+    ...(input.Boolean !== undefined && { Boolean: input.Boolean }),
+    ...(input.Double !== undefined && { Double: input.Double }),
+    ...(input.EmptyStruct !== undefined && {
+      EmptyStruct: serializeAws_json1_1EmptyStruct(input.EmptyStruct, context)
+    }),
+    ...(input.Float !== undefined && { Float: input.Float }),
+    ...(input.HttpdateTimestamp !== undefined && {
+      HttpdateTimestamp: __dateToUtcString(input.HttpdateTimestamp)
+    }),
+    ...(input.Integer !== undefined && { Integer: input.Integer }),
+    ...(input.Iso8601Timestamp !== undefined && {
+      Iso8601Timestamp: input.Iso8601Timestamp.toISOString().split(".")[0] + "Z"
+    }),
+    ...(input.JsonValue !== undefined && {
+      JsonValue: __LazyJsonString.fromObject(input.JsonValue)
+    }),
+    ...(input.ListOfLists !== undefined && {
+      ListOfLists: serializeAws_json1_1ListOfListOfStrings(
+        input.ListOfLists,
+        context
+      )
+    }),
+    ...(input.ListOfMapsOfStrings !== undefined && {
+      ListOfMapsOfStrings: serializeAws_json1_1ListOfMapsOfStrings(
+        input.ListOfMapsOfStrings,
+        context
+      )
+    }),
+    ...(input.ListOfStrings !== undefined && {
+      ListOfStrings: serializeAws_json1_1ListOfStrings(
+        input.ListOfStrings,
+        context
+      )
+    }),
+    ...(input.ListOfStructs !== undefined && {
+      ListOfStructs: serializeAws_json1_1ListOfStructs(
+        input.ListOfStructs,
+        context
+      )
+    }),
+    ...(input.Long !== undefined && { Long: input.Long }),
+    ...(input.MapOfListsOfStrings !== undefined && {
+      MapOfListsOfStrings: serializeAws_json1_1MapOfListsOfStrings(
+        input.MapOfListsOfStrings,
+        context
+      )
+    }),
+    ...(input.MapOfMaps !== undefined && {
+      MapOfMaps: serializeAws_json1_1MapOfMapOfStrings(input.MapOfMaps, context)
+    }),
+    ...(input.MapOfStrings !== undefined && {
+      MapOfStrings: serializeAws_json1_1MapOfStrings(
+        input.MapOfStrings,
+        context
+      )
+    }),
+    ...(input.MapOfStructs !== undefined && {
+      MapOfStructs: serializeAws_json1_1MapOfStructs(
+        input.MapOfStructs,
+        context
+      )
+    }),
+    ...(input.RecursiveList !== undefined && {
+      RecursiveList: serializeAws_json1_1ListOfKitchenSinks(
+        input.RecursiveList,
+        context
+      )
+    }),
+    ...(input.RecursiveMap !== undefined && {
+      RecursiveMap: serializeAws_json1_1MapOfKitchenSinks(
+        input.RecursiveMap,
+        context
+      )
+    }),
+    ...(input.RecursiveStruct !== undefined && {
+      RecursiveStruct: serializeAws_json1_1KitchenSink(
+        input.RecursiveStruct,
+        context
+      )
+    }),
+    ...(input.SimpleStruct !== undefined && {
+      SimpleStruct: serializeAws_json1_1SimpleStruct(
+        input.SimpleStruct,
+        context
+      )
+    }),
+    ...(input.String !== undefined && { String: input.String }),
+    ...(input.StructWithLocationName !== undefined && {
+      StructWithLocationName: serializeAws_json1_1StructWithLocationName(
+        input.StructWithLocationName,
+        context
+      )
+    }),
+    ...(input.Timestamp !== undefined && {
+      Timestamp: Math.round(input.Timestamp.getTime() / 1000)
+    }),
+    ...(input.UnixTimestamp !== undefined && {
+      UnixTimestamp: Math.round(input.UnixTimestamp.getTime() / 1000)
+    })
+  };
 };
 
 const serializeAws_json1_1ListOfKitchenSinks = (
@@ -512,22 +486,18 @@ const serializeAws_json1_1SimpleStruct = (
   input: SimpleStruct,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_json1_1StructWithLocationName = (
   input: StructWithLocationName,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Value !== undefined) {
-    bodyParams["RenamedMember"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Value !== undefined && { RenamedMember: input.Value })
+  };
 };
 
 const deserializeAws_json1_1EmptyStruct = (

@@ -1106,14 +1106,12 @@ const serializeAws_restJson1_1SqlParameter = (
   input: SqlParameter,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.value !== undefined) {
-    bodyParams["value"] = serializeAws_restJson1_1Field(input.value, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.value !== undefined && {
+      value: serializeAws_restJson1_1Field(input.value, context)
+    })
+  };
 };
 
 const serializeAws_restJson1_1SqlParameterSets = (

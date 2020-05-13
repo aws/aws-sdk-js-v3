@@ -3089,52 +3089,40 @@ const serializeAws_restJson1_1NestedPayload = (
   input: NestedPayload,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.greeting !== undefined) {
-    bodyParams["greeting"] = input.greeting;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  return bodyParams;
+  return {
+    ...(input.greeting !== undefined && { greeting: input.greeting }),
+    ...(input.name !== undefined && { name: input.name })
+  };
 };
 
 const serializeAws_restJson1_1RecursiveShapesInputOutputNested1 = (
   input: RecursiveShapesInputOutputNested1,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.foo !== undefined) {
-    bodyParams["foo"] = input.foo;
-  }
-  if (input.nested !== undefined) {
-    bodyParams[
-      "nested"
-    ] = serializeAws_restJson1_1RecursiveShapesInputOutputNested2(
-      input.nested,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.foo !== undefined && { foo: input.foo }),
+    ...(input.nested !== undefined && {
+      nested: serializeAws_restJson1_1RecursiveShapesInputOutputNested2(
+        input.nested,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1RecursiveShapesInputOutputNested2 = (
   input: RecursiveShapesInputOutputNested2,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.bar !== undefined) {
-    bodyParams["bar"] = input.bar;
-  }
-  if (input.recursiveMember !== undefined) {
-    bodyParams[
-      "recursiveMember"
-    ] = serializeAws_restJson1_1RecursiveShapesInputOutputNested1(
-      input.recursiveMember,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.bar !== undefined && { bar: input.bar }),
+    ...(input.recursiveMember !== undefined && {
+      recursiveMember: serializeAws_restJson1_1RecursiveShapesInputOutputNested1(
+        input.recursiveMember,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1StructureList = (
@@ -3150,14 +3138,10 @@ const serializeAws_restJson1_1StructureListMember = (
   input: StructureListMember,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.a !== undefined) {
-    bodyParams["value"] = input.a;
-  }
-  if (input.b !== undefined) {
-    bodyParams["other"] = input.b;
-  }
-  return bodyParams;
+  return {
+    ...(input.a !== undefined && { value: input.a }),
+    ...(input.b !== undefined && { other: input.b })
+  };
 };
 
 const serializeAws_restJson1_1BooleanList = (
@@ -3195,11 +3179,9 @@ const serializeAws_restJson1_1GreetingStruct = (
   input: GreetingStruct,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.hi !== undefined) {
-    bodyParams["hi"] = input.hi;
-  }
-  return bodyParams;
+  return {
+    ...(input.hi !== undefined && { hi: input.hi })
+  };
 };
 
 const serializeAws_restJson1_1IntegerList = (

@@ -3541,34 +3541,28 @@ const serializeAws_restJson1_1CognitoOptions = (
   input: CognitoOptions,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Enabled !== undefined) {
-    bodyParams["Enabled"] = input.Enabled;
-  }
-  if (input.IdentityPoolId !== undefined) {
-    bodyParams["IdentityPoolId"] = input.IdentityPoolId;
-  }
-  if (input.RoleArn !== undefined) {
-    bodyParams["RoleArn"] = input.RoleArn;
-  }
-  if (input.UserPoolId !== undefined) {
-    bodyParams["UserPoolId"] = input.UserPoolId;
-  }
-  return bodyParams;
+  return {
+    ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
+    ...(input.IdentityPoolId !== undefined && {
+      IdentityPoolId: input.IdentityPoolId
+    }),
+    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
+    ...(input.UserPoolId !== undefined && { UserPoolId: input.UserPoolId })
+  };
 };
 
 const serializeAws_restJson1_1DomainEndpointOptions = (
   input: DomainEndpointOptions,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EnforceHTTPS !== undefined) {
-    bodyParams["EnforceHTTPS"] = input.EnforceHTTPS;
-  }
-  if (input.TLSSecurityPolicy !== undefined) {
-    bodyParams["TLSSecurityPolicy"] = input.TLSSecurityPolicy;
-  }
-  return bodyParams;
+  return {
+    ...(input.EnforceHTTPS !== undefined && {
+      EnforceHTTPS: input.EnforceHTTPS
+    }),
+    ...(input.TLSSecurityPolicy !== undefined && {
+      TLSSecurityPolicy: input.TLSSecurityPolicy
+    })
+  };
 };
 
 const serializeAws_restJson1_1DomainNameList = (
@@ -3582,91 +3576,69 @@ const serializeAws_restJson1_1EBSOptions = (
   input: EBSOptions,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EBSEnabled !== undefined) {
-    bodyParams["EBSEnabled"] = input.EBSEnabled;
-  }
-  if (input.Iops !== undefined) {
-    bodyParams["Iops"] = input.Iops;
-  }
-  if (input.VolumeSize !== undefined) {
-    bodyParams["VolumeSize"] = input.VolumeSize;
-  }
-  if (input.VolumeType !== undefined) {
-    bodyParams["VolumeType"] = input.VolumeType;
-  }
-  return bodyParams;
+  return {
+    ...(input.EBSEnabled !== undefined && { EBSEnabled: input.EBSEnabled }),
+    ...(input.Iops !== undefined && { Iops: input.Iops }),
+    ...(input.VolumeSize !== undefined && { VolumeSize: input.VolumeSize }),
+    ...(input.VolumeType !== undefined && { VolumeType: input.VolumeType })
+  };
 };
 
 const serializeAws_restJson1_1ElasticsearchClusterConfig = (
   input: ElasticsearchClusterConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DedicatedMasterCount !== undefined) {
-    bodyParams["DedicatedMasterCount"] = input.DedicatedMasterCount;
-  }
-  if (input.DedicatedMasterEnabled !== undefined) {
-    bodyParams["DedicatedMasterEnabled"] = input.DedicatedMasterEnabled;
-  }
-  if (input.DedicatedMasterType !== undefined) {
-    bodyParams["DedicatedMasterType"] = input.DedicatedMasterType;
-  }
-  if (input.InstanceCount !== undefined) {
-    bodyParams["InstanceCount"] = input.InstanceCount;
-  }
-  if (input.InstanceType !== undefined) {
-    bodyParams["InstanceType"] = input.InstanceType;
-  }
-  if (input.WarmCount !== undefined) {
-    bodyParams["WarmCount"] = input.WarmCount;
-  }
-  if (input.WarmEnabled !== undefined) {
-    bodyParams["WarmEnabled"] = input.WarmEnabled;
-  }
-  if (input.WarmType !== undefined) {
-    bodyParams["WarmType"] = input.WarmType;
-  }
-  if (input.ZoneAwarenessConfig !== undefined) {
-    bodyParams[
-      "ZoneAwarenessConfig"
-    ] = serializeAws_restJson1_1ZoneAwarenessConfig(
-      input.ZoneAwarenessConfig,
-      context
-    );
-  }
-  if (input.ZoneAwarenessEnabled !== undefined) {
-    bodyParams["ZoneAwarenessEnabled"] = input.ZoneAwarenessEnabled;
-  }
-  return bodyParams;
+  return {
+    ...(input.DedicatedMasterCount !== undefined && {
+      DedicatedMasterCount: input.DedicatedMasterCount
+    }),
+    ...(input.DedicatedMasterEnabled !== undefined && {
+      DedicatedMasterEnabled: input.DedicatedMasterEnabled
+    }),
+    ...(input.DedicatedMasterType !== undefined && {
+      DedicatedMasterType: input.DedicatedMasterType
+    }),
+    ...(input.InstanceCount !== undefined && {
+      InstanceCount: input.InstanceCount
+    }),
+    ...(input.InstanceType !== undefined && {
+      InstanceType: input.InstanceType
+    }),
+    ...(input.WarmCount !== undefined && { WarmCount: input.WarmCount }),
+    ...(input.WarmEnabled !== undefined && { WarmEnabled: input.WarmEnabled }),
+    ...(input.WarmType !== undefined && { WarmType: input.WarmType }),
+    ...(input.ZoneAwarenessConfig !== undefined && {
+      ZoneAwarenessConfig: serializeAws_restJson1_1ZoneAwarenessConfig(
+        input.ZoneAwarenessConfig,
+        context
+      )
+    }),
+    ...(input.ZoneAwarenessEnabled !== undefined && {
+      ZoneAwarenessEnabled: input.ZoneAwarenessEnabled
+    })
+  };
 };
 
 const serializeAws_restJson1_1EncryptionAtRestOptions = (
   input: EncryptionAtRestOptions,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Enabled !== undefined) {
-    bodyParams["Enabled"] = input.Enabled;
-  }
-  if (input.KmsKeyId !== undefined) {
-    bodyParams["KmsKeyId"] = input.KmsKeyId;
-  }
-  return bodyParams;
+  return {
+    ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
+    ...(input.KmsKeyId !== undefined && { KmsKeyId: input.KmsKeyId })
+  };
 };
 
 const serializeAws_restJson1_1LogPublishingOption = (
   input: LogPublishingOption,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CloudWatchLogsLogGroupArn !== undefined) {
-    bodyParams["CloudWatchLogsLogGroupArn"] = input.CloudWatchLogsLogGroupArn;
-  }
-  if (input.Enabled !== undefined) {
-    bodyParams["Enabled"] = input.Enabled;
-  }
-  return bodyParams;
+  return {
+    ...(input.CloudWatchLogsLogGroupArn !== undefined && {
+      CloudWatchLogsLogGroupArn: input.CloudWatchLogsLogGroupArn
+    }),
+    ...(input.Enabled !== undefined && { Enabled: input.Enabled })
+  };
 };
 
 const serializeAws_restJson1_1LogPublishingOptions = (
@@ -3683,22 +3655,20 @@ const serializeAws_restJson1_1NodeToNodeEncryptionOptions = (
   input: NodeToNodeEncryptionOptions,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Enabled !== undefined) {
-    bodyParams["Enabled"] = input.Enabled;
-  }
-  return bodyParams;
+  return {
+    ...(input.Enabled !== undefined && { Enabled: input.Enabled })
+  };
 };
 
 const serializeAws_restJson1_1SnapshotOptions = (
   input: SnapshotOptions,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AutomatedSnapshotStartHour !== undefined) {
-    bodyParams["AutomatedSnapshotStartHour"] = input.AutomatedSnapshotStartHour;
-  }
-  return bodyParams;
+  return {
+    ...(input.AutomatedSnapshotStartHour !== undefined && {
+      AutomatedSnapshotStartHour: input.AutomatedSnapshotStartHour
+    })
+  };
 };
 
 const serializeAws_restJson1_1StringList = (
@@ -3712,14 +3682,10 @@ const serializeAws_restJson1_1Tag = (
   input: Tag,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_restJson1_1TagList = (
@@ -3733,31 +3699,28 @@ const serializeAws_restJson1_1VPCOptions = (
   input: VPCOptions,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.SecurityGroupIds !== undefined) {
-    bodyParams["SecurityGroupIds"] = serializeAws_restJson1_1StringList(
-      input.SecurityGroupIds,
-      context
-    );
-  }
-  if (input.SubnetIds !== undefined) {
-    bodyParams["SubnetIds"] = serializeAws_restJson1_1StringList(
-      input.SubnetIds,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.SecurityGroupIds !== undefined && {
+      SecurityGroupIds: serializeAws_restJson1_1StringList(
+        input.SecurityGroupIds,
+        context
+      )
+    }),
+    ...(input.SubnetIds !== undefined && {
+      SubnetIds: serializeAws_restJson1_1StringList(input.SubnetIds, context)
+    })
+  };
 };
 
 const serializeAws_restJson1_1ZoneAwarenessConfig = (
   input: ZoneAwarenessConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AvailabilityZoneCount !== undefined) {
-    bodyParams["AvailabilityZoneCount"] = input.AvailabilityZoneCount;
-  }
-  return bodyParams;
+  return {
+    ...(input.AvailabilityZoneCount !== undefined && {
+      AvailabilityZoneCount: input.AvailabilityZoneCount
+    })
+  };
 };
 
 const deserializeAws_restJson1_1AccessPoliciesStatus = (

@@ -251,144 +251,126 @@ const serializeAws_json1_0AbortTransactionRequest = (
   input: AbortTransactionRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  return bodyParams;
+  return {};
 };
 
 const serializeAws_json1_0CommitTransactionRequest = (
   input: CommitTransactionRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CommitDigest !== undefined) {
-    bodyParams["CommitDigest"] = context.base64Encoder(input.CommitDigest);
-  }
-  if (input.TransactionId !== undefined) {
-    bodyParams["TransactionId"] = input.TransactionId;
-  }
-  return bodyParams;
+  return {
+    ...(input.CommitDigest !== undefined && {
+      CommitDigest: context.base64Encoder(input.CommitDigest)
+    }),
+    ...(input.TransactionId !== undefined && {
+      TransactionId: input.TransactionId
+    })
+  };
 };
 
 const serializeAws_json1_0EndSessionRequest = (
   input: EndSessionRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  return bodyParams;
+  return {};
 };
 
 const serializeAws_json1_0ExecuteStatementRequest = (
   input: ExecuteStatementRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Parameters !== undefined) {
-    bodyParams["Parameters"] = serializeAws_json1_0StatementParameters(
-      input.Parameters,
-      context
-    );
-  }
-  if (input.Statement !== undefined) {
-    bodyParams["Statement"] = input.Statement;
-  }
-  if (input.TransactionId !== undefined) {
-    bodyParams["TransactionId"] = input.TransactionId;
-  }
-  return bodyParams;
+  return {
+    ...(input.Parameters !== undefined && {
+      Parameters: serializeAws_json1_0StatementParameters(
+        input.Parameters,
+        context
+      )
+    }),
+    ...(input.Statement !== undefined && { Statement: input.Statement }),
+    ...(input.TransactionId !== undefined && {
+      TransactionId: input.TransactionId
+    })
+  };
 };
 
 const serializeAws_json1_0FetchPageRequest = (
   input: FetchPageRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.NextPageToken !== undefined) {
-    bodyParams["NextPageToken"] = input.NextPageToken;
-  }
-  if (input.TransactionId !== undefined) {
-    bodyParams["TransactionId"] = input.TransactionId;
-  }
-  return bodyParams;
+  return {
+    ...(input.NextPageToken !== undefined && {
+      NextPageToken: input.NextPageToken
+    }),
+    ...(input.TransactionId !== undefined && {
+      TransactionId: input.TransactionId
+    })
+  };
 };
 
 const serializeAws_json1_0SendCommandRequest = (
   input: SendCommandRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AbortTransaction !== undefined) {
-    bodyParams[
-      "AbortTransaction"
-    ] = serializeAws_json1_0AbortTransactionRequest(
-      input.AbortTransaction,
-      context
-    );
-  }
-  if (input.CommitTransaction !== undefined) {
-    bodyParams[
-      "CommitTransaction"
-    ] = serializeAws_json1_0CommitTransactionRequest(
-      input.CommitTransaction,
-      context
-    );
-  }
-  if (input.EndSession !== undefined) {
-    bodyParams["EndSession"] = serializeAws_json1_0EndSessionRequest(
-      input.EndSession,
-      context
-    );
-  }
-  if (input.ExecuteStatement !== undefined) {
-    bodyParams[
-      "ExecuteStatement"
-    ] = serializeAws_json1_0ExecuteStatementRequest(
-      input.ExecuteStatement,
-      context
-    );
-  }
-  if (input.FetchPage !== undefined) {
-    bodyParams["FetchPage"] = serializeAws_json1_0FetchPageRequest(
-      input.FetchPage,
-      context
-    );
-  }
-  if (input.SessionToken !== undefined) {
-    bodyParams["SessionToken"] = input.SessionToken;
-  }
-  if (input.StartSession !== undefined) {
-    bodyParams["StartSession"] = serializeAws_json1_0StartSessionRequest(
-      input.StartSession,
-      context
-    );
-  }
-  if (input.StartTransaction !== undefined) {
-    bodyParams[
-      "StartTransaction"
-    ] = serializeAws_json1_0StartTransactionRequest(
-      input.StartTransaction,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.AbortTransaction !== undefined && {
+      AbortTransaction: serializeAws_json1_0AbortTransactionRequest(
+        input.AbortTransaction,
+        context
+      )
+    }),
+    ...(input.CommitTransaction !== undefined && {
+      CommitTransaction: serializeAws_json1_0CommitTransactionRequest(
+        input.CommitTransaction,
+        context
+      )
+    }),
+    ...(input.EndSession !== undefined && {
+      EndSession: serializeAws_json1_0EndSessionRequest(
+        input.EndSession,
+        context
+      )
+    }),
+    ...(input.ExecuteStatement !== undefined && {
+      ExecuteStatement: serializeAws_json1_0ExecuteStatementRequest(
+        input.ExecuteStatement,
+        context
+      )
+    }),
+    ...(input.FetchPage !== undefined && {
+      FetchPage: serializeAws_json1_0FetchPageRequest(input.FetchPage, context)
+    }),
+    ...(input.SessionToken !== undefined && {
+      SessionToken: input.SessionToken
+    }),
+    ...(input.StartSession !== undefined && {
+      StartSession: serializeAws_json1_0StartSessionRequest(
+        input.StartSession,
+        context
+      )
+    }),
+    ...(input.StartTransaction !== undefined && {
+      StartTransaction: serializeAws_json1_0StartTransactionRequest(
+        input.StartTransaction,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_0StartSessionRequest = (
   input: StartSessionRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.LedgerName !== undefined) {
-    bodyParams["LedgerName"] = input.LedgerName;
-  }
-  return bodyParams;
+  return {
+    ...(input.LedgerName !== undefined && { LedgerName: input.LedgerName })
+  };
 };
 
 const serializeAws_json1_0StartTransactionRequest = (
   input: StartTransactionRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  return bodyParams;
+  return {};
 };
 
 const serializeAws_json1_0StatementParameters = (
@@ -402,14 +384,12 @@ const serializeAws_json1_0ValueHolder = (
   input: ValueHolder,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.IonBinary !== undefined) {
-    bodyParams["IonBinary"] = context.base64Encoder(input.IonBinary);
-  }
-  if (input.IonText !== undefined) {
-    bodyParams["IonText"] = input.IonText;
-  }
-  return bodyParams;
+  return {
+    ...(input.IonBinary !== undefined && {
+      IonBinary: context.base64Encoder(input.IonBinary)
+    }),
+    ...(input.IonText !== undefined && { IonText: input.IonText })
+  };
 };
 
 const deserializeAws_json1_0AbortTransactionResult = (

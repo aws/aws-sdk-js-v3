@@ -2267,14 +2267,12 @@ const serializeAws_json1_1CostCategoryRule = (
   input: CostCategoryRule,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Rule !== undefined) {
-    bodyParams["Rule"] = serializeAws_json1_1Expression(input.Rule, context);
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Rule !== undefined && {
+      Rule: serializeAws_json1_1Expression(input.Rule, context)
+    }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_json1_1CostCategoryRulesList = (
@@ -2290,130 +2288,110 @@ const serializeAws_json1_1CostCategoryValues = (
   input: CostCategoryValues,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.Values !== undefined) {
-    bodyParams["Values"] = serializeAws_json1_1Values(input.Values, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Values !== undefined && {
+      Values: serializeAws_json1_1Values(input.Values, context)
+    })
+  };
 };
 
 const serializeAws_json1_1CreateCostCategoryDefinitionRequest = (
   input: CreateCostCategoryDefinitionRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.RuleVersion !== undefined) {
-    bodyParams["RuleVersion"] = input.RuleVersion;
-  }
-  if (input.Rules !== undefined) {
-    bodyParams["Rules"] = serializeAws_json1_1CostCategoryRulesList(
-      input.Rules,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.RuleVersion !== undefined && { RuleVersion: input.RuleVersion }),
+    ...(input.Rules !== undefined && {
+      Rules: serializeAws_json1_1CostCategoryRulesList(input.Rules, context)
+    })
+  };
 };
 
 const serializeAws_json1_1DateInterval = (
   input: DateInterval,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.End !== undefined) {
-    bodyParams["End"] = input.End;
-  }
-  if (input.Start !== undefined) {
-    bodyParams["Start"] = input.Start;
-  }
-  return bodyParams;
+  return {
+    ...(input.End !== undefined && { End: input.End }),
+    ...(input.Start !== undefined && { Start: input.Start })
+  };
 };
 
 const serializeAws_json1_1DeleteCostCategoryDefinitionRequest = (
   input: DeleteCostCategoryDefinitionRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CostCategoryArn !== undefined) {
-    bodyParams["CostCategoryArn"] = input.CostCategoryArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.CostCategoryArn !== undefined && {
+      CostCategoryArn: input.CostCategoryArn
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeCostCategoryDefinitionRequest = (
   input: DescribeCostCategoryDefinitionRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CostCategoryArn !== undefined) {
-    bodyParams["CostCategoryArn"] = input.CostCategoryArn;
-  }
-  if (input.EffectiveOn !== undefined) {
-    bodyParams["EffectiveOn"] = input.EffectiveOn;
-  }
-  return bodyParams;
+  return {
+    ...(input.CostCategoryArn !== undefined && {
+      CostCategoryArn: input.CostCategoryArn
+    }),
+    ...(input.EffectiveOn !== undefined && { EffectiveOn: input.EffectiveOn })
+  };
 };
 
 const serializeAws_json1_1DimensionValues = (
   input: DimensionValues,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.Values !== undefined) {
-    bodyParams["Values"] = serializeAws_json1_1Values(input.Values, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Values !== undefined && {
+      Values: serializeAws_json1_1Values(input.Values, context)
+    })
+  };
 };
 
 const serializeAws_json1_1EC2Specification = (
   input: EC2Specification,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.OfferingClass !== undefined) {
-    bodyParams["OfferingClass"] = input.OfferingClass;
-  }
-  return bodyParams;
+  return {
+    ...(input.OfferingClass !== undefined && {
+      OfferingClass: input.OfferingClass
+    })
+  };
 };
 
 const serializeAws_json1_1Expression = (
   input: Expression,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.And !== undefined) {
-    bodyParams["And"] = serializeAws_json1_1Expressions(input.And, context);
-  }
-  if (input.CostCategories !== undefined) {
-    bodyParams["CostCategories"] = serializeAws_json1_1CostCategoryValues(
-      input.CostCategories,
-      context
-    );
-  }
-  if (input.Dimensions !== undefined) {
-    bodyParams["Dimensions"] = serializeAws_json1_1DimensionValues(
-      input.Dimensions,
-      context
-    );
-  }
-  if (input.Not !== undefined) {
-    bodyParams["Not"] = serializeAws_json1_1Expression(input.Not, context);
-  }
-  if (input.Or !== undefined) {
-    bodyParams["Or"] = serializeAws_json1_1Expressions(input.Or, context);
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1TagValues(input.Tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.And !== undefined && {
+      And: serializeAws_json1_1Expressions(input.And, context)
+    }),
+    ...(input.CostCategories !== undefined && {
+      CostCategories: serializeAws_json1_1CostCategoryValues(
+        input.CostCategories,
+        context
+      )
+    }),
+    ...(input.Dimensions !== undefined && {
+      Dimensions: serializeAws_json1_1DimensionValues(input.Dimensions, context)
+    }),
+    ...(input.Not !== undefined && {
+      Not: serializeAws_json1_1Expression(input.Not, context)
+    }),
+    ...(input.Or !== undefined && {
+      Or: serializeAws_json1_1Expressions(input.Or, context)
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1TagValues(input.Tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_1Expressions = (
@@ -2427,446 +2405,300 @@ const serializeAws_json1_1GetCostAndUsageRequest = (
   input: GetCostAndUsageRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Filter !== undefined) {
-    bodyParams["Filter"] = serializeAws_json1_1Expression(
-      input.Filter,
-      context
-    );
-  }
-  if (input.Granularity !== undefined) {
-    bodyParams["Granularity"] = input.Granularity;
-  }
-  if (input.GroupBy !== undefined) {
-    bodyParams["GroupBy"] = serializeAws_json1_1GroupDefinitions(
-      input.GroupBy,
-      context
-    );
-  }
-  if (input.Metrics !== undefined) {
-    bodyParams["Metrics"] = serializeAws_json1_1MetricNames(
-      input.Metrics,
-      context
-    );
-  }
-  if (input.NextPageToken !== undefined) {
-    bodyParams["NextPageToken"] = input.NextPageToken;
-  }
-  if (input.TimePeriod !== undefined) {
-    bodyParams["TimePeriod"] = serializeAws_json1_1DateInterval(
-      input.TimePeriod,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Filter !== undefined && {
+      Filter: serializeAws_json1_1Expression(input.Filter, context)
+    }),
+    ...(input.Granularity !== undefined && { Granularity: input.Granularity }),
+    ...(input.GroupBy !== undefined && {
+      GroupBy: serializeAws_json1_1GroupDefinitions(input.GroupBy, context)
+    }),
+    ...(input.Metrics !== undefined && {
+      Metrics: serializeAws_json1_1MetricNames(input.Metrics, context)
+    }),
+    ...(input.NextPageToken !== undefined && {
+      NextPageToken: input.NextPageToken
+    }),
+    ...(input.TimePeriod !== undefined && {
+      TimePeriod: serializeAws_json1_1DateInterval(input.TimePeriod, context)
+    })
+  };
 };
 
 const serializeAws_json1_1GetCostAndUsageWithResourcesRequest = (
   input: GetCostAndUsageWithResourcesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Filter !== undefined) {
-    bodyParams["Filter"] = serializeAws_json1_1Expression(
-      input.Filter,
-      context
-    );
-  }
-  if (input.Granularity !== undefined) {
-    bodyParams["Granularity"] = input.Granularity;
-  }
-  if (input.GroupBy !== undefined) {
-    bodyParams["GroupBy"] = serializeAws_json1_1GroupDefinitions(
-      input.GroupBy,
-      context
-    );
-  }
-  if (input.Metrics !== undefined) {
-    bodyParams["Metrics"] = serializeAws_json1_1MetricNames(
-      input.Metrics,
-      context
-    );
-  }
-  if (input.NextPageToken !== undefined) {
-    bodyParams["NextPageToken"] = input.NextPageToken;
-  }
-  if (input.TimePeriod !== undefined) {
-    bodyParams["TimePeriod"] = serializeAws_json1_1DateInterval(
-      input.TimePeriod,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Filter !== undefined && {
+      Filter: serializeAws_json1_1Expression(input.Filter, context)
+    }),
+    ...(input.Granularity !== undefined && { Granularity: input.Granularity }),
+    ...(input.GroupBy !== undefined && {
+      GroupBy: serializeAws_json1_1GroupDefinitions(input.GroupBy, context)
+    }),
+    ...(input.Metrics !== undefined && {
+      Metrics: serializeAws_json1_1MetricNames(input.Metrics, context)
+    }),
+    ...(input.NextPageToken !== undefined && {
+      NextPageToken: input.NextPageToken
+    }),
+    ...(input.TimePeriod !== undefined && {
+      TimePeriod: serializeAws_json1_1DateInterval(input.TimePeriod, context)
+    })
+  };
 };
 
 const serializeAws_json1_1GetCostForecastRequest = (
   input: GetCostForecastRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Filter !== undefined) {
-    bodyParams["Filter"] = serializeAws_json1_1Expression(
-      input.Filter,
-      context
-    );
-  }
-  if (input.Granularity !== undefined) {
-    bodyParams["Granularity"] = input.Granularity;
-  }
-  if (input.Metric !== undefined) {
-    bodyParams["Metric"] = input.Metric;
-  }
-  if (input.PredictionIntervalLevel !== undefined) {
-    bodyParams["PredictionIntervalLevel"] = input.PredictionIntervalLevel;
-  }
-  if (input.TimePeriod !== undefined) {
-    bodyParams["TimePeriod"] = serializeAws_json1_1DateInterval(
-      input.TimePeriod,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Filter !== undefined && {
+      Filter: serializeAws_json1_1Expression(input.Filter, context)
+    }),
+    ...(input.Granularity !== undefined && { Granularity: input.Granularity }),
+    ...(input.Metric !== undefined && { Metric: input.Metric }),
+    ...(input.PredictionIntervalLevel !== undefined && {
+      PredictionIntervalLevel: input.PredictionIntervalLevel
+    }),
+    ...(input.TimePeriod !== undefined && {
+      TimePeriod: serializeAws_json1_1DateInterval(input.TimePeriod, context)
+    })
+  };
 };
 
 const serializeAws_json1_1GetDimensionValuesRequest = (
   input: GetDimensionValuesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Context !== undefined) {
-    bodyParams["Context"] = input.Context;
-  }
-  if (input.Dimension !== undefined) {
-    bodyParams["Dimension"] = input.Dimension;
-  }
-  if (input.NextPageToken !== undefined) {
-    bodyParams["NextPageToken"] = input.NextPageToken;
-  }
-  if (input.SearchString !== undefined) {
-    bodyParams["SearchString"] = input.SearchString;
-  }
-  if (input.TimePeriod !== undefined) {
-    bodyParams["TimePeriod"] = serializeAws_json1_1DateInterval(
-      input.TimePeriod,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Context !== undefined && { Context: input.Context }),
+    ...(input.Dimension !== undefined && { Dimension: input.Dimension }),
+    ...(input.NextPageToken !== undefined && {
+      NextPageToken: input.NextPageToken
+    }),
+    ...(input.SearchString !== undefined && {
+      SearchString: input.SearchString
+    }),
+    ...(input.TimePeriod !== undefined && {
+      TimePeriod: serializeAws_json1_1DateInterval(input.TimePeriod, context)
+    })
+  };
 };
 
 const serializeAws_json1_1GetReservationCoverageRequest = (
   input: GetReservationCoverageRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Filter !== undefined) {
-    bodyParams["Filter"] = serializeAws_json1_1Expression(
-      input.Filter,
-      context
-    );
-  }
-  if (input.Granularity !== undefined) {
-    bodyParams["Granularity"] = input.Granularity;
-  }
-  if (input.GroupBy !== undefined) {
-    bodyParams["GroupBy"] = serializeAws_json1_1GroupDefinitions(
-      input.GroupBy,
-      context
-    );
-  }
-  if (input.Metrics !== undefined) {
-    bodyParams["Metrics"] = serializeAws_json1_1MetricNames(
-      input.Metrics,
-      context
-    );
-  }
-  if (input.NextPageToken !== undefined) {
-    bodyParams["NextPageToken"] = input.NextPageToken;
-  }
-  if (input.TimePeriod !== undefined) {
-    bodyParams["TimePeriod"] = serializeAws_json1_1DateInterval(
-      input.TimePeriod,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Filter !== undefined && {
+      Filter: serializeAws_json1_1Expression(input.Filter, context)
+    }),
+    ...(input.Granularity !== undefined && { Granularity: input.Granularity }),
+    ...(input.GroupBy !== undefined && {
+      GroupBy: serializeAws_json1_1GroupDefinitions(input.GroupBy, context)
+    }),
+    ...(input.Metrics !== undefined && {
+      Metrics: serializeAws_json1_1MetricNames(input.Metrics, context)
+    }),
+    ...(input.NextPageToken !== undefined && {
+      NextPageToken: input.NextPageToken
+    }),
+    ...(input.TimePeriod !== undefined && {
+      TimePeriod: serializeAws_json1_1DateInterval(input.TimePeriod, context)
+    })
+  };
 };
 
 const serializeAws_json1_1GetReservationPurchaseRecommendationRequest = (
   input: GetReservationPurchaseRecommendationRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AccountId !== undefined) {
-    bodyParams["AccountId"] = input.AccountId;
-  }
-  if (input.AccountScope !== undefined) {
-    bodyParams["AccountScope"] = input.AccountScope;
-  }
-  if (input.LookbackPeriodInDays !== undefined) {
-    bodyParams["LookbackPeriodInDays"] = input.LookbackPeriodInDays;
-  }
-  if (input.NextPageToken !== undefined) {
-    bodyParams["NextPageToken"] = input.NextPageToken;
-  }
-  if (input.PageSize !== undefined) {
-    bodyParams["PageSize"] = input.PageSize;
-  }
-  if (input.PaymentOption !== undefined) {
-    bodyParams["PaymentOption"] = input.PaymentOption;
-  }
-  if (input.Service !== undefined) {
-    bodyParams["Service"] = input.Service;
-  }
-  if (input.ServiceSpecification !== undefined) {
-    bodyParams[
-      "ServiceSpecification"
-    ] = serializeAws_json1_1ServiceSpecification(
-      input.ServiceSpecification,
-      context
-    );
-  }
-  if (input.TermInYears !== undefined) {
-    bodyParams["TermInYears"] = input.TermInYears;
-  }
-  return bodyParams;
+  return {
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.AccountScope !== undefined && {
+      AccountScope: input.AccountScope
+    }),
+    ...(input.LookbackPeriodInDays !== undefined && {
+      LookbackPeriodInDays: input.LookbackPeriodInDays
+    }),
+    ...(input.NextPageToken !== undefined && {
+      NextPageToken: input.NextPageToken
+    }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
+    ...(input.PaymentOption !== undefined && {
+      PaymentOption: input.PaymentOption
+    }),
+    ...(input.Service !== undefined && { Service: input.Service }),
+    ...(input.ServiceSpecification !== undefined && {
+      ServiceSpecification: serializeAws_json1_1ServiceSpecification(
+        input.ServiceSpecification,
+        context
+      )
+    }),
+    ...(input.TermInYears !== undefined && { TermInYears: input.TermInYears })
+  };
 };
 
 const serializeAws_json1_1GetReservationUtilizationRequest = (
   input: GetReservationUtilizationRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Filter !== undefined) {
-    bodyParams["Filter"] = serializeAws_json1_1Expression(
-      input.Filter,
-      context
-    );
-  }
-  if (input.Granularity !== undefined) {
-    bodyParams["Granularity"] = input.Granularity;
-  }
-  if (input.GroupBy !== undefined) {
-    bodyParams["GroupBy"] = serializeAws_json1_1GroupDefinitions(
-      input.GroupBy,
-      context
-    );
-  }
-  if (input.NextPageToken !== undefined) {
-    bodyParams["NextPageToken"] = input.NextPageToken;
-  }
-  if (input.TimePeriod !== undefined) {
-    bodyParams["TimePeriod"] = serializeAws_json1_1DateInterval(
-      input.TimePeriod,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Filter !== undefined && {
+      Filter: serializeAws_json1_1Expression(input.Filter, context)
+    }),
+    ...(input.Granularity !== undefined && { Granularity: input.Granularity }),
+    ...(input.GroupBy !== undefined && {
+      GroupBy: serializeAws_json1_1GroupDefinitions(input.GroupBy, context)
+    }),
+    ...(input.NextPageToken !== undefined && {
+      NextPageToken: input.NextPageToken
+    }),
+    ...(input.TimePeriod !== undefined && {
+      TimePeriod: serializeAws_json1_1DateInterval(input.TimePeriod, context)
+    })
+  };
 };
 
 const serializeAws_json1_1GetRightsizingRecommendationRequest = (
   input: GetRightsizingRecommendationRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Filter !== undefined) {
-    bodyParams["Filter"] = serializeAws_json1_1Expression(
-      input.Filter,
-      context
-    );
-  }
-  if (input.NextPageToken !== undefined) {
-    bodyParams["NextPageToken"] = input.NextPageToken;
-  }
-  if (input.PageSize !== undefined) {
-    bodyParams["PageSize"] = input.PageSize;
-  }
-  if (input.Service !== undefined) {
-    bodyParams["Service"] = input.Service;
-  }
-  return bodyParams;
+  return {
+    ...(input.Filter !== undefined && {
+      Filter: serializeAws_json1_1Expression(input.Filter, context)
+    }),
+    ...(input.NextPageToken !== undefined && {
+      NextPageToken: input.NextPageToken
+    }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
+    ...(input.Service !== undefined && { Service: input.Service })
+  };
 };
 
 const serializeAws_json1_1GetSavingsPlansCoverageRequest = (
   input: GetSavingsPlansCoverageRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Filter !== undefined) {
-    bodyParams["Filter"] = serializeAws_json1_1Expression(
-      input.Filter,
-      context
-    );
-  }
-  if (input.Granularity !== undefined) {
-    bodyParams["Granularity"] = input.Granularity;
-  }
-  if (input.GroupBy !== undefined) {
-    bodyParams["GroupBy"] = serializeAws_json1_1GroupDefinitions(
-      input.GroupBy,
-      context
-    );
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.Metrics !== undefined) {
-    bodyParams["Metrics"] = serializeAws_json1_1MetricNames(
-      input.Metrics,
-      context
-    );
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.TimePeriod !== undefined) {
-    bodyParams["TimePeriod"] = serializeAws_json1_1DateInterval(
-      input.TimePeriod,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Filter !== undefined && {
+      Filter: serializeAws_json1_1Expression(input.Filter, context)
+    }),
+    ...(input.Granularity !== undefined && { Granularity: input.Granularity }),
+    ...(input.GroupBy !== undefined && {
+      GroupBy: serializeAws_json1_1GroupDefinitions(input.GroupBy, context)
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.Metrics !== undefined && {
+      Metrics: serializeAws_json1_1MetricNames(input.Metrics, context)
+    }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.TimePeriod !== undefined && {
+      TimePeriod: serializeAws_json1_1DateInterval(input.TimePeriod, context)
+    })
+  };
 };
 
 const serializeAws_json1_1GetSavingsPlansPurchaseRecommendationRequest = (
   input: GetSavingsPlansPurchaseRecommendationRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.LookbackPeriodInDays !== undefined) {
-    bodyParams["LookbackPeriodInDays"] = input.LookbackPeriodInDays;
-  }
-  if (input.NextPageToken !== undefined) {
-    bodyParams["NextPageToken"] = input.NextPageToken;
-  }
-  if (input.PageSize !== undefined) {
-    bodyParams["PageSize"] = input.PageSize;
-  }
-  if (input.PaymentOption !== undefined) {
-    bodyParams["PaymentOption"] = input.PaymentOption;
-  }
-  if (input.SavingsPlansType !== undefined) {
-    bodyParams["SavingsPlansType"] = input.SavingsPlansType;
-  }
-  if (input.TermInYears !== undefined) {
-    bodyParams["TermInYears"] = input.TermInYears;
-  }
-  return bodyParams;
+  return {
+    ...(input.LookbackPeriodInDays !== undefined && {
+      LookbackPeriodInDays: input.LookbackPeriodInDays
+    }),
+    ...(input.NextPageToken !== undefined && {
+      NextPageToken: input.NextPageToken
+    }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
+    ...(input.PaymentOption !== undefined && {
+      PaymentOption: input.PaymentOption
+    }),
+    ...(input.SavingsPlansType !== undefined && {
+      SavingsPlansType: input.SavingsPlansType
+    }),
+    ...(input.TermInYears !== undefined && { TermInYears: input.TermInYears })
+  };
 };
 
 const serializeAws_json1_1GetSavingsPlansUtilizationDetailsRequest = (
   input: GetSavingsPlansUtilizationDetailsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Filter !== undefined) {
-    bodyParams["Filter"] = serializeAws_json1_1Expression(
-      input.Filter,
-      context
-    );
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.TimePeriod !== undefined) {
-    bodyParams["TimePeriod"] = serializeAws_json1_1DateInterval(
-      input.TimePeriod,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Filter !== undefined && {
+      Filter: serializeAws_json1_1Expression(input.Filter, context)
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.TimePeriod !== undefined && {
+      TimePeriod: serializeAws_json1_1DateInterval(input.TimePeriod, context)
+    })
+  };
 };
 
 const serializeAws_json1_1GetSavingsPlansUtilizationRequest = (
   input: GetSavingsPlansUtilizationRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Filter !== undefined) {
-    bodyParams["Filter"] = serializeAws_json1_1Expression(
-      input.Filter,
-      context
-    );
-  }
-  if (input.Granularity !== undefined) {
-    bodyParams["Granularity"] = input.Granularity;
-  }
-  if (input.TimePeriod !== undefined) {
-    bodyParams["TimePeriod"] = serializeAws_json1_1DateInterval(
-      input.TimePeriod,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Filter !== undefined && {
+      Filter: serializeAws_json1_1Expression(input.Filter, context)
+    }),
+    ...(input.Granularity !== undefined && { Granularity: input.Granularity }),
+    ...(input.TimePeriod !== undefined && {
+      TimePeriod: serializeAws_json1_1DateInterval(input.TimePeriod, context)
+    })
+  };
 };
 
 const serializeAws_json1_1GetTagsRequest = (
   input: GetTagsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.NextPageToken !== undefined) {
-    bodyParams["NextPageToken"] = input.NextPageToken;
-  }
-  if (input.SearchString !== undefined) {
-    bodyParams["SearchString"] = input.SearchString;
-  }
-  if (input.TagKey !== undefined) {
-    bodyParams["TagKey"] = input.TagKey;
-  }
-  if (input.TimePeriod !== undefined) {
-    bodyParams["TimePeriod"] = serializeAws_json1_1DateInterval(
-      input.TimePeriod,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.NextPageToken !== undefined && {
+      NextPageToken: input.NextPageToken
+    }),
+    ...(input.SearchString !== undefined && {
+      SearchString: input.SearchString
+    }),
+    ...(input.TagKey !== undefined && { TagKey: input.TagKey }),
+    ...(input.TimePeriod !== undefined && {
+      TimePeriod: serializeAws_json1_1DateInterval(input.TimePeriod, context)
+    })
+  };
 };
 
 const serializeAws_json1_1GetUsageForecastRequest = (
   input: GetUsageForecastRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Filter !== undefined) {
-    bodyParams["Filter"] = serializeAws_json1_1Expression(
-      input.Filter,
-      context
-    );
-  }
-  if (input.Granularity !== undefined) {
-    bodyParams["Granularity"] = input.Granularity;
-  }
-  if (input.Metric !== undefined) {
-    bodyParams["Metric"] = input.Metric;
-  }
-  if (input.PredictionIntervalLevel !== undefined) {
-    bodyParams["PredictionIntervalLevel"] = input.PredictionIntervalLevel;
-  }
-  if (input.TimePeriod !== undefined) {
-    bodyParams["TimePeriod"] = serializeAws_json1_1DateInterval(
-      input.TimePeriod,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Filter !== undefined && {
+      Filter: serializeAws_json1_1Expression(input.Filter, context)
+    }),
+    ...(input.Granularity !== undefined && { Granularity: input.Granularity }),
+    ...(input.Metric !== undefined && { Metric: input.Metric }),
+    ...(input.PredictionIntervalLevel !== undefined && {
+      PredictionIntervalLevel: input.PredictionIntervalLevel
+    }),
+    ...(input.TimePeriod !== undefined && {
+      TimePeriod: serializeAws_json1_1DateInterval(input.TimePeriod, context)
+    })
+  };
 };
 
 const serializeAws_json1_1GroupDefinition = (
   input: GroupDefinition,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Type !== undefined && { Type: input.Type })
+  };
 };
 
 const serializeAws_json1_1GroupDefinitions = (
@@ -2882,14 +2714,10 @@ const serializeAws_json1_1ListCostCategoryDefinitionsRequest = (
   input: ListCostCategoryDefinitionsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EffectiveOn !== undefined) {
-    bodyParams["EffectiveOn"] = input.EffectiveOn;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.EffectiveOn !== undefined && { EffectiveOn: input.EffectiveOn }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1MetricNames = (
@@ -2903,48 +2731,41 @@ const serializeAws_json1_1ServiceSpecification = (
   input: ServiceSpecification,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EC2Specification !== undefined) {
-    bodyParams["EC2Specification"] = serializeAws_json1_1EC2Specification(
-      input.EC2Specification,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.EC2Specification !== undefined && {
+      EC2Specification: serializeAws_json1_1EC2Specification(
+        input.EC2Specification,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1TagValues = (
   input: TagValues,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.Values !== undefined) {
-    bodyParams["Values"] = serializeAws_json1_1Values(input.Values, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Values !== undefined && {
+      Values: serializeAws_json1_1Values(input.Values, context)
+    })
+  };
 };
 
 const serializeAws_json1_1UpdateCostCategoryDefinitionRequest = (
   input: UpdateCostCategoryDefinitionRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CostCategoryArn !== undefined) {
-    bodyParams["CostCategoryArn"] = input.CostCategoryArn;
-  }
-  if (input.RuleVersion !== undefined) {
-    bodyParams["RuleVersion"] = input.RuleVersion;
-  }
-  if (input.Rules !== undefined) {
-    bodyParams["Rules"] = serializeAws_json1_1CostCategoryRulesList(
-      input.Rules,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.CostCategoryArn !== undefined && {
+      CostCategoryArn: input.CostCategoryArn
+    }),
+    ...(input.RuleVersion !== undefined && { RuleVersion: input.RuleVersion }),
+    ...(input.Rules !== undefined && {
+      Rules: serializeAws_json1_1CostCategoryRulesList(input.Rules, context)
+    })
+  };
 };
 
 const serializeAws_json1_1Values = (

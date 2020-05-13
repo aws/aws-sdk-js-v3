@@ -4507,31 +4507,22 @@ const serializeAws_restJson1_1Tag = (
   input: Tag,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.key !== undefined) {
-    bodyParams["key"] = input.key;
-  }
-  if (input.value !== undefined) {
-    bodyParams["value"] = input.value;
-  }
-  return bodyParams;
+  return {
+    ...(input.key !== undefined && { key: input.key }),
+    ...(input.value !== undefined && { value: input.value })
+  };
 };
 
 const serializeAws_restJson1_1TagFilter = (
   input: TagFilter,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.tagKey !== undefined) {
-    bodyParams["tagKey"] = input.tagKey;
-  }
-  if (input.tagValues !== undefined) {
-    bodyParams["tagValues"] = serializeAws_restJson1_1TagValueList(
-      input.tagValues,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.tagKey !== undefined && { tagKey: input.tagKey }),
+    ...(input.tagValues !== undefined && {
+      tagValues: serializeAws_restJson1_1TagValueList(input.tagValues, context)
+    })
+  };
 };
 
 const serializeAws_restJson1_1TagFilters = (

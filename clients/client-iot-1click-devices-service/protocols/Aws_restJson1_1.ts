@@ -1878,14 +1878,10 @@ const serializeAws_restJson1_1DeviceMethod = (
   input: DeviceMethod,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DeviceType !== undefined) {
-    bodyParams["deviceType"] = input.DeviceType;
-  }
-  if (input.MethodName !== undefined) {
-    bodyParams["methodName"] = input.MethodName;
-  }
-  return bodyParams;
+  return {
+    ...(input.DeviceType !== undefined && { deviceType: input.DeviceType }),
+    ...(input.MethodName !== undefined && { methodName: input.MethodName })
+  };
 };
 
 const serializeAws_restJson1_1__mapOf__string = (

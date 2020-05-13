@@ -841,35 +841,31 @@ const serializeAws_restJson1_1DASHFragmentSelector = (
   input: DASHFragmentSelector,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.FragmentSelectorType !== undefined) {
-    bodyParams["FragmentSelectorType"] = input.FragmentSelectorType;
-  }
-  if (input.TimestampRange !== undefined) {
-    bodyParams["TimestampRange"] = serializeAws_restJson1_1DASHTimestampRange(
-      input.TimestampRange,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.FragmentSelectorType !== undefined && {
+      FragmentSelectorType: input.FragmentSelectorType
+    }),
+    ...(input.TimestampRange !== undefined && {
+      TimestampRange: serializeAws_restJson1_1DASHTimestampRange(
+        input.TimestampRange,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1DASHTimestampRange = (
   input: DASHTimestampRange,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EndTimestamp !== undefined) {
-    bodyParams["EndTimestamp"] = Math.round(
-      input.EndTimestamp.getTime() / 1000
-    );
-  }
-  if (input.StartTimestamp !== undefined) {
-    bodyParams["StartTimestamp"] = Math.round(
-      input.StartTimestamp.getTime() / 1000
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.EndTimestamp !== undefined && {
+      EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000)
+    }),
+    ...(input.StartTimestamp !== undefined && {
+      StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000)
+    })
+  };
 };
 
 const serializeAws_restJson1_1FragmentNumberList = (
@@ -883,70 +879,62 @@ const serializeAws_restJson1_1FragmentSelector = (
   input: FragmentSelector,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.FragmentSelectorType !== undefined) {
-    bodyParams["FragmentSelectorType"] = input.FragmentSelectorType;
-  }
-  if (input.TimestampRange !== undefined) {
-    bodyParams["TimestampRange"] = serializeAws_restJson1_1TimestampRange(
-      input.TimestampRange,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.FragmentSelectorType !== undefined && {
+      FragmentSelectorType: input.FragmentSelectorType
+    }),
+    ...(input.TimestampRange !== undefined && {
+      TimestampRange: serializeAws_restJson1_1TimestampRange(
+        input.TimestampRange,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1HLSFragmentSelector = (
   input: HLSFragmentSelector,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.FragmentSelectorType !== undefined) {
-    bodyParams["FragmentSelectorType"] = input.FragmentSelectorType;
-  }
-  if (input.TimestampRange !== undefined) {
-    bodyParams["TimestampRange"] = serializeAws_restJson1_1HLSTimestampRange(
-      input.TimestampRange,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.FragmentSelectorType !== undefined && {
+      FragmentSelectorType: input.FragmentSelectorType
+    }),
+    ...(input.TimestampRange !== undefined && {
+      TimestampRange: serializeAws_restJson1_1HLSTimestampRange(
+        input.TimestampRange,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1HLSTimestampRange = (
   input: HLSTimestampRange,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EndTimestamp !== undefined) {
-    bodyParams["EndTimestamp"] = Math.round(
-      input.EndTimestamp.getTime() / 1000
-    );
-  }
-  if (input.StartTimestamp !== undefined) {
-    bodyParams["StartTimestamp"] = Math.round(
-      input.StartTimestamp.getTime() / 1000
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.EndTimestamp !== undefined && {
+      EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000)
+    }),
+    ...(input.StartTimestamp !== undefined && {
+      StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000)
+    })
+  };
 };
 
 const serializeAws_restJson1_1TimestampRange = (
   input: TimestampRange,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EndTimestamp !== undefined) {
-    bodyParams["EndTimestamp"] = Math.round(
-      input.EndTimestamp.getTime() / 1000
-    );
-  }
-  if (input.StartTimestamp !== undefined) {
-    bodyParams["StartTimestamp"] = Math.round(
-      input.StartTimestamp.getTime() / 1000
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.EndTimestamp !== undefined && {
+      EndTimestamp: Math.round(input.EndTimestamp.getTime() / 1000)
+    }),
+    ...(input.StartTimestamp !== undefined && {
+      StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000)
+    })
+  };
 };
 
 const deserializeAws_restJson1_1Fragment = (

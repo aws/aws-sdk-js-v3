@@ -3641,17 +3641,12 @@ const serializeAws_restJson1_1FargateProfileSelector = (
   input: FargateProfileSelector,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.labels !== undefined) {
-    bodyParams["labels"] = serializeAws_restJson1_1FargateProfileLabel(
-      input.labels,
-      context
-    );
-  }
-  if (input.namespace !== undefined) {
-    bodyParams["namespace"] = input.namespace;
-  }
-  return bodyParams;
+  return {
+    ...(input.labels !== undefined && {
+      labels: serializeAws_restJson1_1FargateProfileLabel(input.labels, context)
+    }),
+    ...(input.namespace !== undefined && { namespace: input.namespace })
+  };
 };
 
 const serializeAws_restJson1_1FargateProfileSelectors = (
@@ -3667,17 +3662,12 @@ const serializeAws_restJson1_1LogSetup = (
   input: LogSetup,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.enabled !== undefined) {
-    bodyParams["enabled"] = input.enabled;
-  }
-  if (input.types !== undefined) {
-    bodyParams["types"] = serializeAws_restJson1_1LogTypes(
-      input.types,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.enabled !== undefined && { enabled: input.enabled }),
+    ...(input.types !== undefined && {
+      types: serializeAws_restJson1_1LogTypes(input.types, context)
+    })
+  };
 };
 
 const serializeAws_restJson1_1LogSetups = (
@@ -3698,48 +3688,40 @@ const serializeAws_restJson1_1Logging = (
   input: Logging,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.clusterLogging !== undefined) {
-    bodyParams["clusterLogging"] = serializeAws_restJson1_1LogSetups(
-      input.clusterLogging,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.clusterLogging !== undefined && {
+      clusterLogging: serializeAws_restJson1_1LogSetups(
+        input.clusterLogging,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1NodegroupScalingConfig = (
   input: NodegroupScalingConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.desiredSize !== undefined) {
-    bodyParams["desiredSize"] = input.desiredSize;
-  }
-  if (input.maxSize !== undefined) {
-    bodyParams["maxSize"] = input.maxSize;
-  }
-  if (input.minSize !== undefined) {
-    bodyParams["minSize"] = input.minSize;
-  }
-  return bodyParams;
+  return {
+    ...(input.desiredSize !== undefined && { desiredSize: input.desiredSize }),
+    ...(input.maxSize !== undefined && { maxSize: input.maxSize }),
+    ...(input.minSize !== undefined && { minSize: input.minSize })
+  };
 };
 
 const serializeAws_restJson1_1RemoteAccessConfig = (
   input: RemoteAccessConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ec2SshKey !== undefined) {
-    bodyParams["ec2SshKey"] = input.ec2SshKey;
-  }
-  if (input.sourceSecurityGroups !== undefined) {
-    bodyParams["sourceSecurityGroups"] = serializeAws_restJson1_1StringList(
-      input.sourceSecurityGroups,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.ec2SshKey !== undefined && { ec2SshKey: input.ec2SshKey }),
+    ...(input.sourceSecurityGroups !== undefined && {
+      sourceSecurityGroups: serializeAws_restJson1_1StringList(
+        input.sourceSecurityGroups,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1StringList = (
@@ -3763,52 +3745,49 @@ const serializeAws_restJson1_1UpdateLabelsPayload = (
   input: UpdateLabelsPayload,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.addOrUpdateLabels !== undefined) {
-    bodyParams["addOrUpdateLabels"] = serializeAws_restJson1_1labelsMap(
-      input.addOrUpdateLabels,
-      context
-    );
-  }
-  if (input.removeLabels !== undefined) {
-    bodyParams["removeLabels"] = serializeAws_restJson1_1labelsKeyList(
-      input.removeLabels,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.addOrUpdateLabels !== undefined && {
+      addOrUpdateLabels: serializeAws_restJson1_1labelsMap(
+        input.addOrUpdateLabels,
+        context
+      )
+    }),
+    ...(input.removeLabels !== undefined && {
+      removeLabels: serializeAws_restJson1_1labelsKeyList(
+        input.removeLabels,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1VpcConfigRequest = (
   input: VpcConfigRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.endpointPrivateAccess !== undefined) {
-    bodyParams["endpointPrivateAccess"] = input.endpointPrivateAccess;
-  }
-  if (input.endpointPublicAccess !== undefined) {
-    bodyParams["endpointPublicAccess"] = input.endpointPublicAccess;
-  }
-  if (input.publicAccessCidrs !== undefined) {
-    bodyParams["publicAccessCidrs"] = serializeAws_restJson1_1StringList(
-      input.publicAccessCidrs,
-      context
-    );
-  }
-  if (input.securityGroupIds !== undefined) {
-    bodyParams["securityGroupIds"] = serializeAws_restJson1_1StringList(
-      input.securityGroupIds,
-      context
-    );
-  }
-  if (input.subnetIds !== undefined) {
-    bodyParams["subnetIds"] = serializeAws_restJson1_1StringList(
-      input.subnetIds,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.endpointPrivateAccess !== undefined && {
+      endpointPrivateAccess: input.endpointPrivateAccess
+    }),
+    ...(input.endpointPublicAccess !== undefined && {
+      endpointPublicAccess: input.endpointPublicAccess
+    }),
+    ...(input.publicAccessCidrs !== undefined && {
+      publicAccessCidrs: serializeAws_restJson1_1StringList(
+        input.publicAccessCidrs,
+        context
+      )
+    }),
+    ...(input.securityGroupIds !== undefined && {
+      securityGroupIds: serializeAws_restJson1_1StringList(
+        input.securityGroupIds,
+        context
+      )
+    }),
+    ...(input.subnetIds !== undefined && {
+      subnetIds: serializeAws_restJson1_1StringList(input.subnetIds, context)
+    })
+  };
 };
 
 const serializeAws_restJson1_1labelsKeyList = (

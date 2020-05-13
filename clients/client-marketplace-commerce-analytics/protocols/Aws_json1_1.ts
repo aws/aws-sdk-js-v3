@@ -212,70 +212,54 @@ const serializeAws_json1_1GenerateDataSetRequest = (
   input: GenerateDataSetRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.customerDefinedValues !== undefined) {
-    bodyParams[
-      "customerDefinedValues"
-    ] = serializeAws_json1_1CustomerDefinedValues(
-      input.customerDefinedValues,
-      context
-    );
-  }
-  if (input.dataSetPublicationDate !== undefined) {
-    bodyParams["dataSetPublicationDate"] = Math.round(
-      input.dataSetPublicationDate.getTime() / 1000
-    );
-  }
-  if (input.dataSetType !== undefined) {
-    bodyParams["dataSetType"] = input.dataSetType;
-  }
-  if (input.destinationS3BucketName !== undefined) {
-    bodyParams["destinationS3BucketName"] = input.destinationS3BucketName;
-  }
-  if (input.destinationS3Prefix !== undefined) {
-    bodyParams["destinationS3Prefix"] = input.destinationS3Prefix;
-  }
-  if (input.roleNameArn !== undefined) {
-    bodyParams["roleNameArn"] = input.roleNameArn;
-  }
-  if (input.snsTopicArn !== undefined) {
-    bodyParams["snsTopicArn"] = input.snsTopicArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.customerDefinedValues !== undefined && {
+      customerDefinedValues: serializeAws_json1_1CustomerDefinedValues(
+        input.customerDefinedValues,
+        context
+      )
+    }),
+    ...(input.dataSetPublicationDate !== undefined && {
+      dataSetPublicationDate: Math.round(
+        input.dataSetPublicationDate.getTime() / 1000
+      )
+    }),
+    ...(input.dataSetType !== undefined && { dataSetType: input.dataSetType }),
+    ...(input.destinationS3BucketName !== undefined && {
+      destinationS3BucketName: input.destinationS3BucketName
+    }),
+    ...(input.destinationS3Prefix !== undefined && {
+      destinationS3Prefix: input.destinationS3Prefix
+    }),
+    ...(input.roleNameArn !== undefined && { roleNameArn: input.roleNameArn }),
+    ...(input.snsTopicArn !== undefined && { snsTopicArn: input.snsTopicArn })
+  };
 };
 
 const serializeAws_json1_1StartSupportDataExportRequest = (
   input: StartSupportDataExportRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.customerDefinedValues !== undefined) {
-    bodyParams[
-      "customerDefinedValues"
-    ] = serializeAws_json1_1CustomerDefinedValues(
-      input.customerDefinedValues,
-      context
-    );
-  }
-  if (input.dataSetType !== undefined) {
-    bodyParams["dataSetType"] = input.dataSetType;
-  }
-  if (input.destinationS3BucketName !== undefined) {
-    bodyParams["destinationS3BucketName"] = input.destinationS3BucketName;
-  }
-  if (input.destinationS3Prefix !== undefined) {
-    bodyParams["destinationS3Prefix"] = input.destinationS3Prefix;
-  }
-  if (input.fromDate !== undefined) {
-    bodyParams["fromDate"] = Math.round(input.fromDate.getTime() / 1000);
-  }
-  if (input.roleNameArn !== undefined) {
-    bodyParams["roleNameArn"] = input.roleNameArn;
-  }
-  if (input.snsTopicArn !== undefined) {
-    bodyParams["snsTopicArn"] = input.snsTopicArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.customerDefinedValues !== undefined && {
+      customerDefinedValues: serializeAws_json1_1CustomerDefinedValues(
+        input.customerDefinedValues,
+        context
+      )
+    }),
+    ...(input.dataSetType !== undefined && { dataSetType: input.dataSetType }),
+    ...(input.destinationS3BucketName !== undefined && {
+      destinationS3BucketName: input.destinationS3BucketName
+    }),
+    ...(input.destinationS3Prefix !== undefined && {
+      destinationS3Prefix: input.destinationS3Prefix
+    }),
+    ...(input.fromDate !== undefined && {
+      fromDate: Math.round(input.fromDate.getTime() / 1000)
+    }),
+    ...(input.roleNameArn !== undefined && { roleNameArn: input.roleNameArn }),
+    ...(input.snsTopicArn !== undefined && { snsTopicArn: input.snsTopicArn })
+  };
 };
 
 const deserializeAws_json1_1GenerateDataSetResult = (

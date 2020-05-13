@@ -1970,78 +1970,52 @@ const serializeAws_json1_1Budget = (
   input: Budget,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.BudgetLimit !== undefined) {
-    bodyParams["BudgetLimit"] = serializeAws_json1_1Spend(
-      input.BudgetLimit,
-      context
-    );
-  }
-  if (input.BudgetName !== undefined) {
-    bodyParams["BudgetName"] = input.BudgetName;
-  }
-  if (input.BudgetType !== undefined) {
-    bodyParams["BudgetType"] = input.BudgetType;
-  }
-  if (input.CalculatedSpend !== undefined) {
-    bodyParams["CalculatedSpend"] = serializeAws_json1_1CalculatedSpend(
-      input.CalculatedSpend,
-      context
-    );
-  }
-  if (input.CostFilters !== undefined) {
-    bodyParams["CostFilters"] = serializeAws_json1_1CostFilters(
-      input.CostFilters,
-      context
-    );
-  }
-  if (input.CostTypes !== undefined) {
-    bodyParams["CostTypes"] = serializeAws_json1_1CostTypes(
-      input.CostTypes,
-      context
-    );
-  }
-  if (input.LastUpdatedTime !== undefined) {
-    bodyParams["LastUpdatedTime"] = Math.round(
-      input.LastUpdatedTime.getTime() / 1000
-    );
-  }
-  if (input.PlannedBudgetLimits !== undefined) {
-    bodyParams["PlannedBudgetLimits"] = serializeAws_json1_1PlannedBudgetLimits(
-      input.PlannedBudgetLimits,
-      context
-    );
-  }
-  if (input.TimePeriod !== undefined) {
-    bodyParams["TimePeriod"] = serializeAws_json1_1TimePeriod(
-      input.TimePeriod,
-      context
-    );
-  }
-  if (input.TimeUnit !== undefined) {
-    bodyParams["TimeUnit"] = input.TimeUnit;
-  }
-  return bodyParams;
+  return {
+    ...(input.BudgetLimit !== undefined && {
+      BudgetLimit: serializeAws_json1_1Spend(input.BudgetLimit, context)
+    }),
+    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
+    ...(input.BudgetType !== undefined && { BudgetType: input.BudgetType }),
+    ...(input.CalculatedSpend !== undefined && {
+      CalculatedSpend: serializeAws_json1_1CalculatedSpend(
+        input.CalculatedSpend,
+        context
+      )
+    }),
+    ...(input.CostFilters !== undefined && {
+      CostFilters: serializeAws_json1_1CostFilters(input.CostFilters, context)
+    }),
+    ...(input.CostTypes !== undefined && {
+      CostTypes: serializeAws_json1_1CostTypes(input.CostTypes, context)
+    }),
+    ...(input.LastUpdatedTime !== undefined && {
+      LastUpdatedTime: Math.round(input.LastUpdatedTime.getTime() / 1000)
+    }),
+    ...(input.PlannedBudgetLimits !== undefined && {
+      PlannedBudgetLimits: serializeAws_json1_1PlannedBudgetLimits(
+        input.PlannedBudgetLimits,
+        context
+      )
+    }),
+    ...(input.TimePeriod !== undefined && {
+      TimePeriod: serializeAws_json1_1TimePeriod(input.TimePeriod, context)
+    }),
+    ...(input.TimeUnit !== undefined && { TimeUnit: input.TimeUnit })
+  };
 };
 
 const serializeAws_json1_1CalculatedSpend = (
   input: CalculatedSpend,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ActualSpend !== undefined) {
-    bodyParams["ActualSpend"] = serializeAws_json1_1Spend(
-      input.ActualSpend,
-      context
-    );
-  }
-  if (input.ForecastedSpend !== undefined) {
-    bodyParams["ForecastedSpend"] = serializeAws_json1_1Spend(
-      input.ForecastedSpend,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.ActualSpend !== undefined && {
+      ActualSpend: serializeAws_json1_1Spend(input.ActualSpend, context)
+    }),
+    ...(input.ForecastedSpend !== undefined && {
+      ForecastedSpend: serializeAws_json1_1Spend(input.ForecastedSpend, context)
+    })
+  };
 };
 
 const serializeAws_json1_1CostFilters = (
@@ -2058,278 +2032,204 @@ const serializeAws_json1_1CostTypes = (
   input: CostTypes,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.IncludeCredit !== undefined) {
-    bodyParams["IncludeCredit"] = input.IncludeCredit;
-  }
-  if (input.IncludeDiscount !== undefined) {
-    bodyParams["IncludeDiscount"] = input.IncludeDiscount;
-  }
-  if (input.IncludeOtherSubscription !== undefined) {
-    bodyParams["IncludeOtherSubscription"] = input.IncludeOtherSubscription;
-  }
-  if (input.IncludeRecurring !== undefined) {
-    bodyParams["IncludeRecurring"] = input.IncludeRecurring;
-  }
-  if (input.IncludeRefund !== undefined) {
-    bodyParams["IncludeRefund"] = input.IncludeRefund;
-  }
-  if (input.IncludeSubscription !== undefined) {
-    bodyParams["IncludeSubscription"] = input.IncludeSubscription;
-  }
-  if (input.IncludeSupport !== undefined) {
-    bodyParams["IncludeSupport"] = input.IncludeSupport;
-  }
-  if (input.IncludeTax !== undefined) {
-    bodyParams["IncludeTax"] = input.IncludeTax;
-  }
-  if (input.IncludeUpfront !== undefined) {
-    bodyParams["IncludeUpfront"] = input.IncludeUpfront;
-  }
-  if (input.UseAmortized !== undefined) {
-    bodyParams["UseAmortized"] = input.UseAmortized;
-  }
-  if (input.UseBlended !== undefined) {
-    bodyParams["UseBlended"] = input.UseBlended;
-  }
-  return bodyParams;
+  return {
+    ...(input.IncludeCredit !== undefined && {
+      IncludeCredit: input.IncludeCredit
+    }),
+    ...(input.IncludeDiscount !== undefined && {
+      IncludeDiscount: input.IncludeDiscount
+    }),
+    ...(input.IncludeOtherSubscription !== undefined && {
+      IncludeOtherSubscription: input.IncludeOtherSubscription
+    }),
+    ...(input.IncludeRecurring !== undefined && {
+      IncludeRecurring: input.IncludeRecurring
+    }),
+    ...(input.IncludeRefund !== undefined && {
+      IncludeRefund: input.IncludeRefund
+    }),
+    ...(input.IncludeSubscription !== undefined && {
+      IncludeSubscription: input.IncludeSubscription
+    }),
+    ...(input.IncludeSupport !== undefined && {
+      IncludeSupport: input.IncludeSupport
+    }),
+    ...(input.IncludeTax !== undefined && { IncludeTax: input.IncludeTax }),
+    ...(input.IncludeUpfront !== undefined && {
+      IncludeUpfront: input.IncludeUpfront
+    }),
+    ...(input.UseAmortized !== undefined && {
+      UseAmortized: input.UseAmortized
+    }),
+    ...(input.UseBlended !== undefined && { UseBlended: input.UseBlended })
+  };
 };
 
 const serializeAws_json1_1CreateBudgetRequest = (
   input: CreateBudgetRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AccountId !== undefined) {
-    bodyParams["AccountId"] = input.AccountId;
-  }
-  if (input.Budget !== undefined) {
-    bodyParams["Budget"] = serializeAws_json1_1Budget(input.Budget, context);
-  }
-  if (input.NotificationsWithSubscribers !== undefined) {
-    bodyParams[
-      "NotificationsWithSubscribers"
-    ] = serializeAws_json1_1NotificationWithSubscribersList(
-      input.NotificationsWithSubscribers,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.Budget !== undefined && {
+      Budget: serializeAws_json1_1Budget(input.Budget, context)
+    }),
+    ...(input.NotificationsWithSubscribers !== undefined && {
+      NotificationsWithSubscribers: serializeAws_json1_1NotificationWithSubscribersList(
+        input.NotificationsWithSubscribers,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1CreateNotificationRequest = (
   input: CreateNotificationRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AccountId !== undefined) {
-    bodyParams["AccountId"] = input.AccountId;
-  }
-  if (input.BudgetName !== undefined) {
-    bodyParams["BudgetName"] = input.BudgetName;
-  }
-  if (input.Notification !== undefined) {
-    bodyParams["Notification"] = serializeAws_json1_1Notification(
-      input.Notification,
-      context
-    );
-  }
-  if (input.Subscribers !== undefined) {
-    bodyParams["Subscribers"] = serializeAws_json1_1Subscribers(
-      input.Subscribers,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
+    ...(input.Notification !== undefined && {
+      Notification: serializeAws_json1_1Notification(
+        input.Notification,
+        context
+      )
+    }),
+    ...(input.Subscribers !== undefined && {
+      Subscribers: serializeAws_json1_1Subscribers(input.Subscribers, context)
+    })
+  };
 };
 
 const serializeAws_json1_1CreateSubscriberRequest = (
   input: CreateSubscriberRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AccountId !== undefined) {
-    bodyParams["AccountId"] = input.AccountId;
-  }
-  if (input.BudgetName !== undefined) {
-    bodyParams["BudgetName"] = input.BudgetName;
-  }
-  if (input.Notification !== undefined) {
-    bodyParams["Notification"] = serializeAws_json1_1Notification(
-      input.Notification,
-      context
-    );
-  }
-  if (input.Subscriber !== undefined) {
-    bodyParams["Subscriber"] = serializeAws_json1_1Subscriber(
-      input.Subscriber,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
+    ...(input.Notification !== undefined && {
+      Notification: serializeAws_json1_1Notification(
+        input.Notification,
+        context
+      )
+    }),
+    ...(input.Subscriber !== undefined && {
+      Subscriber: serializeAws_json1_1Subscriber(input.Subscriber, context)
+    })
+  };
 };
 
 const serializeAws_json1_1DeleteBudgetRequest = (
   input: DeleteBudgetRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AccountId !== undefined) {
-    bodyParams["AccountId"] = input.AccountId;
-  }
-  if (input.BudgetName !== undefined) {
-    bodyParams["BudgetName"] = input.BudgetName;
-  }
-  return bodyParams;
+  return {
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName })
+  };
 };
 
 const serializeAws_json1_1DeleteNotificationRequest = (
   input: DeleteNotificationRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AccountId !== undefined) {
-    bodyParams["AccountId"] = input.AccountId;
-  }
-  if (input.BudgetName !== undefined) {
-    bodyParams["BudgetName"] = input.BudgetName;
-  }
-  if (input.Notification !== undefined) {
-    bodyParams["Notification"] = serializeAws_json1_1Notification(
-      input.Notification,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
+    ...(input.Notification !== undefined && {
+      Notification: serializeAws_json1_1Notification(
+        input.Notification,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1DeleteSubscriberRequest = (
   input: DeleteSubscriberRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AccountId !== undefined) {
-    bodyParams["AccountId"] = input.AccountId;
-  }
-  if (input.BudgetName !== undefined) {
-    bodyParams["BudgetName"] = input.BudgetName;
-  }
-  if (input.Notification !== undefined) {
-    bodyParams["Notification"] = serializeAws_json1_1Notification(
-      input.Notification,
-      context
-    );
-  }
-  if (input.Subscriber !== undefined) {
-    bodyParams["Subscriber"] = serializeAws_json1_1Subscriber(
-      input.Subscriber,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
+    ...(input.Notification !== undefined && {
+      Notification: serializeAws_json1_1Notification(
+        input.Notification,
+        context
+      )
+    }),
+    ...(input.Subscriber !== undefined && {
+      Subscriber: serializeAws_json1_1Subscriber(input.Subscriber, context)
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeBudgetPerformanceHistoryRequest = (
   input: DescribeBudgetPerformanceHistoryRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AccountId !== undefined) {
-    bodyParams["AccountId"] = input.AccountId;
-  }
-  if (input.BudgetName !== undefined) {
-    bodyParams["BudgetName"] = input.BudgetName;
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.TimePeriod !== undefined) {
-    bodyParams["TimePeriod"] = serializeAws_json1_1TimePeriod(
-      input.TimePeriod,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.TimePeriod !== undefined && {
+      TimePeriod: serializeAws_json1_1TimePeriod(input.TimePeriod, context)
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeBudgetRequest = (
   input: DescribeBudgetRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AccountId !== undefined) {
-    bodyParams["AccountId"] = input.AccountId;
-  }
-  if (input.BudgetName !== undefined) {
-    bodyParams["BudgetName"] = input.BudgetName;
-  }
-  return bodyParams;
+  return {
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName })
+  };
 };
 
 const serializeAws_json1_1DescribeBudgetsRequest = (
   input: DescribeBudgetsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AccountId !== undefined) {
-    bodyParams["AccountId"] = input.AccountId;
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1DescribeNotificationsForBudgetRequest = (
   input: DescribeNotificationsForBudgetRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AccountId !== undefined) {
-    bodyParams["AccountId"] = input.AccountId;
-  }
-  if (input.BudgetName !== undefined) {
-    bodyParams["BudgetName"] = input.BudgetName;
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1DescribeSubscribersForNotificationRequest = (
   input: DescribeSubscribersForNotificationRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AccountId !== undefined) {
-    bodyParams["AccountId"] = input.AccountId;
-  }
-  if (input.BudgetName !== undefined) {
-    bodyParams["BudgetName"] = input.BudgetName;
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.Notification !== undefined) {
-    bodyParams["Notification"] = serializeAws_json1_1Notification(
-      input.Notification,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Notification !== undefined && {
+      Notification: serializeAws_json1_1Notification(
+        input.Notification,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1DimensionValues = (
@@ -2343,43 +2243,38 @@ const serializeAws_json1_1Notification = (
   input: Notification,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ComparisonOperator !== undefined) {
-    bodyParams["ComparisonOperator"] = input.ComparisonOperator;
-  }
-  if (input.NotificationState !== undefined) {
-    bodyParams["NotificationState"] = input.NotificationState;
-  }
-  if (input.NotificationType !== undefined) {
-    bodyParams["NotificationType"] = input.NotificationType;
-  }
-  if (input.Threshold !== undefined) {
-    bodyParams["Threshold"] = input.Threshold;
-  }
-  if (input.ThresholdType !== undefined) {
-    bodyParams["ThresholdType"] = input.ThresholdType;
-  }
-  return bodyParams;
+  return {
+    ...(input.ComparisonOperator !== undefined && {
+      ComparisonOperator: input.ComparisonOperator
+    }),
+    ...(input.NotificationState !== undefined && {
+      NotificationState: input.NotificationState
+    }),
+    ...(input.NotificationType !== undefined && {
+      NotificationType: input.NotificationType
+    }),
+    ...(input.Threshold !== undefined && { Threshold: input.Threshold }),
+    ...(input.ThresholdType !== undefined && {
+      ThresholdType: input.ThresholdType
+    })
+  };
 };
 
 const serializeAws_json1_1NotificationWithSubscribers = (
   input: NotificationWithSubscribers,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Notification !== undefined) {
-    bodyParams["Notification"] = serializeAws_json1_1Notification(
-      input.Notification,
-      context
-    );
-  }
-  if (input.Subscribers !== undefined) {
-    bodyParams["Subscribers"] = serializeAws_json1_1Subscribers(
-      input.Subscribers,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Notification !== undefined && {
+      Notification: serializeAws_json1_1Notification(
+        input.Notification,
+        context
+      )
+    }),
+    ...(input.Subscribers !== undefined && {
+      Subscribers: serializeAws_json1_1Subscribers(input.Subscribers, context)
+    })
+  };
 };
 
 const serializeAws_json1_1NotificationWithSubscribersList = (
@@ -2405,28 +2300,22 @@ const serializeAws_json1_1Spend = (
   input: Spend,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Amount !== undefined) {
-    bodyParams["Amount"] = input.Amount;
-  }
-  if (input.Unit !== undefined) {
-    bodyParams["Unit"] = input.Unit;
-  }
-  return bodyParams;
+  return {
+    ...(input.Amount !== undefined && { Amount: input.Amount }),
+    ...(input.Unit !== undefined && { Unit: input.Unit })
+  };
 };
 
 const serializeAws_json1_1Subscriber = (
   input: Subscriber,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Address !== undefined) {
-    bodyParams["Address"] = input.Address;
-  }
-  if (input.SubscriptionType !== undefined) {
-    bodyParams["SubscriptionType"] = input.SubscriptionType;
-  }
-  return bodyParams;
+  return {
+    ...(input.Address !== undefined && { Address: input.Address }),
+    ...(input.SubscriptionType !== undefined && {
+      SubscriptionType: input.SubscriptionType
+    })
+  };
 };
 
 const serializeAws_json1_1Subscribers = (
@@ -2440,89 +2329,76 @@ const serializeAws_json1_1TimePeriod = (
   input: TimePeriod,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.End !== undefined) {
-    bodyParams["End"] = Math.round(input.End.getTime() / 1000);
-  }
-  if (input.Start !== undefined) {
-    bodyParams["Start"] = Math.round(input.Start.getTime() / 1000);
-  }
-  return bodyParams;
+  return {
+    ...(input.End !== undefined && {
+      End: Math.round(input.End.getTime() / 1000)
+    }),
+    ...(input.Start !== undefined && {
+      Start: Math.round(input.Start.getTime() / 1000)
+    })
+  };
 };
 
 const serializeAws_json1_1UpdateBudgetRequest = (
   input: UpdateBudgetRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AccountId !== undefined) {
-    bodyParams["AccountId"] = input.AccountId;
-  }
-  if (input.NewBudget !== undefined) {
-    bodyParams["NewBudget"] = serializeAws_json1_1Budget(
-      input.NewBudget,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.NewBudget !== undefined && {
+      NewBudget: serializeAws_json1_1Budget(input.NewBudget, context)
+    })
+  };
 };
 
 const serializeAws_json1_1UpdateNotificationRequest = (
   input: UpdateNotificationRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AccountId !== undefined) {
-    bodyParams["AccountId"] = input.AccountId;
-  }
-  if (input.BudgetName !== undefined) {
-    bodyParams["BudgetName"] = input.BudgetName;
-  }
-  if (input.NewNotification !== undefined) {
-    bodyParams["NewNotification"] = serializeAws_json1_1Notification(
-      input.NewNotification,
-      context
-    );
-  }
-  if (input.OldNotification !== undefined) {
-    bodyParams["OldNotification"] = serializeAws_json1_1Notification(
-      input.OldNotification,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
+    ...(input.NewNotification !== undefined && {
+      NewNotification: serializeAws_json1_1Notification(
+        input.NewNotification,
+        context
+      )
+    }),
+    ...(input.OldNotification !== undefined && {
+      OldNotification: serializeAws_json1_1Notification(
+        input.OldNotification,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1UpdateSubscriberRequest = (
   input: UpdateSubscriberRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AccountId !== undefined) {
-    bodyParams["AccountId"] = input.AccountId;
-  }
-  if (input.BudgetName !== undefined) {
-    bodyParams["BudgetName"] = input.BudgetName;
-  }
-  if (input.NewSubscriber !== undefined) {
-    bodyParams["NewSubscriber"] = serializeAws_json1_1Subscriber(
-      input.NewSubscriber,
-      context
-    );
-  }
-  if (input.Notification !== undefined) {
-    bodyParams["Notification"] = serializeAws_json1_1Notification(
-      input.Notification,
-      context
-    );
-  }
-  if (input.OldSubscriber !== undefined) {
-    bodyParams["OldSubscriber"] = serializeAws_json1_1Subscriber(
-      input.OldSubscriber,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
+    ...(input.NewSubscriber !== undefined && {
+      NewSubscriber: serializeAws_json1_1Subscriber(
+        input.NewSubscriber,
+        context
+      )
+    }),
+    ...(input.Notification !== undefined && {
+      Notification: serializeAws_json1_1Notification(
+        input.Notification,
+        context
+      )
+    }),
+    ...(input.OldSubscriber !== undefined && {
+      OldSubscriber: serializeAws_json1_1Subscriber(
+        input.OldSubscriber,
+        context
+      )
+    })
+  };
 };
 
 const deserializeAws_json1_1AccessDeniedException = (

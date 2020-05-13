@@ -3114,28 +3114,26 @@ const serializeAws_restJson1_1ApprovalThresholdPolicy = (
   input: ApprovalThresholdPolicy,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ProposalDurationInHours !== undefined) {
-    bodyParams["ProposalDurationInHours"] = input.ProposalDurationInHours;
-  }
-  if (input.ThresholdComparator !== undefined) {
-    bodyParams["ThresholdComparator"] = input.ThresholdComparator;
-  }
-  if (input.ThresholdPercentage !== undefined) {
-    bodyParams["ThresholdPercentage"] = input.ThresholdPercentage;
-  }
-  return bodyParams;
+  return {
+    ...(input.ProposalDurationInHours !== undefined && {
+      ProposalDurationInHours: input.ProposalDurationInHours
+    }),
+    ...(input.ThresholdComparator !== undefined && {
+      ThresholdComparator: input.ThresholdComparator
+    }),
+    ...(input.ThresholdPercentage !== undefined && {
+      ThresholdPercentage: input.ThresholdPercentage
+    })
+  };
 };
 
 const serializeAws_restJson1_1InviteAction = (
   input: InviteAction,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Principal !== undefined) {
-    bodyParams["Principal"] = input.Principal;
-  }
-  return bodyParams;
+  return {
+    ...(input.Principal !== undefined && { Principal: input.Principal })
+  };
 };
 
 const serializeAws_restJson1_1InviteActionList = (
@@ -3151,120 +3149,110 @@ const serializeAws_restJson1_1MemberConfiguration = (
   input: MemberConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.FrameworkConfiguration !== undefined) {
-    bodyParams[
-      "FrameworkConfiguration"
-    ] = serializeAws_restJson1_1MemberFrameworkConfiguration(
-      input.FrameworkConfiguration,
-      context
-    );
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  return bodyParams;
+  return {
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.FrameworkConfiguration !== undefined && {
+      FrameworkConfiguration: serializeAws_restJson1_1MemberFrameworkConfiguration(
+        input.FrameworkConfiguration,
+        context
+      )
+    }),
+    ...(input.Name !== undefined && { Name: input.Name })
+  };
 };
 
 const serializeAws_restJson1_1MemberFabricConfiguration = (
   input: MemberFabricConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AdminPassword !== undefined) {
-    bodyParams["AdminPassword"] = input.AdminPassword;
-  }
-  if (input.AdminUsername !== undefined) {
-    bodyParams["AdminUsername"] = input.AdminUsername;
-  }
-  return bodyParams;
+  return {
+    ...(input.AdminPassword !== undefined && {
+      AdminPassword: input.AdminPassword
+    }),
+    ...(input.AdminUsername !== undefined && {
+      AdminUsername: input.AdminUsername
+    })
+  };
 };
 
 const serializeAws_restJson1_1MemberFrameworkConfiguration = (
   input: MemberFrameworkConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Fabric !== undefined) {
-    bodyParams["Fabric"] = serializeAws_restJson1_1MemberFabricConfiguration(
-      input.Fabric,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Fabric !== undefined && {
+      Fabric: serializeAws_restJson1_1MemberFabricConfiguration(
+        input.Fabric,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1NetworkFabricConfiguration = (
   input: NetworkFabricConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Edition !== undefined) {
-    bodyParams["Edition"] = input.Edition;
-  }
-  return bodyParams;
+  return {
+    ...(input.Edition !== undefined && { Edition: input.Edition })
+  };
 };
 
 const serializeAws_restJson1_1NetworkFrameworkConfiguration = (
   input: NetworkFrameworkConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Fabric !== undefined) {
-    bodyParams["Fabric"] = serializeAws_restJson1_1NetworkFabricConfiguration(
-      input.Fabric,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Fabric !== undefined && {
+      Fabric: serializeAws_restJson1_1NetworkFabricConfiguration(
+        input.Fabric,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1NodeConfiguration = (
   input: NodeConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AvailabilityZone !== undefined) {
-    bodyParams["AvailabilityZone"] = input.AvailabilityZone;
-  }
-  if (input.InstanceType !== undefined) {
-    bodyParams["InstanceType"] = input.InstanceType;
-  }
-  return bodyParams;
+  return {
+    ...(input.AvailabilityZone !== undefined && {
+      AvailabilityZone: input.AvailabilityZone
+    }),
+    ...(input.InstanceType !== undefined && {
+      InstanceType: input.InstanceType
+    })
+  };
 };
 
 const serializeAws_restJson1_1ProposalActions = (
   input: ProposalActions,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Invitations !== undefined) {
-    bodyParams["Invitations"] = serializeAws_restJson1_1InviteActionList(
-      input.Invitations,
-      context
-    );
-  }
-  if (input.Removals !== undefined) {
-    bodyParams["Removals"] = serializeAws_restJson1_1RemoveActionList(
-      input.Removals,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Invitations !== undefined && {
+      Invitations: serializeAws_restJson1_1InviteActionList(
+        input.Invitations,
+        context
+      )
+    }),
+    ...(input.Removals !== undefined && {
+      Removals: serializeAws_restJson1_1RemoveActionList(
+        input.Removals,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1RemoveAction = (
   input: RemoveAction,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MemberId !== undefined) {
-    bodyParams["MemberId"] = input.MemberId;
-  }
-  return bodyParams;
+  return {
+    ...(input.MemberId !== undefined && { MemberId: input.MemberId })
+  };
 };
 
 const serializeAws_restJson1_1RemoveActionList = (
@@ -3280,16 +3268,14 @@ const serializeAws_restJson1_1VotingPolicy = (
   input: VotingPolicy,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ApprovalThresholdPolicy !== undefined) {
-    bodyParams[
-      "ApprovalThresholdPolicy"
-    ] = serializeAws_restJson1_1ApprovalThresholdPolicy(
-      input.ApprovalThresholdPolicy,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.ApprovalThresholdPolicy !== undefined && {
+      ApprovalThresholdPolicy: serializeAws_restJson1_1ApprovalThresholdPolicy(
+        input.ApprovalThresholdPolicy,
+        context
+      )
+    })
+  };
 };
 
 const deserializeAws_restJson1_1ApprovalThresholdPolicy = (

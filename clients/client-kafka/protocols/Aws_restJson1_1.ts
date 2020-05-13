@@ -3341,215 +3341,203 @@ const serializeAws_restJson1_1BrokerEBSVolumeInfo = (
   input: BrokerEBSVolumeInfo,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.KafkaBrokerNodeId !== undefined) {
-    bodyParams["kafkaBrokerNodeId"] = input.KafkaBrokerNodeId;
-  }
-  if (input.VolumeSizeGB !== undefined) {
-    bodyParams["volumeSizeGB"] = input.VolumeSizeGB;
-  }
-  return bodyParams;
+  return {
+    ...(input.KafkaBrokerNodeId !== undefined && {
+      kafkaBrokerNodeId: input.KafkaBrokerNodeId
+    }),
+    ...(input.VolumeSizeGB !== undefined && {
+      volumeSizeGB: input.VolumeSizeGB
+    })
+  };
 };
 
 const serializeAws_restJson1_1BrokerNodeGroupInfo = (
   input: BrokerNodeGroupInfo,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.BrokerAZDistribution !== undefined) {
-    bodyParams["brokerAZDistribution"] = input.BrokerAZDistribution;
-  }
-  if (input.ClientSubnets !== undefined) {
-    bodyParams["clientSubnets"] = serializeAws_restJson1_1__listOf__string(
-      input.ClientSubnets,
-      context
-    );
-  }
-  if (input.InstanceType !== undefined) {
-    bodyParams["instanceType"] = input.InstanceType;
-  }
-  if (input.SecurityGroups !== undefined) {
-    bodyParams["securityGroups"] = serializeAws_restJson1_1__listOf__string(
-      input.SecurityGroups,
-      context
-    );
-  }
-  if (input.StorageInfo !== undefined) {
-    bodyParams["storageInfo"] = serializeAws_restJson1_1StorageInfo(
-      input.StorageInfo,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.BrokerAZDistribution !== undefined && {
+      brokerAZDistribution: input.BrokerAZDistribution
+    }),
+    ...(input.ClientSubnets !== undefined && {
+      clientSubnets: serializeAws_restJson1_1__listOf__string(
+        input.ClientSubnets,
+        context
+      )
+    }),
+    ...(input.InstanceType !== undefined && {
+      instanceType: input.InstanceType
+    }),
+    ...(input.SecurityGroups !== undefined && {
+      securityGroups: serializeAws_restJson1_1__listOf__string(
+        input.SecurityGroups,
+        context
+      )
+    }),
+    ...(input.StorageInfo !== undefined && {
+      storageInfo: serializeAws_restJson1_1StorageInfo(
+        input.StorageInfo,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1ClientAuthentication = (
   input: ClientAuthentication,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Tls !== undefined) {
-    bodyParams["tls"] = serializeAws_restJson1_1Tls(input.Tls, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.Tls !== undefined && {
+      tls: serializeAws_restJson1_1Tls(input.Tls, context)
+    })
+  };
 };
 
 const serializeAws_restJson1_1ConfigurationInfo = (
   input: ConfigurationInfo,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Arn !== undefined) {
-    bodyParams["arn"] = input.Arn;
-  }
-  if (input.Revision !== undefined) {
-    bodyParams["revision"] = input.Revision;
-  }
-  return bodyParams;
+  return {
+    ...(input.Arn !== undefined && { arn: input.Arn }),
+    ...(input.Revision !== undefined && { revision: input.Revision })
+  };
 };
 
 const serializeAws_restJson1_1EBSStorageInfo = (
   input: EBSStorageInfo,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.VolumeSize !== undefined) {
-    bodyParams["volumeSize"] = input.VolumeSize;
-  }
-  return bodyParams;
+  return {
+    ...(input.VolumeSize !== undefined && { volumeSize: input.VolumeSize })
+  };
 };
 
 const serializeAws_restJson1_1EncryptionAtRest = (
   input: EncryptionAtRest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DataVolumeKMSKeyId !== undefined) {
-    bodyParams["dataVolumeKMSKeyId"] = input.DataVolumeKMSKeyId;
-  }
-  return bodyParams;
+  return {
+    ...(input.DataVolumeKMSKeyId !== undefined && {
+      dataVolumeKMSKeyId: input.DataVolumeKMSKeyId
+    })
+  };
 };
 
 const serializeAws_restJson1_1EncryptionInTransit = (
   input: EncryptionInTransit,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ClientBroker !== undefined) {
-    bodyParams["clientBroker"] = input.ClientBroker;
-  }
-  if (input.InCluster !== undefined) {
-    bodyParams["inCluster"] = input.InCluster;
-  }
-  return bodyParams;
+  return {
+    ...(input.ClientBroker !== undefined && {
+      clientBroker: input.ClientBroker
+    }),
+    ...(input.InCluster !== undefined && { inCluster: input.InCluster })
+  };
 };
 
 const serializeAws_restJson1_1EncryptionInfo = (
   input: EncryptionInfo,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EncryptionAtRest !== undefined) {
-    bodyParams["encryptionAtRest"] = serializeAws_restJson1_1EncryptionAtRest(
-      input.EncryptionAtRest,
-      context
-    );
-  }
-  if (input.EncryptionInTransit !== undefined) {
-    bodyParams[
-      "encryptionInTransit"
-    ] = serializeAws_restJson1_1EncryptionInTransit(
-      input.EncryptionInTransit,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.EncryptionAtRest !== undefined && {
+      encryptionAtRest: serializeAws_restJson1_1EncryptionAtRest(
+        input.EncryptionAtRest,
+        context
+      )
+    }),
+    ...(input.EncryptionInTransit !== undefined && {
+      encryptionInTransit: serializeAws_restJson1_1EncryptionInTransit(
+        input.EncryptionInTransit,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1JmxExporterInfo = (
   input: JmxExporterInfo,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EnabledInBroker !== undefined) {
-    bodyParams["enabledInBroker"] = input.EnabledInBroker;
-  }
-  return bodyParams;
+  return {
+    ...(input.EnabledInBroker !== undefined && {
+      enabledInBroker: input.EnabledInBroker
+    })
+  };
 };
 
 const serializeAws_restJson1_1NodeExporterInfo = (
   input: NodeExporterInfo,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EnabledInBroker !== undefined) {
-    bodyParams["enabledInBroker"] = input.EnabledInBroker;
-  }
-  return bodyParams;
+  return {
+    ...(input.EnabledInBroker !== undefined && {
+      enabledInBroker: input.EnabledInBroker
+    })
+  };
 };
 
 const serializeAws_restJson1_1OpenMonitoringInfo = (
   input: OpenMonitoringInfo,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Prometheus !== undefined) {
-    bodyParams["prometheus"] = serializeAws_restJson1_1PrometheusInfo(
-      input.Prometheus,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Prometheus !== undefined && {
+      prometheus: serializeAws_restJson1_1PrometheusInfo(
+        input.Prometheus,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1PrometheusInfo = (
   input: PrometheusInfo,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.JmxExporter !== undefined) {
-    bodyParams["jmxExporter"] = serializeAws_restJson1_1JmxExporterInfo(
-      input.JmxExporter,
-      context
-    );
-  }
-  if (input.NodeExporter !== undefined) {
-    bodyParams["nodeExporter"] = serializeAws_restJson1_1NodeExporterInfo(
-      input.NodeExporter,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.JmxExporter !== undefined && {
+      jmxExporter: serializeAws_restJson1_1JmxExporterInfo(
+        input.JmxExporter,
+        context
+      )
+    }),
+    ...(input.NodeExporter !== undefined && {
+      nodeExporter: serializeAws_restJson1_1NodeExporterInfo(
+        input.NodeExporter,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1StorageInfo = (
   input: StorageInfo,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EbsStorageInfo !== undefined) {
-    bodyParams["ebsStorageInfo"] = serializeAws_restJson1_1EBSStorageInfo(
-      input.EbsStorageInfo,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.EbsStorageInfo !== undefined && {
+      ebsStorageInfo: serializeAws_restJson1_1EBSStorageInfo(
+        input.EbsStorageInfo,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1Tls = (
   input: Tls,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateAuthorityArnList !== undefined) {
-    bodyParams[
-      "certificateAuthorityArnList"
-    ] = serializeAws_restJson1_1__listOf__string(
-      input.CertificateAuthorityArnList,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateAuthorityArnList !== undefined && {
+      certificateAuthorityArnList: serializeAws_restJson1_1__listOf__string(
+        input.CertificateAuthorityArnList,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1__listOfBrokerEBSVolumeInfo = (

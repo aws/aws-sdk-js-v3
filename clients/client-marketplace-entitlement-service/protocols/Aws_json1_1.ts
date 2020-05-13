@@ -196,23 +196,14 @@ const serializeAws_json1_1GetEntitlementsRequest = (
   input: GetEntitlementsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Filter !== undefined) {
-    bodyParams["Filter"] = serializeAws_json1_1GetEntitlementFilters(
-      input.Filter,
-      context
-    );
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ProductCode !== undefined) {
-    bodyParams["ProductCode"] = input.ProductCode;
-  }
-  return bodyParams;
+  return {
+    ...(input.Filter !== undefined && {
+      Filter: serializeAws_json1_1GetEntitlementFilters(input.Filter, context)
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ProductCode !== undefined && { ProductCode: input.ProductCode })
+  };
 };
 
 const deserializeAws_json1_1Entitlement = (

@@ -367,53 +367,49 @@ const serializeAws_json1_0CreateConnectionInput = (
   input: CreateConnectionInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ConnectionName !== undefined) {
-    bodyParams["ConnectionName"] = input.ConnectionName;
-  }
-  if (input.ProviderType !== undefined) {
-    bodyParams["ProviderType"] = input.ProviderType;
-  }
-  return bodyParams;
+  return {
+    ...(input.ConnectionName !== undefined && {
+      ConnectionName: input.ConnectionName
+    }),
+    ...(input.ProviderType !== undefined && {
+      ProviderType: input.ProviderType
+    })
+  };
 };
 
 const serializeAws_json1_0DeleteConnectionInput = (
   input: DeleteConnectionInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ConnectionArn !== undefined) {
-    bodyParams["ConnectionArn"] = input.ConnectionArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.ConnectionArn !== undefined && {
+      ConnectionArn: input.ConnectionArn
+    })
+  };
 };
 
 const serializeAws_json1_0GetConnectionInput = (
   input: GetConnectionInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ConnectionArn !== undefined) {
-    bodyParams["ConnectionArn"] = input.ConnectionArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.ConnectionArn !== undefined && {
+      ConnectionArn: input.ConnectionArn
+    })
+  };
 };
 
 const serializeAws_json1_0ListConnectionsInput = (
   input: ListConnectionsInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ProviderTypeFilter !== undefined) {
-    bodyParams["ProviderTypeFilter"] = input.ProviderTypeFilter;
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ProviderTypeFilter !== undefined && {
+      ProviderTypeFilter: input.ProviderTypeFilter
+    })
+  };
 };
 
 const deserializeAws_json1_0Connection = (

@@ -1181,62 +1181,47 @@ const serializeAws_restJson1_1CreateRule = (
   input: CreateRule,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Interval !== undefined) {
-    bodyParams["Interval"] = input.Interval;
-  }
-  if (input.IntervalUnit !== undefined) {
-    bodyParams["IntervalUnit"] = input.IntervalUnit;
-  }
-  if (input.Times !== undefined) {
-    bodyParams["Times"] = serializeAws_restJson1_1TimesList(
-      input.Times,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Interval !== undefined && { Interval: input.Interval }),
+    ...(input.IntervalUnit !== undefined && {
+      IntervalUnit: input.IntervalUnit
+    }),
+    ...(input.Times !== undefined && {
+      Times: serializeAws_restJson1_1TimesList(input.Times, context)
+    })
+  };
 };
 
 const serializeAws_restJson1_1CrossRegionCopyRetainRule = (
   input: CrossRegionCopyRetainRule,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Interval !== undefined) {
-    bodyParams["Interval"] = input.Interval;
-  }
-  if (input.IntervalUnit !== undefined) {
-    bodyParams["IntervalUnit"] = input.IntervalUnit;
-  }
-  return bodyParams;
+  return {
+    ...(input.Interval !== undefined && { Interval: input.Interval }),
+    ...(input.IntervalUnit !== undefined && {
+      IntervalUnit: input.IntervalUnit
+    })
+  };
 };
 
 const serializeAws_restJson1_1CrossRegionCopyRule = (
   input: CrossRegionCopyRule,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CmkArn !== undefined) {
-    bodyParams["CmkArn"] = input.CmkArn;
-  }
-  if (input.CopyTags !== undefined) {
-    bodyParams["CopyTags"] = input.CopyTags;
-  }
-  if (input.Encrypted !== undefined) {
-    bodyParams["Encrypted"] = input.Encrypted;
-  }
-  if (input.RetainRule !== undefined) {
-    bodyParams[
-      "RetainRule"
-    ] = serializeAws_restJson1_1CrossRegionCopyRetainRule(
-      input.RetainRule,
-      context
-    );
-  }
-  if (input.TargetRegion !== undefined) {
-    bodyParams["TargetRegion"] = input.TargetRegion;
-  }
-  return bodyParams;
+  return {
+    ...(input.CmkArn !== undefined && { CmkArn: input.CmkArn }),
+    ...(input.CopyTags !== undefined && { CopyTags: input.CopyTags }),
+    ...(input.Encrypted !== undefined && { Encrypted: input.Encrypted }),
+    ...(input.RetainRule !== undefined && {
+      RetainRule: serializeAws_restJson1_1CrossRegionCopyRetainRule(
+        input.RetainRule,
+        context
+      )
+    }),
+    ...(input.TargetRegion !== undefined && {
+      TargetRegion: input.TargetRegion
+    })
+  };
 };
 
 const serializeAws_restJson1_1CrossRegionCopyRules = (
@@ -1252,73 +1237,57 @@ const serializeAws_restJson1_1FastRestoreRule = (
   input: FastRestoreRule,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AvailabilityZones !== undefined) {
-    bodyParams[
-      "AvailabilityZones"
-    ] = serializeAws_restJson1_1AvailabilityZoneList(
-      input.AvailabilityZones,
-      context
-    );
-  }
-  if (input.Count !== undefined) {
-    bodyParams["Count"] = input.Count;
-  }
-  if (input.Interval !== undefined) {
-    bodyParams["Interval"] = input.Interval;
-  }
-  if (input.IntervalUnit !== undefined) {
-    bodyParams["IntervalUnit"] = input.IntervalUnit;
-  }
-  return bodyParams;
+  return {
+    ...(input.AvailabilityZones !== undefined && {
+      AvailabilityZones: serializeAws_restJson1_1AvailabilityZoneList(
+        input.AvailabilityZones,
+        context
+      )
+    }),
+    ...(input.Count !== undefined && { Count: input.Count }),
+    ...(input.Interval !== undefined && { Interval: input.Interval }),
+    ...(input.IntervalUnit !== undefined && {
+      IntervalUnit: input.IntervalUnit
+    })
+  };
 };
 
 const serializeAws_restJson1_1_Parameters = (
   input: _Parameters,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ExcludeBootVolume !== undefined) {
-    bodyParams["ExcludeBootVolume"] = input.ExcludeBootVolume;
-  }
-  return bodyParams;
+  return {
+    ...(input.ExcludeBootVolume !== undefined && {
+      ExcludeBootVolume: input.ExcludeBootVolume
+    })
+  };
 };
 
 const serializeAws_restJson1_1PolicyDetails = (
   input: PolicyDetails,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Parameters !== undefined) {
-    bodyParams["Parameters"] = serializeAws_restJson1_1_Parameters(
-      input.Parameters,
-      context
-    );
-  }
-  if (input.PolicyType !== undefined) {
-    bodyParams["PolicyType"] = input.PolicyType;
-  }
-  if (input.ResourceTypes !== undefined) {
-    bodyParams[
-      "ResourceTypes"
-    ] = serializeAws_restJson1_1ResourceTypeValuesList(
-      input.ResourceTypes,
-      context
-    );
-  }
-  if (input.Schedules !== undefined) {
-    bodyParams["Schedules"] = serializeAws_restJson1_1ScheduleList(
-      input.Schedules,
-      context
-    );
-  }
-  if (input.TargetTags !== undefined) {
-    bodyParams["TargetTags"] = serializeAws_restJson1_1TargetTagList(
-      input.TargetTags,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Parameters !== undefined && {
+      Parameters: serializeAws_restJson1_1_Parameters(input.Parameters, context)
+    }),
+    ...(input.PolicyType !== undefined && { PolicyType: input.PolicyType }),
+    ...(input.ResourceTypes !== undefined && {
+      ResourceTypes: serializeAws_restJson1_1ResourceTypeValuesList(
+        input.ResourceTypes,
+        context
+      )
+    }),
+    ...(input.Schedules !== undefined && {
+      Schedules: serializeAws_restJson1_1ScheduleList(input.Schedules, context)
+    }),
+    ...(input.TargetTags !== undefined && {
+      TargetTags: serializeAws_restJson1_1TargetTagList(
+        input.TargetTags,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1ResourceTypeValuesList = (
@@ -1332,69 +1301,50 @@ const serializeAws_restJson1_1RetainRule = (
   input: RetainRule,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Count !== undefined) {
-    bodyParams["Count"] = input.Count;
-  }
-  if (input.Interval !== undefined) {
-    bodyParams["Interval"] = input.Interval;
-  }
-  if (input.IntervalUnit !== undefined) {
-    bodyParams["IntervalUnit"] = input.IntervalUnit;
-  }
-  return bodyParams;
+  return {
+    ...(input.Count !== undefined && { Count: input.Count }),
+    ...(input.Interval !== undefined && { Interval: input.Interval }),
+    ...(input.IntervalUnit !== undefined && {
+      IntervalUnit: input.IntervalUnit
+    })
+  };
 };
 
 const serializeAws_restJson1_1Schedule = (
   input: Schedule,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CopyTags !== undefined) {
-    bodyParams["CopyTags"] = input.CopyTags;
-  }
-  if (input.CreateRule !== undefined) {
-    bodyParams["CreateRule"] = serializeAws_restJson1_1CreateRule(
-      input.CreateRule,
-      context
-    );
-  }
-  if (input.CrossRegionCopyRules !== undefined) {
-    bodyParams[
-      "CrossRegionCopyRules"
-    ] = serializeAws_restJson1_1CrossRegionCopyRules(
-      input.CrossRegionCopyRules,
-      context
-    );
-  }
-  if (input.FastRestoreRule !== undefined) {
-    bodyParams["FastRestoreRule"] = serializeAws_restJson1_1FastRestoreRule(
-      input.FastRestoreRule,
-      context
-    );
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.RetainRule !== undefined) {
-    bodyParams["RetainRule"] = serializeAws_restJson1_1RetainRule(
-      input.RetainRule,
-      context
-    );
-  }
-  if (input.TagsToAdd !== undefined) {
-    bodyParams["TagsToAdd"] = serializeAws_restJson1_1TagsToAddList(
-      input.TagsToAdd,
-      context
-    );
-  }
-  if (input.VariableTags !== undefined) {
-    bodyParams["VariableTags"] = serializeAws_restJson1_1VariableTagsList(
-      input.VariableTags,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.CopyTags !== undefined && { CopyTags: input.CopyTags }),
+    ...(input.CreateRule !== undefined && {
+      CreateRule: serializeAws_restJson1_1CreateRule(input.CreateRule, context)
+    }),
+    ...(input.CrossRegionCopyRules !== undefined && {
+      CrossRegionCopyRules: serializeAws_restJson1_1CrossRegionCopyRules(
+        input.CrossRegionCopyRules,
+        context
+      )
+    }),
+    ...(input.FastRestoreRule !== undefined && {
+      FastRestoreRule: serializeAws_restJson1_1FastRestoreRule(
+        input.FastRestoreRule,
+        context
+      )
+    }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.RetainRule !== undefined && {
+      RetainRule: serializeAws_restJson1_1RetainRule(input.RetainRule, context)
+    }),
+    ...(input.TagsToAdd !== undefined && {
+      TagsToAdd: serializeAws_restJson1_1TagsToAddList(input.TagsToAdd, context)
+    }),
+    ...(input.VariableTags !== undefined && {
+      VariableTags: serializeAws_restJson1_1VariableTagsList(
+        input.VariableTags,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1ScheduleList = (
@@ -1408,14 +1358,10 @@ const serializeAws_restJson1_1Tag = (
   input: Tag,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_restJson1_1TagMap = (

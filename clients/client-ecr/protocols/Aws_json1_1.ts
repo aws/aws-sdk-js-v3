@@ -3909,68 +3909,54 @@ const serializeAws_json1_1BatchCheckLayerAvailabilityRequest = (
   input: BatchCheckLayerAvailabilityRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.layerDigests !== undefined) {
-    bodyParams[
-      "layerDigests"
-    ] = serializeAws_json1_1BatchedOperationLayerDigestList(
-      input.layerDigests,
-      context
-    );
-  }
-  if (input.registryId !== undefined) {
-    bodyParams["registryId"] = input.registryId;
-  }
-  if (input.repositoryName !== undefined) {
-    bodyParams["repositoryName"] = input.repositoryName;
-  }
-  return bodyParams;
+  return {
+    ...(input.layerDigests !== undefined && {
+      layerDigests: serializeAws_json1_1BatchedOperationLayerDigestList(
+        input.layerDigests,
+        context
+      )
+    }),
+    ...(input.registryId !== undefined && { registryId: input.registryId }),
+    ...(input.repositoryName !== undefined && {
+      repositoryName: input.repositoryName
+    })
+  };
 };
 
 const serializeAws_json1_1BatchDeleteImageRequest = (
   input: BatchDeleteImageRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.imageIds !== undefined) {
-    bodyParams["imageIds"] = serializeAws_json1_1ImageIdentifierList(
-      input.imageIds,
-      context
-    );
-  }
-  if (input.registryId !== undefined) {
-    bodyParams["registryId"] = input.registryId;
-  }
-  if (input.repositoryName !== undefined) {
-    bodyParams["repositoryName"] = input.repositoryName;
-  }
-  return bodyParams;
+  return {
+    ...(input.imageIds !== undefined && {
+      imageIds: serializeAws_json1_1ImageIdentifierList(input.imageIds, context)
+    }),
+    ...(input.registryId !== undefined && { registryId: input.registryId }),
+    ...(input.repositoryName !== undefined && {
+      repositoryName: input.repositoryName
+    })
+  };
 };
 
 const serializeAws_json1_1BatchGetImageRequest = (
   input: BatchGetImageRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.acceptedMediaTypes !== undefined) {
-    bodyParams["acceptedMediaTypes"] = serializeAws_json1_1MediaTypeList(
-      input.acceptedMediaTypes,
-      context
-    );
-  }
-  if (input.imageIds !== undefined) {
-    bodyParams["imageIds"] = serializeAws_json1_1ImageIdentifierList(
-      input.imageIds,
-      context
-    );
-  }
-  if (input.registryId !== undefined) {
-    bodyParams["registryId"] = input.registryId;
-  }
-  if (input.repositoryName !== undefined) {
-    bodyParams["repositoryName"] = input.repositoryName;
-  }
-  return bodyParams;
+  return {
+    ...(input.acceptedMediaTypes !== undefined && {
+      acceptedMediaTypes: serializeAws_json1_1MediaTypeList(
+        input.acceptedMediaTypes,
+        context
+      )
+    }),
+    ...(input.imageIds !== undefined && {
+      imageIds: serializeAws_json1_1ImageIdentifierList(input.imageIds, context)
+    }),
+    ...(input.registryId !== undefined && { registryId: input.registryId }),
+    ...(input.repositoryName !== undefined && {
+      repositoryName: input.repositoryName
+    })
+  };
 };
 
 const serializeAws_json1_1BatchedOperationLayerDigestList = (
@@ -3984,185 +3970,142 @@ const serializeAws_json1_1CompleteLayerUploadRequest = (
   input: CompleteLayerUploadRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.layerDigests !== undefined) {
-    bodyParams["layerDigests"] = serializeAws_json1_1LayerDigestList(
-      input.layerDigests,
-      context
-    );
-  }
-  if (input.registryId !== undefined) {
-    bodyParams["registryId"] = input.registryId;
-  }
-  if (input.repositoryName !== undefined) {
-    bodyParams["repositoryName"] = input.repositoryName;
-  }
-  if (input.uploadId !== undefined) {
-    bodyParams["uploadId"] = input.uploadId;
-  }
-  return bodyParams;
+  return {
+    ...(input.layerDigests !== undefined && {
+      layerDigests: serializeAws_json1_1LayerDigestList(
+        input.layerDigests,
+        context
+      )
+    }),
+    ...(input.registryId !== undefined && { registryId: input.registryId }),
+    ...(input.repositoryName !== undefined && {
+      repositoryName: input.repositoryName
+    }),
+    ...(input.uploadId !== undefined && { uploadId: input.uploadId })
+  };
 };
 
 const serializeAws_json1_1CreateRepositoryRequest = (
   input: CreateRepositoryRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.imageScanningConfiguration !== undefined) {
-    bodyParams[
-      "imageScanningConfiguration"
-    ] = serializeAws_json1_1ImageScanningConfiguration(
-      input.imageScanningConfiguration,
-      context
-    );
-  }
-  if (input.imageTagMutability !== undefined) {
-    bodyParams["imageTagMutability"] = input.imageTagMutability;
-  }
-  if (input.repositoryName !== undefined) {
-    bodyParams["repositoryName"] = input.repositoryName;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_json1_1TagList(input.tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.imageScanningConfiguration !== undefined && {
+      imageScanningConfiguration: serializeAws_json1_1ImageScanningConfiguration(
+        input.imageScanningConfiguration,
+        context
+      )
+    }),
+    ...(input.imageTagMutability !== undefined && {
+      imageTagMutability: input.imageTagMutability
+    }),
+    ...(input.repositoryName !== undefined && {
+      repositoryName: input.repositoryName
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_json1_1TagList(input.tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_1DeleteLifecyclePolicyRequest = (
   input: DeleteLifecyclePolicyRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.registryId !== undefined) {
-    bodyParams["registryId"] = input.registryId;
-  }
-  if (input.repositoryName !== undefined) {
-    bodyParams["repositoryName"] = input.repositoryName;
-  }
-  return bodyParams;
+  return {
+    ...(input.registryId !== undefined && { registryId: input.registryId }),
+    ...(input.repositoryName !== undefined && {
+      repositoryName: input.repositoryName
+    })
+  };
 };
 
 const serializeAws_json1_1DeleteRepositoryPolicyRequest = (
   input: DeleteRepositoryPolicyRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.registryId !== undefined) {
-    bodyParams["registryId"] = input.registryId;
-  }
-  if (input.repositoryName !== undefined) {
-    bodyParams["repositoryName"] = input.repositoryName;
-  }
-  return bodyParams;
+  return {
+    ...(input.registryId !== undefined && { registryId: input.registryId }),
+    ...(input.repositoryName !== undefined && {
+      repositoryName: input.repositoryName
+    })
+  };
 };
 
 const serializeAws_json1_1DeleteRepositoryRequest = (
   input: DeleteRepositoryRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.force !== undefined) {
-    bodyParams["force"] = input.force;
-  }
-  if (input.registryId !== undefined) {
-    bodyParams["registryId"] = input.registryId;
-  }
-  if (input.repositoryName !== undefined) {
-    bodyParams["repositoryName"] = input.repositoryName;
-  }
-  return bodyParams;
+  return {
+    ...(input.force !== undefined && { force: input.force }),
+    ...(input.registryId !== undefined && { registryId: input.registryId }),
+    ...(input.repositoryName !== undefined && {
+      repositoryName: input.repositoryName
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeImageScanFindingsRequest = (
   input: DescribeImageScanFindingsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.imageId !== undefined) {
-    bodyParams["imageId"] = serializeAws_json1_1ImageIdentifier(
-      input.imageId,
-      context
-    );
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.registryId !== undefined) {
-    bodyParams["registryId"] = input.registryId;
-  }
-  if (input.repositoryName !== undefined) {
-    bodyParams["repositoryName"] = input.repositoryName;
-  }
-  return bodyParams;
+  return {
+    ...(input.imageId !== undefined && {
+      imageId: serializeAws_json1_1ImageIdentifier(input.imageId, context)
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.registryId !== undefined && { registryId: input.registryId }),
+    ...(input.repositoryName !== undefined && {
+      repositoryName: input.repositoryName
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeImagesFilter = (
   input: DescribeImagesFilter,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.tagStatus !== undefined) {
-    bodyParams["tagStatus"] = input.tagStatus;
-  }
-  return bodyParams;
+  return {
+    ...(input.tagStatus !== undefined && { tagStatus: input.tagStatus })
+  };
 };
 
 const serializeAws_json1_1DescribeImagesRequest = (
   input: DescribeImagesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.filter !== undefined) {
-    bodyParams["filter"] = serializeAws_json1_1DescribeImagesFilter(
-      input.filter,
-      context
-    );
-  }
-  if (input.imageIds !== undefined) {
-    bodyParams["imageIds"] = serializeAws_json1_1ImageIdentifierList(
-      input.imageIds,
-      context
-    );
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.registryId !== undefined) {
-    bodyParams["registryId"] = input.registryId;
-  }
-  if (input.repositoryName !== undefined) {
-    bodyParams["repositoryName"] = input.repositoryName;
-  }
-  return bodyParams;
+  return {
+    ...(input.filter !== undefined && {
+      filter: serializeAws_json1_1DescribeImagesFilter(input.filter, context)
+    }),
+    ...(input.imageIds !== undefined && {
+      imageIds: serializeAws_json1_1ImageIdentifierList(input.imageIds, context)
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.registryId !== undefined && { registryId: input.registryId }),
+    ...(input.repositoryName !== undefined && {
+      repositoryName: input.repositoryName
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeRepositoriesRequest = (
   input: DescribeRepositoriesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.registryId !== undefined) {
-    bodyParams["registryId"] = input.registryId;
-  }
-  if (input.repositoryNames !== undefined) {
-    bodyParams["repositoryNames"] = serializeAws_json1_1RepositoryNameList(
-      input.repositoryNames,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.registryId !== undefined && { registryId: input.registryId }),
+    ...(input.repositoryNames !== undefined && {
+      repositoryNames: serializeAws_json1_1RepositoryNameList(
+        input.repositoryNames,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1GetAuthorizationTokenRegistryIdList = (
@@ -4176,107 +4119,84 @@ const serializeAws_json1_1GetAuthorizationTokenRequest = (
   input: GetAuthorizationTokenRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.registryIds !== undefined) {
-    bodyParams[
-      "registryIds"
-    ] = serializeAws_json1_1GetAuthorizationTokenRegistryIdList(
-      input.registryIds,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.registryIds !== undefined && {
+      registryIds: serializeAws_json1_1GetAuthorizationTokenRegistryIdList(
+        input.registryIds,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1GetDownloadUrlForLayerRequest = (
   input: GetDownloadUrlForLayerRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.layerDigest !== undefined) {
-    bodyParams["layerDigest"] = input.layerDigest;
-  }
-  if (input.registryId !== undefined) {
-    bodyParams["registryId"] = input.registryId;
-  }
-  if (input.repositoryName !== undefined) {
-    bodyParams["repositoryName"] = input.repositoryName;
-  }
-  return bodyParams;
+  return {
+    ...(input.layerDigest !== undefined && { layerDigest: input.layerDigest }),
+    ...(input.registryId !== undefined && { registryId: input.registryId }),
+    ...(input.repositoryName !== undefined && {
+      repositoryName: input.repositoryName
+    })
+  };
 };
 
 const serializeAws_json1_1GetLifecyclePolicyPreviewRequest = (
   input: GetLifecyclePolicyPreviewRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.filter !== undefined) {
-    bodyParams["filter"] = serializeAws_json1_1LifecyclePolicyPreviewFilter(
-      input.filter,
-      context
-    );
-  }
-  if (input.imageIds !== undefined) {
-    bodyParams["imageIds"] = serializeAws_json1_1ImageIdentifierList(
-      input.imageIds,
-      context
-    );
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.registryId !== undefined) {
-    bodyParams["registryId"] = input.registryId;
-  }
-  if (input.repositoryName !== undefined) {
-    bodyParams["repositoryName"] = input.repositoryName;
-  }
-  return bodyParams;
+  return {
+    ...(input.filter !== undefined && {
+      filter: serializeAws_json1_1LifecyclePolicyPreviewFilter(
+        input.filter,
+        context
+      )
+    }),
+    ...(input.imageIds !== undefined && {
+      imageIds: serializeAws_json1_1ImageIdentifierList(input.imageIds, context)
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.registryId !== undefined && { registryId: input.registryId }),
+    ...(input.repositoryName !== undefined && {
+      repositoryName: input.repositoryName
+    })
+  };
 };
 
 const serializeAws_json1_1GetLifecyclePolicyRequest = (
   input: GetLifecyclePolicyRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.registryId !== undefined) {
-    bodyParams["registryId"] = input.registryId;
-  }
-  if (input.repositoryName !== undefined) {
-    bodyParams["repositoryName"] = input.repositoryName;
-  }
-  return bodyParams;
+  return {
+    ...(input.registryId !== undefined && { registryId: input.registryId }),
+    ...(input.repositoryName !== undefined && {
+      repositoryName: input.repositoryName
+    })
+  };
 };
 
 const serializeAws_json1_1GetRepositoryPolicyRequest = (
   input: GetRepositoryPolicyRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.registryId !== undefined) {
-    bodyParams["registryId"] = input.registryId;
-  }
-  if (input.repositoryName !== undefined) {
-    bodyParams["repositoryName"] = input.repositoryName;
-  }
-  return bodyParams;
+  return {
+    ...(input.registryId !== undefined && { registryId: input.registryId }),
+    ...(input.repositoryName !== undefined && {
+      repositoryName: input.repositoryName
+    })
+  };
 };
 
 const serializeAws_json1_1ImageIdentifier = (
   input: ImageIdentifier,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.imageDigest !== undefined) {
-    bodyParams["imageDigest"] = input.imageDigest;
-  }
-  if (input.imageTag !== undefined) {
-    bodyParams["imageTag"] = input.imageTag;
-  }
-  return bodyParams;
+  return {
+    ...(input.imageDigest !== undefined && { imageDigest: input.imageDigest }),
+    ...(input.imageTag !== undefined && { imageTag: input.imageTag })
+  };
 };
 
 const serializeAws_json1_1ImageIdentifierList = (
@@ -4292,25 +4212,21 @@ const serializeAws_json1_1ImageScanningConfiguration = (
   input: ImageScanningConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.scanOnPush !== undefined) {
-    bodyParams["scanOnPush"] = input.scanOnPush;
-  }
-  return bodyParams;
+  return {
+    ...(input.scanOnPush !== undefined && { scanOnPush: input.scanOnPush })
+  };
 };
 
 const serializeAws_json1_1InitiateLayerUploadRequest = (
   input: InitiateLayerUploadRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.registryId !== undefined) {
-    bodyParams["registryId"] = input.registryId;
-  }
-  if (input.repositoryName !== undefined) {
-    bodyParams["repositoryName"] = input.repositoryName;
-  }
-  return bodyParams;
+  return {
+    ...(input.registryId !== undefined && { registryId: input.registryId }),
+    ...(input.repositoryName !== undefined && {
+      repositoryName: input.repositoryName
+    })
+  };
 };
 
 const serializeAws_json1_1LayerDigestList = (
@@ -4324,59 +4240,44 @@ const serializeAws_json1_1LifecyclePolicyPreviewFilter = (
   input: LifecyclePolicyPreviewFilter,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.tagStatus !== undefined) {
-    bodyParams["tagStatus"] = input.tagStatus;
-  }
-  return bodyParams;
+  return {
+    ...(input.tagStatus !== undefined && { tagStatus: input.tagStatus })
+  };
 };
 
 const serializeAws_json1_1ListImagesFilter = (
   input: ListImagesFilter,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.tagStatus !== undefined) {
-    bodyParams["tagStatus"] = input.tagStatus;
-  }
-  return bodyParams;
+  return {
+    ...(input.tagStatus !== undefined && { tagStatus: input.tagStatus })
+  };
 };
 
 const serializeAws_json1_1ListImagesRequest = (
   input: ListImagesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.filter !== undefined) {
-    bodyParams["filter"] = serializeAws_json1_1ListImagesFilter(
-      input.filter,
-      context
-    );
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.registryId !== undefined) {
-    bodyParams["registryId"] = input.registryId;
-  }
-  if (input.repositoryName !== undefined) {
-    bodyParams["repositoryName"] = input.repositoryName;
-  }
-  return bodyParams;
+  return {
+    ...(input.filter !== undefined && {
+      filter: serializeAws_json1_1ListImagesFilter(input.filter, context)
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.registryId !== undefined && { registryId: input.registryId }),
+    ...(input.repositoryName !== undefined && {
+      repositoryName: input.repositoryName
+    })
+  };
 };
 
 const serializeAws_json1_1ListTagsForResourceRequest = (
   input: ListTagsForResourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.resourceArn !== undefined) {
-    bodyParams["resourceArn"] = input.resourceArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn })
+  };
 };
 
 const serializeAws_json1_1MediaTypeList = (
@@ -4390,76 +4291,64 @@ const serializeAws_json1_1PutImageRequest = (
   input: PutImageRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.imageManifest !== undefined) {
-    bodyParams["imageManifest"] = input.imageManifest;
-  }
-  if (input.imageTag !== undefined) {
-    bodyParams["imageTag"] = input.imageTag;
-  }
-  if (input.registryId !== undefined) {
-    bodyParams["registryId"] = input.registryId;
-  }
-  if (input.repositoryName !== undefined) {
-    bodyParams["repositoryName"] = input.repositoryName;
-  }
-  return bodyParams;
+  return {
+    ...(input.imageManifest !== undefined && {
+      imageManifest: input.imageManifest
+    }),
+    ...(input.imageTag !== undefined && { imageTag: input.imageTag }),
+    ...(input.registryId !== undefined && { registryId: input.registryId }),
+    ...(input.repositoryName !== undefined && {
+      repositoryName: input.repositoryName
+    })
+  };
 };
 
 const serializeAws_json1_1PutImageScanningConfigurationRequest = (
   input: PutImageScanningConfigurationRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.imageScanningConfiguration !== undefined) {
-    bodyParams[
-      "imageScanningConfiguration"
-    ] = serializeAws_json1_1ImageScanningConfiguration(
-      input.imageScanningConfiguration,
-      context
-    );
-  }
-  if (input.registryId !== undefined) {
-    bodyParams["registryId"] = input.registryId;
-  }
-  if (input.repositoryName !== undefined) {
-    bodyParams["repositoryName"] = input.repositoryName;
-  }
-  return bodyParams;
+  return {
+    ...(input.imageScanningConfiguration !== undefined && {
+      imageScanningConfiguration: serializeAws_json1_1ImageScanningConfiguration(
+        input.imageScanningConfiguration,
+        context
+      )
+    }),
+    ...(input.registryId !== undefined && { registryId: input.registryId }),
+    ...(input.repositoryName !== undefined && {
+      repositoryName: input.repositoryName
+    })
+  };
 };
 
 const serializeAws_json1_1PutImageTagMutabilityRequest = (
   input: PutImageTagMutabilityRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.imageTagMutability !== undefined) {
-    bodyParams["imageTagMutability"] = input.imageTagMutability;
-  }
-  if (input.registryId !== undefined) {
-    bodyParams["registryId"] = input.registryId;
-  }
-  if (input.repositoryName !== undefined) {
-    bodyParams["repositoryName"] = input.repositoryName;
-  }
-  return bodyParams;
+  return {
+    ...(input.imageTagMutability !== undefined && {
+      imageTagMutability: input.imageTagMutability
+    }),
+    ...(input.registryId !== undefined && { registryId: input.registryId }),
+    ...(input.repositoryName !== undefined && {
+      repositoryName: input.repositoryName
+    })
+  };
 };
 
 const serializeAws_json1_1PutLifecyclePolicyRequest = (
   input: PutLifecyclePolicyRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.lifecyclePolicyText !== undefined) {
-    bodyParams["lifecyclePolicyText"] = input.lifecyclePolicyText;
-  }
-  if (input.registryId !== undefined) {
-    bodyParams["registryId"] = input.registryId;
-  }
-  if (input.repositoryName !== undefined) {
-    bodyParams["repositoryName"] = input.repositoryName;
-  }
-  return bodyParams;
+  return {
+    ...(input.lifecyclePolicyText !== undefined && {
+      lifecyclePolicyText: input.lifecyclePolicyText
+    }),
+    ...(input.registryId !== undefined && { registryId: input.registryId }),
+    ...(input.repositoryName !== undefined && {
+      repositoryName: input.repositoryName
+    })
+  };
 };
 
 const serializeAws_json1_1RepositoryNameList = (
@@ -4473,68 +4362,51 @@ const serializeAws_json1_1SetRepositoryPolicyRequest = (
   input: SetRepositoryPolicyRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.force !== undefined) {
-    bodyParams["force"] = input.force;
-  }
-  if (input.policyText !== undefined) {
-    bodyParams["policyText"] = input.policyText;
-  }
-  if (input.registryId !== undefined) {
-    bodyParams["registryId"] = input.registryId;
-  }
-  if (input.repositoryName !== undefined) {
-    bodyParams["repositoryName"] = input.repositoryName;
-  }
-  return bodyParams;
+  return {
+    ...(input.force !== undefined && { force: input.force }),
+    ...(input.policyText !== undefined && { policyText: input.policyText }),
+    ...(input.registryId !== undefined && { registryId: input.registryId }),
+    ...(input.repositoryName !== undefined && {
+      repositoryName: input.repositoryName
+    })
+  };
 };
 
 const serializeAws_json1_1StartImageScanRequest = (
   input: StartImageScanRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.imageId !== undefined) {
-    bodyParams["imageId"] = serializeAws_json1_1ImageIdentifier(
-      input.imageId,
-      context
-    );
-  }
-  if (input.registryId !== undefined) {
-    bodyParams["registryId"] = input.registryId;
-  }
-  if (input.repositoryName !== undefined) {
-    bodyParams["repositoryName"] = input.repositoryName;
-  }
-  return bodyParams;
+  return {
+    ...(input.imageId !== undefined && {
+      imageId: serializeAws_json1_1ImageIdentifier(input.imageId, context)
+    }),
+    ...(input.registryId !== undefined && { registryId: input.registryId }),
+    ...(input.repositoryName !== undefined && {
+      repositoryName: input.repositoryName
+    })
+  };
 };
 
 const serializeAws_json1_1StartLifecyclePolicyPreviewRequest = (
   input: StartLifecyclePolicyPreviewRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.lifecyclePolicyText !== undefined) {
-    bodyParams["lifecyclePolicyText"] = input.lifecyclePolicyText;
-  }
-  if (input.registryId !== undefined) {
-    bodyParams["registryId"] = input.registryId;
-  }
-  if (input.repositoryName !== undefined) {
-    bodyParams["repositoryName"] = input.repositoryName;
-  }
-  return bodyParams;
+  return {
+    ...(input.lifecyclePolicyText !== undefined && {
+      lifecyclePolicyText: input.lifecyclePolicyText
+    }),
+    ...(input.registryId !== undefined && { registryId: input.registryId }),
+    ...(input.repositoryName !== undefined && {
+      repositoryName: input.repositoryName
+    })
+  };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_json1_1TagKeyList = (
@@ -4555,57 +4427,46 @@ const serializeAws_json1_1TagResourceRequest = (
   input: TagResourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.resourceArn !== undefined) {
-    bodyParams["resourceArn"] = input.resourceArn;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_json1_1TagList(input.tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_json1_1TagList(input.tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (
   input: UntagResourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.resourceArn !== undefined) {
-    bodyParams["resourceArn"] = input.resourceArn;
-  }
-  if (input.tagKeys !== undefined) {
-    bodyParams["tagKeys"] = serializeAws_json1_1TagKeyList(
-      input.tagKeys,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
+    ...(input.tagKeys !== undefined && {
+      tagKeys: serializeAws_json1_1TagKeyList(input.tagKeys, context)
+    })
+  };
 };
 
 const serializeAws_json1_1UploadLayerPartRequest = (
   input: UploadLayerPartRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.layerPartBlob !== undefined) {
-    bodyParams["layerPartBlob"] = context.base64Encoder(input.layerPartBlob);
-  }
-  if (input.partFirstByte !== undefined) {
-    bodyParams["partFirstByte"] = input.partFirstByte;
-  }
-  if (input.partLastByte !== undefined) {
-    bodyParams["partLastByte"] = input.partLastByte;
-  }
-  if (input.registryId !== undefined) {
-    bodyParams["registryId"] = input.registryId;
-  }
-  if (input.repositoryName !== undefined) {
-    bodyParams["repositoryName"] = input.repositoryName;
-  }
-  if (input.uploadId !== undefined) {
-    bodyParams["uploadId"] = input.uploadId;
-  }
-  return bodyParams;
+  return {
+    ...(input.layerPartBlob !== undefined && {
+      layerPartBlob: context.base64Encoder(input.layerPartBlob)
+    }),
+    ...(input.partFirstByte !== undefined && {
+      partFirstByte: input.partFirstByte
+    }),
+    ...(input.partLastByte !== undefined && {
+      partLastByte: input.partLastByte
+    }),
+    ...(input.registryId !== undefined && { registryId: input.registryId }),
+    ...(input.repositoryName !== undefined && {
+      repositoryName: input.repositoryName
+    }),
+    ...(input.uploadId !== undefined && { uploadId: input.uploadId })
+  };
 };
 
 const deserializeAws_json1_1Attribute = (

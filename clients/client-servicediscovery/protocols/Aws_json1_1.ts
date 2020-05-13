@@ -2342,216 +2342,147 @@ const serializeAws_json1_1CreateHttpNamespaceRequest = (
   input: CreateHttpNamespaceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CreatorRequestId === undefined) {
-    input.CreatorRequestId = generateIdempotencyToken();
-  }
-  if (input.CreatorRequestId !== undefined) {
-    bodyParams["CreatorRequestId"] = input.CreatorRequestId;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  return bodyParams;
+  return {
+    CreatorRequestId: input.CreatorRequestId ?? generateIdempotencyToken(),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Name !== undefined && { Name: input.Name })
+  };
 };
 
 const serializeAws_json1_1CreatePrivateDnsNamespaceRequest = (
   input: CreatePrivateDnsNamespaceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CreatorRequestId === undefined) {
-    input.CreatorRequestId = generateIdempotencyToken();
-  }
-  if (input.CreatorRequestId !== undefined) {
-    bodyParams["CreatorRequestId"] = input.CreatorRequestId;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.Vpc !== undefined) {
-    bodyParams["Vpc"] = input.Vpc;
-  }
-  return bodyParams;
+  return {
+    CreatorRequestId: input.CreatorRequestId ?? generateIdempotencyToken(),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Vpc !== undefined && { Vpc: input.Vpc })
+  };
 };
 
 const serializeAws_json1_1CreatePublicDnsNamespaceRequest = (
   input: CreatePublicDnsNamespaceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CreatorRequestId === undefined) {
-    input.CreatorRequestId = generateIdempotencyToken();
-  }
-  if (input.CreatorRequestId !== undefined) {
-    bodyParams["CreatorRequestId"] = input.CreatorRequestId;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  return bodyParams;
+  return {
+    CreatorRequestId: input.CreatorRequestId ?? generateIdempotencyToken(),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Name !== undefined && { Name: input.Name })
+  };
 };
 
 const serializeAws_json1_1CreateServiceRequest = (
   input: CreateServiceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CreatorRequestId === undefined) {
-    input.CreatorRequestId = generateIdempotencyToken();
-  }
-  if (input.CreatorRequestId !== undefined) {
-    bodyParams["CreatorRequestId"] = input.CreatorRequestId;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.DnsConfig !== undefined) {
-    bodyParams["DnsConfig"] = serializeAws_json1_1DnsConfig(
-      input.DnsConfig,
-      context
-    );
-  }
-  if (input.HealthCheckConfig !== undefined) {
-    bodyParams["HealthCheckConfig"] = serializeAws_json1_1HealthCheckConfig(
-      input.HealthCheckConfig,
-      context
-    );
-  }
-  if (input.HealthCheckCustomConfig !== undefined) {
-    bodyParams[
-      "HealthCheckCustomConfig"
-    ] = serializeAws_json1_1HealthCheckCustomConfig(
-      input.HealthCheckCustomConfig,
-      context
-    );
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.NamespaceId !== undefined) {
-    bodyParams["NamespaceId"] = input.NamespaceId;
-  }
-  return bodyParams;
+  return {
+    CreatorRequestId: input.CreatorRequestId ?? generateIdempotencyToken(),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.DnsConfig !== undefined && {
+      DnsConfig: serializeAws_json1_1DnsConfig(input.DnsConfig, context)
+    }),
+    ...(input.HealthCheckConfig !== undefined && {
+      HealthCheckConfig: serializeAws_json1_1HealthCheckConfig(
+        input.HealthCheckConfig,
+        context
+      )
+    }),
+    ...(input.HealthCheckCustomConfig !== undefined && {
+      HealthCheckCustomConfig: serializeAws_json1_1HealthCheckCustomConfig(
+        input.HealthCheckCustomConfig,
+        context
+      )
+    }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.NamespaceId !== undefined && { NamespaceId: input.NamespaceId })
+  };
 };
 
 const serializeAws_json1_1DeleteNamespaceRequest = (
   input: DeleteNamespaceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
-  }
-  return bodyParams;
+  return {
+    ...(input.Id !== undefined && { Id: input.Id })
+  };
 };
 
 const serializeAws_json1_1DeleteServiceRequest = (
   input: DeleteServiceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
-  }
-  return bodyParams;
+  return {
+    ...(input.Id !== undefined && { Id: input.Id })
+  };
 };
 
 const serializeAws_json1_1DeregisterInstanceRequest = (
   input: DeregisterInstanceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.InstanceId !== undefined) {
-    bodyParams["InstanceId"] = input.InstanceId;
-  }
-  if (input.ServiceId !== undefined) {
-    bodyParams["ServiceId"] = input.ServiceId;
-  }
-  return bodyParams;
+  return {
+    ...(input.InstanceId !== undefined && { InstanceId: input.InstanceId }),
+    ...(input.ServiceId !== undefined && { ServiceId: input.ServiceId })
+  };
 };
 
 const serializeAws_json1_1DiscoverInstancesRequest = (
   input: DiscoverInstancesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.HealthStatus !== undefined) {
-    bodyParams["HealthStatus"] = input.HealthStatus;
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NamespaceName !== undefined) {
-    bodyParams["NamespaceName"] = input.NamespaceName;
-  }
-  if (input.QueryParameters !== undefined) {
-    bodyParams["QueryParameters"] = serializeAws_json1_1Attributes(
-      input.QueryParameters,
-      context
-    );
-  }
-  if (input.ServiceName !== undefined) {
-    bodyParams["ServiceName"] = input.ServiceName;
-  }
-  return bodyParams;
+  return {
+    ...(input.HealthStatus !== undefined && {
+      HealthStatus: input.HealthStatus
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NamespaceName !== undefined && {
+      NamespaceName: input.NamespaceName
+    }),
+    ...(input.QueryParameters !== undefined && {
+      QueryParameters: serializeAws_json1_1Attributes(
+        input.QueryParameters,
+        context
+      )
+    }),
+    ...(input.ServiceName !== undefined && { ServiceName: input.ServiceName })
+  };
 };
 
 const serializeAws_json1_1DnsConfig = (
   input: DnsConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DnsRecords !== undefined) {
-    bodyParams["DnsRecords"] = serializeAws_json1_1DnsRecordList(
-      input.DnsRecords,
-      context
-    );
-  }
-  if (input.NamespaceId !== undefined) {
-    bodyParams["NamespaceId"] = input.NamespaceId;
-  }
-  if (input.RoutingPolicy !== undefined) {
-    bodyParams["RoutingPolicy"] = input.RoutingPolicy;
-  }
-  return bodyParams;
+  return {
+    ...(input.DnsRecords !== undefined && {
+      DnsRecords: serializeAws_json1_1DnsRecordList(input.DnsRecords, context)
+    }),
+    ...(input.NamespaceId !== undefined && { NamespaceId: input.NamespaceId }),
+    ...(input.RoutingPolicy !== undefined && {
+      RoutingPolicy: input.RoutingPolicy
+    })
+  };
 };
 
 const serializeAws_json1_1DnsConfigChange = (
   input: DnsConfigChange,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DnsRecords !== undefined) {
-    bodyParams["DnsRecords"] = serializeAws_json1_1DnsRecordList(
-      input.DnsRecords,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.DnsRecords !== undefined && {
+      DnsRecords: serializeAws_json1_1DnsRecordList(input.DnsRecords, context)
+    })
+  };
 };
 
 const serializeAws_json1_1DnsRecord = (
   input: DnsRecord,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.TTL !== undefined) {
-    bodyParams["TTL"] = input.TTL;
-  }
-  if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
-  }
-  return bodyParams;
+  return {
+    ...(input.TTL !== undefined && { TTL: input.TTL }),
+    ...(input.Type !== undefined && { Type: input.Type })
+  };
 };
 
 const serializeAws_json1_1DnsRecordList = (
@@ -2572,98 +2503,77 @@ const serializeAws_json1_1GetInstanceRequest = (
   input: GetInstanceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.InstanceId !== undefined) {
-    bodyParams["InstanceId"] = input.InstanceId;
-  }
-  if (input.ServiceId !== undefined) {
-    bodyParams["ServiceId"] = input.ServiceId;
-  }
-  return bodyParams;
+  return {
+    ...(input.InstanceId !== undefined && { InstanceId: input.InstanceId }),
+    ...(input.ServiceId !== undefined && { ServiceId: input.ServiceId })
+  };
 };
 
 const serializeAws_json1_1GetInstancesHealthStatusRequest = (
   input: GetInstancesHealthStatusRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Instances !== undefined) {
-    bodyParams["Instances"] = serializeAws_json1_1InstanceIdList(
-      input.Instances,
-      context
-    );
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ServiceId !== undefined) {
-    bodyParams["ServiceId"] = input.ServiceId;
-  }
-  return bodyParams;
+  return {
+    ...(input.Instances !== undefined && {
+      Instances: serializeAws_json1_1InstanceIdList(input.Instances, context)
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ServiceId !== undefined && { ServiceId: input.ServiceId })
+  };
 };
 
 const serializeAws_json1_1GetNamespaceRequest = (
   input: GetNamespaceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
-  }
-  return bodyParams;
+  return {
+    ...(input.Id !== undefined && { Id: input.Id })
+  };
 };
 
 const serializeAws_json1_1GetOperationRequest = (
   input: GetOperationRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.OperationId !== undefined) {
-    bodyParams["OperationId"] = input.OperationId;
-  }
-  return bodyParams;
+  return {
+    ...(input.OperationId !== undefined && { OperationId: input.OperationId })
+  };
 };
 
 const serializeAws_json1_1GetServiceRequest = (
   input: GetServiceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
-  }
-  return bodyParams;
+  return {
+    ...(input.Id !== undefined && { Id: input.Id })
+  };
 };
 
 const serializeAws_json1_1HealthCheckConfig = (
   input: HealthCheckConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.FailureThreshold !== undefined) {
-    bodyParams["FailureThreshold"] = input.FailureThreshold;
-  }
-  if (input.ResourcePath !== undefined) {
-    bodyParams["ResourcePath"] = input.ResourcePath;
-  }
-  if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
-  }
-  return bodyParams;
+  return {
+    ...(input.FailureThreshold !== undefined && {
+      FailureThreshold: input.FailureThreshold
+    }),
+    ...(input.ResourcePath !== undefined && {
+      ResourcePath: input.ResourcePath
+    }),
+    ...(input.Type !== undefined && { Type: input.Type })
+  };
 };
 
 const serializeAws_json1_1HealthCheckCustomConfig = (
   input: HealthCheckCustomConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.FailureThreshold !== undefined) {
-    bodyParams["FailureThreshold"] = input.FailureThreshold;
-  }
-  return bodyParams;
+  return {
+    ...(input.FailureThreshold !== undefined && {
+      FailureThreshold: input.FailureThreshold
+    })
+  };
 };
 
 const serializeAws_json1_1InstanceIdList = (
@@ -2677,97 +2587,63 @@ const serializeAws_json1_1ListInstancesRequest = (
   input: ListInstancesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ServiceId !== undefined) {
-    bodyParams["ServiceId"] = input.ServiceId;
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ServiceId !== undefined && { ServiceId: input.ServiceId })
+  };
 };
 
 const serializeAws_json1_1ListNamespacesRequest = (
   input: ListNamespacesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Filters !== undefined) {
-    bodyParams["Filters"] = serializeAws_json1_1NamespaceFilters(
-      input.Filters,
-      context
-    );
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.Filters !== undefined && {
+      Filters: serializeAws_json1_1NamespaceFilters(input.Filters, context)
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1ListOperationsRequest = (
   input: ListOperationsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Filters !== undefined) {
-    bodyParams["Filters"] = serializeAws_json1_1OperationFilters(
-      input.Filters,
-      context
-    );
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.Filters !== undefined && {
+      Filters: serializeAws_json1_1OperationFilters(input.Filters, context)
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1ListServicesRequest = (
   input: ListServicesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Filters !== undefined) {
-    bodyParams["Filters"] = serializeAws_json1_1ServiceFilters(
-      input.Filters,
-      context
-    );
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.Filters !== undefined && {
+      Filters: serializeAws_json1_1ServiceFilters(input.Filters, context)
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1NamespaceFilter = (
   input: NamespaceFilter,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Condition !== undefined) {
-    bodyParams["Condition"] = input.Condition;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.Values !== undefined) {
-    bodyParams["Values"] = serializeAws_json1_1FilterValues(
-      input.Values,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Condition !== undefined && { Condition: input.Condition }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Values !== undefined && {
+      Values: serializeAws_json1_1FilterValues(input.Values, context)
+    })
+  };
 };
 
 const serializeAws_json1_1NamespaceFilters = (
@@ -2783,20 +2659,13 @@ const serializeAws_json1_1OperationFilter = (
   input: OperationFilter,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Condition !== undefined) {
-    bodyParams["Condition"] = input.Condition;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.Values !== undefined) {
-    bodyParams["Values"] = serializeAws_json1_1FilterValues(
-      input.Values,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Condition !== undefined && { Condition: input.Condition }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Values !== undefined && {
+      Values: serializeAws_json1_1FilterValues(input.Values, context)
+    })
+  };
 };
 
 const serializeAws_json1_1OperationFilters = (
@@ -2812,69 +2681,45 @@ const serializeAws_json1_1RegisterInstanceRequest = (
   input: RegisterInstanceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Attributes !== undefined) {
-    bodyParams["Attributes"] = serializeAws_json1_1Attributes(
-      input.Attributes,
-      context
-    );
-  }
-  if (input.CreatorRequestId === undefined) {
-    input.CreatorRequestId = generateIdempotencyToken();
-  }
-  if (input.CreatorRequestId !== undefined) {
-    bodyParams["CreatorRequestId"] = input.CreatorRequestId;
-  }
-  if (input.InstanceId !== undefined) {
-    bodyParams["InstanceId"] = input.InstanceId;
-  }
-  if (input.ServiceId !== undefined) {
-    bodyParams["ServiceId"] = input.ServiceId;
-  }
-  return bodyParams;
+  return {
+    ...(input.Attributes !== undefined && {
+      Attributes: serializeAws_json1_1Attributes(input.Attributes, context)
+    }),
+    CreatorRequestId: input.CreatorRequestId ?? generateIdempotencyToken(),
+    ...(input.InstanceId !== undefined && { InstanceId: input.InstanceId }),
+    ...(input.ServiceId !== undefined && { ServiceId: input.ServiceId })
+  };
 };
 
 const serializeAws_json1_1ServiceChange = (
   input: ServiceChange,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.DnsConfig !== undefined) {
-    bodyParams["DnsConfig"] = serializeAws_json1_1DnsConfigChange(
-      input.DnsConfig,
-      context
-    );
-  }
-  if (input.HealthCheckConfig !== undefined) {
-    bodyParams["HealthCheckConfig"] = serializeAws_json1_1HealthCheckConfig(
-      input.HealthCheckConfig,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.DnsConfig !== undefined && {
+      DnsConfig: serializeAws_json1_1DnsConfigChange(input.DnsConfig, context)
+    }),
+    ...(input.HealthCheckConfig !== undefined && {
+      HealthCheckConfig: serializeAws_json1_1HealthCheckConfig(
+        input.HealthCheckConfig,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1ServiceFilter = (
   input: ServiceFilter,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Condition !== undefined) {
-    bodyParams["Condition"] = input.Condition;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.Values !== undefined) {
-    bodyParams["Values"] = serializeAws_json1_1FilterValues(
-      input.Values,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Condition !== undefined && { Condition: input.Condition }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Values !== undefined && {
+      Values: serializeAws_json1_1FilterValues(input.Values, context)
+    })
+  };
 };
 
 const serializeAws_json1_1ServiceFilters = (
@@ -2888,34 +2733,23 @@ const serializeAws_json1_1UpdateInstanceCustomHealthStatusRequest = (
   input: UpdateInstanceCustomHealthStatusRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.InstanceId !== undefined) {
-    bodyParams["InstanceId"] = input.InstanceId;
-  }
-  if (input.ServiceId !== undefined) {
-    bodyParams["ServiceId"] = input.ServiceId;
-  }
-  if (input.Status !== undefined) {
-    bodyParams["Status"] = input.Status;
-  }
-  return bodyParams;
+  return {
+    ...(input.InstanceId !== undefined && { InstanceId: input.InstanceId }),
+    ...(input.ServiceId !== undefined && { ServiceId: input.ServiceId }),
+    ...(input.Status !== undefined && { Status: input.Status })
+  };
 };
 
 const serializeAws_json1_1UpdateServiceRequest = (
   input: UpdateServiceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
-  }
-  if (input.Service !== undefined) {
-    bodyParams["Service"] = serializeAws_json1_1ServiceChange(
-      input.Service,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Id !== undefined && { Id: input.Id }),
+    ...(input.Service !== undefined && {
+      Service: serializeAws_json1_1ServiceChange(input.Service, context)
+    })
+  };
 };
 
 const deserializeAws_json1_1Attributes = (

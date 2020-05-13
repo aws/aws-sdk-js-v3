@@ -7174,58 +7174,50 @@ const serializeAws_restJson1_1BackupPlanInput = (
   input: BackupPlanInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.BackupPlanName !== undefined) {
-    bodyParams["BackupPlanName"] = input.BackupPlanName;
-  }
-  if (input.Rules !== undefined) {
-    bodyParams["Rules"] = serializeAws_restJson1_1BackupRulesInput(
-      input.Rules,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.BackupPlanName !== undefined && {
+      BackupPlanName: input.BackupPlanName
+    }),
+    ...(input.Rules !== undefined && {
+      Rules: serializeAws_restJson1_1BackupRulesInput(input.Rules, context)
+    })
+  };
 };
 
 const serializeAws_restJson1_1BackupRuleInput = (
   input: BackupRuleInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CompletionWindowMinutes !== undefined) {
-    bodyParams["CompletionWindowMinutes"] = input.CompletionWindowMinutes;
-  }
-  if (input.CopyActions !== undefined) {
-    bodyParams["CopyActions"] = serializeAws_restJson1_1CopyActions(
-      input.CopyActions,
-      context
-    );
-  }
-  if (input.Lifecycle !== undefined) {
-    bodyParams["Lifecycle"] = serializeAws_restJson1_1Lifecycle(
-      input.Lifecycle,
-      context
-    );
-  }
-  if (input.RecoveryPointTags !== undefined) {
-    bodyParams["RecoveryPointTags"] = serializeAws_restJson1_1Tags(
-      input.RecoveryPointTags,
-      context
-    );
-  }
-  if (input.RuleName !== undefined) {
-    bodyParams["RuleName"] = input.RuleName;
-  }
-  if (input.ScheduleExpression !== undefined) {
-    bodyParams["ScheduleExpression"] = input.ScheduleExpression;
-  }
-  if (input.StartWindowMinutes !== undefined) {
-    bodyParams["StartWindowMinutes"] = input.StartWindowMinutes;
-  }
-  if (input.TargetBackupVaultName !== undefined) {
-    bodyParams["TargetBackupVaultName"] = input.TargetBackupVaultName;
-  }
-  return bodyParams;
+  return {
+    ...(input.CompletionWindowMinutes !== undefined && {
+      CompletionWindowMinutes: input.CompletionWindowMinutes
+    }),
+    ...(input.CopyActions !== undefined && {
+      CopyActions: serializeAws_restJson1_1CopyActions(
+        input.CopyActions,
+        context
+      )
+    }),
+    ...(input.Lifecycle !== undefined && {
+      Lifecycle: serializeAws_restJson1_1Lifecycle(input.Lifecycle, context)
+    }),
+    ...(input.RecoveryPointTags !== undefined && {
+      RecoveryPointTags: serializeAws_restJson1_1Tags(
+        input.RecoveryPointTags,
+        context
+      )
+    }),
+    ...(input.RuleName !== undefined && { RuleName: input.RuleName }),
+    ...(input.ScheduleExpression !== undefined && {
+      ScheduleExpression: input.ScheduleExpression
+    }),
+    ...(input.StartWindowMinutes !== undefined && {
+      StartWindowMinutes: input.StartWindowMinutes
+    }),
+    ...(input.TargetBackupVaultName !== undefined && {
+      TargetBackupVaultName: input.TargetBackupVaultName
+    })
+  };
 };
 
 const serializeAws_restJson1_1BackupRulesInput = (
@@ -7241,26 +7233,18 @@ const serializeAws_restJson1_1BackupSelection = (
   input: BackupSelection,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.IamRoleArn !== undefined) {
-    bodyParams["IamRoleArn"] = input.IamRoleArn;
-  }
-  if (input.ListOfTags !== undefined) {
-    bodyParams["ListOfTags"] = serializeAws_restJson1_1ListOfTags(
-      input.ListOfTags,
-      context
-    );
-  }
-  if (input.Resources !== undefined) {
-    bodyParams["Resources"] = serializeAws_restJson1_1ResourceArns(
-      input.Resources,
-      context
-    );
-  }
-  if (input.SelectionName !== undefined) {
-    bodyParams["SelectionName"] = input.SelectionName;
-  }
-  return bodyParams;
+  return {
+    ...(input.IamRoleArn !== undefined && { IamRoleArn: input.IamRoleArn }),
+    ...(input.ListOfTags !== undefined && {
+      ListOfTags: serializeAws_restJson1_1ListOfTags(input.ListOfTags, context)
+    }),
+    ...(input.Resources !== undefined && {
+      Resources: serializeAws_restJson1_1ResourceArns(input.Resources, context)
+    }),
+    ...(input.SelectionName !== undefined && {
+      SelectionName: input.SelectionName
+    })
+  };
 };
 
 const serializeAws_restJson1_1BackupVaultEvents = (
@@ -7274,34 +7258,31 @@ const serializeAws_restJson1_1Condition = (
   input: Condition,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ConditionKey !== undefined) {
-    bodyParams["ConditionKey"] = input.ConditionKey;
-  }
-  if (input.ConditionType !== undefined) {
-    bodyParams["ConditionType"] = input.ConditionType;
-  }
-  if (input.ConditionValue !== undefined) {
-    bodyParams["ConditionValue"] = input.ConditionValue;
-  }
-  return bodyParams;
+  return {
+    ...(input.ConditionKey !== undefined && {
+      ConditionKey: input.ConditionKey
+    }),
+    ...(input.ConditionType !== undefined && {
+      ConditionType: input.ConditionType
+    }),
+    ...(input.ConditionValue !== undefined && {
+      ConditionValue: input.ConditionValue
+    })
+  };
 };
 
 const serializeAws_restJson1_1CopyAction = (
   input: CopyAction,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DestinationBackupVaultArn !== undefined) {
-    bodyParams["DestinationBackupVaultArn"] = input.DestinationBackupVaultArn;
-  }
-  if (input.Lifecycle !== undefined) {
-    bodyParams["Lifecycle"] = serializeAws_restJson1_1Lifecycle(
-      input.Lifecycle,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.DestinationBackupVaultArn !== undefined && {
+      DestinationBackupVaultArn: input.DestinationBackupVaultArn
+    }),
+    ...(input.Lifecycle !== undefined && {
+      Lifecycle: serializeAws_restJson1_1Lifecycle(input.Lifecycle, context)
+    })
+  };
 };
 
 const serializeAws_restJson1_1CopyActions = (
@@ -7315,14 +7296,14 @@ const serializeAws_restJson1_1Lifecycle = (
   input: Lifecycle,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DeleteAfterDays !== undefined) {
-    bodyParams["DeleteAfterDays"] = input.DeleteAfterDays;
-  }
-  if (input.MoveToColdStorageAfterDays !== undefined) {
-    bodyParams["MoveToColdStorageAfterDays"] = input.MoveToColdStorageAfterDays;
-  }
-  return bodyParams;
+  return {
+    ...(input.DeleteAfterDays !== undefined && {
+      DeleteAfterDays: input.DeleteAfterDays
+    }),
+    ...(input.MoveToColdStorageAfterDays !== undefined && {
+      MoveToColdStorageAfterDays: input.MoveToColdStorageAfterDays
+    })
+  };
 };
 
 const serializeAws_restJson1_1ListOfTags = (

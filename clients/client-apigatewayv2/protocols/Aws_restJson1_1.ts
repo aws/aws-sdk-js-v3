@@ -10501,14 +10501,12 @@ const serializeAws_restJson1_1AccessLogSettings = (
   input: AccessLogSettings,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DestinationArn !== undefined) {
-    bodyParams["destinationArn"] = input.DestinationArn;
-  }
-  if (input.Format !== undefined) {
-    bodyParams["format"] = input.Format;
-  }
-  return bodyParams;
+  return {
+    ...(input.DestinationArn !== undefined && {
+      destinationArn: input.DestinationArn
+    }),
+    ...(input.Format !== undefined && { format: input.Format })
+  };
 };
 
 const serializeAws_restJson1_1AuthorizationScopes = (
@@ -10522,38 +10520,36 @@ const serializeAws_restJson1_1Cors = (
   input: Cors,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AllowCredentials !== undefined) {
-    bodyParams["allowCredentials"] = input.AllowCredentials;
-  }
-  if (input.AllowHeaders !== undefined) {
-    bodyParams["allowHeaders"] = serializeAws_restJson1_1CorsHeaderList(
-      input.AllowHeaders,
-      context
-    );
-  }
-  if (input.AllowMethods !== undefined) {
-    bodyParams["allowMethods"] = serializeAws_restJson1_1CorsMethodList(
-      input.AllowMethods,
-      context
-    );
-  }
-  if (input.AllowOrigins !== undefined) {
-    bodyParams["allowOrigins"] = serializeAws_restJson1_1CorsOriginList(
-      input.AllowOrigins,
-      context
-    );
-  }
-  if (input.ExposeHeaders !== undefined) {
-    bodyParams["exposeHeaders"] = serializeAws_restJson1_1CorsHeaderList(
-      input.ExposeHeaders,
-      context
-    );
-  }
-  if (input.MaxAge !== undefined) {
-    bodyParams["maxAge"] = input.MaxAge;
-  }
-  return bodyParams;
+  return {
+    ...(input.AllowCredentials !== undefined && {
+      allowCredentials: input.AllowCredentials
+    }),
+    ...(input.AllowHeaders !== undefined && {
+      allowHeaders: serializeAws_restJson1_1CorsHeaderList(
+        input.AllowHeaders,
+        context
+      )
+    }),
+    ...(input.AllowMethods !== undefined && {
+      allowMethods: serializeAws_restJson1_1CorsMethodList(
+        input.AllowMethods,
+        context
+      )
+    }),
+    ...(input.AllowOrigins !== undefined && {
+      allowOrigins: serializeAws_restJson1_1CorsOriginList(
+        input.AllowOrigins,
+        context
+      )
+    }),
+    ...(input.ExposeHeaders !== undefined && {
+      exposeHeaders: serializeAws_restJson1_1CorsHeaderList(
+        input.ExposeHeaders,
+        context
+      )
+    }),
+    ...(input.MaxAge !== undefined && { maxAge: input.MaxAge })
+  };
 };
 
 const serializeAws_restJson1_1CorsHeaderList = (
@@ -10581,36 +10577,36 @@ const serializeAws_restJson1_1DomainNameConfiguration = (
   input: DomainNameConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ApiGatewayDomainName !== undefined) {
-    bodyParams["apiGatewayDomainName"] = input.ApiGatewayDomainName;
-  }
-  if (input.CertificateArn !== undefined) {
-    bodyParams["certificateArn"] = input.CertificateArn;
-  }
-  if (input.CertificateName !== undefined) {
-    bodyParams["certificateName"] = input.CertificateName;
-  }
-  if (input.CertificateUploadDate !== undefined) {
-    bodyParams["certificateUploadDate"] =
-      input.CertificateUploadDate.toISOString().split(".")[0] + "Z";
-  }
-  if (input.DomainNameStatus !== undefined) {
-    bodyParams["domainNameStatus"] = input.DomainNameStatus;
-  }
-  if (input.DomainNameStatusMessage !== undefined) {
-    bodyParams["domainNameStatusMessage"] = input.DomainNameStatusMessage;
-  }
-  if (input.EndpointType !== undefined) {
-    bodyParams["endpointType"] = input.EndpointType;
-  }
-  if (input.HostedZoneId !== undefined) {
-    bodyParams["hostedZoneId"] = input.HostedZoneId;
-  }
-  if (input.SecurityPolicy !== undefined) {
-    bodyParams["securityPolicy"] = input.SecurityPolicy;
-  }
-  return bodyParams;
+  return {
+    ...(input.ApiGatewayDomainName !== undefined && {
+      apiGatewayDomainName: input.ApiGatewayDomainName
+    }),
+    ...(input.CertificateArn !== undefined && {
+      certificateArn: input.CertificateArn
+    }),
+    ...(input.CertificateName !== undefined && {
+      certificateName: input.CertificateName
+    }),
+    ...(input.CertificateUploadDate !== undefined && {
+      certificateUploadDate:
+        input.CertificateUploadDate.toISOString().split(".")[0] + "Z"
+    }),
+    ...(input.DomainNameStatus !== undefined && {
+      domainNameStatus: input.DomainNameStatus
+    }),
+    ...(input.DomainNameStatusMessage !== undefined && {
+      domainNameStatusMessage: input.DomainNameStatusMessage
+    }),
+    ...(input.EndpointType !== undefined && {
+      endpointType: input.EndpointType
+    }),
+    ...(input.HostedZoneId !== undefined && {
+      hostedZoneId: input.HostedZoneId
+    }),
+    ...(input.SecurityPolicy !== undefined && {
+      securityPolicy: input.SecurityPolicy
+    })
+  };
 };
 
 const serializeAws_restJson1_1DomainNameConfigurations = (
@@ -10643,28 +10639,24 @@ const serializeAws_restJson1_1JWTConfiguration = (
   input: JWTConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Audience !== undefined) {
-    bodyParams["audience"] = serializeAws_restJson1_1__listOf__string(
-      input.Audience,
-      context
-    );
-  }
-  if (input.Issuer !== undefined) {
-    bodyParams["issuer"] = input.Issuer;
-  }
-  return bodyParams;
+  return {
+    ...(input.Audience !== undefined && {
+      audience: serializeAws_restJson1_1__listOf__string(
+        input.Audience,
+        context
+      )
+    }),
+    ...(input.Issuer !== undefined && { issuer: input.Issuer })
+  };
 };
 
 const serializeAws_restJson1_1ParameterConstraints = (
   input: ParameterConstraints,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Required !== undefined) {
-    bodyParams["required"] = input.Required;
-  }
-  return bodyParams;
+  return {
+    ...(input.Required !== undefined && { required: input.Required })
+  };
 };
 
 const serializeAws_restJson1_1RouteModels = (
@@ -10694,23 +10686,23 @@ const serializeAws_restJson1_1RouteSettings = (
   input: RouteSettings,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DataTraceEnabled !== undefined) {
-    bodyParams["dataTraceEnabled"] = input.DataTraceEnabled;
-  }
-  if (input.DetailedMetricsEnabled !== undefined) {
-    bodyParams["detailedMetricsEnabled"] = input.DetailedMetricsEnabled;
-  }
-  if (input.LoggingLevel !== undefined) {
-    bodyParams["loggingLevel"] = input.LoggingLevel;
-  }
-  if (input.ThrottlingBurstLimit !== undefined) {
-    bodyParams["throttlingBurstLimit"] = input.ThrottlingBurstLimit;
-  }
-  if (input.ThrottlingRateLimit !== undefined) {
-    bodyParams["throttlingRateLimit"] = input.ThrottlingRateLimit;
-  }
-  return bodyParams;
+  return {
+    ...(input.DataTraceEnabled !== undefined && {
+      dataTraceEnabled: input.DataTraceEnabled
+    }),
+    ...(input.DetailedMetricsEnabled !== undefined && {
+      detailedMetricsEnabled: input.DetailedMetricsEnabled
+    }),
+    ...(input.LoggingLevel !== undefined && {
+      loggingLevel: input.LoggingLevel
+    }),
+    ...(input.ThrottlingBurstLimit !== undefined && {
+      throttlingBurstLimit: input.ThrottlingBurstLimit
+    }),
+    ...(input.ThrottlingRateLimit !== undefined && {
+      throttlingRateLimit: input.ThrottlingRateLimit
+    })
+  };
 };
 
 const serializeAws_restJson1_1RouteSettingsMap = (

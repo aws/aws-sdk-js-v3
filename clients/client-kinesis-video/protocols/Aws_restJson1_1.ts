@@ -2938,14 +2938,14 @@ const serializeAws_restJson1_1ChannelNameCondition = (
   input: ChannelNameCondition,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ComparisonOperator !== undefined) {
-    bodyParams["ComparisonOperator"] = input.ComparisonOperator;
-  }
-  if (input.ComparisonValue !== undefined) {
-    bodyParams["ComparisonValue"] = input.ComparisonValue;
-  }
-  return bodyParams;
+  return {
+    ...(input.ComparisonOperator !== undefined && {
+      ComparisonOperator: input.ComparisonOperator
+    }),
+    ...(input.ComparisonValue !== undefined && {
+      ComparisonValue: input.ComparisonValue
+    })
+  };
 };
 
 const serializeAws_restJson1_1ListOfProtocols = (
@@ -2969,56 +2969,50 @@ const serializeAws_restJson1_1SingleMasterChannelEndpointConfiguration = (
   input: SingleMasterChannelEndpointConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Protocols !== undefined) {
-    bodyParams["Protocols"] = serializeAws_restJson1_1ListOfProtocols(
-      input.Protocols,
-      context
-    );
-  }
-  if (input.Role !== undefined) {
-    bodyParams["Role"] = input.Role;
-  }
-  return bodyParams;
+  return {
+    ...(input.Protocols !== undefined && {
+      Protocols: serializeAws_restJson1_1ListOfProtocols(
+        input.Protocols,
+        context
+      )
+    }),
+    ...(input.Role !== undefined && { Role: input.Role })
+  };
 };
 
 const serializeAws_restJson1_1SingleMasterConfiguration = (
   input: SingleMasterConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MessageTtlSeconds !== undefined) {
-    bodyParams["MessageTtlSeconds"] = input.MessageTtlSeconds;
-  }
-  return bodyParams;
+  return {
+    ...(input.MessageTtlSeconds !== undefined && {
+      MessageTtlSeconds: input.MessageTtlSeconds
+    })
+  };
 };
 
 const serializeAws_restJson1_1StreamNameCondition = (
   input: StreamNameCondition,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ComparisonOperator !== undefined) {
-    bodyParams["ComparisonOperator"] = input.ComparisonOperator;
-  }
-  if (input.ComparisonValue !== undefined) {
-    bodyParams["ComparisonValue"] = input.ComparisonValue;
-  }
-  return bodyParams;
+  return {
+    ...(input.ComparisonOperator !== undefined && {
+      ComparisonOperator: input.ComparisonOperator
+    }),
+    ...(input.ComparisonValue !== undefined && {
+      ComparisonValue: input.ComparisonValue
+    })
+  };
 };
 
 const serializeAws_restJson1_1Tag = (
   input: Tag,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_restJson1_1TagKeyList = (

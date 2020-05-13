@@ -249,23 +249,15 @@ const serializeAws_json1_1QueryForecastRequest = (
   input: QueryForecastRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EndDate !== undefined) {
-    bodyParams["EndDate"] = input.EndDate;
-  }
-  if (input.Filters !== undefined) {
-    bodyParams["Filters"] = serializeAws_json1_1Filters(input.Filters, context);
-  }
-  if (input.ForecastArn !== undefined) {
-    bodyParams["ForecastArn"] = input.ForecastArn;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.StartDate !== undefined) {
-    bodyParams["StartDate"] = input.StartDate;
-  }
-  return bodyParams;
+  return {
+    ...(input.EndDate !== undefined && { EndDate: input.EndDate }),
+    ...(input.Filters !== undefined && {
+      Filters: serializeAws_json1_1Filters(input.Filters, context)
+    }),
+    ...(input.ForecastArn !== undefined && { ForecastArn: input.ForecastArn }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.StartDate !== undefined && { StartDate: input.StartDate })
+  };
 };
 
 const deserializeAws_json1_1DataPoint = (

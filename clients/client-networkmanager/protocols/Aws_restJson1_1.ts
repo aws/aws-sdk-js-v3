@@ -4947,45 +4947,33 @@ const serializeAws_restJson1_1Bandwidth = (
   input: Bandwidth,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DownloadSpeed !== undefined) {
-    bodyParams["DownloadSpeed"] = input.DownloadSpeed;
-  }
-  if (input.UploadSpeed !== undefined) {
-    bodyParams["UploadSpeed"] = input.UploadSpeed;
-  }
-  return bodyParams;
+  return {
+    ...(input.DownloadSpeed !== undefined && {
+      DownloadSpeed: input.DownloadSpeed
+    }),
+    ...(input.UploadSpeed !== undefined && { UploadSpeed: input.UploadSpeed })
+  };
 };
 
 const serializeAws_restJson1_1Location = (
   input: Location,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Address !== undefined) {
-    bodyParams["Address"] = input.Address;
-  }
-  if (input.Latitude !== undefined) {
-    bodyParams["Latitude"] = input.Latitude;
-  }
-  if (input.Longitude !== undefined) {
-    bodyParams["Longitude"] = input.Longitude;
-  }
-  return bodyParams;
+  return {
+    ...(input.Address !== undefined && { Address: input.Address }),
+    ...(input.Latitude !== undefined && { Latitude: input.Latitude }),
+    ...(input.Longitude !== undefined && { Longitude: input.Longitude })
+  };
 };
 
 const serializeAws_restJson1_1Tag = (
   input: Tag,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_restJson1_1TagList = (

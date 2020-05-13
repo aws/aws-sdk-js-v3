@@ -4089,17 +4089,11 @@ const serializeAws_restJson1_1CreationInfo = (
   input: CreationInfo,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.OwnerGid !== undefined) {
-    bodyParams["OwnerGid"] = input.OwnerGid;
-  }
-  if (input.OwnerUid !== undefined) {
-    bodyParams["OwnerUid"] = input.OwnerUid;
-  }
-  if (input.Permissions !== undefined) {
-    bodyParams["Permissions"] = input.Permissions;
-  }
-  return bodyParams;
+  return {
+    ...(input.OwnerGid !== undefined && { OwnerGid: input.OwnerGid }),
+    ...(input.OwnerUid !== undefined && { OwnerUid: input.OwnerUid }),
+    ...(input.Permissions !== undefined && { Permissions: input.Permissions })
+  };
 };
 
 const serializeAws_restJson1_1LifecyclePolicies = (
@@ -4115,48 +4109,42 @@ const serializeAws_restJson1_1LifecyclePolicy = (
   input: LifecyclePolicy,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.TransitionToIA !== undefined) {
-    bodyParams["TransitionToIA"] = input.TransitionToIA;
-  }
-  return bodyParams;
+  return {
+    ...(input.TransitionToIA !== undefined && {
+      TransitionToIA: input.TransitionToIA
+    })
+  };
 };
 
 const serializeAws_restJson1_1PosixUser = (
   input: PosixUser,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Gid !== undefined) {
-    bodyParams["Gid"] = input.Gid;
-  }
-  if (input.SecondaryGids !== undefined) {
-    bodyParams["SecondaryGids"] = serializeAws_restJson1_1SecondaryGids(
-      input.SecondaryGids,
-      context
-    );
-  }
-  if (input.Uid !== undefined) {
-    bodyParams["Uid"] = input.Uid;
-  }
-  return bodyParams;
+  return {
+    ...(input.Gid !== undefined && { Gid: input.Gid }),
+    ...(input.SecondaryGids !== undefined && {
+      SecondaryGids: serializeAws_restJson1_1SecondaryGids(
+        input.SecondaryGids,
+        context
+      )
+    }),
+    ...(input.Uid !== undefined && { Uid: input.Uid })
+  };
 };
 
 const serializeAws_restJson1_1RootDirectory = (
   input: RootDirectory,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CreationInfo !== undefined) {
-    bodyParams["CreationInfo"] = serializeAws_restJson1_1CreationInfo(
-      input.CreationInfo,
-      context
-    );
-  }
-  if (input.Path !== undefined) {
-    bodyParams["Path"] = input.Path;
-  }
-  return bodyParams;
+  return {
+    ...(input.CreationInfo !== undefined && {
+      CreationInfo: serializeAws_restJson1_1CreationInfo(
+        input.CreationInfo,
+        context
+      )
+    }),
+    ...(input.Path !== undefined && { Path: input.Path })
+  };
 };
 
 const serializeAws_restJson1_1SecondaryGids = (
@@ -4177,14 +4165,10 @@ const serializeAws_restJson1_1Tag = (
   input: Tag,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_restJson1_1TagKeys = (

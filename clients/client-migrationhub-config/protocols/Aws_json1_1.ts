@@ -477,62 +477,45 @@ const serializeAws_json1_1CreateHomeRegionControlRequest = (
   input: CreateHomeRegionControlRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DryRun !== undefined) {
-    bodyParams["DryRun"] = input.DryRun;
-  }
-  if (input.HomeRegion !== undefined) {
-    bodyParams["HomeRegion"] = input.HomeRegion;
-  }
-  if (input.Target !== undefined) {
-    bodyParams["Target"] = serializeAws_json1_1Target(input.Target, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
+    ...(input.HomeRegion !== undefined && { HomeRegion: input.HomeRegion }),
+    ...(input.Target !== undefined && {
+      Target: serializeAws_json1_1Target(input.Target, context)
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeHomeRegionControlsRequest = (
   input: DescribeHomeRegionControlsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ControlId !== undefined) {
-    bodyParams["ControlId"] = input.ControlId;
-  }
-  if (input.HomeRegion !== undefined) {
-    bodyParams["HomeRegion"] = input.HomeRegion;
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.Target !== undefined) {
-    bodyParams["Target"] = serializeAws_json1_1Target(input.Target, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.ControlId !== undefined && { ControlId: input.ControlId }),
+    ...(input.HomeRegion !== undefined && { HomeRegion: input.HomeRegion }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Target !== undefined && {
+      Target: serializeAws_json1_1Target(input.Target, context)
+    })
+  };
 };
 
 const serializeAws_json1_1GetHomeRegionRequest = (
   input: GetHomeRegionRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  return bodyParams;
+  return {};
 };
 
 const serializeAws_json1_1Target = (
   input: Target,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
-  }
-  if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
-  }
-  return bodyParams;
+  return {
+    ...(input.Id !== undefined && { Id: input.Id }),
+    ...(input.Type !== undefined && { Type: input.Type })
+  };
 };
 
 const deserializeAws_json1_1AccessDeniedException = (

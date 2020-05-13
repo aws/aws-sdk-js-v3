@@ -3314,296 +3314,242 @@ const serializeAws_json1_1CreateClusterRequest = (
   input: CreateClusterRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AvailabilityZones !== undefined) {
-    bodyParams["AvailabilityZones"] = serializeAws_json1_1AvailabilityZoneList(
-      input.AvailabilityZones,
-      context
-    );
-  }
-  if (input.ClusterName !== undefined) {
-    bodyParams["ClusterName"] = input.ClusterName;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.IamRoleArn !== undefined) {
-    bodyParams["IamRoleArn"] = input.IamRoleArn;
-  }
-  if (input.NodeType !== undefined) {
-    bodyParams["NodeType"] = input.NodeType;
-  }
-  if (input.NotificationTopicArn !== undefined) {
-    bodyParams["NotificationTopicArn"] = input.NotificationTopicArn;
-  }
-  if (input.ParameterGroupName !== undefined) {
-    bodyParams["ParameterGroupName"] = input.ParameterGroupName;
-  }
-  if (input.PreferredMaintenanceWindow !== undefined) {
-    bodyParams["PreferredMaintenanceWindow"] = input.PreferredMaintenanceWindow;
-  }
-  if (input.ReplicationFactor !== undefined) {
-    bodyParams["ReplicationFactor"] = input.ReplicationFactor;
-  }
-  if (input.SSESpecification !== undefined) {
-    bodyParams["SSESpecification"] = serializeAws_json1_1SSESpecification(
-      input.SSESpecification,
-      context
-    );
-  }
-  if (input.SecurityGroupIds !== undefined) {
-    bodyParams[
-      "SecurityGroupIds"
-    ] = serializeAws_json1_1SecurityGroupIdentifierList(
-      input.SecurityGroupIds,
-      context
-    );
-  }
-  if (input.SubnetGroupName !== undefined) {
-    bodyParams["SubnetGroupName"] = input.SubnetGroupName;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.AvailabilityZones !== undefined && {
+      AvailabilityZones: serializeAws_json1_1AvailabilityZoneList(
+        input.AvailabilityZones,
+        context
+      )
+    }),
+    ...(input.ClusterName !== undefined && { ClusterName: input.ClusterName }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.IamRoleArn !== undefined && { IamRoleArn: input.IamRoleArn }),
+    ...(input.NodeType !== undefined && { NodeType: input.NodeType }),
+    ...(input.NotificationTopicArn !== undefined && {
+      NotificationTopicArn: input.NotificationTopicArn
+    }),
+    ...(input.ParameterGroupName !== undefined && {
+      ParameterGroupName: input.ParameterGroupName
+    }),
+    ...(input.PreferredMaintenanceWindow !== undefined && {
+      PreferredMaintenanceWindow: input.PreferredMaintenanceWindow
+    }),
+    ...(input.ReplicationFactor !== undefined && {
+      ReplicationFactor: input.ReplicationFactor
+    }),
+    ...(input.SSESpecification !== undefined && {
+      SSESpecification: serializeAws_json1_1SSESpecification(
+        input.SSESpecification,
+        context
+      )
+    }),
+    ...(input.SecurityGroupIds !== undefined && {
+      SecurityGroupIds: serializeAws_json1_1SecurityGroupIdentifierList(
+        input.SecurityGroupIds,
+        context
+      )
+    }),
+    ...(input.SubnetGroupName !== undefined && {
+      SubnetGroupName: input.SubnetGroupName
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1TagList(input.Tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_1CreateParameterGroupRequest = (
   input: CreateParameterGroupRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.ParameterGroupName !== undefined) {
-    bodyParams["ParameterGroupName"] = input.ParameterGroupName;
-  }
-  return bodyParams;
+  return {
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.ParameterGroupName !== undefined && {
+      ParameterGroupName: input.ParameterGroupName
+    })
+  };
 };
 
 const serializeAws_json1_1CreateSubnetGroupRequest = (
   input: CreateSubnetGroupRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.SubnetGroupName !== undefined) {
-    bodyParams["SubnetGroupName"] = input.SubnetGroupName;
-  }
-  if (input.SubnetIds !== undefined) {
-    bodyParams["SubnetIds"] = serializeAws_json1_1SubnetIdentifierList(
-      input.SubnetIds,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.SubnetGroupName !== undefined && {
+      SubnetGroupName: input.SubnetGroupName
+    }),
+    ...(input.SubnetIds !== undefined && {
+      SubnetIds: serializeAws_json1_1SubnetIdentifierList(
+        input.SubnetIds,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1DecreaseReplicationFactorRequest = (
   input: DecreaseReplicationFactorRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AvailabilityZones !== undefined) {
-    bodyParams["AvailabilityZones"] = serializeAws_json1_1AvailabilityZoneList(
-      input.AvailabilityZones,
-      context
-    );
-  }
-  if (input.ClusterName !== undefined) {
-    bodyParams["ClusterName"] = input.ClusterName;
-  }
-  if (input.NewReplicationFactor !== undefined) {
-    bodyParams["NewReplicationFactor"] = input.NewReplicationFactor;
-  }
-  if (input.NodeIdsToRemove !== undefined) {
-    bodyParams["NodeIdsToRemove"] = serializeAws_json1_1NodeIdentifierList(
-      input.NodeIdsToRemove,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.AvailabilityZones !== undefined && {
+      AvailabilityZones: serializeAws_json1_1AvailabilityZoneList(
+        input.AvailabilityZones,
+        context
+      )
+    }),
+    ...(input.ClusterName !== undefined && { ClusterName: input.ClusterName }),
+    ...(input.NewReplicationFactor !== undefined && {
+      NewReplicationFactor: input.NewReplicationFactor
+    }),
+    ...(input.NodeIdsToRemove !== undefined && {
+      NodeIdsToRemove: serializeAws_json1_1NodeIdentifierList(
+        input.NodeIdsToRemove,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1DeleteClusterRequest = (
   input: DeleteClusterRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ClusterName !== undefined) {
-    bodyParams["ClusterName"] = input.ClusterName;
-  }
-  return bodyParams;
+  return {
+    ...(input.ClusterName !== undefined && { ClusterName: input.ClusterName })
+  };
 };
 
 const serializeAws_json1_1DeleteParameterGroupRequest = (
   input: DeleteParameterGroupRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ParameterGroupName !== undefined) {
-    bodyParams["ParameterGroupName"] = input.ParameterGroupName;
-  }
-  return bodyParams;
+  return {
+    ...(input.ParameterGroupName !== undefined && {
+      ParameterGroupName: input.ParameterGroupName
+    })
+  };
 };
 
 const serializeAws_json1_1DeleteSubnetGroupRequest = (
   input: DeleteSubnetGroupRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.SubnetGroupName !== undefined) {
-    bodyParams["SubnetGroupName"] = input.SubnetGroupName;
-  }
-  return bodyParams;
+  return {
+    ...(input.SubnetGroupName !== undefined && {
+      SubnetGroupName: input.SubnetGroupName
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeClustersRequest = (
   input: DescribeClustersRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ClusterNames !== undefined) {
-    bodyParams["ClusterNames"] = serializeAws_json1_1ClusterNameList(
-      input.ClusterNames,
-      context
-    );
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.ClusterNames !== undefined && {
+      ClusterNames: serializeAws_json1_1ClusterNameList(
+        input.ClusterNames,
+        context
+      )
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1DescribeDefaultParametersRequest = (
   input: DescribeDefaultParametersRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1DescribeEventsRequest = (
   input: DescribeEventsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Duration !== undefined) {
-    bodyParams["Duration"] = input.Duration;
-  }
-  if (input.EndTime !== undefined) {
-    bodyParams["EndTime"] = Math.round(input.EndTime.getTime() / 1000);
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.SourceName !== undefined) {
-    bodyParams["SourceName"] = input.SourceName;
-  }
-  if (input.SourceType !== undefined) {
-    bodyParams["SourceType"] = input.SourceType;
-  }
-  if (input.StartTime !== undefined) {
-    bodyParams["StartTime"] = Math.round(input.StartTime.getTime() / 1000);
-  }
-  return bodyParams;
+  return {
+    ...(input.Duration !== undefined && { Duration: input.Duration }),
+    ...(input.EndTime !== undefined && {
+      EndTime: Math.round(input.EndTime.getTime() / 1000)
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.SourceName !== undefined && { SourceName: input.SourceName }),
+    ...(input.SourceType !== undefined && { SourceType: input.SourceType }),
+    ...(input.StartTime !== undefined && {
+      StartTime: Math.round(input.StartTime.getTime() / 1000)
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeParameterGroupsRequest = (
   input: DescribeParameterGroupsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ParameterGroupNames !== undefined) {
-    bodyParams[
-      "ParameterGroupNames"
-    ] = serializeAws_json1_1ParameterGroupNameList(
-      input.ParameterGroupNames,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ParameterGroupNames !== undefined && {
+      ParameterGroupNames: serializeAws_json1_1ParameterGroupNameList(
+        input.ParameterGroupNames,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeParametersRequest = (
   input: DescribeParametersRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ParameterGroupName !== undefined) {
-    bodyParams["ParameterGroupName"] = input.ParameterGroupName;
-  }
-  if (input.Source !== undefined) {
-    bodyParams["Source"] = input.Source;
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ParameterGroupName !== undefined && {
+      ParameterGroupName: input.ParameterGroupName
+    }),
+    ...(input.Source !== undefined && { Source: input.Source })
+  };
 };
 
 const serializeAws_json1_1DescribeSubnetGroupsRequest = (
   input: DescribeSubnetGroupsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.SubnetGroupNames !== undefined) {
-    bodyParams["SubnetGroupNames"] = serializeAws_json1_1SubnetGroupNameList(
-      input.SubnetGroupNames,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.SubnetGroupNames !== undefined && {
+      SubnetGroupNames: serializeAws_json1_1SubnetGroupNameList(
+        input.SubnetGroupNames,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1IncreaseReplicationFactorRequest = (
   input: IncreaseReplicationFactorRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AvailabilityZones !== undefined) {
-    bodyParams["AvailabilityZones"] = serializeAws_json1_1AvailabilityZoneList(
-      input.AvailabilityZones,
-      context
-    );
-  }
-  if (input.ClusterName !== undefined) {
-    bodyParams["ClusterName"] = input.ClusterName;
-  }
-  if (input.NewReplicationFactor !== undefined) {
-    bodyParams["NewReplicationFactor"] = input.NewReplicationFactor;
-  }
-  return bodyParams;
+  return {
+    ...(input.AvailabilityZones !== undefined && {
+      AvailabilityZones: serializeAws_json1_1AvailabilityZoneList(
+        input.AvailabilityZones,
+        context
+      )
+    }),
+    ...(input.ClusterName !== undefined && { ClusterName: input.ClusterName }),
+    ...(input.NewReplicationFactor !== undefined && {
+      NewReplicationFactor: input.NewReplicationFactor
+    })
+  };
 };
 
 const serializeAws_json1_1KeyList = (
@@ -3617,14 +3563,12 @@ const serializeAws_json1_1ListTagsRequest = (
   input: ListTagsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ResourceName !== undefined) {
-    bodyParams["ResourceName"] = input.ResourceName;
-  }
-  return bodyParams;
+  return {
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ResourceName !== undefined && {
+      ResourceName: input.ResourceName
+    })
+  };
 };
 
 const serializeAws_json1_1NodeIdentifierList = (
@@ -3645,14 +3589,14 @@ const serializeAws_json1_1ParameterNameValue = (
   input: ParameterNameValue,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ParameterName !== undefined) {
-    bodyParams["ParameterName"] = input.ParameterName;
-  }
-  if (input.ParameterValue !== undefined) {
-    bodyParams["ParameterValue"] = input.ParameterValue;
-  }
-  return bodyParams;
+  return {
+    ...(input.ParameterName !== undefined && {
+      ParameterName: input.ParameterName
+    }),
+    ...(input.ParameterValue !== undefined && {
+      ParameterValue: input.ParameterValue
+    })
+  };
 };
 
 const serializeAws_json1_1ParameterNameValueList = (
@@ -3668,25 +3612,19 @@ const serializeAws_json1_1RebootNodeRequest = (
   input: RebootNodeRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ClusterName !== undefined) {
-    bodyParams["ClusterName"] = input.ClusterName;
-  }
-  if (input.NodeId !== undefined) {
-    bodyParams["NodeId"] = input.NodeId;
-  }
-  return bodyParams;
+  return {
+    ...(input.ClusterName !== undefined && { ClusterName: input.ClusterName }),
+    ...(input.NodeId !== undefined && { NodeId: input.NodeId })
+  };
 };
 
 const serializeAws_json1_1SSESpecification = (
   input: SSESpecification,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Enabled !== undefined) {
-    bodyParams["Enabled"] = input.Enabled;
-  }
-  return bodyParams;
+  return {
+    ...(input.Enabled !== undefined && { Enabled: input.Enabled })
+  };
 };
 
 const serializeAws_json1_1SecurityGroupIdentifierList = (
@@ -3711,14 +3649,10 @@ const serializeAws_json1_1SubnetIdentifierList = (
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_json1_1TagList = (
@@ -3732,101 +3666,91 @@ const serializeAws_json1_1TagResourceRequest = (
   input: TagResourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ResourceName !== undefined) {
-    bodyParams["ResourceName"] = input.ResourceName;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.ResourceName !== undefined && {
+      ResourceName: input.ResourceName
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1TagList(input.Tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (
   input: UntagResourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ResourceName !== undefined) {
-    bodyParams["ResourceName"] = input.ResourceName;
-  }
-  if (input.TagKeys !== undefined) {
-    bodyParams["TagKeys"] = serializeAws_json1_1KeyList(input.TagKeys, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.ResourceName !== undefined && {
+      ResourceName: input.ResourceName
+    }),
+    ...(input.TagKeys !== undefined && {
+      TagKeys: serializeAws_json1_1KeyList(input.TagKeys, context)
+    })
+  };
 };
 
 const serializeAws_json1_1UpdateClusterRequest = (
   input: UpdateClusterRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ClusterName !== undefined) {
-    bodyParams["ClusterName"] = input.ClusterName;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.NotificationTopicArn !== undefined) {
-    bodyParams["NotificationTopicArn"] = input.NotificationTopicArn;
-  }
-  if (input.NotificationTopicStatus !== undefined) {
-    bodyParams["NotificationTopicStatus"] = input.NotificationTopicStatus;
-  }
-  if (input.ParameterGroupName !== undefined) {
-    bodyParams["ParameterGroupName"] = input.ParameterGroupName;
-  }
-  if (input.PreferredMaintenanceWindow !== undefined) {
-    bodyParams["PreferredMaintenanceWindow"] = input.PreferredMaintenanceWindow;
-  }
-  if (input.SecurityGroupIds !== undefined) {
-    bodyParams[
-      "SecurityGroupIds"
-    ] = serializeAws_json1_1SecurityGroupIdentifierList(
-      input.SecurityGroupIds,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.ClusterName !== undefined && { ClusterName: input.ClusterName }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.NotificationTopicArn !== undefined && {
+      NotificationTopicArn: input.NotificationTopicArn
+    }),
+    ...(input.NotificationTopicStatus !== undefined && {
+      NotificationTopicStatus: input.NotificationTopicStatus
+    }),
+    ...(input.ParameterGroupName !== undefined && {
+      ParameterGroupName: input.ParameterGroupName
+    }),
+    ...(input.PreferredMaintenanceWindow !== undefined && {
+      PreferredMaintenanceWindow: input.PreferredMaintenanceWindow
+    }),
+    ...(input.SecurityGroupIds !== undefined && {
+      SecurityGroupIds: serializeAws_json1_1SecurityGroupIdentifierList(
+        input.SecurityGroupIds,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1UpdateParameterGroupRequest = (
   input: UpdateParameterGroupRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ParameterGroupName !== undefined) {
-    bodyParams["ParameterGroupName"] = input.ParameterGroupName;
-  }
-  if (input.ParameterNameValues !== undefined) {
-    bodyParams[
-      "ParameterNameValues"
-    ] = serializeAws_json1_1ParameterNameValueList(
-      input.ParameterNameValues,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.ParameterGroupName !== undefined && {
+      ParameterGroupName: input.ParameterGroupName
+    }),
+    ...(input.ParameterNameValues !== undefined && {
+      ParameterNameValues: serializeAws_json1_1ParameterNameValueList(
+        input.ParameterNameValues,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1UpdateSubnetGroupRequest = (
   input: UpdateSubnetGroupRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.SubnetGroupName !== undefined) {
-    bodyParams["SubnetGroupName"] = input.SubnetGroupName;
-  }
-  if (input.SubnetIds !== undefined) {
-    bodyParams["SubnetIds"] = serializeAws_json1_1SubnetIdentifierList(
-      input.SubnetIds,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.SubnetGroupName !== undefined && {
+      SubnetGroupName: input.SubnetGroupName
+    }),
+    ...(input.SubnetIds !== undefined && {
+      SubnetIds: serializeAws_json1_1SubnetIdentifierList(
+        input.SubnetIds,
+        context
+      )
+    })
+  };
 };
 
 const deserializeAws_json1_1InvalidParameterCombinationException = (

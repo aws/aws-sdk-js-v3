@@ -3523,306 +3523,249 @@ const serializeAws_json1_1AddTagsToStreamInput = (
   input: AddTagsToStreamInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1TagMap(input.Tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1TagMap(input.Tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_1CreateStreamInput = (
   input: CreateStreamInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ShardCount !== undefined) {
-    bodyParams["ShardCount"] = input.ShardCount;
-  }
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  return bodyParams;
+  return {
+    ...(input.ShardCount !== undefined && { ShardCount: input.ShardCount }),
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName })
+  };
 };
 
 const serializeAws_json1_1DecreaseStreamRetentionPeriodInput = (
   input: DecreaseStreamRetentionPeriodInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.RetentionPeriodHours !== undefined) {
-    bodyParams["RetentionPeriodHours"] = input.RetentionPeriodHours;
-  }
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  return bodyParams;
+  return {
+    ...(input.RetentionPeriodHours !== undefined && {
+      RetentionPeriodHours: input.RetentionPeriodHours
+    }),
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName })
+  };
 };
 
 const serializeAws_json1_1DeleteStreamInput = (
   input: DeleteStreamInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EnforceConsumerDeletion !== undefined) {
-    bodyParams["EnforceConsumerDeletion"] = input.EnforceConsumerDeletion;
-  }
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  return bodyParams;
+  return {
+    ...(input.EnforceConsumerDeletion !== undefined && {
+      EnforceConsumerDeletion: input.EnforceConsumerDeletion
+    }),
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName })
+  };
 };
 
 const serializeAws_json1_1DeregisterStreamConsumerInput = (
   input: DeregisterStreamConsumerInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ConsumerARN !== undefined) {
-    bodyParams["ConsumerARN"] = input.ConsumerARN;
-  }
-  if (input.ConsumerName !== undefined) {
-    bodyParams["ConsumerName"] = input.ConsumerName;
-  }
-  if (input.StreamARN !== undefined) {
-    bodyParams["StreamARN"] = input.StreamARN;
-  }
-  return bodyParams;
+  return {
+    ...(input.ConsumerARN !== undefined && { ConsumerARN: input.ConsumerARN }),
+    ...(input.ConsumerName !== undefined && {
+      ConsumerName: input.ConsumerName
+    }),
+    ...(input.StreamARN !== undefined && { StreamARN: input.StreamARN })
+  };
 };
 
 const serializeAws_json1_1DescribeLimitsInput = (
   input: DescribeLimitsInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  return bodyParams;
+  return {};
 };
 
 const serializeAws_json1_1DescribeStreamConsumerInput = (
   input: DescribeStreamConsumerInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ConsumerARN !== undefined) {
-    bodyParams["ConsumerARN"] = input.ConsumerARN;
-  }
-  if (input.ConsumerName !== undefined) {
-    bodyParams["ConsumerName"] = input.ConsumerName;
-  }
-  if (input.StreamARN !== undefined) {
-    bodyParams["StreamARN"] = input.StreamARN;
-  }
-  return bodyParams;
+  return {
+    ...(input.ConsumerARN !== undefined && { ConsumerARN: input.ConsumerARN }),
+    ...(input.ConsumerName !== undefined && {
+      ConsumerName: input.ConsumerName
+    }),
+    ...(input.StreamARN !== undefined && { StreamARN: input.StreamARN })
+  };
 };
 
 const serializeAws_json1_1DescribeStreamInput = (
   input: DescribeStreamInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ExclusiveStartShardId !== undefined) {
-    bodyParams["ExclusiveStartShardId"] = input.ExclusiveStartShardId;
-  }
-  if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
-  }
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  return bodyParams;
+  return {
+    ...(input.ExclusiveStartShardId !== undefined && {
+      ExclusiveStartShardId: input.ExclusiveStartShardId
+    }),
+    ...(input.Limit !== undefined && { Limit: input.Limit }),
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName })
+  };
 };
 
 const serializeAws_json1_1DescribeStreamSummaryInput = (
   input: DescribeStreamSummaryInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  return bodyParams;
+  return {
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName })
+  };
 };
 
 const serializeAws_json1_1DisableEnhancedMonitoringInput = (
   input: DisableEnhancedMonitoringInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ShardLevelMetrics !== undefined) {
-    bodyParams["ShardLevelMetrics"] = serializeAws_json1_1MetricsNameList(
-      input.ShardLevelMetrics,
-      context
-    );
-  }
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  return bodyParams;
+  return {
+    ...(input.ShardLevelMetrics !== undefined && {
+      ShardLevelMetrics: serializeAws_json1_1MetricsNameList(
+        input.ShardLevelMetrics,
+        context
+      )
+    }),
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName })
+  };
 };
 
 const serializeAws_json1_1EnableEnhancedMonitoringInput = (
   input: EnableEnhancedMonitoringInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ShardLevelMetrics !== undefined) {
-    bodyParams["ShardLevelMetrics"] = serializeAws_json1_1MetricsNameList(
-      input.ShardLevelMetrics,
-      context
-    );
-  }
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  return bodyParams;
+  return {
+    ...(input.ShardLevelMetrics !== undefined && {
+      ShardLevelMetrics: serializeAws_json1_1MetricsNameList(
+        input.ShardLevelMetrics,
+        context
+      )
+    }),
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName })
+  };
 };
 
 const serializeAws_json1_1GetRecordsInput = (
   input: GetRecordsInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
-  }
-  if (input.ShardIterator !== undefined) {
-    bodyParams["ShardIterator"] = input.ShardIterator;
-  }
-  return bodyParams;
+  return {
+    ...(input.Limit !== undefined && { Limit: input.Limit }),
+    ...(input.ShardIterator !== undefined && {
+      ShardIterator: input.ShardIterator
+    })
+  };
 };
 
 const serializeAws_json1_1GetShardIteratorInput = (
   input: GetShardIteratorInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ShardId !== undefined) {
-    bodyParams["ShardId"] = input.ShardId;
-  }
-  if (input.ShardIteratorType !== undefined) {
-    bodyParams["ShardIteratorType"] = input.ShardIteratorType;
-  }
-  if (input.StartingSequenceNumber !== undefined) {
-    bodyParams["StartingSequenceNumber"] = input.StartingSequenceNumber;
-  }
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  if (input.Timestamp !== undefined) {
-    bodyParams["Timestamp"] = Math.round(input.Timestamp.getTime() / 1000);
-  }
-  return bodyParams;
+  return {
+    ...(input.ShardId !== undefined && { ShardId: input.ShardId }),
+    ...(input.ShardIteratorType !== undefined && {
+      ShardIteratorType: input.ShardIteratorType
+    }),
+    ...(input.StartingSequenceNumber !== undefined && {
+      StartingSequenceNumber: input.StartingSequenceNumber
+    }),
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
+    ...(input.Timestamp !== undefined && {
+      Timestamp: Math.round(input.Timestamp.getTime() / 1000)
+    })
+  };
 };
 
 const serializeAws_json1_1IncreaseStreamRetentionPeriodInput = (
   input: IncreaseStreamRetentionPeriodInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.RetentionPeriodHours !== undefined) {
-    bodyParams["RetentionPeriodHours"] = input.RetentionPeriodHours;
-  }
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  return bodyParams;
+  return {
+    ...(input.RetentionPeriodHours !== undefined && {
+      RetentionPeriodHours: input.RetentionPeriodHours
+    }),
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName })
+  };
 };
 
 const serializeAws_json1_1ListShardsInput = (
   input: ListShardsInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ExclusiveStartShardId !== undefined) {
-    bodyParams["ExclusiveStartShardId"] = input.ExclusiveStartShardId;
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.StreamCreationTimestamp !== undefined) {
-    bodyParams["StreamCreationTimestamp"] = Math.round(
-      input.StreamCreationTimestamp.getTime() / 1000
-    );
-  }
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  return bodyParams;
+  return {
+    ...(input.ExclusiveStartShardId !== undefined && {
+      ExclusiveStartShardId: input.ExclusiveStartShardId
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.StreamCreationTimestamp !== undefined && {
+      StreamCreationTimestamp: Math.round(
+        input.StreamCreationTimestamp.getTime() / 1000
+      )
+    }),
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName })
+  };
 };
 
 const serializeAws_json1_1ListStreamConsumersInput = (
   input: ListStreamConsumersInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.StreamARN !== undefined) {
-    bodyParams["StreamARN"] = input.StreamARN;
-  }
-  if (input.StreamCreationTimestamp !== undefined) {
-    bodyParams["StreamCreationTimestamp"] = Math.round(
-      input.StreamCreationTimestamp.getTime() / 1000
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.StreamARN !== undefined && { StreamARN: input.StreamARN }),
+    ...(input.StreamCreationTimestamp !== undefined && {
+      StreamCreationTimestamp: Math.round(
+        input.StreamCreationTimestamp.getTime() / 1000
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1ListStreamsInput = (
   input: ListStreamsInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ExclusiveStartStreamName !== undefined) {
-    bodyParams["ExclusiveStartStreamName"] = input.ExclusiveStartStreamName;
-  }
-  if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
-  }
-  return bodyParams;
+  return {
+    ...(input.ExclusiveStartStreamName !== undefined && {
+      ExclusiveStartStreamName: input.ExclusiveStartStreamName
+    }),
+    ...(input.Limit !== undefined && { Limit: input.Limit })
+  };
 };
 
 const serializeAws_json1_1ListTagsForStreamInput = (
   input: ListTagsForStreamInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ExclusiveStartTagKey !== undefined) {
-    bodyParams["ExclusiveStartTagKey"] = input.ExclusiveStartTagKey;
-  }
-  if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
-  }
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  return bodyParams;
+  return {
+    ...(input.ExclusiveStartTagKey !== undefined && {
+      ExclusiveStartTagKey: input.ExclusiveStartTagKey
+    }),
+    ...(input.Limit !== undefined && { Limit: input.Limit }),
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName })
+  };
 };
 
 const serializeAws_json1_1MergeShardsInput = (
   input: MergeShardsInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AdjacentShardToMerge !== undefined) {
-    bodyParams["AdjacentShardToMerge"] = input.AdjacentShardToMerge;
-  }
-  if (input.ShardToMerge !== undefined) {
-    bodyParams["ShardToMerge"] = input.ShardToMerge;
-  }
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  return bodyParams;
+  return {
+    ...(input.AdjacentShardToMerge !== undefined && {
+      AdjacentShardToMerge: input.AdjacentShardToMerge
+    }),
+    ...(input.ShardToMerge !== undefined && {
+      ShardToMerge: input.ShardToMerge
+    }),
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName })
+  };
 };
 
 const serializeAws_json1_1MetricsNameList = (
@@ -3836,57 +3779,53 @@ const serializeAws_json1_1PutRecordInput = (
   input: PutRecordInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Data !== undefined) {
-    bodyParams["Data"] = context.base64Encoder(input.Data);
-  }
-  if (input.ExplicitHashKey !== undefined) {
-    bodyParams["ExplicitHashKey"] = input.ExplicitHashKey;
-  }
-  if (input.PartitionKey !== undefined) {
-    bodyParams["PartitionKey"] = input.PartitionKey;
-  }
-  if (input.SequenceNumberForOrdering !== undefined) {
-    bodyParams["SequenceNumberForOrdering"] = input.SequenceNumberForOrdering;
-  }
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  return bodyParams;
+  return {
+    ...(input.Data !== undefined && {
+      Data: context.base64Encoder(input.Data)
+    }),
+    ...(input.ExplicitHashKey !== undefined && {
+      ExplicitHashKey: input.ExplicitHashKey
+    }),
+    ...(input.PartitionKey !== undefined && {
+      PartitionKey: input.PartitionKey
+    }),
+    ...(input.SequenceNumberForOrdering !== undefined && {
+      SequenceNumberForOrdering: input.SequenceNumberForOrdering
+    }),
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName })
+  };
 };
 
 const serializeAws_json1_1PutRecordsInput = (
   input: PutRecordsInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Records !== undefined) {
-    bodyParams["Records"] = serializeAws_json1_1PutRecordsRequestEntryList(
-      input.Records,
-      context
-    );
-  }
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  return bodyParams;
+  return {
+    ...(input.Records !== undefined && {
+      Records: serializeAws_json1_1PutRecordsRequestEntryList(
+        input.Records,
+        context
+      )
+    }),
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName })
+  };
 };
 
 const serializeAws_json1_1PutRecordsRequestEntry = (
   input: PutRecordsRequestEntry,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Data !== undefined) {
-    bodyParams["Data"] = context.base64Encoder(input.Data);
-  }
-  if (input.ExplicitHashKey !== undefined) {
-    bodyParams["ExplicitHashKey"] = input.ExplicitHashKey;
-  }
-  if (input.PartitionKey !== undefined) {
-    bodyParams["PartitionKey"] = input.PartitionKey;
-  }
-  return bodyParams;
+  return {
+    ...(input.Data !== undefined && {
+      Data: context.base64Encoder(input.Data)
+    }),
+    ...(input.ExplicitHashKey !== undefined && {
+      ExplicitHashKey: input.ExplicitHashKey
+    }),
+    ...(input.PartitionKey !== undefined && {
+      PartitionKey: input.PartitionKey
+    })
+  };
 };
 
 const serializeAws_json1_1PutRecordsRequestEntryList = (
@@ -3902,119 +3841,96 @@ const serializeAws_json1_1RegisterStreamConsumerInput = (
   input: RegisterStreamConsumerInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ConsumerName !== undefined) {
-    bodyParams["ConsumerName"] = input.ConsumerName;
-  }
-  if (input.StreamARN !== undefined) {
-    bodyParams["StreamARN"] = input.StreamARN;
-  }
-  return bodyParams;
+  return {
+    ...(input.ConsumerName !== undefined && {
+      ConsumerName: input.ConsumerName
+    }),
+    ...(input.StreamARN !== undefined && { StreamARN: input.StreamARN })
+  };
 };
 
 const serializeAws_json1_1RemoveTagsFromStreamInput = (
   input: RemoveTagsFromStreamInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  if (input.TagKeys !== undefined) {
-    bodyParams["TagKeys"] = serializeAws_json1_1TagKeyList(
-      input.TagKeys,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
+    ...(input.TagKeys !== undefined && {
+      TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context)
+    })
+  };
 };
 
 const serializeAws_json1_1SplitShardInput = (
   input: SplitShardInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.NewStartingHashKey !== undefined) {
-    bodyParams["NewStartingHashKey"] = input.NewStartingHashKey;
-  }
-  if (input.ShardToSplit !== undefined) {
-    bodyParams["ShardToSplit"] = input.ShardToSplit;
-  }
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  return bodyParams;
+  return {
+    ...(input.NewStartingHashKey !== undefined && {
+      NewStartingHashKey: input.NewStartingHashKey
+    }),
+    ...(input.ShardToSplit !== undefined && {
+      ShardToSplit: input.ShardToSplit
+    }),
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName })
+  };
 };
 
 const serializeAws_json1_1StartStreamEncryptionInput = (
   input: StartStreamEncryptionInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EncryptionType !== undefined) {
-    bodyParams["EncryptionType"] = input.EncryptionType;
-  }
-  if (input.KeyId !== undefined) {
-    bodyParams["KeyId"] = input.KeyId;
-  }
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  return bodyParams;
+  return {
+    ...(input.EncryptionType !== undefined && {
+      EncryptionType: input.EncryptionType
+    }),
+    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName })
+  };
 };
 
 const serializeAws_json1_1StartingPosition = (
   input: StartingPosition,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.SequenceNumber !== undefined) {
-    bodyParams["SequenceNumber"] = input.SequenceNumber;
-  }
-  if (input.Timestamp !== undefined) {
-    bodyParams["Timestamp"] = Math.round(input.Timestamp.getTime() / 1000);
-  }
-  if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
-  }
-  return bodyParams;
+  return {
+    ...(input.SequenceNumber !== undefined && {
+      SequenceNumber: input.SequenceNumber
+    }),
+    ...(input.Timestamp !== undefined && {
+      Timestamp: Math.round(input.Timestamp.getTime() / 1000)
+    }),
+    ...(input.Type !== undefined && { Type: input.Type })
+  };
 };
 
 const serializeAws_json1_1StopStreamEncryptionInput = (
   input: StopStreamEncryptionInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EncryptionType !== undefined) {
-    bodyParams["EncryptionType"] = input.EncryptionType;
-  }
-  if (input.KeyId !== undefined) {
-    bodyParams["KeyId"] = input.KeyId;
-  }
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  return bodyParams;
+  return {
+    ...(input.EncryptionType !== undefined && {
+      EncryptionType: input.EncryptionType
+    }),
+    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName })
+  };
 };
 
 const serializeAws_json1_1SubscribeToShardInput = (
   input: SubscribeToShardInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ConsumerARN !== undefined) {
-    bodyParams["ConsumerARN"] = input.ConsumerARN;
-  }
-  if (input.ShardId !== undefined) {
-    bodyParams["ShardId"] = input.ShardId;
-  }
-  if (input.StartingPosition !== undefined) {
-    bodyParams["StartingPosition"] = serializeAws_json1_1StartingPosition(
-      input.StartingPosition,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.ConsumerARN !== undefined && { ConsumerARN: input.ConsumerARN }),
+    ...(input.ShardId !== undefined && { ShardId: input.ShardId }),
+    ...(input.StartingPosition !== undefined && {
+      StartingPosition: serializeAws_json1_1StartingPosition(
+        input.StartingPosition,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1TagKeyList = (
@@ -4038,17 +3954,13 @@ const serializeAws_json1_1UpdateShardCountInput = (
   input: UpdateShardCountInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ScalingType !== undefined) {
-    bodyParams["ScalingType"] = input.ScalingType;
-  }
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  if (input.TargetShardCount !== undefined) {
-    bodyParams["TargetShardCount"] = input.TargetShardCount;
-  }
-  return bodyParams;
+  return {
+    ...(input.ScalingType !== undefined && { ScalingType: input.ScalingType }),
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
+    ...(input.TargetShardCount !== undefined && {
+      TargetShardCount: input.TargetShardCount
+    })
+  };
 };
 
 const deserializeAws_json1_1Consumer = (

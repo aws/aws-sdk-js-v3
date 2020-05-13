@@ -2925,190 +2925,112 @@ const serializeAws_restJson1_1AddOutputRequest = (
   input: AddOutputRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CidrAllowList !== undefined) {
-    bodyParams["cidrAllowList"] = serializeAws_restJson1_1__listOf__string(
-      input.CidrAllowList,
-      context
-    );
-  }
-  if (input.Description !== undefined) {
-    bodyParams["description"] = input.Description;
-  }
-  if (input.Destination !== undefined) {
-    bodyParams["destination"] = input.Destination;
-  }
-  if (input.Encryption !== undefined) {
-    bodyParams["encryption"] = serializeAws_restJson1_1Encryption(
-      input.Encryption,
-      context
-    );
-  }
-  if (input.MaxLatency !== undefined) {
-    bodyParams["maxLatency"] = input.MaxLatency;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["name"] = input.Name;
-  }
-  if (input.Port !== undefined) {
-    bodyParams["port"] = input.Port;
-  }
-  if (input.Protocol !== undefined) {
-    bodyParams["protocol"] = input.Protocol;
-  }
-  if (input.RemoteId !== undefined) {
-    bodyParams["remoteId"] = input.RemoteId;
-  }
-  if (input.SmoothingLatency !== undefined) {
-    bodyParams["smoothingLatency"] = input.SmoothingLatency;
-  }
-  if (input.StreamId !== undefined) {
-    bodyParams["streamId"] = input.StreamId;
-  }
-  return bodyParams;
+  return {
+    ...(input.CidrAllowList !== undefined && {
+      cidrAllowList: serializeAws_restJson1_1__listOf__string(
+        input.CidrAllowList,
+        context
+      )
+    }),
+    ...(input.Description !== undefined && { description: input.Description }),
+    ...(input.Destination !== undefined && { destination: input.Destination }),
+    ...(input.Encryption !== undefined && {
+      encryption: serializeAws_restJson1_1Encryption(input.Encryption, context)
+    }),
+    ...(input.MaxLatency !== undefined && { maxLatency: input.MaxLatency }),
+    ...(input.Name !== undefined && { name: input.Name }),
+    ...(input.Port !== undefined && { port: input.Port }),
+    ...(input.Protocol !== undefined && { protocol: input.Protocol }),
+    ...(input.RemoteId !== undefined && { remoteId: input.RemoteId }),
+    ...(input.SmoothingLatency !== undefined && {
+      smoothingLatency: input.SmoothingLatency
+    }),
+    ...(input.StreamId !== undefined && { streamId: input.StreamId })
+  };
 };
 
 const serializeAws_restJson1_1Encryption = (
   input: Encryption,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Algorithm !== undefined) {
-    bodyParams["algorithm"] = input.Algorithm;
-  }
-  if (input.ConstantInitializationVector !== undefined) {
-    bodyParams["constantInitializationVector"] =
-      input.ConstantInitializationVector;
-  }
-  if (input.DeviceId !== undefined) {
-    bodyParams["deviceId"] = input.DeviceId;
-  }
-  if (input.KeyType !== undefined) {
-    bodyParams["keyType"] = input.KeyType;
-  }
-  if (input.Region !== undefined) {
-    bodyParams["region"] = input.Region;
-  }
-  if (input.ResourceId !== undefined) {
-    bodyParams["resourceId"] = input.ResourceId;
-  }
-  if (input.RoleArn !== undefined) {
-    bodyParams["roleArn"] = input.RoleArn;
-  }
-  if (input.SecretArn !== undefined) {
-    bodyParams["secretArn"] = input.SecretArn;
-  }
-  if (input.Url !== undefined) {
-    bodyParams["url"] = input.Url;
-  }
-  return bodyParams;
+  return {
+    ...(input.Algorithm !== undefined && { algorithm: input.Algorithm }),
+    ...(input.ConstantInitializationVector !== undefined && {
+      constantInitializationVector: input.ConstantInitializationVector
+    }),
+    ...(input.DeviceId !== undefined && { deviceId: input.DeviceId }),
+    ...(input.KeyType !== undefined && { keyType: input.KeyType }),
+    ...(input.Region !== undefined && { region: input.Region }),
+    ...(input.ResourceId !== undefined && { resourceId: input.ResourceId }),
+    ...(input.RoleArn !== undefined && { roleArn: input.RoleArn }),
+    ...(input.SecretArn !== undefined && { secretArn: input.SecretArn }),
+    ...(input.Url !== undefined && { url: input.Url })
+  };
 };
 
 const serializeAws_restJson1_1GrantEntitlementRequest = (
   input: GrantEntitlementRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DataTransferSubscriberFeePercent !== undefined) {
-    bodyParams["dataTransferSubscriberFeePercent"] =
-      input.DataTransferSubscriberFeePercent;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["description"] = input.Description;
-  }
-  if (input.Encryption !== undefined) {
-    bodyParams["encryption"] = serializeAws_restJson1_1Encryption(
-      input.Encryption,
-      context
-    );
-  }
-  if (input.Name !== undefined) {
-    bodyParams["name"] = input.Name;
-  }
-  if (input.Subscribers !== undefined) {
-    bodyParams["subscribers"] = serializeAws_restJson1_1__listOf__string(
-      input.Subscribers,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.DataTransferSubscriberFeePercent !== undefined && {
+      dataTransferSubscriberFeePercent: input.DataTransferSubscriberFeePercent
+    }),
+    ...(input.Description !== undefined && { description: input.Description }),
+    ...(input.Encryption !== undefined && {
+      encryption: serializeAws_restJson1_1Encryption(input.Encryption, context)
+    }),
+    ...(input.Name !== undefined && { name: input.Name }),
+    ...(input.Subscribers !== undefined && {
+      subscribers: serializeAws_restJson1_1__listOf__string(
+        input.Subscribers,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1SetSourceRequest = (
   input: SetSourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Decryption !== undefined) {
-    bodyParams["decryption"] = serializeAws_restJson1_1Encryption(
-      input.Decryption,
-      context
-    );
-  }
-  if (input.Description !== undefined) {
-    bodyParams["description"] = input.Description;
-  }
-  if (input.EntitlementArn !== undefined) {
-    bodyParams["entitlementArn"] = input.EntitlementArn;
-  }
-  if (input.IngestPort !== undefined) {
-    bodyParams["ingestPort"] = input.IngestPort;
-  }
-  if (input.MaxBitrate !== undefined) {
-    bodyParams["maxBitrate"] = input.MaxBitrate;
-  }
-  if (input.MaxLatency !== undefined) {
-    bodyParams["maxLatency"] = input.MaxLatency;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["name"] = input.Name;
-  }
-  if (input.Protocol !== undefined) {
-    bodyParams["protocol"] = input.Protocol;
-  }
-  if (input.StreamId !== undefined) {
-    bodyParams["streamId"] = input.StreamId;
-  }
-  if (input.WhitelistCidr !== undefined) {
-    bodyParams["whitelistCidr"] = input.WhitelistCidr;
-  }
-  return bodyParams;
+  return {
+    ...(input.Decryption !== undefined && {
+      decryption: serializeAws_restJson1_1Encryption(input.Decryption, context)
+    }),
+    ...(input.Description !== undefined && { description: input.Description }),
+    ...(input.EntitlementArn !== undefined && {
+      entitlementArn: input.EntitlementArn
+    }),
+    ...(input.IngestPort !== undefined && { ingestPort: input.IngestPort }),
+    ...(input.MaxBitrate !== undefined && { maxBitrate: input.MaxBitrate }),
+    ...(input.MaxLatency !== undefined && { maxLatency: input.MaxLatency }),
+    ...(input.Name !== undefined && { name: input.Name }),
+    ...(input.Protocol !== undefined && { protocol: input.Protocol }),
+    ...(input.StreamId !== undefined && { streamId: input.StreamId }),
+    ...(input.WhitelistCidr !== undefined && {
+      whitelistCidr: input.WhitelistCidr
+    })
+  };
 };
 
 const serializeAws_restJson1_1UpdateEncryption = (
   input: UpdateEncryption,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Algorithm !== undefined) {
-    bodyParams["algorithm"] = input.Algorithm;
-  }
-  if (input.ConstantInitializationVector !== undefined) {
-    bodyParams["constantInitializationVector"] =
-      input.ConstantInitializationVector;
-  }
-  if (input.DeviceId !== undefined) {
-    bodyParams["deviceId"] = input.DeviceId;
-  }
-  if (input.KeyType !== undefined) {
-    bodyParams["keyType"] = input.KeyType;
-  }
-  if (input.Region !== undefined) {
-    bodyParams["region"] = input.Region;
-  }
-  if (input.ResourceId !== undefined) {
-    bodyParams["resourceId"] = input.ResourceId;
-  }
-  if (input.RoleArn !== undefined) {
-    bodyParams["roleArn"] = input.RoleArn;
-  }
-  if (input.SecretArn !== undefined) {
-    bodyParams["secretArn"] = input.SecretArn;
-  }
-  if (input.Url !== undefined) {
-    bodyParams["url"] = input.Url;
-  }
-  return bodyParams;
+  return {
+    ...(input.Algorithm !== undefined && { algorithm: input.Algorithm }),
+    ...(input.ConstantInitializationVector !== undefined && {
+      constantInitializationVector: input.ConstantInitializationVector
+    }),
+    ...(input.DeviceId !== undefined && { deviceId: input.DeviceId }),
+    ...(input.KeyType !== undefined && { keyType: input.KeyType }),
+    ...(input.Region !== undefined && { region: input.Region }),
+    ...(input.ResourceId !== undefined && { resourceId: input.ResourceId }),
+    ...(input.RoleArn !== undefined && { roleArn: input.RoleArn }),
+    ...(input.SecretArn !== undefined && { secretArn: input.SecretArn }),
+    ...(input.Url !== undefined && { url: input.Url })
+  };
 };
 
 const serializeAws_restJson1_1__listOfAddOutputRequest = (

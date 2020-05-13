@@ -3274,361 +3274,322 @@ const serializeAws_restJson1_1Authorization = (
   input: Authorization,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CdnIdentifierSecret !== undefined) {
-    bodyParams["cdnIdentifierSecret"] = input.CdnIdentifierSecret;
-  }
-  if (input.SecretsRoleArn !== undefined) {
-    bodyParams["secretsRoleArn"] = input.SecretsRoleArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.CdnIdentifierSecret !== undefined && {
+      cdnIdentifierSecret: input.CdnIdentifierSecret
+    }),
+    ...(input.SecretsRoleArn !== undefined && {
+      secretsRoleArn: input.SecretsRoleArn
+    })
+  };
 };
 
 const serializeAws_restJson1_1CmafEncryption = (
   input: CmafEncryption,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.KeyRotationIntervalSeconds !== undefined) {
-    bodyParams["keyRotationIntervalSeconds"] = input.KeyRotationIntervalSeconds;
-  }
-  if (input.SpekeKeyProvider !== undefined) {
-    bodyParams["spekeKeyProvider"] = serializeAws_restJson1_1SpekeKeyProvider(
-      input.SpekeKeyProvider,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.KeyRotationIntervalSeconds !== undefined && {
+      keyRotationIntervalSeconds: input.KeyRotationIntervalSeconds
+    }),
+    ...(input.SpekeKeyProvider !== undefined && {
+      spekeKeyProvider: serializeAws_restJson1_1SpekeKeyProvider(
+        input.SpekeKeyProvider,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1CmafPackageCreateOrUpdateParameters = (
   input: CmafPackageCreateOrUpdateParameters,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Encryption !== undefined) {
-    bodyParams["encryption"] = serializeAws_restJson1_1CmafEncryption(
-      input.Encryption,
-      context
-    );
-  }
-  if (input.HlsManifests !== undefined) {
-    bodyParams[
-      "hlsManifests"
-    ] = serializeAws_restJson1_1__listOfHlsManifestCreateOrUpdateParameters(
-      input.HlsManifests,
-      context
-    );
-  }
-  if (input.SegmentDurationSeconds !== undefined) {
-    bodyParams["segmentDurationSeconds"] = input.SegmentDurationSeconds;
-  }
-  if (input.SegmentPrefix !== undefined) {
-    bodyParams["segmentPrefix"] = input.SegmentPrefix;
-  }
-  if (input.StreamSelection !== undefined) {
-    bodyParams["streamSelection"] = serializeAws_restJson1_1StreamSelection(
-      input.StreamSelection,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Encryption !== undefined && {
+      encryption: serializeAws_restJson1_1CmafEncryption(
+        input.Encryption,
+        context
+      )
+    }),
+    ...(input.HlsManifests !== undefined && {
+      hlsManifests: serializeAws_restJson1_1__listOfHlsManifestCreateOrUpdateParameters(
+        input.HlsManifests,
+        context
+      )
+    }),
+    ...(input.SegmentDurationSeconds !== undefined && {
+      segmentDurationSeconds: input.SegmentDurationSeconds
+    }),
+    ...(input.SegmentPrefix !== undefined && {
+      segmentPrefix: input.SegmentPrefix
+    }),
+    ...(input.StreamSelection !== undefined && {
+      streamSelection: serializeAws_restJson1_1StreamSelection(
+        input.StreamSelection,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1DashEncryption = (
   input: DashEncryption,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.KeyRotationIntervalSeconds !== undefined) {
-    bodyParams["keyRotationIntervalSeconds"] = input.KeyRotationIntervalSeconds;
-  }
-  if (input.SpekeKeyProvider !== undefined) {
-    bodyParams["spekeKeyProvider"] = serializeAws_restJson1_1SpekeKeyProvider(
-      input.SpekeKeyProvider,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.KeyRotationIntervalSeconds !== undefined && {
+      keyRotationIntervalSeconds: input.KeyRotationIntervalSeconds
+    }),
+    ...(input.SpekeKeyProvider !== undefined && {
+      spekeKeyProvider: serializeAws_restJson1_1SpekeKeyProvider(
+        input.SpekeKeyProvider,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1DashPackage = (
   input: DashPackage,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AdTriggers !== undefined) {
-    bodyParams["adTriggers"] = serializeAws_restJson1_1AdTriggers(
-      input.AdTriggers,
-      context
-    );
-  }
-  if (input.AdsOnDeliveryRestrictions !== undefined) {
-    bodyParams["adsOnDeliveryRestrictions"] = input.AdsOnDeliveryRestrictions;
-  }
-  if (input.Encryption !== undefined) {
-    bodyParams["encryption"] = serializeAws_restJson1_1DashEncryption(
-      input.Encryption,
-      context
-    );
-  }
-  if (input.ManifestLayout !== undefined) {
-    bodyParams["manifestLayout"] = input.ManifestLayout;
-  }
-  if (input.ManifestWindowSeconds !== undefined) {
-    bodyParams["manifestWindowSeconds"] = input.ManifestWindowSeconds;
-  }
-  if (input.MinBufferTimeSeconds !== undefined) {
-    bodyParams["minBufferTimeSeconds"] = input.MinBufferTimeSeconds;
-  }
-  if (input.MinUpdatePeriodSeconds !== undefined) {
-    bodyParams["minUpdatePeriodSeconds"] = input.MinUpdatePeriodSeconds;
-  }
-  if (input.PeriodTriggers !== undefined) {
-    bodyParams[
-      "periodTriggers"
-    ] = serializeAws_restJson1_1__listOf__PeriodTriggersElement(
-      input.PeriodTriggers,
-      context
-    );
-  }
-  if (input.Profile !== undefined) {
-    bodyParams["profile"] = input.Profile;
-  }
-  if (input.SegmentDurationSeconds !== undefined) {
-    bodyParams["segmentDurationSeconds"] = input.SegmentDurationSeconds;
-  }
-  if (input.SegmentTemplateFormat !== undefined) {
-    bodyParams["segmentTemplateFormat"] = input.SegmentTemplateFormat;
-  }
-  if (input.StreamSelection !== undefined) {
-    bodyParams["streamSelection"] = serializeAws_restJson1_1StreamSelection(
-      input.StreamSelection,
-      context
-    );
-  }
-  if (input.SuggestedPresentationDelaySeconds !== undefined) {
-    bodyParams["suggestedPresentationDelaySeconds"] =
-      input.SuggestedPresentationDelaySeconds;
-  }
-  return bodyParams;
+  return {
+    ...(input.AdTriggers !== undefined && {
+      adTriggers: serializeAws_restJson1_1AdTriggers(input.AdTriggers, context)
+    }),
+    ...(input.AdsOnDeliveryRestrictions !== undefined && {
+      adsOnDeliveryRestrictions: input.AdsOnDeliveryRestrictions
+    }),
+    ...(input.Encryption !== undefined && {
+      encryption: serializeAws_restJson1_1DashEncryption(
+        input.Encryption,
+        context
+      )
+    }),
+    ...(input.ManifestLayout !== undefined && {
+      manifestLayout: input.ManifestLayout
+    }),
+    ...(input.ManifestWindowSeconds !== undefined && {
+      manifestWindowSeconds: input.ManifestWindowSeconds
+    }),
+    ...(input.MinBufferTimeSeconds !== undefined && {
+      minBufferTimeSeconds: input.MinBufferTimeSeconds
+    }),
+    ...(input.MinUpdatePeriodSeconds !== undefined && {
+      minUpdatePeriodSeconds: input.MinUpdatePeriodSeconds
+    }),
+    ...(input.PeriodTriggers !== undefined && {
+      periodTriggers: serializeAws_restJson1_1__listOf__PeriodTriggersElement(
+        input.PeriodTriggers,
+        context
+      )
+    }),
+    ...(input.Profile !== undefined && { profile: input.Profile }),
+    ...(input.SegmentDurationSeconds !== undefined && {
+      segmentDurationSeconds: input.SegmentDurationSeconds
+    }),
+    ...(input.SegmentTemplateFormat !== undefined && {
+      segmentTemplateFormat: input.SegmentTemplateFormat
+    }),
+    ...(input.StreamSelection !== undefined && {
+      streamSelection: serializeAws_restJson1_1StreamSelection(
+        input.StreamSelection,
+        context
+      )
+    }),
+    ...(input.SuggestedPresentationDelaySeconds !== undefined && {
+      suggestedPresentationDelaySeconds: input.SuggestedPresentationDelaySeconds
+    })
+  };
 };
 
 const serializeAws_restJson1_1HlsEncryption = (
   input: HlsEncryption,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ConstantInitializationVector !== undefined) {
-    bodyParams["constantInitializationVector"] =
-      input.ConstantInitializationVector;
-  }
-  if (input.EncryptionMethod !== undefined) {
-    bodyParams["encryptionMethod"] = input.EncryptionMethod;
-  }
-  if (input.KeyRotationIntervalSeconds !== undefined) {
-    bodyParams["keyRotationIntervalSeconds"] = input.KeyRotationIntervalSeconds;
-  }
-  if (input.RepeatExtXKey !== undefined) {
-    bodyParams["repeatExtXKey"] = input.RepeatExtXKey;
-  }
-  if (input.SpekeKeyProvider !== undefined) {
-    bodyParams["spekeKeyProvider"] = serializeAws_restJson1_1SpekeKeyProvider(
-      input.SpekeKeyProvider,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.ConstantInitializationVector !== undefined && {
+      constantInitializationVector: input.ConstantInitializationVector
+    }),
+    ...(input.EncryptionMethod !== undefined && {
+      encryptionMethod: input.EncryptionMethod
+    }),
+    ...(input.KeyRotationIntervalSeconds !== undefined && {
+      keyRotationIntervalSeconds: input.KeyRotationIntervalSeconds
+    }),
+    ...(input.RepeatExtXKey !== undefined && {
+      repeatExtXKey: input.RepeatExtXKey
+    }),
+    ...(input.SpekeKeyProvider !== undefined && {
+      spekeKeyProvider: serializeAws_restJson1_1SpekeKeyProvider(
+        input.SpekeKeyProvider,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1HlsManifestCreateOrUpdateParameters = (
   input: HlsManifestCreateOrUpdateParameters,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AdMarkers !== undefined) {
-    bodyParams["adMarkers"] = input.AdMarkers;
-  }
-  if (input.AdTriggers !== undefined) {
-    bodyParams["adTriggers"] = serializeAws_restJson1_1AdTriggers(
-      input.AdTriggers,
-      context
-    );
-  }
-  if (input.AdsOnDeliveryRestrictions !== undefined) {
-    bodyParams["adsOnDeliveryRestrictions"] = input.AdsOnDeliveryRestrictions;
-  }
-  if (input.Id !== undefined) {
-    bodyParams["id"] = input.Id;
-  }
-  if (input.IncludeIframeOnlyStream !== undefined) {
-    bodyParams["includeIframeOnlyStream"] = input.IncludeIframeOnlyStream;
-  }
-  if (input.ManifestName !== undefined) {
-    bodyParams["manifestName"] = input.ManifestName;
-  }
-  if (input.PlaylistType !== undefined) {
-    bodyParams["playlistType"] = input.PlaylistType;
-  }
-  if (input.PlaylistWindowSeconds !== undefined) {
-    bodyParams["playlistWindowSeconds"] = input.PlaylistWindowSeconds;
-  }
-  if (input.ProgramDateTimeIntervalSeconds !== undefined) {
-    bodyParams["programDateTimeIntervalSeconds"] =
-      input.ProgramDateTimeIntervalSeconds;
-  }
-  return bodyParams;
+  return {
+    ...(input.AdMarkers !== undefined && { adMarkers: input.AdMarkers }),
+    ...(input.AdTriggers !== undefined && {
+      adTriggers: serializeAws_restJson1_1AdTriggers(input.AdTriggers, context)
+    }),
+    ...(input.AdsOnDeliveryRestrictions !== undefined && {
+      adsOnDeliveryRestrictions: input.AdsOnDeliveryRestrictions
+    }),
+    ...(input.Id !== undefined && { id: input.Id }),
+    ...(input.IncludeIframeOnlyStream !== undefined && {
+      includeIframeOnlyStream: input.IncludeIframeOnlyStream
+    }),
+    ...(input.ManifestName !== undefined && {
+      manifestName: input.ManifestName
+    }),
+    ...(input.PlaylistType !== undefined && {
+      playlistType: input.PlaylistType
+    }),
+    ...(input.PlaylistWindowSeconds !== undefined && {
+      playlistWindowSeconds: input.PlaylistWindowSeconds
+    }),
+    ...(input.ProgramDateTimeIntervalSeconds !== undefined && {
+      programDateTimeIntervalSeconds: input.ProgramDateTimeIntervalSeconds
+    })
+  };
 };
 
 const serializeAws_restJson1_1HlsPackage = (
   input: HlsPackage,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AdMarkers !== undefined) {
-    bodyParams["adMarkers"] = input.AdMarkers;
-  }
-  if (input.AdTriggers !== undefined) {
-    bodyParams["adTriggers"] = serializeAws_restJson1_1AdTriggers(
-      input.AdTriggers,
-      context
-    );
-  }
-  if (input.AdsOnDeliveryRestrictions !== undefined) {
-    bodyParams["adsOnDeliveryRestrictions"] = input.AdsOnDeliveryRestrictions;
-  }
-  if (input.Encryption !== undefined) {
-    bodyParams["encryption"] = serializeAws_restJson1_1HlsEncryption(
-      input.Encryption,
-      context
-    );
-  }
-  if (input.IncludeIframeOnlyStream !== undefined) {
-    bodyParams["includeIframeOnlyStream"] = input.IncludeIframeOnlyStream;
-  }
-  if (input.PlaylistType !== undefined) {
-    bodyParams["playlistType"] = input.PlaylistType;
-  }
-  if (input.PlaylistWindowSeconds !== undefined) {
-    bodyParams["playlistWindowSeconds"] = input.PlaylistWindowSeconds;
-  }
-  if (input.ProgramDateTimeIntervalSeconds !== undefined) {
-    bodyParams["programDateTimeIntervalSeconds"] =
-      input.ProgramDateTimeIntervalSeconds;
-  }
-  if (input.SegmentDurationSeconds !== undefined) {
-    bodyParams["segmentDurationSeconds"] = input.SegmentDurationSeconds;
-  }
-  if (input.StreamSelection !== undefined) {
-    bodyParams["streamSelection"] = serializeAws_restJson1_1StreamSelection(
-      input.StreamSelection,
-      context
-    );
-  }
-  if (input.UseAudioRenditionGroup !== undefined) {
-    bodyParams["useAudioRenditionGroup"] = input.UseAudioRenditionGroup;
-  }
-  return bodyParams;
+  return {
+    ...(input.AdMarkers !== undefined && { adMarkers: input.AdMarkers }),
+    ...(input.AdTriggers !== undefined && {
+      adTriggers: serializeAws_restJson1_1AdTriggers(input.AdTriggers, context)
+    }),
+    ...(input.AdsOnDeliveryRestrictions !== undefined && {
+      adsOnDeliveryRestrictions: input.AdsOnDeliveryRestrictions
+    }),
+    ...(input.Encryption !== undefined && {
+      encryption: serializeAws_restJson1_1HlsEncryption(
+        input.Encryption,
+        context
+      )
+    }),
+    ...(input.IncludeIframeOnlyStream !== undefined && {
+      includeIframeOnlyStream: input.IncludeIframeOnlyStream
+    }),
+    ...(input.PlaylistType !== undefined && {
+      playlistType: input.PlaylistType
+    }),
+    ...(input.PlaylistWindowSeconds !== undefined && {
+      playlistWindowSeconds: input.PlaylistWindowSeconds
+    }),
+    ...(input.ProgramDateTimeIntervalSeconds !== undefined && {
+      programDateTimeIntervalSeconds: input.ProgramDateTimeIntervalSeconds
+    }),
+    ...(input.SegmentDurationSeconds !== undefined && {
+      segmentDurationSeconds: input.SegmentDurationSeconds
+    }),
+    ...(input.StreamSelection !== undefined && {
+      streamSelection: serializeAws_restJson1_1StreamSelection(
+        input.StreamSelection,
+        context
+      )
+    }),
+    ...(input.UseAudioRenditionGroup !== undefined && {
+      useAudioRenditionGroup: input.UseAudioRenditionGroup
+    })
+  };
 };
 
 const serializeAws_restJson1_1MssEncryption = (
   input: MssEncryption,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.SpekeKeyProvider !== undefined) {
-    bodyParams["spekeKeyProvider"] = serializeAws_restJson1_1SpekeKeyProvider(
-      input.SpekeKeyProvider,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.SpekeKeyProvider !== undefined && {
+      spekeKeyProvider: serializeAws_restJson1_1SpekeKeyProvider(
+        input.SpekeKeyProvider,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1MssPackage = (
   input: MssPackage,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Encryption !== undefined) {
-    bodyParams["encryption"] = serializeAws_restJson1_1MssEncryption(
-      input.Encryption,
-      context
-    );
-  }
-  if (input.ManifestWindowSeconds !== undefined) {
-    bodyParams["manifestWindowSeconds"] = input.ManifestWindowSeconds;
-  }
-  if (input.SegmentDurationSeconds !== undefined) {
-    bodyParams["segmentDurationSeconds"] = input.SegmentDurationSeconds;
-  }
-  if (input.StreamSelection !== undefined) {
-    bodyParams["streamSelection"] = serializeAws_restJson1_1StreamSelection(
-      input.StreamSelection,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Encryption !== undefined && {
+      encryption: serializeAws_restJson1_1MssEncryption(
+        input.Encryption,
+        context
+      )
+    }),
+    ...(input.ManifestWindowSeconds !== undefined && {
+      manifestWindowSeconds: input.ManifestWindowSeconds
+    }),
+    ...(input.SegmentDurationSeconds !== undefined && {
+      segmentDurationSeconds: input.SegmentDurationSeconds
+    }),
+    ...(input.StreamSelection !== undefined && {
+      streamSelection: serializeAws_restJson1_1StreamSelection(
+        input.StreamSelection,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1S3Destination = (
   input: S3Destination,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.BucketName !== undefined) {
-    bodyParams["bucketName"] = input.BucketName;
-  }
-  if (input.ManifestKey !== undefined) {
-    bodyParams["manifestKey"] = input.ManifestKey;
-  }
-  if (input.RoleArn !== undefined) {
-    bodyParams["roleArn"] = input.RoleArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.BucketName !== undefined && { bucketName: input.BucketName }),
+    ...(input.ManifestKey !== undefined && { manifestKey: input.ManifestKey }),
+    ...(input.RoleArn !== undefined && { roleArn: input.RoleArn })
+  };
 };
 
 const serializeAws_restJson1_1SpekeKeyProvider = (
   input: SpekeKeyProvider,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateArn !== undefined) {
-    bodyParams["certificateArn"] = input.CertificateArn;
-  }
-  if (input.ResourceId !== undefined) {
-    bodyParams["resourceId"] = input.ResourceId;
-  }
-  if (input.RoleArn !== undefined) {
-    bodyParams["roleArn"] = input.RoleArn;
-  }
-  if (input.SystemIds !== undefined) {
-    bodyParams["systemIds"] = serializeAws_restJson1_1__listOf__string(
-      input.SystemIds,
-      context
-    );
-  }
-  if (input.Url !== undefined) {
-    bodyParams["url"] = input.Url;
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateArn !== undefined && {
+      certificateArn: input.CertificateArn
+    }),
+    ...(input.ResourceId !== undefined && { resourceId: input.ResourceId }),
+    ...(input.RoleArn !== undefined && { roleArn: input.RoleArn }),
+    ...(input.SystemIds !== undefined && {
+      systemIds: serializeAws_restJson1_1__listOf__string(
+        input.SystemIds,
+        context
+      )
+    }),
+    ...(input.Url !== undefined && { url: input.Url })
+  };
 };
 
 const serializeAws_restJson1_1StreamSelection = (
   input: StreamSelection,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxVideoBitsPerSecond !== undefined) {
-    bodyParams["maxVideoBitsPerSecond"] = input.MaxVideoBitsPerSecond;
-  }
-  if (input.MinVideoBitsPerSecond !== undefined) {
-    bodyParams["minVideoBitsPerSecond"] = input.MinVideoBitsPerSecond;
-  }
-  if (input.StreamOrder !== undefined) {
-    bodyParams["streamOrder"] = input.StreamOrder;
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxVideoBitsPerSecond !== undefined && {
+      maxVideoBitsPerSecond: input.MaxVideoBitsPerSecond
+    }),
+    ...(input.MinVideoBitsPerSecond !== undefined && {
+      minVideoBitsPerSecond: input.MinVideoBitsPerSecond
+    }),
+    ...(input.StreamOrder !== undefined && { streamOrder: input.StreamOrder })
+  };
 };
 
 const serializeAws_restJson1_1Tags = (

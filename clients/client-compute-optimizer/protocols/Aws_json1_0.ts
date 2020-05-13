@@ -1129,17 +1129,12 @@ const serializeAws_json1_0Filter = (
   input: Filter,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.values !== undefined) {
-    bodyParams["values"] = serializeAws_json1_0FilterValues(
-      input.values,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.values !== undefined && {
+      values: serializeAws_json1_0FilterValues(input.values, context)
+    })
+  };
 };
 
 const serializeAws_json1_0FilterValues = (
@@ -1160,111 +1155,81 @@ const serializeAws_json1_0GetAutoScalingGroupRecommendationsRequest = (
   input: GetAutoScalingGroupRecommendationsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.accountIds !== undefined) {
-    bodyParams["accountIds"] = serializeAws_json1_0AccountIds(
-      input.accountIds,
-      context
-    );
-  }
-  if (input.autoScalingGroupArns !== undefined) {
-    bodyParams[
-      "autoScalingGroupArns"
-    ] = serializeAws_json1_0AutoScalingGroupArns(
-      input.autoScalingGroupArns,
-      context
-    );
-  }
-  if (input.filters !== undefined) {
-    bodyParams["filters"] = serializeAws_json1_0Filters(input.filters, context);
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.accountIds !== undefined && {
+      accountIds: serializeAws_json1_0AccountIds(input.accountIds, context)
+    }),
+    ...(input.autoScalingGroupArns !== undefined && {
+      autoScalingGroupArns: serializeAws_json1_0AutoScalingGroupArns(
+        input.autoScalingGroupArns,
+        context
+      )
+    }),
+    ...(input.filters !== undefined && {
+      filters: serializeAws_json1_0Filters(input.filters, context)
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
 };
 
 const serializeAws_json1_0GetEC2InstanceRecommendationsRequest = (
   input: GetEC2InstanceRecommendationsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.accountIds !== undefined) {
-    bodyParams["accountIds"] = serializeAws_json1_0AccountIds(
-      input.accountIds,
-      context
-    );
-  }
-  if (input.filters !== undefined) {
-    bodyParams["filters"] = serializeAws_json1_0Filters(input.filters, context);
-  }
-  if (input.instanceArns !== undefined) {
-    bodyParams["instanceArns"] = serializeAws_json1_0InstanceArns(
-      input.instanceArns,
-      context
-    );
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.accountIds !== undefined && {
+      accountIds: serializeAws_json1_0AccountIds(input.accountIds, context)
+    }),
+    ...(input.filters !== undefined && {
+      filters: serializeAws_json1_0Filters(input.filters, context)
+    }),
+    ...(input.instanceArns !== undefined && {
+      instanceArns: serializeAws_json1_0InstanceArns(
+        input.instanceArns,
+        context
+      )
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
 };
 
 const serializeAws_json1_0GetEC2RecommendationProjectedMetricsRequest = (
   input: GetEC2RecommendationProjectedMetricsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.endTime !== undefined) {
-    bodyParams["endTime"] = Math.round(input.endTime.getTime() / 1000);
-  }
-  if (input.instanceArn !== undefined) {
-    bodyParams["instanceArn"] = input.instanceArn;
-  }
-  if (input.period !== undefined) {
-    bodyParams["period"] = input.period;
-  }
-  if (input.startTime !== undefined) {
-    bodyParams["startTime"] = Math.round(input.startTime.getTime() / 1000);
-  }
-  if (input.stat !== undefined) {
-    bodyParams["stat"] = input.stat;
-  }
-  return bodyParams;
+  return {
+    ...(input.endTime !== undefined && {
+      endTime: Math.round(input.endTime.getTime() / 1000)
+    }),
+    ...(input.instanceArn !== undefined && { instanceArn: input.instanceArn }),
+    ...(input.period !== undefined && { period: input.period }),
+    ...(input.startTime !== undefined && {
+      startTime: Math.round(input.startTime.getTime() / 1000)
+    }),
+    ...(input.stat !== undefined && { stat: input.stat })
+  };
 };
 
 const serializeAws_json1_0GetEnrollmentStatusRequest = (
   input: GetEnrollmentStatusRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  return bodyParams;
+  return {};
 };
 
 const serializeAws_json1_0GetRecommendationSummariesRequest = (
   input: GetRecommendationSummariesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.accountIds !== undefined) {
-    bodyParams["accountIds"] = serializeAws_json1_0AccountIds(
-      input.accountIds,
-      context
-    );
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.accountIds !== undefined && {
+      accountIds: serializeAws_json1_0AccountIds(input.accountIds, context)
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
 };
 
 const serializeAws_json1_0InstanceArns = (
@@ -1278,14 +1243,12 @@ const serializeAws_json1_0UpdateEnrollmentStatusRequest = (
   input: UpdateEnrollmentStatusRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.includeMemberAccounts !== undefined) {
-    bodyParams["includeMemberAccounts"] = input.includeMemberAccounts;
-  }
-  if (input.status !== undefined) {
-    bodyParams["status"] = input.status;
-  }
-  return bodyParams;
+  return {
+    ...(input.includeMemberAccounts !== undefined && {
+      includeMemberAccounts: input.includeMemberAccounts
+    }),
+    ...(input.status !== undefined && { status: input.status })
+  };
 };
 
 const deserializeAws_json1_0AccessDeniedException = (

@@ -1692,26 +1692,26 @@ const serializeAws_json1_1AddTagsToCertificateRequest = (
   input: AddTagsToCertificateRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateArn !== undefined) {
-    bodyParams["CertificateArn"] = input.CertificateArn;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateArn !== undefined && {
+      CertificateArn: input.CertificateArn
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1TagList(input.Tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_1CertificateOptions = (
   input: CertificateOptions,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateTransparencyLoggingPreference !== undefined) {
-    bodyParams["CertificateTransparencyLoggingPreference"] =
-      input.CertificateTransparencyLoggingPreference;
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateTransparencyLoggingPreference !== undefined && {
+      CertificateTransparencyLoggingPreference:
+        input.CertificateTransparencyLoggingPreference
+    })
+  };
 };
 
 const serializeAws_json1_1CertificateStatuses = (
@@ -1725,22 +1725,22 @@ const serializeAws_json1_1DeleteCertificateRequest = (
   input: DeleteCertificateRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateArn !== undefined) {
-    bodyParams["CertificateArn"] = input.CertificateArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateArn !== undefined && {
+      CertificateArn: input.CertificateArn
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeCertificateRequest = (
   input: DescribeCertificateRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateArn !== undefined) {
-    bodyParams["CertificateArn"] = input.CertificateArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateArn !== undefined && {
+      CertificateArn: input.CertificateArn
+    })
+  };
 };
 
 const serializeAws_json1_1DomainList = (
@@ -1754,14 +1754,12 @@ const serializeAws_json1_1DomainValidationOption = (
   input: DomainValidationOption,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DomainName !== undefined) {
-    bodyParams["DomainName"] = input.DomainName;
-  }
-  if (input.ValidationDomain !== undefined) {
-    bodyParams["ValidationDomain"] = input.ValidationDomain;
-  }
-  return bodyParams;
+  return {
+    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
+    ...(input.ValidationDomain !== undefined && {
+      ValidationDomain: input.ValidationDomain
+    })
+  };
 };
 
 const serializeAws_json1_1DomainValidationOptionList = (
@@ -1777,14 +1775,14 @@ const serializeAws_json1_1ExportCertificateRequest = (
   input: ExportCertificateRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateArn !== undefined) {
-    bodyParams["CertificateArn"] = input.CertificateArn;
-  }
-  if (input.Passphrase !== undefined) {
-    bodyParams["Passphrase"] = context.base64Encoder(input.Passphrase);
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateArn !== undefined && {
+      CertificateArn: input.CertificateArn
+    }),
+    ...(input.Passphrase !== undefined && {
+      Passphrase: context.base64Encoder(input.Passphrase)
+    })
+  };
 };
 
 const serializeAws_json1_1ExtendedKeyUsageFilterList = (
@@ -1798,64 +1796,54 @@ const serializeAws_json1_1Filters = (
   input: Filters,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.extendedKeyUsage !== undefined) {
-    bodyParams[
-      "extendedKeyUsage"
-    ] = serializeAws_json1_1ExtendedKeyUsageFilterList(
-      input.extendedKeyUsage,
-      context
-    );
-  }
-  if (input.keyTypes !== undefined) {
-    bodyParams["keyTypes"] = serializeAws_json1_1KeyAlgorithmList(
-      input.keyTypes,
-      context
-    );
-  }
-  if (input.keyUsage !== undefined) {
-    bodyParams["keyUsage"] = serializeAws_json1_1KeyUsageFilterList(
-      input.keyUsage,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.extendedKeyUsage !== undefined && {
+      extendedKeyUsage: serializeAws_json1_1ExtendedKeyUsageFilterList(
+        input.extendedKeyUsage,
+        context
+      )
+    }),
+    ...(input.keyTypes !== undefined && {
+      keyTypes: serializeAws_json1_1KeyAlgorithmList(input.keyTypes, context)
+    }),
+    ...(input.keyUsage !== undefined && {
+      keyUsage: serializeAws_json1_1KeyUsageFilterList(input.keyUsage, context)
+    })
+  };
 };
 
 const serializeAws_json1_1GetCertificateRequest = (
   input: GetCertificateRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateArn !== undefined) {
-    bodyParams["CertificateArn"] = input.CertificateArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateArn !== undefined && {
+      CertificateArn: input.CertificateArn
+    })
+  };
 };
 
 const serializeAws_json1_1ImportCertificateRequest = (
   input: ImportCertificateRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Certificate !== undefined) {
-    bodyParams["Certificate"] = context.base64Encoder(input.Certificate);
-  }
-  if (input.CertificateArn !== undefined) {
-    bodyParams["CertificateArn"] = input.CertificateArn;
-  }
-  if (input.CertificateChain !== undefined) {
-    bodyParams["CertificateChain"] = context.base64Encoder(
-      input.CertificateChain
-    );
-  }
-  if (input.PrivateKey !== undefined) {
-    bodyParams["PrivateKey"] = context.base64Encoder(input.PrivateKey);
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.Certificate !== undefined && {
+      Certificate: context.base64Encoder(input.Certificate)
+    }),
+    ...(input.CertificateArn !== undefined && {
+      CertificateArn: input.CertificateArn
+    }),
+    ...(input.CertificateChain !== undefined && {
+      CertificateChain: context.base64Encoder(input.CertificateChain)
+    }),
+    ...(input.PrivateKey !== undefined && {
+      PrivateKey: context.base64Encoder(input.PrivateKey)
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1TagList(input.Tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_1KeyAlgorithmList = (
@@ -1876,133 +1864,113 @@ const serializeAws_json1_1ListCertificatesRequest = (
   input: ListCertificatesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateStatuses !== undefined) {
-    bodyParams["CertificateStatuses"] = serializeAws_json1_1CertificateStatuses(
-      input.CertificateStatuses,
-      context
-    );
-  }
-  if (input.Includes !== undefined) {
-    bodyParams["Includes"] = serializeAws_json1_1Filters(
-      input.Includes,
-      context
-    );
-  }
-  if (input.MaxItems !== undefined) {
-    bodyParams["MaxItems"] = input.MaxItems;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateStatuses !== undefined && {
+      CertificateStatuses: serializeAws_json1_1CertificateStatuses(
+        input.CertificateStatuses,
+        context
+      )
+    }),
+    ...(input.Includes !== undefined && {
+      Includes: serializeAws_json1_1Filters(input.Includes, context)
+    }),
+    ...(input.MaxItems !== undefined && { MaxItems: input.MaxItems }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1ListTagsForCertificateRequest = (
   input: ListTagsForCertificateRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateArn !== undefined) {
-    bodyParams["CertificateArn"] = input.CertificateArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateArn !== undefined && {
+      CertificateArn: input.CertificateArn
+    })
+  };
 };
 
 const serializeAws_json1_1RemoveTagsFromCertificateRequest = (
   input: RemoveTagsFromCertificateRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateArn !== undefined) {
-    bodyParams["CertificateArn"] = input.CertificateArn;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateArn !== undefined && {
+      CertificateArn: input.CertificateArn
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1TagList(input.Tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_1RenewCertificateRequest = (
   input: RenewCertificateRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateArn !== undefined) {
-    bodyParams["CertificateArn"] = input.CertificateArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateArn !== undefined && {
+      CertificateArn: input.CertificateArn
+    })
+  };
 };
 
 const serializeAws_json1_1RequestCertificateRequest = (
   input: RequestCertificateRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateAuthorityArn !== undefined) {
-    bodyParams["CertificateAuthorityArn"] = input.CertificateAuthorityArn;
-  }
-  if (input.DomainName !== undefined) {
-    bodyParams["DomainName"] = input.DomainName;
-  }
-  if (input.DomainValidationOptions !== undefined) {
-    bodyParams[
-      "DomainValidationOptions"
-    ] = serializeAws_json1_1DomainValidationOptionList(
-      input.DomainValidationOptions,
-      context
-    );
-  }
-  if (input.IdempotencyToken !== undefined) {
-    bodyParams["IdempotencyToken"] = input.IdempotencyToken;
-  }
-  if (input.Options !== undefined) {
-    bodyParams["Options"] = serializeAws_json1_1CertificateOptions(
-      input.Options,
-      context
-    );
-  }
-  if (input.SubjectAlternativeNames !== undefined) {
-    bodyParams["SubjectAlternativeNames"] = serializeAws_json1_1DomainList(
-      input.SubjectAlternativeNames,
-      context
-    );
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
-  }
-  if (input.ValidationMethod !== undefined) {
-    bodyParams["ValidationMethod"] = input.ValidationMethod;
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateAuthorityArn !== undefined && {
+      CertificateAuthorityArn: input.CertificateAuthorityArn
+    }),
+    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
+    ...(input.DomainValidationOptions !== undefined && {
+      DomainValidationOptions: serializeAws_json1_1DomainValidationOptionList(
+        input.DomainValidationOptions,
+        context
+      )
+    }),
+    ...(input.IdempotencyToken !== undefined && {
+      IdempotencyToken: input.IdempotencyToken
+    }),
+    ...(input.Options !== undefined && {
+      Options: serializeAws_json1_1CertificateOptions(input.Options, context)
+    }),
+    ...(input.SubjectAlternativeNames !== undefined && {
+      SubjectAlternativeNames: serializeAws_json1_1DomainList(
+        input.SubjectAlternativeNames,
+        context
+      )
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1TagList(input.Tags, context)
+    }),
+    ...(input.ValidationMethod !== undefined && {
+      ValidationMethod: input.ValidationMethod
+    })
+  };
 };
 
 const serializeAws_json1_1ResendValidationEmailRequest = (
   input: ResendValidationEmailRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateArn !== undefined) {
-    bodyParams["CertificateArn"] = input.CertificateArn;
-  }
-  if (input.Domain !== undefined) {
-    bodyParams["Domain"] = input.Domain;
-  }
-  if (input.ValidationDomain !== undefined) {
-    bodyParams["ValidationDomain"] = input.ValidationDomain;
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateArn !== undefined && {
+      CertificateArn: input.CertificateArn
+    }),
+    ...(input.Domain !== undefined && { Domain: input.Domain }),
+    ...(input.ValidationDomain !== undefined && {
+      ValidationDomain: input.ValidationDomain
+    })
+  };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_json1_1TagList = (
@@ -2016,17 +1984,14 @@ const serializeAws_json1_1UpdateCertificateOptionsRequest = (
   input: UpdateCertificateOptionsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateArn !== undefined) {
-    bodyParams["CertificateArn"] = input.CertificateArn;
-  }
-  if (input.Options !== undefined) {
-    bodyParams["Options"] = serializeAws_json1_1CertificateOptions(
-      input.Options,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateArn !== undefined && {
+      CertificateArn: input.CertificateArn
+    }),
+    ...(input.Options !== undefined && {
+      Options: serializeAws_json1_1CertificateOptions(input.Options, context)
+    })
+  };
 };
 
 const deserializeAws_json1_1CertificateDetail = (

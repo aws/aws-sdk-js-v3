@@ -703,40 +703,31 @@ const serializeAws_restJson1_1DetectorStateDefinition = (
   input: DetectorStateDefinition,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.stateName !== undefined) {
-    bodyParams["stateName"] = input.stateName;
-  }
-  if (input.timers !== undefined) {
-    bodyParams["timers"] = serializeAws_restJson1_1TimerDefinitions(
-      input.timers,
-      context
-    );
-  }
-  if (input.variables !== undefined) {
-    bodyParams["variables"] = serializeAws_restJson1_1VariableDefinitions(
-      input.variables,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.stateName !== undefined && { stateName: input.stateName }),
+    ...(input.timers !== undefined && {
+      timers: serializeAws_restJson1_1TimerDefinitions(input.timers, context)
+    }),
+    ...(input.variables !== undefined && {
+      variables: serializeAws_restJson1_1VariableDefinitions(
+        input.variables,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1Message = (
   input: Message,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.inputName !== undefined) {
-    bodyParams["inputName"] = input.inputName;
-  }
-  if (input.messageId !== undefined) {
-    bodyParams["messageId"] = input.messageId;
-  }
-  if (input.payload !== undefined) {
-    bodyParams["payload"] = context.base64Encoder(input.payload);
-  }
-  return bodyParams;
+  return {
+    ...(input.inputName !== undefined && { inputName: input.inputName }),
+    ...(input.messageId !== undefined && { messageId: input.messageId }),
+    ...(input.payload !== undefined && {
+      payload: context.base64Encoder(input.payload)
+    })
+  };
 };
 
 const serializeAws_restJson1_1Messages = (
@@ -750,14 +741,10 @@ const serializeAws_restJson1_1TimerDefinition = (
   input: TimerDefinition,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.seconds !== undefined) {
-    bodyParams["seconds"] = input.seconds;
-  }
-  return bodyParams;
+  return {
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.seconds !== undefined && { seconds: input.seconds })
+  };
 };
 
 const serializeAws_restJson1_1TimerDefinitions = (
@@ -773,23 +760,19 @@ const serializeAws_restJson1_1UpdateDetectorRequest = (
   input: UpdateDetectorRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.detectorModelName !== undefined) {
-    bodyParams["detectorModelName"] = input.detectorModelName;
-  }
-  if (input.keyValue !== undefined) {
-    bodyParams["keyValue"] = input.keyValue;
-  }
-  if (input.messageId !== undefined) {
-    bodyParams["messageId"] = input.messageId;
-  }
-  if (input.state !== undefined) {
-    bodyParams["state"] = serializeAws_restJson1_1DetectorStateDefinition(
-      input.state,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.detectorModelName !== undefined && {
+      detectorModelName: input.detectorModelName
+    }),
+    ...(input.keyValue !== undefined && { keyValue: input.keyValue }),
+    ...(input.messageId !== undefined && { messageId: input.messageId }),
+    ...(input.state !== undefined && {
+      state: serializeAws_restJson1_1DetectorStateDefinition(
+        input.state,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1UpdateDetectorRequests = (
@@ -805,14 +788,10 @@ const serializeAws_restJson1_1VariableDefinition = (
   input: VariableDefinition,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.value !== undefined) {
-    bodyParams["value"] = input.value;
-  }
-  return bodyParams;
+  return {
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.value !== undefined && { value: input.value })
+  };
 };
 
 const serializeAws_restJson1_1VariableDefinitions = (

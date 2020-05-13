@@ -8455,169 +8455,122 @@ const serializeAws_json1_1AssociateTagOptionWithResourceInput = (
   input: AssociateTagOptionWithResourceInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ResourceId !== undefined) {
-    bodyParams["ResourceId"] = input.ResourceId;
-  }
-  if (input.TagOptionId !== undefined) {
-    bodyParams["TagOptionId"] = input.TagOptionId;
-  }
-  return bodyParams;
+  return {
+    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
+    ...(input.TagOptionId !== undefined && { TagOptionId: input.TagOptionId })
+  };
 };
 
 const serializeAws_json1_1CreateTagOptionInput = (
   input: CreateTagOptionInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_json1_1DeleteTagOptionInput = (
   input: DeleteTagOptionInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
-  }
-  return bodyParams;
+  return {
+    ...(input.Id !== undefined && { Id: input.Id })
+  };
 };
 
 const serializeAws_json1_1DescribeTagOptionInput = (
   input: DescribeTagOptionInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
-  }
-  return bodyParams;
+  return {
+    ...(input.Id !== undefined && { Id: input.Id })
+  };
 };
 
 const serializeAws_json1_1DisassociateTagOptionFromResourceInput = (
   input: DisassociateTagOptionFromResourceInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ResourceId !== undefined) {
-    bodyParams["ResourceId"] = input.ResourceId;
-  }
-  if (input.TagOptionId !== undefined) {
-    bodyParams["TagOptionId"] = input.TagOptionId;
-  }
-  return bodyParams;
+  return {
+    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
+    ...(input.TagOptionId !== undefined && { TagOptionId: input.TagOptionId })
+  };
 };
 
 const serializeAws_json1_1ListResourcesForTagOptionInput = (
   input: ListResourcesForTagOptionInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.PageSize !== undefined) {
-    bodyParams["PageSize"] = input.PageSize;
-  }
-  if (input.PageToken !== undefined) {
-    bodyParams["PageToken"] = input.PageToken;
-  }
-  if (input.ResourceType !== undefined) {
-    bodyParams["ResourceType"] = input.ResourceType;
-  }
-  if (input.TagOptionId !== undefined) {
-    bodyParams["TagOptionId"] = input.TagOptionId;
-  }
-  return bodyParams;
+  return {
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken }),
+    ...(input.ResourceType !== undefined && {
+      ResourceType: input.ResourceType
+    }),
+    ...(input.TagOptionId !== undefined && { TagOptionId: input.TagOptionId })
+  };
 };
 
 const serializeAws_json1_1ListTagOptionsFilters = (
   input: ListTagOptionsFilters,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Active !== undefined) {
-    bodyParams["Active"] = input.Active;
-  }
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Active !== undefined && { Active: input.Active }),
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_json1_1ListTagOptionsInput = (
   input: ListTagOptionsInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Filters !== undefined) {
-    bodyParams["Filters"] = serializeAws_json1_1ListTagOptionsFilters(
-      input.Filters,
-      context
-    );
-  }
-  if (input.PageSize !== undefined) {
-    bodyParams["PageSize"] = input.PageSize;
-  }
-  if (input.PageToken !== undefined) {
-    bodyParams["PageToken"] = input.PageToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.Filters !== undefined && {
+      Filters: serializeAws_json1_1ListTagOptionsFilters(input.Filters, context)
+    }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken })
+  };
 };
 
 const serializeAws_json1_1UpdateTagOptionInput = (
   input: UpdateTagOptionInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Active !== undefined) {
-    bodyParams["Active"] = input.Active;
-  }
-  if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Active !== undefined && { Active: input.Active }),
+    ...(input.Id !== undefined && { Id: input.Id }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_json1_1AcceptPortfolioShareInput = (
   input: AcceptPortfolioShareInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.PortfolioId !== undefined) {
-    bodyParams["PortfolioId"] = input.PortfolioId;
-  }
-  if (input.PortfolioShareType !== undefined) {
-    bodyParams["PortfolioShareType"] = input.PortfolioShareType;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.PortfolioId !== undefined && { PortfolioId: input.PortfolioId }),
+    ...(input.PortfolioShareType !== undefined && {
+      PortfolioShareType: input.PortfolioShareType
+    })
+  };
 };
 
 const serializeAws_json1_1AccessLevelFilter = (
   input: AccessLevelFilter,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_json1_1AddTags = (
@@ -8631,112 +8584,96 @@ const serializeAws_json1_1AssociateBudgetWithResourceInput = (
   input: AssociateBudgetWithResourceInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.BudgetName !== undefined) {
-    bodyParams["BudgetName"] = input.BudgetName;
-  }
-  if (input.ResourceId !== undefined) {
-    bodyParams["ResourceId"] = input.ResourceId;
-  }
-  return bodyParams;
+  return {
+    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
+    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId })
+  };
 };
 
 const serializeAws_json1_1AssociatePrincipalWithPortfolioInput = (
   input: AssociatePrincipalWithPortfolioInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.PortfolioId !== undefined) {
-    bodyParams["PortfolioId"] = input.PortfolioId;
-  }
-  if (input.PrincipalARN !== undefined) {
-    bodyParams["PrincipalARN"] = input.PrincipalARN;
-  }
-  if (input.PrincipalType !== undefined) {
-    bodyParams["PrincipalType"] = input.PrincipalType;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.PortfolioId !== undefined && { PortfolioId: input.PortfolioId }),
+    ...(input.PrincipalARN !== undefined && {
+      PrincipalARN: input.PrincipalARN
+    }),
+    ...(input.PrincipalType !== undefined && {
+      PrincipalType: input.PrincipalType
+    })
+  };
 };
 
 const serializeAws_json1_1AssociateProductWithPortfolioInput = (
   input: AssociateProductWithPortfolioInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.PortfolioId !== undefined) {
-    bodyParams["PortfolioId"] = input.PortfolioId;
-  }
-  if (input.ProductId !== undefined) {
-    bodyParams["ProductId"] = input.ProductId;
-  }
-  if (input.SourcePortfolioId !== undefined) {
-    bodyParams["SourcePortfolioId"] = input.SourcePortfolioId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.PortfolioId !== undefined && { PortfolioId: input.PortfolioId }),
+    ...(input.ProductId !== undefined && { ProductId: input.ProductId }),
+    ...(input.SourcePortfolioId !== undefined && {
+      SourcePortfolioId: input.SourcePortfolioId
+    })
+  };
 };
 
 const serializeAws_json1_1AssociateServiceActionWithProvisioningArtifactInput = (
   input: AssociateServiceActionWithProvisioningArtifactInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.ProductId !== undefined) {
-    bodyParams["ProductId"] = input.ProductId;
-  }
-  if (input.ProvisioningArtifactId !== undefined) {
-    bodyParams["ProvisioningArtifactId"] = input.ProvisioningArtifactId;
-  }
-  if (input.ServiceActionId !== undefined) {
-    bodyParams["ServiceActionId"] = input.ServiceActionId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.ProductId !== undefined && { ProductId: input.ProductId }),
+    ...(input.ProvisioningArtifactId !== undefined && {
+      ProvisioningArtifactId: input.ProvisioningArtifactId
+    }),
+    ...(input.ServiceActionId !== undefined && {
+      ServiceActionId: input.ServiceActionId
+    })
+  };
 };
 
 const serializeAws_json1_1BatchAssociateServiceActionWithProvisioningArtifactInput = (
   input: BatchAssociateServiceActionWithProvisioningArtifactInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.ServiceActionAssociations !== undefined) {
-    bodyParams[
-      "ServiceActionAssociations"
-    ] = serializeAws_json1_1ServiceActionAssociations(
-      input.ServiceActionAssociations,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.ServiceActionAssociations !== undefined && {
+      ServiceActionAssociations: serializeAws_json1_1ServiceActionAssociations(
+        input.ServiceActionAssociations,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1BatchDisassociateServiceActionFromProvisioningArtifactInput = (
   input: BatchDisassociateServiceActionFromProvisioningArtifactInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.ServiceActionAssociations !== undefined) {
-    bodyParams[
-      "ServiceActionAssociations"
-    ] = serializeAws_json1_1ServiceActionAssociations(
-      input.ServiceActionAssociations,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.ServiceActionAssociations !== undefined && {
+      ServiceActionAssociations: serializeAws_json1_1ServiceActionAssociations(
+        input.ServiceActionAssociations,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1CopyOptions = (
@@ -8750,754 +8687,588 @@ const serializeAws_json1_1CopyProductInput = (
   input: CopyProductInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.CopyOptions !== undefined) {
-    bodyParams["CopyOptions"] = serializeAws_json1_1CopyOptions(
-      input.CopyOptions,
-      context
-    );
-  }
-  if (input.IdempotencyToken === undefined) {
-    input.IdempotencyToken = generateIdempotencyToken();
-  }
-  if (input.IdempotencyToken !== undefined) {
-    bodyParams["IdempotencyToken"] = input.IdempotencyToken;
-  }
-  if (input.SourceProductArn !== undefined) {
-    bodyParams["SourceProductArn"] = input.SourceProductArn;
-  }
-  if (input.SourceProvisioningArtifactIdentifiers !== undefined) {
-    bodyParams[
-      "SourceProvisioningArtifactIdentifiers"
-    ] = serializeAws_json1_1SourceProvisioningArtifactProperties(
-      input.SourceProvisioningArtifactIdentifiers,
-      context
-    );
-  }
-  if (input.TargetProductId !== undefined) {
-    bodyParams["TargetProductId"] = input.TargetProductId;
-  }
-  if (input.TargetProductName !== undefined) {
-    bodyParams["TargetProductName"] = input.TargetProductName;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.CopyOptions !== undefined && {
+      CopyOptions: serializeAws_json1_1CopyOptions(input.CopyOptions, context)
+    }),
+    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
+    ...(input.SourceProductArn !== undefined && {
+      SourceProductArn: input.SourceProductArn
+    }),
+    ...(input.SourceProvisioningArtifactIdentifiers !== undefined && {
+      SourceProvisioningArtifactIdentifiers: serializeAws_json1_1SourceProvisioningArtifactProperties(
+        input.SourceProvisioningArtifactIdentifiers,
+        context
+      )
+    }),
+    ...(input.TargetProductId !== undefined && {
+      TargetProductId: input.TargetProductId
+    }),
+    ...(input.TargetProductName !== undefined && {
+      TargetProductName: input.TargetProductName
+    })
+  };
 };
 
 const serializeAws_json1_1CreateConstraintInput = (
   input: CreateConstraintInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.IdempotencyToken === undefined) {
-    input.IdempotencyToken = generateIdempotencyToken();
-  }
-  if (input.IdempotencyToken !== undefined) {
-    bodyParams["IdempotencyToken"] = input.IdempotencyToken;
-  }
-  if (input.Parameters !== undefined) {
-    bodyParams["Parameters"] = input.Parameters;
-  }
-  if (input.PortfolioId !== undefined) {
-    bodyParams["PortfolioId"] = input.PortfolioId;
-  }
-  if (input.ProductId !== undefined) {
-    bodyParams["ProductId"] = input.ProductId;
-  }
-  if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
+    ...(input.Parameters !== undefined && { Parameters: input.Parameters }),
+    ...(input.PortfolioId !== undefined && { PortfolioId: input.PortfolioId }),
+    ...(input.ProductId !== undefined && { ProductId: input.ProductId }),
+    ...(input.Type !== undefined && { Type: input.Type })
+  };
 };
 
 const serializeAws_json1_1CreatePortfolioInput = (
   input: CreatePortfolioInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.DisplayName !== undefined) {
-    bodyParams["DisplayName"] = input.DisplayName;
-  }
-  if (input.IdempotencyToken === undefined) {
-    input.IdempotencyToken = generateIdempotencyToken();
-  }
-  if (input.IdempotencyToken !== undefined) {
-    bodyParams["IdempotencyToken"] = input.IdempotencyToken;
-  }
-  if (input.ProviderName !== undefined) {
-    bodyParams["ProviderName"] = input.ProviderName;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1AddTags(input.Tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.DisplayName !== undefined && { DisplayName: input.DisplayName }),
+    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
+    ...(input.ProviderName !== undefined && {
+      ProviderName: input.ProviderName
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1AddTags(input.Tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_1CreatePortfolioShareInput = (
   input: CreatePortfolioShareInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.AccountId !== undefined) {
-    bodyParams["AccountId"] = input.AccountId;
-  }
-  if (input.OrganizationNode !== undefined) {
-    bodyParams["OrganizationNode"] = serializeAws_json1_1OrganizationNode(
-      input.OrganizationNode,
-      context
-    );
-  }
-  if (input.PortfolioId !== undefined) {
-    bodyParams["PortfolioId"] = input.PortfolioId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.OrganizationNode !== undefined && {
+      OrganizationNode: serializeAws_json1_1OrganizationNode(
+        input.OrganizationNode,
+        context
+      )
+    }),
+    ...(input.PortfolioId !== undefined && { PortfolioId: input.PortfolioId })
+  };
 };
 
 const serializeAws_json1_1CreateProductInput = (
   input: CreateProductInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Distributor !== undefined) {
-    bodyParams["Distributor"] = input.Distributor;
-  }
-  if (input.IdempotencyToken === undefined) {
-    input.IdempotencyToken = generateIdempotencyToken();
-  }
-  if (input.IdempotencyToken !== undefined) {
-    bodyParams["IdempotencyToken"] = input.IdempotencyToken;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.Owner !== undefined) {
-    bodyParams["Owner"] = input.Owner;
-  }
-  if (input.ProductType !== undefined) {
-    bodyParams["ProductType"] = input.ProductType;
-  }
-  if (input.ProvisioningArtifactParameters !== undefined) {
-    bodyParams[
-      "ProvisioningArtifactParameters"
-    ] = serializeAws_json1_1ProvisioningArtifactProperties(
-      input.ProvisioningArtifactParameters,
-      context
-    );
-  }
-  if (input.SupportDescription !== undefined) {
-    bodyParams["SupportDescription"] = input.SupportDescription;
-  }
-  if (input.SupportEmail !== undefined) {
-    bodyParams["SupportEmail"] = input.SupportEmail;
-  }
-  if (input.SupportUrl !== undefined) {
-    bodyParams["SupportUrl"] = input.SupportUrl;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1AddTags(input.Tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Distributor !== undefined && { Distributor: input.Distributor }),
+    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Owner !== undefined && { Owner: input.Owner }),
+    ...(input.ProductType !== undefined && { ProductType: input.ProductType }),
+    ...(input.ProvisioningArtifactParameters !== undefined && {
+      ProvisioningArtifactParameters: serializeAws_json1_1ProvisioningArtifactProperties(
+        input.ProvisioningArtifactParameters,
+        context
+      )
+    }),
+    ...(input.SupportDescription !== undefined && {
+      SupportDescription: input.SupportDescription
+    }),
+    ...(input.SupportEmail !== undefined && {
+      SupportEmail: input.SupportEmail
+    }),
+    ...(input.SupportUrl !== undefined && { SupportUrl: input.SupportUrl }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1AddTags(input.Tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_1CreateProvisionedProductPlanInput = (
   input: CreateProvisionedProductPlanInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.IdempotencyToken === undefined) {
-    input.IdempotencyToken = generateIdempotencyToken();
-  }
-  if (input.IdempotencyToken !== undefined) {
-    bodyParams["IdempotencyToken"] = input.IdempotencyToken;
-  }
-  if (input.NotificationArns !== undefined) {
-    bodyParams["NotificationArns"] = serializeAws_json1_1NotificationArns(
-      input.NotificationArns,
-      context
-    );
-  }
-  if (input.PathId !== undefined) {
-    bodyParams["PathId"] = input.PathId;
-  }
-  if (input.PlanName !== undefined) {
-    bodyParams["PlanName"] = input.PlanName;
-  }
-  if (input.PlanType !== undefined) {
-    bodyParams["PlanType"] = input.PlanType;
-  }
-  if (input.ProductId !== undefined) {
-    bodyParams["ProductId"] = input.ProductId;
-  }
-  if (input.ProvisionedProductName !== undefined) {
-    bodyParams["ProvisionedProductName"] = input.ProvisionedProductName;
-  }
-  if (input.ProvisioningArtifactId !== undefined) {
-    bodyParams["ProvisioningArtifactId"] = input.ProvisioningArtifactId;
-  }
-  if (input.ProvisioningParameters !== undefined) {
-    bodyParams[
-      "ProvisioningParameters"
-    ] = serializeAws_json1_1UpdateProvisioningParameters(
-      input.ProvisioningParameters,
-      context
-    );
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
+    ...(input.NotificationArns !== undefined && {
+      NotificationArns: serializeAws_json1_1NotificationArns(
+        input.NotificationArns,
+        context
+      )
+    }),
+    ...(input.PathId !== undefined && { PathId: input.PathId }),
+    ...(input.PlanName !== undefined && { PlanName: input.PlanName }),
+    ...(input.PlanType !== undefined && { PlanType: input.PlanType }),
+    ...(input.ProductId !== undefined && { ProductId: input.ProductId }),
+    ...(input.ProvisionedProductName !== undefined && {
+      ProvisionedProductName: input.ProvisionedProductName
+    }),
+    ...(input.ProvisioningArtifactId !== undefined && {
+      ProvisioningArtifactId: input.ProvisioningArtifactId
+    }),
+    ...(input.ProvisioningParameters !== undefined && {
+      ProvisioningParameters: serializeAws_json1_1UpdateProvisioningParameters(
+        input.ProvisioningParameters,
+        context
+      )
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1Tags(input.Tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_1CreateProvisioningArtifactInput = (
   input: CreateProvisioningArtifactInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.IdempotencyToken === undefined) {
-    input.IdempotencyToken = generateIdempotencyToken();
-  }
-  if (input.IdempotencyToken !== undefined) {
-    bodyParams["IdempotencyToken"] = input.IdempotencyToken;
-  }
-  if (input.Parameters !== undefined) {
-    bodyParams[
-      "Parameters"
-    ] = serializeAws_json1_1ProvisioningArtifactProperties(
-      input.Parameters,
-      context
-    );
-  }
-  if (input.ProductId !== undefined) {
-    bodyParams["ProductId"] = input.ProductId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
+    ...(input.Parameters !== undefined && {
+      Parameters: serializeAws_json1_1ProvisioningArtifactProperties(
+        input.Parameters,
+        context
+      )
+    }),
+    ...(input.ProductId !== undefined && { ProductId: input.ProductId })
+  };
 };
 
 const serializeAws_json1_1CreateServiceActionInput = (
   input: CreateServiceActionInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.Definition !== undefined) {
-    bodyParams["Definition"] = serializeAws_json1_1ServiceActionDefinitionMap(
-      input.Definition,
-      context
-    );
-  }
-  if (input.DefinitionType !== undefined) {
-    bodyParams["DefinitionType"] = input.DefinitionType;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.IdempotencyToken === undefined) {
-    input.IdempotencyToken = generateIdempotencyToken();
-  }
-  if (input.IdempotencyToken !== undefined) {
-    bodyParams["IdempotencyToken"] = input.IdempotencyToken;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.Definition !== undefined && {
+      Definition: serializeAws_json1_1ServiceActionDefinitionMap(
+        input.Definition,
+        context
+      )
+    }),
+    ...(input.DefinitionType !== undefined && {
+      DefinitionType: input.DefinitionType
+    }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
+    ...(input.Name !== undefined && { Name: input.Name })
+  };
 };
 
 const serializeAws_json1_1DeleteConstraintInput = (
   input: DeleteConstraintInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.Id !== undefined && { Id: input.Id })
+  };
 };
 
 const serializeAws_json1_1DeletePortfolioInput = (
   input: DeletePortfolioInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.Id !== undefined && { Id: input.Id })
+  };
 };
 
 const serializeAws_json1_1DeletePortfolioShareInput = (
   input: DeletePortfolioShareInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.AccountId !== undefined) {
-    bodyParams["AccountId"] = input.AccountId;
-  }
-  if (input.OrganizationNode !== undefined) {
-    bodyParams["OrganizationNode"] = serializeAws_json1_1OrganizationNode(
-      input.OrganizationNode,
-      context
-    );
-  }
-  if (input.PortfolioId !== undefined) {
-    bodyParams["PortfolioId"] = input.PortfolioId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.AccountId !== undefined && { AccountId: input.AccountId }),
+    ...(input.OrganizationNode !== undefined && {
+      OrganizationNode: serializeAws_json1_1OrganizationNode(
+        input.OrganizationNode,
+        context
+      )
+    }),
+    ...(input.PortfolioId !== undefined && { PortfolioId: input.PortfolioId })
+  };
 };
 
 const serializeAws_json1_1DeleteProductInput = (
   input: DeleteProductInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.Id !== undefined && { Id: input.Id })
+  };
 };
 
 const serializeAws_json1_1DeleteProvisionedProductPlanInput = (
   input: DeleteProvisionedProductPlanInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.IgnoreErrors !== undefined) {
-    bodyParams["IgnoreErrors"] = input.IgnoreErrors;
-  }
-  if (input.PlanId !== undefined) {
-    bodyParams["PlanId"] = input.PlanId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.IgnoreErrors !== undefined && {
+      IgnoreErrors: input.IgnoreErrors
+    }),
+    ...(input.PlanId !== undefined && { PlanId: input.PlanId })
+  };
 };
 
 const serializeAws_json1_1DeleteProvisioningArtifactInput = (
   input: DeleteProvisioningArtifactInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.ProductId !== undefined) {
-    bodyParams["ProductId"] = input.ProductId;
-  }
-  if (input.ProvisioningArtifactId !== undefined) {
-    bodyParams["ProvisioningArtifactId"] = input.ProvisioningArtifactId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.ProductId !== undefined && { ProductId: input.ProductId }),
+    ...(input.ProvisioningArtifactId !== undefined && {
+      ProvisioningArtifactId: input.ProvisioningArtifactId
+    })
+  };
 };
 
 const serializeAws_json1_1DeleteServiceActionInput = (
   input: DeleteServiceActionInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.Id !== undefined && { Id: input.Id })
+  };
 };
 
 const serializeAws_json1_1DescribeConstraintInput = (
   input: DescribeConstraintInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.Id !== undefined && { Id: input.Id })
+  };
 };
 
 const serializeAws_json1_1DescribeCopyProductStatusInput = (
   input: DescribeCopyProductStatusInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.CopyProductToken !== undefined) {
-    bodyParams["CopyProductToken"] = input.CopyProductToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.CopyProductToken !== undefined && {
+      CopyProductToken: input.CopyProductToken
+    })
+  };
 };
 
 const serializeAws_json1_1DescribePortfolioInput = (
   input: DescribePortfolioInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.Id !== undefined && { Id: input.Id })
+  };
 };
 
 const serializeAws_json1_1DescribePortfolioShareStatusInput = (
   input: DescribePortfolioShareStatusInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.PortfolioShareToken !== undefined) {
-    bodyParams["PortfolioShareToken"] = input.PortfolioShareToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.PortfolioShareToken !== undefined && {
+      PortfolioShareToken: input.PortfolioShareToken
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeProductAsAdminInput = (
   input: DescribeProductAsAdminInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.Id !== undefined && { Id: input.Id })
+  };
 };
 
 const serializeAws_json1_1DescribeProductInput = (
   input: DescribeProductInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.Id !== undefined && { Id: input.Id })
+  };
 };
 
 const serializeAws_json1_1DescribeProductViewInput = (
   input: DescribeProductViewInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.Id !== undefined && { Id: input.Id })
+  };
 };
 
 const serializeAws_json1_1DescribeProvisionedProductInput = (
   input: DescribeProvisionedProductInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.Id !== undefined && { Id: input.Id })
+  };
 };
 
 const serializeAws_json1_1DescribeProvisionedProductPlanInput = (
   input: DescribeProvisionedProductPlanInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.PageSize !== undefined) {
-    bodyParams["PageSize"] = input.PageSize;
-  }
-  if (input.PageToken !== undefined) {
-    bodyParams["PageToken"] = input.PageToken;
-  }
-  if (input.PlanId !== undefined) {
-    bodyParams["PlanId"] = input.PlanId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken }),
+    ...(input.PlanId !== undefined && { PlanId: input.PlanId })
+  };
 };
 
 const serializeAws_json1_1DescribeProvisioningArtifactInput = (
   input: DescribeProvisioningArtifactInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.ProductId !== undefined) {
-    bodyParams["ProductId"] = input.ProductId;
-  }
-  if (input.ProvisioningArtifactId !== undefined) {
-    bodyParams["ProvisioningArtifactId"] = input.ProvisioningArtifactId;
-  }
-  if (input.Verbose !== undefined) {
-    bodyParams["Verbose"] = input.Verbose;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.ProductId !== undefined && { ProductId: input.ProductId }),
+    ...(input.ProvisioningArtifactId !== undefined && {
+      ProvisioningArtifactId: input.ProvisioningArtifactId
+    }),
+    ...(input.Verbose !== undefined && { Verbose: input.Verbose })
+  };
 };
 
 const serializeAws_json1_1DescribeProvisioningParametersInput = (
   input: DescribeProvisioningParametersInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.PathId !== undefined) {
-    bodyParams["PathId"] = input.PathId;
-  }
-  if (input.ProductId !== undefined) {
-    bodyParams["ProductId"] = input.ProductId;
-  }
-  if (input.ProvisioningArtifactId !== undefined) {
-    bodyParams["ProvisioningArtifactId"] = input.ProvisioningArtifactId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.PathId !== undefined && { PathId: input.PathId }),
+    ...(input.ProductId !== undefined && { ProductId: input.ProductId }),
+    ...(input.ProvisioningArtifactId !== undefined && {
+      ProvisioningArtifactId: input.ProvisioningArtifactId
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeRecordInput = (
   input: DescribeRecordInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
-  }
-  if (input.PageSize !== undefined) {
-    bodyParams["PageSize"] = input.PageSize;
-  }
-  if (input.PageToken !== undefined) {
-    bodyParams["PageToken"] = input.PageToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.Id !== undefined && { Id: input.Id }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken })
+  };
 };
 
 const serializeAws_json1_1DescribeServiceActionExecutionParametersInput = (
   input: DescribeServiceActionExecutionParametersInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.ProvisionedProductId !== undefined) {
-    bodyParams["ProvisionedProductId"] = input.ProvisionedProductId;
-  }
-  if (input.ServiceActionId !== undefined) {
-    bodyParams["ServiceActionId"] = input.ServiceActionId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.ProvisionedProductId !== undefined && {
+      ProvisionedProductId: input.ProvisionedProductId
+    }),
+    ...(input.ServiceActionId !== undefined && {
+      ServiceActionId: input.ServiceActionId
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeServiceActionInput = (
   input: DescribeServiceActionInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.Id !== undefined && { Id: input.Id })
+  };
 };
 
 const serializeAws_json1_1DisableAWSOrganizationsAccessInput = (
   input: DisableAWSOrganizationsAccessInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  return bodyParams;
+  return {};
 };
 
 const serializeAws_json1_1DisassociateBudgetFromResourceInput = (
   input: DisassociateBudgetFromResourceInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.BudgetName !== undefined) {
-    bodyParams["BudgetName"] = input.BudgetName;
-  }
-  if (input.ResourceId !== undefined) {
-    bodyParams["ResourceId"] = input.ResourceId;
-  }
-  return bodyParams;
+  return {
+    ...(input.BudgetName !== undefined && { BudgetName: input.BudgetName }),
+    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId })
+  };
 };
 
 const serializeAws_json1_1DisassociatePrincipalFromPortfolioInput = (
   input: DisassociatePrincipalFromPortfolioInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.PortfolioId !== undefined) {
-    bodyParams["PortfolioId"] = input.PortfolioId;
-  }
-  if (input.PrincipalARN !== undefined) {
-    bodyParams["PrincipalARN"] = input.PrincipalARN;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.PortfolioId !== undefined && { PortfolioId: input.PortfolioId }),
+    ...(input.PrincipalARN !== undefined && {
+      PrincipalARN: input.PrincipalARN
+    })
+  };
 };
 
 const serializeAws_json1_1DisassociateProductFromPortfolioInput = (
   input: DisassociateProductFromPortfolioInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.PortfolioId !== undefined) {
-    bodyParams["PortfolioId"] = input.PortfolioId;
-  }
-  if (input.ProductId !== undefined) {
-    bodyParams["ProductId"] = input.ProductId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.PortfolioId !== undefined && { PortfolioId: input.PortfolioId }),
+    ...(input.ProductId !== undefined && { ProductId: input.ProductId })
+  };
 };
 
 const serializeAws_json1_1DisassociateServiceActionFromProvisioningArtifactInput = (
   input: DisassociateServiceActionFromProvisioningArtifactInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.ProductId !== undefined) {
-    bodyParams["ProductId"] = input.ProductId;
-  }
-  if (input.ProvisioningArtifactId !== undefined) {
-    bodyParams["ProvisioningArtifactId"] = input.ProvisioningArtifactId;
-  }
-  if (input.ServiceActionId !== undefined) {
-    bodyParams["ServiceActionId"] = input.ServiceActionId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.ProductId !== undefined && { ProductId: input.ProductId }),
+    ...(input.ProvisioningArtifactId !== undefined && {
+      ProvisioningArtifactId: input.ProvisioningArtifactId
+    }),
+    ...(input.ServiceActionId !== undefined && {
+      ServiceActionId: input.ServiceActionId
+    })
+  };
 };
 
 const serializeAws_json1_1EnableAWSOrganizationsAccessInput = (
   input: EnableAWSOrganizationsAccessInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  return bodyParams;
+  return {};
 };
 
 const serializeAws_json1_1ExecuteProvisionedProductPlanInput = (
   input: ExecuteProvisionedProductPlanInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.IdempotencyToken === undefined) {
-    input.IdempotencyToken = generateIdempotencyToken();
-  }
-  if (input.IdempotencyToken !== undefined) {
-    bodyParams["IdempotencyToken"] = input.IdempotencyToken;
-  }
-  if (input.PlanId !== undefined) {
-    bodyParams["PlanId"] = input.PlanId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
+    ...(input.PlanId !== undefined && { PlanId: input.PlanId })
+  };
 };
 
 const serializeAws_json1_1ExecuteProvisionedProductServiceActionInput = (
   input: ExecuteProvisionedProductServiceActionInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.ExecuteToken === undefined) {
-    input.ExecuteToken = generateIdempotencyToken();
-  }
-  if (input.ExecuteToken !== undefined) {
-    bodyParams["ExecuteToken"] = input.ExecuteToken;
-  }
-  if (input.Parameters !== undefined) {
-    bodyParams["Parameters"] = serializeAws_json1_1ExecutionParameterMap(
-      input.Parameters,
-      context
-    );
-  }
-  if (input.ProvisionedProductId !== undefined) {
-    bodyParams["ProvisionedProductId"] = input.ProvisionedProductId;
-  }
-  if (input.ServiceActionId !== undefined) {
-    bodyParams["ServiceActionId"] = input.ServiceActionId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ExecuteToken: input.ExecuteToken ?? generateIdempotencyToken(),
+    ...(input.Parameters !== undefined && {
+      Parameters: serializeAws_json1_1ExecutionParameterMap(
+        input.Parameters,
+        context
+      )
+    }),
+    ...(input.ProvisionedProductId !== undefined && {
+      ProvisionedProductId: input.ProvisionedProductId
+    }),
+    ...(input.ServiceActionId !== undefined && {
+      ServiceActionId: input.ServiceActionId
+    })
+  };
 };
 
 const serializeAws_json1_1ExecutionParameterMap = (
@@ -9524,350 +9295,267 @@ const serializeAws_json1_1GetAWSOrganizationsAccessStatusInput = (
   input: GetAWSOrganizationsAccessStatusInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  return bodyParams;
+  return {};
 };
 
 const serializeAws_json1_1ListAcceptedPortfolioSharesInput = (
   input: ListAcceptedPortfolioSharesInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.PageSize !== undefined) {
-    bodyParams["PageSize"] = input.PageSize;
-  }
-  if (input.PageToken !== undefined) {
-    bodyParams["PageToken"] = input.PageToken;
-  }
-  if (input.PortfolioShareType !== undefined) {
-    bodyParams["PortfolioShareType"] = input.PortfolioShareType;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken }),
+    ...(input.PortfolioShareType !== undefined && {
+      PortfolioShareType: input.PortfolioShareType
+    })
+  };
 };
 
 const serializeAws_json1_1ListBudgetsForResourceInput = (
   input: ListBudgetsForResourceInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.PageSize !== undefined) {
-    bodyParams["PageSize"] = input.PageSize;
-  }
-  if (input.PageToken !== undefined) {
-    bodyParams["PageToken"] = input.PageToken;
-  }
-  if (input.ResourceId !== undefined) {
-    bodyParams["ResourceId"] = input.ResourceId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken }),
+    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId })
+  };
 };
 
 const serializeAws_json1_1ListConstraintsForPortfolioInput = (
   input: ListConstraintsForPortfolioInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.PageSize !== undefined) {
-    bodyParams["PageSize"] = input.PageSize;
-  }
-  if (input.PageToken !== undefined) {
-    bodyParams["PageToken"] = input.PageToken;
-  }
-  if (input.PortfolioId !== undefined) {
-    bodyParams["PortfolioId"] = input.PortfolioId;
-  }
-  if (input.ProductId !== undefined) {
-    bodyParams["ProductId"] = input.ProductId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken }),
+    ...(input.PortfolioId !== undefined && { PortfolioId: input.PortfolioId }),
+    ...(input.ProductId !== undefined && { ProductId: input.ProductId })
+  };
 };
 
 const serializeAws_json1_1ListLaunchPathsInput = (
   input: ListLaunchPathsInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.PageSize !== undefined) {
-    bodyParams["PageSize"] = input.PageSize;
-  }
-  if (input.PageToken !== undefined) {
-    bodyParams["PageToken"] = input.PageToken;
-  }
-  if (input.ProductId !== undefined) {
-    bodyParams["ProductId"] = input.ProductId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken }),
+    ...(input.ProductId !== undefined && { ProductId: input.ProductId })
+  };
 };
 
 const serializeAws_json1_1ListOrganizationPortfolioAccessInput = (
   input: ListOrganizationPortfolioAccessInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.OrganizationNodeType !== undefined) {
-    bodyParams["OrganizationNodeType"] = input.OrganizationNodeType;
-  }
-  if (input.PageSize !== undefined) {
-    bodyParams["PageSize"] = input.PageSize;
-  }
-  if (input.PageToken !== undefined) {
-    bodyParams["PageToken"] = input.PageToken;
-  }
-  if (input.PortfolioId !== undefined) {
-    bodyParams["PortfolioId"] = input.PortfolioId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.OrganizationNodeType !== undefined && {
+      OrganizationNodeType: input.OrganizationNodeType
+    }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken }),
+    ...(input.PortfolioId !== undefined && { PortfolioId: input.PortfolioId })
+  };
 };
 
 const serializeAws_json1_1ListPortfolioAccessInput = (
   input: ListPortfolioAccessInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.PortfolioId !== undefined) {
-    bodyParams["PortfolioId"] = input.PortfolioId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.PortfolioId !== undefined && { PortfolioId: input.PortfolioId })
+  };
 };
 
 const serializeAws_json1_1ListPortfoliosForProductInput = (
   input: ListPortfoliosForProductInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.PageSize !== undefined) {
-    bodyParams["PageSize"] = input.PageSize;
-  }
-  if (input.PageToken !== undefined) {
-    bodyParams["PageToken"] = input.PageToken;
-  }
-  if (input.ProductId !== undefined) {
-    bodyParams["ProductId"] = input.ProductId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken }),
+    ...(input.ProductId !== undefined && { ProductId: input.ProductId })
+  };
 };
 
 const serializeAws_json1_1ListPortfoliosInput = (
   input: ListPortfoliosInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.PageSize !== undefined) {
-    bodyParams["PageSize"] = input.PageSize;
-  }
-  if (input.PageToken !== undefined) {
-    bodyParams["PageToken"] = input.PageToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken })
+  };
 };
 
 const serializeAws_json1_1ListPrincipalsForPortfolioInput = (
   input: ListPrincipalsForPortfolioInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.PageSize !== undefined) {
-    bodyParams["PageSize"] = input.PageSize;
-  }
-  if (input.PageToken !== undefined) {
-    bodyParams["PageToken"] = input.PageToken;
-  }
-  if (input.PortfolioId !== undefined) {
-    bodyParams["PortfolioId"] = input.PortfolioId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken }),
+    ...(input.PortfolioId !== undefined && { PortfolioId: input.PortfolioId })
+  };
 };
 
 const serializeAws_json1_1ListProvisionedProductPlansInput = (
   input: ListProvisionedProductPlansInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.AccessLevelFilter !== undefined) {
-    bodyParams["AccessLevelFilter"] = serializeAws_json1_1AccessLevelFilter(
-      input.AccessLevelFilter,
-      context
-    );
-  }
-  if (input.PageSize !== undefined) {
-    bodyParams["PageSize"] = input.PageSize;
-  }
-  if (input.PageToken !== undefined) {
-    bodyParams["PageToken"] = input.PageToken;
-  }
-  if (input.ProvisionProductId !== undefined) {
-    bodyParams["ProvisionProductId"] = input.ProvisionProductId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.AccessLevelFilter !== undefined && {
+      AccessLevelFilter: serializeAws_json1_1AccessLevelFilter(
+        input.AccessLevelFilter,
+        context
+      )
+    }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken }),
+    ...(input.ProvisionProductId !== undefined && {
+      ProvisionProductId: input.ProvisionProductId
+    })
+  };
 };
 
 const serializeAws_json1_1ListProvisioningArtifactsForServiceActionInput = (
   input: ListProvisioningArtifactsForServiceActionInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.PageSize !== undefined) {
-    bodyParams["PageSize"] = input.PageSize;
-  }
-  if (input.PageToken !== undefined) {
-    bodyParams["PageToken"] = input.PageToken;
-  }
-  if (input.ServiceActionId !== undefined) {
-    bodyParams["ServiceActionId"] = input.ServiceActionId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken }),
+    ...(input.ServiceActionId !== undefined && {
+      ServiceActionId: input.ServiceActionId
+    })
+  };
 };
 
 const serializeAws_json1_1ListProvisioningArtifactsInput = (
   input: ListProvisioningArtifactsInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.ProductId !== undefined) {
-    bodyParams["ProductId"] = input.ProductId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.ProductId !== undefined && { ProductId: input.ProductId })
+  };
 };
 
 const serializeAws_json1_1ListRecordHistoryInput = (
   input: ListRecordHistoryInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.AccessLevelFilter !== undefined) {
-    bodyParams["AccessLevelFilter"] = serializeAws_json1_1AccessLevelFilter(
-      input.AccessLevelFilter,
-      context
-    );
-  }
-  if (input.PageSize !== undefined) {
-    bodyParams["PageSize"] = input.PageSize;
-  }
-  if (input.PageToken !== undefined) {
-    bodyParams["PageToken"] = input.PageToken;
-  }
-  if (input.SearchFilter !== undefined) {
-    bodyParams[
-      "SearchFilter"
-    ] = serializeAws_json1_1ListRecordHistorySearchFilter(
-      input.SearchFilter,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.AccessLevelFilter !== undefined && {
+      AccessLevelFilter: serializeAws_json1_1AccessLevelFilter(
+        input.AccessLevelFilter,
+        context
+      )
+    }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken }),
+    ...(input.SearchFilter !== undefined && {
+      SearchFilter: serializeAws_json1_1ListRecordHistorySearchFilter(
+        input.SearchFilter,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1ListRecordHistorySearchFilter = (
   input: ListRecordHistorySearchFilter,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_json1_1ListServiceActionsForProvisioningArtifactInput = (
   input: ListServiceActionsForProvisioningArtifactInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.PageSize !== undefined) {
-    bodyParams["PageSize"] = input.PageSize;
-  }
-  if (input.PageToken !== undefined) {
-    bodyParams["PageToken"] = input.PageToken;
-  }
-  if (input.ProductId !== undefined) {
-    bodyParams["ProductId"] = input.ProductId;
-  }
-  if (input.ProvisioningArtifactId !== undefined) {
-    bodyParams["ProvisioningArtifactId"] = input.ProvisioningArtifactId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken }),
+    ...(input.ProductId !== undefined && { ProductId: input.ProductId }),
+    ...(input.ProvisioningArtifactId !== undefined && {
+      ProvisioningArtifactId: input.ProvisioningArtifactId
+    })
+  };
 };
 
 const serializeAws_json1_1ListServiceActionsInput = (
   input: ListServiceActionsInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.PageSize !== undefined) {
-    bodyParams["PageSize"] = input.PageSize;
-  }
-  if (input.PageToken !== undefined) {
-    bodyParams["PageToken"] = input.PageToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken })
+  };
 };
 
 const serializeAws_json1_1ListStackInstancesForProvisionedProductInput = (
   input: ListStackInstancesForProvisionedProductInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.PageSize !== undefined) {
-    bodyParams["PageSize"] = input.PageSize;
-  }
-  if (input.PageToken !== undefined) {
-    bodyParams["PageToken"] = input.PageToken;
-  }
-  if (input.ProvisionedProductId !== undefined) {
-    bodyParams["ProvisionedProductId"] = input.ProvisionedProductId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken }),
+    ...(input.ProvisionedProductId !== undefined && {
+      ProvisionedProductId: input.ProvisionedProductId
+    })
+  };
 };
 
 const serializeAws_json1_1NotificationArns = (
@@ -9881,14 +9569,10 @@ const serializeAws_json1_1OrganizationNode = (
   input: OrganizationNode,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_json1_1ProductViewFilterValues = (
@@ -9912,54 +9596,41 @@ const serializeAws_json1_1ProvisionProductInput = (
   input: ProvisionProductInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.NotificationArns !== undefined) {
-    bodyParams["NotificationArns"] = serializeAws_json1_1NotificationArns(
-      input.NotificationArns,
-      context
-    );
-  }
-  if (input.PathId !== undefined) {
-    bodyParams["PathId"] = input.PathId;
-  }
-  if (input.ProductId !== undefined) {
-    bodyParams["ProductId"] = input.ProductId;
-  }
-  if (input.ProvisionToken === undefined) {
-    input.ProvisionToken = generateIdempotencyToken();
-  }
-  if (input.ProvisionToken !== undefined) {
-    bodyParams["ProvisionToken"] = input.ProvisionToken;
-  }
-  if (input.ProvisionedProductName !== undefined) {
-    bodyParams["ProvisionedProductName"] = input.ProvisionedProductName;
-  }
-  if (input.ProvisioningArtifactId !== undefined) {
-    bodyParams["ProvisioningArtifactId"] = input.ProvisioningArtifactId;
-  }
-  if (input.ProvisioningParameters !== undefined) {
-    bodyParams[
-      "ProvisioningParameters"
-    ] = serializeAws_json1_1ProvisioningParameters(
-      input.ProvisioningParameters,
-      context
-    );
-  }
-  if (input.ProvisioningPreferences !== undefined) {
-    bodyParams[
-      "ProvisioningPreferences"
-    ] = serializeAws_json1_1ProvisioningPreferences(
-      input.ProvisioningPreferences,
-      context
-    );
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.NotificationArns !== undefined && {
+      NotificationArns: serializeAws_json1_1NotificationArns(
+        input.NotificationArns,
+        context
+      )
+    }),
+    ...(input.PathId !== undefined && { PathId: input.PathId }),
+    ...(input.ProductId !== undefined && { ProductId: input.ProductId }),
+    ProvisionToken: input.ProvisionToken ?? generateIdempotencyToken(),
+    ...(input.ProvisionedProductName !== undefined && {
+      ProvisionedProductName: input.ProvisionedProductName
+    }),
+    ...(input.ProvisioningArtifactId !== undefined && {
+      ProvisioningArtifactId: input.ProvisioningArtifactId
+    }),
+    ...(input.ProvisioningParameters !== undefined && {
+      ProvisioningParameters: serializeAws_json1_1ProvisioningParameters(
+        input.ProvisioningParameters,
+        context
+      )
+    }),
+    ...(input.ProvisioningPreferences !== undefined && {
+      ProvisioningPreferences: serializeAws_json1_1ProvisioningPreferences(
+        input.ProvisioningPreferences,
+        context
+      )
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1Tags(input.Tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_1ProvisionedProductFilters = (
@@ -10006,40 +9677,27 @@ const serializeAws_json1_1ProvisioningArtifactProperties = (
   input: ProvisioningArtifactProperties,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.DisableTemplateValidation !== undefined) {
-    bodyParams["DisableTemplateValidation"] = input.DisableTemplateValidation;
-  }
-  if (input.Info !== undefined) {
-    bodyParams["Info"] = serializeAws_json1_1ProvisioningArtifactInfo(
-      input.Info,
-      context
-    );
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
-  }
-  return bodyParams;
+  return {
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.DisableTemplateValidation !== undefined && {
+      DisableTemplateValidation: input.DisableTemplateValidation
+    }),
+    ...(input.Info !== undefined && {
+      Info: serializeAws_json1_1ProvisioningArtifactInfo(input.Info, context)
+    }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Type !== undefined && { Type: input.Type })
+  };
 };
 
 const serializeAws_json1_1ProvisioningParameter = (
   input: ProvisioningParameter,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_json1_1ProvisioningParameters = (
@@ -10055,192 +9713,149 @@ const serializeAws_json1_1ProvisioningPreferences = (
   input: ProvisioningPreferences,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.StackSetAccounts !== undefined) {
-    bodyParams["StackSetAccounts"] = serializeAws_json1_1StackSetAccounts(
-      input.StackSetAccounts,
-      context
-    );
-  }
-  if (input.StackSetFailureToleranceCount !== undefined) {
-    bodyParams["StackSetFailureToleranceCount"] =
-      input.StackSetFailureToleranceCount;
-  }
-  if (input.StackSetFailureTolerancePercentage !== undefined) {
-    bodyParams["StackSetFailureTolerancePercentage"] =
-      input.StackSetFailureTolerancePercentage;
-  }
-  if (input.StackSetMaxConcurrencyCount !== undefined) {
-    bodyParams["StackSetMaxConcurrencyCount"] =
-      input.StackSetMaxConcurrencyCount;
-  }
-  if (input.StackSetMaxConcurrencyPercentage !== undefined) {
-    bodyParams["StackSetMaxConcurrencyPercentage"] =
-      input.StackSetMaxConcurrencyPercentage;
-  }
-  if (input.StackSetRegions !== undefined) {
-    bodyParams["StackSetRegions"] = serializeAws_json1_1StackSetRegions(
-      input.StackSetRegions,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.StackSetAccounts !== undefined && {
+      StackSetAccounts: serializeAws_json1_1StackSetAccounts(
+        input.StackSetAccounts,
+        context
+      )
+    }),
+    ...(input.StackSetFailureToleranceCount !== undefined && {
+      StackSetFailureToleranceCount: input.StackSetFailureToleranceCount
+    }),
+    ...(input.StackSetFailureTolerancePercentage !== undefined && {
+      StackSetFailureTolerancePercentage:
+        input.StackSetFailureTolerancePercentage
+    }),
+    ...(input.StackSetMaxConcurrencyCount !== undefined && {
+      StackSetMaxConcurrencyCount: input.StackSetMaxConcurrencyCount
+    }),
+    ...(input.StackSetMaxConcurrencyPercentage !== undefined && {
+      StackSetMaxConcurrencyPercentage: input.StackSetMaxConcurrencyPercentage
+    }),
+    ...(input.StackSetRegions !== undefined && {
+      StackSetRegions: serializeAws_json1_1StackSetRegions(
+        input.StackSetRegions,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1RejectPortfolioShareInput = (
   input: RejectPortfolioShareInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.PortfolioId !== undefined) {
-    bodyParams["PortfolioId"] = input.PortfolioId;
-  }
-  if (input.PortfolioShareType !== undefined) {
-    bodyParams["PortfolioShareType"] = input.PortfolioShareType;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.PortfolioId !== undefined && { PortfolioId: input.PortfolioId }),
+    ...(input.PortfolioShareType !== undefined && {
+      PortfolioShareType: input.PortfolioShareType
+    })
+  };
 };
 
 const serializeAws_json1_1ScanProvisionedProductsInput = (
   input: ScanProvisionedProductsInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.AccessLevelFilter !== undefined) {
-    bodyParams["AccessLevelFilter"] = serializeAws_json1_1AccessLevelFilter(
-      input.AccessLevelFilter,
-      context
-    );
-  }
-  if (input.PageSize !== undefined) {
-    bodyParams["PageSize"] = input.PageSize;
-  }
-  if (input.PageToken !== undefined) {
-    bodyParams["PageToken"] = input.PageToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.AccessLevelFilter !== undefined && {
+      AccessLevelFilter: serializeAws_json1_1AccessLevelFilter(
+        input.AccessLevelFilter,
+        context
+      )
+    }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken })
+  };
 };
 
 const serializeAws_json1_1SearchProductsAsAdminInput = (
   input: SearchProductsAsAdminInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.Filters !== undefined) {
-    bodyParams["Filters"] = serializeAws_json1_1ProductViewFilters(
-      input.Filters,
-      context
-    );
-  }
-  if (input.PageSize !== undefined) {
-    bodyParams["PageSize"] = input.PageSize;
-  }
-  if (input.PageToken !== undefined) {
-    bodyParams["PageToken"] = input.PageToken;
-  }
-  if (input.PortfolioId !== undefined) {
-    bodyParams["PortfolioId"] = input.PortfolioId;
-  }
-  if (input.ProductSource !== undefined) {
-    bodyParams["ProductSource"] = input.ProductSource;
-  }
-  if (input.SortBy !== undefined) {
-    bodyParams["SortBy"] = input.SortBy;
-  }
-  if (input.SortOrder !== undefined) {
-    bodyParams["SortOrder"] = input.SortOrder;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.Filters !== undefined && {
+      Filters: serializeAws_json1_1ProductViewFilters(input.Filters, context)
+    }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken }),
+    ...(input.PortfolioId !== undefined && { PortfolioId: input.PortfolioId }),
+    ...(input.ProductSource !== undefined && {
+      ProductSource: input.ProductSource
+    }),
+    ...(input.SortBy !== undefined && { SortBy: input.SortBy }),
+    ...(input.SortOrder !== undefined && { SortOrder: input.SortOrder })
+  };
 };
 
 const serializeAws_json1_1SearchProductsInput = (
   input: SearchProductsInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.Filters !== undefined) {
-    bodyParams["Filters"] = serializeAws_json1_1ProductViewFilters(
-      input.Filters,
-      context
-    );
-  }
-  if (input.PageSize !== undefined) {
-    bodyParams["PageSize"] = input.PageSize;
-  }
-  if (input.PageToken !== undefined) {
-    bodyParams["PageToken"] = input.PageToken;
-  }
-  if (input.SortBy !== undefined) {
-    bodyParams["SortBy"] = input.SortBy;
-  }
-  if (input.SortOrder !== undefined) {
-    bodyParams["SortOrder"] = input.SortOrder;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.Filters !== undefined && {
+      Filters: serializeAws_json1_1ProductViewFilters(input.Filters, context)
+    }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken }),
+    ...(input.SortBy !== undefined && { SortBy: input.SortBy }),
+    ...(input.SortOrder !== undefined && { SortOrder: input.SortOrder })
+  };
 };
 
 const serializeAws_json1_1SearchProvisionedProductsInput = (
   input: SearchProvisionedProductsInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.AccessLevelFilter !== undefined) {
-    bodyParams["AccessLevelFilter"] = serializeAws_json1_1AccessLevelFilter(
-      input.AccessLevelFilter,
-      context
-    );
-  }
-  if (input.Filters !== undefined) {
-    bodyParams["Filters"] = serializeAws_json1_1ProvisionedProductFilters(
-      input.Filters,
-      context
-    );
-  }
-  if (input.PageSize !== undefined) {
-    bodyParams["PageSize"] = input.PageSize;
-  }
-  if (input.PageToken !== undefined) {
-    bodyParams["PageToken"] = input.PageToken;
-  }
-  if (input.SortBy !== undefined) {
-    bodyParams["SortBy"] = input.SortBy;
-  }
-  if (input.SortOrder !== undefined) {
-    bodyParams["SortOrder"] = input.SortOrder;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.AccessLevelFilter !== undefined && {
+      AccessLevelFilter: serializeAws_json1_1AccessLevelFilter(
+        input.AccessLevelFilter,
+        context
+      )
+    }),
+    ...(input.Filters !== undefined && {
+      Filters: serializeAws_json1_1ProvisionedProductFilters(
+        input.Filters,
+        context
+      )
+    }),
+    ...(input.PageSize !== undefined && { PageSize: input.PageSize }),
+    ...(input.PageToken !== undefined && { PageToken: input.PageToken }),
+    ...(input.SortBy !== undefined && { SortBy: input.SortBy }),
+    ...(input.SortOrder !== undefined && { SortOrder: input.SortOrder })
+  };
 };
 
 const serializeAws_json1_1ServiceActionAssociation = (
   input: ServiceActionAssociation,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ProductId !== undefined) {
-    bodyParams["ProductId"] = input.ProductId;
-  }
-  if (input.ProvisioningArtifactId !== undefined) {
-    bodyParams["ProvisioningArtifactId"] = input.ProvisioningArtifactId;
-  }
-  if (input.ServiceActionId !== undefined) {
-    bodyParams["ServiceActionId"] = input.ServiceActionId;
-  }
-  return bodyParams;
+  return {
+    ...(input.ProductId !== undefined && { ProductId: input.ProductId }),
+    ...(input.ProvisioningArtifactId !== undefined && {
+      ProvisioningArtifactId: input.ProvisioningArtifactId
+    }),
+    ...(input.ServiceActionId !== undefined && {
+      ServiceActionId: input.ServiceActionId
+    })
+  };
 };
 
 const serializeAws_json1_1ServiceActionAssociations = (
@@ -10296,14 +9911,10 @@ const serializeAws_json1_1StackSetRegions = (
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_json1_1TagKeys = (
@@ -10324,247 +9935,178 @@ const serializeAws_json1_1TerminateProvisionedProductInput = (
   input: TerminateProvisionedProductInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.IgnoreErrors !== undefined) {
-    bodyParams["IgnoreErrors"] = input.IgnoreErrors;
-  }
-  if (input.ProvisionedProductId !== undefined) {
-    bodyParams["ProvisionedProductId"] = input.ProvisionedProductId;
-  }
-  if (input.ProvisionedProductName !== undefined) {
-    bodyParams["ProvisionedProductName"] = input.ProvisionedProductName;
-  }
-  if (input.TerminateToken === undefined) {
-    input.TerminateToken = generateIdempotencyToken();
-  }
-  if (input.TerminateToken !== undefined) {
-    bodyParams["TerminateToken"] = input.TerminateToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.IgnoreErrors !== undefined && {
+      IgnoreErrors: input.IgnoreErrors
+    }),
+    ...(input.ProvisionedProductId !== undefined && {
+      ProvisionedProductId: input.ProvisionedProductId
+    }),
+    ...(input.ProvisionedProductName !== undefined && {
+      ProvisionedProductName: input.ProvisionedProductName
+    }),
+    TerminateToken: input.TerminateToken ?? generateIdempotencyToken()
+  };
 };
 
 const serializeAws_json1_1UpdateConstraintInput = (
   input: UpdateConstraintInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
-  }
-  if (input.Parameters !== undefined) {
-    bodyParams["Parameters"] = input.Parameters;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Id !== undefined && { Id: input.Id }),
+    ...(input.Parameters !== undefined && { Parameters: input.Parameters })
+  };
 };
 
 const serializeAws_json1_1UpdatePortfolioInput = (
   input: UpdatePortfolioInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.AddTags !== undefined) {
-    bodyParams["AddTags"] = serializeAws_json1_1AddTags(input.AddTags, context);
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.DisplayName !== undefined) {
-    bodyParams["DisplayName"] = input.DisplayName;
-  }
-  if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
-  }
-  if (input.ProviderName !== undefined) {
-    bodyParams["ProviderName"] = input.ProviderName;
-  }
-  if (input.RemoveTags !== undefined) {
-    bodyParams["RemoveTags"] = serializeAws_json1_1TagKeys(
-      input.RemoveTags,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.AddTags !== undefined && {
+      AddTags: serializeAws_json1_1AddTags(input.AddTags, context)
+    }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.DisplayName !== undefined && { DisplayName: input.DisplayName }),
+    ...(input.Id !== undefined && { Id: input.Id }),
+    ...(input.ProviderName !== undefined && {
+      ProviderName: input.ProviderName
+    }),
+    ...(input.RemoveTags !== undefined && {
+      RemoveTags: serializeAws_json1_1TagKeys(input.RemoveTags, context)
+    })
+  };
 };
 
 const serializeAws_json1_1UpdateProductInput = (
   input: UpdateProductInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.AddTags !== undefined) {
-    bodyParams["AddTags"] = serializeAws_json1_1AddTags(input.AddTags, context);
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Distributor !== undefined) {
-    bodyParams["Distributor"] = input.Distributor;
-  }
-  if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.Owner !== undefined) {
-    bodyParams["Owner"] = input.Owner;
-  }
-  if (input.RemoveTags !== undefined) {
-    bodyParams["RemoveTags"] = serializeAws_json1_1TagKeys(
-      input.RemoveTags,
-      context
-    );
-  }
-  if (input.SupportDescription !== undefined) {
-    bodyParams["SupportDescription"] = input.SupportDescription;
-  }
-  if (input.SupportEmail !== undefined) {
-    bodyParams["SupportEmail"] = input.SupportEmail;
-  }
-  if (input.SupportUrl !== undefined) {
-    bodyParams["SupportUrl"] = input.SupportUrl;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.AddTags !== undefined && {
+      AddTags: serializeAws_json1_1AddTags(input.AddTags, context)
+    }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Distributor !== undefined && { Distributor: input.Distributor }),
+    ...(input.Id !== undefined && { Id: input.Id }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Owner !== undefined && { Owner: input.Owner }),
+    ...(input.RemoveTags !== undefined && {
+      RemoveTags: serializeAws_json1_1TagKeys(input.RemoveTags, context)
+    }),
+    ...(input.SupportDescription !== undefined && {
+      SupportDescription: input.SupportDescription
+    }),
+    ...(input.SupportEmail !== undefined && {
+      SupportEmail: input.SupportEmail
+    }),
+    ...(input.SupportUrl !== undefined && { SupportUrl: input.SupportUrl })
+  };
 };
 
 const serializeAws_json1_1UpdateProvisionedProductInput = (
   input: UpdateProvisionedProductInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.PathId !== undefined) {
-    bodyParams["PathId"] = input.PathId;
-  }
-  if (input.ProductId !== undefined) {
-    bodyParams["ProductId"] = input.ProductId;
-  }
-  if (input.ProvisionedProductId !== undefined) {
-    bodyParams["ProvisionedProductId"] = input.ProvisionedProductId;
-  }
-  if (input.ProvisionedProductName !== undefined) {
-    bodyParams["ProvisionedProductName"] = input.ProvisionedProductName;
-  }
-  if (input.ProvisioningArtifactId !== undefined) {
-    bodyParams["ProvisioningArtifactId"] = input.ProvisioningArtifactId;
-  }
-  if (input.ProvisioningParameters !== undefined) {
-    bodyParams[
-      "ProvisioningParameters"
-    ] = serializeAws_json1_1UpdateProvisioningParameters(
-      input.ProvisioningParameters,
-      context
-    );
-  }
-  if (input.ProvisioningPreferences !== undefined) {
-    bodyParams[
-      "ProvisioningPreferences"
-    ] = serializeAws_json1_1UpdateProvisioningPreferences(
-      input.ProvisioningPreferences,
-      context
-    );
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
-  }
-  if (input.UpdateToken === undefined) {
-    input.UpdateToken = generateIdempotencyToken();
-  }
-  if (input.UpdateToken !== undefined) {
-    bodyParams["UpdateToken"] = input.UpdateToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.PathId !== undefined && { PathId: input.PathId }),
+    ...(input.ProductId !== undefined && { ProductId: input.ProductId }),
+    ...(input.ProvisionedProductId !== undefined && {
+      ProvisionedProductId: input.ProvisionedProductId
+    }),
+    ...(input.ProvisionedProductName !== undefined && {
+      ProvisionedProductName: input.ProvisionedProductName
+    }),
+    ...(input.ProvisioningArtifactId !== undefined && {
+      ProvisioningArtifactId: input.ProvisioningArtifactId
+    }),
+    ...(input.ProvisioningParameters !== undefined && {
+      ProvisioningParameters: serializeAws_json1_1UpdateProvisioningParameters(
+        input.ProvisioningParameters,
+        context
+      )
+    }),
+    ...(input.ProvisioningPreferences !== undefined && {
+      ProvisioningPreferences: serializeAws_json1_1UpdateProvisioningPreferences(
+        input.ProvisioningPreferences,
+        context
+      )
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1Tags(input.Tags, context)
+    }),
+    UpdateToken: input.UpdateToken ?? generateIdempotencyToken()
+  };
 };
 
 const serializeAws_json1_1UpdateProvisionedProductPropertiesInput = (
   input: UpdateProvisionedProductPropertiesInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.IdempotencyToken === undefined) {
-    input.IdempotencyToken = generateIdempotencyToken();
-  }
-  if (input.IdempotencyToken !== undefined) {
-    bodyParams["IdempotencyToken"] = input.IdempotencyToken;
-  }
-  if (input.ProvisionedProductId !== undefined) {
-    bodyParams["ProvisionedProductId"] = input.ProvisionedProductId;
-  }
-  if (input.ProvisionedProductProperties !== undefined) {
-    bodyParams[
-      "ProvisionedProductProperties"
-    ] = serializeAws_json1_1ProvisionedProductProperties(
-      input.ProvisionedProductProperties,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
+    ...(input.ProvisionedProductId !== undefined && {
+      ProvisionedProductId: input.ProvisionedProductId
+    }),
+    ...(input.ProvisionedProductProperties !== undefined && {
+      ProvisionedProductProperties: serializeAws_json1_1ProvisionedProductProperties(
+        input.ProvisionedProductProperties,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1UpdateProvisioningArtifactInput = (
   input: UpdateProvisioningArtifactInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.Active !== undefined) {
-    bodyParams["Active"] = input.Active;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Guidance !== undefined) {
-    bodyParams["Guidance"] = input.Guidance;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.ProductId !== undefined) {
-    bodyParams["ProductId"] = input.ProductId;
-  }
-  if (input.ProvisioningArtifactId !== undefined) {
-    bodyParams["ProvisioningArtifactId"] = input.ProvisioningArtifactId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.Active !== undefined && { Active: input.Active }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Guidance !== undefined && { Guidance: input.Guidance }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.ProductId !== undefined && { ProductId: input.ProductId }),
+    ...(input.ProvisioningArtifactId !== undefined && {
+      ProvisioningArtifactId: input.ProvisioningArtifactId
+    })
+  };
 };
 
 const serializeAws_json1_1UpdateProvisioningParameter = (
   input: UpdateProvisioningParameter,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.UsePreviousValue !== undefined) {
-    bodyParams["UsePreviousValue"] = input.UsePreviousValue;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.UsePreviousValue !== undefined && {
+      UsePreviousValue: input.UsePreviousValue
+    }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_json1_1UpdateProvisioningParameters = (
@@ -10580,65 +10122,56 @@ const serializeAws_json1_1UpdateProvisioningPreferences = (
   input: UpdateProvisioningPreferences,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.StackSetAccounts !== undefined) {
-    bodyParams["StackSetAccounts"] = serializeAws_json1_1StackSetAccounts(
-      input.StackSetAccounts,
-      context
-    );
-  }
-  if (input.StackSetFailureToleranceCount !== undefined) {
-    bodyParams["StackSetFailureToleranceCount"] =
-      input.StackSetFailureToleranceCount;
-  }
-  if (input.StackSetFailureTolerancePercentage !== undefined) {
-    bodyParams["StackSetFailureTolerancePercentage"] =
-      input.StackSetFailureTolerancePercentage;
-  }
-  if (input.StackSetMaxConcurrencyCount !== undefined) {
-    bodyParams["StackSetMaxConcurrencyCount"] =
-      input.StackSetMaxConcurrencyCount;
-  }
-  if (input.StackSetMaxConcurrencyPercentage !== undefined) {
-    bodyParams["StackSetMaxConcurrencyPercentage"] =
-      input.StackSetMaxConcurrencyPercentage;
-  }
-  if (input.StackSetOperationType !== undefined) {
-    bodyParams["StackSetOperationType"] = input.StackSetOperationType;
-  }
-  if (input.StackSetRegions !== undefined) {
-    bodyParams["StackSetRegions"] = serializeAws_json1_1StackSetRegions(
-      input.StackSetRegions,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.StackSetAccounts !== undefined && {
+      StackSetAccounts: serializeAws_json1_1StackSetAccounts(
+        input.StackSetAccounts,
+        context
+      )
+    }),
+    ...(input.StackSetFailureToleranceCount !== undefined && {
+      StackSetFailureToleranceCount: input.StackSetFailureToleranceCount
+    }),
+    ...(input.StackSetFailureTolerancePercentage !== undefined && {
+      StackSetFailureTolerancePercentage:
+        input.StackSetFailureTolerancePercentage
+    }),
+    ...(input.StackSetMaxConcurrencyCount !== undefined && {
+      StackSetMaxConcurrencyCount: input.StackSetMaxConcurrencyCount
+    }),
+    ...(input.StackSetMaxConcurrencyPercentage !== undefined && {
+      StackSetMaxConcurrencyPercentage: input.StackSetMaxConcurrencyPercentage
+    }),
+    ...(input.StackSetOperationType !== undefined && {
+      StackSetOperationType: input.StackSetOperationType
+    }),
+    ...(input.StackSetRegions !== undefined && {
+      StackSetRegions: serializeAws_json1_1StackSetRegions(
+        input.StackSetRegions,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1UpdateServiceActionInput = (
   input: UpdateServiceActionInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AcceptLanguage !== undefined) {
-    bodyParams["AcceptLanguage"] = input.AcceptLanguage;
-  }
-  if (input.Definition !== undefined) {
-    bodyParams["Definition"] = serializeAws_json1_1ServiceActionDefinitionMap(
-      input.Definition,
-      context
-    );
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  return bodyParams;
+  return {
+    ...(input.AcceptLanguage !== undefined && {
+      AcceptLanguage: input.AcceptLanguage
+    }),
+    ...(input.Definition !== undefined && {
+      Definition: serializeAws_json1_1ServiceActionDefinitionMap(
+        input.Definition,
+        context
+      )
+    }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Id !== undefined && { Id: input.Id }),
+    ...(input.Name !== undefined && { Name: input.Name })
+  };
 };
 
 const deserializeAws_json1_1AssociateTagOptionWithResourceOutput = (

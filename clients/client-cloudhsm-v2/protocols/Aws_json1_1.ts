@@ -1834,136 +1834,105 @@ const serializeAws_json1_1CopyBackupToRegionRequest = (
   input: CopyBackupToRegionRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.BackupId !== undefined) {
-    bodyParams["BackupId"] = input.BackupId;
-  }
-  if (input.DestinationRegion !== undefined) {
-    bodyParams["DestinationRegion"] = input.DestinationRegion;
-  }
-  if (input.TagList !== undefined) {
-    bodyParams["TagList"] = serializeAws_json1_1TagList(input.TagList, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.BackupId !== undefined && { BackupId: input.BackupId }),
+    ...(input.DestinationRegion !== undefined && {
+      DestinationRegion: input.DestinationRegion
+    }),
+    ...(input.TagList !== undefined && {
+      TagList: serializeAws_json1_1TagList(input.TagList, context)
+    })
+  };
 };
 
 const serializeAws_json1_1CreateClusterRequest = (
   input: CreateClusterRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.HsmType !== undefined) {
-    bodyParams["HsmType"] = input.HsmType;
-  }
-  if (input.SourceBackupId !== undefined) {
-    bodyParams["SourceBackupId"] = input.SourceBackupId;
-  }
-  if (input.SubnetIds !== undefined) {
-    bodyParams["SubnetIds"] = serializeAws_json1_1SubnetIds(
-      input.SubnetIds,
-      context
-    );
-  }
-  if (input.TagList !== undefined) {
-    bodyParams["TagList"] = serializeAws_json1_1TagList(input.TagList, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.HsmType !== undefined && { HsmType: input.HsmType }),
+    ...(input.SourceBackupId !== undefined && {
+      SourceBackupId: input.SourceBackupId
+    }),
+    ...(input.SubnetIds !== undefined && {
+      SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context)
+    }),
+    ...(input.TagList !== undefined && {
+      TagList: serializeAws_json1_1TagList(input.TagList, context)
+    })
+  };
 };
 
 const serializeAws_json1_1CreateHsmRequest = (
   input: CreateHsmRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AvailabilityZone !== undefined) {
-    bodyParams["AvailabilityZone"] = input.AvailabilityZone;
-  }
-  if (input.ClusterId !== undefined) {
-    bodyParams["ClusterId"] = input.ClusterId;
-  }
-  if (input.IpAddress !== undefined) {
-    bodyParams["IpAddress"] = input.IpAddress;
-  }
-  return bodyParams;
+  return {
+    ...(input.AvailabilityZone !== undefined && {
+      AvailabilityZone: input.AvailabilityZone
+    }),
+    ...(input.ClusterId !== undefined && { ClusterId: input.ClusterId }),
+    ...(input.IpAddress !== undefined && { IpAddress: input.IpAddress })
+  };
 };
 
 const serializeAws_json1_1DeleteBackupRequest = (
   input: DeleteBackupRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.BackupId !== undefined) {
-    bodyParams["BackupId"] = input.BackupId;
-  }
-  return bodyParams;
+  return {
+    ...(input.BackupId !== undefined && { BackupId: input.BackupId })
+  };
 };
 
 const serializeAws_json1_1DeleteClusterRequest = (
   input: DeleteClusterRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ClusterId !== undefined) {
-    bodyParams["ClusterId"] = input.ClusterId;
-  }
-  return bodyParams;
+  return {
+    ...(input.ClusterId !== undefined && { ClusterId: input.ClusterId })
+  };
 };
 
 const serializeAws_json1_1DeleteHsmRequest = (
   input: DeleteHsmRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ClusterId !== undefined) {
-    bodyParams["ClusterId"] = input.ClusterId;
-  }
-  if (input.EniId !== undefined) {
-    bodyParams["EniId"] = input.EniId;
-  }
-  if (input.EniIp !== undefined) {
-    bodyParams["EniIp"] = input.EniIp;
-  }
-  if (input.HsmId !== undefined) {
-    bodyParams["HsmId"] = input.HsmId;
-  }
-  return bodyParams;
+  return {
+    ...(input.ClusterId !== undefined && { ClusterId: input.ClusterId }),
+    ...(input.EniId !== undefined && { EniId: input.EniId }),
+    ...(input.EniIp !== undefined && { EniIp: input.EniIp }),
+    ...(input.HsmId !== undefined && { HsmId: input.HsmId })
+  };
 };
 
 const serializeAws_json1_1DescribeBackupsRequest = (
   input: DescribeBackupsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Filters !== undefined) {
-    bodyParams["Filters"] = serializeAws_json1_1Filters(input.Filters, context);
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.SortAscending !== undefined) {
-    bodyParams["SortAscending"] = input.SortAscending;
-  }
-  return bodyParams;
+  return {
+    ...(input.Filters !== undefined && {
+      Filters: serializeAws_json1_1Filters(input.Filters, context)
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.SortAscending !== undefined && {
+      SortAscending: input.SortAscending
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeClustersRequest = (
   input: DescribeClustersRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Filters !== undefined) {
-    bodyParams["Filters"] = serializeAws_json1_1Filters(input.Filters, context);
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.Filters !== undefined && {
+      Filters: serializeAws_json1_1Filters(input.Filters, context)
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1Filters = (
@@ -1980,45 +1949,31 @@ const serializeAws_json1_1InitializeClusterRequest = (
   input: InitializeClusterRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ClusterId !== undefined) {
-    bodyParams["ClusterId"] = input.ClusterId;
-  }
-  if (input.SignedCert !== undefined) {
-    bodyParams["SignedCert"] = input.SignedCert;
-  }
-  if (input.TrustAnchor !== undefined) {
-    bodyParams["TrustAnchor"] = input.TrustAnchor;
-  }
-  return bodyParams;
+  return {
+    ...(input.ClusterId !== undefined && { ClusterId: input.ClusterId }),
+    ...(input.SignedCert !== undefined && { SignedCert: input.SignedCert }),
+    ...(input.TrustAnchor !== undefined && { TrustAnchor: input.TrustAnchor })
+  };
 };
 
 const serializeAws_json1_1ListTagsRequest = (
   input: ListTagsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ResourceId !== undefined) {
-    bodyParams["ResourceId"] = input.ResourceId;
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId })
+  };
 };
 
 const serializeAws_json1_1RestoreBackupRequest = (
   input: RestoreBackupRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.BackupId !== undefined) {
-    bodyParams["BackupId"] = input.BackupId;
-  }
-  return bodyParams;
+  return {
+    ...(input.BackupId !== undefined && { BackupId: input.BackupId })
+  };
 };
 
 const serializeAws_json1_1Strings = (
@@ -2036,14 +1991,10 @@ const serializeAws_json1_1SubnetIds = (
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_json1_1TagKeyList = (
@@ -2064,31 +2015,24 @@ const serializeAws_json1_1TagResourceRequest = (
   input: TagResourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ResourceId !== undefined) {
-    bodyParams["ResourceId"] = input.ResourceId;
-  }
-  if (input.TagList !== undefined) {
-    bodyParams["TagList"] = serializeAws_json1_1TagList(input.TagList, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
+    ...(input.TagList !== undefined && {
+      TagList: serializeAws_json1_1TagList(input.TagList, context)
+    })
+  };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (
   input: UntagResourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ResourceId !== undefined) {
-    bodyParams["ResourceId"] = input.ResourceId;
-  }
-  if (input.TagKeyList !== undefined) {
-    bodyParams["TagKeyList"] = serializeAws_json1_1TagKeyList(
-      input.TagKeyList,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
+    ...(input.TagKeyList !== undefined && {
+      TagKeyList: serializeAws_json1_1TagKeyList(input.TagKeyList, context)
+    })
+  };
 };
 
 const deserializeAws_json1_1Backup = (
