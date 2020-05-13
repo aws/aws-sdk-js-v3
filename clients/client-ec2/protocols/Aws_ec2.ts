@@ -2834,12 +2834,11 @@ export const serializeAws_ec2AcceptReservedInstancesExchangeQuoteCommand = async
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2AcceptReservedInstancesExchangeQuoteRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2AcceptReservedInstancesExchangeQuoteRequest(
+      input,
+      context
+    ),
     Action: "AcceptReservedInstancesExchangeQuote",
     Version: "2016-11-15"
   });
@@ -2854,12 +2853,11 @@ export const serializeAws_ec2AcceptTransitGatewayPeeringAttachmentCommand = asyn
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2AcceptTransitGatewayPeeringAttachmentRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2AcceptTransitGatewayPeeringAttachmentRequest(
+      input,
+      context
+    ),
     Action: "AcceptTransitGatewayPeeringAttachment",
     Version: "2016-11-15"
   });
@@ -2874,12 +2872,8 @@ export const serializeAws_ec2AcceptTransitGatewayVpcAttachmentCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2AcceptTransitGatewayVpcAttachmentRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2AcceptTransitGatewayVpcAttachmentRequest(input, context),
     Action: "AcceptTransitGatewayVpcAttachment",
     Version: "2016-11-15"
   });
@@ -2894,12 +2888,8 @@ export const serializeAws_ec2AcceptVpcEndpointConnectionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2AcceptVpcEndpointConnectionsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2AcceptVpcEndpointConnectionsRequest(input, context),
     Action: "AcceptVpcEndpointConnections",
     Version: "2016-11-15"
   });
@@ -2914,12 +2904,8 @@ export const serializeAws_ec2AcceptVpcPeeringConnectionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2AcceptVpcPeeringConnectionRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2AcceptVpcPeeringConnectionRequest(input, context),
     Action: "AcceptVpcPeeringConnection",
     Version: "2016-11-15"
   });
@@ -2934,9 +2920,8 @@ export const serializeAws_ec2AdvertiseByoipCidrCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2AdvertiseByoipCidrRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2AdvertiseByoipCidrRequest(input, context),
     Action: "AdvertiseByoipCidr",
     Version: "2016-11-15"
   });
@@ -2951,9 +2936,8 @@ export const serializeAws_ec2AllocateAddressCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2AllocateAddressRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2AllocateAddressRequest(input, context),
     Action: "AllocateAddress",
     Version: "2016-11-15"
   });
@@ -2968,9 +2952,8 @@ export const serializeAws_ec2AllocateHostsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2AllocateHostsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2AllocateHostsRequest(input, context),
     Action: "AllocateHosts",
     Version: "2016-11-15"
   });
@@ -2985,12 +2968,11 @@ export const serializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkCommand 
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkRequest(
+      input,
+      context
+    ),
     Action: "ApplySecurityGroupsToClientVpnTargetNetwork",
     Version: "2016-11-15"
   });
@@ -3005,9 +2987,8 @@ export const serializeAws_ec2AssignIpv6AddressesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2AssignIpv6AddressesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2AssignIpv6AddressesRequest(input, context),
     Action: "AssignIpv6Addresses",
     Version: "2016-11-15"
   });
@@ -3022,12 +3003,8 @@ export const serializeAws_ec2AssignPrivateIpAddressesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2AssignPrivateIpAddressesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2AssignPrivateIpAddressesRequest(input, context),
     Action: "AssignPrivateIpAddresses",
     Version: "2016-11-15"
   });
@@ -3042,9 +3019,8 @@ export const serializeAws_ec2AssociateAddressCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2AssociateAddressRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2AssociateAddressRequest(input, context),
     Action: "AssociateAddress",
     Version: "2016-11-15"
   });
@@ -3059,12 +3035,8 @@ export const serializeAws_ec2AssociateClientVpnTargetNetworkCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2AssociateClientVpnTargetNetworkRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2AssociateClientVpnTargetNetworkRequest(input, context),
     Action: "AssociateClientVpnTargetNetwork",
     Version: "2016-11-15"
   });
@@ -3079,9 +3051,8 @@ export const serializeAws_ec2AssociateDhcpOptionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2AssociateDhcpOptionsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2AssociateDhcpOptionsRequest(input, context),
     Action: "AssociateDhcpOptions",
     Version: "2016-11-15"
   });
@@ -3096,12 +3067,8 @@ export const serializeAws_ec2AssociateIamInstanceProfileCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2AssociateIamInstanceProfileRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2AssociateIamInstanceProfileRequest(input, context),
     Action: "AssociateIamInstanceProfile",
     Version: "2016-11-15"
   });
@@ -3116,9 +3083,8 @@ export const serializeAws_ec2AssociateRouteTableCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2AssociateRouteTableRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2AssociateRouteTableRequest(input, context),
     Action: "AssociateRouteTable",
     Version: "2016-11-15"
   });
@@ -3133,12 +3099,8 @@ export const serializeAws_ec2AssociateSubnetCidrBlockCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2AssociateSubnetCidrBlockRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2AssociateSubnetCidrBlockRequest(input, context),
     Action: "AssociateSubnetCidrBlock",
     Version: "2016-11-15"
   });
@@ -3153,12 +3115,11 @@ export const serializeAws_ec2AssociateTransitGatewayMulticastDomainCommand = asy
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2AssociateTransitGatewayMulticastDomainRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2AssociateTransitGatewayMulticastDomainRequest(
+      input,
+      context
+    ),
     Action: "AssociateTransitGatewayMulticastDomain",
     Version: "2016-11-15"
   });
@@ -3173,12 +3134,8 @@ export const serializeAws_ec2AssociateTransitGatewayRouteTableCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2AssociateTransitGatewayRouteTableRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2AssociateTransitGatewayRouteTableRequest(input, context),
     Action: "AssociateTransitGatewayRouteTable",
     Version: "2016-11-15"
   });
@@ -3193,9 +3150,8 @@ export const serializeAws_ec2AssociateVpcCidrBlockCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2AssociateVpcCidrBlockRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2AssociateVpcCidrBlockRequest(input, context),
     Action: "AssociateVpcCidrBlock",
     Version: "2016-11-15"
   });
@@ -3210,9 +3166,8 @@ export const serializeAws_ec2AttachClassicLinkVpcCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2AttachClassicLinkVpcRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2AttachClassicLinkVpcRequest(input, context),
     Action: "AttachClassicLinkVpc",
     Version: "2016-11-15"
   });
@@ -3227,9 +3182,8 @@ export const serializeAws_ec2AttachInternetGatewayCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2AttachInternetGatewayRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2AttachInternetGatewayRequest(input, context),
     Action: "AttachInternetGateway",
     Version: "2016-11-15"
   });
@@ -3244,9 +3198,8 @@ export const serializeAws_ec2AttachNetworkInterfaceCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2AttachNetworkInterfaceRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2AttachNetworkInterfaceRequest(input, context),
     Action: "AttachNetworkInterface",
     Version: "2016-11-15"
   });
@@ -3261,9 +3214,8 @@ export const serializeAws_ec2AttachVolumeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2AttachVolumeRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2AttachVolumeRequest(input, context),
     Action: "AttachVolume",
     Version: "2016-11-15"
   });
@@ -3278,9 +3230,8 @@ export const serializeAws_ec2AttachVpnGatewayCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2AttachVpnGatewayRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2AttachVpnGatewayRequest(input, context),
     Action: "AttachVpnGateway",
     Version: "2016-11-15"
   });
@@ -3295,12 +3246,8 @@ export const serializeAws_ec2AuthorizeClientVpnIngressCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2AuthorizeClientVpnIngressRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2AuthorizeClientVpnIngressRequest(input, context),
     Action: "AuthorizeClientVpnIngress",
     Version: "2016-11-15"
   });
@@ -3315,12 +3262,8 @@ export const serializeAws_ec2AuthorizeSecurityGroupEgressCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2AuthorizeSecurityGroupEgressRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2AuthorizeSecurityGroupEgressRequest(input, context),
     Action: "AuthorizeSecurityGroupEgress",
     Version: "2016-11-15"
   });
@@ -3335,12 +3278,8 @@ export const serializeAws_ec2AuthorizeSecurityGroupIngressCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2AuthorizeSecurityGroupIngressRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2AuthorizeSecurityGroupIngressRequest(input, context),
     Action: "AuthorizeSecurityGroupIngress",
     Version: "2016-11-15"
   });
@@ -3355,9 +3294,8 @@ export const serializeAws_ec2BundleInstanceCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2BundleInstanceRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2BundleInstanceRequest(input, context),
     Action: "BundleInstance",
     Version: "2016-11-15"
   });
@@ -3372,9 +3310,8 @@ export const serializeAws_ec2CancelBundleTaskCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CancelBundleTaskRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CancelBundleTaskRequest(input, context),
     Action: "CancelBundleTask",
     Version: "2016-11-15"
   });
@@ -3389,12 +3326,8 @@ export const serializeAws_ec2CancelCapacityReservationCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CancelCapacityReservationRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CancelCapacityReservationRequest(input, context),
     Action: "CancelCapacityReservation",
     Version: "2016-11-15"
   });
@@ -3409,9 +3342,8 @@ export const serializeAws_ec2CancelConversionTaskCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CancelConversionRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CancelConversionRequest(input, context),
     Action: "CancelConversionTask",
     Version: "2016-11-15"
   });
@@ -3426,9 +3358,8 @@ export const serializeAws_ec2CancelExportTaskCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CancelExportTaskRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CancelExportTaskRequest(input, context),
     Action: "CancelExportTask",
     Version: "2016-11-15"
   });
@@ -3443,9 +3374,8 @@ export const serializeAws_ec2CancelImportTaskCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CancelImportTaskRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CancelImportTaskRequest(input, context),
     Action: "CancelImportTask",
     Version: "2016-11-15"
   });
@@ -3460,12 +3390,8 @@ export const serializeAws_ec2CancelReservedInstancesListingCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CancelReservedInstancesListingRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CancelReservedInstancesListingRequest(input, context),
     Action: "CancelReservedInstancesListing",
     Version: "2016-11-15"
   });
@@ -3480,12 +3406,8 @@ export const serializeAws_ec2CancelSpotFleetRequestsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CancelSpotFleetRequestsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CancelSpotFleetRequestsRequest(input, context),
     Action: "CancelSpotFleetRequests",
     Version: "2016-11-15"
   });
@@ -3500,12 +3422,8 @@ export const serializeAws_ec2CancelSpotInstanceRequestsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CancelSpotInstanceRequestsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CancelSpotInstanceRequestsRequest(input, context),
     Action: "CancelSpotInstanceRequests",
     Version: "2016-11-15"
   });
@@ -3520,9 +3438,8 @@ export const serializeAws_ec2ConfirmProductInstanceCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ConfirmProductInstanceRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ConfirmProductInstanceRequest(input, context),
     Action: "ConfirmProductInstance",
     Version: "2016-11-15"
   });
@@ -3537,9 +3454,8 @@ export const serializeAws_ec2CopyFpgaImageCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CopyFpgaImageRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CopyFpgaImageRequest(input, context),
     Action: "CopyFpgaImage",
     Version: "2016-11-15"
   });
@@ -3554,9 +3470,8 @@ export const serializeAws_ec2CopyImageCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CopyImageRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CopyImageRequest(input, context),
     Action: "CopyImage",
     Version: "2016-11-15"
   });
@@ -3571,9 +3486,8 @@ export const serializeAws_ec2CopySnapshotCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CopySnapshotRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CopySnapshotRequest(input, context),
     Action: "CopySnapshot",
     Version: "2016-11-15"
   });
@@ -3588,12 +3502,8 @@ export const serializeAws_ec2CreateCapacityReservationCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateCapacityReservationRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateCapacityReservationRequest(input, context),
     Action: "CreateCapacityReservation",
     Version: "2016-11-15"
   });
@@ -3608,12 +3518,8 @@ export const serializeAws_ec2CreateClientVpnEndpointCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateClientVpnEndpointRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateClientVpnEndpointRequest(input, context),
     Action: "CreateClientVpnEndpoint",
     Version: "2016-11-15"
   });
@@ -3628,9 +3534,8 @@ export const serializeAws_ec2CreateClientVpnRouteCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateClientVpnRouteRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateClientVpnRouteRequest(input, context),
     Action: "CreateClientVpnRoute",
     Version: "2016-11-15"
   });
@@ -3645,9 +3550,8 @@ export const serializeAws_ec2CreateCustomerGatewayCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateCustomerGatewayRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateCustomerGatewayRequest(input, context),
     Action: "CreateCustomerGateway",
     Version: "2016-11-15"
   });
@@ -3662,9 +3566,8 @@ export const serializeAws_ec2CreateDefaultSubnetCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateDefaultSubnetRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateDefaultSubnetRequest(input, context),
     Action: "CreateDefaultSubnet",
     Version: "2016-11-15"
   });
@@ -3679,9 +3582,8 @@ export const serializeAws_ec2CreateDefaultVpcCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateDefaultVpcRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateDefaultVpcRequest(input, context),
     Action: "CreateDefaultVpc",
     Version: "2016-11-15"
   });
@@ -3696,9 +3598,8 @@ export const serializeAws_ec2CreateDhcpOptionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateDhcpOptionsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateDhcpOptionsRequest(input, context),
     Action: "CreateDhcpOptions",
     Version: "2016-11-15"
   });
@@ -3713,12 +3614,8 @@ export const serializeAws_ec2CreateEgressOnlyInternetGatewayCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateEgressOnlyInternetGatewayRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateEgressOnlyInternetGatewayRequest(input, context),
     Action: "CreateEgressOnlyInternetGateway",
     Version: "2016-11-15"
   });
@@ -3733,9 +3630,8 @@ export const serializeAws_ec2CreateFleetCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateFleetRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateFleetRequest(input, context),
     Action: "CreateFleet",
     Version: "2016-11-15"
   });
@@ -3750,9 +3646,8 @@ export const serializeAws_ec2CreateFlowLogsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateFlowLogsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateFlowLogsRequest(input, context),
     Action: "CreateFlowLogs",
     Version: "2016-11-15"
   });
@@ -3767,9 +3662,8 @@ export const serializeAws_ec2CreateFpgaImageCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateFpgaImageRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateFpgaImageRequest(input, context),
     Action: "CreateFpgaImage",
     Version: "2016-11-15"
   });
@@ -3784,9 +3678,8 @@ export const serializeAws_ec2CreateImageCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateImageRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateImageRequest(input, context),
     Action: "CreateImage",
     Version: "2016-11-15"
   });
@@ -3801,12 +3694,8 @@ export const serializeAws_ec2CreateInstanceExportTaskCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateInstanceExportTaskRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateInstanceExportTaskRequest(input, context),
     Action: "CreateInstanceExportTask",
     Version: "2016-11-15"
   });
@@ -3821,9 +3710,8 @@ export const serializeAws_ec2CreateInternetGatewayCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateInternetGatewayRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateInternetGatewayRequest(input, context),
     Action: "CreateInternetGateway",
     Version: "2016-11-15"
   });
@@ -3838,9 +3726,8 @@ export const serializeAws_ec2CreateKeyPairCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateKeyPairRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateKeyPairRequest(input, context),
     Action: "CreateKeyPair",
     Version: "2016-11-15"
   });
@@ -3855,9 +3742,8 @@ export const serializeAws_ec2CreateLaunchTemplateCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateLaunchTemplateRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateLaunchTemplateRequest(input, context),
     Action: "CreateLaunchTemplate",
     Version: "2016-11-15"
   });
@@ -3872,12 +3758,8 @@ export const serializeAws_ec2CreateLaunchTemplateVersionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateLaunchTemplateVersionRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateLaunchTemplateVersionRequest(input, context),
     Action: "CreateLaunchTemplateVersion",
     Version: "2016-11-15"
   });
@@ -3892,12 +3774,8 @@ export const serializeAws_ec2CreateLocalGatewayRouteCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateLocalGatewayRouteRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateLocalGatewayRouteRequest(input, context),
     Action: "CreateLocalGatewayRoute",
     Version: "2016-11-15"
   });
@@ -3912,12 +3790,11 @@ export const serializeAws_ec2CreateLocalGatewayRouteTableVpcAssociationCommand =
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateLocalGatewayRouteTableVpcAssociationRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateLocalGatewayRouteTableVpcAssociationRequest(
+      input,
+      context
+    ),
     Action: "CreateLocalGatewayRouteTableVpcAssociation",
     Version: "2016-11-15"
   });
@@ -3932,9 +3809,8 @@ export const serializeAws_ec2CreateNatGatewayCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateNatGatewayRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateNatGatewayRequest(input, context),
     Action: "CreateNatGateway",
     Version: "2016-11-15"
   });
@@ -3949,9 +3825,8 @@ export const serializeAws_ec2CreateNetworkAclCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateNetworkAclRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateNetworkAclRequest(input, context),
     Action: "CreateNetworkAcl",
     Version: "2016-11-15"
   });
@@ -3966,9 +3841,8 @@ export const serializeAws_ec2CreateNetworkAclEntryCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateNetworkAclEntryRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateNetworkAclEntryRequest(input, context),
     Action: "CreateNetworkAclEntry",
     Version: "2016-11-15"
   });
@@ -3983,9 +3857,8 @@ export const serializeAws_ec2CreateNetworkInterfaceCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateNetworkInterfaceRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateNetworkInterfaceRequest(input, context),
     Action: "CreateNetworkInterface",
     Version: "2016-11-15"
   });
@@ -4000,12 +3873,8 @@ export const serializeAws_ec2CreateNetworkInterfacePermissionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateNetworkInterfacePermissionRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateNetworkInterfacePermissionRequest(input, context),
     Action: "CreateNetworkInterfacePermission",
     Version: "2016-11-15"
   });
@@ -4020,9 +3889,8 @@ export const serializeAws_ec2CreatePlacementGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreatePlacementGroupRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreatePlacementGroupRequest(input, context),
     Action: "CreatePlacementGroup",
     Version: "2016-11-15"
   });
@@ -4037,12 +3905,8 @@ export const serializeAws_ec2CreateReservedInstancesListingCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateReservedInstancesListingRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateReservedInstancesListingRequest(input, context),
     Action: "CreateReservedInstancesListing",
     Version: "2016-11-15"
   });
@@ -4057,9 +3921,8 @@ export const serializeAws_ec2CreateRouteCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateRouteRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateRouteRequest(input, context),
     Action: "CreateRoute",
     Version: "2016-11-15"
   });
@@ -4074,9 +3937,8 @@ export const serializeAws_ec2CreateRouteTableCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateRouteTableRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateRouteTableRequest(input, context),
     Action: "CreateRouteTable",
     Version: "2016-11-15"
   });
@@ -4091,9 +3953,8 @@ export const serializeAws_ec2CreateSecurityGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateSecurityGroupRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateSecurityGroupRequest(input, context),
     Action: "CreateSecurityGroup",
     Version: "2016-11-15"
   });
@@ -4108,9 +3969,8 @@ export const serializeAws_ec2CreateSnapshotCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateSnapshotRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateSnapshotRequest(input, context),
     Action: "CreateSnapshot",
     Version: "2016-11-15"
   });
@@ -4125,9 +3985,8 @@ export const serializeAws_ec2CreateSnapshotsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateSnapshotsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateSnapshotsRequest(input, context),
     Action: "CreateSnapshots",
     Version: "2016-11-15"
   });
@@ -4142,12 +4001,8 @@ export const serializeAws_ec2CreateSpotDatafeedSubscriptionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateSpotDatafeedSubscriptionRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateSpotDatafeedSubscriptionRequest(input, context),
     Action: "CreateSpotDatafeedSubscription",
     Version: "2016-11-15"
   });
@@ -4162,9 +4017,8 @@ export const serializeAws_ec2CreateSubnetCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateSubnetRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateSubnetRequest(input, context),
     Action: "CreateSubnet",
     Version: "2016-11-15"
   });
@@ -4179,9 +4033,8 @@ export const serializeAws_ec2CreateTagsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateTagsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateTagsRequest(input, context),
     Action: "CreateTags",
     Version: "2016-11-15"
   });
@@ -4196,12 +4049,8 @@ export const serializeAws_ec2CreateTrafficMirrorFilterCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateTrafficMirrorFilterRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateTrafficMirrorFilterRequest(input, context),
     Action: "CreateTrafficMirrorFilter",
     Version: "2016-11-15"
   });
@@ -4216,12 +4065,8 @@ export const serializeAws_ec2CreateTrafficMirrorFilterRuleCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateTrafficMirrorFilterRuleRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateTrafficMirrorFilterRuleRequest(input, context),
     Action: "CreateTrafficMirrorFilterRule",
     Version: "2016-11-15"
   });
@@ -4236,12 +4081,8 @@ export const serializeAws_ec2CreateTrafficMirrorSessionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateTrafficMirrorSessionRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateTrafficMirrorSessionRequest(input, context),
     Action: "CreateTrafficMirrorSession",
     Version: "2016-11-15"
   });
@@ -4256,12 +4097,8 @@ export const serializeAws_ec2CreateTrafficMirrorTargetCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateTrafficMirrorTargetRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateTrafficMirrorTargetRequest(input, context),
     Action: "CreateTrafficMirrorTarget",
     Version: "2016-11-15"
   });
@@ -4276,9 +4113,8 @@ export const serializeAws_ec2CreateTransitGatewayCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateTransitGatewayRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateTransitGatewayRequest(input, context),
     Action: "CreateTransitGateway",
     Version: "2016-11-15"
   });
@@ -4293,12 +4129,11 @@ export const serializeAws_ec2CreateTransitGatewayMulticastDomainCommand = async 
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateTransitGatewayMulticastDomainRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateTransitGatewayMulticastDomainRequest(
+      input,
+      context
+    ),
     Action: "CreateTransitGatewayMulticastDomain",
     Version: "2016-11-15"
   });
@@ -4313,12 +4148,11 @@ export const serializeAws_ec2CreateTransitGatewayPeeringAttachmentCommand = asyn
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateTransitGatewayPeeringAttachmentRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateTransitGatewayPeeringAttachmentRequest(
+      input,
+      context
+    ),
     Action: "CreateTransitGatewayPeeringAttachment",
     Version: "2016-11-15"
   });
@@ -4333,12 +4167,8 @@ export const serializeAws_ec2CreateTransitGatewayRouteCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateTransitGatewayRouteRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateTransitGatewayRouteRequest(input, context),
     Action: "CreateTransitGatewayRoute",
     Version: "2016-11-15"
   });
@@ -4353,12 +4183,8 @@ export const serializeAws_ec2CreateTransitGatewayRouteTableCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateTransitGatewayRouteTableRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateTransitGatewayRouteTableRequest(input, context),
     Action: "CreateTransitGatewayRouteTable",
     Version: "2016-11-15"
   });
@@ -4373,12 +4199,8 @@ export const serializeAws_ec2CreateTransitGatewayVpcAttachmentCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateTransitGatewayVpcAttachmentRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateTransitGatewayVpcAttachmentRequest(input, context),
     Action: "CreateTransitGatewayVpcAttachment",
     Version: "2016-11-15"
   });
@@ -4393,9 +4215,8 @@ export const serializeAws_ec2CreateVolumeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateVolumeRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateVolumeRequest(input, context),
     Action: "CreateVolume",
     Version: "2016-11-15"
   });
@@ -4410,9 +4231,8 @@ export const serializeAws_ec2CreateVpcCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateVpcRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateVpcRequest(input, context),
     Action: "CreateVpc",
     Version: "2016-11-15"
   });
@@ -4427,9 +4247,8 @@ export const serializeAws_ec2CreateVpcEndpointCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateVpcEndpointRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateVpcEndpointRequest(input, context),
     Action: "CreateVpcEndpoint",
     Version: "2016-11-15"
   });
@@ -4444,12 +4263,11 @@ export const serializeAws_ec2CreateVpcEndpointConnectionNotificationCommand = as
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateVpcEndpointConnectionNotificationRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateVpcEndpointConnectionNotificationRequest(
+      input,
+      context
+    ),
     Action: "CreateVpcEndpointConnectionNotification",
     Version: "2016-11-15"
   });
@@ -4464,12 +4282,11 @@ export const serializeAws_ec2CreateVpcEndpointServiceConfigurationCommand = asyn
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateVpcEndpointServiceConfigurationRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateVpcEndpointServiceConfigurationRequest(
+      input,
+      context
+    ),
     Action: "CreateVpcEndpointServiceConfiguration",
     Version: "2016-11-15"
   });
@@ -4484,12 +4301,8 @@ export const serializeAws_ec2CreateVpcPeeringConnectionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateVpcPeeringConnectionRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateVpcPeeringConnectionRequest(input, context),
     Action: "CreateVpcPeeringConnection",
     Version: "2016-11-15"
   });
@@ -4504,9 +4317,8 @@ export const serializeAws_ec2CreateVpnConnectionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateVpnConnectionRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateVpnConnectionRequest(input, context),
     Action: "CreateVpnConnection",
     Version: "2016-11-15"
   });
@@ -4521,12 +4333,8 @@ export const serializeAws_ec2CreateVpnConnectionRouteCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateVpnConnectionRouteRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateVpnConnectionRouteRequest(input, context),
     Action: "CreateVpnConnectionRoute",
     Version: "2016-11-15"
   });
@@ -4541,9 +4349,8 @@ export const serializeAws_ec2CreateVpnGatewayCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2CreateVpnGatewayRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2CreateVpnGatewayRequest(input, context),
     Action: "CreateVpnGateway",
     Version: "2016-11-15"
   });
@@ -4558,12 +4365,8 @@ export const serializeAws_ec2DeleteClientVpnEndpointCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteClientVpnEndpointRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteClientVpnEndpointRequest(input, context),
     Action: "DeleteClientVpnEndpoint",
     Version: "2016-11-15"
   });
@@ -4578,9 +4381,8 @@ export const serializeAws_ec2DeleteClientVpnRouteCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteClientVpnRouteRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteClientVpnRouteRequest(input, context),
     Action: "DeleteClientVpnRoute",
     Version: "2016-11-15"
   });
@@ -4595,9 +4397,8 @@ export const serializeAws_ec2DeleteCustomerGatewayCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteCustomerGatewayRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteCustomerGatewayRequest(input, context),
     Action: "DeleteCustomerGateway",
     Version: "2016-11-15"
   });
@@ -4612,9 +4413,8 @@ export const serializeAws_ec2DeleteDhcpOptionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteDhcpOptionsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteDhcpOptionsRequest(input, context),
     Action: "DeleteDhcpOptions",
     Version: "2016-11-15"
   });
@@ -4629,12 +4429,8 @@ export const serializeAws_ec2DeleteEgressOnlyInternetGatewayCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteEgressOnlyInternetGatewayRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteEgressOnlyInternetGatewayRequest(input, context),
     Action: "DeleteEgressOnlyInternetGateway",
     Version: "2016-11-15"
   });
@@ -4649,9 +4445,8 @@ export const serializeAws_ec2DeleteFleetsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteFleetsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteFleetsRequest(input, context),
     Action: "DeleteFleets",
     Version: "2016-11-15"
   });
@@ -4666,9 +4461,8 @@ export const serializeAws_ec2DeleteFlowLogsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteFlowLogsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteFlowLogsRequest(input, context),
     Action: "DeleteFlowLogs",
     Version: "2016-11-15"
   });
@@ -4683,9 +4477,8 @@ export const serializeAws_ec2DeleteFpgaImageCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteFpgaImageRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteFpgaImageRequest(input, context),
     Action: "DeleteFpgaImage",
     Version: "2016-11-15"
   });
@@ -4700,9 +4493,8 @@ export const serializeAws_ec2DeleteInternetGatewayCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteInternetGatewayRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteInternetGatewayRequest(input, context),
     Action: "DeleteInternetGateway",
     Version: "2016-11-15"
   });
@@ -4717,9 +4509,8 @@ export const serializeAws_ec2DeleteKeyPairCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteKeyPairRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteKeyPairRequest(input, context),
     Action: "DeleteKeyPair",
     Version: "2016-11-15"
   });
@@ -4734,9 +4525,8 @@ export const serializeAws_ec2DeleteLaunchTemplateCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteLaunchTemplateRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteLaunchTemplateRequest(input, context),
     Action: "DeleteLaunchTemplate",
     Version: "2016-11-15"
   });
@@ -4751,12 +4541,8 @@ export const serializeAws_ec2DeleteLaunchTemplateVersionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteLaunchTemplateVersionsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteLaunchTemplateVersionsRequest(input, context),
     Action: "DeleteLaunchTemplateVersions",
     Version: "2016-11-15"
   });
@@ -4771,12 +4557,8 @@ export const serializeAws_ec2DeleteLocalGatewayRouteCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteLocalGatewayRouteRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteLocalGatewayRouteRequest(input, context),
     Action: "DeleteLocalGatewayRoute",
     Version: "2016-11-15"
   });
@@ -4791,12 +4573,11 @@ export const serializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationCommand =
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteLocalGatewayRouteTableVpcAssociationRequest(
+      input,
+      context
+    ),
     Action: "DeleteLocalGatewayRouteTableVpcAssociation",
     Version: "2016-11-15"
   });
@@ -4811,9 +4592,8 @@ export const serializeAws_ec2DeleteNatGatewayCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteNatGatewayRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteNatGatewayRequest(input, context),
     Action: "DeleteNatGateway",
     Version: "2016-11-15"
   });
@@ -4828,9 +4608,8 @@ export const serializeAws_ec2DeleteNetworkAclCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteNetworkAclRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteNetworkAclRequest(input, context),
     Action: "DeleteNetworkAcl",
     Version: "2016-11-15"
   });
@@ -4845,9 +4624,8 @@ export const serializeAws_ec2DeleteNetworkAclEntryCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteNetworkAclEntryRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteNetworkAclEntryRequest(input, context),
     Action: "DeleteNetworkAclEntry",
     Version: "2016-11-15"
   });
@@ -4862,9 +4640,8 @@ export const serializeAws_ec2DeleteNetworkInterfaceCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteNetworkInterfaceRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteNetworkInterfaceRequest(input, context),
     Action: "DeleteNetworkInterface",
     Version: "2016-11-15"
   });
@@ -4879,12 +4656,8 @@ export const serializeAws_ec2DeleteNetworkInterfacePermissionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteNetworkInterfacePermissionRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteNetworkInterfacePermissionRequest(input, context),
     Action: "DeleteNetworkInterfacePermission",
     Version: "2016-11-15"
   });
@@ -4899,9 +4672,8 @@ export const serializeAws_ec2DeletePlacementGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeletePlacementGroupRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeletePlacementGroupRequest(input, context),
     Action: "DeletePlacementGroup",
     Version: "2016-11-15"
   });
@@ -4916,12 +4688,8 @@ export const serializeAws_ec2DeleteQueuedReservedInstancesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteQueuedReservedInstancesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteQueuedReservedInstancesRequest(input, context),
     Action: "DeleteQueuedReservedInstances",
     Version: "2016-11-15"
   });
@@ -4936,9 +4704,8 @@ export const serializeAws_ec2DeleteRouteCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteRouteRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteRouteRequest(input, context),
     Action: "DeleteRoute",
     Version: "2016-11-15"
   });
@@ -4953,9 +4720,8 @@ export const serializeAws_ec2DeleteRouteTableCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteRouteTableRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteRouteTableRequest(input, context),
     Action: "DeleteRouteTable",
     Version: "2016-11-15"
   });
@@ -4970,9 +4736,8 @@ export const serializeAws_ec2DeleteSecurityGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteSecurityGroupRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteSecurityGroupRequest(input, context),
     Action: "DeleteSecurityGroup",
     Version: "2016-11-15"
   });
@@ -4987,9 +4752,8 @@ export const serializeAws_ec2DeleteSnapshotCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteSnapshotRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteSnapshotRequest(input, context),
     Action: "DeleteSnapshot",
     Version: "2016-11-15"
   });
@@ -5004,12 +4768,8 @@ export const serializeAws_ec2DeleteSpotDatafeedSubscriptionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteSpotDatafeedSubscriptionRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteSpotDatafeedSubscriptionRequest(input, context),
     Action: "DeleteSpotDatafeedSubscription",
     Version: "2016-11-15"
   });
@@ -5024,9 +4784,8 @@ export const serializeAws_ec2DeleteSubnetCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteSubnetRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteSubnetRequest(input, context),
     Action: "DeleteSubnet",
     Version: "2016-11-15"
   });
@@ -5041,9 +4800,8 @@ export const serializeAws_ec2DeleteTagsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteTagsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteTagsRequest(input, context),
     Action: "DeleteTags",
     Version: "2016-11-15"
   });
@@ -5058,12 +4816,8 @@ export const serializeAws_ec2DeleteTrafficMirrorFilterCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteTrafficMirrorFilterRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteTrafficMirrorFilterRequest(input, context),
     Action: "DeleteTrafficMirrorFilter",
     Version: "2016-11-15"
   });
@@ -5078,12 +4832,8 @@ export const serializeAws_ec2DeleteTrafficMirrorFilterRuleCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteTrafficMirrorFilterRuleRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteTrafficMirrorFilterRuleRequest(input, context),
     Action: "DeleteTrafficMirrorFilterRule",
     Version: "2016-11-15"
   });
@@ -5098,12 +4848,8 @@ export const serializeAws_ec2DeleteTrafficMirrorSessionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteTrafficMirrorSessionRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteTrafficMirrorSessionRequest(input, context),
     Action: "DeleteTrafficMirrorSession",
     Version: "2016-11-15"
   });
@@ -5118,12 +4864,8 @@ export const serializeAws_ec2DeleteTrafficMirrorTargetCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteTrafficMirrorTargetRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteTrafficMirrorTargetRequest(input, context),
     Action: "DeleteTrafficMirrorTarget",
     Version: "2016-11-15"
   });
@@ -5138,9 +4880,8 @@ export const serializeAws_ec2DeleteTransitGatewayCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteTransitGatewayRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteTransitGatewayRequest(input, context),
     Action: "DeleteTransitGateway",
     Version: "2016-11-15"
   });
@@ -5155,12 +4896,11 @@ export const serializeAws_ec2DeleteTransitGatewayMulticastDomainCommand = async 
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteTransitGatewayMulticastDomainRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteTransitGatewayMulticastDomainRequest(
+      input,
+      context
+    ),
     Action: "DeleteTransitGatewayMulticastDomain",
     Version: "2016-11-15"
   });
@@ -5175,12 +4915,11 @@ export const serializeAws_ec2DeleteTransitGatewayPeeringAttachmentCommand = asyn
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteTransitGatewayPeeringAttachmentRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteTransitGatewayPeeringAttachmentRequest(
+      input,
+      context
+    ),
     Action: "DeleteTransitGatewayPeeringAttachment",
     Version: "2016-11-15"
   });
@@ -5195,12 +4934,8 @@ export const serializeAws_ec2DeleteTransitGatewayRouteCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteTransitGatewayRouteRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteTransitGatewayRouteRequest(input, context),
     Action: "DeleteTransitGatewayRoute",
     Version: "2016-11-15"
   });
@@ -5215,12 +4950,8 @@ export const serializeAws_ec2DeleteTransitGatewayRouteTableCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteTransitGatewayRouteTableRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteTransitGatewayRouteTableRequest(input, context),
     Action: "DeleteTransitGatewayRouteTable",
     Version: "2016-11-15"
   });
@@ -5235,12 +4966,8 @@ export const serializeAws_ec2DeleteTransitGatewayVpcAttachmentCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteTransitGatewayVpcAttachmentRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteTransitGatewayVpcAttachmentRequest(input, context),
     Action: "DeleteTransitGatewayVpcAttachment",
     Version: "2016-11-15"
   });
@@ -5255,9 +4982,8 @@ export const serializeAws_ec2DeleteVolumeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteVolumeRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteVolumeRequest(input, context),
     Action: "DeleteVolume",
     Version: "2016-11-15"
   });
@@ -5272,9 +4998,8 @@ export const serializeAws_ec2DeleteVpcCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteVpcRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteVpcRequest(input, context),
     Action: "DeleteVpc",
     Version: "2016-11-15"
   });
@@ -5289,12 +5014,11 @@ export const serializeAws_ec2DeleteVpcEndpointConnectionNotificationsCommand = a
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteVpcEndpointConnectionNotificationsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteVpcEndpointConnectionNotificationsRequest(
+      input,
+      context
+    ),
     Action: "DeleteVpcEndpointConnectionNotifications",
     Version: "2016-11-15"
   });
@@ -5309,12 +5033,11 @@ export const serializeAws_ec2DeleteVpcEndpointServiceConfigurationsCommand = asy
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteVpcEndpointServiceConfigurationsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteVpcEndpointServiceConfigurationsRequest(
+      input,
+      context
+    ),
     Action: "DeleteVpcEndpointServiceConfigurations",
     Version: "2016-11-15"
   });
@@ -5329,9 +5052,8 @@ export const serializeAws_ec2DeleteVpcEndpointsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteVpcEndpointsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteVpcEndpointsRequest(input, context),
     Action: "DeleteVpcEndpoints",
     Version: "2016-11-15"
   });
@@ -5346,12 +5068,8 @@ export const serializeAws_ec2DeleteVpcPeeringConnectionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteVpcPeeringConnectionRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteVpcPeeringConnectionRequest(input, context),
     Action: "DeleteVpcPeeringConnection",
     Version: "2016-11-15"
   });
@@ -5366,9 +5084,8 @@ export const serializeAws_ec2DeleteVpnConnectionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteVpnConnectionRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteVpnConnectionRequest(input, context),
     Action: "DeleteVpnConnection",
     Version: "2016-11-15"
   });
@@ -5383,12 +5100,8 @@ export const serializeAws_ec2DeleteVpnConnectionRouteCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteVpnConnectionRouteRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteVpnConnectionRouteRequest(input, context),
     Action: "DeleteVpnConnectionRoute",
     Version: "2016-11-15"
   });
@@ -5403,9 +5116,8 @@ export const serializeAws_ec2DeleteVpnGatewayCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeleteVpnGatewayRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeleteVpnGatewayRequest(input, context),
     Action: "DeleteVpnGateway",
     Version: "2016-11-15"
   });
@@ -5420,9 +5132,8 @@ export const serializeAws_ec2DeprovisionByoipCidrCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeprovisionByoipCidrRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeprovisionByoipCidrRequest(input, context),
     Action: "DeprovisionByoipCidr",
     Version: "2016-11-15"
   });
@@ -5437,9 +5148,8 @@ export const serializeAws_ec2DeregisterImageCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeregisterImageRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeregisterImageRequest(input, context),
     Action: "DeregisterImage",
     Version: "2016-11-15"
   });
@@ -5454,12 +5164,11 @@ export const serializeAws_ec2DeregisterTransitGatewayMulticastGroupMembersComman
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeregisterTransitGatewayMulticastGroupMembersRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeregisterTransitGatewayMulticastGroupMembersRequest(
+      input,
+      context
+    ),
     Action: "DeregisterTransitGatewayMulticastGroupMembers",
     Version: "2016-11-15"
   });
@@ -5474,12 +5183,11 @@ export const serializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesComman
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DeregisterTransitGatewayMulticastGroupSourcesRequest(
+      input,
+      context
+    ),
     Action: "DeregisterTransitGatewayMulticastGroupSources",
     Version: "2016-11-15"
   });
@@ -5494,12 +5202,8 @@ export const serializeAws_ec2DescribeAccountAttributesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeAccountAttributesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeAccountAttributesRequest(input, context),
     Action: "DescribeAccountAttributes",
     Version: "2016-11-15"
   });
@@ -5514,9 +5218,8 @@ export const serializeAws_ec2DescribeAddressesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeAddressesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeAddressesRequest(input, context),
     Action: "DescribeAddresses",
     Version: "2016-11-15"
   });
@@ -5531,12 +5234,8 @@ export const serializeAws_ec2DescribeAggregateIdFormatCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeAggregateIdFormatRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeAggregateIdFormatRequest(input, context),
     Action: "DescribeAggregateIdFormat",
     Version: "2016-11-15"
   });
@@ -5551,12 +5250,8 @@ export const serializeAws_ec2DescribeAvailabilityZonesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeAvailabilityZonesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeAvailabilityZonesRequest(input, context),
     Action: "DescribeAvailabilityZones",
     Version: "2016-11-15"
   });
@@ -5571,9 +5266,8 @@ export const serializeAws_ec2DescribeBundleTasksCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeBundleTasksRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeBundleTasksRequest(input, context),
     Action: "DescribeBundleTasks",
     Version: "2016-11-15"
   });
@@ -5588,9 +5282,8 @@ export const serializeAws_ec2DescribeByoipCidrsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeByoipCidrsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeByoipCidrsRequest(input, context),
     Action: "DescribeByoipCidrs",
     Version: "2016-11-15"
   });
@@ -5605,12 +5298,8 @@ export const serializeAws_ec2DescribeCapacityReservationsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeCapacityReservationsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeCapacityReservationsRequest(input, context),
     Action: "DescribeCapacityReservations",
     Version: "2016-11-15"
   });
@@ -5625,12 +5314,8 @@ export const serializeAws_ec2DescribeClassicLinkInstancesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeClassicLinkInstancesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeClassicLinkInstancesRequest(input, context),
     Action: "DescribeClassicLinkInstances",
     Version: "2016-11-15"
   });
@@ -5645,12 +5330,11 @@ export const serializeAws_ec2DescribeClientVpnAuthorizationRulesCommand = async 
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeClientVpnAuthorizationRulesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeClientVpnAuthorizationRulesRequest(
+      input,
+      context
+    ),
     Action: "DescribeClientVpnAuthorizationRules",
     Version: "2016-11-15"
   });
@@ -5665,12 +5349,8 @@ export const serializeAws_ec2DescribeClientVpnConnectionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeClientVpnConnectionsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeClientVpnConnectionsRequest(input, context),
     Action: "DescribeClientVpnConnections",
     Version: "2016-11-15"
   });
@@ -5685,12 +5365,8 @@ export const serializeAws_ec2DescribeClientVpnEndpointsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeClientVpnEndpointsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeClientVpnEndpointsRequest(input, context),
     Action: "DescribeClientVpnEndpoints",
     Version: "2016-11-15"
   });
@@ -5705,12 +5381,8 @@ export const serializeAws_ec2DescribeClientVpnRoutesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeClientVpnRoutesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeClientVpnRoutesRequest(input, context),
     Action: "DescribeClientVpnRoutes",
     Version: "2016-11-15"
   });
@@ -5725,12 +5397,8 @@ export const serializeAws_ec2DescribeClientVpnTargetNetworksCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeClientVpnTargetNetworksRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeClientVpnTargetNetworksRequest(input, context),
     Action: "DescribeClientVpnTargetNetworks",
     Version: "2016-11-15"
   });
@@ -5745,9 +5413,8 @@ export const serializeAws_ec2DescribeCoipPoolsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeCoipPoolsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeCoipPoolsRequest(input, context),
     Action: "DescribeCoipPools",
     Version: "2016-11-15"
   });
@@ -5762,12 +5429,8 @@ export const serializeAws_ec2DescribeConversionTasksCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeConversionTasksRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeConversionTasksRequest(input, context),
     Action: "DescribeConversionTasks",
     Version: "2016-11-15"
   });
@@ -5782,12 +5445,8 @@ export const serializeAws_ec2DescribeCustomerGatewaysCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeCustomerGatewaysRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeCustomerGatewaysRequest(input, context),
     Action: "DescribeCustomerGateways",
     Version: "2016-11-15"
   });
@@ -5802,9 +5461,8 @@ export const serializeAws_ec2DescribeDhcpOptionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeDhcpOptionsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeDhcpOptionsRequest(input, context),
     Action: "DescribeDhcpOptions",
     Version: "2016-11-15"
   });
@@ -5819,12 +5477,11 @@ export const serializeAws_ec2DescribeEgressOnlyInternetGatewaysCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeEgressOnlyInternetGatewaysRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeEgressOnlyInternetGatewaysRequest(
+      input,
+      context
+    ),
     Action: "DescribeEgressOnlyInternetGateways",
     Version: "2016-11-15"
   });
@@ -5839,9 +5496,8 @@ export const serializeAws_ec2DescribeElasticGpusCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeElasticGpusRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeElasticGpusRequest(input, context),
     Action: "DescribeElasticGpus",
     Version: "2016-11-15"
   });
@@ -5856,12 +5512,8 @@ export const serializeAws_ec2DescribeExportImageTasksCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeExportImageTasksRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeExportImageTasksRequest(input, context),
     Action: "DescribeExportImageTasks",
     Version: "2016-11-15"
   });
@@ -5876,9 +5528,8 @@ export const serializeAws_ec2DescribeExportTasksCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeExportTasksRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeExportTasksRequest(input, context),
     Action: "DescribeExportTasks",
     Version: "2016-11-15"
   });
@@ -5893,12 +5544,8 @@ export const serializeAws_ec2DescribeFastSnapshotRestoresCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeFastSnapshotRestoresRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeFastSnapshotRestoresRequest(input, context),
     Action: "DescribeFastSnapshotRestores",
     Version: "2016-11-15"
   });
@@ -5913,9 +5560,8 @@ export const serializeAws_ec2DescribeFleetHistoryCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeFleetHistoryRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeFleetHistoryRequest(input, context),
     Action: "DescribeFleetHistory",
     Version: "2016-11-15"
   });
@@ -5930,9 +5576,8 @@ export const serializeAws_ec2DescribeFleetInstancesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeFleetInstancesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeFleetInstancesRequest(input, context),
     Action: "DescribeFleetInstances",
     Version: "2016-11-15"
   });
@@ -5947,9 +5592,8 @@ export const serializeAws_ec2DescribeFleetsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeFleetsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeFleetsRequest(input, context),
     Action: "DescribeFleets",
     Version: "2016-11-15"
   });
@@ -5964,9 +5608,8 @@ export const serializeAws_ec2DescribeFlowLogsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeFlowLogsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeFlowLogsRequest(input, context),
     Action: "DescribeFlowLogs",
     Version: "2016-11-15"
   });
@@ -5981,12 +5624,8 @@ export const serializeAws_ec2DescribeFpgaImageAttributeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeFpgaImageAttributeRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeFpgaImageAttributeRequest(input, context),
     Action: "DescribeFpgaImageAttribute",
     Version: "2016-11-15"
   });
@@ -6001,9 +5640,8 @@ export const serializeAws_ec2DescribeFpgaImagesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeFpgaImagesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeFpgaImagesRequest(input, context),
     Action: "DescribeFpgaImages",
     Version: "2016-11-15"
   });
@@ -6018,12 +5656,8 @@ export const serializeAws_ec2DescribeHostReservationOfferingsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeHostReservationOfferingsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeHostReservationOfferingsRequest(input, context),
     Action: "DescribeHostReservationOfferings",
     Version: "2016-11-15"
   });
@@ -6038,12 +5672,8 @@ export const serializeAws_ec2DescribeHostReservationsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeHostReservationsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeHostReservationsRequest(input, context),
     Action: "DescribeHostReservations",
     Version: "2016-11-15"
   });
@@ -6058,9 +5688,8 @@ export const serializeAws_ec2DescribeHostsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeHostsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeHostsRequest(input, context),
     Action: "DescribeHosts",
     Version: "2016-11-15"
   });
@@ -6075,12 +5704,11 @@ export const serializeAws_ec2DescribeIamInstanceProfileAssociationsCommand = asy
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeIamInstanceProfileAssociationsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeIamInstanceProfileAssociationsRequest(
+      input,
+      context
+    ),
     Action: "DescribeIamInstanceProfileAssociations",
     Version: "2016-11-15"
   });
@@ -6095,9 +5723,8 @@ export const serializeAws_ec2DescribeIdFormatCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeIdFormatRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeIdFormatRequest(input, context),
     Action: "DescribeIdFormat",
     Version: "2016-11-15"
   });
@@ -6112,12 +5739,8 @@ export const serializeAws_ec2DescribeIdentityIdFormatCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeIdentityIdFormatRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeIdentityIdFormatRequest(input, context),
     Action: "DescribeIdentityIdFormat",
     Version: "2016-11-15"
   });
@@ -6132,9 +5755,8 @@ export const serializeAws_ec2DescribeImageAttributeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeImageAttributeRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeImageAttributeRequest(input, context),
     Action: "DescribeImageAttribute",
     Version: "2016-11-15"
   });
@@ -6149,9 +5771,8 @@ export const serializeAws_ec2DescribeImagesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeImagesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeImagesRequest(input, context),
     Action: "DescribeImages",
     Version: "2016-11-15"
   });
@@ -6166,12 +5787,8 @@ export const serializeAws_ec2DescribeImportImageTasksCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeImportImageTasksRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeImportImageTasksRequest(input, context),
     Action: "DescribeImportImageTasks",
     Version: "2016-11-15"
   });
@@ -6186,12 +5803,8 @@ export const serializeAws_ec2DescribeImportSnapshotTasksCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeImportSnapshotTasksRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeImportSnapshotTasksRequest(input, context),
     Action: "DescribeImportSnapshotTasks",
     Version: "2016-11-15"
   });
@@ -6206,12 +5819,8 @@ export const serializeAws_ec2DescribeInstanceAttributeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeInstanceAttributeRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeInstanceAttributeRequest(input, context),
     Action: "DescribeInstanceAttribute",
     Version: "2016-11-15"
   });
@@ -6226,12 +5835,11 @@ export const serializeAws_ec2DescribeInstanceCreditSpecificationsCommand = async
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeInstanceCreditSpecificationsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeInstanceCreditSpecificationsRequest(
+      input,
+      context
+    ),
     Action: "DescribeInstanceCreditSpecifications",
     Version: "2016-11-15"
   });
@@ -6246,9 +5854,8 @@ export const serializeAws_ec2DescribeInstanceStatusCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeInstanceStatusRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeInstanceStatusRequest(input, context),
     Action: "DescribeInstanceStatus",
     Version: "2016-11-15"
   });
@@ -6263,12 +5870,8 @@ export const serializeAws_ec2DescribeInstanceTypeOfferingsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeInstanceTypeOfferingsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeInstanceTypeOfferingsRequest(input, context),
     Action: "DescribeInstanceTypeOfferings",
     Version: "2016-11-15"
   });
@@ -6283,9 +5886,8 @@ export const serializeAws_ec2DescribeInstanceTypesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeInstanceTypesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeInstanceTypesRequest(input, context),
     Action: "DescribeInstanceTypes",
     Version: "2016-11-15"
   });
@@ -6300,9 +5902,8 @@ export const serializeAws_ec2DescribeInstancesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeInstancesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeInstancesRequest(input, context),
     Action: "DescribeInstances",
     Version: "2016-11-15"
   });
@@ -6317,12 +5918,8 @@ export const serializeAws_ec2DescribeInternetGatewaysCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeInternetGatewaysRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeInternetGatewaysRequest(input, context),
     Action: "DescribeInternetGateways",
     Version: "2016-11-15"
   });
@@ -6337,9 +5934,8 @@ export const serializeAws_ec2DescribeIpv6PoolsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeIpv6PoolsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeIpv6PoolsRequest(input, context),
     Action: "DescribeIpv6Pools",
     Version: "2016-11-15"
   });
@@ -6354,9 +5950,8 @@ export const serializeAws_ec2DescribeKeyPairsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeKeyPairsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeKeyPairsRequest(input, context),
     Action: "DescribeKeyPairs",
     Version: "2016-11-15"
   });
@@ -6371,12 +5966,8 @@ export const serializeAws_ec2DescribeLaunchTemplateVersionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeLaunchTemplateVersionsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeLaunchTemplateVersionsRequest(input, context),
     Action: "DescribeLaunchTemplateVersions",
     Version: "2016-11-15"
   });
@@ -6391,12 +5982,8 @@ export const serializeAws_ec2DescribeLaunchTemplatesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeLaunchTemplatesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeLaunchTemplatesRequest(input, context),
     Action: "DescribeLaunchTemplates",
     Version: "2016-11-15"
   });
@@ -6411,12 +5998,11 @@ export const serializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroup
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsRequest(
+      input,
+      context
+    ),
     Action: "DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations",
     Version: "2016-11-15"
   });
@@ -6431,12 +6017,11 @@ export const serializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsComman
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeLocalGatewayRouteTableVpcAssociationsRequest(
+      input,
+      context
+    ),
     Action: "DescribeLocalGatewayRouteTableVpcAssociations",
     Version: "2016-11-15"
   });
@@ -6451,12 +6036,8 @@ export const serializeAws_ec2DescribeLocalGatewayRouteTablesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeLocalGatewayRouteTablesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeLocalGatewayRouteTablesRequest(input, context),
     Action: "DescribeLocalGatewayRouteTables",
     Version: "2016-11-15"
   });
@@ -6471,12 +6052,11 @@ export const serializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsCommand =
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeLocalGatewayVirtualInterfaceGroupsRequest(
+      input,
+      context
+    ),
     Action: "DescribeLocalGatewayVirtualInterfaceGroups",
     Version: "2016-11-15"
   });
@@ -6491,12 +6071,11 @@ export const serializeAws_ec2DescribeLocalGatewayVirtualInterfacesCommand = asyn
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeLocalGatewayVirtualInterfacesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeLocalGatewayVirtualInterfacesRequest(
+      input,
+      context
+    ),
     Action: "DescribeLocalGatewayVirtualInterfaces",
     Version: "2016-11-15"
   });
@@ -6511,9 +6090,8 @@ export const serializeAws_ec2DescribeLocalGatewaysCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeLocalGatewaysRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeLocalGatewaysRequest(input, context),
     Action: "DescribeLocalGateways",
     Version: "2016-11-15"
   });
@@ -6528,12 +6106,8 @@ export const serializeAws_ec2DescribeMovingAddressesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeMovingAddressesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeMovingAddressesRequest(input, context),
     Action: "DescribeMovingAddresses",
     Version: "2016-11-15"
   });
@@ -6548,9 +6122,8 @@ export const serializeAws_ec2DescribeNatGatewaysCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeNatGatewaysRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeNatGatewaysRequest(input, context),
     Action: "DescribeNatGateways",
     Version: "2016-11-15"
   });
@@ -6565,9 +6138,8 @@ export const serializeAws_ec2DescribeNetworkAclsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeNetworkAclsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeNetworkAclsRequest(input, context),
     Action: "DescribeNetworkAcls",
     Version: "2016-11-15"
   });
@@ -6582,12 +6154,8 @@ export const serializeAws_ec2DescribeNetworkInterfaceAttributeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeNetworkInterfaceAttributeRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeNetworkInterfaceAttributeRequest(input, context),
     Action: "DescribeNetworkInterfaceAttribute",
     Version: "2016-11-15"
   });
@@ -6602,12 +6170,11 @@ export const serializeAws_ec2DescribeNetworkInterfacePermissionsCommand = async 
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeNetworkInterfacePermissionsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeNetworkInterfacePermissionsRequest(
+      input,
+      context
+    ),
     Action: "DescribeNetworkInterfacePermissions",
     Version: "2016-11-15"
   });
@@ -6622,12 +6189,8 @@ export const serializeAws_ec2DescribeNetworkInterfacesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeNetworkInterfacesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeNetworkInterfacesRequest(input, context),
     Action: "DescribeNetworkInterfaces",
     Version: "2016-11-15"
   });
@@ -6642,12 +6205,8 @@ export const serializeAws_ec2DescribePlacementGroupsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribePlacementGroupsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribePlacementGroupsRequest(input, context),
     Action: "DescribePlacementGroups",
     Version: "2016-11-15"
   });
@@ -6662,9 +6221,8 @@ export const serializeAws_ec2DescribePrefixListsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribePrefixListsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribePrefixListsRequest(input, context),
     Action: "DescribePrefixLists",
     Version: "2016-11-15"
   });
@@ -6679,12 +6237,8 @@ export const serializeAws_ec2DescribePrincipalIdFormatCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribePrincipalIdFormatRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribePrincipalIdFormatRequest(input, context),
     Action: "DescribePrincipalIdFormat",
     Version: "2016-11-15"
   });
@@ -6699,12 +6253,8 @@ export const serializeAws_ec2DescribePublicIpv4PoolsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribePublicIpv4PoolsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribePublicIpv4PoolsRequest(input, context),
     Action: "DescribePublicIpv4Pools",
     Version: "2016-11-15"
   });
@@ -6719,9 +6269,8 @@ export const serializeAws_ec2DescribeRegionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeRegionsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeRegionsRequest(input, context),
     Action: "DescribeRegions",
     Version: "2016-11-15"
   });
@@ -6736,12 +6285,8 @@ export const serializeAws_ec2DescribeReservedInstancesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeReservedInstancesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeReservedInstancesRequest(input, context),
     Action: "DescribeReservedInstances",
     Version: "2016-11-15"
   });
@@ -6756,12 +6301,8 @@ export const serializeAws_ec2DescribeReservedInstancesListingsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeReservedInstancesListingsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeReservedInstancesListingsRequest(input, context),
     Action: "DescribeReservedInstancesListings",
     Version: "2016-11-15"
   });
@@ -6776,12 +6317,11 @@ export const serializeAws_ec2DescribeReservedInstancesModificationsCommand = asy
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeReservedInstancesModificationsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeReservedInstancesModificationsRequest(
+      input,
+      context
+    ),
     Action: "DescribeReservedInstancesModifications",
     Version: "2016-11-15"
   });
@@ -6796,12 +6336,11 @@ export const serializeAws_ec2DescribeReservedInstancesOfferingsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeReservedInstancesOfferingsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeReservedInstancesOfferingsRequest(
+      input,
+      context
+    ),
     Action: "DescribeReservedInstancesOfferings",
     Version: "2016-11-15"
   });
@@ -6816,9 +6355,8 @@ export const serializeAws_ec2DescribeRouteTablesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeRouteTablesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeRouteTablesRequest(input, context),
     Action: "DescribeRouteTables",
     Version: "2016-11-15"
   });
@@ -6833,12 +6371,11 @@ export const serializeAws_ec2DescribeScheduledInstanceAvailabilityCommand = asyn
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeScheduledInstanceAvailabilityRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeScheduledInstanceAvailabilityRequest(
+      input,
+      context
+    ),
     Action: "DescribeScheduledInstanceAvailability",
     Version: "2016-11-15"
   });
@@ -6853,12 +6390,8 @@ export const serializeAws_ec2DescribeScheduledInstancesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeScheduledInstancesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeScheduledInstancesRequest(input, context),
     Action: "DescribeScheduledInstances",
     Version: "2016-11-15"
   });
@@ -6873,12 +6406,8 @@ export const serializeAws_ec2DescribeSecurityGroupReferencesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeSecurityGroupReferencesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeSecurityGroupReferencesRequest(input, context),
     Action: "DescribeSecurityGroupReferences",
     Version: "2016-11-15"
   });
@@ -6893,9 +6422,8 @@ export const serializeAws_ec2DescribeSecurityGroupsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeSecurityGroupsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeSecurityGroupsRequest(input, context),
     Action: "DescribeSecurityGroups",
     Version: "2016-11-15"
   });
@@ -6910,12 +6438,8 @@ export const serializeAws_ec2DescribeSnapshotAttributeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeSnapshotAttributeRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeSnapshotAttributeRequest(input, context),
     Action: "DescribeSnapshotAttribute",
     Version: "2016-11-15"
   });
@@ -6930,9 +6454,8 @@ export const serializeAws_ec2DescribeSnapshotsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeSnapshotsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeSnapshotsRequest(input, context),
     Action: "DescribeSnapshots",
     Version: "2016-11-15"
   });
@@ -6947,12 +6470,8 @@ export const serializeAws_ec2DescribeSpotDatafeedSubscriptionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeSpotDatafeedSubscriptionRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeSpotDatafeedSubscriptionRequest(input, context),
     Action: "DescribeSpotDatafeedSubscription",
     Version: "2016-11-15"
   });
@@ -6967,12 +6486,8 @@ export const serializeAws_ec2DescribeSpotFleetInstancesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeSpotFleetInstancesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeSpotFleetInstancesRequest(input, context),
     Action: "DescribeSpotFleetInstances",
     Version: "2016-11-15"
   });
@@ -6987,12 +6502,8 @@ export const serializeAws_ec2DescribeSpotFleetRequestHistoryCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeSpotFleetRequestHistoryRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeSpotFleetRequestHistoryRequest(input, context),
     Action: "DescribeSpotFleetRequestHistory",
     Version: "2016-11-15"
   });
@@ -7007,12 +6518,8 @@ export const serializeAws_ec2DescribeSpotFleetRequestsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeSpotFleetRequestsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeSpotFleetRequestsRequest(input, context),
     Action: "DescribeSpotFleetRequests",
     Version: "2016-11-15"
   });
@@ -7027,12 +6534,8 @@ export const serializeAws_ec2DescribeSpotInstanceRequestsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeSpotInstanceRequestsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeSpotInstanceRequestsRequest(input, context),
     Action: "DescribeSpotInstanceRequests",
     Version: "2016-11-15"
   });
@@ -7047,12 +6550,8 @@ export const serializeAws_ec2DescribeSpotPriceHistoryCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeSpotPriceHistoryRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeSpotPriceHistoryRequest(input, context),
     Action: "DescribeSpotPriceHistory",
     Version: "2016-11-15"
   });
@@ -7067,12 +6566,8 @@ export const serializeAws_ec2DescribeStaleSecurityGroupsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeStaleSecurityGroupsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeStaleSecurityGroupsRequest(input, context),
     Action: "DescribeStaleSecurityGroups",
     Version: "2016-11-15"
   });
@@ -7087,9 +6582,8 @@ export const serializeAws_ec2DescribeSubnetsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeSubnetsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeSubnetsRequest(input, context),
     Action: "DescribeSubnets",
     Version: "2016-11-15"
   });
@@ -7104,9 +6598,8 @@ export const serializeAws_ec2DescribeTagsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeTagsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeTagsRequest(input, context),
     Action: "DescribeTags",
     Version: "2016-11-15"
   });
@@ -7121,12 +6614,8 @@ export const serializeAws_ec2DescribeTrafficMirrorFiltersCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeTrafficMirrorFiltersRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeTrafficMirrorFiltersRequest(input, context),
     Action: "DescribeTrafficMirrorFilters",
     Version: "2016-11-15"
   });
@@ -7141,12 +6630,8 @@ export const serializeAws_ec2DescribeTrafficMirrorSessionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeTrafficMirrorSessionsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeTrafficMirrorSessionsRequest(input, context),
     Action: "DescribeTrafficMirrorSessions",
     Version: "2016-11-15"
   });
@@ -7161,12 +6646,8 @@ export const serializeAws_ec2DescribeTrafficMirrorTargetsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeTrafficMirrorTargetsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeTrafficMirrorTargetsRequest(input, context),
     Action: "DescribeTrafficMirrorTargets",
     Version: "2016-11-15"
   });
@@ -7181,12 +6662,8 @@ export const serializeAws_ec2DescribeTransitGatewayAttachmentsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeTransitGatewayAttachmentsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeTransitGatewayAttachmentsRequest(input, context),
     Action: "DescribeTransitGatewayAttachments",
     Version: "2016-11-15"
   });
@@ -7201,12 +6678,11 @@ export const serializeAws_ec2DescribeTransitGatewayMulticastDomainsCommand = asy
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeTransitGatewayMulticastDomainsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeTransitGatewayMulticastDomainsRequest(
+      input,
+      context
+    ),
     Action: "DescribeTransitGatewayMulticastDomains",
     Version: "2016-11-15"
   });
@@ -7221,12 +6697,11 @@ export const serializeAws_ec2DescribeTransitGatewayPeeringAttachmentsCommand = a
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeTransitGatewayPeeringAttachmentsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeTransitGatewayPeeringAttachmentsRequest(
+      input,
+      context
+    ),
     Action: "DescribeTransitGatewayPeeringAttachments",
     Version: "2016-11-15"
   });
@@ -7241,12 +6716,8 @@ export const serializeAws_ec2DescribeTransitGatewayRouteTablesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeTransitGatewayRouteTablesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeTransitGatewayRouteTablesRequest(input, context),
     Action: "DescribeTransitGatewayRouteTables",
     Version: "2016-11-15"
   });
@@ -7261,12 +6732,11 @@ export const serializeAws_ec2DescribeTransitGatewayVpcAttachmentsCommand = async
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeTransitGatewayVpcAttachmentsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeTransitGatewayVpcAttachmentsRequest(
+      input,
+      context
+    ),
     Action: "DescribeTransitGatewayVpcAttachments",
     Version: "2016-11-15"
   });
@@ -7281,12 +6751,8 @@ export const serializeAws_ec2DescribeTransitGatewaysCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeTransitGatewaysRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeTransitGatewaysRequest(input, context),
     Action: "DescribeTransitGateways",
     Version: "2016-11-15"
   });
@@ -7301,12 +6767,8 @@ export const serializeAws_ec2DescribeVolumeAttributeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeVolumeAttributeRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeVolumeAttributeRequest(input, context),
     Action: "DescribeVolumeAttribute",
     Version: "2016-11-15"
   });
@@ -7321,9 +6783,8 @@ export const serializeAws_ec2DescribeVolumeStatusCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeVolumeStatusRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeVolumeStatusRequest(input, context),
     Action: "DescribeVolumeStatus",
     Version: "2016-11-15"
   });
@@ -7338,9 +6799,8 @@ export const serializeAws_ec2DescribeVolumesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeVolumesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeVolumesRequest(input, context),
     Action: "DescribeVolumes",
     Version: "2016-11-15"
   });
@@ -7355,12 +6815,8 @@ export const serializeAws_ec2DescribeVolumesModificationsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeVolumesModificationsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeVolumesModificationsRequest(input, context),
     Action: "DescribeVolumesModifications",
     Version: "2016-11-15"
   });
@@ -7375,9 +6831,8 @@ export const serializeAws_ec2DescribeVpcAttributeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeVpcAttributeRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeVpcAttributeRequest(input, context),
     Action: "DescribeVpcAttribute",
     Version: "2016-11-15"
   });
@@ -7392,9 +6847,8 @@ export const serializeAws_ec2DescribeVpcClassicLinkCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeVpcClassicLinkRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeVpcClassicLinkRequest(input, context),
     Action: "DescribeVpcClassicLink",
     Version: "2016-11-15"
   });
@@ -7409,12 +6863,8 @@ export const serializeAws_ec2DescribeVpcClassicLinkDnsSupportCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeVpcClassicLinkDnsSupportRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeVpcClassicLinkDnsSupportRequest(input, context),
     Action: "DescribeVpcClassicLinkDnsSupport",
     Version: "2016-11-15"
   });
@@ -7429,12 +6879,11 @@ export const serializeAws_ec2DescribeVpcEndpointConnectionNotificationsCommand =
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeVpcEndpointConnectionNotificationsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeVpcEndpointConnectionNotificationsRequest(
+      input,
+      context
+    ),
     Action: "DescribeVpcEndpointConnectionNotifications",
     Version: "2016-11-15"
   });
@@ -7449,12 +6898,8 @@ export const serializeAws_ec2DescribeVpcEndpointConnectionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeVpcEndpointConnectionsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeVpcEndpointConnectionsRequest(input, context),
     Action: "DescribeVpcEndpointConnections",
     Version: "2016-11-15"
   });
@@ -7469,12 +6914,11 @@ export const serializeAws_ec2DescribeVpcEndpointServiceConfigurationsCommand = a
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeVpcEndpointServiceConfigurationsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeVpcEndpointServiceConfigurationsRequest(
+      input,
+      context
+    ),
     Action: "DescribeVpcEndpointServiceConfigurations",
     Version: "2016-11-15"
   });
@@ -7489,12 +6933,11 @@ export const serializeAws_ec2DescribeVpcEndpointServicePermissionsCommand = asyn
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeVpcEndpointServicePermissionsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeVpcEndpointServicePermissionsRequest(
+      input,
+      context
+    ),
     Action: "DescribeVpcEndpointServicePermissions",
     Version: "2016-11-15"
   });
@@ -7509,12 +6952,8 @@ export const serializeAws_ec2DescribeVpcEndpointServicesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeVpcEndpointServicesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeVpcEndpointServicesRequest(input, context),
     Action: "DescribeVpcEndpointServices",
     Version: "2016-11-15"
   });
@@ -7529,9 +6968,8 @@ export const serializeAws_ec2DescribeVpcEndpointsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeVpcEndpointsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeVpcEndpointsRequest(input, context),
     Action: "DescribeVpcEndpoints",
     Version: "2016-11-15"
   });
@@ -7546,12 +6984,8 @@ export const serializeAws_ec2DescribeVpcPeeringConnectionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeVpcPeeringConnectionsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeVpcPeeringConnectionsRequest(input, context),
     Action: "DescribeVpcPeeringConnections",
     Version: "2016-11-15"
   });
@@ -7566,9 +7000,8 @@ export const serializeAws_ec2DescribeVpcsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeVpcsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeVpcsRequest(input, context),
     Action: "DescribeVpcs",
     Version: "2016-11-15"
   });
@@ -7583,9 +7016,8 @@ export const serializeAws_ec2DescribeVpnConnectionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeVpnConnectionsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeVpnConnectionsRequest(input, context),
     Action: "DescribeVpnConnections",
     Version: "2016-11-15"
   });
@@ -7600,9 +7032,8 @@ export const serializeAws_ec2DescribeVpnGatewaysCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DescribeVpnGatewaysRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DescribeVpnGatewaysRequest(input, context),
     Action: "DescribeVpnGateways",
     Version: "2016-11-15"
   });
@@ -7617,9 +7048,8 @@ export const serializeAws_ec2DetachClassicLinkVpcCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DetachClassicLinkVpcRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DetachClassicLinkVpcRequest(input, context),
     Action: "DetachClassicLinkVpc",
     Version: "2016-11-15"
   });
@@ -7634,9 +7064,8 @@ export const serializeAws_ec2DetachInternetGatewayCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DetachInternetGatewayRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DetachInternetGatewayRequest(input, context),
     Action: "DetachInternetGateway",
     Version: "2016-11-15"
   });
@@ -7651,9 +7080,8 @@ export const serializeAws_ec2DetachNetworkInterfaceCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DetachNetworkInterfaceRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DetachNetworkInterfaceRequest(input, context),
     Action: "DetachNetworkInterface",
     Version: "2016-11-15"
   });
@@ -7668,9 +7096,8 @@ export const serializeAws_ec2DetachVolumeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DetachVolumeRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DetachVolumeRequest(input, context),
     Action: "DetachVolume",
     Version: "2016-11-15"
   });
@@ -7685,9 +7112,8 @@ export const serializeAws_ec2DetachVpnGatewayCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DetachVpnGatewayRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DetachVpnGatewayRequest(input, context),
     Action: "DetachVpnGateway",
     Version: "2016-11-15"
   });
@@ -7702,12 +7128,8 @@ export const serializeAws_ec2DisableEbsEncryptionByDefaultCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DisableEbsEncryptionByDefaultRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DisableEbsEncryptionByDefaultRequest(input, context),
     Action: "DisableEbsEncryptionByDefault",
     Version: "2016-11-15"
   });
@@ -7722,12 +7144,8 @@ export const serializeAws_ec2DisableFastSnapshotRestoresCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DisableFastSnapshotRestoresRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DisableFastSnapshotRestoresRequest(input, context),
     Action: "DisableFastSnapshotRestores",
     Version: "2016-11-15"
   });
@@ -7742,12 +7160,11 @@ export const serializeAws_ec2DisableTransitGatewayRouteTablePropagationCommand =
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DisableTransitGatewayRouteTablePropagationRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DisableTransitGatewayRouteTablePropagationRequest(
+      input,
+      context
+    ),
     Action: "DisableTransitGatewayRouteTablePropagation",
     Version: "2016-11-15"
   });
@@ -7762,12 +7179,8 @@ export const serializeAws_ec2DisableVgwRoutePropagationCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DisableVgwRoutePropagationRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DisableVgwRoutePropagationRequest(input, context),
     Action: "DisableVgwRoutePropagation",
     Version: "2016-11-15"
   });
@@ -7782,9 +7195,8 @@ export const serializeAws_ec2DisableVpcClassicLinkCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DisableVpcClassicLinkRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DisableVpcClassicLinkRequest(input, context),
     Action: "DisableVpcClassicLink",
     Version: "2016-11-15"
   });
@@ -7799,12 +7211,8 @@ export const serializeAws_ec2DisableVpcClassicLinkDnsSupportCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DisableVpcClassicLinkDnsSupportRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DisableVpcClassicLinkDnsSupportRequest(input, context),
     Action: "DisableVpcClassicLinkDnsSupport",
     Version: "2016-11-15"
   });
@@ -7819,9 +7227,8 @@ export const serializeAws_ec2DisassociateAddressCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DisassociateAddressRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DisassociateAddressRequest(input, context),
     Action: "DisassociateAddress",
     Version: "2016-11-15"
   });
@@ -7836,12 +7243,11 @@ export const serializeAws_ec2DisassociateClientVpnTargetNetworkCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DisassociateClientVpnTargetNetworkRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DisassociateClientVpnTargetNetworkRequest(
+      input,
+      context
+    ),
     Action: "DisassociateClientVpnTargetNetwork",
     Version: "2016-11-15"
   });
@@ -7856,12 +7262,8 @@ export const serializeAws_ec2DisassociateIamInstanceProfileCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DisassociateIamInstanceProfileRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DisassociateIamInstanceProfileRequest(input, context),
     Action: "DisassociateIamInstanceProfile",
     Version: "2016-11-15"
   });
@@ -7876,9 +7278,8 @@ export const serializeAws_ec2DisassociateRouteTableCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DisassociateRouteTableRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DisassociateRouteTableRequest(input, context),
     Action: "DisassociateRouteTable",
     Version: "2016-11-15"
   });
@@ -7893,12 +7294,8 @@ export const serializeAws_ec2DisassociateSubnetCidrBlockCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DisassociateSubnetCidrBlockRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DisassociateSubnetCidrBlockRequest(input, context),
     Action: "DisassociateSubnetCidrBlock",
     Version: "2016-11-15"
   });
@@ -7913,12 +7310,11 @@ export const serializeAws_ec2DisassociateTransitGatewayMulticastDomainCommand = 
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DisassociateTransitGatewayMulticastDomainRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DisassociateTransitGatewayMulticastDomainRequest(
+      input,
+      context
+    ),
     Action: "DisassociateTransitGatewayMulticastDomain",
     Version: "2016-11-15"
   });
@@ -7933,12 +7329,11 @@ export const serializeAws_ec2DisassociateTransitGatewayRouteTableCommand = async
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DisassociateTransitGatewayRouteTableRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DisassociateTransitGatewayRouteTableRequest(
+      input,
+      context
+    ),
     Action: "DisassociateTransitGatewayRouteTable",
     Version: "2016-11-15"
   });
@@ -7953,12 +7348,8 @@ export const serializeAws_ec2DisassociateVpcCidrBlockCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2DisassociateVpcCidrBlockRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2DisassociateVpcCidrBlockRequest(input, context),
     Action: "DisassociateVpcCidrBlock",
     Version: "2016-11-15"
   });
@@ -7973,12 +7364,8 @@ export const serializeAws_ec2EnableEbsEncryptionByDefaultCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2EnableEbsEncryptionByDefaultRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2EnableEbsEncryptionByDefaultRequest(input, context),
     Action: "EnableEbsEncryptionByDefault",
     Version: "2016-11-15"
   });
@@ -7993,12 +7380,8 @@ export const serializeAws_ec2EnableFastSnapshotRestoresCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2EnableFastSnapshotRestoresRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2EnableFastSnapshotRestoresRequest(input, context),
     Action: "EnableFastSnapshotRestores",
     Version: "2016-11-15"
   });
@@ -8013,12 +7396,11 @@ export const serializeAws_ec2EnableTransitGatewayRouteTablePropagationCommand = 
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2EnableTransitGatewayRouteTablePropagationRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2EnableTransitGatewayRouteTablePropagationRequest(
+      input,
+      context
+    ),
     Action: "EnableTransitGatewayRouteTablePropagation",
     Version: "2016-11-15"
   });
@@ -8033,12 +7415,8 @@ export const serializeAws_ec2EnableVgwRoutePropagationCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2EnableVgwRoutePropagationRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2EnableVgwRoutePropagationRequest(input, context),
     Action: "EnableVgwRoutePropagation",
     Version: "2016-11-15"
   });
@@ -8053,9 +7431,8 @@ export const serializeAws_ec2EnableVolumeIOCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2EnableVolumeIORequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2EnableVolumeIORequest(input, context),
     Action: "EnableVolumeIO",
     Version: "2016-11-15"
   });
@@ -8070,9 +7447,8 @@ export const serializeAws_ec2EnableVpcClassicLinkCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2EnableVpcClassicLinkRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2EnableVpcClassicLinkRequest(input, context),
     Action: "EnableVpcClassicLink",
     Version: "2016-11-15"
   });
@@ -8087,12 +7463,8 @@ export const serializeAws_ec2EnableVpcClassicLinkDnsSupportCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2EnableVpcClassicLinkDnsSupportRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2EnableVpcClassicLinkDnsSupportRequest(input, context),
     Action: "EnableVpcClassicLinkDnsSupport",
     Version: "2016-11-15"
   });
@@ -8107,12 +7479,11 @@ export const serializeAws_ec2ExportClientVpnClientCertificateRevocationListComma
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ExportClientVpnClientCertificateRevocationListRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ExportClientVpnClientCertificateRevocationListRequest(
+      input,
+      context
+    ),
     Action: "ExportClientVpnClientCertificateRevocationList",
     Version: "2016-11-15"
   });
@@ -8127,12 +7498,11 @@ export const serializeAws_ec2ExportClientVpnClientConfigurationCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ExportClientVpnClientConfigurationRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ExportClientVpnClientConfigurationRequest(
+      input,
+      context
+    ),
     Action: "ExportClientVpnClientConfiguration",
     Version: "2016-11-15"
   });
@@ -8147,9 +7517,8 @@ export const serializeAws_ec2ExportImageCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ExportImageRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ExportImageRequest(input, context),
     Action: "ExportImage",
     Version: "2016-11-15"
   });
@@ -8164,12 +7533,8 @@ export const serializeAws_ec2ExportTransitGatewayRoutesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ExportTransitGatewayRoutesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ExportTransitGatewayRoutesRequest(input, context),
     Action: "ExportTransitGatewayRoutes",
     Version: "2016-11-15"
   });
@@ -8184,12 +7549,8 @@ export const serializeAws_ec2GetAssociatedIpv6PoolCidrsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2GetAssociatedIpv6PoolCidrsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2GetAssociatedIpv6PoolCidrsRequest(input, context),
     Action: "GetAssociatedIpv6PoolCidrs",
     Version: "2016-11-15"
   });
@@ -8204,12 +7565,8 @@ export const serializeAws_ec2GetCapacityReservationUsageCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2GetCapacityReservationUsageRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2GetCapacityReservationUsageRequest(input, context),
     Action: "GetCapacityReservationUsage",
     Version: "2016-11-15"
   });
@@ -8224,9 +7581,8 @@ export const serializeAws_ec2GetCoipPoolUsageCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2GetCoipPoolUsageRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2GetCoipPoolUsageRequest(input, context),
     Action: "GetCoipPoolUsage",
     Version: "2016-11-15"
   });
@@ -8241,9 +7597,8 @@ export const serializeAws_ec2GetConsoleOutputCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2GetConsoleOutputRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2GetConsoleOutputRequest(input, context),
     Action: "GetConsoleOutput",
     Version: "2016-11-15"
   });
@@ -8258,9 +7613,8 @@ export const serializeAws_ec2GetConsoleScreenshotCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2GetConsoleScreenshotRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2GetConsoleScreenshotRequest(input, context),
     Action: "GetConsoleScreenshot",
     Version: "2016-11-15"
   });
@@ -8275,12 +7629,8 @@ export const serializeAws_ec2GetDefaultCreditSpecificationCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2GetDefaultCreditSpecificationRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2GetDefaultCreditSpecificationRequest(input, context),
     Action: "GetDefaultCreditSpecification",
     Version: "2016-11-15"
   });
@@ -8295,9 +7645,8 @@ export const serializeAws_ec2GetEbsDefaultKmsKeyIdCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2GetEbsDefaultKmsKeyIdRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2GetEbsDefaultKmsKeyIdRequest(input, context),
     Action: "GetEbsDefaultKmsKeyId",
     Version: "2016-11-15"
   });
@@ -8312,12 +7661,8 @@ export const serializeAws_ec2GetEbsEncryptionByDefaultCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2GetEbsEncryptionByDefaultRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2GetEbsEncryptionByDefaultRequest(input, context),
     Action: "GetEbsEncryptionByDefault",
     Version: "2016-11-15"
   });
@@ -8332,12 +7677,8 @@ export const serializeAws_ec2GetHostReservationPurchasePreviewCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2GetHostReservationPurchasePreviewRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2GetHostReservationPurchasePreviewRequest(input, context),
     Action: "GetHostReservationPurchasePreview",
     Version: "2016-11-15"
   });
@@ -8352,9 +7693,8 @@ export const serializeAws_ec2GetLaunchTemplateDataCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2GetLaunchTemplateDataRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2GetLaunchTemplateDataRequest(input, context),
     Action: "GetLaunchTemplateData",
     Version: "2016-11-15"
   });
@@ -8369,9 +7709,8 @@ export const serializeAws_ec2GetPasswordDataCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2GetPasswordDataRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2GetPasswordDataRequest(input, context),
     Action: "GetPasswordData",
     Version: "2016-11-15"
   });
@@ -8386,12 +7725,8 @@ export const serializeAws_ec2GetReservedInstancesExchangeQuoteCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2GetReservedInstancesExchangeQuoteRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2GetReservedInstancesExchangeQuoteRequest(input, context),
     Action: "GetReservedInstancesExchangeQuote",
     Version: "2016-11-15"
   });
@@ -8406,12 +7741,11 @@ export const serializeAws_ec2GetTransitGatewayAttachmentPropagationsCommand = as
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2GetTransitGatewayAttachmentPropagationsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2GetTransitGatewayAttachmentPropagationsRequest(
+      input,
+      context
+    ),
     Action: "GetTransitGatewayAttachmentPropagations",
     Version: "2016-11-15"
   });
@@ -8426,12 +7760,11 @@ export const serializeAws_ec2GetTransitGatewayMulticastDomainAssociationsCommand
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2GetTransitGatewayMulticastDomainAssociationsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2GetTransitGatewayMulticastDomainAssociationsRequest(
+      input,
+      context
+    ),
     Action: "GetTransitGatewayMulticastDomainAssociations",
     Version: "2016-11-15"
   });
@@ -8446,12 +7779,11 @@ export const serializeAws_ec2GetTransitGatewayRouteTableAssociationsCommand = as
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2GetTransitGatewayRouteTableAssociationsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2GetTransitGatewayRouteTableAssociationsRequest(
+      input,
+      context
+    ),
     Action: "GetTransitGatewayRouteTableAssociations",
     Version: "2016-11-15"
   });
@@ -8466,12 +7798,11 @@ export const serializeAws_ec2GetTransitGatewayRouteTablePropagationsCommand = as
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2GetTransitGatewayRouteTablePropagationsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2GetTransitGatewayRouteTablePropagationsRequest(
+      input,
+      context
+    ),
     Action: "GetTransitGatewayRouteTablePropagations",
     Version: "2016-11-15"
   });
@@ -8486,12 +7817,11 @@ export const serializeAws_ec2ImportClientVpnClientCertificateRevocationListComma
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ImportClientVpnClientCertificateRevocationListRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ImportClientVpnClientCertificateRevocationListRequest(
+      input,
+      context
+    ),
     Action: "ImportClientVpnClientCertificateRevocationList",
     Version: "2016-11-15"
   });
@@ -8506,9 +7836,8 @@ export const serializeAws_ec2ImportImageCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ImportImageRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ImportImageRequest(input, context),
     Action: "ImportImage",
     Version: "2016-11-15"
   });
@@ -8523,9 +7852,8 @@ export const serializeAws_ec2ImportInstanceCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ImportInstanceRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ImportInstanceRequest(input, context),
     Action: "ImportInstance",
     Version: "2016-11-15"
   });
@@ -8540,9 +7868,8 @@ export const serializeAws_ec2ImportKeyPairCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ImportKeyPairRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ImportKeyPairRequest(input, context),
     Action: "ImportKeyPair",
     Version: "2016-11-15"
   });
@@ -8557,9 +7884,8 @@ export const serializeAws_ec2ImportSnapshotCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ImportSnapshotRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ImportSnapshotRequest(input, context),
     Action: "ImportSnapshot",
     Version: "2016-11-15"
   });
@@ -8574,9 +7900,8 @@ export const serializeAws_ec2ImportVolumeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ImportVolumeRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ImportVolumeRequest(input, context),
     Action: "ImportVolume",
     Version: "2016-11-15"
   });
@@ -8591,12 +7916,8 @@ export const serializeAws_ec2ModifyCapacityReservationCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyCapacityReservationRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyCapacityReservationRequest(input, context),
     Action: "ModifyCapacityReservation",
     Version: "2016-11-15"
   });
@@ -8611,12 +7932,8 @@ export const serializeAws_ec2ModifyClientVpnEndpointCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyClientVpnEndpointRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyClientVpnEndpointRequest(input, context),
     Action: "ModifyClientVpnEndpoint",
     Version: "2016-11-15"
   });
@@ -8631,12 +7948,8 @@ export const serializeAws_ec2ModifyDefaultCreditSpecificationCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyDefaultCreditSpecificationRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyDefaultCreditSpecificationRequest(input, context),
     Action: "ModifyDefaultCreditSpecification",
     Version: "2016-11-15"
   });
@@ -8651,12 +7964,8 @@ export const serializeAws_ec2ModifyEbsDefaultKmsKeyIdCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyEbsDefaultKmsKeyIdRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyEbsDefaultKmsKeyIdRequest(input, context),
     Action: "ModifyEbsDefaultKmsKeyId",
     Version: "2016-11-15"
   });
@@ -8671,9 +7980,8 @@ export const serializeAws_ec2ModifyFleetCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyFleetRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyFleetRequest(input, context),
     Action: "ModifyFleet",
     Version: "2016-11-15"
   });
@@ -8688,12 +7996,8 @@ export const serializeAws_ec2ModifyFpgaImageAttributeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyFpgaImageAttributeRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyFpgaImageAttributeRequest(input, context),
     Action: "ModifyFpgaImageAttribute",
     Version: "2016-11-15"
   });
@@ -8708,9 +8012,8 @@ export const serializeAws_ec2ModifyHostsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyHostsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyHostsRequest(input, context),
     Action: "ModifyHosts",
     Version: "2016-11-15"
   });
@@ -8725,9 +8028,8 @@ export const serializeAws_ec2ModifyIdFormatCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyIdFormatRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyIdFormatRequest(input, context),
     Action: "ModifyIdFormat",
     Version: "2016-11-15"
   });
@@ -8742,9 +8044,8 @@ export const serializeAws_ec2ModifyIdentityIdFormatCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyIdentityIdFormatRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyIdentityIdFormatRequest(input, context),
     Action: "ModifyIdentityIdFormat",
     Version: "2016-11-15"
   });
@@ -8759,9 +8060,8 @@ export const serializeAws_ec2ModifyImageAttributeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyImageAttributeRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyImageAttributeRequest(input, context),
     Action: "ModifyImageAttribute",
     Version: "2016-11-15"
   });
@@ -8776,12 +8076,8 @@ export const serializeAws_ec2ModifyInstanceAttributeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyInstanceAttributeRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyInstanceAttributeRequest(input, context),
     Action: "ModifyInstanceAttribute",
     Version: "2016-11-15"
   });
@@ -8796,12 +8092,11 @@ export const serializeAws_ec2ModifyInstanceCapacityReservationAttributesCommand 
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyInstanceCapacityReservationAttributesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyInstanceCapacityReservationAttributesRequest(
+      input,
+      context
+    ),
     Action: "ModifyInstanceCapacityReservationAttributes",
     Version: "2016-11-15"
   });
@@ -8816,12 +8111,8 @@ export const serializeAws_ec2ModifyInstanceCreditSpecificationCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyInstanceCreditSpecificationRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyInstanceCreditSpecificationRequest(input, context),
     Action: "ModifyInstanceCreditSpecification",
     Version: "2016-11-15"
   });
@@ -8836,12 +8127,8 @@ export const serializeAws_ec2ModifyInstanceEventStartTimeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyInstanceEventStartTimeRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyInstanceEventStartTimeRequest(input, context),
     Action: "ModifyInstanceEventStartTime",
     Version: "2016-11-15"
   });
@@ -8856,12 +8143,8 @@ export const serializeAws_ec2ModifyInstanceMetadataOptionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyInstanceMetadataOptionsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyInstanceMetadataOptionsRequest(input, context),
     Action: "ModifyInstanceMetadataOptions",
     Version: "2016-11-15"
   });
@@ -8876,12 +8159,8 @@ export const serializeAws_ec2ModifyInstancePlacementCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyInstancePlacementRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyInstancePlacementRequest(input, context),
     Action: "ModifyInstancePlacement",
     Version: "2016-11-15"
   });
@@ -8896,9 +8175,8 @@ export const serializeAws_ec2ModifyLaunchTemplateCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyLaunchTemplateRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyLaunchTemplateRequest(input, context),
     Action: "ModifyLaunchTemplate",
     Version: "2016-11-15"
   });
@@ -8913,12 +8191,8 @@ export const serializeAws_ec2ModifyNetworkInterfaceAttributeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyNetworkInterfaceAttributeRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyNetworkInterfaceAttributeRequest(input, context),
     Action: "ModifyNetworkInterfaceAttribute",
     Version: "2016-11-15"
   });
@@ -8933,12 +8207,8 @@ export const serializeAws_ec2ModifyReservedInstancesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyReservedInstancesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyReservedInstancesRequest(input, context),
     Action: "ModifyReservedInstances",
     Version: "2016-11-15"
   });
@@ -8953,12 +8223,8 @@ export const serializeAws_ec2ModifySnapshotAttributeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifySnapshotAttributeRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifySnapshotAttributeRequest(input, context),
     Action: "ModifySnapshotAttribute",
     Version: "2016-11-15"
   });
@@ -8973,9 +8239,8 @@ export const serializeAws_ec2ModifySpotFleetRequestCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifySpotFleetRequestRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifySpotFleetRequestRequest(input, context),
     Action: "ModifySpotFleetRequest",
     Version: "2016-11-15"
   });
@@ -8990,9 +8255,8 @@ export const serializeAws_ec2ModifySubnetAttributeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifySubnetAttributeRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifySubnetAttributeRequest(input, context),
     Action: "ModifySubnetAttribute",
     Version: "2016-11-15"
   });
@@ -9007,12 +8271,11 @@ export const serializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesCommand = a
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyTrafficMirrorFilterNetworkServicesRequest(
+      input,
+      context
+    ),
     Action: "ModifyTrafficMirrorFilterNetworkServices",
     Version: "2016-11-15"
   });
@@ -9027,12 +8290,8 @@ export const serializeAws_ec2ModifyTrafficMirrorFilterRuleCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyTrafficMirrorFilterRuleRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyTrafficMirrorFilterRuleRequest(input, context),
     Action: "ModifyTrafficMirrorFilterRule",
     Version: "2016-11-15"
   });
@@ -9047,12 +8306,8 @@ export const serializeAws_ec2ModifyTrafficMirrorSessionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyTrafficMirrorSessionRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyTrafficMirrorSessionRequest(input, context),
     Action: "ModifyTrafficMirrorSession",
     Version: "2016-11-15"
   });
@@ -9067,12 +8322,8 @@ export const serializeAws_ec2ModifyTransitGatewayVpcAttachmentCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyTransitGatewayVpcAttachmentRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyTransitGatewayVpcAttachmentRequest(input, context),
     Action: "ModifyTransitGatewayVpcAttachment",
     Version: "2016-11-15"
   });
@@ -9087,9 +8338,8 @@ export const serializeAws_ec2ModifyVolumeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyVolumeRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyVolumeRequest(input, context),
     Action: "ModifyVolume",
     Version: "2016-11-15"
   });
@@ -9104,9 +8354,8 @@ export const serializeAws_ec2ModifyVolumeAttributeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyVolumeAttributeRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyVolumeAttributeRequest(input, context),
     Action: "ModifyVolumeAttribute",
     Version: "2016-11-15"
   });
@@ -9121,9 +8370,8 @@ export const serializeAws_ec2ModifyVpcAttributeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyVpcAttributeRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyVpcAttributeRequest(input, context),
     Action: "ModifyVpcAttribute",
     Version: "2016-11-15"
   });
@@ -9138,9 +8386,8 @@ export const serializeAws_ec2ModifyVpcEndpointCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyVpcEndpointRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyVpcEndpointRequest(input, context),
     Action: "ModifyVpcEndpoint",
     Version: "2016-11-15"
   });
@@ -9155,12 +8402,11 @@ export const serializeAws_ec2ModifyVpcEndpointConnectionNotificationCommand = as
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyVpcEndpointConnectionNotificationRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyVpcEndpointConnectionNotificationRequest(
+      input,
+      context
+    ),
     Action: "ModifyVpcEndpointConnectionNotification",
     Version: "2016-11-15"
   });
@@ -9175,12 +8421,11 @@ export const serializeAws_ec2ModifyVpcEndpointServiceConfigurationCommand = asyn
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyVpcEndpointServiceConfigurationRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyVpcEndpointServiceConfigurationRequest(
+      input,
+      context
+    ),
     Action: "ModifyVpcEndpointServiceConfiguration",
     Version: "2016-11-15"
   });
@@ -9195,12 +8440,11 @@ export const serializeAws_ec2ModifyVpcEndpointServicePermissionsCommand = async 
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyVpcEndpointServicePermissionsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyVpcEndpointServicePermissionsRequest(
+      input,
+      context
+    ),
     Action: "ModifyVpcEndpointServicePermissions",
     Version: "2016-11-15"
   });
@@ -9215,12 +8459,8 @@ export const serializeAws_ec2ModifyVpcPeeringConnectionOptionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyVpcPeeringConnectionOptionsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyVpcPeeringConnectionOptionsRequest(input, context),
     Action: "ModifyVpcPeeringConnectionOptions",
     Version: "2016-11-15"
   });
@@ -9235,9 +8475,8 @@ export const serializeAws_ec2ModifyVpcTenancyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyVpcTenancyRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyVpcTenancyRequest(input, context),
     Action: "ModifyVpcTenancy",
     Version: "2016-11-15"
   });
@@ -9252,9 +8491,8 @@ export const serializeAws_ec2ModifyVpnConnectionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyVpnConnectionRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyVpnConnectionRequest(input, context),
     Action: "ModifyVpnConnection",
     Version: "2016-11-15"
   });
@@ -9269,12 +8507,8 @@ export const serializeAws_ec2ModifyVpnTunnelCertificateCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyVpnTunnelCertificateRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyVpnTunnelCertificateRequest(input, context),
     Action: "ModifyVpnTunnelCertificate",
     Version: "2016-11-15"
   });
@@ -9289,9 +8523,8 @@ export const serializeAws_ec2ModifyVpnTunnelOptionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ModifyVpnTunnelOptionsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ModifyVpnTunnelOptionsRequest(input, context),
     Action: "ModifyVpnTunnelOptions",
     Version: "2016-11-15"
   });
@@ -9306,9 +8539,8 @@ export const serializeAws_ec2MonitorInstancesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2MonitorInstancesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2MonitorInstancesRequest(input, context),
     Action: "MonitorInstances",
     Version: "2016-11-15"
   });
@@ -9323,9 +8555,8 @@ export const serializeAws_ec2MoveAddressToVpcCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2MoveAddressToVpcRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2MoveAddressToVpcRequest(input, context),
     Action: "MoveAddressToVpc",
     Version: "2016-11-15"
   });
@@ -9340,9 +8571,8 @@ export const serializeAws_ec2ProvisionByoipCidrCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ProvisionByoipCidrRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ProvisionByoipCidrRequest(input, context),
     Action: "ProvisionByoipCidr",
     Version: "2016-11-15"
   });
@@ -9357,12 +8587,8 @@ export const serializeAws_ec2PurchaseHostReservationCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2PurchaseHostReservationRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2PurchaseHostReservationRequest(input, context),
     Action: "PurchaseHostReservation",
     Version: "2016-11-15"
   });
@@ -9377,12 +8603,8 @@ export const serializeAws_ec2PurchaseReservedInstancesOfferingCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2PurchaseReservedInstancesOfferingRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2PurchaseReservedInstancesOfferingRequest(input, context),
     Action: "PurchaseReservedInstancesOffering",
     Version: "2016-11-15"
   });
@@ -9397,12 +8619,8 @@ export const serializeAws_ec2PurchaseScheduledInstancesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2PurchaseScheduledInstancesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2PurchaseScheduledInstancesRequest(input, context),
     Action: "PurchaseScheduledInstances",
     Version: "2016-11-15"
   });
@@ -9417,9 +8635,8 @@ export const serializeAws_ec2RebootInstancesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2RebootInstancesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2RebootInstancesRequest(input, context),
     Action: "RebootInstances",
     Version: "2016-11-15"
   });
@@ -9434,9 +8651,8 @@ export const serializeAws_ec2RegisterImageCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2RegisterImageRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2RegisterImageRequest(input, context),
     Action: "RegisterImage",
     Version: "2016-11-15"
   });
@@ -9451,12 +8667,11 @@ export const serializeAws_ec2RegisterTransitGatewayMulticastGroupMembersCommand 
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2RegisterTransitGatewayMulticastGroupMembersRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2RegisterTransitGatewayMulticastGroupMembersRequest(
+      input,
+      context
+    ),
     Action: "RegisterTransitGatewayMulticastGroupMembers",
     Version: "2016-11-15"
   });
@@ -9471,12 +8686,11 @@ export const serializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesCommand 
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2RegisterTransitGatewayMulticastGroupSourcesRequest(
+      input,
+      context
+    ),
     Action: "RegisterTransitGatewayMulticastGroupSources",
     Version: "2016-11-15"
   });
@@ -9491,12 +8705,11 @@ export const serializeAws_ec2RejectTransitGatewayPeeringAttachmentCommand = asyn
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2RejectTransitGatewayPeeringAttachmentRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2RejectTransitGatewayPeeringAttachmentRequest(
+      input,
+      context
+    ),
     Action: "RejectTransitGatewayPeeringAttachment",
     Version: "2016-11-15"
   });
@@ -9511,12 +8724,8 @@ export const serializeAws_ec2RejectTransitGatewayVpcAttachmentCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2RejectTransitGatewayVpcAttachmentRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2RejectTransitGatewayVpcAttachmentRequest(input, context),
     Action: "RejectTransitGatewayVpcAttachment",
     Version: "2016-11-15"
   });
@@ -9531,12 +8740,8 @@ export const serializeAws_ec2RejectVpcEndpointConnectionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2RejectVpcEndpointConnectionsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2RejectVpcEndpointConnectionsRequest(input, context),
     Action: "RejectVpcEndpointConnections",
     Version: "2016-11-15"
   });
@@ -9551,12 +8756,8 @@ export const serializeAws_ec2RejectVpcPeeringConnectionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2RejectVpcPeeringConnectionRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2RejectVpcPeeringConnectionRequest(input, context),
     Action: "RejectVpcPeeringConnection",
     Version: "2016-11-15"
   });
@@ -9571,9 +8772,8 @@ export const serializeAws_ec2ReleaseAddressCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ReleaseAddressRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ReleaseAddressRequest(input, context),
     Action: "ReleaseAddress",
     Version: "2016-11-15"
   });
@@ -9588,9 +8788,8 @@ export const serializeAws_ec2ReleaseHostsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ReleaseHostsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ReleaseHostsRequest(input, context),
     Action: "ReleaseHosts",
     Version: "2016-11-15"
   });
@@ -9605,12 +8804,11 @@ export const serializeAws_ec2ReplaceIamInstanceProfileAssociationCommand = async
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ReplaceIamInstanceProfileAssociationRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ReplaceIamInstanceProfileAssociationRequest(
+      input,
+      context
+    ),
     Action: "ReplaceIamInstanceProfileAssociation",
     Version: "2016-11-15"
   });
@@ -9625,12 +8823,8 @@ export const serializeAws_ec2ReplaceNetworkAclAssociationCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ReplaceNetworkAclAssociationRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ReplaceNetworkAclAssociationRequest(input, context),
     Action: "ReplaceNetworkAclAssociation",
     Version: "2016-11-15"
   });
@@ -9645,9 +8839,8 @@ export const serializeAws_ec2ReplaceNetworkAclEntryCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ReplaceNetworkAclEntryRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ReplaceNetworkAclEntryRequest(input, context),
     Action: "ReplaceNetworkAclEntry",
     Version: "2016-11-15"
   });
@@ -9662,9 +8855,8 @@ export const serializeAws_ec2ReplaceRouteCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ReplaceRouteRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ReplaceRouteRequest(input, context),
     Action: "ReplaceRoute",
     Version: "2016-11-15"
   });
@@ -9679,12 +8871,8 @@ export const serializeAws_ec2ReplaceRouteTableAssociationCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ReplaceRouteTableAssociationRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ReplaceRouteTableAssociationRequest(input, context),
     Action: "ReplaceRouteTableAssociation",
     Version: "2016-11-15"
   });
@@ -9699,12 +8887,8 @@ export const serializeAws_ec2ReplaceTransitGatewayRouteCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ReplaceTransitGatewayRouteRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ReplaceTransitGatewayRouteRequest(input, context),
     Action: "ReplaceTransitGatewayRoute",
     Version: "2016-11-15"
   });
@@ -9719,9 +8903,8 @@ export const serializeAws_ec2ReportInstanceStatusCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ReportInstanceStatusRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ReportInstanceStatusRequest(input, context),
     Action: "ReportInstanceStatus",
     Version: "2016-11-15"
   });
@@ -9736,9 +8919,8 @@ export const serializeAws_ec2RequestSpotFleetCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2RequestSpotFleetRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2RequestSpotFleetRequest(input, context),
     Action: "RequestSpotFleet",
     Version: "2016-11-15"
   });
@@ -9753,9 +8935,8 @@ export const serializeAws_ec2RequestSpotInstancesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2RequestSpotInstancesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2RequestSpotInstancesRequest(input, context),
     Action: "RequestSpotInstances",
     Version: "2016-11-15"
   });
@@ -9770,12 +8951,8 @@ export const serializeAws_ec2ResetEbsDefaultKmsKeyIdCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ResetEbsDefaultKmsKeyIdRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ResetEbsDefaultKmsKeyIdRequest(input, context),
     Action: "ResetEbsDefaultKmsKeyId",
     Version: "2016-11-15"
   });
@@ -9790,12 +8967,8 @@ export const serializeAws_ec2ResetFpgaImageAttributeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ResetFpgaImageAttributeRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ResetFpgaImageAttributeRequest(input, context),
     Action: "ResetFpgaImageAttribute",
     Version: "2016-11-15"
   });
@@ -9810,9 +8983,8 @@ export const serializeAws_ec2ResetImageAttributeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ResetImageAttributeRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ResetImageAttributeRequest(input, context),
     Action: "ResetImageAttribute",
     Version: "2016-11-15"
   });
@@ -9827,9 +8999,8 @@ export const serializeAws_ec2ResetInstanceAttributeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ResetInstanceAttributeRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ResetInstanceAttributeRequest(input, context),
     Action: "ResetInstanceAttribute",
     Version: "2016-11-15"
   });
@@ -9844,12 +9015,8 @@ export const serializeAws_ec2ResetNetworkInterfaceAttributeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ResetNetworkInterfaceAttributeRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ResetNetworkInterfaceAttributeRequest(input, context),
     Action: "ResetNetworkInterfaceAttribute",
     Version: "2016-11-15"
   });
@@ -9864,9 +9031,8 @@ export const serializeAws_ec2ResetSnapshotAttributeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2ResetSnapshotAttributeRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2ResetSnapshotAttributeRequest(input, context),
     Action: "ResetSnapshotAttribute",
     Version: "2016-11-15"
   });
@@ -9881,12 +9047,8 @@ export const serializeAws_ec2RestoreAddressToClassicCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2RestoreAddressToClassicRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2RestoreAddressToClassicRequest(input, context),
     Action: "RestoreAddressToClassic",
     Version: "2016-11-15"
   });
@@ -9901,9 +9063,8 @@ export const serializeAws_ec2RevokeClientVpnIngressCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2RevokeClientVpnIngressRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2RevokeClientVpnIngressRequest(input, context),
     Action: "RevokeClientVpnIngress",
     Version: "2016-11-15"
   });
@@ -9918,12 +9079,8 @@ export const serializeAws_ec2RevokeSecurityGroupEgressCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2RevokeSecurityGroupEgressRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2RevokeSecurityGroupEgressRequest(input, context),
     Action: "RevokeSecurityGroupEgress",
     Version: "2016-11-15"
   });
@@ -9938,12 +9095,8 @@ export const serializeAws_ec2RevokeSecurityGroupIngressCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2RevokeSecurityGroupIngressRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2RevokeSecurityGroupIngressRequest(input, context),
     Action: "RevokeSecurityGroupIngress",
     Version: "2016-11-15"
   });
@@ -9958,9 +9111,8 @@ export const serializeAws_ec2RunInstancesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2RunInstancesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2RunInstancesRequest(input, context),
     Action: "RunInstances",
     Version: "2016-11-15"
   });
@@ -9975,9 +9127,8 @@ export const serializeAws_ec2RunScheduledInstancesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2RunScheduledInstancesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2RunScheduledInstancesRequest(input, context),
     Action: "RunScheduledInstances",
     Version: "2016-11-15"
   });
@@ -9992,12 +9143,8 @@ export const serializeAws_ec2SearchLocalGatewayRoutesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2SearchLocalGatewayRoutesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2SearchLocalGatewayRoutesRequest(input, context),
     Action: "SearchLocalGatewayRoutes",
     Version: "2016-11-15"
   });
@@ -10012,12 +9159,11 @@ export const serializeAws_ec2SearchTransitGatewayMulticastGroupsCommand = async 
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2SearchTransitGatewayMulticastGroupsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2SearchTransitGatewayMulticastGroupsRequest(
+      input,
+      context
+    ),
     Action: "SearchTransitGatewayMulticastGroups",
     Version: "2016-11-15"
   });
@@ -10032,12 +9178,8 @@ export const serializeAws_ec2SearchTransitGatewayRoutesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2SearchTransitGatewayRoutesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2SearchTransitGatewayRoutesRequest(input, context),
     Action: "SearchTransitGatewayRoutes",
     Version: "2016-11-15"
   });
@@ -10052,12 +9194,8 @@ export const serializeAws_ec2SendDiagnosticInterruptCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2SendDiagnosticInterruptRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2SendDiagnosticInterruptRequest(input, context),
     Action: "SendDiagnosticInterrupt",
     Version: "2016-11-15"
   });
@@ -10072,9 +9210,8 @@ export const serializeAws_ec2StartInstancesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2StartInstancesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2StartInstancesRequest(input, context),
     Action: "StartInstances",
     Version: "2016-11-15"
   });
@@ -10089,12 +9226,11 @@ export const serializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationComman
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2StartVpcEndpointServicePrivateDnsVerificationRequest(
+      input,
+      context
+    ),
     Action: "StartVpcEndpointServicePrivateDnsVerification",
     Version: "2016-11-15"
   });
@@ -10109,9 +9245,8 @@ export const serializeAws_ec2StopInstancesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2StopInstancesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2StopInstancesRequest(input, context),
     Action: "StopInstances",
     Version: "2016-11-15"
   });
@@ -10126,12 +9261,8 @@ export const serializeAws_ec2TerminateClientVpnConnectionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2TerminateClientVpnConnectionsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2TerminateClientVpnConnectionsRequest(input, context),
     Action: "TerminateClientVpnConnections",
     Version: "2016-11-15"
   });
@@ -10146,9 +9277,8 @@ export const serializeAws_ec2TerminateInstancesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2TerminateInstancesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2TerminateInstancesRequest(input, context),
     Action: "TerminateInstances",
     Version: "2016-11-15"
   });
@@ -10163,9 +9293,8 @@ export const serializeAws_ec2UnassignIpv6AddressesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2UnassignIpv6AddressesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2UnassignIpv6AddressesRequest(input, context),
     Action: "UnassignIpv6Addresses",
     Version: "2016-11-15"
   });
@@ -10180,12 +9309,8 @@ export const serializeAws_ec2UnassignPrivateIpAddressesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2UnassignPrivateIpAddressesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2UnassignPrivateIpAddressesRequest(input, context),
     Action: "UnassignPrivateIpAddresses",
     Version: "2016-11-15"
   });
@@ -10200,9 +9325,8 @@ export const serializeAws_ec2UnmonitorInstancesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2UnmonitorInstancesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2UnmonitorInstancesRequest(input, context),
     Action: "UnmonitorInstances",
     Version: "2016-11-15"
   });
@@ -10217,12 +9341,11 @@ export const serializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressCommand = 
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2UpdateSecurityGroupRuleDescriptionsEgressRequest(
+      input,
+      context
+    ),
     Action: "UpdateSecurityGroupRuleDescriptionsEgress",
     Version: "2016-11-15"
   });
@@ -10237,12 +9360,11 @@ export const serializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressCommand =
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2UpdateSecurityGroupRuleDescriptionsIngressRequest(
+      input,
+      context
+    ),
     Action: "UpdateSecurityGroupRuleDescriptionsIngress",
     Version: "2016-11-15"
   });
@@ -10257,9 +9379,8 @@ export const serializeAws_ec2WithdrawByoipCidrCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2WithdrawByoipCidrRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2WithdrawByoipCidrRequest(input, context),
     Action: "WithdrawByoipCidr",
     Version: "2016-11-15"
   });

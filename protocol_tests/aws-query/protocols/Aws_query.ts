@@ -148,12 +148,8 @@ export const serializeAws_queryEmptyInputAndEmptyOutputCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryEmptyInputAndEmptyOutputInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryEmptyInputAndEmptyOutputInput(input, context),
     Action: "EmptyInputAndEmptyOutput",
     Version: "2020-01-08"
   });
@@ -224,9 +220,8 @@ export const serializeAws_queryNestedStructuresCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryNestedStructuresInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryNestedStructuresInput(input, context),
     Action: "NestedStructures",
     Version: "2020-01-08"
   });
@@ -255,9 +250,8 @@ export const serializeAws_queryNoInputAndOutputCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryNoInputAndOutputOutput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryNoInputAndOutputOutput(input, context),
     Action: "NoInputAndOutput",
     Version: "2020-01-08"
   });
@@ -272,12 +266,8 @@ export const serializeAws_queryQueryIdempotencyTokenAutoFillCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryQueryIdempotencyTokenAutoFillInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryQueryIdempotencyTokenAutoFillInput(input, context),
     Action: "QueryIdempotencyTokenAutoFill",
     Version: "2020-01-08"
   });
@@ -292,9 +282,8 @@ export const serializeAws_queryQueryListsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryQueryListsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryQueryListsInput(input, context),
     Action: "QueryLists",
     Version: "2020-01-08"
   });
@@ -309,9 +298,8 @@ export const serializeAws_queryQueryMapsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryQueryMapsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryQueryMapsInput(input, context),
     Action: "QueryMaps",
     Version: "2020-01-08"
   });
@@ -326,9 +314,8 @@ export const serializeAws_queryQueryTimestampsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryQueryTimestampsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryQueryTimestampsInput(input, context),
     Action: "QueryTimestamps",
     Version: "2020-01-08"
   });
@@ -357,9 +344,8 @@ export const serializeAws_querySimpleInputParamsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySimpleInputParamsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySimpleInputParamsInput(input, context),
     Action: "SimpleInputParams",
     Version: "2020-01-08"
   });

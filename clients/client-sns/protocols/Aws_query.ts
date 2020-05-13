@@ -244,9 +244,8 @@ export const serializeAws_queryAddPermissionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryAddPermissionInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryAddPermissionInput(input, context),
     Action: "AddPermission",
     Version: "2010-03-31"
   });
@@ -261,12 +260,8 @@ export const serializeAws_queryCheckIfPhoneNumberIsOptedOutCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCheckIfPhoneNumberIsOptedOutInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCheckIfPhoneNumberIsOptedOutInput(input, context),
     Action: "CheckIfPhoneNumberIsOptedOut",
     Version: "2010-03-31"
   });
@@ -281,9 +276,8 @@ export const serializeAws_queryConfirmSubscriptionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryConfirmSubscriptionInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryConfirmSubscriptionInput(input, context),
     Action: "ConfirmSubscription",
     Version: "2010-03-31"
   });
@@ -298,12 +292,8 @@ export const serializeAws_queryCreatePlatformApplicationCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreatePlatformApplicationInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreatePlatformApplicationInput(input, context),
     Action: "CreatePlatformApplication",
     Version: "2010-03-31"
   });
@@ -318,9 +308,8 @@ export const serializeAws_queryCreatePlatformEndpointCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreatePlatformEndpointInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreatePlatformEndpointInput(input, context),
     Action: "CreatePlatformEndpoint",
     Version: "2010-03-31"
   });
@@ -335,9 +324,8 @@ export const serializeAws_queryCreateTopicCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateTopicInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateTopicInput(input, context),
     Action: "CreateTopic",
     Version: "2010-03-31"
   });
@@ -352,9 +340,8 @@ export const serializeAws_queryDeleteEndpointCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteEndpointInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteEndpointInput(input, context),
     Action: "DeleteEndpoint",
     Version: "2010-03-31"
   });
@@ -369,12 +356,8 @@ export const serializeAws_queryDeletePlatformApplicationCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeletePlatformApplicationInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeletePlatformApplicationInput(input, context),
     Action: "DeletePlatformApplication",
     Version: "2010-03-31"
   });
@@ -389,9 +372,8 @@ export const serializeAws_queryDeleteTopicCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteTopicInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteTopicInput(input, context),
     Action: "DeleteTopic",
     Version: "2010-03-31"
   });
@@ -406,9 +388,8 @@ export const serializeAws_queryGetEndpointAttributesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetEndpointAttributesInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetEndpointAttributesInput(input, context),
     Action: "GetEndpointAttributes",
     Version: "2010-03-31"
   });
@@ -423,12 +404,8 @@ export const serializeAws_queryGetPlatformApplicationAttributesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetPlatformApplicationAttributesInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetPlatformApplicationAttributesInput(input, context),
     Action: "GetPlatformApplicationAttributes",
     Version: "2010-03-31"
   });
@@ -443,9 +420,8 @@ export const serializeAws_queryGetSMSAttributesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetSMSAttributesInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetSMSAttributesInput(input, context),
     Action: "GetSMSAttributes",
     Version: "2010-03-31"
   });
@@ -460,12 +436,8 @@ export const serializeAws_queryGetSubscriptionAttributesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetSubscriptionAttributesInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetSubscriptionAttributesInput(input, context),
     Action: "GetSubscriptionAttributes",
     Version: "2010-03-31"
   });
@@ -480,9 +452,8 @@ export const serializeAws_queryGetTopicAttributesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetTopicAttributesInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetTopicAttributesInput(input, context),
     Action: "GetTopicAttributes",
     Version: "2010-03-31"
   });
@@ -497,12 +468,11 @@ export const serializeAws_queryListEndpointsByPlatformApplicationCommand = async
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListEndpointsByPlatformApplicationInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListEndpointsByPlatformApplicationInput(
+      input,
+      context
+    ),
     Action: "ListEndpointsByPlatformApplication",
     Version: "2010-03-31"
   });
@@ -517,12 +487,8 @@ export const serializeAws_queryListPhoneNumbersOptedOutCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListPhoneNumbersOptedOutInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListPhoneNumbersOptedOutInput(input, context),
     Action: "ListPhoneNumbersOptedOut",
     Version: "2010-03-31"
   });
@@ -537,12 +503,8 @@ export const serializeAws_queryListPlatformApplicationsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListPlatformApplicationsInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListPlatformApplicationsInput(input, context),
     Action: "ListPlatformApplications",
     Version: "2010-03-31"
   });
@@ -557,9 +519,8 @@ export const serializeAws_queryListSubscriptionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListSubscriptionsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListSubscriptionsInput(input, context),
     Action: "ListSubscriptions",
     Version: "2010-03-31"
   });
@@ -574,12 +535,8 @@ export const serializeAws_queryListSubscriptionsByTopicCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListSubscriptionsByTopicInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListSubscriptionsByTopicInput(input, context),
     Action: "ListSubscriptionsByTopic",
     Version: "2010-03-31"
   });
@@ -594,9 +551,8 @@ export const serializeAws_queryListTagsForResourceCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListTagsForResourceRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListTagsForResourceRequest(input, context),
     Action: "ListTagsForResource",
     Version: "2010-03-31"
   });
@@ -611,9 +567,8 @@ export const serializeAws_queryListTopicsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListTopicsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListTopicsInput(input, context),
     Action: "ListTopics",
     Version: "2010-03-31"
   });
@@ -628,9 +583,8 @@ export const serializeAws_queryOptInPhoneNumberCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryOptInPhoneNumberInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryOptInPhoneNumberInput(input, context),
     Action: "OptInPhoneNumber",
     Version: "2010-03-31"
   });
@@ -645,9 +599,8 @@ export const serializeAws_queryPublishCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryPublishInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryPublishInput(input, context),
     Action: "Publish",
     Version: "2010-03-31"
   });
@@ -662,9 +615,8 @@ export const serializeAws_queryRemovePermissionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryRemovePermissionInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryRemovePermissionInput(input, context),
     Action: "RemovePermission",
     Version: "2010-03-31"
   });
@@ -679,9 +631,8 @@ export const serializeAws_querySetEndpointAttributesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySetEndpointAttributesInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySetEndpointAttributesInput(input, context),
     Action: "SetEndpointAttributes",
     Version: "2010-03-31"
   });
@@ -696,12 +647,8 @@ export const serializeAws_querySetPlatformApplicationAttributesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySetPlatformApplicationAttributesInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySetPlatformApplicationAttributesInput(input, context),
     Action: "SetPlatformApplicationAttributes",
     Version: "2010-03-31"
   });
@@ -716,9 +663,8 @@ export const serializeAws_querySetSMSAttributesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySetSMSAttributesInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySetSMSAttributesInput(input, context),
     Action: "SetSMSAttributes",
     Version: "2010-03-31"
   });
@@ -733,12 +679,8 @@ export const serializeAws_querySetSubscriptionAttributesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySetSubscriptionAttributesInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySetSubscriptionAttributesInput(input, context),
     Action: "SetSubscriptionAttributes",
     Version: "2010-03-31"
   });
@@ -753,9 +695,8 @@ export const serializeAws_querySetTopicAttributesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySetTopicAttributesInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySetTopicAttributesInput(input, context),
     Action: "SetTopicAttributes",
     Version: "2010-03-31"
   });
@@ -770,9 +711,8 @@ export const serializeAws_querySubscribeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySubscribeInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySubscribeInput(input, context),
     Action: "Subscribe",
     Version: "2010-03-31"
   });
@@ -787,9 +727,8 @@ export const serializeAws_queryTagResourceCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryTagResourceRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryTagResourceRequest(input, context),
     Action: "TagResource",
     Version: "2010-03-31"
   });
@@ -804,9 +743,8 @@ export const serializeAws_queryUnsubscribeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUnsubscribeInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUnsubscribeInput(input, context),
     Action: "Unsubscribe",
     Version: "2010-03-31"
   });
@@ -821,9 +759,8 @@ export const serializeAws_queryUntagResourceCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUntagResourceRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUntagResourceRequest(input, context),
     Action: "UntagResource",
     Version: "2010-03-31"
   });

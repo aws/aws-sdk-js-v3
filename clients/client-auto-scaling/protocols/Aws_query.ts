@@ -367,9 +367,8 @@ export const serializeAws_queryAttachInstancesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryAttachInstancesQuery(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryAttachInstancesQuery(input, context),
     Action: "AttachInstances",
     Version: "2011-01-01"
   });
@@ -384,12 +383,8 @@ export const serializeAws_queryAttachLoadBalancerTargetGroupsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryAttachLoadBalancerTargetGroupsType(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryAttachLoadBalancerTargetGroupsType(input, context),
     Action: "AttachLoadBalancerTargetGroups",
     Version: "2011-01-01"
   });
@@ -404,9 +399,8 @@ export const serializeAws_queryAttachLoadBalancersCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryAttachLoadBalancersType(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryAttachLoadBalancersType(input, context),
     Action: "AttachLoadBalancers",
     Version: "2011-01-01"
   });
@@ -421,12 +415,8 @@ export const serializeAws_queryBatchDeleteScheduledActionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryBatchDeleteScheduledActionType(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryBatchDeleteScheduledActionType(input, context),
     Action: "BatchDeleteScheduledAction",
     Version: "2011-01-01"
   });
@@ -441,12 +431,8 @@ export const serializeAws_queryBatchPutScheduledUpdateGroupActionCommand = async
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryBatchPutScheduledUpdateGroupActionType(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryBatchPutScheduledUpdateGroupActionType(input, context),
     Action: "BatchPutScheduledUpdateGroupAction",
     Version: "2011-01-01"
   });
@@ -461,9 +447,8 @@ export const serializeAws_queryCompleteLifecycleActionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCompleteLifecycleActionType(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCompleteLifecycleActionType(input, context),
     Action: "CompleteLifecycleAction",
     Version: "2011-01-01"
   });
@@ -478,9 +463,8 @@ export const serializeAws_queryCreateAutoScalingGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateAutoScalingGroupType(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateAutoScalingGroupType(input, context),
     Action: "CreateAutoScalingGroup",
     Version: "2011-01-01"
   });
@@ -495,12 +479,8 @@ export const serializeAws_queryCreateLaunchConfigurationCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateLaunchConfigurationType(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateLaunchConfigurationType(input, context),
     Action: "CreateLaunchConfiguration",
     Version: "2011-01-01"
   });
@@ -515,9 +495,8 @@ export const serializeAws_queryCreateOrUpdateTagsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateOrUpdateTagsType(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateOrUpdateTagsType(input, context),
     Action: "CreateOrUpdateTags",
     Version: "2011-01-01"
   });
@@ -532,9 +511,8 @@ export const serializeAws_queryDeleteAutoScalingGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteAutoScalingGroupType(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteAutoScalingGroupType(input, context),
     Action: "DeleteAutoScalingGroup",
     Version: "2011-01-01"
   });
@@ -549,9 +527,8 @@ export const serializeAws_queryDeleteLaunchConfigurationCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryLaunchConfigurationNameType(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryLaunchConfigurationNameType(input, context),
     Action: "DeleteLaunchConfiguration",
     Version: "2011-01-01"
   });
@@ -566,9 +543,8 @@ export const serializeAws_queryDeleteLifecycleHookCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteLifecycleHookType(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteLifecycleHookType(input, context),
     Action: "DeleteLifecycleHook",
     Version: "2011-01-01"
   });
@@ -583,12 +559,8 @@ export const serializeAws_queryDeleteNotificationConfigurationCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteNotificationConfigurationType(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteNotificationConfigurationType(input, context),
     Action: "DeleteNotificationConfiguration",
     Version: "2011-01-01"
   });
@@ -603,9 +575,8 @@ export const serializeAws_queryDeletePolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeletePolicyType(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeletePolicyType(input, context),
     Action: "DeletePolicy",
     Version: "2011-01-01"
   });
@@ -620,9 +591,8 @@ export const serializeAws_queryDeleteScheduledActionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteScheduledActionType(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteScheduledActionType(input, context),
     Action: "DeleteScheduledAction",
     Version: "2011-01-01"
   });
@@ -637,9 +607,8 @@ export const serializeAws_queryDeleteTagsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteTagsType(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteTagsType(input, context),
     Action: "DeleteTags",
     Version: "2011-01-01"
   });
@@ -682,9 +651,8 @@ export const serializeAws_queryDescribeAutoScalingGroupsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryAutoScalingGroupNamesType(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryAutoScalingGroupNamesType(input, context),
     Action: "DescribeAutoScalingGroups",
     Version: "2011-01-01"
   });
@@ -699,12 +667,8 @@ export const serializeAws_queryDescribeAutoScalingInstancesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeAutoScalingInstancesType(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeAutoScalingInstancesType(input, context),
     Action: "DescribeAutoScalingInstances",
     Version: "2011-01-01"
   });
@@ -733,12 +697,8 @@ export const serializeAws_queryDescribeLaunchConfigurationsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryLaunchConfigurationNamesType(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryLaunchConfigurationNamesType(input, context),
     Action: "DescribeLaunchConfigurations",
     Version: "2011-01-01"
   });
@@ -767,9 +727,8 @@ export const serializeAws_queryDescribeLifecycleHooksCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeLifecycleHooksType(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeLifecycleHooksType(input, context),
     Action: "DescribeLifecycleHooks",
     Version: "2011-01-01"
   });
@@ -784,12 +743,11 @@ export const serializeAws_queryDescribeLoadBalancerTargetGroupsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeLoadBalancerTargetGroupsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeLoadBalancerTargetGroupsRequest(
+      input,
+      context
+    ),
     Action: "DescribeLoadBalancerTargetGroups",
     Version: "2011-01-01"
   });
@@ -804,12 +762,8 @@ export const serializeAws_queryDescribeLoadBalancersCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeLoadBalancersRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeLoadBalancersRequest(input, context),
     Action: "DescribeLoadBalancers",
     Version: "2011-01-01"
   });
@@ -838,12 +792,8 @@ export const serializeAws_queryDescribeNotificationConfigurationsCommand = async
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeNotificationConfigurationsType(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeNotificationConfigurationsType(input, context),
     Action: "DescribeNotificationConfigurations",
     Version: "2011-01-01"
   });
@@ -858,9 +808,8 @@ export const serializeAws_queryDescribePoliciesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribePoliciesType(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribePoliciesType(input, context),
     Action: "DescribePolicies",
     Version: "2011-01-01"
   });
@@ -875,12 +824,8 @@ export const serializeAws_queryDescribeScalingActivitiesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeScalingActivitiesType(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeScalingActivitiesType(input, context),
     Action: "DescribeScalingActivities",
     Version: "2011-01-01"
   });
@@ -909,12 +854,8 @@ export const serializeAws_queryDescribeScheduledActionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeScheduledActionsType(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeScheduledActionsType(input, context),
     Action: "DescribeScheduledActions",
     Version: "2011-01-01"
   });
@@ -929,9 +870,8 @@ export const serializeAws_queryDescribeTagsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeTagsType(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeTagsType(input, context),
     Action: "DescribeTags",
     Version: "2011-01-01"
   });
@@ -960,9 +900,8 @@ export const serializeAws_queryDetachInstancesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDetachInstancesQuery(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDetachInstancesQuery(input, context),
     Action: "DetachInstances",
     Version: "2011-01-01"
   });
@@ -977,12 +916,8 @@ export const serializeAws_queryDetachLoadBalancerTargetGroupsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDetachLoadBalancerTargetGroupsType(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDetachLoadBalancerTargetGroupsType(input, context),
     Action: "DetachLoadBalancerTargetGroups",
     Version: "2011-01-01"
   });
@@ -997,9 +932,8 @@ export const serializeAws_queryDetachLoadBalancersCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDetachLoadBalancersType(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDetachLoadBalancersType(input, context),
     Action: "DetachLoadBalancers",
     Version: "2011-01-01"
   });
@@ -1014,12 +948,8 @@ export const serializeAws_queryDisableMetricsCollectionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDisableMetricsCollectionQuery(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDisableMetricsCollectionQuery(input, context),
     Action: "DisableMetricsCollection",
     Version: "2011-01-01"
   });
@@ -1034,12 +964,8 @@ export const serializeAws_queryEnableMetricsCollectionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryEnableMetricsCollectionQuery(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryEnableMetricsCollectionQuery(input, context),
     Action: "EnableMetricsCollection",
     Version: "2011-01-01"
   });
@@ -1054,9 +980,8 @@ export const serializeAws_queryEnterStandbyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryEnterStandbyQuery(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryEnterStandbyQuery(input, context),
     Action: "EnterStandby",
     Version: "2011-01-01"
   });
@@ -1071,9 +996,8 @@ export const serializeAws_queryExecutePolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryExecutePolicyType(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryExecutePolicyType(input, context),
     Action: "ExecutePolicy",
     Version: "2011-01-01"
   });
@@ -1088,9 +1012,8 @@ export const serializeAws_queryExitStandbyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryExitStandbyQuery(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryExitStandbyQuery(input, context),
     Action: "ExitStandby",
     Version: "2011-01-01"
   });
@@ -1105,9 +1028,8 @@ export const serializeAws_queryPutLifecycleHookCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryPutLifecycleHookType(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryPutLifecycleHookType(input, context),
     Action: "PutLifecycleHook",
     Version: "2011-01-01"
   });
@@ -1122,12 +1044,8 @@ export const serializeAws_queryPutNotificationConfigurationCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryPutNotificationConfigurationType(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryPutNotificationConfigurationType(input, context),
     Action: "PutNotificationConfiguration",
     Version: "2011-01-01"
   });
@@ -1142,9 +1060,8 @@ export const serializeAws_queryPutScalingPolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryPutScalingPolicyType(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryPutScalingPolicyType(input, context),
     Action: "PutScalingPolicy",
     Version: "2011-01-01"
   });
@@ -1159,12 +1076,8 @@ export const serializeAws_queryPutScheduledUpdateGroupActionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryPutScheduledUpdateGroupActionType(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryPutScheduledUpdateGroupActionType(input, context),
     Action: "PutScheduledUpdateGroupAction",
     Version: "2011-01-01"
   });
@@ -1179,12 +1092,8 @@ export const serializeAws_queryRecordLifecycleActionHeartbeatCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryRecordLifecycleActionHeartbeatType(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryRecordLifecycleActionHeartbeatType(input, context),
     Action: "RecordLifecycleActionHeartbeat",
     Version: "2011-01-01"
   });
@@ -1199,9 +1108,8 @@ export const serializeAws_queryResumeProcessesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryScalingProcessQuery(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryScalingProcessQuery(input, context),
     Action: "ResumeProcesses",
     Version: "2011-01-01"
   });
@@ -1216,9 +1124,8 @@ export const serializeAws_querySetDesiredCapacityCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySetDesiredCapacityType(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySetDesiredCapacityType(input, context),
     Action: "SetDesiredCapacity",
     Version: "2011-01-01"
   });
@@ -1233,9 +1140,8 @@ export const serializeAws_querySetInstanceHealthCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySetInstanceHealthQuery(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySetInstanceHealthQuery(input, context),
     Action: "SetInstanceHealth",
     Version: "2011-01-01"
   });
@@ -1250,9 +1156,8 @@ export const serializeAws_querySetInstanceProtectionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySetInstanceProtectionQuery(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySetInstanceProtectionQuery(input, context),
     Action: "SetInstanceProtection",
     Version: "2011-01-01"
   });
@@ -1267,9 +1172,8 @@ export const serializeAws_querySuspendProcessesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryScalingProcessQuery(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryScalingProcessQuery(input, context),
     Action: "SuspendProcesses",
     Version: "2011-01-01"
   });
@@ -1284,12 +1188,11 @@ export const serializeAws_queryTerminateInstanceInAutoScalingGroupCommand = asyn
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryTerminateInstanceInAutoScalingGroupType(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryTerminateInstanceInAutoScalingGroupType(
+      input,
+      context
+    ),
     Action: "TerminateInstanceInAutoScalingGroup",
     Version: "2011-01-01"
   });
@@ -1304,9 +1207,8 @@ export const serializeAws_queryUpdateAutoScalingGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateAutoScalingGroupType(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateAutoScalingGroupType(input, context),
     Action: "UpdateAutoScalingGroup",
     Version: "2011-01-01"
   });

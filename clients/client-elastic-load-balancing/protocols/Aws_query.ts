@@ -249,9 +249,8 @@ export const serializeAws_queryAddTagsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryAddTagsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryAddTagsInput(input, context),
     Action: "AddTags",
     Version: "2012-06-01"
   });
@@ -266,12 +265,8 @@ export const serializeAws_queryApplySecurityGroupsToLoadBalancerCommand = async 
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryApplySecurityGroupsToLoadBalancerInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryApplySecurityGroupsToLoadBalancerInput(input, context),
     Action: "ApplySecurityGroupsToLoadBalancer",
     Version: "2012-06-01"
   });
@@ -286,12 +281,8 @@ export const serializeAws_queryAttachLoadBalancerToSubnetsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryAttachLoadBalancerToSubnetsInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryAttachLoadBalancerToSubnetsInput(input, context),
     Action: "AttachLoadBalancerToSubnets",
     Version: "2012-06-01"
   });
@@ -306,9 +297,8 @@ export const serializeAws_queryConfigureHealthCheckCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryConfigureHealthCheckInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryConfigureHealthCheckInput(input, context),
     Action: "ConfigureHealthCheck",
     Version: "2012-06-01"
   });
@@ -323,12 +313,8 @@ export const serializeAws_queryCreateAppCookieStickinessPolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateAppCookieStickinessPolicyInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateAppCookieStickinessPolicyInput(input, context),
     Action: "CreateAppCookieStickinessPolicy",
     Version: "2012-06-01"
   });
@@ -343,12 +329,8 @@ export const serializeAws_queryCreateLBCookieStickinessPolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateLBCookieStickinessPolicyInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateLBCookieStickinessPolicyInput(input, context),
     Action: "CreateLBCookieStickinessPolicy",
     Version: "2012-06-01"
   });
@@ -363,9 +345,8 @@ export const serializeAws_queryCreateLoadBalancerCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateAccessPointInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateAccessPointInput(input, context),
     Action: "CreateLoadBalancer",
     Version: "2012-06-01"
   });
@@ -380,12 +361,8 @@ export const serializeAws_queryCreateLoadBalancerListenersCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateLoadBalancerListenerInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateLoadBalancerListenerInput(input, context),
     Action: "CreateLoadBalancerListeners",
     Version: "2012-06-01"
   });
@@ -400,12 +377,8 @@ export const serializeAws_queryCreateLoadBalancerPolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateLoadBalancerPolicyInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateLoadBalancerPolicyInput(input, context),
     Action: "CreateLoadBalancerPolicy",
     Version: "2012-06-01"
   });
@@ -420,9 +393,8 @@ export const serializeAws_queryDeleteLoadBalancerCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteAccessPointInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteAccessPointInput(input, context),
     Action: "DeleteLoadBalancer",
     Version: "2012-06-01"
   });
@@ -437,12 +409,8 @@ export const serializeAws_queryDeleteLoadBalancerListenersCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteLoadBalancerListenerInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteLoadBalancerListenerInput(input, context),
     Action: "DeleteLoadBalancerListeners",
     Version: "2012-06-01"
   });
@@ -457,12 +425,8 @@ export const serializeAws_queryDeleteLoadBalancerPolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteLoadBalancerPolicyInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteLoadBalancerPolicyInput(input, context),
     Action: "DeleteLoadBalancerPolicy",
     Version: "2012-06-01"
   });
@@ -477,9 +441,8 @@ export const serializeAws_queryDeregisterInstancesFromLoadBalancerCommand = asyn
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeregisterEndPointsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeregisterEndPointsInput(input, context),
     Action: "DeregisterInstancesFromLoadBalancer",
     Version: "2012-06-01"
   });
@@ -494,9 +457,8 @@ export const serializeAws_queryDescribeAccountLimitsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeAccountLimitsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeAccountLimitsInput(input, context),
     Action: "DescribeAccountLimits",
     Version: "2012-06-01"
   });
@@ -511,9 +473,8 @@ export const serializeAws_queryDescribeInstanceHealthCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeEndPointStateInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeEndPointStateInput(input, context),
     Action: "DescribeInstanceHealth",
     Version: "2012-06-01"
   });
@@ -528,12 +489,8 @@ export const serializeAws_queryDescribeLoadBalancerAttributesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeLoadBalancerAttributesInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeLoadBalancerAttributesInput(input, context),
     Action: "DescribeLoadBalancerAttributes",
     Version: "2012-06-01"
   });
@@ -548,12 +505,8 @@ export const serializeAws_queryDescribeLoadBalancerPoliciesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeLoadBalancerPoliciesInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeLoadBalancerPoliciesInput(input, context),
     Action: "DescribeLoadBalancerPolicies",
     Version: "2012-06-01"
   });
@@ -568,12 +521,8 @@ export const serializeAws_queryDescribeLoadBalancerPolicyTypesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeLoadBalancerPolicyTypesInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeLoadBalancerPolicyTypesInput(input, context),
     Action: "DescribeLoadBalancerPolicyTypes",
     Version: "2012-06-01"
   });
@@ -588,9 +537,8 @@ export const serializeAws_queryDescribeLoadBalancersCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeAccessPointsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeAccessPointsInput(input, context),
     Action: "DescribeLoadBalancers",
     Version: "2012-06-01"
   });
@@ -605,9 +553,8 @@ export const serializeAws_queryDescribeTagsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeTagsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeTagsInput(input, context),
     Action: "DescribeTags",
     Version: "2012-06-01"
   });
@@ -622,12 +569,8 @@ export const serializeAws_queryDetachLoadBalancerFromSubnetsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDetachLoadBalancerFromSubnetsInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDetachLoadBalancerFromSubnetsInput(input, context),
     Action: "DetachLoadBalancerFromSubnets",
     Version: "2012-06-01"
   });
@@ -642,12 +585,8 @@ export const serializeAws_queryDisableAvailabilityZonesForLoadBalancerCommand = 
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryRemoveAvailabilityZonesInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryRemoveAvailabilityZonesInput(input, context),
     Action: "DisableAvailabilityZonesForLoadBalancer",
     Version: "2012-06-01"
   });
@@ -662,9 +601,8 @@ export const serializeAws_queryEnableAvailabilityZonesForLoadBalancerCommand = a
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryAddAvailabilityZonesInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryAddAvailabilityZonesInput(input, context),
     Action: "EnableAvailabilityZonesForLoadBalancer",
     Version: "2012-06-01"
   });
@@ -679,12 +617,8 @@ export const serializeAws_queryModifyLoadBalancerAttributesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryModifyLoadBalancerAttributesInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryModifyLoadBalancerAttributesInput(input, context),
     Action: "ModifyLoadBalancerAttributes",
     Version: "2012-06-01"
   });
@@ -699,9 +633,8 @@ export const serializeAws_queryRegisterInstancesWithLoadBalancerCommand = async 
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryRegisterEndPointsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryRegisterEndPointsInput(input, context),
     Action: "RegisterInstancesWithLoadBalancer",
     Version: "2012-06-01"
   });
@@ -716,9 +649,8 @@ export const serializeAws_queryRemoveTagsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryRemoveTagsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryRemoveTagsInput(input, context),
     Action: "RemoveTags",
     Version: "2012-06-01"
   });
@@ -733,12 +665,11 @@ export const serializeAws_querySetLoadBalancerListenerSSLCertificateCommand = as
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySetLoadBalancerListenerSSLCertificateInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySetLoadBalancerListenerSSLCertificateInput(
+      input,
+      context
+    ),
     Action: "SetLoadBalancerListenerSSLCertificate",
     Version: "2012-06-01"
   });
@@ -753,12 +684,11 @@ export const serializeAws_querySetLoadBalancerPoliciesForBackendServerCommand = 
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySetLoadBalancerPoliciesForBackendServerInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySetLoadBalancerPoliciesForBackendServerInput(
+      input,
+      context
+    ),
     Action: "SetLoadBalancerPoliciesForBackendServer",
     Version: "2012-06-01"
   });
@@ -773,12 +703,8 @@ export const serializeAws_querySetLoadBalancerPoliciesOfListenerCommand = async 
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySetLoadBalancerPoliciesOfListenerInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySetLoadBalancerPoliciesOfListenerInput(input, context),
     Action: "SetLoadBalancerPoliciesOfListener",
     Version: "2012-06-01"
   });

@@ -407,9 +407,8 @@ export const serializeAws_queryAddTagsToResourceCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryAddTagsToResourceMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryAddTagsToResourceMessage(input, context),
     Action: "AddTagsToResource",
     Version: "2015-02-02"
   });
@@ -424,12 +423,11 @@ export const serializeAws_queryAuthorizeCacheSecurityGroupIngressCommand = async
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryAuthorizeCacheSecurityGroupIngressMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryAuthorizeCacheSecurityGroupIngressMessage(
+      input,
+      context
+    ),
     Action: "AuthorizeCacheSecurityGroupIngress",
     Version: "2015-02-02"
   });
@@ -444,12 +442,8 @@ export const serializeAws_queryBatchApplyUpdateActionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryBatchApplyUpdateActionMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryBatchApplyUpdateActionMessage(input, context),
     Action: "BatchApplyUpdateAction",
     Version: "2015-02-02"
   });
@@ -464,12 +458,8 @@ export const serializeAws_queryBatchStopUpdateActionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryBatchStopUpdateActionMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryBatchStopUpdateActionMessage(input, context),
     Action: "BatchStopUpdateAction",
     Version: "2015-02-02"
   });
@@ -484,9 +474,8 @@ export const serializeAws_queryCompleteMigrationCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCompleteMigrationMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCompleteMigrationMessage(input, context),
     Action: "CompleteMigration",
     Version: "2015-02-02"
   });
@@ -501,9 +490,8 @@ export const serializeAws_queryCopySnapshotCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCopySnapshotMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCopySnapshotMessage(input, context),
     Action: "CopySnapshot",
     Version: "2015-02-02"
   });
@@ -518,9 +506,8 @@ export const serializeAws_queryCreateCacheClusterCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateCacheClusterMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateCacheClusterMessage(input, context),
     Action: "CreateCacheCluster",
     Version: "2015-02-02"
   });
@@ -535,12 +522,8 @@ export const serializeAws_queryCreateCacheParameterGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateCacheParameterGroupMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateCacheParameterGroupMessage(input, context),
     Action: "CreateCacheParameterGroup",
     Version: "2015-02-02"
   });
@@ -555,12 +538,8 @@ export const serializeAws_queryCreateCacheSecurityGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateCacheSecurityGroupMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateCacheSecurityGroupMessage(input, context),
     Action: "CreateCacheSecurityGroup",
     Version: "2015-02-02"
   });
@@ -575,12 +554,8 @@ export const serializeAws_queryCreateCacheSubnetGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateCacheSubnetGroupMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateCacheSubnetGroupMessage(input, context),
     Action: "CreateCacheSubnetGroup",
     Version: "2015-02-02"
   });
@@ -595,12 +570,8 @@ export const serializeAws_queryCreateReplicationGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateReplicationGroupMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateReplicationGroupMessage(input, context),
     Action: "CreateReplicationGroup",
     Version: "2015-02-02"
   });
@@ -615,9 +586,8 @@ export const serializeAws_queryCreateSnapshotCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateSnapshotMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateSnapshotMessage(input, context),
     Action: "CreateSnapshot",
     Version: "2015-02-02"
   });
@@ -632,9 +602,8 @@ export const serializeAws_queryDecreaseReplicaCountCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDecreaseReplicaCountMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDecreaseReplicaCountMessage(input, context),
     Action: "DecreaseReplicaCount",
     Version: "2015-02-02"
   });
@@ -649,9 +618,8 @@ export const serializeAws_queryDeleteCacheClusterCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteCacheClusterMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteCacheClusterMessage(input, context),
     Action: "DeleteCacheCluster",
     Version: "2015-02-02"
   });
@@ -666,12 +634,8 @@ export const serializeAws_queryDeleteCacheParameterGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteCacheParameterGroupMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteCacheParameterGroupMessage(input, context),
     Action: "DeleteCacheParameterGroup",
     Version: "2015-02-02"
   });
@@ -686,12 +650,8 @@ export const serializeAws_queryDeleteCacheSecurityGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteCacheSecurityGroupMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteCacheSecurityGroupMessage(input, context),
     Action: "DeleteCacheSecurityGroup",
     Version: "2015-02-02"
   });
@@ -706,12 +666,8 @@ export const serializeAws_queryDeleteCacheSubnetGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteCacheSubnetGroupMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteCacheSubnetGroupMessage(input, context),
     Action: "DeleteCacheSubnetGroup",
     Version: "2015-02-02"
   });
@@ -726,12 +682,8 @@ export const serializeAws_queryDeleteReplicationGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteReplicationGroupMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteReplicationGroupMessage(input, context),
     Action: "DeleteReplicationGroup",
     Version: "2015-02-02"
   });
@@ -746,9 +698,8 @@ export const serializeAws_queryDeleteSnapshotCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteSnapshotMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteSnapshotMessage(input, context),
     Action: "DeleteSnapshot",
     Version: "2015-02-02"
   });
@@ -763,12 +714,8 @@ export const serializeAws_queryDescribeCacheClustersCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeCacheClustersMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeCacheClustersMessage(input, context),
     Action: "DescribeCacheClusters",
     Version: "2015-02-02"
   });
@@ -783,12 +730,8 @@ export const serializeAws_queryDescribeCacheEngineVersionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeCacheEngineVersionsMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeCacheEngineVersionsMessage(input, context),
     Action: "DescribeCacheEngineVersions",
     Version: "2015-02-02"
   });
@@ -803,12 +746,8 @@ export const serializeAws_queryDescribeCacheParameterGroupsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeCacheParameterGroupsMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeCacheParameterGroupsMessage(input, context),
     Action: "DescribeCacheParameterGroups",
     Version: "2015-02-02"
   });
@@ -823,12 +762,8 @@ export const serializeAws_queryDescribeCacheParametersCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeCacheParametersMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeCacheParametersMessage(input, context),
     Action: "DescribeCacheParameters",
     Version: "2015-02-02"
   });
@@ -843,12 +778,8 @@ export const serializeAws_queryDescribeCacheSecurityGroupsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeCacheSecurityGroupsMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeCacheSecurityGroupsMessage(input, context),
     Action: "DescribeCacheSecurityGroups",
     Version: "2015-02-02"
   });
@@ -863,12 +794,8 @@ export const serializeAws_queryDescribeCacheSubnetGroupsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeCacheSubnetGroupsMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeCacheSubnetGroupsMessage(input, context),
     Action: "DescribeCacheSubnetGroups",
     Version: "2015-02-02"
   });
@@ -883,12 +810,8 @@ export const serializeAws_queryDescribeEngineDefaultParametersCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeEngineDefaultParametersMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeEngineDefaultParametersMessage(input, context),
     Action: "DescribeEngineDefaultParameters",
     Version: "2015-02-02"
   });
@@ -903,9 +826,8 @@ export const serializeAws_queryDescribeEventsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeEventsMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeEventsMessage(input, context),
     Action: "DescribeEvents",
     Version: "2015-02-02"
   });
@@ -920,12 +842,8 @@ export const serializeAws_queryDescribeReplicationGroupsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeReplicationGroupsMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeReplicationGroupsMessage(input, context),
     Action: "DescribeReplicationGroups",
     Version: "2015-02-02"
   });
@@ -940,12 +858,8 @@ export const serializeAws_queryDescribeReservedCacheNodesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeReservedCacheNodesMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeReservedCacheNodesMessage(input, context),
     Action: "DescribeReservedCacheNodes",
     Version: "2015-02-02"
   });
@@ -960,12 +874,11 @@ export const serializeAws_queryDescribeReservedCacheNodesOfferingsCommand = asyn
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeReservedCacheNodesOfferingsMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeReservedCacheNodesOfferingsMessage(
+      input,
+      context
+    ),
     Action: "DescribeReservedCacheNodesOfferings",
     Version: "2015-02-02"
   });
@@ -980,12 +893,8 @@ export const serializeAws_queryDescribeServiceUpdatesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeServiceUpdatesMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeServiceUpdatesMessage(input, context),
     Action: "DescribeServiceUpdates",
     Version: "2015-02-02"
   });
@@ -1000,9 +909,8 @@ export const serializeAws_queryDescribeSnapshotsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeSnapshotsMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeSnapshotsMessage(input, context),
     Action: "DescribeSnapshots",
     Version: "2015-02-02"
   });
@@ -1017,12 +925,8 @@ export const serializeAws_queryDescribeUpdateActionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeUpdateActionsMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeUpdateActionsMessage(input, context),
     Action: "DescribeUpdateActions",
     Version: "2015-02-02"
   });
@@ -1037,9 +941,8 @@ export const serializeAws_queryIncreaseReplicaCountCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryIncreaseReplicaCountMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryIncreaseReplicaCountMessage(input, context),
     Action: "IncreaseReplicaCount",
     Version: "2015-02-02"
   });
@@ -1054,12 +957,11 @@ export const serializeAws_queryListAllowedNodeTypeModificationsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListAllowedNodeTypeModificationsMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListAllowedNodeTypeModificationsMessage(
+      input,
+      context
+    ),
     Action: "ListAllowedNodeTypeModifications",
     Version: "2015-02-02"
   });
@@ -1074,9 +976,8 @@ export const serializeAws_queryListTagsForResourceCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListTagsForResourceMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListTagsForResourceMessage(input, context),
     Action: "ListTagsForResource",
     Version: "2015-02-02"
   });
@@ -1091,9 +992,8 @@ export const serializeAws_queryModifyCacheClusterCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryModifyCacheClusterMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryModifyCacheClusterMessage(input, context),
     Action: "ModifyCacheCluster",
     Version: "2015-02-02"
   });
@@ -1108,12 +1008,8 @@ export const serializeAws_queryModifyCacheParameterGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryModifyCacheParameterGroupMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryModifyCacheParameterGroupMessage(input, context),
     Action: "ModifyCacheParameterGroup",
     Version: "2015-02-02"
   });
@@ -1128,12 +1024,8 @@ export const serializeAws_queryModifyCacheSubnetGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryModifyCacheSubnetGroupMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryModifyCacheSubnetGroupMessage(input, context),
     Action: "ModifyCacheSubnetGroup",
     Version: "2015-02-02"
   });
@@ -1148,12 +1040,8 @@ export const serializeAws_queryModifyReplicationGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryModifyReplicationGroupMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryModifyReplicationGroupMessage(input, context),
     Action: "ModifyReplicationGroup",
     Version: "2015-02-02"
   });
@@ -1168,12 +1056,11 @@ export const serializeAws_queryModifyReplicationGroupShardConfigurationCommand =
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryModifyReplicationGroupShardConfigurationMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryModifyReplicationGroupShardConfigurationMessage(
+      input,
+      context
+    ),
     Action: "ModifyReplicationGroupShardConfiguration",
     Version: "2015-02-02"
   });
@@ -1188,12 +1075,11 @@ export const serializeAws_queryPurchaseReservedCacheNodesOfferingCommand = async
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryPurchaseReservedCacheNodesOfferingMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryPurchaseReservedCacheNodesOfferingMessage(
+      input,
+      context
+    ),
     Action: "PurchaseReservedCacheNodesOffering",
     Version: "2015-02-02"
   });
@@ -1208,9 +1094,8 @@ export const serializeAws_queryRebootCacheClusterCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryRebootCacheClusterMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryRebootCacheClusterMessage(input, context),
     Action: "RebootCacheCluster",
     Version: "2015-02-02"
   });
@@ -1225,12 +1110,8 @@ export const serializeAws_queryRemoveTagsFromResourceCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryRemoveTagsFromResourceMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryRemoveTagsFromResourceMessage(input, context),
     Action: "RemoveTagsFromResource",
     Version: "2015-02-02"
   });
@@ -1245,12 +1126,8 @@ export const serializeAws_queryResetCacheParameterGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryResetCacheParameterGroupMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryResetCacheParameterGroupMessage(input, context),
     Action: "ResetCacheParameterGroup",
     Version: "2015-02-02"
   });
@@ -1265,12 +1142,8 @@ export const serializeAws_queryRevokeCacheSecurityGroupIngressCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryRevokeCacheSecurityGroupIngressMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryRevokeCacheSecurityGroupIngressMessage(input, context),
     Action: "RevokeCacheSecurityGroupIngress",
     Version: "2015-02-02"
   });
@@ -1285,9 +1158,8 @@ export const serializeAws_queryStartMigrationCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryStartMigrationMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryStartMigrationMessage(input, context),
     Action: "StartMigration",
     Version: "2015-02-02"
   });
@@ -1302,9 +1174,8 @@ export const serializeAws_queryTestFailoverCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryTestFailoverMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryTestFailoverMessage(input, context),
     Action: "TestFailover",
     Version: "2015-02-02"
   });
