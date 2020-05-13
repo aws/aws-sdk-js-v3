@@ -3645,110 +3645,76 @@ const serializeAws_restJson1_1AssetDestinationEntry = (
   input: AssetDestinationEntry,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AssetId !== undefined) {
-    bodyParams["AssetId"] = input.AssetId;
-  }
-  if (input.Bucket !== undefined) {
-    bodyParams["Bucket"] = input.Bucket;
-  }
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  return bodyParams;
+  return {
+    ...(input.AssetId !== undefined && { AssetId: input.AssetId }),
+    ...(input.Bucket !== undefined && { Bucket: input.Bucket }),
+    ...(input.Key !== undefined && { Key: input.Key })
+  };
 };
 
 const serializeAws_restJson1_1AssetSourceEntry = (
   input: AssetSourceEntry,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Bucket !== undefined) {
-    bodyParams["Bucket"] = input.Bucket;
-  }
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  return bodyParams;
+  return {
+    ...(input.Bucket !== undefined && { Bucket: input.Bucket }),
+    ...(input.Key !== undefined && { Key: input.Key })
+  };
 };
 
 const serializeAws_restJson1_1ExportAssetToSignedUrlRequestDetails = (
   input: ExportAssetToSignedUrlRequestDetails,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AssetId !== undefined) {
-    bodyParams["AssetId"] = input.AssetId;
-  }
-  if (input.DataSetId !== undefined) {
-    bodyParams["DataSetId"] = input.DataSetId;
-  }
-  if (input.RevisionId !== undefined) {
-    bodyParams["RevisionId"] = input.RevisionId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AssetId !== undefined && { AssetId: input.AssetId }),
+    ...(input.DataSetId !== undefined && { DataSetId: input.DataSetId }),
+    ...(input.RevisionId !== undefined && { RevisionId: input.RevisionId })
+  };
 };
 
 const serializeAws_restJson1_1ExportAssetsToS3RequestDetails = (
   input: ExportAssetsToS3RequestDetails,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AssetDestinations !== undefined) {
-    bodyParams[
-      "AssetDestinations"
-    ] = serializeAws_restJson1_1ListOfAssetDestinationEntry(
-      input.AssetDestinations,
-      context
-    );
-  }
-  if (input.DataSetId !== undefined) {
-    bodyParams["DataSetId"] = input.DataSetId;
-  }
-  if (input.RevisionId !== undefined) {
-    bodyParams["RevisionId"] = input.RevisionId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AssetDestinations !== undefined && {
+      AssetDestinations: serializeAws_restJson1_1ListOfAssetDestinationEntry(
+        input.AssetDestinations,
+        context
+      )
+    }),
+    ...(input.DataSetId !== undefined && { DataSetId: input.DataSetId }),
+    ...(input.RevisionId !== undefined && { RevisionId: input.RevisionId })
+  };
 };
 
 const serializeAws_restJson1_1ImportAssetFromSignedUrlRequestDetails = (
   input: ImportAssetFromSignedUrlRequestDetails,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AssetName !== undefined) {
-    bodyParams["AssetName"] = input.AssetName;
-  }
-  if (input.DataSetId !== undefined) {
-    bodyParams["DataSetId"] = input.DataSetId;
-  }
-  if (input.Md5Hash !== undefined) {
-    bodyParams["Md5Hash"] = input.Md5Hash;
-  }
-  if (input.RevisionId !== undefined) {
-    bodyParams["RevisionId"] = input.RevisionId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AssetName !== undefined && { AssetName: input.AssetName }),
+    ...(input.DataSetId !== undefined && { DataSetId: input.DataSetId }),
+    ...(input.Md5Hash !== undefined && { Md5Hash: input.Md5Hash }),
+    ...(input.RevisionId !== undefined && { RevisionId: input.RevisionId })
+  };
 };
 
 const serializeAws_restJson1_1ImportAssetsFromS3RequestDetails = (
   input: ImportAssetsFromS3RequestDetails,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AssetSources !== undefined) {
-    bodyParams["AssetSources"] = serializeAws_restJson1_1ListOfAssetSourceEntry(
-      input.AssetSources,
-      context
-    );
-  }
-  if (input.DataSetId !== undefined) {
-    bodyParams["DataSetId"] = input.DataSetId;
-  }
-  if (input.RevisionId !== undefined) {
-    bodyParams["RevisionId"] = input.RevisionId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AssetSources !== undefined && {
+      AssetSources: serializeAws_restJson1_1ListOfAssetSourceEntry(
+        input.AssetSources,
+        context
+      )
+    }),
+    ...(input.DataSetId !== undefined && { DataSetId: input.DataSetId }),
+    ...(input.RevisionId !== undefined && { RevisionId: input.RevisionId })
+  };
 };
 
 const serializeAws_restJson1_1ListOfAssetDestinationEntry = (
@@ -3783,40 +3749,32 @@ const serializeAws_restJson1_1RequestDetails = (
   input: RequestDetails,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ExportAssetToSignedUrl !== undefined) {
-    bodyParams[
-      "ExportAssetToSignedUrl"
-    ] = serializeAws_restJson1_1ExportAssetToSignedUrlRequestDetails(
-      input.ExportAssetToSignedUrl,
-      context
-    );
-  }
-  if (input.ExportAssetsToS3 !== undefined) {
-    bodyParams[
-      "ExportAssetsToS3"
-    ] = serializeAws_restJson1_1ExportAssetsToS3RequestDetails(
-      input.ExportAssetsToS3,
-      context
-    );
-  }
-  if (input.ImportAssetFromSignedUrl !== undefined) {
-    bodyParams[
-      "ImportAssetFromSignedUrl"
-    ] = serializeAws_restJson1_1ImportAssetFromSignedUrlRequestDetails(
-      input.ImportAssetFromSignedUrl,
-      context
-    );
-  }
-  if (input.ImportAssetsFromS3 !== undefined) {
-    bodyParams[
-      "ImportAssetsFromS3"
-    ] = serializeAws_restJson1_1ImportAssetsFromS3RequestDetails(
-      input.ImportAssetsFromS3,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.ExportAssetToSignedUrl !== undefined && {
+      ExportAssetToSignedUrl: serializeAws_restJson1_1ExportAssetToSignedUrlRequestDetails(
+        input.ExportAssetToSignedUrl,
+        context
+      )
+    }),
+    ...(input.ExportAssetsToS3 !== undefined && {
+      ExportAssetsToS3: serializeAws_restJson1_1ExportAssetsToS3RequestDetails(
+        input.ExportAssetsToS3,
+        context
+      )
+    }),
+    ...(input.ImportAssetFromSignedUrl !== undefined && {
+      ImportAssetFromSignedUrl: serializeAws_restJson1_1ImportAssetFromSignedUrlRequestDetails(
+        input.ImportAssetFromSignedUrl,
+        context
+      )
+    }),
+    ...(input.ImportAssetsFromS3 !== undefined && {
+      ImportAssetsFromS3: serializeAws_restJson1_1ImportAssetsFromS3RequestDetails(
+        input.ImportAssetsFromS3,
+        context
+      )
+    })
+  };
 };
 
 const deserializeAws_restJson1_1AssetDestinationEntry = (

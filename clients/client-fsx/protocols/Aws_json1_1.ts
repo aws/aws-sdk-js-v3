@@ -2301,259 +2301,195 @@ const serializeAws_json1_1CancelDataRepositoryTaskRequest = (
   input: CancelDataRepositoryTaskRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.TaskId !== undefined) {
-    bodyParams["TaskId"] = input.TaskId;
-  }
-  return bodyParams;
+  return {
+    ...(input.TaskId !== undefined && { TaskId: input.TaskId })
+  };
 };
 
 const serializeAws_json1_1CompletionReport = (
   input: CompletionReport,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Enabled !== undefined) {
-    bodyParams["Enabled"] = input.Enabled;
-  }
-  if (input.Format !== undefined) {
-    bodyParams["Format"] = input.Format;
-  }
-  if (input.Path !== undefined) {
-    bodyParams["Path"] = input.Path;
-  }
-  if (input.Scope !== undefined) {
-    bodyParams["Scope"] = input.Scope;
-  }
-  return bodyParams;
+  return {
+    ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
+    ...(input.Format !== undefined && { Format: input.Format }),
+    ...(input.Path !== undefined && { Path: input.Path }),
+    ...(input.Scope !== undefined && { Scope: input.Scope })
+  };
 };
 
 const serializeAws_json1_1CreateBackupRequest = (
   input: CreateBackupRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ClientRequestToken === undefined) {
-    input.ClientRequestToken = generateIdempotencyToken();
-  }
-  if (input.ClientRequestToken !== undefined) {
-    bodyParams["ClientRequestToken"] = input.ClientRequestToken;
-  }
-  if (input.FileSystemId !== undefined) {
-    bodyParams["FileSystemId"] = input.FileSystemId;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
-  }
-  return bodyParams;
+  return {
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.FileSystemId !== undefined && {
+      FileSystemId: input.FileSystemId
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1Tags(input.Tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_1CreateDataRepositoryTaskRequest = (
   input: CreateDataRepositoryTaskRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ClientRequestToken === undefined) {
-    input.ClientRequestToken = generateIdempotencyToken();
-  }
-  if (input.ClientRequestToken !== undefined) {
-    bodyParams["ClientRequestToken"] = input.ClientRequestToken;
-  }
-  if (input.FileSystemId !== undefined) {
-    bodyParams["FileSystemId"] = input.FileSystemId;
-  }
-  if (input.Paths !== undefined) {
-    bodyParams["Paths"] = serializeAws_json1_1DataRepositoryTaskPaths(
-      input.Paths,
-      context
-    );
-  }
-  if (input.Report !== undefined) {
-    bodyParams["Report"] = serializeAws_json1_1CompletionReport(
-      input.Report,
-      context
-    );
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
-  }
-  if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
-  }
-  return bodyParams;
+  return {
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.FileSystemId !== undefined && {
+      FileSystemId: input.FileSystemId
+    }),
+    ...(input.Paths !== undefined && {
+      Paths: serializeAws_json1_1DataRepositoryTaskPaths(input.Paths, context)
+    }),
+    ...(input.Report !== undefined && {
+      Report: serializeAws_json1_1CompletionReport(input.Report, context)
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1Tags(input.Tags, context)
+    }),
+    ...(input.Type !== undefined && { Type: input.Type })
+  };
 };
 
 const serializeAws_json1_1CreateFileSystemFromBackupRequest = (
   input: CreateFileSystemFromBackupRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.BackupId !== undefined) {
-    bodyParams["BackupId"] = input.BackupId;
-  }
-  if (input.ClientRequestToken === undefined) {
-    input.ClientRequestToken = generateIdempotencyToken();
-  }
-  if (input.ClientRequestToken !== undefined) {
-    bodyParams["ClientRequestToken"] = input.ClientRequestToken;
-  }
-  if (input.SecurityGroupIds !== undefined) {
-    bodyParams["SecurityGroupIds"] = serializeAws_json1_1SecurityGroupIds(
-      input.SecurityGroupIds,
-      context
-    );
-  }
-  if (input.SubnetIds !== undefined) {
-    bodyParams["SubnetIds"] = serializeAws_json1_1SubnetIds(
-      input.SubnetIds,
-      context
-    );
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
-  }
-  if (input.WindowsConfiguration !== undefined) {
-    bodyParams[
-      "WindowsConfiguration"
-    ] = serializeAws_json1_1CreateFileSystemWindowsConfiguration(
-      input.WindowsConfiguration,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.BackupId !== undefined && { BackupId: input.BackupId }),
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.SecurityGroupIds !== undefined && {
+      SecurityGroupIds: serializeAws_json1_1SecurityGroupIds(
+        input.SecurityGroupIds,
+        context
+      )
+    }),
+    ...(input.SubnetIds !== undefined && {
+      SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context)
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1Tags(input.Tags, context)
+    }),
+    ...(input.WindowsConfiguration !== undefined && {
+      WindowsConfiguration: serializeAws_json1_1CreateFileSystemWindowsConfiguration(
+        input.WindowsConfiguration,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1CreateFileSystemLustreConfiguration = (
   input: CreateFileSystemLustreConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ExportPath !== undefined) {
-    bodyParams["ExportPath"] = input.ExportPath;
-  }
-  if (input.ImportPath !== undefined) {
-    bodyParams["ImportPath"] = input.ImportPath;
-  }
-  if (input.ImportedFileChunkSize !== undefined) {
-    bodyParams["ImportedFileChunkSize"] = input.ImportedFileChunkSize;
-  }
-  if (input.WeeklyMaintenanceStartTime !== undefined) {
-    bodyParams["WeeklyMaintenanceStartTime"] = input.WeeklyMaintenanceStartTime;
-  }
-  return bodyParams;
+  return {
+    ...(input.ExportPath !== undefined && { ExportPath: input.ExportPath }),
+    ...(input.ImportPath !== undefined && { ImportPath: input.ImportPath }),
+    ...(input.ImportedFileChunkSize !== undefined && {
+      ImportedFileChunkSize: input.ImportedFileChunkSize
+    }),
+    ...(input.WeeklyMaintenanceStartTime !== undefined && {
+      WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime
+    })
+  };
 };
 
 const serializeAws_json1_1CreateFileSystemRequest = (
   input: CreateFileSystemRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ClientRequestToken === undefined) {
-    input.ClientRequestToken = generateIdempotencyToken();
-  }
-  if (input.ClientRequestToken !== undefined) {
-    bodyParams["ClientRequestToken"] = input.ClientRequestToken;
-  }
-  if (input.FileSystemType !== undefined) {
-    bodyParams["FileSystemType"] = input.FileSystemType;
-  }
-  if (input.KmsKeyId !== undefined) {
-    bodyParams["KmsKeyId"] = input.KmsKeyId;
-  }
-  if (input.LustreConfiguration !== undefined) {
-    bodyParams[
-      "LustreConfiguration"
-    ] = serializeAws_json1_1CreateFileSystemLustreConfiguration(
-      input.LustreConfiguration,
-      context
-    );
-  }
-  if (input.SecurityGroupIds !== undefined) {
-    bodyParams["SecurityGroupIds"] = serializeAws_json1_1SecurityGroupIds(
-      input.SecurityGroupIds,
-      context
-    );
-  }
-  if (input.StorageCapacity !== undefined) {
-    bodyParams["StorageCapacity"] = input.StorageCapacity;
-  }
-  if (input.SubnetIds !== undefined) {
-    bodyParams["SubnetIds"] = serializeAws_json1_1SubnetIds(
-      input.SubnetIds,
-      context
-    );
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
-  }
-  if (input.WindowsConfiguration !== undefined) {
-    bodyParams[
-      "WindowsConfiguration"
-    ] = serializeAws_json1_1CreateFileSystemWindowsConfiguration(
-      input.WindowsConfiguration,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.FileSystemType !== undefined && {
+      FileSystemType: input.FileSystemType
+    }),
+    ...(input.KmsKeyId !== undefined && { KmsKeyId: input.KmsKeyId }),
+    ...(input.LustreConfiguration !== undefined && {
+      LustreConfiguration: serializeAws_json1_1CreateFileSystemLustreConfiguration(
+        input.LustreConfiguration,
+        context
+      )
+    }),
+    ...(input.SecurityGroupIds !== undefined && {
+      SecurityGroupIds: serializeAws_json1_1SecurityGroupIds(
+        input.SecurityGroupIds,
+        context
+      )
+    }),
+    ...(input.StorageCapacity !== undefined && {
+      StorageCapacity: input.StorageCapacity
+    }),
+    ...(input.SubnetIds !== undefined && {
+      SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context)
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1Tags(input.Tags, context)
+    }),
+    ...(input.WindowsConfiguration !== undefined && {
+      WindowsConfiguration: serializeAws_json1_1CreateFileSystemWindowsConfiguration(
+        input.WindowsConfiguration,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1CreateFileSystemWindowsConfiguration = (
   input: CreateFileSystemWindowsConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ActiveDirectoryId !== undefined) {
-    bodyParams["ActiveDirectoryId"] = input.ActiveDirectoryId;
-  }
-  if (input.AutomaticBackupRetentionDays !== undefined) {
-    bodyParams["AutomaticBackupRetentionDays"] =
-      input.AutomaticBackupRetentionDays;
-  }
-  if (input.CopyTagsToBackups !== undefined) {
-    bodyParams["CopyTagsToBackups"] = input.CopyTagsToBackups;
-  }
-  if (input.DailyAutomaticBackupStartTime !== undefined) {
-    bodyParams["DailyAutomaticBackupStartTime"] =
-      input.DailyAutomaticBackupStartTime;
-  }
-  if (input.DeploymentType !== undefined) {
-    bodyParams["DeploymentType"] = input.DeploymentType;
-  }
-  if (input.PreferredSubnetId !== undefined) {
-    bodyParams["PreferredSubnetId"] = input.PreferredSubnetId;
-  }
-  if (input.SelfManagedActiveDirectoryConfiguration !== undefined) {
-    bodyParams[
-      "SelfManagedActiveDirectoryConfiguration"
-    ] = serializeAws_json1_1SelfManagedActiveDirectoryConfiguration(
-      input.SelfManagedActiveDirectoryConfiguration,
-      context
-    );
-  }
-  if (input.ThroughputCapacity !== undefined) {
-    bodyParams["ThroughputCapacity"] = input.ThroughputCapacity;
-  }
-  if (input.WeeklyMaintenanceStartTime !== undefined) {
-    bodyParams["WeeklyMaintenanceStartTime"] = input.WeeklyMaintenanceStartTime;
-  }
-  return bodyParams;
+  return {
+    ...(input.ActiveDirectoryId !== undefined && {
+      ActiveDirectoryId: input.ActiveDirectoryId
+    }),
+    ...(input.AutomaticBackupRetentionDays !== undefined && {
+      AutomaticBackupRetentionDays: input.AutomaticBackupRetentionDays
+    }),
+    ...(input.CopyTagsToBackups !== undefined && {
+      CopyTagsToBackups: input.CopyTagsToBackups
+    }),
+    ...(input.DailyAutomaticBackupStartTime !== undefined && {
+      DailyAutomaticBackupStartTime: input.DailyAutomaticBackupStartTime
+    }),
+    ...(input.DeploymentType !== undefined && {
+      DeploymentType: input.DeploymentType
+    }),
+    ...(input.PreferredSubnetId !== undefined && {
+      PreferredSubnetId: input.PreferredSubnetId
+    }),
+    ...(input.SelfManagedActiveDirectoryConfiguration !== undefined && {
+      SelfManagedActiveDirectoryConfiguration: serializeAws_json1_1SelfManagedActiveDirectoryConfiguration(
+        input.SelfManagedActiveDirectoryConfiguration,
+        context
+      )
+    }),
+    ...(input.ThroughputCapacity !== undefined && {
+      ThroughputCapacity: input.ThroughputCapacity
+    }),
+    ...(input.WeeklyMaintenanceStartTime !== undefined && {
+      WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime
+    })
+  };
 };
 
 const serializeAws_json1_1DataRepositoryTaskFilter = (
   input: DataRepositoryTaskFilter,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.Values !== undefined) {
-    bodyParams["Values"] = serializeAws_json1_1DataRepositoryTaskFilterValues(
-      input.Values,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Values !== undefined && {
+      Values: serializeAws_json1_1DataRepositoryTaskFilterValues(
+        input.Values,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1DataRepositoryTaskFilterValues = (
@@ -2583,125 +2519,93 @@ const serializeAws_json1_1DeleteBackupRequest = (
   input: DeleteBackupRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.BackupId !== undefined) {
-    bodyParams["BackupId"] = input.BackupId;
-  }
-  if (input.ClientRequestToken === undefined) {
-    input.ClientRequestToken = generateIdempotencyToken();
-  }
-  if (input.ClientRequestToken !== undefined) {
-    bodyParams["ClientRequestToken"] = input.ClientRequestToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.BackupId !== undefined && { BackupId: input.BackupId }),
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken()
+  };
 };
 
 const serializeAws_json1_1DeleteFileSystemRequest = (
   input: DeleteFileSystemRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ClientRequestToken === undefined) {
-    input.ClientRequestToken = generateIdempotencyToken();
-  }
-  if (input.ClientRequestToken !== undefined) {
-    bodyParams["ClientRequestToken"] = input.ClientRequestToken;
-  }
-  if (input.FileSystemId !== undefined) {
-    bodyParams["FileSystemId"] = input.FileSystemId;
-  }
-  if (input.WindowsConfiguration !== undefined) {
-    bodyParams[
-      "WindowsConfiguration"
-    ] = serializeAws_json1_1DeleteFileSystemWindowsConfiguration(
-      input.WindowsConfiguration,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.FileSystemId !== undefined && {
+      FileSystemId: input.FileSystemId
+    }),
+    ...(input.WindowsConfiguration !== undefined && {
+      WindowsConfiguration: serializeAws_json1_1DeleteFileSystemWindowsConfiguration(
+        input.WindowsConfiguration,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1DeleteFileSystemWindowsConfiguration = (
   input: DeleteFileSystemWindowsConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.FinalBackupTags !== undefined) {
-    bodyParams["FinalBackupTags"] = serializeAws_json1_1Tags(
-      input.FinalBackupTags,
-      context
-    );
-  }
-  if (input.SkipFinalBackup !== undefined) {
-    bodyParams["SkipFinalBackup"] = input.SkipFinalBackup;
-  }
-  return bodyParams;
+  return {
+    ...(input.FinalBackupTags !== undefined && {
+      FinalBackupTags: serializeAws_json1_1Tags(input.FinalBackupTags, context)
+    }),
+    ...(input.SkipFinalBackup !== undefined && {
+      SkipFinalBackup: input.SkipFinalBackup
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeBackupsRequest = (
   input: DescribeBackupsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.BackupIds !== undefined) {
-    bodyParams["BackupIds"] = serializeAws_json1_1BackupIds(
-      input.BackupIds,
-      context
-    );
-  }
-  if (input.Filters !== undefined) {
-    bodyParams["Filters"] = serializeAws_json1_1Filters(input.Filters, context);
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.BackupIds !== undefined && {
+      BackupIds: serializeAws_json1_1BackupIds(input.BackupIds, context)
+    }),
+    ...(input.Filters !== undefined && {
+      Filters: serializeAws_json1_1Filters(input.Filters, context)
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1DescribeDataRepositoryTasksRequest = (
   input: DescribeDataRepositoryTasksRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Filters !== undefined) {
-    bodyParams["Filters"] = serializeAws_json1_1DataRepositoryTaskFilters(
-      input.Filters,
-      context
-    );
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.TaskIds !== undefined) {
-    bodyParams["TaskIds"] = serializeAws_json1_1TaskIds(input.TaskIds, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.Filters !== undefined && {
+      Filters: serializeAws_json1_1DataRepositoryTaskFilters(
+        input.Filters,
+        context
+      )
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.TaskIds !== undefined && {
+      TaskIds: serializeAws_json1_1TaskIds(input.TaskIds, context)
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeFileSystemsRequest = (
   input: DescribeFileSystemsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.FileSystemIds !== undefined) {
-    bodyParams["FileSystemIds"] = serializeAws_json1_1FileSystemIds(
-      input.FileSystemIds,
-      context
-    );
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.FileSystemIds !== undefined && {
+      FileSystemIds: serializeAws_json1_1FileSystemIds(
+        input.FileSystemIds,
+        context
+      )
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1DnsIps = (
@@ -2722,17 +2626,12 @@ const serializeAws_json1_1Filter = (
   input: Filter,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.Values !== undefined) {
-    bodyParams["Values"] = serializeAws_json1_1FilterValues(
-      input.Values,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Values !== undefined && {
+      Values: serializeAws_json1_1FilterValues(input.Values, context)
+    })
+  };
 };
 
 const serializeAws_json1_1FilterValues = (
@@ -2753,17 +2652,11 @@ const serializeAws_json1_1ListTagsForResourceRequest = (
   input: ListTagsForResourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ResourceARN !== undefined) {
-    bodyParams["ResourceARN"] = input.ResourceARN;
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN })
+  };
 };
 
 const serializeAws_json1_1SecurityGroupIds = (
@@ -2777,45 +2670,34 @@ const serializeAws_json1_1SelfManagedActiveDirectoryConfiguration = (
   input: SelfManagedActiveDirectoryConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DnsIps !== undefined) {
-    bodyParams["DnsIps"] = serializeAws_json1_1DnsIps(input.DnsIps, context);
-  }
-  if (input.DomainName !== undefined) {
-    bodyParams["DomainName"] = input.DomainName;
-  }
-  if (input.FileSystemAdministratorsGroup !== undefined) {
-    bodyParams["FileSystemAdministratorsGroup"] =
-      input.FileSystemAdministratorsGroup;
-  }
-  if (input.OrganizationalUnitDistinguishedName !== undefined) {
-    bodyParams["OrganizationalUnitDistinguishedName"] =
-      input.OrganizationalUnitDistinguishedName;
-  }
-  if (input.Password !== undefined) {
-    bodyParams["Password"] = input.Password;
-  }
-  if (input.UserName !== undefined) {
-    bodyParams["UserName"] = input.UserName;
-  }
-  return bodyParams;
+  return {
+    ...(input.DnsIps !== undefined && {
+      DnsIps: serializeAws_json1_1DnsIps(input.DnsIps, context)
+    }),
+    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
+    ...(input.FileSystemAdministratorsGroup !== undefined && {
+      FileSystemAdministratorsGroup: input.FileSystemAdministratorsGroup
+    }),
+    ...(input.OrganizationalUnitDistinguishedName !== undefined && {
+      OrganizationalUnitDistinguishedName:
+        input.OrganizationalUnitDistinguishedName
+    }),
+    ...(input.Password !== undefined && { Password: input.Password }),
+    ...(input.UserName !== undefined && { UserName: input.UserName })
+  };
 };
 
 const serializeAws_json1_1SelfManagedActiveDirectoryConfigurationUpdates = (
   input: SelfManagedActiveDirectoryConfigurationUpdates,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DnsIps !== undefined) {
-    bodyParams["DnsIps"] = serializeAws_json1_1DnsIps(input.DnsIps, context);
-  }
-  if (input.Password !== undefined) {
-    bodyParams["Password"] = input.Password;
-  }
-  if (input.UserName !== undefined) {
-    bodyParams["UserName"] = input.UserName;
-  }
-  return bodyParams;
+  return {
+    ...(input.DnsIps !== undefined && {
+      DnsIps: serializeAws_json1_1DnsIps(input.DnsIps, context)
+    }),
+    ...(input.Password !== undefined && { Password: input.Password }),
+    ...(input.UserName !== undefined && { UserName: input.UserName })
+  };
 };
 
 const serializeAws_json1_1SubnetIds = (
@@ -2826,14 +2708,10 @@ const serializeAws_json1_1SubnetIds = (
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_json1_1TagKeys = (
@@ -2847,14 +2725,12 @@ const serializeAws_json1_1TagResourceRequest = (
   input: TagResourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ResourceARN !== undefined) {
-    bodyParams["ResourceARN"] = input.ResourceARN;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1Tags(input.Tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_1Tags = (
@@ -2875,85 +2751,70 @@ const serializeAws_json1_1UntagResourceRequest = (
   input: UntagResourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ResourceARN !== undefined) {
-    bodyParams["ResourceARN"] = input.ResourceARN;
-  }
-  if (input.TagKeys !== undefined) {
-    bodyParams["TagKeys"] = serializeAws_json1_1TagKeys(input.TagKeys, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.TagKeys !== undefined && {
+      TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context)
+    })
+  };
 };
 
 const serializeAws_json1_1UpdateFileSystemLustreConfiguration = (
   input: UpdateFileSystemLustreConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.WeeklyMaintenanceStartTime !== undefined) {
-    bodyParams["WeeklyMaintenanceStartTime"] = input.WeeklyMaintenanceStartTime;
-  }
-  return bodyParams;
+  return {
+    ...(input.WeeklyMaintenanceStartTime !== undefined && {
+      WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime
+    })
+  };
 };
 
 const serializeAws_json1_1UpdateFileSystemRequest = (
   input: UpdateFileSystemRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ClientRequestToken === undefined) {
-    input.ClientRequestToken = generateIdempotencyToken();
-  }
-  if (input.ClientRequestToken !== undefined) {
-    bodyParams["ClientRequestToken"] = input.ClientRequestToken;
-  }
-  if (input.FileSystemId !== undefined) {
-    bodyParams["FileSystemId"] = input.FileSystemId;
-  }
-  if (input.LustreConfiguration !== undefined) {
-    bodyParams[
-      "LustreConfiguration"
-    ] = serializeAws_json1_1UpdateFileSystemLustreConfiguration(
-      input.LustreConfiguration,
-      context
-    );
-  }
-  if (input.WindowsConfiguration !== undefined) {
-    bodyParams[
-      "WindowsConfiguration"
-    ] = serializeAws_json1_1UpdateFileSystemWindowsConfiguration(
-      input.WindowsConfiguration,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.FileSystemId !== undefined && {
+      FileSystemId: input.FileSystemId
+    }),
+    ...(input.LustreConfiguration !== undefined && {
+      LustreConfiguration: serializeAws_json1_1UpdateFileSystemLustreConfiguration(
+        input.LustreConfiguration,
+        context
+      )
+    }),
+    ...(input.WindowsConfiguration !== undefined && {
+      WindowsConfiguration: serializeAws_json1_1UpdateFileSystemWindowsConfiguration(
+        input.WindowsConfiguration,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1UpdateFileSystemWindowsConfiguration = (
   input: UpdateFileSystemWindowsConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AutomaticBackupRetentionDays !== undefined) {
-    bodyParams["AutomaticBackupRetentionDays"] =
-      input.AutomaticBackupRetentionDays;
-  }
-  if (input.DailyAutomaticBackupStartTime !== undefined) {
-    bodyParams["DailyAutomaticBackupStartTime"] =
-      input.DailyAutomaticBackupStartTime;
-  }
-  if (input.SelfManagedActiveDirectoryConfiguration !== undefined) {
-    bodyParams[
-      "SelfManagedActiveDirectoryConfiguration"
-    ] = serializeAws_json1_1SelfManagedActiveDirectoryConfigurationUpdates(
-      input.SelfManagedActiveDirectoryConfiguration,
-      context
-    );
-  }
-  if (input.WeeklyMaintenanceStartTime !== undefined) {
-    bodyParams["WeeklyMaintenanceStartTime"] = input.WeeklyMaintenanceStartTime;
-  }
-  return bodyParams;
+  return {
+    ...(input.AutomaticBackupRetentionDays !== undefined && {
+      AutomaticBackupRetentionDays: input.AutomaticBackupRetentionDays
+    }),
+    ...(input.DailyAutomaticBackupStartTime !== undefined && {
+      DailyAutomaticBackupStartTime: input.DailyAutomaticBackupStartTime
+    }),
+    ...(input.SelfManagedActiveDirectoryConfiguration !== undefined && {
+      SelfManagedActiveDirectoryConfiguration: serializeAws_json1_1SelfManagedActiveDirectoryConfigurationUpdates(
+        input.SelfManagedActiveDirectoryConfiguration,
+        context
+      )
+    }),
+    ...(input.WeeklyMaintenanceStartTime !== undefined && {
+      WeeklyMaintenanceStartTime: input.WeeklyMaintenanceStartTime
+    })
+  };
 };
 
 const deserializeAws_json1_1ActiveDirectoryBackupAttributes = (

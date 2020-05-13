@@ -2322,19 +2322,15 @@ const serializeAws_restJson1_1DeviceTemplate = (
   input: DeviceTemplate,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.callbackOverrides !== undefined) {
-    bodyParams[
-      "callbackOverrides"
-    ] = serializeAws_restJson1_1DeviceCallbackOverrideMap(
-      input.callbackOverrides,
-      context
-    );
-  }
-  if (input.deviceType !== undefined) {
-    bodyParams["deviceType"] = input.deviceType;
-  }
-  return bodyParams;
+  return {
+    ...(input.callbackOverrides !== undefined && {
+      callbackOverrides: serializeAws_restJson1_1DeviceCallbackOverrideMap(
+        input.callbackOverrides,
+        context
+      )
+    }),
+    ...(input.deviceType !== undefined && { deviceType: input.deviceType })
+  };
 };
 
 const serializeAws_restJson1_1DeviceTemplateMap = (
@@ -2361,22 +2357,20 @@ const serializeAws_restJson1_1PlacementTemplate = (
   input: PlacementTemplate,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.defaultAttributes !== undefined) {
-    bodyParams[
-      "defaultAttributes"
-    ] = serializeAws_restJson1_1DefaultPlacementAttributeMap(
-      input.defaultAttributes,
-      context
-    );
-  }
-  if (input.deviceTemplates !== undefined) {
-    bodyParams["deviceTemplates"] = serializeAws_restJson1_1DeviceTemplateMap(
-      input.deviceTemplates,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.defaultAttributes !== undefined && {
+      defaultAttributes: serializeAws_restJson1_1DefaultPlacementAttributeMap(
+        input.defaultAttributes,
+        context
+      )
+    }),
+    ...(input.deviceTemplates !== undefined && {
+      deviceTemplates: serializeAws_restJson1_1DeviceTemplateMap(
+        input.deviceTemplates,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1TagMap = (

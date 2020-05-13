@@ -1533,56 +1533,42 @@ const serializeAws_json1_1BatchGrantPermissionsRequest = (
   input: BatchGrantPermissionsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CatalogId !== undefined) {
-    bodyParams["CatalogId"] = input.CatalogId;
-  }
-  if (input.Entries !== undefined) {
-    bodyParams[
-      "Entries"
-    ] = serializeAws_json1_1BatchPermissionsRequestEntryList(
-      input.Entries,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId }),
+    ...(input.Entries !== undefined && {
+      Entries: serializeAws_json1_1BatchPermissionsRequestEntryList(
+        input.Entries,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1BatchPermissionsRequestEntry = (
   input: BatchPermissionsRequestEntry,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
-  }
-  if (input.Permissions !== undefined) {
-    bodyParams["Permissions"] = serializeAws_json1_1PermissionList(
-      input.Permissions,
-      context
-    );
-  }
-  if (input.PermissionsWithGrantOption !== undefined) {
-    bodyParams[
-      "PermissionsWithGrantOption"
-    ] = serializeAws_json1_1PermissionList(
-      input.PermissionsWithGrantOption,
-      context
-    );
-  }
-  if (input.Principal !== undefined) {
-    bodyParams["Principal"] = serializeAws_json1_1DataLakePrincipal(
-      input.Principal,
-      context
-    );
-  }
-  if (input.Resource !== undefined) {
-    bodyParams["Resource"] = serializeAws_json1_1Resource(
-      input.Resource,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Id !== undefined && { Id: input.Id }),
+    ...(input.Permissions !== undefined && {
+      Permissions: serializeAws_json1_1PermissionList(
+        input.Permissions,
+        context
+      )
+    }),
+    ...(input.PermissionsWithGrantOption !== undefined && {
+      PermissionsWithGrantOption: serializeAws_json1_1PermissionList(
+        input.PermissionsWithGrantOption,
+        context
+      )
+    }),
+    ...(input.Principal !== undefined && {
+      Principal: serializeAws_json1_1DataLakePrincipal(input.Principal, context)
+    }),
+    ...(input.Resource !== undefined && {
+      Resource: serializeAws_json1_1Resource(input.Resource, context)
+    })
+  };
 };
 
 const serializeAws_json1_1BatchPermissionsRequestEntryList = (
@@ -1598,27 +1584,22 @@ const serializeAws_json1_1BatchRevokePermissionsRequest = (
   input: BatchRevokePermissionsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CatalogId !== undefined) {
-    bodyParams["CatalogId"] = input.CatalogId;
-  }
-  if (input.Entries !== undefined) {
-    bodyParams[
-      "Entries"
-    ] = serializeAws_json1_1BatchPermissionsRequestEntryList(
-      input.Entries,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId }),
+    ...(input.Entries !== undefined && {
+      Entries: serializeAws_json1_1BatchPermissionsRequestEntryList(
+        input.Entries,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1CatalogResource = (
   input: CatalogResource,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  return bodyParams;
+  return {};
 };
 
 const serializeAws_json1_1ColumnNames = (
@@ -1632,26 +1613,25 @@ const serializeAws_json1_1ColumnWildcard = (
   input: ColumnWildcard,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ExcludedColumnNames !== undefined) {
-    bodyParams["ExcludedColumnNames"] = serializeAws_json1_1ColumnNames(
-      input.ExcludedColumnNames,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.ExcludedColumnNames !== undefined && {
+      ExcludedColumnNames: serializeAws_json1_1ColumnNames(
+        input.ExcludedColumnNames,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1DataLakePrincipal = (
   input: DataLakePrincipal,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DataLakePrincipalIdentifier !== undefined) {
-    bodyParams["DataLakePrincipalIdentifier"] =
-      input.DataLakePrincipalIdentifier;
-  }
-  return bodyParams;
+  return {
+    ...(input.DataLakePrincipalIdentifier !== undefined && {
+      DataLakePrincipalIdentifier: input.DataLakePrincipalIdentifier
+    })
+  };
 };
 
 const serializeAws_json1_1DataLakePrincipalList = (
@@ -1667,194 +1647,146 @@ const serializeAws_json1_1DataLakeSettings = (
   input: DataLakeSettings,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CreateDatabaseDefaultPermissions !== undefined) {
-    bodyParams[
-      "CreateDatabaseDefaultPermissions"
-    ] = serializeAws_json1_1PrincipalPermissionsList(
-      input.CreateDatabaseDefaultPermissions,
-      context
-    );
-  }
-  if (input.CreateTableDefaultPermissions !== undefined) {
-    bodyParams[
-      "CreateTableDefaultPermissions"
-    ] = serializeAws_json1_1PrincipalPermissionsList(
-      input.CreateTableDefaultPermissions,
-      context
-    );
-  }
-  if (input.DataLakeAdmins !== undefined) {
-    bodyParams["DataLakeAdmins"] = serializeAws_json1_1DataLakePrincipalList(
-      input.DataLakeAdmins,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.CreateDatabaseDefaultPermissions !== undefined && {
+      CreateDatabaseDefaultPermissions: serializeAws_json1_1PrincipalPermissionsList(
+        input.CreateDatabaseDefaultPermissions,
+        context
+      )
+    }),
+    ...(input.CreateTableDefaultPermissions !== undefined && {
+      CreateTableDefaultPermissions: serializeAws_json1_1PrincipalPermissionsList(
+        input.CreateTableDefaultPermissions,
+        context
+      )
+    }),
+    ...(input.DataLakeAdmins !== undefined && {
+      DataLakeAdmins: serializeAws_json1_1DataLakePrincipalList(
+        input.DataLakeAdmins,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1DataLocationResource = (
   input: DataLocationResource,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ResourceArn !== undefined) {
-    bodyParams["ResourceArn"] = input.ResourceArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn })
+  };
 };
 
 const serializeAws_json1_1DatabaseResource = (
   input: DatabaseResource,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  return bodyParams;
+  return {
+    ...(input.Name !== undefined && { Name: input.Name })
+  };
 };
 
 const serializeAws_json1_1DeregisterResourceRequest = (
   input: DeregisterResourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ResourceArn !== undefined) {
-    bodyParams["ResourceArn"] = input.ResourceArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn })
+  };
 };
 
 const serializeAws_json1_1DescribeResourceRequest = (
   input: DescribeResourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ResourceArn !== undefined) {
-    bodyParams["ResourceArn"] = input.ResourceArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn })
+  };
 };
 
 const serializeAws_json1_1GetDataLakeSettingsRequest = (
   input: GetDataLakeSettingsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CatalogId !== undefined) {
-    bodyParams["CatalogId"] = input.CatalogId;
-  }
-  return bodyParams;
+  return {
+    ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId })
+  };
 };
 
 const serializeAws_json1_1GetEffectivePermissionsForPathRequest = (
   input: GetEffectivePermissionsForPathRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CatalogId !== undefined) {
-    bodyParams["CatalogId"] = input.CatalogId;
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ResourceArn !== undefined) {
-    bodyParams["ResourceArn"] = input.ResourceArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn })
+  };
 };
 
 const serializeAws_json1_1GrantPermissionsRequest = (
   input: GrantPermissionsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CatalogId !== undefined) {
-    bodyParams["CatalogId"] = input.CatalogId;
-  }
-  if (input.Permissions !== undefined) {
-    bodyParams["Permissions"] = serializeAws_json1_1PermissionList(
-      input.Permissions,
-      context
-    );
-  }
-  if (input.PermissionsWithGrantOption !== undefined) {
-    bodyParams[
-      "PermissionsWithGrantOption"
-    ] = serializeAws_json1_1PermissionList(
-      input.PermissionsWithGrantOption,
-      context
-    );
-  }
-  if (input.Principal !== undefined) {
-    bodyParams["Principal"] = serializeAws_json1_1DataLakePrincipal(
-      input.Principal,
-      context
-    );
-  }
-  if (input.Resource !== undefined) {
-    bodyParams["Resource"] = serializeAws_json1_1Resource(
-      input.Resource,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId }),
+    ...(input.Permissions !== undefined && {
+      Permissions: serializeAws_json1_1PermissionList(
+        input.Permissions,
+        context
+      )
+    }),
+    ...(input.PermissionsWithGrantOption !== undefined && {
+      PermissionsWithGrantOption: serializeAws_json1_1PermissionList(
+        input.PermissionsWithGrantOption,
+        context
+      )
+    }),
+    ...(input.Principal !== undefined && {
+      Principal: serializeAws_json1_1DataLakePrincipal(input.Principal, context)
+    }),
+    ...(input.Resource !== undefined && {
+      Resource: serializeAws_json1_1Resource(input.Resource, context)
+    })
+  };
 };
 
 const serializeAws_json1_1ListPermissionsRequest = (
   input: ListPermissionsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CatalogId !== undefined) {
-    bodyParams["CatalogId"] = input.CatalogId;
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.Principal !== undefined) {
-    bodyParams["Principal"] = serializeAws_json1_1DataLakePrincipal(
-      input.Principal,
-      context
-    );
-  }
-  if (input.Resource !== undefined) {
-    bodyParams["Resource"] = serializeAws_json1_1Resource(
-      input.Resource,
-      context
-    );
-  }
-  if (input.ResourceType !== undefined) {
-    bodyParams["ResourceType"] = input.ResourceType;
-  }
-  return bodyParams;
+  return {
+    ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Principal !== undefined && {
+      Principal: serializeAws_json1_1DataLakePrincipal(input.Principal, context)
+    }),
+    ...(input.Resource !== undefined && {
+      Resource: serializeAws_json1_1Resource(input.Resource, context)
+    }),
+    ...(input.ResourceType !== undefined && {
+      ResourceType: input.ResourceType
+    })
+  };
 };
 
 const serializeAws_json1_1ListResourcesRequest = (
   input: ListResourcesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.FilterConditionList !== undefined) {
-    bodyParams["FilterConditionList"] = serializeAws_json1_1FilterConditionList(
-      input.FilterConditionList,
-      context
-    );
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.FilterConditionList !== undefined && {
+      FilterConditionList: serializeAws_json1_1FilterConditionList(
+        input.FilterConditionList,
+        context
+      )
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1PermissionList = (
@@ -1868,20 +1800,17 @@ const serializeAws_json1_1PrincipalPermissions = (
   input: PrincipalPermissions,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Permissions !== undefined) {
-    bodyParams["Permissions"] = serializeAws_json1_1PermissionList(
-      input.Permissions,
-      context
-    );
-  }
-  if (input.Principal !== undefined) {
-    bodyParams["Principal"] = serializeAws_json1_1DataLakePrincipal(
-      input.Principal,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Permissions !== undefined && {
+      Permissions: serializeAws_json1_1PermissionList(
+        input.Permissions,
+        context
+      )
+    }),
+    ...(input.Principal !== undefined && {
+      Principal: serializeAws_json1_1DataLakePrincipal(input.Principal, context)
+    })
+  };
 };
 
 const serializeAws_json1_1PrincipalPermissionsList = (
@@ -1897,185 +1826,145 @@ const serializeAws_json1_1PutDataLakeSettingsRequest = (
   input: PutDataLakeSettingsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CatalogId !== undefined) {
-    bodyParams["CatalogId"] = input.CatalogId;
-  }
-  if (input.DataLakeSettings !== undefined) {
-    bodyParams["DataLakeSettings"] = serializeAws_json1_1DataLakeSettings(
-      input.DataLakeSettings,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId }),
+    ...(input.DataLakeSettings !== undefined && {
+      DataLakeSettings: serializeAws_json1_1DataLakeSettings(
+        input.DataLakeSettings,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1RegisterResourceRequest = (
   input: RegisterResourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ResourceArn !== undefined) {
-    bodyParams["ResourceArn"] = input.ResourceArn;
-  }
-  if (input.RoleArn !== undefined) {
-    bodyParams["RoleArn"] = input.RoleArn;
-  }
-  if (input.UseServiceLinkedRole !== undefined) {
-    bodyParams["UseServiceLinkedRole"] = input.UseServiceLinkedRole;
-  }
-  return bodyParams;
+  return {
+    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
+    ...(input.UseServiceLinkedRole !== undefined && {
+      UseServiceLinkedRole: input.UseServiceLinkedRole
+    })
+  };
 };
 
 const serializeAws_json1_1Resource = (
   input: Resource,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Catalog !== undefined) {
-    bodyParams["Catalog"] = serializeAws_json1_1CatalogResource(
-      input.Catalog,
-      context
-    );
-  }
-  if (input.DataLocation !== undefined) {
-    bodyParams["DataLocation"] = serializeAws_json1_1DataLocationResource(
-      input.DataLocation,
-      context
-    );
-  }
-  if (input.Database !== undefined) {
-    bodyParams["Database"] = serializeAws_json1_1DatabaseResource(
-      input.Database,
-      context
-    );
-  }
-  if (input.Table !== undefined) {
-    bodyParams["Table"] = serializeAws_json1_1TableResource(
-      input.Table,
-      context
-    );
-  }
-  if (input.TableWithColumns !== undefined) {
-    bodyParams[
-      "TableWithColumns"
-    ] = serializeAws_json1_1TableWithColumnsResource(
-      input.TableWithColumns,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Catalog !== undefined && {
+      Catalog: serializeAws_json1_1CatalogResource(input.Catalog, context)
+    }),
+    ...(input.DataLocation !== undefined && {
+      DataLocation: serializeAws_json1_1DataLocationResource(
+        input.DataLocation,
+        context
+      )
+    }),
+    ...(input.Database !== undefined && {
+      Database: serializeAws_json1_1DatabaseResource(input.Database, context)
+    }),
+    ...(input.Table !== undefined && {
+      Table: serializeAws_json1_1TableResource(input.Table, context)
+    }),
+    ...(input.TableWithColumns !== undefined && {
+      TableWithColumns: serializeAws_json1_1TableWithColumnsResource(
+        input.TableWithColumns,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1RevokePermissionsRequest = (
   input: RevokePermissionsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CatalogId !== undefined) {
-    bodyParams["CatalogId"] = input.CatalogId;
-  }
-  if (input.Permissions !== undefined) {
-    bodyParams["Permissions"] = serializeAws_json1_1PermissionList(
-      input.Permissions,
-      context
-    );
-  }
-  if (input.PermissionsWithGrantOption !== undefined) {
-    bodyParams[
-      "PermissionsWithGrantOption"
-    ] = serializeAws_json1_1PermissionList(
-      input.PermissionsWithGrantOption,
-      context
-    );
-  }
-  if (input.Principal !== undefined) {
-    bodyParams["Principal"] = serializeAws_json1_1DataLakePrincipal(
-      input.Principal,
-      context
-    );
-  }
-  if (input.Resource !== undefined) {
-    bodyParams["Resource"] = serializeAws_json1_1Resource(
-      input.Resource,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.CatalogId !== undefined && { CatalogId: input.CatalogId }),
+    ...(input.Permissions !== undefined && {
+      Permissions: serializeAws_json1_1PermissionList(
+        input.Permissions,
+        context
+      )
+    }),
+    ...(input.PermissionsWithGrantOption !== undefined && {
+      PermissionsWithGrantOption: serializeAws_json1_1PermissionList(
+        input.PermissionsWithGrantOption,
+        context
+      )
+    }),
+    ...(input.Principal !== undefined && {
+      Principal: serializeAws_json1_1DataLakePrincipal(input.Principal, context)
+    }),
+    ...(input.Resource !== undefined && {
+      Resource: serializeAws_json1_1Resource(input.Resource, context)
+    })
+  };
 };
 
 const serializeAws_json1_1TableResource = (
   input: TableResource,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DatabaseName !== undefined) {
-    bodyParams["DatabaseName"] = input.DatabaseName;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  return bodyParams;
+  return {
+    ...(input.DatabaseName !== undefined && {
+      DatabaseName: input.DatabaseName
+    }),
+    ...(input.Name !== undefined && { Name: input.Name })
+  };
 };
 
 const serializeAws_json1_1TableWithColumnsResource = (
   input: TableWithColumnsResource,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ColumnNames !== undefined) {
-    bodyParams["ColumnNames"] = serializeAws_json1_1ColumnNames(
-      input.ColumnNames,
-      context
-    );
-  }
-  if (input.ColumnWildcard !== undefined) {
-    bodyParams["ColumnWildcard"] = serializeAws_json1_1ColumnWildcard(
-      input.ColumnWildcard,
-      context
-    );
-  }
-  if (input.DatabaseName !== undefined) {
-    bodyParams["DatabaseName"] = input.DatabaseName;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  return bodyParams;
+  return {
+    ...(input.ColumnNames !== undefined && {
+      ColumnNames: serializeAws_json1_1ColumnNames(input.ColumnNames, context)
+    }),
+    ...(input.ColumnWildcard !== undefined && {
+      ColumnWildcard: serializeAws_json1_1ColumnWildcard(
+        input.ColumnWildcard,
+        context
+      )
+    }),
+    ...(input.DatabaseName !== undefined && {
+      DatabaseName: input.DatabaseName
+    }),
+    ...(input.Name !== undefined && { Name: input.Name })
+  };
 };
 
 const serializeAws_json1_1UpdateResourceRequest = (
   input: UpdateResourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ResourceArn !== undefined) {
-    bodyParams["ResourceArn"] = input.ResourceArn;
-  }
-  if (input.RoleArn !== undefined) {
-    bodyParams["RoleArn"] = input.RoleArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn })
+  };
 };
 
 const serializeAws_json1_1FilterCondition = (
   input: FilterCondition,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ComparisonOperator !== undefined) {
-    bodyParams["ComparisonOperator"] = input.ComparisonOperator;
-  }
-  if (input.Field !== undefined) {
-    bodyParams["Field"] = input.Field;
-  }
-  if (input.StringValueList !== undefined) {
-    bodyParams["StringValueList"] = serializeAws_json1_1StringValueList(
-      input.StringValueList,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.ComparisonOperator !== undefined && {
+      ComparisonOperator: input.ComparisonOperator
+    }),
+    ...(input.Field !== undefined && { Field: input.Field }),
+    ...(input.StringValueList !== undefined && {
+      StringValueList: serializeAws_json1_1StringValueList(
+        input.StringValueList,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1FilterConditionList = (

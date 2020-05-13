@@ -2816,50 +2816,32 @@ const serializeAws_json1_1ASN1Subject = (
   input: ASN1Subject,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CommonName !== undefined) {
-    bodyParams["CommonName"] = input.CommonName;
-  }
-  if (input.Country !== undefined) {
-    bodyParams["Country"] = input.Country;
-  }
-  if (input.DistinguishedNameQualifier !== undefined) {
-    bodyParams["DistinguishedNameQualifier"] = input.DistinguishedNameQualifier;
-  }
-  if (input.GenerationQualifier !== undefined) {
-    bodyParams["GenerationQualifier"] = input.GenerationQualifier;
-  }
-  if (input.GivenName !== undefined) {
-    bodyParams["GivenName"] = input.GivenName;
-  }
-  if (input.Initials !== undefined) {
-    bodyParams["Initials"] = input.Initials;
-  }
-  if (input.Locality !== undefined) {
-    bodyParams["Locality"] = input.Locality;
-  }
-  if (input.Organization !== undefined) {
-    bodyParams["Organization"] = input.Organization;
-  }
-  if (input.OrganizationalUnit !== undefined) {
-    bodyParams["OrganizationalUnit"] = input.OrganizationalUnit;
-  }
-  if (input.Pseudonym !== undefined) {
-    bodyParams["Pseudonym"] = input.Pseudonym;
-  }
-  if (input.SerialNumber !== undefined) {
-    bodyParams["SerialNumber"] = input.SerialNumber;
-  }
-  if (input.State !== undefined) {
-    bodyParams["State"] = input.State;
-  }
-  if (input.Surname !== undefined) {
-    bodyParams["Surname"] = input.Surname;
-  }
-  if (input.Title !== undefined) {
-    bodyParams["Title"] = input.Title;
-  }
-  return bodyParams;
+  return {
+    ...(input.CommonName !== undefined && { CommonName: input.CommonName }),
+    ...(input.Country !== undefined && { Country: input.Country }),
+    ...(input.DistinguishedNameQualifier !== undefined && {
+      DistinguishedNameQualifier: input.DistinguishedNameQualifier
+    }),
+    ...(input.GenerationQualifier !== undefined && {
+      GenerationQualifier: input.GenerationQualifier
+    }),
+    ...(input.GivenName !== undefined && { GivenName: input.GivenName }),
+    ...(input.Initials !== undefined && { Initials: input.Initials }),
+    ...(input.Locality !== undefined && { Locality: input.Locality }),
+    ...(input.Organization !== undefined && {
+      Organization: input.Organization
+    }),
+    ...(input.OrganizationalUnit !== undefined && {
+      OrganizationalUnit: input.OrganizationalUnit
+    }),
+    ...(input.Pseudonym !== undefined && { Pseudonym: input.Pseudonym }),
+    ...(input.SerialNumber !== undefined && {
+      SerialNumber: input.SerialNumber
+    }),
+    ...(input.State !== undefined && { State: input.State }),
+    ...(input.Surname !== undefined && { Surname: input.Surname }),
+    ...(input.Title !== undefined && { Title: input.Title })
+  };
 };
 
 const serializeAws_json1_1ActionList = (
@@ -2873,369 +2855,325 @@ const serializeAws_json1_1CertificateAuthorityConfiguration = (
   input: CertificateAuthorityConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.KeyAlgorithm !== undefined) {
-    bodyParams["KeyAlgorithm"] = input.KeyAlgorithm;
-  }
-  if (input.SigningAlgorithm !== undefined) {
-    bodyParams["SigningAlgorithm"] = input.SigningAlgorithm;
-  }
-  if (input.Subject !== undefined) {
-    bodyParams["Subject"] = serializeAws_json1_1ASN1Subject(
-      input.Subject,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.KeyAlgorithm !== undefined && {
+      KeyAlgorithm: input.KeyAlgorithm
+    }),
+    ...(input.SigningAlgorithm !== undefined && {
+      SigningAlgorithm: input.SigningAlgorithm
+    }),
+    ...(input.Subject !== undefined && {
+      Subject: serializeAws_json1_1ASN1Subject(input.Subject, context)
+    })
+  };
 };
 
 const serializeAws_json1_1CreateCertificateAuthorityAuditReportRequest = (
   input: CreateCertificateAuthorityAuditReportRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AuditReportResponseFormat !== undefined) {
-    bodyParams["AuditReportResponseFormat"] = input.AuditReportResponseFormat;
-  }
-  if (input.CertificateAuthorityArn !== undefined) {
-    bodyParams["CertificateAuthorityArn"] = input.CertificateAuthorityArn;
-  }
-  if (input.S3BucketName !== undefined) {
-    bodyParams["S3BucketName"] = input.S3BucketName;
-  }
-  return bodyParams;
+  return {
+    ...(input.AuditReportResponseFormat !== undefined && {
+      AuditReportResponseFormat: input.AuditReportResponseFormat
+    }),
+    ...(input.CertificateAuthorityArn !== undefined && {
+      CertificateAuthorityArn: input.CertificateAuthorityArn
+    }),
+    ...(input.S3BucketName !== undefined && {
+      S3BucketName: input.S3BucketName
+    })
+  };
 };
 
 const serializeAws_json1_1CreateCertificateAuthorityRequest = (
   input: CreateCertificateAuthorityRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateAuthorityConfiguration !== undefined) {
-    bodyParams[
-      "CertificateAuthorityConfiguration"
-    ] = serializeAws_json1_1CertificateAuthorityConfiguration(
-      input.CertificateAuthorityConfiguration,
-      context
-    );
-  }
-  if (input.CertificateAuthorityType !== undefined) {
-    bodyParams["CertificateAuthorityType"] = input.CertificateAuthorityType;
-  }
-  if (input.IdempotencyToken !== undefined) {
-    bodyParams["IdempotencyToken"] = input.IdempotencyToken;
-  }
-  if (input.RevocationConfiguration !== undefined) {
-    bodyParams[
-      "RevocationConfiguration"
-    ] = serializeAws_json1_1RevocationConfiguration(
-      input.RevocationConfiguration,
-      context
-    );
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateAuthorityConfiguration !== undefined && {
+      CertificateAuthorityConfiguration: serializeAws_json1_1CertificateAuthorityConfiguration(
+        input.CertificateAuthorityConfiguration,
+        context
+      )
+    }),
+    ...(input.CertificateAuthorityType !== undefined && {
+      CertificateAuthorityType: input.CertificateAuthorityType
+    }),
+    ...(input.IdempotencyToken !== undefined && {
+      IdempotencyToken: input.IdempotencyToken
+    }),
+    ...(input.RevocationConfiguration !== undefined && {
+      RevocationConfiguration: serializeAws_json1_1RevocationConfiguration(
+        input.RevocationConfiguration,
+        context
+      )
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1TagList(input.Tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_1CreatePermissionRequest = (
   input: CreatePermissionRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Actions !== undefined) {
-    bodyParams["Actions"] = serializeAws_json1_1ActionList(
-      input.Actions,
-      context
-    );
-  }
-  if (input.CertificateAuthorityArn !== undefined) {
-    bodyParams["CertificateAuthorityArn"] = input.CertificateAuthorityArn;
-  }
-  if (input.Principal !== undefined) {
-    bodyParams["Principal"] = input.Principal;
-  }
-  if (input.SourceAccount !== undefined) {
-    bodyParams["SourceAccount"] = input.SourceAccount;
-  }
-  return bodyParams;
+  return {
+    ...(input.Actions !== undefined && {
+      Actions: serializeAws_json1_1ActionList(input.Actions, context)
+    }),
+    ...(input.CertificateAuthorityArn !== undefined && {
+      CertificateAuthorityArn: input.CertificateAuthorityArn
+    }),
+    ...(input.Principal !== undefined && { Principal: input.Principal }),
+    ...(input.SourceAccount !== undefined && {
+      SourceAccount: input.SourceAccount
+    })
+  };
 };
 
 const serializeAws_json1_1CrlConfiguration = (
   input: CrlConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CustomCname !== undefined) {
-    bodyParams["CustomCname"] = input.CustomCname;
-  }
-  if (input.Enabled !== undefined) {
-    bodyParams["Enabled"] = input.Enabled;
-  }
-  if (input.ExpirationInDays !== undefined) {
-    bodyParams["ExpirationInDays"] = input.ExpirationInDays;
-  }
-  if (input.S3BucketName !== undefined) {
-    bodyParams["S3BucketName"] = input.S3BucketName;
-  }
-  return bodyParams;
+  return {
+    ...(input.CustomCname !== undefined && { CustomCname: input.CustomCname }),
+    ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
+    ...(input.ExpirationInDays !== undefined && {
+      ExpirationInDays: input.ExpirationInDays
+    }),
+    ...(input.S3BucketName !== undefined && {
+      S3BucketName: input.S3BucketName
+    })
+  };
 };
 
 const serializeAws_json1_1DeleteCertificateAuthorityRequest = (
   input: DeleteCertificateAuthorityRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateAuthorityArn !== undefined) {
-    bodyParams["CertificateAuthorityArn"] = input.CertificateAuthorityArn;
-  }
-  if (input.PermanentDeletionTimeInDays !== undefined) {
-    bodyParams["PermanentDeletionTimeInDays"] =
-      input.PermanentDeletionTimeInDays;
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateAuthorityArn !== undefined && {
+      CertificateAuthorityArn: input.CertificateAuthorityArn
+    }),
+    ...(input.PermanentDeletionTimeInDays !== undefined && {
+      PermanentDeletionTimeInDays: input.PermanentDeletionTimeInDays
+    })
+  };
 };
 
 const serializeAws_json1_1DeletePermissionRequest = (
   input: DeletePermissionRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateAuthorityArn !== undefined) {
-    bodyParams["CertificateAuthorityArn"] = input.CertificateAuthorityArn;
-  }
-  if (input.Principal !== undefined) {
-    bodyParams["Principal"] = input.Principal;
-  }
-  if (input.SourceAccount !== undefined) {
-    bodyParams["SourceAccount"] = input.SourceAccount;
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateAuthorityArn !== undefined && {
+      CertificateAuthorityArn: input.CertificateAuthorityArn
+    }),
+    ...(input.Principal !== undefined && { Principal: input.Principal }),
+    ...(input.SourceAccount !== undefined && {
+      SourceAccount: input.SourceAccount
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeCertificateAuthorityAuditReportRequest = (
   input: DescribeCertificateAuthorityAuditReportRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AuditReportId !== undefined) {
-    bodyParams["AuditReportId"] = input.AuditReportId;
-  }
-  if (input.CertificateAuthorityArn !== undefined) {
-    bodyParams["CertificateAuthorityArn"] = input.CertificateAuthorityArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.AuditReportId !== undefined && {
+      AuditReportId: input.AuditReportId
+    }),
+    ...(input.CertificateAuthorityArn !== undefined && {
+      CertificateAuthorityArn: input.CertificateAuthorityArn
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeCertificateAuthorityRequest = (
   input: DescribeCertificateAuthorityRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateAuthorityArn !== undefined) {
-    bodyParams["CertificateAuthorityArn"] = input.CertificateAuthorityArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateAuthorityArn !== undefined && {
+      CertificateAuthorityArn: input.CertificateAuthorityArn
+    })
+  };
 };
 
 const serializeAws_json1_1GetCertificateAuthorityCertificateRequest = (
   input: GetCertificateAuthorityCertificateRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateAuthorityArn !== undefined) {
-    bodyParams["CertificateAuthorityArn"] = input.CertificateAuthorityArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateAuthorityArn !== undefined && {
+      CertificateAuthorityArn: input.CertificateAuthorityArn
+    })
+  };
 };
 
 const serializeAws_json1_1GetCertificateAuthorityCsrRequest = (
   input: GetCertificateAuthorityCsrRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateAuthorityArn !== undefined) {
-    bodyParams["CertificateAuthorityArn"] = input.CertificateAuthorityArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateAuthorityArn !== undefined && {
+      CertificateAuthorityArn: input.CertificateAuthorityArn
+    })
+  };
 };
 
 const serializeAws_json1_1GetCertificateRequest = (
   input: GetCertificateRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateArn !== undefined) {
-    bodyParams["CertificateArn"] = input.CertificateArn;
-  }
-  if (input.CertificateAuthorityArn !== undefined) {
-    bodyParams["CertificateAuthorityArn"] = input.CertificateAuthorityArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateArn !== undefined && {
+      CertificateArn: input.CertificateArn
+    }),
+    ...(input.CertificateAuthorityArn !== undefined && {
+      CertificateAuthorityArn: input.CertificateAuthorityArn
+    })
+  };
 };
 
 const serializeAws_json1_1ImportCertificateAuthorityCertificateRequest = (
   input: ImportCertificateAuthorityCertificateRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Certificate !== undefined) {
-    bodyParams["Certificate"] = context.base64Encoder(input.Certificate);
-  }
-  if (input.CertificateAuthorityArn !== undefined) {
-    bodyParams["CertificateAuthorityArn"] = input.CertificateAuthorityArn;
-  }
-  if (input.CertificateChain !== undefined) {
-    bodyParams["CertificateChain"] = context.base64Encoder(
-      input.CertificateChain
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Certificate !== undefined && {
+      Certificate: context.base64Encoder(input.Certificate)
+    }),
+    ...(input.CertificateAuthorityArn !== undefined && {
+      CertificateAuthorityArn: input.CertificateAuthorityArn
+    }),
+    ...(input.CertificateChain !== undefined && {
+      CertificateChain: context.base64Encoder(input.CertificateChain)
+    })
+  };
 };
 
 const serializeAws_json1_1IssueCertificateRequest = (
   input: IssueCertificateRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateAuthorityArn !== undefined) {
-    bodyParams["CertificateAuthorityArn"] = input.CertificateAuthorityArn;
-  }
-  if (input.Csr !== undefined) {
-    bodyParams["Csr"] = context.base64Encoder(input.Csr);
-  }
-  if (input.IdempotencyToken !== undefined) {
-    bodyParams["IdempotencyToken"] = input.IdempotencyToken;
-  }
-  if (input.SigningAlgorithm !== undefined) {
-    bodyParams["SigningAlgorithm"] = input.SigningAlgorithm;
-  }
-  if (input.TemplateArn !== undefined) {
-    bodyParams["TemplateArn"] = input.TemplateArn;
-  }
-  if (input.Validity !== undefined) {
-    bodyParams["Validity"] = serializeAws_json1_1Validity(
-      input.Validity,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateAuthorityArn !== undefined && {
+      CertificateAuthorityArn: input.CertificateAuthorityArn
+    }),
+    ...(input.Csr !== undefined && { Csr: context.base64Encoder(input.Csr) }),
+    ...(input.IdempotencyToken !== undefined && {
+      IdempotencyToken: input.IdempotencyToken
+    }),
+    ...(input.SigningAlgorithm !== undefined && {
+      SigningAlgorithm: input.SigningAlgorithm
+    }),
+    ...(input.TemplateArn !== undefined && { TemplateArn: input.TemplateArn }),
+    ...(input.Validity !== undefined && {
+      Validity: serializeAws_json1_1Validity(input.Validity, context)
+    })
+  };
 };
 
 const serializeAws_json1_1ListCertificateAuthoritiesRequest = (
   input: ListCertificateAuthoritiesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1ListPermissionsRequest = (
   input: ListPermissionsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateAuthorityArn !== undefined) {
-    bodyParams["CertificateAuthorityArn"] = input.CertificateAuthorityArn;
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateAuthorityArn !== undefined && {
+      CertificateAuthorityArn: input.CertificateAuthorityArn
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1ListTagsRequest = (
   input: ListTagsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateAuthorityArn !== undefined) {
-    bodyParams["CertificateAuthorityArn"] = input.CertificateAuthorityArn;
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateAuthorityArn !== undefined && {
+      CertificateAuthorityArn: input.CertificateAuthorityArn
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1RestoreCertificateAuthorityRequest = (
   input: RestoreCertificateAuthorityRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateAuthorityArn !== undefined) {
-    bodyParams["CertificateAuthorityArn"] = input.CertificateAuthorityArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateAuthorityArn !== undefined && {
+      CertificateAuthorityArn: input.CertificateAuthorityArn
+    })
+  };
 };
 
 const serializeAws_json1_1RevocationConfiguration = (
   input: RevocationConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CrlConfiguration !== undefined) {
-    bodyParams["CrlConfiguration"] = serializeAws_json1_1CrlConfiguration(
-      input.CrlConfiguration,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.CrlConfiguration !== undefined && {
+      CrlConfiguration: serializeAws_json1_1CrlConfiguration(
+        input.CrlConfiguration,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1RevokeCertificateRequest = (
   input: RevokeCertificateRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateAuthorityArn !== undefined) {
-    bodyParams["CertificateAuthorityArn"] = input.CertificateAuthorityArn;
-  }
-  if (input.CertificateSerial !== undefined) {
-    bodyParams["CertificateSerial"] = input.CertificateSerial;
-  }
-  if (input.RevocationReason !== undefined) {
-    bodyParams["RevocationReason"] = input.RevocationReason;
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateAuthorityArn !== undefined && {
+      CertificateAuthorityArn: input.CertificateAuthorityArn
+    }),
+    ...(input.CertificateSerial !== undefined && {
+      CertificateSerial: input.CertificateSerial
+    }),
+    ...(input.RevocationReason !== undefined && {
+      RevocationReason: input.RevocationReason
+    })
+  };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_json1_1TagCertificateAuthorityRequest = (
   input: TagCertificateAuthorityRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateAuthorityArn !== undefined) {
-    bodyParams["CertificateAuthorityArn"] = input.CertificateAuthorityArn;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateAuthorityArn !== undefined && {
+      CertificateAuthorityArn: input.CertificateAuthorityArn
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1TagList(input.Tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_1TagList = (
@@ -3249,50 +3187,42 @@ const serializeAws_json1_1UntagCertificateAuthorityRequest = (
   input: UntagCertificateAuthorityRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateAuthorityArn !== undefined) {
-    bodyParams["CertificateAuthorityArn"] = input.CertificateAuthorityArn;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateAuthorityArn !== undefined && {
+      CertificateAuthorityArn: input.CertificateAuthorityArn
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1TagList(input.Tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_1UpdateCertificateAuthorityRequest = (
   input: UpdateCertificateAuthorityRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateAuthorityArn !== undefined) {
-    bodyParams["CertificateAuthorityArn"] = input.CertificateAuthorityArn;
-  }
-  if (input.RevocationConfiguration !== undefined) {
-    bodyParams[
-      "RevocationConfiguration"
-    ] = serializeAws_json1_1RevocationConfiguration(
-      input.RevocationConfiguration,
-      context
-    );
-  }
-  if (input.Status !== undefined) {
-    bodyParams["Status"] = input.Status;
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateAuthorityArn !== undefined && {
+      CertificateAuthorityArn: input.CertificateAuthorityArn
+    }),
+    ...(input.RevocationConfiguration !== undefined && {
+      RevocationConfiguration: serializeAws_json1_1RevocationConfiguration(
+        input.RevocationConfiguration,
+        context
+      )
+    }),
+    ...(input.Status !== undefined && { Status: input.Status })
+  };
 };
 
 const serializeAws_json1_1Validity = (
   input: Validity,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const deserializeAws_json1_1ASN1Subject = (

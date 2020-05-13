@@ -5889,40 +5889,32 @@ const serializeAws_restJson1_1AutoBranchCreationConfig = (
   input: AutoBranchCreationConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.basicAuthCredentials !== undefined) {
-    bodyParams["basicAuthCredentials"] = input.basicAuthCredentials;
-  }
-  if (input.buildSpec !== undefined) {
-    bodyParams["buildSpec"] = input.buildSpec;
-  }
-  if (input.enableAutoBuild !== undefined) {
-    bodyParams["enableAutoBuild"] = input.enableAutoBuild;
-  }
-  if (input.enableBasicAuth !== undefined) {
-    bodyParams["enableBasicAuth"] = input.enableBasicAuth;
-  }
-  if (input.enablePullRequestPreview !== undefined) {
-    bodyParams["enablePullRequestPreview"] = input.enablePullRequestPreview;
-  }
-  if (input.environmentVariables !== undefined) {
-    bodyParams[
-      "environmentVariables"
-    ] = serializeAws_restJson1_1EnvironmentVariables(
-      input.environmentVariables,
-      context
-    );
-  }
-  if (input.framework !== undefined) {
-    bodyParams["framework"] = input.framework;
-  }
-  if (input.pullRequestEnvironmentName !== undefined) {
-    bodyParams["pullRequestEnvironmentName"] = input.pullRequestEnvironmentName;
-  }
-  if (input.stage !== undefined) {
-    bodyParams["stage"] = input.stage;
-  }
-  return bodyParams;
+  return {
+    ...(input.basicAuthCredentials !== undefined && {
+      basicAuthCredentials: input.basicAuthCredentials
+    }),
+    ...(input.buildSpec !== undefined && { buildSpec: input.buildSpec }),
+    ...(input.enableAutoBuild !== undefined && {
+      enableAutoBuild: input.enableAutoBuild
+    }),
+    ...(input.enableBasicAuth !== undefined && {
+      enableBasicAuth: input.enableBasicAuth
+    }),
+    ...(input.enablePullRequestPreview !== undefined && {
+      enablePullRequestPreview: input.enablePullRequestPreview
+    }),
+    ...(input.environmentVariables !== undefined && {
+      environmentVariables: serializeAws_restJson1_1EnvironmentVariables(
+        input.environmentVariables,
+        context
+      )
+    }),
+    ...(input.framework !== undefined && { framework: input.framework }),
+    ...(input.pullRequestEnvironmentName !== undefined && {
+      pullRequestEnvironmentName: input.pullRequestEnvironmentName
+    }),
+    ...(input.stage !== undefined && { stage: input.stage })
+  };
 };
 
 const serializeAws_restJson1_1AutoBranchCreationPatterns = (
@@ -5936,20 +5928,12 @@ const serializeAws_restJson1_1CustomRule = (
   input: CustomRule,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.condition !== undefined) {
-    bodyParams["condition"] = input.condition;
-  }
-  if (input.source !== undefined) {
-    bodyParams["source"] = input.source;
-  }
-  if (input.status !== undefined) {
-    bodyParams["status"] = input.status;
-  }
-  if (input.target !== undefined) {
-    bodyParams["target"] = input.target;
-  }
-  return bodyParams;
+  return {
+    ...(input.condition !== undefined && { condition: input.condition }),
+    ...(input.source !== undefined && { source: input.source }),
+    ...(input.status !== undefined && { status: input.status }),
+    ...(input.target !== undefined && { target: input.target })
+  };
 };
 
 const serializeAws_restJson1_1CustomRules = (
@@ -5983,14 +5967,10 @@ const serializeAws_restJson1_1SubDomainSetting = (
   input: SubDomainSetting,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.branchName !== undefined) {
-    bodyParams["branchName"] = input.branchName;
-  }
-  if (input.prefix !== undefined) {
-    bodyParams["prefix"] = input.prefix;
-  }
-  return bodyParams;
+  return {
+    ...(input.branchName !== undefined && { branchName: input.branchName }),
+    ...(input.prefix !== undefined && { prefix: input.prefix })
+  };
 };
 
 const serializeAws_restJson1_1SubDomainSettings = (

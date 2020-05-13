@@ -6198,14 +6198,10 @@ const serializeAws_restJson1_1AccountDetail = (
   input: AccountDetail,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AccountId !== undefined) {
-    bodyParams["accountId"] = input.AccountId;
-  }
-  if (input.Email !== undefined) {
-    bodyParams["email"] = input.Email;
-  }
-  return bodyParams;
+  return {
+    ...(input.AccountId !== undefined && { accountId: input.AccountId }),
+    ...(input.Email !== undefined && { email: input.Email })
+  };
 };
 
 const serializeAws_restJson1_1AccountDetails = (
@@ -6228,50 +6224,32 @@ const serializeAws_restJson1_1Condition = (
   input: Condition,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Eq !== undefined) {
-    bodyParams["eq"] = serializeAws_restJson1_1Eq(input.Eq, context);
-  }
-  if (input.Equals !== undefined) {
-    bodyParams["equals"] = serializeAws_restJson1_1Equals(
-      input.Equals,
-      context
-    );
-  }
-  if (input.GreaterThan !== undefined) {
-    bodyParams["greaterThan"] = input.GreaterThan;
-  }
-  if (input.GreaterThanOrEqual !== undefined) {
-    bodyParams["greaterThanOrEqual"] = input.GreaterThanOrEqual;
-  }
-  if (input.Gt !== undefined) {
-    bodyParams["gt"] = input.Gt;
-  }
-  if (input.Gte !== undefined) {
-    bodyParams["gte"] = input.Gte;
-  }
-  if (input.LessThan !== undefined) {
-    bodyParams["lessThan"] = input.LessThan;
-  }
-  if (input.LessThanOrEqual !== undefined) {
-    bodyParams["lessThanOrEqual"] = input.LessThanOrEqual;
-  }
-  if (input.Lt !== undefined) {
-    bodyParams["lt"] = input.Lt;
-  }
-  if (input.Lte !== undefined) {
-    bodyParams["lte"] = input.Lte;
-  }
-  if (input.Neq !== undefined) {
-    bodyParams["neq"] = serializeAws_restJson1_1Neq(input.Neq, context);
-  }
-  if (input.NotEquals !== undefined) {
-    bodyParams["notEquals"] = serializeAws_restJson1_1NotEquals(
-      input.NotEquals,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Eq !== undefined && {
+      eq: serializeAws_restJson1_1Eq(input.Eq, context)
+    }),
+    ...(input.Equals !== undefined && {
+      equals: serializeAws_restJson1_1Equals(input.Equals, context)
+    }),
+    ...(input.GreaterThan !== undefined && { greaterThan: input.GreaterThan }),
+    ...(input.GreaterThanOrEqual !== undefined && {
+      greaterThanOrEqual: input.GreaterThanOrEqual
+    }),
+    ...(input.Gt !== undefined && { gt: input.Gt }),
+    ...(input.Gte !== undefined && { gte: input.Gte }),
+    ...(input.LessThan !== undefined && { lessThan: input.LessThan }),
+    ...(input.LessThanOrEqual !== undefined && {
+      lessThanOrEqual: input.LessThanOrEqual
+    }),
+    ...(input.Lt !== undefined && { lt: input.Lt }),
+    ...(input.Lte !== undefined && { lte: input.Lte }),
+    ...(input.Neq !== undefined && {
+      neq: serializeAws_restJson1_1Neq(input.Neq, context)
+    }),
+    ...(input.NotEquals !== undefined && {
+      notEquals: serializeAws_restJson1_1NotEquals(input.NotEquals, context)
+    })
+  };
 };
 
 const serializeAws_restJson1_1Criterion = (
@@ -6288,14 +6266,12 @@ const serializeAws_restJson1_1DestinationProperties = (
   input: DestinationProperties,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DestinationArn !== undefined) {
-    bodyParams["destinationArn"] = input.DestinationArn;
-  }
-  if (input.KmsKeyArn !== undefined) {
-    bodyParams["kmsKeyArn"] = input.KmsKeyArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.DestinationArn !== undefined && {
+      destinationArn: input.DestinationArn
+    }),
+    ...(input.KmsKeyArn !== undefined && { kmsKeyArn: input.KmsKeyArn })
+  };
 };
 
 const serializeAws_restJson1_1Eq = (
@@ -6316,14 +6292,11 @@ const serializeAws_restJson1_1FindingCriteria = (
   input: FindingCriteria,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Criterion !== undefined) {
-    bodyParams["criterion"] = serializeAws_restJson1_1Criterion(
-      input.Criterion,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Criterion !== undefined && {
+      criterion: serializeAws_restJson1_1Criterion(input.Criterion, context)
+    })
+  };
 };
 
 const serializeAws_restJson1_1FindingIds = (
@@ -6365,14 +6338,12 @@ const serializeAws_restJson1_1SortCriteria = (
   input: SortCriteria,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AttributeName !== undefined) {
-    bodyParams["attributeName"] = input.AttributeName;
-  }
-  if (input.OrderBy !== undefined) {
-    bodyParams["orderBy"] = input.OrderBy;
-  }
-  return bodyParams;
+  return {
+    ...(input.AttributeName !== undefined && {
+      attributeName: input.AttributeName
+    }),
+    ...(input.OrderBy !== undefined && { orderBy: input.OrderBy })
+  };
 };
 
 const serializeAws_restJson1_1TagMap = (

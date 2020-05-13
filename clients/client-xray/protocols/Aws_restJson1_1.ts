@@ -2443,149 +2443,99 @@ const serializeAws_restJson1_1BackendConnectionErrors = (
   input: BackendConnectionErrors,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ConnectionRefusedCount !== undefined) {
-    bodyParams["ConnectionRefusedCount"] = input.ConnectionRefusedCount;
-  }
-  if (input.HTTPCode4XXCount !== undefined) {
-    bodyParams["HTTPCode4XXCount"] = input.HTTPCode4XXCount;
-  }
-  if (input.HTTPCode5XXCount !== undefined) {
-    bodyParams["HTTPCode5XXCount"] = input.HTTPCode5XXCount;
-  }
-  if (input.OtherCount !== undefined) {
-    bodyParams["OtherCount"] = input.OtherCount;
-  }
-  if (input.TimeoutCount !== undefined) {
-    bodyParams["TimeoutCount"] = input.TimeoutCount;
-  }
-  if (input.UnknownHostCount !== undefined) {
-    bodyParams["UnknownHostCount"] = input.UnknownHostCount;
-  }
-  return bodyParams;
+  return {
+    ...(input.ConnectionRefusedCount !== undefined && {
+      ConnectionRefusedCount: input.ConnectionRefusedCount
+    }),
+    ...(input.HTTPCode4XXCount !== undefined && {
+      HTTPCode4XXCount: input.HTTPCode4XXCount
+    }),
+    ...(input.HTTPCode5XXCount !== undefined && {
+      HTTPCode5XXCount: input.HTTPCode5XXCount
+    }),
+    ...(input.OtherCount !== undefined && { OtherCount: input.OtherCount }),
+    ...(input.TimeoutCount !== undefined && {
+      TimeoutCount: input.TimeoutCount
+    }),
+    ...(input.UnknownHostCount !== undefined && {
+      UnknownHostCount: input.UnknownHostCount
+    })
+  };
 };
 
 const serializeAws_restJson1_1SamplingRule = (
   input: SamplingRule,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Attributes !== undefined) {
-    bodyParams["Attributes"] = serializeAws_restJson1_1AttributeMap(
-      input.Attributes,
-      context
-    );
-  }
-  if (input.FixedRate !== undefined) {
-    bodyParams["FixedRate"] = input.FixedRate;
-  }
-  if (input.HTTPMethod !== undefined) {
-    bodyParams["HTTPMethod"] = input.HTTPMethod;
-  }
-  if (input.Host !== undefined) {
-    bodyParams["Host"] = input.Host;
-  }
-  if (input.Priority !== undefined) {
-    bodyParams["Priority"] = input.Priority;
-  }
-  if (input.ReservoirSize !== undefined) {
-    bodyParams["ReservoirSize"] = input.ReservoirSize;
-  }
-  if (input.ResourceARN !== undefined) {
-    bodyParams["ResourceARN"] = input.ResourceARN;
-  }
-  if (input.RuleARN !== undefined) {
-    bodyParams["RuleARN"] = input.RuleARN;
-  }
-  if (input.RuleName !== undefined) {
-    bodyParams["RuleName"] = input.RuleName;
-  }
-  if (input.ServiceName !== undefined) {
-    bodyParams["ServiceName"] = input.ServiceName;
-  }
-  if (input.ServiceType !== undefined) {
-    bodyParams["ServiceType"] = input.ServiceType;
-  }
-  if (input.URLPath !== undefined) {
-    bodyParams["URLPath"] = input.URLPath;
-  }
-  if (input.Version !== undefined) {
-    bodyParams["Version"] = input.Version;
-  }
-  return bodyParams;
+  return {
+    ...(input.Attributes !== undefined && {
+      Attributes: serializeAws_restJson1_1AttributeMap(
+        input.Attributes,
+        context
+      )
+    }),
+    ...(input.FixedRate !== undefined && { FixedRate: input.FixedRate }),
+    ...(input.HTTPMethod !== undefined && { HTTPMethod: input.HTTPMethod }),
+    ...(input.Host !== undefined && { Host: input.Host }),
+    ...(input.Priority !== undefined && { Priority: input.Priority }),
+    ...(input.ReservoirSize !== undefined && {
+      ReservoirSize: input.ReservoirSize
+    }),
+    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.RuleARN !== undefined && { RuleARN: input.RuleARN }),
+    ...(input.RuleName !== undefined && { RuleName: input.RuleName }),
+    ...(input.ServiceName !== undefined && { ServiceName: input.ServiceName }),
+    ...(input.ServiceType !== undefined && { ServiceType: input.ServiceType }),
+    ...(input.URLPath !== undefined && { URLPath: input.URLPath }),
+    ...(input.Version !== undefined && { Version: input.Version })
+  };
 };
 
 const serializeAws_restJson1_1SamplingRuleUpdate = (
   input: SamplingRuleUpdate,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Attributes !== undefined) {
-    bodyParams["Attributes"] = serializeAws_restJson1_1AttributeMap(
-      input.Attributes,
-      context
-    );
-  }
-  if (input.FixedRate !== undefined) {
-    bodyParams["FixedRate"] = input.FixedRate;
-  }
-  if (input.HTTPMethod !== undefined) {
-    bodyParams["HTTPMethod"] = input.HTTPMethod;
-  }
-  if (input.Host !== undefined) {
-    bodyParams["Host"] = input.Host;
-  }
-  if (input.Priority !== undefined) {
-    bodyParams["Priority"] = input.Priority;
-  }
-  if (input.ReservoirSize !== undefined) {
-    bodyParams["ReservoirSize"] = input.ReservoirSize;
-  }
-  if (input.ResourceARN !== undefined) {
-    bodyParams["ResourceARN"] = input.ResourceARN;
-  }
-  if (input.RuleARN !== undefined) {
-    bodyParams["RuleARN"] = input.RuleARN;
-  }
-  if (input.RuleName !== undefined) {
-    bodyParams["RuleName"] = input.RuleName;
-  }
-  if (input.ServiceName !== undefined) {
-    bodyParams["ServiceName"] = input.ServiceName;
-  }
-  if (input.ServiceType !== undefined) {
-    bodyParams["ServiceType"] = input.ServiceType;
-  }
-  if (input.URLPath !== undefined) {
-    bodyParams["URLPath"] = input.URLPath;
-  }
-  return bodyParams;
+  return {
+    ...(input.Attributes !== undefined && {
+      Attributes: serializeAws_restJson1_1AttributeMap(
+        input.Attributes,
+        context
+      )
+    }),
+    ...(input.FixedRate !== undefined && { FixedRate: input.FixedRate }),
+    ...(input.HTTPMethod !== undefined && { HTTPMethod: input.HTTPMethod }),
+    ...(input.Host !== undefined && { Host: input.Host }),
+    ...(input.Priority !== undefined && { Priority: input.Priority }),
+    ...(input.ReservoirSize !== undefined && {
+      ReservoirSize: input.ReservoirSize
+    }),
+    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.RuleARN !== undefined && { RuleARN: input.RuleARN }),
+    ...(input.RuleName !== undefined && { RuleName: input.RuleName }),
+    ...(input.ServiceName !== undefined && { ServiceName: input.ServiceName }),
+    ...(input.ServiceType !== undefined && { ServiceType: input.ServiceType }),
+    ...(input.URLPath !== undefined && { URLPath: input.URLPath })
+  };
 };
 
 const serializeAws_restJson1_1SamplingStatisticsDocument = (
   input: SamplingStatisticsDocument,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.BorrowCount !== undefined) {
-    bodyParams["BorrowCount"] = input.BorrowCount;
-  }
-  if (input.ClientID !== undefined) {
-    bodyParams["ClientID"] = input.ClientID;
-  }
-  if (input.RequestCount !== undefined) {
-    bodyParams["RequestCount"] = input.RequestCount;
-  }
-  if (input.RuleName !== undefined) {
-    bodyParams["RuleName"] = input.RuleName;
-  }
-  if (input.SampledCount !== undefined) {
-    bodyParams["SampledCount"] = input.SampledCount;
-  }
-  if (input.Timestamp !== undefined) {
-    bodyParams["Timestamp"] = Math.round(input.Timestamp.getTime() / 1000);
-  }
-  return bodyParams;
+  return {
+    ...(input.BorrowCount !== undefined && { BorrowCount: input.BorrowCount }),
+    ...(input.ClientID !== undefined && { ClientID: input.ClientID }),
+    ...(input.RequestCount !== undefined && {
+      RequestCount: input.RequestCount
+    }),
+    ...(input.RuleName !== undefined && { RuleName: input.RuleName }),
+    ...(input.SampledCount !== undefined && {
+      SampledCount: input.SampledCount
+    }),
+    ...(input.Timestamp !== undefined && {
+      Timestamp: Math.round(input.Timestamp.getTime() / 1000)
+    })
+  };
 };
 
 const serializeAws_restJson1_1SamplingStatisticsDocumentList = (
@@ -2601,45 +2551,39 @@ const serializeAws_restJson1_1SamplingStrategy = (
   input: SamplingStrategy,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_restJson1_1TelemetryRecord = (
   input: TelemetryRecord,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.BackendConnectionErrors !== undefined) {
-    bodyParams[
-      "BackendConnectionErrors"
-    ] = serializeAws_restJson1_1BackendConnectionErrors(
-      input.BackendConnectionErrors,
-      context
-    );
-  }
-  if (input.SegmentsReceivedCount !== undefined) {
-    bodyParams["SegmentsReceivedCount"] = input.SegmentsReceivedCount;
-  }
-  if (input.SegmentsRejectedCount !== undefined) {
-    bodyParams["SegmentsRejectedCount"] = input.SegmentsRejectedCount;
-  }
-  if (input.SegmentsSentCount !== undefined) {
-    bodyParams["SegmentsSentCount"] = input.SegmentsSentCount;
-  }
-  if (input.SegmentsSpilloverCount !== undefined) {
-    bodyParams["SegmentsSpilloverCount"] = input.SegmentsSpilloverCount;
-  }
-  if (input.Timestamp !== undefined) {
-    bodyParams["Timestamp"] = Math.round(input.Timestamp.getTime() / 1000);
-  }
-  return bodyParams;
+  return {
+    ...(input.BackendConnectionErrors !== undefined && {
+      BackendConnectionErrors: serializeAws_restJson1_1BackendConnectionErrors(
+        input.BackendConnectionErrors,
+        context
+      )
+    }),
+    ...(input.SegmentsReceivedCount !== undefined && {
+      SegmentsReceivedCount: input.SegmentsReceivedCount
+    }),
+    ...(input.SegmentsRejectedCount !== undefined && {
+      SegmentsRejectedCount: input.SegmentsRejectedCount
+    }),
+    ...(input.SegmentsSentCount !== undefined && {
+      SegmentsSentCount: input.SegmentsSentCount
+    }),
+    ...(input.SegmentsSpilloverCount !== undefined && {
+      SegmentsSpilloverCount: input.SegmentsSpilloverCount
+    }),
+    ...(input.Timestamp !== undefined && {
+      Timestamp: Math.round(input.Timestamp.getTime() / 1000)
+    })
+  };
 };
 
 const serializeAws_restJson1_1TelemetryRecordList = (

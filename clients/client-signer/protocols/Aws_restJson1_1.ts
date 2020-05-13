@@ -1895,67 +1895,57 @@ const serializeAws_restJson1_1Destination = (
   input: Destination,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.s3 !== undefined) {
-    bodyParams["s3"] = serializeAws_restJson1_1S3Destination(input.s3, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.s3 !== undefined && {
+      s3: serializeAws_restJson1_1S3Destination(input.s3, context)
+    })
+  };
 };
 
 const serializeAws_restJson1_1S3Destination = (
   input: S3Destination,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.bucketName !== undefined) {
-    bodyParams["bucketName"] = input.bucketName;
-  }
-  if (input.prefix !== undefined) {
-    bodyParams["prefix"] = input.prefix;
-  }
-  return bodyParams;
+  return {
+    ...(input.bucketName !== undefined && { bucketName: input.bucketName }),
+    ...(input.prefix !== undefined && { prefix: input.prefix })
+  };
 };
 
 const serializeAws_restJson1_1S3Source = (
   input: S3Source,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.bucketName !== undefined) {
-    bodyParams["bucketName"] = input.bucketName;
-  }
-  if (input.key !== undefined) {
-    bodyParams["key"] = input.key;
-  }
-  if (input.version !== undefined) {
-    bodyParams["version"] = input.version;
-  }
-  return bodyParams;
+  return {
+    ...(input.bucketName !== undefined && { bucketName: input.bucketName }),
+    ...(input.key !== undefined && { key: input.key }),
+    ...(input.version !== undefined && { version: input.version })
+  };
 };
 
 const serializeAws_restJson1_1SigningConfigurationOverrides = (
   input: SigningConfigurationOverrides,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.encryptionAlgorithm !== undefined) {
-    bodyParams["encryptionAlgorithm"] = input.encryptionAlgorithm;
-  }
-  if (input.hashAlgorithm !== undefined) {
-    bodyParams["hashAlgorithm"] = input.hashAlgorithm;
-  }
-  return bodyParams;
+  return {
+    ...(input.encryptionAlgorithm !== undefined && {
+      encryptionAlgorithm: input.encryptionAlgorithm
+    }),
+    ...(input.hashAlgorithm !== undefined && {
+      hashAlgorithm: input.hashAlgorithm
+    })
+  };
 };
 
 const serializeAws_restJson1_1SigningMaterial = (
   input: SigningMaterial,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.certificateArn !== undefined) {
-    bodyParams["certificateArn"] = input.certificateArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.certificateArn !== undefined && {
+      certificateArn: input.certificateArn
+    })
+  };
 };
 
 const serializeAws_restJson1_1SigningParameters = (
@@ -1972,27 +1962,25 @@ const serializeAws_restJson1_1SigningPlatformOverrides = (
   input: SigningPlatformOverrides,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.signingConfiguration !== undefined) {
-    bodyParams[
-      "signingConfiguration"
-    ] = serializeAws_restJson1_1SigningConfigurationOverrides(
-      input.signingConfiguration,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.signingConfiguration !== undefined && {
+      signingConfiguration: serializeAws_restJson1_1SigningConfigurationOverrides(
+        input.signingConfiguration,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1Source = (
   input: Source,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.s3 !== undefined) {
-    bodyParams["s3"] = serializeAws_restJson1_1S3Source(input.s3, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.s3 !== undefined && {
+      s3: serializeAws_restJson1_1S3Source(input.s3, context)
+    })
+  };
 };
 
 const serializeAws_restJson1_1TagMap = (

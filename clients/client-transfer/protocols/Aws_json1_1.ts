@@ -2319,186 +2319,143 @@ const serializeAws_json1_1CreateServerRequest = (
   input: CreateServerRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EndpointDetails !== undefined) {
-    bodyParams["EndpointDetails"] = serializeAws_json1_1EndpointDetails(
-      input.EndpointDetails,
-      context
-    );
-  }
-  if (input.EndpointType !== undefined) {
-    bodyParams["EndpointType"] = input.EndpointType;
-  }
-  if (input.HostKey !== undefined) {
-    bodyParams["HostKey"] = input.HostKey;
-  }
-  if (input.IdentityProviderDetails !== undefined) {
-    bodyParams[
-      "IdentityProviderDetails"
-    ] = serializeAws_json1_1IdentityProviderDetails(
-      input.IdentityProviderDetails,
-      context
-    );
-  }
-  if (input.IdentityProviderType !== undefined) {
-    bodyParams["IdentityProviderType"] = input.IdentityProviderType;
-  }
-  if (input.LoggingRole !== undefined) {
-    bodyParams["LoggingRole"] = input.LoggingRole;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.EndpointDetails !== undefined && {
+      EndpointDetails: serializeAws_json1_1EndpointDetails(
+        input.EndpointDetails,
+        context
+      )
+    }),
+    ...(input.EndpointType !== undefined && {
+      EndpointType: input.EndpointType
+    }),
+    ...(input.HostKey !== undefined && { HostKey: input.HostKey }),
+    ...(input.IdentityProviderDetails !== undefined && {
+      IdentityProviderDetails: serializeAws_json1_1IdentityProviderDetails(
+        input.IdentityProviderDetails,
+        context
+      )
+    }),
+    ...(input.IdentityProviderType !== undefined && {
+      IdentityProviderType: input.IdentityProviderType
+    }),
+    ...(input.LoggingRole !== undefined && { LoggingRole: input.LoggingRole }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1Tags(input.Tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_1CreateUserRequest = (
   input: CreateUserRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.HomeDirectory !== undefined) {
-    bodyParams["HomeDirectory"] = input.HomeDirectory;
-  }
-  if (input.HomeDirectoryMappings !== undefined) {
-    bodyParams[
-      "HomeDirectoryMappings"
-    ] = serializeAws_json1_1HomeDirectoryMappings(
-      input.HomeDirectoryMappings,
-      context
-    );
-  }
-  if (input.HomeDirectoryType !== undefined) {
-    bodyParams["HomeDirectoryType"] = input.HomeDirectoryType;
-  }
-  if (input.Policy !== undefined) {
-    bodyParams["Policy"] = input.Policy;
-  }
-  if (input.Role !== undefined) {
-    bodyParams["Role"] = input.Role;
-  }
-  if (input.ServerId !== undefined) {
-    bodyParams["ServerId"] = input.ServerId;
-  }
-  if (input.SshPublicKeyBody !== undefined) {
-    bodyParams["SshPublicKeyBody"] = input.SshPublicKeyBody;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
-  }
-  if (input.UserName !== undefined) {
-    bodyParams["UserName"] = input.UserName;
-  }
-  return bodyParams;
+  return {
+    ...(input.HomeDirectory !== undefined && {
+      HomeDirectory: input.HomeDirectory
+    }),
+    ...(input.HomeDirectoryMappings !== undefined && {
+      HomeDirectoryMappings: serializeAws_json1_1HomeDirectoryMappings(
+        input.HomeDirectoryMappings,
+        context
+      )
+    }),
+    ...(input.HomeDirectoryType !== undefined && {
+      HomeDirectoryType: input.HomeDirectoryType
+    }),
+    ...(input.Policy !== undefined && { Policy: input.Policy }),
+    ...(input.Role !== undefined && { Role: input.Role }),
+    ...(input.ServerId !== undefined && { ServerId: input.ServerId }),
+    ...(input.SshPublicKeyBody !== undefined && {
+      SshPublicKeyBody: input.SshPublicKeyBody
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1Tags(input.Tags, context)
+    }),
+    ...(input.UserName !== undefined && { UserName: input.UserName })
+  };
 };
 
 const serializeAws_json1_1DeleteServerRequest = (
   input: DeleteServerRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ServerId !== undefined) {
-    bodyParams["ServerId"] = input.ServerId;
-  }
-  return bodyParams;
+  return {
+    ...(input.ServerId !== undefined && { ServerId: input.ServerId })
+  };
 };
 
 const serializeAws_json1_1DeleteSshPublicKeyRequest = (
   input: DeleteSshPublicKeyRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ServerId !== undefined) {
-    bodyParams["ServerId"] = input.ServerId;
-  }
-  if (input.SshPublicKeyId !== undefined) {
-    bodyParams["SshPublicKeyId"] = input.SshPublicKeyId;
-  }
-  if (input.UserName !== undefined) {
-    bodyParams["UserName"] = input.UserName;
-  }
-  return bodyParams;
+  return {
+    ...(input.ServerId !== undefined && { ServerId: input.ServerId }),
+    ...(input.SshPublicKeyId !== undefined && {
+      SshPublicKeyId: input.SshPublicKeyId
+    }),
+    ...(input.UserName !== undefined && { UserName: input.UserName })
+  };
 };
 
 const serializeAws_json1_1DeleteUserRequest = (
   input: DeleteUserRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ServerId !== undefined) {
-    bodyParams["ServerId"] = input.ServerId;
-  }
-  if (input.UserName !== undefined) {
-    bodyParams["UserName"] = input.UserName;
-  }
-  return bodyParams;
+  return {
+    ...(input.ServerId !== undefined && { ServerId: input.ServerId }),
+    ...(input.UserName !== undefined && { UserName: input.UserName })
+  };
 };
 
 const serializeAws_json1_1DescribeServerRequest = (
   input: DescribeServerRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ServerId !== undefined) {
-    bodyParams["ServerId"] = input.ServerId;
-  }
-  return bodyParams;
+  return {
+    ...(input.ServerId !== undefined && { ServerId: input.ServerId })
+  };
 };
 
 const serializeAws_json1_1DescribeUserRequest = (
   input: DescribeUserRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ServerId !== undefined) {
-    bodyParams["ServerId"] = input.ServerId;
-  }
-  if (input.UserName !== undefined) {
-    bodyParams["UserName"] = input.UserName;
-  }
-  return bodyParams;
+  return {
+    ...(input.ServerId !== undefined && { ServerId: input.ServerId }),
+    ...(input.UserName !== undefined && { UserName: input.UserName })
+  };
 };
 
 const serializeAws_json1_1EndpointDetails = (
   input: EndpointDetails,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AddressAllocationIds !== undefined) {
-    bodyParams[
-      "AddressAllocationIds"
-    ] = serializeAws_json1_1AddressAllocationIds(
-      input.AddressAllocationIds,
-      context
-    );
-  }
-  if (input.SubnetIds !== undefined) {
-    bodyParams["SubnetIds"] = serializeAws_json1_1SubnetIds(
-      input.SubnetIds,
-      context
-    );
-  }
-  if (input.VpcEndpointId !== undefined) {
-    bodyParams["VpcEndpointId"] = input.VpcEndpointId;
-  }
-  if (input.VpcId !== undefined) {
-    bodyParams["VpcId"] = input.VpcId;
-  }
-  return bodyParams;
+  return {
+    ...(input.AddressAllocationIds !== undefined && {
+      AddressAllocationIds: serializeAws_json1_1AddressAllocationIds(
+        input.AddressAllocationIds,
+        context
+      )
+    }),
+    ...(input.SubnetIds !== undefined && {
+      SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context)
+    }),
+    ...(input.VpcEndpointId !== undefined && {
+      VpcEndpointId: input.VpcEndpointId
+    }),
+    ...(input.VpcId !== undefined && { VpcId: input.VpcId })
+  };
 };
 
 const serializeAws_json1_1HomeDirectoryMapEntry = (
   input: HomeDirectoryMapEntry,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Entry !== undefined) {
-    bodyParams["Entry"] = input.Entry;
-  }
-  if (input.Target !== undefined) {
-    bodyParams["Target"] = input.Target;
-  }
-  return bodyParams;
+  return {
+    ...(input.Entry !== undefined && { Entry: input.Entry }),
+    ...(input.Target !== undefined && { Target: input.Target })
+  };
 };
 
 const serializeAws_json1_1HomeDirectoryMappings = (
@@ -2514,101 +2471,75 @@ const serializeAws_json1_1IdentityProviderDetails = (
   input: IdentityProviderDetails,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.InvocationRole !== undefined) {
-    bodyParams["InvocationRole"] = input.InvocationRole;
-  }
-  if (input.Url !== undefined) {
-    bodyParams["Url"] = input.Url;
-  }
-  return bodyParams;
+  return {
+    ...(input.InvocationRole !== undefined && {
+      InvocationRole: input.InvocationRole
+    }),
+    ...(input.Url !== undefined && { Url: input.Url })
+  };
 };
 
 const serializeAws_json1_1ImportSshPublicKeyRequest = (
   input: ImportSshPublicKeyRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ServerId !== undefined) {
-    bodyParams["ServerId"] = input.ServerId;
-  }
-  if (input.SshPublicKeyBody !== undefined) {
-    bodyParams["SshPublicKeyBody"] = input.SshPublicKeyBody;
-  }
-  if (input.UserName !== undefined) {
-    bodyParams["UserName"] = input.UserName;
-  }
-  return bodyParams;
+  return {
+    ...(input.ServerId !== undefined && { ServerId: input.ServerId }),
+    ...(input.SshPublicKeyBody !== undefined && {
+      SshPublicKeyBody: input.SshPublicKeyBody
+    }),
+    ...(input.UserName !== undefined && { UserName: input.UserName })
+  };
 };
 
 const serializeAws_json1_1ListServersRequest = (
   input: ListServersRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1ListTagsForResourceRequest = (
   input: ListTagsForResourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Arn !== undefined) {
-    bodyParams["Arn"] = input.Arn;
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.Arn !== undefined && { Arn: input.Arn }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1ListUsersRequest = (
   input: ListUsersRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ServerId !== undefined) {
-    bodyParams["ServerId"] = input.ServerId;
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ServerId !== undefined && { ServerId: input.ServerId })
+  };
 };
 
 const serializeAws_json1_1StartServerRequest = (
   input: StartServerRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ServerId !== undefined) {
-    bodyParams["ServerId"] = input.ServerId;
-  }
-  return bodyParams;
+  return {
+    ...(input.ServerId !== undefined && { ServerId: input.ServerId })
+  };
 };
 
 const serializeAws_json1_1StopServerRequest = (
   input: StopServerRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ServerId !== undefined) {
-    bodyParams["ServerId"] = input.ServerId;
-  }
-  return bodyParams;
+  return {
+    ...(input.ServerId !== undefined && { ServerId: input.ServerId })
+  };
 };
 
 const serializeAws_json1_1SubnetIds = (
@@ -2619,14 +2550,10 @@ const serializeAws_json1_1SubnetIds = (
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_json1_1TagKeys = (
@@ -2640,14 +2567,12 @@ const serializeAws_json1_1TagResourceRequest = (
   input: TagResourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Arn !== undefined) {
-    bodyParams["Arn"] = input.Arn;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.Arn !== undefined && { Arn: input.Arn }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1Tags(input.Tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_1Tags = (
@@ -2661,99 +2586,75 @@ const serializeAws_json1_1TestIdentityProviderRequest = (
   input: TestIdentityProviderRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ServerId !== undefined) {
-    bodyParams["ServerId"] = input.ServerId;
-  }
-  if (input.UserName !== undefined) {
-    bodyParams["UserName"] = input.UserName;
-  }
-  if (input.UserPassword !== undefined) {
-    bodyParams["UserPassword"] = input.UserPassword;
-  }
-  return bodyParams;
+  return {
+    ...(input.ServerId !== undefined && { ServerId: input.ServerId }),
+    ...(input.UserName !== undefined && { UserName: input.UserName }),
+    ...(input.UserPassword !== undefined && {
+      UserPassword: input.UserPassword
+    })
+  };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (
   input: UntagResourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Arn !== undefined) {
-    bodyParams["Arn"] = input.Arn;
-  }
-  if (input.TagKeys !== undefined) {
-    bodyParams["TagKeys"] = serializeAws_json1_1TagKeys(input.TagKeys, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.Arn !== undefined && { Arn: input.Arn }),
+    ...(input.TagKeys !== undefined && {
+      TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context)
+    })
+  };
 };
 
 const serializeAws_json1_1UpdateServerRequest = (
   input: UpdateServerRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EndpointDetails !== undefined) {
-    bodyParams["EndpointDetails"] = serializeAws_json1_1EndpointDetails(
-      input.EndpointDetails,
-      context
-    );
-  }
-  if (input.EndpointType !== undefined) {
-    bodyParams["EndpointType"] = input.EndpointType;
-  }
-  if (input.HostKey !== undefined) {
-    bodyParams["HostKey"] = input.HostKey;
-  }
-  if (input.IdentityProviderDetails !== undefined) {
-    bodyParams[
-      "IdentityProviderDetails"
-    ] = serializeAws_json1_1IdentityProviderDetails(
-      input.IdentityProviderDetails,
-      context
-    );
-  }
-  if (input.LoggingRole !== undefined) {
-    bodyParams["LoggingRole"] = input.LoggingRole;
-  }
-  if (input.ServerId !== undefined) {
-    bodyParams["ServerId"] = input.ServerId;
-  }
-  return bodyParams;
+  return {
+    ...(input.EndpointDetails !== undefined && {
+      EndpointDetails: serializeAws_json1_1EndpointDetails(
+        input.EndpointDetails,
+        context
+      )
+    }),
+    ...(input.EndpointType !== undefined && {
+      EndpointType: input.EndpointType
+    }),
+    ...(input.HostKey !== undefined && { HostKey: input.HostKey }),
+    ...(input.IdentityProviderDetails !== undefined && {
+      IdentityProviderDetails: serializeAws_json1_1IdentityProviderDetails(
+        input.IdentityProviderDetails,
+        context
+      )
+    }),
+    ...(input.LoggingRole !== undefined && { LoggingRole: input.LoggingRole }),
+    ...(input.ServerId !== undefined && { ServerId: input.ServerId })
+  };
 };
 
 const serializeAws_json1_1UpdateUserRequest = (
   input: UpdateUserRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.HomeDirectory !== undefined) {
-    bodyParams["HomeDirectory"] = input.HomeDirectory;
-  }
-  if (input.HomeDirectoryMappings !== undefined) {
-    bodyParams[
-      "HomeDirectoryMappings"
-    ] = serializeAws_json1_1HomeDirectoryMappings(
-      input.HomeDirectoryMappings,
-      context
-    );
-  }
-  if (input.HomeDirectoryType !== undefined) {
-    bodyParams["HomeDirectoryType"] = input.HomeDirectoryType;
-  }
-  if (input.Policy !== undefined) {
-    bodyParams["Policy"] = input.Policy;
-  }
-  if (input.Role !== undefined) {
-    bodyParams["Role"] = input.Role;
-  }
-  if (input.ServerId !== undefined) {
-    bodyParams["ServerId"] = input.ServerId;
-  }
-  if (input.UserName !== undefined) {
-    bodyParams["UserName"] = input.UserName;
-  }
-  return bodyParams;
+  return {
+    ...(input.HomeDirectory !== undefined && {
+      HomeDirectory: input.HomeDirectory
+    }),
+    ...(input.HomeDirectoryMappings !== undefined && {
+      HomeDirectoryMappings: serializeAws_json1_1HomeDirectoryMappings(
+        input.HomeDirectoryMappings,
+        context
+      )
+    }),
+    ...(input.HomeDirectoryType !== undefined && {
+      HomeDirectoryType: input.HomeDirectoryType
+    }),
+    ...(input.Policy !== undefined && { Policy: input.Policy }),
+    ...(input.Role !== undefined && { Role: input.Role }),
+    ...(input.ServerId !== undefined && { ServerId: input.ServerId }),
+    ...(input.UserName !== undefined && { UserName: input.UserName })
+  };
 };
 
 const deserializeAws_json1_1ServiceUnavailableException = (

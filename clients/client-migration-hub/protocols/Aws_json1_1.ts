@@ -2824,364 +2824,306 @@ const serializeAws_json1_1AssociateCreatedArtifactRequest = (
   input: AssociateCreatedArtifactRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CreatedArtifact !== undefined) {
-    bodyParams["CreatedArtifact"] = serializeAws_json1_1CreatedArtifact(
-      input.CreatedArtifact,
-      context
-    );
-  }
-  if (input.DryRun !== undefined) {
-    bodyParams["DryRun"] = input.DryRun;
-  }
-  if (input.MigrationTaskName !== undefined) {
-    bodyParams["MigrationTaskName"] = input.MigrationTaskName;
-  }
-  if (input.ProgressUpdateStream !== undefined) {
-    bodyParams["ProgressUpdateStream"] = input.ProgressUpdateStream;
-  }
-  return bodyParams;
+  return {
+    ...(input.CreatedArtifact !== undefined && {
+      CreatedArtifact: serializeAws_json1_1CreatedArtifact(
+        input.CreatedArtifact,
+        context
+      )
+    }),
+    ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
+    ...(input.MigrationTaskName !== undefined && {
+      MigrationTaskName: input.MigrationTaskName
+    }),
+    ...(input.ProgressUpdateStream !== undefined && {
+      ProgressUpdateStream: input.ProgressUpdateStream
+    })
+  };
 };
 
 const serializeAws_json1_1AssociateDiscoveredResourceRequest = (
   input: AssociateDiscoveredResourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DiscoveredResource !== undefined) {
-    bodyParams["DiscoveredResource"] = serializeAws_json1_1DiscoveredResource(
-      input.DiscoveredResource,
-      context
-    );
-  }
-  if (input.DryRun !== undefined) {
-    bodyParams["DryRun"] = input.DryRun;
-  }
-  if (input.MigrationTaskName !== undefined) {
-    bodyParams["MigrationTaskName"] = input.MigrationTaskName;
-  }
-  if (input.ProgressUpdateStream !== undefined) {
-    bodyParams["ProgressUpdateStream"] = input.ProgressUpdateStream;
-  }
-  return bodyParams;
+  return {
+    ...(input.DiscoveredResource !== undefined && {
+      DiscoveredResource: serializeAws_json1_1DiscoveredResource(
+        input.DiscoveredResource,
+        context
+      )
+    }),
+    ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
+    ...(input.MigrationTaskName !== undefined && {
+      MigrationTaskName: input.MigrationTaskName
+    }),
+    ...(input.ProgressUpdateStream !== undefined && {
+      ProgressUpdateStream: input.ProgressUpdateStream
+    })
+  };
 };
 
 const serializeAws_json1_1CreateProgressUpdateStreamRequest = (
   input: CreateProgressUpdateStreamRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DryRun !== undefined) {
-    bodyParams["DryRun"] = input.DryRun;
-  }
-  if (input.ProgressUpdateStreamName !== undefined) {
-    bodyParams["ProgressUpdateStreamName"] = input.ProgressUpdateStreamName;
-  }
-  return bodyParams;
+  return {
+    ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
+    ...(input.ProgressUpdateStreamName !== undefined && {
+      ProgressUpdateStreamName: input.ProgressUpdateStreamName
+    })
+  };
 };
 
 const serializeAws_json1_1CreatedArtifact = (
   input: CreatedArtifact,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  return bodyParams;
+  return {
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Name !== undefined && { Name: input.Name })
+  };
 };
 
 const serializeAws_json1_1DeleteProgressUpdateStreamRequest = (
   input: DeleteProgressUpdateStreamRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DryRun !== undefined) {
-    bodyParams["DryRun"] = input.DryRun;
-  }
-  if (input.ProgressUpdateStreamName !== undefined) {
-    bodyParams["ProgressUpdateStreamName"] = input.ProgressUpdateStreamName;
-  }
-  return bodyParams;
+  return {
+    ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
+    ...(input.ProgressUpdateStreamName !== undefined && {
+      ProgressUpdateStreamName: input.ProgressUpdateStreamName
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeApplicationStateRequest = (
   input: DescribeApplicationStateRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ApplicationId !== undefined) {
-    bodyParams["ApplicationId"] = input.ApplicationId;
-  }
-  return bodyParams;
+  return {
+    ...(input.ApplicationId !== undefined && {
+      ApplicationId: input.ApplicationId
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeMigrationTaskRequest = (
   input: DescribeMigrationTaskRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MigrationTaskName !== undefined) {
-    bodyParams["MigrationTaskName"] = input.MigrationTaskName;
-  }
-  if (input.ProgressUpdateStream !== undefined) {
-    bodyParams["ProgressUpdateStream"] = input.ProgressUpdateStream;
-  }
-  return bodyParams;
+  return {
+    ...(input.MigrationTaskName !== undefined && {
+      MigrationTaskName: input.MigrationTaskName
+    }),
+    ...(input.ProgressUpdateStream !== undefined && {
+      ProgressUpdateStream: input.ProgressUpdateStream
+    })
+  };
 };
 
 const serializeAws_json1_1DisassociateCreatedArtifactRequest = (
   input: DisassociateCreatedArtifactRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CreatedArtifactName !== undefined) {
-    bodyParams["CreatedArtifactName"] = input.CreatedArtifactName;
-  }
-  if (input.DryRun !== undefined) {
-    bodyParams["DryRun"] = input.DryRun;
-  }
-  if (input.MigrationTaskName !== undefined) {
-    bodyParams["MigrationTaskName"] = input.MigrationTaskName;
-  }
-  if (input.ProgressUpdateStream !== undefined) {
-    bodyParams["ProgressUpdateStream"] = input.ProgressUpdateStream;
-  }
-  return bodyParams;
+  return {
+    ...(input.CreatedArtifactName !== undefined && {
+      CreatedArtifactName: input.CreatedArtifactName
+    }),
+    ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
+    ...(input.MigrationTaskName !== undefined && {
+      MigrationTaskName: input.MigrationTaskName
+    }),
+    ...(input.ProgressUpdateStream !== undefined && {
+      ProgressUpdateStream: input.ProgressUpdateStream
+    })
+  };
 };
 
 const serializeAws_json1_1DisassociateDiscoveredResourceRequest = (
   input: DisassociateDiscoveredResourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ConfigurationId !== undefined) {
-    bodyParams["ConfigurationId"] = input.ConfigurationId;
-  }
-  if (input.DryRun !== undefined) {
-    bodyParams["DryRun"] = input.DryRun;
-  }
-  if (input.MigrationTaskName !== undefined) {
-    bodyParams["MigrationTaskName"] = input.MigrationTaskName;
-  }
-  if (input.ProgressUpdateStream !== undefined) {
-    bodyParams["ProgressUpdateStream"] = input.ProgressUpdateStream;
-  }
-  return bodyParams;
+  return {
+    ...(input.ConfigurationId !== undefined && {
+      ConfigurationId: input.ConfigurationId
+    }),
+    ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
+    ...(input.MigrationTaskName !== undefined && {
+      MigrationTaskName: input.MigrationTaskName
+    }),
+    ...(input.ProgressUpdateStream !== undefined && {
+      ProgressUpdateStream: input.ProgressUpdateStream
+    })
+  };
 };
 
 const serializeAws_json1_1DiscoveredResource = (
   input: DiscoveredResource,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ConfigurationId !== undefined) {
-    bodyParams["ConfigurationId"] = input.ConfigurationId;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  return bodyParams;
+  return {
+    ...(input.ConfigurationId !== undefined && {
+      ConfigurationId: input.ConfigurationId
+    }),
+    ...(input.Description !== undefined && { Description: input.Description })
+  };
 };
 
 const serializeAws_json1_1ImportMigrationTaskRequest = (
   input: ImportMigrationTaskRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DryRun !== undefined) {
-    bodyParams["DryRun"] = input.DryRun;
-  }
-  if (input.MigrationTaskName !== undefined) {
-    bodyParams["MigrationTaskName"] = input.MigrationTaskName;
-  }
-  if (input.ProgressUpdateStream !== undefined) {
-    bodyParams["ProgressUpdateStream"] = input.ProgressUpdateStream;
-  }
-  return bodyParams;
+  return {
+    ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
+    ...(input.MigrationTaskName !== undefined && {
+      MigrationTaskName: input.MigrationTaskName
+    }),
+    ...(input.ProgressUpdateStream !== undefined && {
+      ProgressUpdateStream: input.ProgressUpdateStream
+    })
+  };
 };
 
 const serializeAws_json1_1ListApplicationStatesRequest = (
   input: ListApplicationStatesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ApplicationIds !== undefined) {
-    bodyParams["ApplicationIds"] = serializeAws_json1_1ApplicationIds(
-      input.ApplicationIds,
-      context
-    );
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.ApplicationIds !== undefined && {
+      ApplicationIds: serializeAws_json1_1ApplicationIds(
+        input.ApplicationIds,
+        context
+      )
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1ListCreatedArtifactsRequest = (
   input: ListCreatedArtifactsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.MigrationTaskName !== undefined) {
-    bodyParams["MigrationTaskName"] = input.MigrationTaskName;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ProgressUpdateStream !== undefined) {
-    bodyParams["ProgressUpdateStream"] = input.ProgressUpdateStream;
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.MigrationTaskName !== undefined && {
+      MigrationTaskName: input.MigrationTaskName
+    }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ProgressUpdateStream !== undefined && {
+      ProgressUpdateStream: input.ProgressUpdateStream
+    })
+  };
 };
 
 const serializeAws_json1_1ListDiscoveredResourcesRequest = (
   input: ListDiscoveredResourcesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.MigrationTaskName !== undefined) {
-    bodyParams["MigrationTaskName"] = input.MigrationTaskName;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ProgressUpdateStream !== undefined) {
-    bodyParams["ProgressUpdateStream"] = input.ProgressUpdateStream;
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.MigrationTaskName !== undefined && {
+      MigrationTaskName: input.MigrationTaskName
+    }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ProgressUpdateStream !== undefined && {
+      ProgressUpdateStream: input.ProgressUpdateStream
+    })
+  };
 };
 
 const serializeAws_json1_1ListMigrationTasksRequest = (
   input: ListMigrationTasksRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ResourceName !== undefined) {
-    bodyParams["ResourceName"] = input.ResourceName;
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ResourceName !== undefined && {
+      ResourceName: input.ResourceName
+    })
+  };
 };
 
 const serializeAws_json1_1ListProgressUpdateStreamsRequest = (
   input: ListProgressUpdateStreamsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1NotifyApplicationStateRequest = (
   input: NotifyApplicationStateRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ApplicationId !== undefined) {
-    bodyParams["ApplicationId"] = input.ApplicationId;
-  }
-  if (input.DryRun !== undefined) {
-    bodyParams["DryRun"] = input.DryRun;
-  }
-  if (input.Status !== undefined) {
-    bodyParams["Status"] = input.Status;
-  }
-  if (input.UpdateDateTime !== undefined) {
-    bodyParams["UpdateDateTime"] = Math.round(
-      input.UpdateDateTime.getTime() / 1000
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.ApplicationId !== undefined && {
+      ApplicationId: input.ApplicationId
+    }),
+    ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
+    ...(input.Status !== undefined && { Status: input.Status }),
+    ...(input.UpdateDateTime !== undefined && {
+      UpdateDateTime: Math.round(input.UpdateDateTime.getTime() / 1000)
+    })
+  };
 };
 
 const serializeAws_json1_1NotifyMigrationTaskStateRequest = (
   input: NotifyMigrationTaskStateRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DryRun !== undefined) {
-    bodyParams["DryRun"] = input.DryRun;
-  }
-  if (input.MigrationTaskName !== undefined) {
-    bodyParams["MigrationTaskName"] = input.MigrationTaskName;
-  }
-  if (input.NextUpdateSeconds !== undefined) {
-    bodyParams["NextUpdateSeconds"] = input.NextUpdateSeconds;
-  }
-  if (input.ProgressUpdateStream !== undefined) {
-    bodyParams["ProgressUpdateStream"] = input.ProgressUpdateStream;
-  }
-  if (input.Task !== undefined) {
-    bodyParams["Task"] = serializeAws_json1_1Task(input.Task, context);
-  }
-  if (input.UpdateDateTime !== undefined) {
-    bodyParams["UpdateDateTime"] = Math.round(
-      input.UpdateDateTime.getTime() / 1000
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
+    ...(input.MigrationTaskName !== undefined && {
+      MigrationTaskName: input.MigrationTaskName
+    }),
+    ...(input.NextUpdateSeconds !== undefined && {
+      NextUpdateSeconds: input.NextUpdateSeconds
+    }),
+    ...(input.ProgressUpdateStream !== undefined && {
+      ProgressUpdateStream: input.ProgressUpdateStream
+    }),
+    ...(input.Task !== undefined && {
+      Task: serializeAws_json1_1Task(input.Task, context)
+    }),
+    ...(input.UpdateDateTime !== undefined && {
+      UpdateDateTime: Math.round(input.UpdateDateTime.getTime() / 1000)
+    })
+  };
 };
 
 const serializeAws_json1_1PutResourceAttributesRequest = (
   input: PutResourceAttributesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DryRun !== undefined) {
-    bodyParams["DryRun"] = input.DryRun;
-  }
-  if (input.MigrationTaskName !== undefined) {
-    bodyParams["MigrationTaskName"] = input.MigrationTaskName;
-  }
-  if (input.ProgressUpdateStream !== undefined) {
-    bodyParams["ProgressUpdateStream"] = input.ProgressUpdateStream;
-  }
-  if (input.ResourceAttributeList !== undefined) {
-    bodyParams[
-      "ResourceAttributeList"
-    ] = serializeAws_json1_1ResourceAttributeList(
-      input.ResourceAttributeList,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
+    ...(input.MigrationTaskName !== undefined && {
+      MigrationTaskName: input.MigrationTaskName
+    }),
+    ...(input.ProgressUpdateStream !== undefined && {
+      ProgressUpdateStream: input.ProgressUpdateStream
+    }),
+    ...(input.ResourceAttributeList !== undefined && {
+      ResourceAttributeList: serializeAws_json1_1ResourceAttributeList(
+        input.ResourceAttributeList,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1ResourceAttribute = (
   input: ResourceAttribute,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_json1_1ResourceAttributeList = (
@@ -3197,17 +3139,15 @@ const serializeAws_json1_1Task = (
   input: Task,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ProgressPercent !== undefined) {
-    bodyParams["ProgressPercent"] = input.ProgressPercent;
-  }
-  if (input.Status !== undefined) {
-    bodyParams["Status"] = input.Status;
-  }
-  if (input.StatusDetail !== undefined) {
-    bodyParams["StatusDetail"] = input.StatusDetail;
-  }
-  return bodyParams;
+  return {
+    ...(input.ProgressPercent !== undefined && {
+      ProgressPercent: input.ProgressPercent
+    }),
+    ...(input.Status !== undefined && { Status: input.Status }),
+    ...(input.StatusDetail !== undefined && {
+      StatusDetail: input.StatusDetail
+    })
+  };
 };
 
 const deserializeAws_json1_1AccessDeniedException = (

@@ -1267,64 +1267,52 @@ const serializeAws_restJson1_1CallInstructionsMessageType = (
   input: CallInstructionsMessageType,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Text !== undefined) {
-    bodyParams["Text"] = input.Text;
-  }
-  return bodyParams;
+  return {
+    ...(input.Text !== undefined && { Text: input.Text })
+  };
 };
 
 const serializeAws_restJson1_1CloudWatchLogsDestination = (
   input: CloudWatchLogsDestination,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.IamRoleArn !== undefined) {
-    bodyParams["IamRoleArn"] = input.IamRoleArn;
-  }
-  if (input.LogGroupArn !== undefined) {
-    bodyParams["LogGroupArn"] = input.LogGroupArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.IamRoleArn !== undefined && { IamRoleArn: input.IamRoleArn }),
+    ...(input.LogGroupArn !== undefined && { LogGroupArn: input.LogGroupArn })
+  };
 };
 
 const serializeAws_restJson1_1EventDestinationDefinition = (
   input: EventDestinationDefinition,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CloudWatchLogsDestination !== undefined) {
-    bodyParams[
-      "CloudWatchLogsDestination"
-    ] = serializeAws_restJson1_1CloudWatchLogsDestination(
-      input.CloudWatchLogsDestination,
-      context
-    );
-  }
-  if (input.Enabled !== undefined) {
-    bodyParams["Enabled"] = input.Enabled;
-  }
-  if (input.KinesisFirehoseDestination !== undefined) {
-    bodyParams[
-      "KinesisFirehoseDestination"
-    ] = serializeAws_restJson1_1KinesisFirehoseDestination(
-      input.KinesisFirehoseDestination,
-      context
-    );
-  }
-  if (input.MatchingEventTypes !== undefined) {
-    bodyParams["MatchingEventTypes"] = serializeAws_restJson1_1EventTypes(
-      input.MatchingEventTypes,
-      context
-    );
-  }
-  if (input.SnsDestination !== undefined) {
-    bodyParams["SnsDestination"] = serializeAws_restJson1_1SnsDestination(
-      input.SnsDestination,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.CloudWatchLogsDestination !== undefined && {
+      CloudWatchLogsDestination: serializeAws_restJson1_1CloudWatchLogsDestination(
+        input.CloudWatchLogsDestination,
+        context
+      )
+    }),
+    ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
+    ...(input.KinesisFirehoseDestination !== undefined && {
+      KinesisFirehoseDestination: serializeAws_restJson1_1KinesisFirehoseDestination(
+        input.KinesisFirehoseDestination,
+        context
+      )
+    }),
+    ...(input.MatchingEventTypes !== undefined && {
+      MatchingEventTypes: serializeAws_restJson1_1EventTypes(
+        input.MatchingEventTypes,
+        context
+      )
+    }),
+    ...(input.SnsDestination !== undefined && {
+      SnsDestination: serializeAws_restJson1_1SnsDestination(
+        input.SnsDestination,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1EventTypes = (
@@ -1338,89 +1326,73 @@ const serializeAws_restJson1_1KinesisFirehoseDestination = (
   input: KinesisFirehoseDestination,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DeliveryStreamArn !== undefined) {
-    bodyParams["DeliveryStreamArn"] = input.DeliveryStreamArn;
-  }
-  if (input.IamRoleArn !== undefined) {
-    bodyParams["IamRoleArn"] = input.IamRoleArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.DeliveryStreamArn !== undefined && {
+      DeliveryStreamArn: input.DeliveryStreamArn
+    }),
+    ...(input.IamRoleArn !== undefined && { IamRoleArn: input.IamRoleArn })
+  };
 };
 
 const serializeAws_restJson1_1PlainTextMessageType = (
   input: PlainTextMessageType,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.LanguageCode !== undefined) {
-    bodyParams["LanguageCode"] = input.LanguageCode;
-  }
-  if (input.Text !== undefined) {
-    bodyParams["Text"] = input.Text;
-  }
-  if (input.VoiceId !== undefined) {
-    bodyParams["VoiceId"] = input.VoiceId;
-  }
-  return bodyParams;
+  return {
+    ...(input.LanguageCode !== undefined && {
+      LanguageCode: input.LanguageCode
+    }),
+    ...(input.Text !== undefined && { Text: input.Text }),
+    ...(input.VoiceId !== undefined && { VoiceId: input.VoiceId })
+  };
 };
 
 const serializeAws_restJson1_1SSMLMessageType = (
   input: SSMLMessageType,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.LanguageCode !== undefined) {
-    bodyParams["LanguageCode"] = input.LanguageCode;
-  }
-  if (input.Text !== undefined) {
-    bodyParams["Text"] = input.Text;
-  }
-  if (input.VoiceId !== undefined) {
-    bodyParams["VoiceId"] = input.VoiceId;
-  }
-  return bodyParams;
+  return {
+    ...(input.LanguageCode !== undefined && {
+      LanguageCode: input.LanguageCode
+    }),
+    ...(input.Text !== undefined && { Text: input.Text }),
+    ...(input.VoiceId !== undefined && { VoiceId: input.VoiceId })
+  };
 };
 
 const serializeAws_restJson1_1SnsDestination = (
   input: SnsDestination,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.TopicArn !== undefined) {
-    bodyParams["TopicArn"] = input.TopicArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.TopicArn !== undefined && { TopicArn: input.TopicArn })
+  };
 };
 
 const serializeAws_restJson1_1VoiceMessageContent = (
   input: VoiceMessageContent,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CallInstructionsMessage !== undefined) {
-    bodyParams[
-      "CallInstructionsMessage"
-    ] = serializeAws_restJson1_1CallInstructionsMessageType(
-      input.CallInstructionsMessage,
-      context
-    );
-  }
-  if (input.PlainTextMessage !== undefined) {
-    bodyParams[
-      "PlainTextMessage"
-    ] = serializeAws_restJson1_1PlainTextMessageType(
-      input.PlainTextMessage,
-      context
-    );
-  }
-  if (input.SSMLMessage !== undefined) {
-    bodyParams["SSMLMessage"] = serializeAws_restJson1_1SSMLMessageType(
-      input.SSMLMessage,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.CallInstructionsMessage !== undefined && {
+      CallInstructionsMessage: serializeAws_restJson1_1CallInstructionsMessageType(
+        input.CallInstructionsMessage,
+        context
+      )
+    }),
+    ...(input.PlainTextMessage !== undefined && {
+      PlainTextMessage: serializeAws_restJson1_1PlainTextMessageType(
+        input.PlainTextMessage,
+        context
+      )
+    }),
+    ...(input.SSMLMessage !== undefined && {
+      SSMLMessage: serializeAws_restJson1_1SSMLMessageType(
+        input.SSMLMessage,
+        context
+      )
+    })
+  };
 };
 
 const deserializeAws_restJson1_1CloudWatchLogsDestination = (

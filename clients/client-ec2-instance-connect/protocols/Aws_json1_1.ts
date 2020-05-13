@@ -234,20 +234,18 @@ const serializeAws_json1_1SendSSHPublicKeyRequest = (
   input: SendSSHPublicKeyRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AvailabilityZone !== undefined) {
-    bodyParams["AvailabilityZone"] = input.AvailabilityZone;
-  }
-  if (input.InstanceId !== undefined) {
-    bodyParams["InstanceId"] = input.InstanceId;
-  }
-  if (input.InstanceOSUser !== undefined) {
-    bodyParams["InstanceOSUser"] = input.InstanceOSUser;
-  }
-  if (input.SSHPublicKey !== undefined) {
-    bodyParams["SSHPublicKey"] = input.SSHPublicKey;
-  }
-  return bodyParams;
+  return {
+    ...(input.AvailabilityZone !== undefined && {
+      AvailabilityZone: input.AvailabilityZone
+    }),
+    ...(input.InstanceId !== undefined && { InstanceId: input.InstanceId }),
+    ...(input.InstanceOSUser !== undefined && {
+      InstanceOSUser: input.InstanceOSUser
+    }),
+    ...(input.SSHPublicKey !== undefined && {
+      SSHPublicKey: input.SSHPublicKey
+    })
+  };
 };
 
 const deserializeAws_json1_1AuthException = (

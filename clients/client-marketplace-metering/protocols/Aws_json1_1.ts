@@ -890,88 +890,74 @@ const serializeAws_json1_1BatchMeterUsageRequest = (
   input: BatchMeterUsageRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ProductCode !== undefined) {
-    bodyParams["ProductCode"] = input.ProductCode;
-  }
-  if (input.UsageRecords !== undefined) {
-    bodyParams["UsageRecords"] = serializeAws_json1_1UsageRecordList(
-      input.UsageRecords,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.ProductCode !== undefined && { ProductCode: input.ProductCode }),
+    ...(input.UsageRecords !== undefined && {
+      UsageRecords: serializeAws_json1_1UsageRecordList(
+        input.UsageRecords,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1MeterUsageRequest = (
   input: MeterUsageRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DryRun !== undefined) {
-    bodyParams["DryRun"] = input.DryRun;
-  }
-  if (input.ProductCode !== undefined) {
-    bodyParams["ProductCode"] = input.ProductCode;
-  }
-  if (input.Timestamp !== undefined) {
-    bodyParams["Timestamp"] = Math.round(input.Timestamp.getTime() / 1000);
-  }
-  if (input.UsageDimension !== undefined) {
-    bodyParams["UsageDimension"] = input.UsageDimension;
-  }
-  if (input.UsageQuantity !== undefined) {
-    bodyParams["UsageQuantity"] = input.UsageQuantity;
-  }
-  return bodyParams;
+  return {
+    ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
+    ...(input.ProductCode !== undefined && { ProductCode: input.ProductCode }),
+    ...(input.Timestamp !== undefined && {
+      Timestamp: Math.round(input.Timestamp.getTime() / 1000)
+    }),
+    ...(input.UsageDimension !== undefined && {
+      UsageDimension: input.UsageDimension
+    }),
+    ...(input.UsageQuantity !== undefined && {
+      UsageQuantity: input.UsageQuantity
+    })
+  };
 };
 
 const serializeAws_json1_1RegisterUsageRequest = (
   input: RegisterUsageRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Nonce !== undefined) {
-    bodyParams["Nonce"] = input.Nonce;
-  }
-  if (input.ProductCode !== undefined) {
-    bodyParams["ProductCode"] = input.ProductCode;
-  }
-  if (input.PublicKeyVersion !== undefined) {
-    bodyParams["PublicKeyVersion"] = input.PublicKeyVersion;
-  }
-  return bodyParams;
+  return {
+    ...(input.Nonce !== undefined && { Nonce: input.Nonce }),
+    ...(input.ProductCode !== undefined && { ProductCode: input.ProductCode }),
+    ...(input.PublicKeyVersion !== undefined && {
+      PublicKeyVersion: input.PublicKeyVersion
+    })
+  };
 };
 
 const serializeAws_json1_1ResolveCustomerRequest = (
   input: ResolveCustomerRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.RegistrationToken !== undefined) {
-    bodyParams["RegistrationToken"] = input.RegistrationToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.RegistrationToken !== undefined && {
+      RegistrationToken: input.RegistrationToken
+    })
+  };
 };
 
 const serializeAws_json1_1UsageRecord = (
   input: UsageRecord,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CustomerIdentifier !== undefined) {
-    bodyParams["CustomerIdentifier"] = input.CustomerIdentifier;
-  }
-  if (input.Dimension !== undefined) {
-    bodyParams["Dimension"] = input.Dimension;
-  }
-  if (input.Quantity !== undefined) {
-    bodyParams["Quantity"] = input.Quantity;
-  }
-  if (input.Timestamp !== undefined) {
-    bodyParams["Timestamp"] = Math.round(input.Timestamp.getTime() / 1000);
-  }
-  return bodyParams;
+  return {
+    ...(input.CustomerIdentifier !== undefined && {
+      CustomerIdentifier: input.CustomerIdentifier
+    }),
+    ...(input.Dimension !== undefined && { Dimension: input.Dimension }),
+    ...(input.Quantity !== undefined && { Quantity: input.Quantity }),
+    ...(input.Timestamp !== undefined && {
+      Timestamp: Math.round(input.Timestamp.getTime() / 1000)
+    })
+  };
 };
 
 const serializeAws_json1_1UsageRecordList = (

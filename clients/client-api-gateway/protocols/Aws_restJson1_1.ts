@@ -22650,112 +22650,89 @@ const serializeAws_restJson1_1ApiStage = (
   input: ApiStage,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.apiId !== undefined) {
-    bodyParams["apiId"] = input.apiId;
-  }
-  if (input.stage !== undefined) {
-    bodyParams["stage"] = input.stage;
-  }
-  if (input.throttle !== undefined) {
-    bodyParams[
-      "throttle"
-    ] = serializeAws_restJson1_1MapOfApiStageThrottleSettings(
-      input.throttle,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.apiId !== undefined && { apiId: input.apiId }),
+    ...(input.stage !== undefined && { stage: input.stage }),
+    ...(input.throttle !== undefined && {
+      throttle: serializeAws_restJson1_1MapOfApiStageThrottleSettings(
+        input.throttle,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1CanarySettings = (
   input: CanarySettings,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.deploymentId !== undefined) {
-    bodyParams["deploymentId"] = input.deploymentId;
-  }
-  if (input.percentTraffic !== undefined) {
-    bodyParams["percentTraffic"] = input.percentTraffic;
-  }
-  if (input.stageVariableOverrides !== undefined) {
-    bodyParams[
-      "stageVariableOverrides"
-    ] = serializeAws_restJson1_1MapOfStringToString(
-      input.stageVariableOverrides,
-      context
-    );
-  }
-  if (input.useStageCache !== undefined) {
-    bodyParams["useStageCache"] = input.useStageCache;
-  }
-  return bodyParams;
+  return {
+    ...(input.deploymentId !== undefined && {
+      deploymentId: input.deploymentId
+    }),
+    ...(input.percentTraffic !== undefined && {
+      percentTraffic: input.percentTraffic
+    }),
+    ...(input.stageVariableOverrides !== undefined && {
+      stageVariableOverrides: serializeAws_restJson1_1MapOfStringToString(
+        input.stageVariableOverrides,
+        context
+      )
+    }),
+    ...(input.useStageCache !== undefined && {
+      useStageCache: input.useStageCache
+    })
+  };
 };
 
 const serializeAws_restJson1_1DeploymentCanarySettings = (
   input: DeploymentCanarySettings,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.percentTraffic !== undefined) {
-    bodyParams["percentTraffic"] = input.percentTraffic;
-  }
-  if (input.stageVariableOverrides !== undefined) {
-    bodyParams[
-      "stageVariableOverrides"
-    ] = serializeAws_restJson1_1MapOfStringToString(
-      input.stageVariableOverrides,
-      context
-    );
-  }
-  if (input.useStageCache !== undefined) {
-    bodyParams["useStageCache"] = input.useStageCache;
-  }
-  return bodyParams;
+  return {
+    ...(input.percentTraffic !== undefined && {
+      percentTraffic: input.percentTraffic
+    }),
+    ...(input.stageVariableOverrides !== undefined && {
+      stageVariableOverrides: serializeAws_restJson1_1MapOfStringToString(
+        input.stageVariableOverrides,
+        context
+      )
+    }),
+    ...(input.useStageCache !== undefined && {
+      useStageCache: input.useStageCache
+    })
+  };
 };
 
 const serializeAws_restJson1_1DocumentationPartLocation = (
   input: DocumentationPartLocation,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.method !== undefined) {
-    bodyParams["method"] = input.method;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.path !== undefined) {
-    bodyParams["path"] = input.path;
-  }
-  if (input.statusCode !== undefined) {
-    bodyParams["statusCode"] = input.statusCode;
-  }
-  if (input.type !== undefined) {
-    bodyParams["type"] = input.type;
-  }
-  return bodyParams;
+  return {
+    ...(input.method !== undefined && { method: input.method }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.path !== undefined && { path: input.path }),
+    ...(input.statusCode !== undefined && { statusCode: input.statusCode }),
+    ...(input.type !== undefined && { type: input.type })
+  };
 };
 
 const serializeAws_restJson1_1EndpointConfiguration = (
   input: EndpointConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.types !== undefined) {
-    bodyParams["types"] = serializeAws_restJson1_1ListOfEndpointType(
-      input.types,
-      context
-    );
-  }
-  if (input.vpcEndpointIds !== undefined) {
-    bodyParams["vpcEndpointIds"] = serializeAws_restJson1_1ListOfString(
-      input.vpcEndpointIds,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.types !== undefined && {
+      types: serializeAws_restJson1_1ListOfEndpointType(input.types, context)
+    }),
+    ...(input.vpcEndpointIds !== undefined && {
+      vpcEndpointIds: serializeAws_restJson1_1ListOfString(
+        input.vpcEndpointIds,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1ListOfARNs = (
@@ -22830,45 +22807,31 @@ const serializeAws_restJson1_1QuotaSettings = (
   input: QuotaSettings,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.limit !== undefined) {
-    bodyParams["limit"] = input.limit;
-  }
-  if (input.offset !== undefined) {
-    bodyParams["offset"] = input.offset;
-  }
-  if (input.period !== undefined) {
-    bodyParams["period"] = input.period;
-  }
-  return bodyParams;
+  return {
+    ...(input.limit !== undefined && { limit: input.limit }),
+    ...(input.offset !== undefined && { offset: input.offset }),
+    ...(input.period !== undefined && { period: input.period })
+  };
 };
 
 const serializeAws_restJson1_1StageKey = (
   input: StageKey,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.restApiId !== undefined) {
-    bodyParams["restApiId"] = input.restApiId;
-  }
-  if (input.stageName !== undefined) {
-    bodyParams["stageName"] = input.stageName;
-  }
-  return bodyParams;
+  return {
+    ...(input.restApiId !== undefined && { restApiId: input.restApiId }),
+    ...(input.stageName !== undefined && { stageName: input.stageName })
+  };
 };
 
 const serializeAws_restJson1_1ThrottleSettings = (
   input: ThrottleSettings,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.burstLimit !== undefined) {
-    bodyParams["burstLimit"] = input.burstLimit;
-  }
-  if (input.rateLimit !== undefined) {
-    bodyParams["rateLimit"] = input.rateLimit;
-  }
-  return bodyParams;
+  return {
+    ...(input.burstLimit !== undefined && { burstLimit: input.burstLimit }),
+    ...(input.rateLimit !== undefined && { rateLimit: input.rateLimit })
+  };
 };
 
 const serializeAws_restJson1_1ListOfPatchOperation = (
@@ -22891,20 +22854,12 @@ const serializeAws_restJson1_1PatchOperation = (
   input: PatchOperation,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.from !== undefined) {
-    bodyParams["from"] = input.from;
-  }
-  if (input.op !== undefined) {
-    bodyParams["op"] = input.op;
-  }
-  if (input.path !== undefined) {
-    bodyParams["path"] = input.path;
-  }
-  if (input.value !== undefined) {
-    bodyParams["value"] = input.value;
-  }
-  return bodyParams;
+  return {
+    ...(input.from !== undefined && { from: input.from }),
+    ...(input.op !== undefined && { op: input.op }),
+    ...(input.path !== undefined && { path: input.path }),
+    ...(input.value !== undefined && { value: input.value })
+  };
 };
 
 const deserializeAws_restJson1_1AccessLogSettings = (

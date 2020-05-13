@@ -6624,27 +6624,23 @@ const serializeAws_restJson1_1AdditionalAuthenticationProvider = (
   input: AdditionalAuthenticationProvider,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.authenticationType !== undefined) {
-    bodyParams["authenticationType"] = input.authenticationType;
-  }
-  if (input.openIDConnectConfig !== undefined) {
-    bodyParams[
-      "openIDConnectConfig"
-    ] = serializeAws_restJson1_1OpenIDConnectConfig(
-      input.openIDConnectConfig,
-      context
-    );
-  }
-  if (input.userPoolConfig !== undefined) {
-    bodyParams[
-      "userPoolConfig"
-    ] = serializeAws_restJson1_1CognitoUserPoolConfig(
-      input.userPoolConfig,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.authenticationType !== undefined && {
+      authenticationType: input.authenticationType
+    }),
+    ...(input.openIDConnectConfig !== undefined && {
+      openIDConnectConfig: serializeAws_restJson1_1OpenIDConnectConfig(
+        input.openIDConnectConfig,
+        context
+      )
+    }),
+    ...(input.userPoolConfig !== undefined && {
+      userPoolConfig: serializeAws_restJson1_1CognitoUserPoolConfig(
+        input.userPoolConfig,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1AdditionalAuthenticationProviders = (
@@ -6660,48 +6656,46 @@ const serializeAws_restJson1_1AuthorizationConfig = (
   input: AuthorizationConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.authorizationType !== undefined) {
-    bodyParams["authorizationType"] = input.authorizationType;
-  }
-  if (input.awsIamConfig !== undefined) {
-    bodyParams["awsIamConfig"] = serializeAws_restJson1_1AwsIamConfig(
-      input.awsIamConfig,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.authorizationType !== undefined && {
+      authorizationType: input.authorizationType
+    }),
+    ...(input.awsIamConfig !== undefined && {
+      awsIamConfig: serializeAws_restJson1_1AwsIamConfig(
+        input.awsIamConfig,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1AwsIamConfig = (
   input: AwsIamConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.signingRegion !== undefined) {
-    bodyParams["signingRegion"] = input.signingRegion;
-  }
-  if (input.signingServiceName !== undefined) {
-    bodyParams["signingServiceName"] = input.signingServiceName;
-  }
-  return bodyParams;
+  return {
+    ...(input.signingRegion !== undefined && {
+      signingRegion: input.signingRegion
+    }),
+    ...(input.signingServiceName !== undefined && {
+      signingServiceName: input.signingServiceName
+    })
+  };
 };
 
 const serializeAws_restJson1_1CachingConfig = (
   input: CachingConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.cachingKeys !== undefined) {
-    bodyParams["cachingKeys"] = serializeAws_restJson1_1CachingKeys(
-      input.cachingKeys,
-      context
-    );
-  }
-  if (input.ttl !== undefined) {
-    bodyParams["ttl"] = input.ttl;
-  }
-  return bodyParams;
+  return {
+    ...(input.cachingKeys !== undefined && {
+      cachingKeys: serializeAws_restJson1_1CachingKeys(
+        input.cachingKeys,
+        context
+      )
+    }),
+    ...(input.ttl !== undefined && { ttl: input.ttl })
+  };
 };
 
 const serializeAws_restJson1_1CachingKeys = (
@@ -6715,74 +6709,60 @@ const serializeAws_restJson1_1CognitoUserPoolConfig = (
   input: CognitoUserPoolConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.appIdClientRegex !== undefined) {
-    bodyParams["appIdClientRegex"] = input.appIdClientRegex;
-  }
-  if (input.awsRegion !== undefined) {
-    bodyParams["awsRegion"] = input.awsRegion;
-  }
-  if (input.userPoolId !== undefined) {
-    bodyParams["userPoolId"] = input.userPoolId;
-  }
-  return bodyParams;
+  return {
+    ...(input.appIdClientRegex !== undefined && {
+      appIdClientRegex: input.appIdClientRegex
+    }),
+    ...(input.awsRegion !== undefined && { awsRegion: input.awsRegion }),
+    ...(input.userPoolId !== undefined && { userPoolId: input.userPoolId })
+  };
 };
 
 const serializeAws_restJson1_1DeltaSyncConfig = (
   input: DeltaSyncConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.baseTableTTL !== undefined) {
-    bodyParams["baseTableTTL"] = input.baseTableTTL;
-  }
-  if (input.deltaSyncTableName !== undefined) {
-    bodyParams["deltaSyncTableName"] = input.deltaSyncTableName;
-  }
-  if (input.deltaSyncTableTTL !== undefined) {
-    bodyParams["deltaSyncTableTTL"] = input.deltaSyncTableTTL;
-  }
-  return bodyParams;
+  return {
+    ...(input.baseTableTTL !== undefined && {
+      baseTableTTL: input.baseTableTTL
+    }),
+    ...(input.deltaSyncTableName !== undefined && {
+      deltaSyncTableName: input.deltaSyncTableName
+    }),
+    ...(input.deltaSyncTableTTL !== undefined && {
+      deltaSyncTableTTL: input.deltaSyncTableTTL
+    })
+  };
 };
 
 const serializeAws_restJson1_1DynamodbDataSourceConfig = (
   input: DynamodbDataSourceConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.awsRegion !== undefined) {
-    bodyParams["awsRegion"] = input.awsRegion;
-  }
-  if (input.deltaSyncConfig !== undefined) {
-    bodyParams["deltaSyncConfig"] = serializeAws_restJson1_1DeltaSyncConfig(
-      input.deltaSyncConfig,
-      context
-    );
-  }
-  if (input.tableName !== undefined) {
-    bodyParams["tableName"] = input.tableName;
-  }
-  if (input.useCallerCredentials !== undefined) {
-    bodyParams["useCallerCredentials"] = input.useCallerCredentials;
-  }
-  if (input.versioned !== undefined) {
-    bodyParams["versioned"] = input.versioned;
-  }
-  return bodyParams;
+  return {
+    ...(input.awsRegion !== undefined && { awsRegion: input.awsRegion }),
+    ...(input.deltaSyncConfig !== undefined && {
+      deltaSyncConfig: serializeAws_restJson1_1DeltaSyncConfig(
+        input.deltaSyncConfig,
+        context
+      )
+    }),
+    ...(input.tableName !== undefined && { tableName: input.tableName }),
+    ...(input.useCallerCredentials !== undefined && {
+      useCallerCredentials: input.useCallerCredentials
+    }),
+    ...(input.versioned !== undefined && { versioned: input.versioned })
+  };
 };
 
 const serializeAws_restJson1_1ElasticsearchDataSourceConfig = (
   input: ElasticsearchDataSourceConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.awsRegion !== undefined) {
-    bodyParams["awsRegion"] = input.awsRegion;
-  }
-  if (input.endpoint !== undefined) {
-    bodyParams["endpoint"] = input.endpoint;
-  }
-  return bodyParams;
+  return {
+    ...(input.awsRegion !== undefined && { awsRegion: input.awsRegion }),
+    ...(input.endpoint !== undefined && { endpoint: input.endpoint })
+  };
 };
 
 const serializeAws_restJson1_1FunctionsIds = (
@@ -6796,157 +6776,133 @@ const serializeAws_restJson1_1HttpDataSourceConfig = (
   input: HttpDataSourceConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.authorizationConfig !== undefined) {
-    bodyParams[
-      "authorizationConfig"
-    ] = serializeAws_restJson1_1AuthorizationConfig(
-      input.authorizationConfig,
-      context
-    );
-  }
-  if (input.endpoint !== undefined) {
-    bodyParams["endpoint"] = input.endpoint;
-  }
-  return bodyParams;
+  return {
+    ...(input.authorizationConfig !== undefined && {
+      authorizationConfig: serializeAws_restJson1_1AuthorizationConfig(
+        input.authorizationConfig,
+        context
+      )
+    }),
+    ...(input.endpoint !== undefined && { endpoint: input.endpoint })
+  };
 };
 
 const serializeAws_restJson1_1LambdaConflictHandlerConfig = (
   input: LambdaConflictHandlerConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.lambdaConflictHandlerArn !== undefined) {
-    bodyParams["lambdaConflictHandlerArn"] = input.lambdaConflictHandlerArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.lambdaConflictHandlerArn !== undefined && {
+      lambdaConflictHandlerArn: input.lambdaConflictHandlerArn
+    })
+  };
 };
 
 const serializeAws_restJson1_1LambdaDataSourceConfig = (
   input: LambdaDataSourceConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.lambdaFunctionArn !== undefined) {
-    bodyParams["lambdaFunctionArn"] = input.lambdaFunctionArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.lambdaFunctionArn !== undefined && {
+      lambdaFunctionArn: input.lambdaFunctionArn
+    })
+  };
 };
 
 const serializeAws_restJson1_1LogConfig = (
   input: LogConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.cloudWatchLogsRoleArn !== undefined) {
-    bodyParams["cloudWatchLogsRoleArn"] = input.cloudWatchLogsRoleArn;
-  }
-  if (input.excludeVerboseContent !== undefined) {
-    bodyParams["excludeVerboseContent"] = input.excludeVerboseContent;
-  }
-  if (input.fieldLogLevel !== undefined) {
-    bodyParams["fieldLogLevel"] = input.fieldLogLevel;
-  }
-  return bodyParams;
+  return {
+    ...(input.cloudWatchLogsRoleArn !== undefined && {
+      cloudWatchLogsRoleArn: input.cloudWatchLogsRoleArn
+    }),
+    ...(input.excludeVerboseContent !== undefined && {
+      excludeVerboseContent: input.excludeVerboseContent
+    }),
+    ...(input.fieldLogLevel !== undefined && {
+      fieldLogLevel: input.fieldLogLevel
+    })
+  };
 };
 
 const serializeAws_restJson1_1OpenIDConnectConfig = (
   input: OpenIDConnectConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.authTTL !== undefined) {
-    bodyParams["authTTL"] = input.authTTL;
-  }
-  if (input.clientId !== undefined) {
-    bodyParams["clientId"] = input.clientId;
-  }
-  if (input.iatTTL !== undefined) {
-    bodyParams["iatTTL"] = input.iatTTL;
-  }
-  if (input.issuer !== undefined) {
-    bodyParams["issuer"] = input.issuer;
-  }
-  return bodyParams;
+  return {
+    ...(input.authTTL !== undefined && { authTTL: input.authTTL }),
+    ...(input.clientId !== undefined && { clientId: input.clientId }),
+    ...(input.iatTTL !== undefined && { iatTTL: input.iatTTL }),
+    ...(input.issuer !== undefined && { issuer: input.issuer })
+  };
 };
 
 const serializeAws_restJson1_1PipelineConfig = (
   input: PipelineConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.functions !== undefined) {
-    bodyParams["functions"] = serializeAws_restJson1_1FunctionsIds(
-      input.functions,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.functions !== undefined && {
+      functions: serializeAws_restJson1_1FunctionsIds(input.functions, context)
+    })
+  };
 };
 
 const serializeAws_restJson1_1RdsHttpEndpointConfig = (
   input: RdsHttpEndpointConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.awsRegion !== undefined) {
-    bodyParams["awsRegion"] = input.awsRegion;
-  }
-  if (input.awsSecretStoreArn !== undefined) {
-    bodyParams["awsSecretStoreArn"] = input.awsSecretStoreArn;
-  }
-  if (input.databaseName !== undefined) {
-    bodyParams["databaseName"] = input.databaseName;
-  }
-  if (input.dbClusterIdentifier !== undefined) {
-    bodyParams["dbClusterIdentifier"] = input.dbClusterIdentifier;
-  }
-  if (input.schema !== undefined) {
-    bodyParams["schema"] = input.schema;
-  }
-  return bodyParams;
+  return {
+    ...(input.awsRegion !== undefined && { awsRegion: input.awsRegion }),
+    ...(input.awsSecretStoreArn !== undefined && {
+      awsSecretStoreArn: input.awsSecretStoreArn
+    }),
+    ...(input.databaseName !== undefined && {
+      databaseName: input.databaseName
+    }),
+    ...(input.dbClusterIdentifier !== undefined && {
+      dbClusterIdentifier: input.dbClusterIdentifier
+    }),
+    ...(input.schema !== undefined && { schema: input.schema })
+  };
 };
 
 const serializeAws_restJson1_1RelationalDatabaseDataSourceConfig = (
   input: RelationalDatabaseDataSourceConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.rdsHttpEndpointConfig !== undefined) {
-    bodyParams[
-      "rdsHttpEndpointConfig"
-    ] = serializeAws_restJson1_1RdsHttpEndpointConfig(
-      input.rdsHttpEndpointConfig,
-      context
-    );
-  }
-  if (input.relationalDatabaseSourceType !== undefined) {
-    bodyParams["relationalDatabaseSourceType"] =
-      input.relationalDatabaseSourceType;
-  }
-  return bodyParams;
+  return {
+    ...(input.rdsHttpEndpointConfig !== undefined && {
+      rdsHttpEndpointConfig: serializeAws_restJson1_1RdsHttpEndpointConfig(
+        input.rdsHttpEndpointConfig,
+        context
+      )
+    }),
+    ...(input.relationalDatabaseSourceType !== undefined && {
+      relationalDatabaseSourceType: input.relationalDatabaseSourceType
+    })
+  };
 };
 
 const serializeAws_restJson1_1SyncConfig = (
   input: SyncConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.conflictDetection !== undefined) {
-    bodyParams["conflictDetection"] = input.conflictDetection;
-  }
-  if (input.conflictHandler !== undefined) {
-    bodyParams["conflictHandler"] = input.conflictHandler;
-  }
-  if (input.lambdaConflictHandlerConfig !== undefined) {
-    bodyParams[
-      "lambdaConflictHandlerConfig"
-    ] = serializeAws_restJson1_1LambdaConflictHandlerConfig(
-      input.lambdaConflictHandlerConfig,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.conflictDetection !== undefined && {
+      conflictDetection: input.conflictDetection
+    }),
+    ...(input.conflictHandler !== undefined && {
+      conflictHandler: input.conflictHandler
+    }),
+    ...(input.lambdaConflictHandlerConfig !== undefined && {
+      lambdaConflictHandlerConfig: serializeAws_restJson1_1LambdaConflictHandlerConfig(
+        input.lambdaConflictHandlerConfig,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1TagMap = (
@@ -6963,20 +6919,16 @@ const serializeAws_restJson1_1UserPoolConfig = (
   input: UserPoolConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.appIdClientRegex !== undefined) {
-    bodyParams["appIdClientRegex"] = input.appIdClientRegex;
-  }
-  if (input.awsRegion !== undefined) {
-    bodyParams["awsRegion"] = input.awsRegion;
-  }
-  if (input.defaultAction !== undefined) {
-    bodyParams["defaultAction"] = input.defaultAction;
-  }
-  if (input.userPoolId !== undefined) {
-    bodyParams["userPoolId"] = input.userPoolId;
-  }
-  return bodyParams;
+  return {
+    ...(input.appIdClientRegex !== undefined && {
+      appIdClientRegex: input.appIdClientRegex
+    }),
+    ...(input.awsRegion !== undefined && { awsRegion: input.awsRegion }),
+    ...(input.defaultAction !== undefined && {
+      defaultAction: input.defaultAction
+    }),
+    ...(input.userPoolId !== undefined && { userPoolId: input.userPoolId })
+  };
 };
 
 const deserializeAws_restJson1_1AdditionalAuthenticationProvider = (

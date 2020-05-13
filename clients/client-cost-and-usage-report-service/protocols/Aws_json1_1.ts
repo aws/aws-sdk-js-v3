@@ -503,107 +503,81 @@ const serializeAws_json1_1DeleteReportDefinitionRequest = (
   input: DeleteReportDefinitionRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ReportName !== undefined) {
-    bodyParams["ReportName"] = input.ReportName;
-  }
-  return bodyParams;
+  return {
+    ...(input.ReportName !== undefined && { ReportName: input.ReportName })
+  };
 };
 
 const serializeAws_json1_1DescribeReportDefinitionsRequest = (
   input: DescribeReportDefinitionsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1ModifyReportDefinitionRequest = (
   input: ModifyReportDefinitionRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ReportDefinition !== undefined) {
-    bodyParams["ReportDefinition"] = serializeAws_json1_1ReportDefinition(
-      input.ReportDefinition,
-      context
-    );
-  }
-  if (input.ReportName !== undefined) {
-    bodyParams["ReportName"] = input.ReportName;
-  }
-  return bodyParams;
+  return {
+    ...(input.ReportDefinition !== undefined && {
+      ReportDefinition: serializeAws_json1_1ReportDefinition(
+        input.ReportDefinition,
+        context
+      )
+    }),
+    ...(input.ReportName !== undefined && { ReportName: input.ReportName })
+  };
 };
 
 const serializeAws_json1_1PutReportDefinitionRequest = (
   input: PutReportDefinitionRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ReportDefinition !== undefined) {
-    bodyParams["ReportDefinition"] = serializeAws_json1_1ReportDefinition(
-      input.ReportDefinition,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.ReportDefinition !== undefined && {
+      ReportDefinition: serializeAws_json1_1ReportDefinition(
+        input.ReportDefinition,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1ReportDefinition = (
   input: ReportDefinition,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AdditionalArtifacts !== undefined) {
-    bodyParams[
-      "AdditionalArtifacts"
-    ] = serializeAws_json1_1AdditionalArtifactList(
-      input.AdditionalArtifacts,
-      context
-    );
-  }
-  if (input.AdditionalSchemaElements !== undefined) {
-    bodyParams[
-      "AdditionalSchemaElements"
-    ] = serializeAws_json1_1SchemaElementList(
-      input.AdditionalSchemaElements,
-      context
-    );
-  }
-  if (input.Compression !== undefined) {
-    bodyParams["Compression"] = input.Compression;
-  }
-  if (input.Format !== undefined) {
-    bodyParams["Format"] = input.Format;
-  }
-  if (input.RefreshClosedReports !== undefined) {
-    bodyParams["RefreshClosedReports"] = input.RefreshClosedReports;
-  }
-  if (input.ReportName !== undefined) {
-    bodyParams["ReportName"] = input.ReportName;
-  }
-  if (input.ReportVersioning !== undefined) {
-    bodyParams["ReportVersioning"] = input.ReportVersioning;
-  }
-  if (input.S3Bucket !== undefined) {
-    bodyParams["S3Bucket"] = input.S3Bucket;
-  }
-  if (input.S3Prefix !== undefined) {
-    bodyParams["S3Prefix"] = input.S3Prefix;
-  }
-  if (input.S3Region !== undefined) {
-    bodyParams["S3Region"] = input.S3Region;
-  }
-  if (input.TimeUnit !== undefined) {
-    bodyParams["TimeUnit"] = input.TimeUnit;
-  }
-  return bodyParams;
+  return {
+    ...(input.AdditionalArtifacts !== undefined && {
+      AdditionalArtifacts: serializeAws_json1_1AdditionalArtifactList(
+        input.AdditionalArtifacts,
+        context
+      )
+    }),
+    ...(input.AdditionalSchemaElements !== undefined && {
+      AdditionalSchemaElements: serializeAws_json1_1SchemaElementList(
+        input.AdditionalSchemaElements,
+        context
+      )
+    }),
+    ...(input.Compression !== undefined && { Compression: input.Compression }),
+    ...(input.Format !== undefined && { Format: input.Format }),
+    ...(input.RefreshClosedReports !== undefined && {
+      RefreshClosedReports: input.RefreshClosedReports
+    }),
+    ...(input.ReportName !== undefined && { ReportName: input.ReportName }),
+    ...(input.ReportVersioning !== undefined && {
+      ReportVersioning: input.ReportVersioning
+    }),
+    ...(input.S3Bucket !== undefined && { S3Bucket: input.S3Bucket }),
+    ...(input.S3Prefix !== undefined && { S3Prefix: input.S3Prefix }),
+    ...(input.S3Region !== undefined && { S3Region: input.S3Region }),
+    ...(input.TimeUnit !== undefined && { TimeUnit: input.TimeUnit })
+  };
 };
 
 const serializeAws_json1_1SchemaElementList = (

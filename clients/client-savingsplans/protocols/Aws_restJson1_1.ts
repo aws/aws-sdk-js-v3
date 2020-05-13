@@ -1243,17 +1243,12 @@ const serializeAws_restJson1_1SavingsPlanOfferingFilterElement = (
   input: SavingsPlanOfferingFilterElement,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.values !== undefined) {
-    bodyParams["values"] = serializeAws_restJson1_1FilterValuesList(
-      input.values,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.values !== undefined && {
+      values: serializeAws_restJson1_1FilterValuesList(input.values, context)
+    })
+  };
 };
 
 const serializeAws_restJson1_1SavingsPlanOfferingFiltersList = (
@@ -1269,17 +1264,12 @@ const serializeAws_restJson1_1SavingsPlanOfferingRateFilterElement = (
   input: SavingsPlanOfferingRateFilterElement,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.values !== undefined) {
-    bodyParams["values"] = serializeAws_restJson1_1FilterValuesList(
-      input.values,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.values !== undefined && {
+      values: serializeAws_restJson1_1FilterValuesList(input.values, context)
+    })
+  };
 };
 
 const serializeAws_restJson1_1SavingsPlanOfferingRateFiltersList = (
@@ -1379,17 +1369,12 @@ const serializeAws_restJson1_1SavingsPlanFilter = (
   input: SavingsPlanFilter,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.values !== undefined) {
-    bodyParams["values"] = serializeAws_restJson1_1ListOfStrings(
-      input.values,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.values !== undefined && {
+      values: serializeAws_restJson1_1ListOfStrings(input.values, context)
+    })
+  };
 };
 
 const serializeAws_restJson1_1SavingsPlanFilterList = (
@@ -1412,17 +1397,12 @@ const serializeAws_restJson1_1SavingsPlanRateFilter = (
   input: SavingsPlanRateFilter,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.values !== undefined) {
-    bodyParams["values"] = serializeAws_restJson1_1ListOfStrings(
-      input.values,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.values !== undefined && {
+      values: serializeAws_restJson1_1ListOfStrings(input.values, context)
+    })
+  };
 };
 
 const serializeAws_restJson1_1SavingsPlanRateFilterList = (

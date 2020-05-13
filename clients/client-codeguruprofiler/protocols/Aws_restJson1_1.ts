@@ -1432,11 +1432,11 @@ const serializeAws_restJson1_1AgentOrchestrationConfig = (
   input: AgentOrchestrationConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.profilingEnabled !== undefined) {
-    bodyParams["profilingEnabled"] = input.profilingEnabled;
-  }
-  return bodyParams;
+  return {
+    ...(input.profilingEnabled !== undefined && {
+      profilingEnabled: input.profilingEnabled
+    })
+  };
 };
 
 const deserializeAws_restJson1_1AggregatedProfileTime = (

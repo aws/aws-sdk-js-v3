@@ -494,37 +494,25 @@ const serializeAws_json1_1DescribeServicesRequest = (
   input: DescribeServicesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.FormatVersion !== undefined) {
-    bodyParams["FormatVersion"] = input.FormatVersion;
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ServiceCode !== undefined) {
-    bodyParams["ServiceCode"] = input.ServiceCode;
-  }
-  return bodyParams;
+  return {
+    ...(input.FormatVersion !== undefined && {
+      FormatVersion: input.FormatVersion
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ServiceCode !== undefined && { ServiceCode: input.ServiceCode })
+  };
 };
 
 const serializeAws_json1_1Filter = (
   input: Filter,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Field !== undefined) {
-    bodyParams["Field"] = input.Field;
-  }
-  if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Field !== undefined && { Field: input.Field }),
+    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_json1_1Filters = (
@@ -538,43 +526,31 @@ const serializeAws_json1_1GetAttributeValuesRequest = (
   input: GetAttributeValuesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AttributeName !== undefined) {
-    bodyParams["AttributeName"] = input.AttributeName;
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ServiceCode !== undefined) {
-    bodyParams["ServiceCode"] = input.ServiceCode;
-  }
-  return bodyParams;
+  return {
+    ...(input.AttributeName !== undefined && {
+      AttributeName: input.AttributeName
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ServiceCode !== undefined && { ServiceCode: input.ServiceCode })
+  };
 };
 
 const serializeAws_json1_1GetProductsRequest = (
   input: GetProductsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Filters !== undefined) {
-    bodyParams["Filters"] = serializeAws_json1_1Filters(input.Filters, context);
-  }
-  if (input.FormatVersion !== undefined) {
-    bodyParams["FormatVersion"] = input.FormatVersion;
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ServiceCode !== undefined) {
-    bodyParams["ServiceCode"] = input.ServiceCode;
-  }
-  return bodyParams;
+  return {
+    ...(input.Filters !== undefined && {
+      Filters: serializeAws_json1_1Filters(input.Filters, context)
+    }),
+    ...(input.FormatVersion !== undefined && {
+      FormatVersion: input.FormatVersion
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ServiceCode !== undefined && { ServiceCode: input.ServiceCode })
+  };
 };
 
 const deserializeAws_json1_1AttributeNameList = (

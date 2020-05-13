@@ -9553,16 +9553,14 @@ const serializeAws_restJson1_1AliasRoutingConfiguration = (
   input: AliasRoutingConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AdditionalVersionWeights !== undefined) {
-    bodyParams[
-      "AdditionalVersionWeights"
-    ] = serializeAws_restJson1_1AdditionalVersionWeights(
-      input.AdditionalVersionWeights,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.AdditionalVersionWeights !== undefined && {
+      AdditionalVersionWeights: serializeAws_restJson1_1AdditionalVersionWeights(
+        input.AdditionalVersionWeights,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1CompatibleRuntimes = (
@@ -9576,45 +9574,37 @@ const serializeAws_restJson1_1DeadLetterConfig = (
   input: DeadLetterConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.TargetArn !== undefined) {
-    bodyParams["TargetArn"] = input.TargetArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.TargetArn !== undefined && { TargetArn: input.TargetArn })
+  };
 };
 
 const serializeAws_restJson1_1DestinationConfig = (
   input: DestinationConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.OnFailure !== undefined) {
-    bodyParams["OnFailure"] = serializeAws_restJson1_1OnFailure(
-      input.OnFailure,
-      context
-    );
-  }
-  if (input.OnSuccess !== undefined) {
-    bodyParams["OnSuccess"] = serializeAws_restJson1_1OnSuccess(
-      input.OnSuccess,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.OnFailure !== undefined && {
+      OnFailure: serializeAws_restJson1_1OnFailure(input.OnFailure, context)
+    }),
+    ...(input.OnSuccess !== undefined && {
+      OnSuccess: serializeAws_restJson1_1OnSuccess(input.OnSuccess, context)
+    })
+  };
 };
 
 const serializeAws_restJson1_1Environment = (
   input: Environment,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Variables !== undefined) {
-    bodyParams["Variables"] = serializeAws_restJson1_1EnvironmentVariables(
-      input.Variables,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Variables !== undefined && {
+      Variables: serializeAws_restJson1_1EnvironmentVariables(
+        input.Variables,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1EnvironmentVariables = (
@@ -9631,20 +9621,16 @@ const serializeAws_restJson1_1FunctionCode = (
   input: FunctionCode,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.S3Bucket !== undefined) {
-    bodyParams["S3Bucket"] = input.S3Bucket;
-  }
-  if (input.S3Key !== undefined) {
-    bodyParams["S3Key"] = input.S3Key;
-  }
-  if (input.S3ObjectVersion !== undefined) {
-    bodyParams["S3ObjectVersion"] = input.S3ObjectVersion;
-  }
-  if (input.ZipFile !== undefined) {
-    bodyParams["ZipFile"] = context.base64Encoder(input.ZipFile);
-  }
-  return bodyParams;
+  return {
+    ...(input.S3Bucket !== undefined && { S3Bucket: input.S3Bucket }),
+    ...(input.S3Key !== undefined && { S3Key: input.S3Key }),
+    ...(input.S3ObjectVersion !== undefined && {
+      S3ObjectVersion: input.S3ObjectVersion
+    }),
+    ...(input.ZipFile !== undefined && {
+      ZipFile: context.base64Encoder(input.ZipFile)
+    })
+  };
 };
 
 const serializeAws_restJson1_1LayerList = (
@@ -9658,42 +9644,34 @@ const serializeAws_restJson1_1LayerVersionContentInput = (
   input: LayerVersionContentInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.S3Bucket !== undefined) {
-    bodyParams["S3Bucket"] = input.S3Bucket;
-  }
-  if (input.S3Key !== undefined) {
-    bodyParams["S3Key"] = input.S3Key;
-  }
-  if (input.S3ObjectVersion !== undefined) {
-    bodyParams["S3ObjectVersion"] = input.S3ObjectVersion;
-  }
-  if (input.ZipFile !== undefined) {
-    bodyParams["ZipFile"] = context.base64Encoder(input.ZipFile);
-  }
-  return bodyParams;
+  return {
+    ...(input.S3Bucket !== undefined && { S3Bucket: input.S3Bucket }),
+    ...(input.S3Key !== undefined && { S3Key: input.S3Key }),
+    ...(input.S3ObjectVersion !== undefined && {
+      S3ObjectVersion: input.S3ObjectVersion
+    }),
+    ...(input.ZipFile !== undefined && {
+      ZipFile: context.base64Encoder(input.ZipFile)
+    })
+  };
 };
 
 const serializeAws_restJson1_1OnFailure = (
   input: OnFailure,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Destination !== undefined) {
-    bodyParams["Destination"] = input.Destination;
-  }
-  return bodyParams;
+  return {
+    ...(input.Destination !== undefined && { Destination: input.Destination })
+  };
 };
 
 const serializeAws_restJson1_1OnSuccess = (
   input: OnSuccess,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Destination !== undefined) {
-    bodyParams["Destination"] = input.Destination;
-  }
-  return bodyParams;
+  return {
+    ...(input.Destination !== undefined && { Destination: input.Destination })
+  };
 };
 
 const serializeAws_restJson1_1SecurityGroupIds = (
@@ -9724,31 +9702,26 @@ const serializeAws_restJson1_1TracingConfig = (
   input: TracingConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Mode !== undefined) {
-    bodyParams["Mode"] = input.Mode;
-  }
-  return bodyParams;
+  return {
+    ...(input.Mode !== undefined && { Mode: input.Mode })
+  };
 };
 
 const serializeAws_restJson1_1VpcConfig = (
   input: VpcConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.SecurityGroupIds !== undefined) {
-    bodyParams["SecurityGroupIds"] = serializeAws_restJson1_1SecurityGroupIds(
-      input.SecurityGroupIds,
-      context
-    );
-  }
-  if (input.SubnetIds !== undefined) {
-    bodyParams["SubnetIds"] = serializeAws_restJson1_1SubnetIds(
-      input.SubnetIds,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.SecurityGroupIds !== undefined && {
+      SecurityGroupIds: serializeAws_restJson1_1SecurityGroupIds(
+        input.SecurityGroupIds,
+        context
+      )
+    }),
+    ...(input.SubnetIds !== undefined && {
+      SubnetIds: serializeAws_restJson1_1SubnetIds(input.SubnetIds, context)
+    })
+  };
 };
 
 const deserializeAws_restJson1_1AccountLimit = (

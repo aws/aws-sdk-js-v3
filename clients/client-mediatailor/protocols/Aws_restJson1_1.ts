@@ -900,42 +900,40 @@ const serializeAws_restJson1_1CdnConfiguration = (
   input: CdnConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AdSegmentUrlPrefix !== undefined) {
-    bodyParams["AdSegmentUrlPrefix"] = input.AdSegmentUrlPrefix;
-  }
-  if (input.ContentSegmentUrlPrefix !== undefined) {
-    bodyParams["ContentSegmentUrlPrefix"] = input.ContentSegmentUrlPrefix;
-  }
-  return bodyParams;
+  return {
+    ...(input.AdSegmentUrlPrefix !== undefined && {
+      AdSegmentUrlPrefix: input.AdSegmentUrlPrefix
+    }),
+    ...(input.ContentSegmentUrlPrefix !== undefined && {
+      ContentSegmentUrlPrefix: input.ContentSegmentUrlPrefix
+    })
+  };
 };
 
 const serializeAws_restJson1_1DashConfigurationForPut = (
   input: DashConfigurationForPut,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MpdLocation !== undefined) {
-    bodyParams["MpdLocation"] = input.MpdLocation;
-  }
-  if (input.OriginManifestType !== undefined) {
-    bodyParams["OriginManifestType"] = input.OriginManifestType;
-  }
-  return bodyParams;
+  return {
+    ...(input.MpdLocation !== undefined && { MpdLocation: input.MpdLocation }),
+    ...(input.OriginManifestType !== undefined && {
+      OriginManifestType: input.OriginManifestType
+    })
+  };
 };
 
 const serializeAws_restJson1_1LivePreRollConfiguration = (
   input: LivePreRollConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AdDecisionServerUrl !== undefined) {
-    bodyParams["AdDecisionServerUrl"] = input.AdDecisionServerUrl;
-  }
-  if (input.MaxDurationSeconds !== undefined) {
-    bodyParams["MaxDurationSeconds"] = input.MaxDurationSeconds;
-  }
-  return bodyParams;
+  return {
+    ...(input.AdDecisionServerUrl !== undefined && {
+      AdDecisionServerUrl: input.AdDecisionServerUrl
+    }),
+    ...(input.MaxDurationSeconds !== undefined && {
+      MaxDurationSeconds: input.MaxDurationSeconds
+    })
+  };
 };
 
 const serializeAws_restJson1_1__mapOf__string = (

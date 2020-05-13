@@ -2908,23 +2908,18 @@ const serializeAws_restJson1_1Criterion = (
   input: Criterion,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.contains !== undefined) {
-    bodyParams["contains"] = serializeAws_restJson1_1ValueList(
-      input.contains,
-      context
-    );
-  }
-  if (input.eq !== undefined) {
-    bodyParams["eq"] = serializeAws_restJson1_1ValueList(input.eq, context);
-  }
-  if (input.exists !== undefined) {
-    bodyParams["exists"] = input.exists;
-  }
-  if (input.neq !== undefined) {
-    bodyParams["neq"] = serializeAws_restJson1_1ValueList(input.neq, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.contains !== undefined && {
+      contains: serializeAws_restJson1_1ValueList(input.contains, context)
+    }),
+    ...(input.eq !== undefined && {
+      eq: serializeAws_restJson1_1ValueList(input.eq, context)
+    }),
+    ...(input.exists !== undefined && { exists: input.exists }),
+    ...(input.neq !== undefined && {
+      neq: serializeAws_restJson1_1ValueList(input.neq, context)
+    })
+  };
 };
 
 const serializeAws_restJson1_1FilterCriteriaMap = (
@@ -2948,17 +2943,12 @@ const serializeAws_restJson1_1InlineArchiveRule = (
   input: InlineArchiveRule,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.filter !== undefined) {
-    bodyParams["filter"] = serializeAws_restJson1_1FilterCriteriaMap(
-      input.filter,
-      context
-    );
-  }
-  if (input.ruleName !== undefined) {
-    bodyParams["ruleName"] = input.ruleName;
-  }
-  return bodyParams;
+  return {
+    ...(input.filter !== undefined && {
+      filter: serializeAws_restJson1_1FilterCriteriaMap(input.filter, context)
+    }),
+    ...(input.ruleName !== undefined && { ruleName: input.ruleName })
+  };
 };
 
 const serializeAws_restJson1_1InlineArchiveRulesList = (
@@ -2974,14 +2964,12 @@ const serializeAws_restJson1_1SortCriteria = (
   input: SortCriteria,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.attributeName !== undefined) {
-    bodyParams["attributeName"] = input.attributeName;
-  }
-  if (input.orderBy !== undefined) {
-    bodyParams["orderBy"] = input.orderBy;
-  }
-  return bodyParams;
+  return {
+    ...(input.attributeName !== undefined && {
+      attributeName: input.attributeName
+    }),
+    ...(input.orderBy !== undefined && { orderBy: input.orderBy })
+  };
 };
 
 const serializeAws_restJson1_1TagsMap = (

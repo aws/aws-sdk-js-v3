@@ -2757,27 +2757,23 @@ const serializeAws_json1_0CloudWatchLogsLogGroup = (
   input: CloudWatchLogsLogGroup,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.logGroupArn !== undefined) {
-    bodyParams["logGroupArn"] = input.logGroupArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.logGroupArn !== undefined && { logGroupArn: input.logGroupArn })
+  };
 };
 
 const serializeAws_json1_0LogDestination = (
   input: LogDestination,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.cloudWatchLogsLogGroup !== undefined) {
-    bodyParams[
-      "cloudWatchLogsLogGroup"
-    ] = serializeAws_json1_0CloudWatchLogsLogGroup(
-      input.cloudWatchLogsLogGroup,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.cloudWatchLogsLogGroup !== undefined && {
+      cloudWatchLogsLogGroup: serializeAws_json1_0CloudWatchLogsLogGroup(
+        input.cloudWatchLogsLogGroup,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_0LogDestinationList = (
@@ -2791,311 +2787,247 @@ const serializeAws_json1_0LoggingConfiguration = (
   input: LoggingConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.destinations !== undefined) {
-    bodyParams["destinations"] = serializeAws_json1_0LogDestinationList(
-      input.destinations,
-      context
-    );
-  }
-  if (input.includeExecutionData !== undefined) {
-    bodyParams["includeExecutionData"] = input.includeExecutionData;
-  }
-  if (input.level !== undefined) {
-    bodyParams["level"] = input.level;
-  }
-  return bodyParams;
+  return {
+    ...(input.destinations !== undefined && {
+      destinations: serializeAws_json1_0LogDestinationList(
+        input.destinations,
+        context
+      )
+    }),
+    ...(input.includeExecutionData !== undefined && {
+      includeExecutionData: input.includeExecutionData
+    }),
+    ...(input.level !== undefined && { level: input.level })
+  };
 };
 
 const serializeAws_json1_0CreateActivityInput = (
   input: CreateActivityInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_json1_0TagList(input.tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_json1_0TagList(input.tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_0CreateStateMachineInput = (
   input: CreateStateMachineInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.definition !== undefined) {
-    bodyParams["definition"] = input.definition;
-  }
-  if (input.loggingConfiguration !== undefined) {
-    bodyParams[
-      "loggingConfiguration"
-    ] = serializeAws_json1_0LoggingConfiguration(
-      input.loggingConfiguration,
-      context
-    );
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.roleArn !== undefined) {
-    bodyParams["roleArn"] = input.roleArn;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_json1_0TagList(input.tags, context);
-  }
-  if (input.type !== undefined) {
-    bodyParams["type"] = input.type;
-  }
-  return bodyParams;
+  return {
+    ...(input.definition !== undefined && { definition: input.definition }),
+    ...(input.loggingConfiguration !== undefined && {
+      loggingConfiguration: serializeAws_json1_0LoggingConfiguration(
+        input.loggingConfiguration,
+        context
+      )
+    }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_json1_0TagList(input.tags, context)
+    }),
+    ...(input.type !== undefined && { type: input.type })
+  };
 };
 
 const serializeAws_json1_0DeleteActivityInput = (
   input: DeleteActivityInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.activityArn !== undefined) {
-    bodyParams["activityArn"] = input.activityArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.activityArn !== undefined && { activityArn: input.activityArn })
+  };
 };
 
 const serializeAws_json1_0DeleteStateMachineInput = (
   input: DeleteStateMachineInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.stateMachineArn !== undefined) {
-    bodyParams["stateMachineArn"] = input.stateMachineArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.stateMachineArn !== undefined && {
+      stateMachineArn: input.stateMachineArn
+    })
+  };
 };
 
 const serializeAws_json1_0DescribeActivityInput = (
   input: DescribeActivityInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.activityArn !== undefined) {
-    bodyParams["activityArn"] = input.activityArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.activityArn !== undefined && { activityArn: input.activityArn })
+  };
 };
 
 const serializeAws_json1_0DescribeExecutionInput = (
   input: DescribeExecutionInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.executionArn !== undefined) {
-    bodyParams["executionArn"] = input.executionArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.executionArn !== undefined && {
+      executionArn: input.executionArn
+    })
+  };
 };
 
 const serializeAws_json1_0DescribeStateMachineForExecutionInput = (
   input: DescribeStateMachineForExecutionInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.executionArn !== undefined) {
-    bodyParams["executionArn"] = input.executionArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.executionArn !== undefined && {
+      executionArn: input.executionArn
+    })
+  };
 };
 
 const serializeAws_json1_0DescribeStateMachineInput = (
   input: DescribeStateMachineInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.stateMachineArn !== undefined) {
-    bodyParams["stateMachineArn"] = input.stateMachineArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.stateMachineArn !== undefined && {
+      stateMachineArn: input.stateMachineArn
+    })
+  };
 };
 
 const serializeAws_json1_0GetActivityTaskInput = (
   input: GetActivityTaskInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.activityArn !== undefined) {
-    bodyParams["activityArn"] = input.activityArn;
-  }
-  if (input.workerName !== undefined) {
-    bodyParams["workerName"] = input.workerName;
-  }
-  return bodyParams;
+  return {
+    ...(input.activityArn !== undefined && { activityArn: input.activityArn }),
+    ...(input.workerName !== undefined && { workerName: input.workerName })
+  };
 };
 
 const serializeAws_json1_0GetExecutionHistoryInput = (
   input: GetExecutionHistoryInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.executionArn !== undefined) {
-    bodyParams["executionArn"] = input.executionArn;
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.reverseOrder !== undefined) {
-    bodyParams["reverseOrder"] = input.reverseOrder;
-  }
-  return bodyParams;
+  return {
+    ...(input.executionArn !== undefined && {
+      executionArn: input.executionArn
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.reverseOrder !== undefined && {
+      reverseOrder: input.reverseOrder
+    })
+  };
 };
 
 const serializeAws_json1_0ListActivitiesInput = (
   input: ListActivitiesInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
 };
 
 const serializeAws_json1_0ListExecutionsInput = (
   input: ListExecutionsInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.stateMachineArn !== undefined) {
-    bodyParams["stateMachineArn"] = input.stateMachineArn;
-  }
-  if (input.statusFilter !== undefined) {
-    bodyParams["statusFilter"] = input.statusFilter;
-  }
-  return bodyParams;
+  return {
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.stateMachineArn !== undefined && {
+      stateMachineArn: input.stateMachineArn
+    }),
+    ...(input.statusFilter !== undefined && {
+      statusFilter: input.statusFilter
+    })
+  };
 };
 
 const serializeAws_json1_0ListStateMachinesInput = (
   input: ListStateMachinesInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
 };
 
 const serializeAws_json1_0ListTagsForResourceInput = (
   input: ListTagsForResourceInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.resourceArn !== undefined) {
-    bodyParams["resourceArn"] = input.resourceArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn })
+  };
 };
 
 const serializeAws_json1_0SendTaskFailureInput = (
   input: SendTaskFailureInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.cause !== undefined) {
-    bodyParams["cause"] = input.cause;
-  }
-  if (input.error !== undefined) {
-    bodyParams["error"] = input.error;
-  }
-  if (input.taskToken !== undefined) {
-    bodyParams["taskToken"] = input.taskToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.cause !== undefined && { cause: input.cause }),
+    ...(input.error !== undefined && { error: input.error }),
+    ...(input.taskToken !== undefined && { taskToken: input.taskToken })
+  };
 };
 
 const serializeAws_json1_0SendTaskHeartbeatInput = (
   input: SendTaskHeartbeatInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.taskToken !== undefined) {
-    bodyParams["taskToken"] = input.taskToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.taskToken !== undefined && { taskToken: input.taskToken })
+  };
 };
 
 const serializeAws_json1_0SendTaskSuccessInput = (
   input: SendTaskSuccessInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.output !== undefined) {
-    bodyParams["output"] = input.output;
-  }
-  if (input.taskToken !== undefined) {
-    bodyParams["taskToken"] = input.taskToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.output !== undefined && { output: input.output }),
+    ...(input.taskToken !== undefined && { taskToken: input.taskToken })
+  };
 };
 
 const serializeAws_json1_0StartExecutionInput = (
   input: StartExecutionInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.input !== undefined) {
-    bodyParams["input"] = input.input;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.stateMachineArn !== undefined) {
-    bodyParams["stateMachineArn"] = input.stateMachineArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.input !== undefined && { input: input.input }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.stateMachineArn !== undefined && {
+      stateMachineArn: input.stateMachineArn
+    })
+  };
 };
 
 const serializeAws_json1_0StopExecutionInput = (
   input: StopExecutionInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.cause !== undefined) {
-    bodyParams["cause"] = input.cause;
-  }
-  if (input.error !== undefined) {
-    bodyParams["error"] = input.error;
-  }
-  if (input.executionArn !== undefined) {
-    bodyParams["executionArn"] = input.executionArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.cause !== undefined && { cause: input.cause }),
+    ...(input.error !== undefined && { error: input.error }),
+    ...(input.executionArn !== undefined && {
+      executionArn: input.executionArn
+    })
+  };
 };
 
 const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
-  const bodyParams: any = {};
-  if (input.key !== undefined) {
-    bodyParams["key"] = input.key;
-  }
-  if (input.value !== undefined) {
-    bodyParams["value"] = input.value;
-  }
-  return bodyParams;
+  return {
+    ...(input.key !== undefined && { key: input.key }),
+    ...(input.value !== undefined && { value: input.value })
+  };
 };
 
 const serializeAws_json1_0TagKeyList = (
@@ -3116,56 +3048,43 @@ const serializeAws_json1_0TagResourceInput = (
   input: TagResourceInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.resourceArn !== undefined) {
-    bodyParams["resourceArn"] = input.resourceArn;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_json1_0TagList(input.tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_json1_0TagList(input.tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_0UntagResourceInput = (
   input: UntagResourceInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.resourceArn !== undefined) {
-    bodyParams["resourceArn"] = input.resourceArn;
-  }
-  if (input.tagKeys !== undefined) {
-    bodyParams["tagKeys"] = serializeAws_json1_0TagKeyList(
-      input.tagKeys,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
+    ...(input.tagKeys !== undefined && {
+      tagKeys: serializeAws_json1_0TagKeyList(input.tagKeys, context)
+    })
+  };
 };
 
 const serializeAws_json1_0UpdateStateMachineInput = (
   input: UpdateStateMachineInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.definition !== undefined) {
-    bodyParams["definition"] = input.definition;
-  }
-  if (input.loggingConfiguration !== undefined) {
-    bodyParams[
-      "loggingConfiguration"
-    ] = serializeAws_json1_0LoggingConfiguration(
-      input.loggingConfiguration,
-      context
-    );
-  }
-  if (input.roleArn !== undefined) {
-    bodyParams["roleArn"] = input.roleArn;
-  }
-  if (input.stateMachineArn !== undefined) {
-    bodyParams["stateMachineArn"] = input.stateMachineArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.definition !== undefined && { definition: input.definition }),
+    ...(input.loggingConfiguration !== undefined && {
+      loggingConfiguration: serializeAws_json1_0LoggingConfiguration(
+        input.loggingConfiguration,
+        context
+      )
+    }),
+    ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
+    ...(input.stateMachineArn !== undefined && {
+      stateMachineArn: input.stateMachineArn
+    })
+  };
 };
 
 const deserializeAws_json1_0ActivityFailedEventDetails = (

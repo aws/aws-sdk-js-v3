@@ -3218,20 +3218,16 @@ const serializeAws_restJson1_1CognitoStreams = (
   input: CognitoStreams,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DisabledReason !== undefined) {
-    bodyParams["DisabledReason"] = input.DisabledReason;
-  }
-  if (input.RoleArn !== undefined) {
-    bodyParams["RoleArn"] = input.RoleArn;
-  }
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  if (input.StreamingStatus !== undefined) {
-    bodyParams["StreamingStatus"] = input.StreamingStatus;
-  }
-  return bodyParams;
+  return {
+    ...(input.DisabledReason !== undefined && {
+      DisabledReason: input.DisabledReason
+    }),
+    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
+    ...(input.StreamingStatus !== undefined && {
+      StreamingStatus: input.StreamingStatus
+    })
+  };
 };
 
 const serializeAws_restJson1_1Events = (
@@ -3248,42 +3244,32 @@ const serializeAws_restJson1_1PushSync = (
   input: PushSync,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ApplicationArns !== undefined) {
-    bodyParams["ApplicationArns"] = serializeAws_restJson1_1ApplicationArnList(
-      input.ApplicationArns,
-      context
-    );
-  }
-  if (input.RoleArn !== undefined) {
-    bodyParams["RoleArn"] = input.RoleArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.ApplicationArns !== undefined && {
+      ApplicationArns: serializeAws_restJson1_1ApplicationArnList(
+        input.ApplicationArns,
+        context
+      )
+    }),
+    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn })
+  };
 };
 
 const serializeAws_restJson1_1RecordPatch = (
   input: RecordPatch,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DeviceLastModifiedDate !== undefined) {
-    bodyParams["DeviceLastModifiedDate"] = Math.round(
-      input.DeviceLastModifiedDate.getTime() / 1000
-    );
-  }
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.Op !== undefined) {
-    bodyParams["Op"] = input.Op;
-  }
-  if (input.SyncCount !== undefined) {
-    bodyParams["SyncCount"] = input.SyncCount;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.DeviceLastModifiedDate !== undefined && {
+      DeviceLastModifiedDate: Math.round(
+        input.DeviceLastModifiedDate.getTime() / 1000
+      )
+    }),
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Op !== undefined && { Op: input.Op }),
+    ...(input.SyncCount !== undefined && { SyncCount: input.SyncCount }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_restJson1_1RecordPatchList = (

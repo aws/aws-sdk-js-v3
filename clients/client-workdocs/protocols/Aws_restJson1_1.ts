@@ -7350,31 +7350,23 @@ const serializeAws_restJson1_1NotificationOptions = (
   input: NotificationOptions,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EmailMessage !== undefined) {
-    bodyParams["EmailMessage"] = input.EmailMessage;
-  }
-  if (input.SendEmail !== undefined) {
-    bodyParams["SendEmail"] = input.SendEmail;
-  }
-  return bodyParams;
+  return {
+    ...(input.EmailMessage !== undefined && {
+      EmailMessage: input.EmailMessage
+    }),
+    ...(input.SendEmail !== undefined && { SendEmail: input.SendEmail })
+  };
 };
 
 const serializeAws_restJson1_1SharePrincipal = (
   input: SharePrincipal,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
-  }
-  if (input.Role !== undefined) {
-    bodyParams["Role"] = input.Role;
-  }
-  if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
-  }
-  return bodyParams;
+  return {
+    ...(input.Id !== undefined && { Id: input.Id }),
+    ...(input.Role !== undefined && { Role: input.Role }),
+    ...(input.Type !== undefined && { Type: input.Type })
+  };
 };
 
 const serializeAws_restJson1_1SharePrincipalList = (
@@ -7397,14 +7389,12 @@ const serializeAws_restJson1_1StorageRuleType = (
   input: StorageRuleType,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.StorageAllocatedInBytes !== undefined) {
-    bodyParams["StorageAllocatedInBytes"] = input.StorageAllocatedInBytes;
-  }
-  if (input.StorageType !== undefined) {
-    bodyParams["StorageType"] = input.StorageType;
-  }
-  return bodyParams;
+  return {
+    ...(input.StorageAllocatedInBytes !== undefined && {
+      StorageAllocatedInBytes: input.StorageAllocatedInBytes
+    }),
+    ...(input.StorageType !== undefined && { StorageType: input.StorageType })
+  };
 };
 
 const deserializeAws_restJson1_1Activity = (

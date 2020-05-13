@@ -1557,14 +1557,12 @@ const serializeAws_json1_1Attachment = (
   input: Attachment,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.data !== undefined) {
-    bodyParams["data"] = context.base64Encoder(input.data);
-  }
-  if (input.fileName !== undefined) {
-    bodyParams["fileName"] = input.fileName;
-  }
-  return bodyParams;
+  return {
+    ...(input.data !== undefined && {
+      data: context.base64Encoder(input.data)
+    }),
+    ...(input.fileName !== undefined && { fileName: input.fileName })
+  };
 };
 
 const serializeAws_json1_1Attachments = (
@@ -1578,40 +1576,35 @@ const serializeAws_json1_1AddAttachmentsToSetRequest = (
   input: AddAttachmentsToSetRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.attachmentSetId !== undefined) {
-    bodyParams["attachmentSetId"] = input.attachmentSetId;
-  }
-  if (input.attachments !== undefined) {
-    bodyParams["attachments"] = serializeAws_json1_1Attachments(
-      input.attachments,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.attachmentSetId !== undefined && {
+      attachmentSetId: input.attachmentSetId
+    }),
+    ...(input.attachments !== undefined && {
+      attachments: serializeAws_json1_1Attachments(input.attachments, context)
+    })
+  };
 };
 
 const serializeAws_json1_1AddCommunicationToCaseRequest = (
   input: AddCommunicationToCaseRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.attachmentSetId !== undefined) {
-    bodyParams["attachmentSetId"] = input.attachmentSetId;
-  }
-  if (input.caseId !== undefined) {
-    bodyParams["caseId"] = input.caseId;
-  }
-  if (input.ccEmailAddresses !== undefined) {
-    bodyParams["ccEmailAddresses"] = serializeAws_json1_1CcEmailAddressList(
-      input.ccEmailAddresses,
-      context
-    );
-  }
-  if (input.communicationBody !== undefined) {
-    bodyParams["communicationBody"] = input.communicationBody;
-  }
-  return bodyParams;
+  return {
+    ...(input.attachmentSetId !== undefined && {
+      attachmentSetId: input.attachmentSetId
+    }),
+    ...(input.caseId !== undefined && { caseId: input.caseId }),
+    ...(input.ccEmailAddresses !== undefined && {
+      ccEmailAddresses: serializeAws_json1_1CcEmailAddressList(
+        input.ccEmailAddresses,
+        context
+      )
+    }),
+    ...(input.communicationBody !== undefined && {
+      communicationBody: input.communicationBody
+    })
+  };
 };
 
 const serializeAws_json1_1CaseIdList = (
@@ -1632,149 +1625,110 @@ const serializeAws_json1_1CreateCaseRequest = (
   input: CreateCaseRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.attachmentSetId !== undefined) {
-    bodyParams["attachmentSetId"] = input.attachmentSetId;
-  }
-  if (input.categoryCode !== undefined) {
-    bodyParams["categoryCode"] = input.categoryCode;
-  }
-  if (input.ccEmailAddresses !== undefined) {
-    bodyParams["ccEmailAddresses"] = serializeAws_json1_1CcEmailAddressList(
-      input.ccEmailAddresses,
-      context
-    );
-  }
-  if (input.communicationBody !== undefined) {
-    bodyParams["communicationBody"] = input.communicationBody;
-  }
-  if (input.issueType !== undefined) {
-    bodyParams["issueType"] = input.issueType;
-  }
-  if (input.language !== undefined) {
-    bodyParams["language"] = input.language;
-  }
-  if (input.serviceCode !== undefined) {
-    bodyParams["serviceCode"] = input.serviceCode;
-  }
-  if (input.severityCode !== undefined) {
-    bodyParams["severityCode"] = input.severityCode;
-  }
-  if (input.subject !== undefined) {
-    bodyParams["subject"] = input.subject;
-  }
-  return bodyParams;
+  return {
+    ...(input.attachmentSetId !== undefined && {
+      attachmentSetId: input.attachmentSetId
+    }),
+    ...(input.categoryCode !== undefined && {
+      categoryCode: input.categoryCode
+    }),
+    ...(input.ccEmailAddresses !== undefined && {
+      ccEmailAddresses: serializeAws_json1_1CcEmailAddressList(
+        input.ccEmailAddresses,
+        context
+      )
+    }),
+    ...(input.communicationBody !== undefined && {
+      communicationBody: input.communicationBody
+    }),
+    ...(input.issueType !== undefined && { issueType: input.issueType }),
+    ...(input.language !== undefined && { language: input.language }),
+    ...(input.serviceCode !== undefined && { serviceCode: input.serviceCode }),
+    ...(input.severityCode !== undefined && {
+      severityCode: input.severityCode
+    }),
+    ...(input.subject !== undefined && { subject: input.subject })
+  };
 };
 
 const serializeAws_json1_1DescribeAttachmentRequest = (
   input: DescribeAttachmentRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.attachmentId !== undefined) {
-    bodyParams["attachmentId"] = input.attachmentId;
-  }
-  return bodyParams;
+  return {
+    ...(input.attachmentId !== undefined && {
+      attachmentId: input.attachmentId
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeCasesRequest = (
   input: DescribeCasesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.afterTime !== undefined) {
-    bodyParams["afterTime"] = input.afterTime;
-  }
-  if (input.beforeTime !== undefined) {
-    bodyParams["beforeTime"] = input.beforeTime;
-  }
-  if (input.caseIdList !== undefined) {
-    bodyParams["caseIdList"] = serializeAws_json1_1CaseIdList(
-      input.caseIdList,
-      context
-    );
-  }
-  if (input.displayId !== undefined) {
-    bodyParams["displayId"] = input.displayId;
-  }
-  if (input.includeCommunications !== undefined) {
-    bodyParams["includeCommunications"] = input.includeCommunications;
-  }
-  if (input.includeResolvedCases !== undefined) {
-    bodyParams["includeResolvedCases"] = input.includeResolvedCases;
-  }
-  if (input.language !== undefined) {
-    bodyParams["language"] = input.language;
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.afterTime !== undefined && { afterTime: input.afterTime }),
+    ...(input.beforeTime !== undefined && { beforeTime: input.beforeTime }),
+    ...(input.caseIdList !== undefined && {
+      caseIdList: serializeAws_json1_1CaseIdList(input.caseIdList, context)
+    }),
+    ...(input.displayId !== undefined && { displayId: input.displayId }),
+    ...(input.includeCommunications !== undefined && {
+      includeCommunications: input.includeCommunications
+    }),
+    ...(input.includeResolvedCases !== undefined && {
+      includeResolvedCases: input.includeResolvedCases
+    }),
+    ...(input.language !== undefined && { language: input.language }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
 };
 
 const serializeAws_json1_1DescribeCommunicationsRequest = (
   input: DescribeCommunicationsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.afterTime !== undefined) {
-    bodyParams["afterTime"] = input.afterTime;
-  }
-  if (input.beforeTime !== undefined) {
-    bodyParams["beforeTime"] = input.beforeTime;
-  }
-  if (input.caseId !== undefined) {
-    bodyParams["caseId"] = input.caseId;
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.afterTime !== undefined && { afterTime: input.afterTime }),
+    ...(input.beforeTime !== undefined && { beforeTime: input.beforeTime }),
+    ...(input.caseId !== undefined && { caseId: input.caseId }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
 };
 
 const serializeAws_json1_1DescribeServicesRequest = (
   input: DescribeServicesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.language !== undefined) {
-    bodyParams["language"] = input.language;
-  }
-  if (input.serviceCodeList !== undefined) {
-    bodyParams["serviceCodeList"] = serializeAws_json1_1ServiceCodeList(
-      input.serviceCodeList,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.language !== undefined && { language: input.language }),
+    ...(input.serviceCodeList !== undefined && {
+      serviceCodeList: serializeAws_json1_1ServiceCodeList(
+        input.serviceCodeList,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeSeverityLevelsRequest = (
   input: DescribeSeverityLevelsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.language !== undefined) {
-    bodyParams["language"] = input.language;
-  }
-  return bodyParams;
+  return {
+    ...(input.language !== undefined && { language: input.language })
+  };
 };
 
 const serializeAws_json1_1ResolveCaseRequest = (
   input: ResolveCaseRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.caseId !== undefined) {
-    bodyParams["caseId"] = input.caseId;
-  }
-  return bodyParams;
+  return {
+    ...(input.caseId !== undefined && { caseId: input.caseId })
+  };
 };
 
 const serializeAws_json1_1ServiceCodeList = (
@@ -1788,64 +1742,50 @@ const serializeAws_json1_1DescribeTrustedAdvisorCheckRefreshStatusesRequest = (
   input: DescribeTrustedAdvisorCheckRefreshStatusesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.checkIds !== undefined) {
-    bodyParams["checkIds"] = serializeAws_json1_1StringList(
-      input.checkIds,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.checkIds !== undefined && {
+      checkIds: serializeAws_json1_1StringList(input.checkIds, context)
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeTrustedAdvisorCheckResultRequest = (
   input: DescribeTrustedAdvisorCheckResultRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.checkId !== undefined) {
-    bodyParams["checkId"] = input.checkId;
-  }
-  if (input.language !== undefined) {
-    bodyParams["language"] = input.language;
-  }
-  return bodyParams;
+  return {
+    ...(input.checkId !== undefined && { checkId: input.checkId }),
+    ...(input.language !== undefined && { language: input.language })
+  };
 };
 
 const serializeAws_json1_1DescribeTrustedAdvisorCheckSummariesRequest = (
   input: DescribeTrustedAdvisorCheckSummariesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.checkIds !== undefined) {
-    bodyParams["checkIds"] = serializeAws_json1_1StringList(
-      input.checkIds,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.checkIds !== undefined && {
+      checkIds: serializeAws_json1_1StringList(input.checkIds, context)
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeTrustedAdvisorChecksRequest = (
   input: DescribeTrustedAdvisorChecksRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.language !== undefined) {
-    bodyParams["language"] = input.language;
-  }
-  return bodyParams;
+  return {
+    ...(input.language !== undefined && { language: input.language })
+  };
 };
 
 const serializeAws_json1_1RefreshTrustedAdvisorCheckRequest = (
   input: RefreshTrustedAdvisorCheckRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.checkId !== undefined) {
-    bodyParams["checkId"] = input.checkId;
-  }
-  return bodyParams;
+  return {
+    ...(input.checkId !== undefined && { checkId: input.checkId })
+  };
 };
 
 const serializeAws_json1_1StringList = (

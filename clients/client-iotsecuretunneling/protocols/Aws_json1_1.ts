@@ -612,96 +612,75 @@ const serializeAws_json1_1CloseTunnelRequest = (
   input: CloseTunnelRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.delete !== undefined) {
-    bodyParams["delete"] = input.delete;
-  }
-  if (input.tunnelId !== undefined) {
-    bodyParams["tunnelId"] = input.tunnelId;
-  }
-  return bodyParams;
+  return {
+    ...(input.delete !== undefined && { delete: input.delete }),
+    ...(input.tunnelId !== undefined && { tunnelId: input.tunnelId })
+  };
 };
 
 const serializeAws_json1_1DescribeTunnelRequest = (
   input: DescribeTunnelRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.tunnelId !== undefined) {
-    bodyParams["tunnelId"] = input.tunnelId;
-  }
-  return bodyParams;
+  return {
+    ...(input.tunnelId !== undefined && { tunnelId: input.tunnelId })
+  };
 };
 
 const serializeAws_json1_1DestinationConfig = (
   input: DestinationConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.services !== undefined) {
-    bodyParams["services"] = serializeAws_json1_1ServiceList(
-      input.services,
-      context
-    );
-  }
-  if (input.thingName !== undefined) {
-    bodyParams["thingName"] = input.thingName;
-  }
-  return bodyParams;
+  return {
+    ...(input.services !== undefined && {
+      services: serializeAws_json1_1ServiceList(input.services, context)
+    }),
+    ...(input.thingName !== undefined && { thingName: input.thingName })
+  };
 };
 
 const serializeAws_json1_1ListTagsForResourceRequest = (
   input: ListTagsForResourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.resourceArn !== undefined) {
-    bodyParams["resourceArn"] = input.resourceArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn })
+  };
 };
 
 const serializeAws_json1_1ListTunnelsRequest = (
   input: ListTunnelsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.thingName !== undefined) {
-    bodyParams["thingName"] = input.thingName;
-  }
-  return bodyParams;
+  return {
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.thingName !== undefined && { thingName: input.thingName })
+  };
 };
 
 const serializeAws_json1_1OpenTunnelRequest = (
   input: OpenTunnelRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.description !== undefined) {
-    bodyParams["description"] = input.description;
-  }
-  if (input.destinationConfig !== undefined) {
-    bodyParams["destinationConfig"] = serializeAws_json1_1DestinationConfig(
-      input.destinationConfig,
-      context
-    );
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_json1_1TagList(input.tags, context);
-  }
-  if (input.timeoutConfig !== undefined) {
-    bodyParams["timeoutConfig"] = serializeAws_json1_1TimeoutConfig(
-      input.timeoutConfig,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.destinationConfig !== undefined && {
+      destinationConfig: serializeAws_json1_1DestinationConfig(
+        input.destinationConfig,
+        context
+      )
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_json1_1TagList(input.tags, context)
+    }),
+    ...(input.timeoutConfig !== undefined && {
+      timeoutConfig: serializeAws_json1_1TimeoutConfig(
+        input.timeoutConfig,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1ServiceList = (
@@ -712,14 +691,10 @@ const serializeAws_json1_1ServiceList = (
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  const bodyParams: any = {};
-  if (input.key !== undefined) {
-    bodyParams["key"] = input.key;
-  }
-  if (input.value !== undefined) {
-    bodyParams["value"] = input.value;
-  }
-  return bodyParams;
+  return {
+    ...(input.key !== undefined && { key: input.key }),
+    ...(input.value !== undefined && { value: input.value })
+  };
 };
 
 const serializeAws_json1_1TagKeyList = (
@@ -740,42 +715,35 @@ const serializeAws_json1_1TagResourceRequest = (
   input: TagResourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.resourceArn !== undefined) {
-    bodyParams["resourceArn"] = input.resourceArn;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_json1_1TagList(input.tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_json1_1TagList(input.tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_1TimeoutConfig = (
   input: TimeoutConfig,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.maxLifetimeTimeoutMinutes !== undefined) {
-    bodyParams["maxLifetimeTimeoutMinutes"] = input.maxLifetimeTimeoutMinutes;
-  }
-  return bodyParams;
+  return {
+    ...(input.maxLifetimeTimeoutMinutes !== undefined && {
+      maxLifetimeTimeoutMinutes: input.maxLifetimeTimeoutMinutes
+    })
+  };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (
   input: UntagResourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.resourceArn !== undefined) {
-    bodyParams["resourceArn"] = input.resourceArn;
-  }
-  if (input.tagKeys !== undefined) {
-    bodyParams["tagKeys"] = serializeAws_json1_1TagKeyList(
-      input.tagKeys,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
+    ...(input.tagKeys !== undefined && {
+      tagKeys: serializeAws_json1_1TagKeyList(input.tagKeys, context)
+    })
+  };
 };
 
 const deserializeAws_json1_1CloseTunnelResponse = (

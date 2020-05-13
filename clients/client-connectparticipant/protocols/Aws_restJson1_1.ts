@@ -802,17 +802,13 @@ const serializeAws_restJson1_1StartPosition = (
   input: StartPosition,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AbsoluteTime !== undefined) {
-    bodyParams["AbsoluteTime"] = input.AbsoluteTime;
-  }
-  if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
-  }
-  if (input.MostRecent !== undefined) {
-    bodyParams["MostRecent"] = input.MostRecent;
-  }
-  return bodyParams;
+  return {
+    ...(input.AbsoluteTime !== undefined && {
+      AbsoluteTime: input.AbsoluteTime
+    }),
+    ...(input.Id !== undefined && { Id: input.Id }),
+    ...(input.MostRecent !== undefined && { MostRecent: input.MostRecent })
+  };
 };
 
 const deserializeAws_restJson1_1Item = (

@@ -293,128 +293,89 @@ const serializeAws_json1_1DescribeDimensionKeysRequest = (
   input: DescribeDimensionKeysRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EndTime !== undefined) {
-    bodyParams["EndTime"] = Math.round(input.EndTime.getTime() / 1000);
-  }
-  if (input.Filter !== undefined) {
-    bodyParams["Filter"] = serializeAws_json1_1MetricQueryFilterMap(
-      input.Filter,
-      context
-    );
-  }
-  if (input.GroupBy !== undefined) {
-    bodyParams["GroupBy"] = serializeAws_json1_1DimensionGroup(
-      input.GroupBy,
-      context
-    );
-  }
-  if (input.Identifier !== undefined) {
-    bodyParams["Identifier"] = input.Identifier;
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.Metric !== undefined) {
-    bodyParams["Metric"] = input.Metric;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.PartitionBy !== undefined) {
-    bodyParams["PartitionBy"] = serializeAws_json1_1DimensionGroup(
-      input.PartitionBy,
-      context
-    );
-  }
-  if (input.PeriodInSeconds !== undefined) {
-    bodyParams["PeriodInSeconds"] = input.PeriodInSeconds;
-  }
-  if (input.ServiceType !== undefined) {
-    bodyParams["ServiceType"] = input.ServiceType;
-  }
-  if (input.StartTime !== undefined) {
-    bodyParams["StartTime"] = Math.round(input.StartTime.getTime() / 1000);
-  }
-  return bodyParams;
+  return {
+    ...(input.EndTime !== undefined && {
+      EndTime: Math.round(input.EndTime.getTime() / 1000)
+    }),
+    ...(input.Filter !== undefined && {
+      Filter: serializeAws_json1_1MetricQueryFilterMap(input.Filter, context)
+    }),
+    ...(input.GroupBy !== undefined && {
+      GroupBy: serializeAws_json1_1DimensionGroup(input.GroupBy, context)
+    }),
+    ...(input.Identifier !== undefined && { Identifier: input.Identifier }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.Metric !== undefined && { Metric: input.Metric }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.PartitionBy !== undefined && {
+      PartitionBy: serializeAws_json1_1DimensionGroup(
+        input.PartitionBy,
+        context
+      )
+    }),
+    ...(input.PeriodInSeconds !== undefined && {
+      PeriodInSeconds: input.PeriodInSeconds
+    }),
+    ...(input.ServiceType !== undefined && { ServiceType: input.ServiceType }),
+    ...(input.StartTime !== undefined && {
+      StartTime: Math.round(input.StartTime.getTime() / 1000)
+    })
+  };
 };
 
 const serializeAws_json1_1DimensionGroup = (
   input: DimensionGroup,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Dimensions !== undefined) {
-    bodyParams["Dimensions"] = serializeAws_json1_1StringList(
-      input.Dimensions,
-      context
-    );
-  }
-  if (input.Group !== undefined) {
-    bodyParams["Group"] = input.Group;
-  }
-  if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
-  }
-  return bodyParams;
+  return {
+    ...(input.Dimensions !== undefined && {
+      Dimensions: serializeAws_json1_1StringList(input.Dimensions, context)
+    }),
+    ...(input.Group !== undefined && { Group: input.Group }),
+    ...(input.Limit !== undefined && { Limit: input.Limit })
+  };
 };
 
 const serializeAws_json1_1GetResourceMetricsRequest = (
   input: GetResourceMetricsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EndTime !== undefined) {
-    bodyParams["EndTime"] = Math.round(input.EndTime.getTime() / 1000);
-  }
-  if (input.Identifier !== undefined) {
-    bodyParams["Identifier"] = input.Identifier;
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.MetricQueries !== undefined) {
-    bodyParams["MetricQueries"] = serializeAws_json1_1MetricQueryList(
-      input.MetricQueries,
-      context
-    );
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.PeriodInSeconds !== undefined) {
-    bodyParams["PeriodInSeconds"] = input.PeriodInSeconds;
-  }
-  if (input.ServiceType !== undefined) {
-    bodyParams["ServiceType"] = input.ServiceType;
-  }
-  if (input.StartTime !== undefined) {
-    bodyParams["StartTime"] = Math.round(input.StartTime.getTime() / 1000);
-  }
-  return bodyParams;
+  return {
+    ...(input.EndTime !== undefined && {
+      EndTime: Math.round(input.EndTime.getTime() / 1000)
+    }),
+    ...(input.Identifier !== undefined && { Identifier: input.Identifier }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.MetricQueries !== undefined && {
+      MetricQueries: serializeAws_json1_1MetricQueryList(
+        input.MetricQueries,
+        context
+      )
+    }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.PeriodInSeconds !== undefined && {
+      PeriodInSeconds: input.PeriodInSeconds
+    }),
+    ...(input.ServiceType !== undefined && { ServiceType: input.ServiceType }),
+    ...(input.StartTime !== undefined && {
+      StartTime: Math.round(input.StartTime.getTime() / 1000)
+    })
+  };
 };
 
 const serializeAws_json1_1MetricQuery = (
   input: MetricQuery,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Filter !== undefined) {
-    bodyParams["Filter"] = serializeAws_json1_1MetricQueryFilterMap(
-      input.Filter,
-      context
-    );
-  }
-  if (input.GroupBy !== undefined) {
-    bodyParams["GroupBy"] = serializeAws_json1_1DimensionGroup(
-      input.GroupBy,
-      context
-    );
-  }
-  if (input.Metric !== undefined) {
-    bodyParams["Metric"] = input.Metric;
-  }
-  return bodyParams;
+  return {
+    ...(input.Filter !== undefined && {
+      Filter: serializeAws_json1_1MetricQueryFilterMap(input.Filter, context)
+    }),
+    ...(input.GroupBy !== undefined && {
+      GroupBy: serializeAws_json1_1DimensionGroup(input.GroupBy, context)
+    }),
+    ...(input.Metric !== undefined && { Metric: input.Metric })
+  };
 };
 
 const serializeAws_json1_1MetricQueryFilterMap = (

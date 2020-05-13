@@ -4415,459 +4415,369 @@ const serializeAws_json1_1AssociateKmsKeyRequest = (
   input: AssociateKmsKeyRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.kmsKeyId !== undefined) {
-    bodyParams["kmsKeyId"] = input.kmsKeyId;
-  }
-  if (input.logGroupName !== undefined) {
-    bodyParams["logGroupName"] = input.logGroupName;
-  }
-  return bodyParams;
+  return {
+    ...(input.kmsKeyId !== undefined && { kmsKeyId: input.kmsKeyId }),
+    ...(input.logGroupName !== undefined && {
+      logGroupName: input.logGroupName
+    })
+  };
 };
 
 const serializeAws_json1_1CancelExportTaskRequest = (
   input: CancelExportTaskRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.taskId !== undefined) {
-    bodyParams["taskId"] = input.taskId;
-  }
-  return bodyParams;
+  return {
+    ...(input.taskId !== undefined && { taskId: input.taskId })
+  };
 };
 
 const serializeAws_json1_1CreateExportTaskRequest = (
   input: CreateExportTaskRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.destination !== undefined) {
-    bodyParams["destination"] = input.destination;
-  }
-  if (input.destinationPrefix !== undefined) {
-    bodyParams["destinationPrefix"] = input.destinationPrefix;
-  }
-  if (input.from !== undefined) {
-    bodyParams["from"] = input.from;
-  }
-  if (input.logGroupName !== undefined) {
-    bodyParams["logGroupName"] = input.logGroupName;
-  }
-  if (input.logStreamNamePrefix !== undefined) {
-    bodyParams["logStreamNamePrefix"] = input.logStreamNamePrefix;
-  }
-  if (input.taskName !== undefined) {
-    bodyParams["taskName"] = input.taskName;
-  }
-  if (input.to !== undefined) {
-    bodyParams["to"] = input.to;
-  }
-  return bodyParams;
+  return {
+    ...(input.destination !== undefined && { destination: input.destination }),
+    ...(input.destinationPrefix !== undefined && {
+      destinationPrefix: input.destinationPrefix
+    }),
+    ...(input.from !== undefined && { from: input.from }),
+    ...(input.logGroupName !== undefined && {
+      logGroupName: input.logGroupName
+    }),
+    ...(input.logStreamNamePrefix !== undefined && {
+      logStreamNamePrefix: input.logStreamNamePrefix
+    }),
+    ...(input.taskName !== undefined && { taskName: input.taskName }),
+    ...(input.to !== undefined && { to: input.to })
+  };
 };
 
 const serializeAws_json1_1CreateLogGroupRequest = (
   input: CreateLogGroupRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.kmsKeyId !== undefined) {
-    bodyParams["kmsKeyId"] = input.kmsKeyId;
-  }
-  if (input.logGroupName !== undefined) {
-    bodyParams["logGroupName"] = input.logGroupName;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_json1_1Tags(input.tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.kmsKeyId !== undefined && { kmsKeyId: input.kmsKeyId }),
+    ...(input.logGroupName !== undefined && {
+      logGroupName: input.logGroupName
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_json1_1Tags(input.tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_1CreateLogStreamRequest = (
   input: CreateLogStreamRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.logGroupName !== undefined) {
-    bodyParams["logGroupName"] = input.logGroupName;
-  }
-  if (input.logStreamName !== undefined) {
-    bodyParams["logStreamName"] = input.logStreamName;
-  }
-  return bodyParams;
+  return {
+    ...(input.logGroupName !== undefined && {
+      logGroupName: input.logGroupName
+    }),
+    ...(input.logStreamName !== undefined && {
+      logStreamName: input.logStreamName
+    })
+  };
 };
 
 const serializeAws_json1_1DeleteDestinationRequest = (
   input: DeleteDestinationRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.destinationName !== undefined) {
-    bodyParams["destinationName"] = input.destinationName;
-  }
-  return bodyParams;
+  return {
+    ...(input.destinationName !== undefined && {
+      destinationName: input.destinationName
+    })
+  };
 };
 
 const serializeAws_json1_1DeleteLogGroupRequest = (
   input: DeleteLogGroupRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.logGroupName !== undefined) {
-    bodyParams["logGroupName"] = input.logGroupName;
-  }
-  return bodyParams;
+  return {
+    ...(input.logGroupName !== undefined && {
+      logGroupName: input.logGroupName
+    })
+  };
 };
 
 const serializeAws_json1_1DeleteLogStreamRequest = (
   input: DeleteLogStreamRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.logGroupName !== undefined) {
-    bodyParams["logGroupName"] = input.logGroupName;
-  }
-  if (input.logStreamName !== undefined) {
-    bodyParams["logStreamName"] = input.logStreamName;
-  }
-  return bodyParams;
+  return {
+    ...(input.logGroupName !== undefined && {
+      logGroupName: input.logGroupName
+    }),
+    ...(input.logStreamName !== undefined && {
+      logStreamName: input.logStreamName
+    })
+  };
 };
 
 const serializeAws_json1_1DeleteMetricFilterRequest = (
   input: DeleteMetricFilterRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.filterName !== undefined) {
-    bodyParams["filterName"] = input.filterName;
-  }
-  if (input.logGroupName !== undefined) {
-    bodyParams["logGroupName"] = input.logGroupName;
-  }
-  return bodyParams;
+  return {
+    ...(input.filterName !== undefined && { filterName: input.filterName }),
+    ...(input.logGroupName !== undefined && {
+      logGroupName: input.logGroupName
+    })
+  };
 };
 
 const serializeAws_json1_1DeleteResourcePolicyRequest = (
   input: DeleteResourcePolicyRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.policyName !== undefined) {
-    bodyParams["policyName"] = input.policyName;
-  }
-  return bodyParams;
+  return {
+    ...(input.policyName !== undefined && { policyName: input.policyName })
+  };
 };
 
 const serializeAws_json1_1DeleteRetentionPolicyRequest = (
   input: DeleteRetentionPolicyRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.logGroupName !== undefined) {
-    bodyParams["logGroupName"] = input.logGroupName;
-  }
-  return bodyParams;
+  return {
+    ...(input.logGroupName !== undefined && {
+      logGroupName: input.logGroupName
+    })
+  };
 };
 
 const serializeAws_json1_1DeleteSubscriptionFilterRequest = (
   input: DeleteSubscriptionFilterRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.filterName !== undefined) {
-    bodyParams["filterName"] = input.filterName;
-  }
-  if (input.logGroupName !== undefined) {
-    bodyParams["logGroupName"] = input.logGroupName;
-  }
-  return bodyParams;
+  return {
+    ...(input.filterName !== undefined && { filterName: input.filterName }),
+    ...(input.logGroupName !== undefined && {
+      logGroupName: input.logGroupName
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeDestinationsRequest = (
   input: DescribeDestinationsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DestinationNamePrefix !== undefined) {
-    bodyParams["DestinationNamePrefix"] = input.DestinationNamePrefix;
-  }
-  if (input.limit !== undefined) {
-    bodyParams["limit"] = input.limit;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.DestinationNamePrefix !== undefined && {
+      DestinationNamePrefix: input.DestinationNamePrefix
+    }),
+    ...(input.limit !== undefined && { limit: input.limit }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
 };
 
 const serializeAws_json1_1DescribeExportTasksRequest = (
   input: DescribeExportTasksRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.limit !== undefined) {
-    bodyParams["limit"] = input.limit;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.statusCode !== undefined) {
-    bodyParams["statusCode"] = input.statusCode;
-  }
-  if (input.taskId !== undefined) {
-    bodyParams["taskId"] = input.taskId;
-  }
-  return bodyParams;
+  return {
+    ...(input.limit !== undefined && { limit: input.limit }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.statusCode !== undefined && { statusCode: input.statusCode }),
+    ...(input.taskId !== undefined && { taskId: input.taskId })
+  };
 };
 
 const serializeAws_json1_1DescribeLogGroupsRequest = (
   input: DescribeLogGroupsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.limit !== undefined) {
-    bodyParams["limit"] = input.limit;
-  }
-  if (input.logGroupNamePrefix !== undefined) {
-    bodyParams["logGroupNamePrefix"] = input.logGroupNamePrefix;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.limit !== undefined && { limit: input.limit }),
+    ...(input.logGroupNamePrefix !== undefined && {
+      logGroupNamePrefix: input.logGroupNamePrefix
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
 };
 
 const serializeAws_json1_1DescribeLogStreamsRequest = (
   input: DescribeLogStreamsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.descending !== undefined) {
-    bodyParams["descending"] = input.descending;
-  }
-  if (input.limit !== undefined) {
-    bodyParams["limit"] = input.limit;
-  }
-  if (input.logGroupName !== undefined) {
-    bodyParams["logGroupName"] = input.logGroupName;
-  }
-  if (input.logStreamNamePrefix !== undefined) {
-    bodyParams["logStreamNamePrefix"] = input.logStreamNamePrefix;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.orderBy !== undefined) {
-    bodyParams["orderBy"] = input.orderBy;
-  }
-  return bodyParams;
+  return {
+    ...(input.descending !== undefined && { descending: input.descending }),
+    ...(input.limit !== undefined && { limit: input.limit }),
+    ...(input.logGroupName !== undefined && {
+      logGroupName: input.logGroupName
+    }),
+    ...(input.logStreamNamePrefix !== undefined && {
+      logStreamNamePrefix: input.logStreamNamePrefix
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.orderBy !== undefined && { orderBy: input.orderBy })
+  };
 };
 
 const serializeAws_json1_1DescribeMetricFiltersRequest = (
   input: DescribeMetricFiltersRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.filterNamePrefix !== undefined) {
-    bodyParams["filterNamePrefix"] = input.filterNamePrefix;
-  }
-  if (input.limit !== undefined) {
-    bodyParams["limit"] = input.limit;
-  }
-  if (input.logGroupName !== undefined) {
-    bodyParams["logGroupName"] = input.logGroupName;
-  }
-  if (input.metricName !== undefined) {
-    bodyParams["metricName"] = input.metricName;
-  }
-  if (input.metricNamespace !== undefined) {
-    bodyParams["metricNamespace"] = input.metricNamespace;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.filterNamePrefix !== undefined && {
+      filterNamePrefix: input.filterNamePrefix
+    }),
+    ...(input.limit !== undefined && { limit: input.limit }),
+    ...(input.logGroupName !== undefined && {
+      logGroupName: input.logGroupName
+    }),
+    ...(input.metricName !== undefined && { metricName: input.metricName }),
+    ...(input.metricNamespace !== undefined && {
+      metricNamespace: input.metricNamespace
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
 };
 
 const serializeAws_json1_1DescribeQueriesRequest = (
   input: DescribeQueriesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.logGroupName !== undefined) {
-    bodyParams["logGroupName"] = input.logGroupName;
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.status !== undefined) {
-    bodyParams["status"] = input.status;
-  }
-  return bodyParams;
+  return {
+    ...(input.logGroupName !== undefined && {
+      logGroupName: input.logGroupName
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.status !== undefined && { status: input.status })
+  };
 };
 
 const serializeAws_json1_1DescribeResourcePoliciesRequest = (
   input: DescribeResourcePoliciesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.limit !== undefined) {
-    bodyParams["limit"] = input.limit;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.limit !== undefined && { limit: input.limit }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
 };
 
 const serializeAws_json1_1DescribeSubscriptionFiltersRequest = (
   input: DescribeSubscriptionFiltersRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.filterNamePrefix !== undefined) {
-    bodyParams["filterNamePrefix"] = input.filterNamePrefix;
-  }
-  if (input.limit !== undefined) {
-    bodyParams["limit"] = input.limit;
-  }
-  if (input.logGroupName !== undefined) {
-    bodyParams["logGroupName"] = input.logGroupName;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.filterNamePrefix !== undefined && {
+      filterNamePrefix: input.filterNamePrefix
+    }),
+    ...(input.limit !== undefined && { limit: input.limit }),
+    ...(input.logGroupName !== undefined && {
+      logGroupName: input.logGroupName
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
 };
 
 const serializeAws_json1_1DisassociateKmsKeyRequest = (
   input: DisassociateKmsKeyRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.logGroupName !== undefined) {
-    bodyParams["logGroupName"] = input.logGroupName;
-  }
-  return bodyParams;
+  return {
+    ...(input.logGroupName !== undefined && {
+      logGroupName: input.logGroupName
+    })
+  };
 };
 
 const serializeAws_json1_1FilterLogEventsRequest = (
   input: FilterLogEventsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.endTime !== undefined) {
-    bodyParams["endTime"] = input.endTime;
-  }
-  if (input.filterPattern !== undefined) {
-    bodyParams["filterPattern"] = input.filterPattern;
-  }
-  if (input.interleaved !== undefined) {
-    bodyParams["interleaved"] = input.interleaved;
-  }
-  if (input.limit !== undefined) {
-    bodyParams["limit"] = input.limit;
-  }
-  if (input.logGroupName !== undefined) {
-    bodyParams["logGroupName"] = input.logGroupName;
-  }
-  if (input.logStreamNamePrefix !== undefined) {
-    bodyParams["logStreamNamePrefix"] = input.logStreamNamePrefix;
-  }
-  if (input.logStreamNames !== undefined) {
-    bodyParams["logStreamNames"] = serializeAws_json1_1InputLogStreamNames(
-      input.logStreamNames,
-      context
-    );
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.startTime !== undefined) {
-    bodyParams["startTime"] = input.startTime;
-  }
-  return bodyParams;
+  return {
+    ...(input.endTime !== undefined && { endTime: input.endTime }),
+    ...(input.filterPattern !== undefined && {
+      filterPattern: input.filterPattern
+    }),
+    ...(input.interleaved !== undefined && { interleaved: input.interleaved }),
+    ...(input.limit !== undefined && { limit: input.limit }),
+    ...(input.logGroupName !== undefined && {
+      logGroupName: input.logGroupName
+    }),
+    ...(input.logStreamNamePrefix !== undefined && {
+      logStreamNamePrefix: input.logStreamNamePrefix
+    }),
+    ...(input.logStreamNames !== undefined && {
+      logStreamNames: serializeAws_json1_1InputLogStreamNames(
+        input.logStreamNames,
+        context
+      )
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.startTime !== undefined && { startTime: input.startTime })
+  };
 };
 
 const serializeAws_json1_1GetLogEventsRequest = (
   input: GetLogEventsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.endTime !== undefined) {
-    bodyParams["endTime"] = input.endTime;
-  }
-  if (input.limit !== undefined) {
-    bodyParams["limit"] = input.limit;
-  }
-  if (input.logGroupName !== undefined) {
-    bodyParams["logGroupName"] = input.logGroupName;
-  }
-  if (input.logStreamName !== undefined) {
-    bodyParams["logStreamName"] = input.logStreamName;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.startFromHead !== undefined) {
-    bodyParams["startFromHead"] = input.startFromHead;
-  }
-  if (input.startTime !== undefined) {
-    bodyParams["startTime"] = input.startTime;
-  }
-  return bodyParams;
+  return {
+    ...(input.endTime !== undefined && { endTime: input.endTime }),
+    ...(input.limit !== undefined && { limit: input.limit }),
+    ...(input.logGroupName !== undefined && {
+      logGroupName: input.logGroupName
+    }),
+    ...(input.logStreamName !== undefined && {
+      logStreamName: input.logStreamName
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.startFromHead !== undefined && {
+      startFromHead: input.startFromHead
+    }),
+    ...(input.startTime !== undefined && { startTime: input.startTime })
+  };
 };
 
 const serializeAws_json1_1GetLogGroupFieldsRequest = (
   input: GetLogGroupFieldsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.logGroupName !== undefined) {
-    bodyParams["logGroupName"] = input.logGroupName;
-  }
-  if (input.time !== undefined) {
-    bodyParams["time"] = input.time;
-  }
-  return bodyParams;
+  return {
+    ...(input.logGroupName !== undefined && {
+      logGroupName: input.logGroupName
+    }),
+    ...(input.time !== undefined && { time: input.time })
+  };
 };
 
 const serializeAws_json1_1GetLogRecordRequest = (
   input: GetLogRecordRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.logRecordPointer !== undefined) {
-    bodyParams["logRecordPointer"] = input.logRecordPointer;
-  }
-  return bodyParams;
+  return {
+    ...(input.logRecordPointer !== undefined && {
+      logRecordPointer: input.logRecordPointer
+    })
+  };
 };
 
 const serializeAws_json1_1GetQueryResultsRequest = (
   input: GetQueryResultsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.queryId !== undefined) {
-    bodyParams["queryId"] = input.queryId;
-  }
-  return bodyParams;
+  return {
+    ...(input.queryId !== undefined && { queryId: input.queryId })
+  };
 };
 
 const serializeAws_json1_1InputLogEvent = (
   input: InputLogEvent,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.message !== undefined) {
-    bodyParams["message"] = input.message;
-  }
-  if (input.timestamp !== undefined) {
-    bodyParams["timestamp"] = input.timestamp;
-  }
-  return bodyParams;
+  return {
+    ...(input.message !== undefined && { message: input.message }),
+    ...(input.timestamp !== undefined && { timestamp: input.timestamp })
+  };
 };
 
 const serializeAws_json1_1InputLogEvents = (
@@ -4888,11 +4798,11 @@ const serializeAws_json1_1ListTagsLogGroupRequest = (
   input: ListTagsLogGroupRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.logGroupName !== undefined) {
-    bodyParams["logGroupName"] = input.logGroupName;
-  }
-  return bodyParams;
+  return {
+    ...(input.logGroupName !== undefined && {
+      logGroupName: input.logGroupName
+    })
+  };
 };
 
 const serializeAws_json1_1LogGroupNames = (
@@ -4906,20 +4816,16 @@ const serializeAws_json1_1MetricTransformation = (
   input: MetricTransformation,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.defaultValue !== undefined) {
-    bodyParams["defaultValue"] = input.defaultValue;
-  }
-  if (input.metricName !== undefined) {
-    bodyParams["metricName"] = input.metricName;
-  }
-  if (input.metricNamespace !== undefined) {
-    bodyParams["metricNamespace"] = input.metricNamespace;
-  }
-  if (input.metricValue !== undefined) {
-    bodyParams["metricValue"] = input.metricValue;
-  }
-  return bodyParams;
+  return {
+    ...(input.defaultValue !== undefined && {
+      defaultValue: input.defaultValue
+    }),
+    ...(input.metricName !== undefined && { metricName: input.metricName }),
+    ...(input.metricNamespace !== undefined && {
+      metricNamespace: input.metricNamespace
+    }),
+    ...(input.metricValue !== undefined && { metricValue: input.metricValue })
+  };
 };
 
 const serializeAws_json1_1MetricTransformations = (
@@ -4935,173 +4841,146 @@ const serializeAws_json1_1PutDestinationPolicyRequest = (
   input: PutDestinationPolicyRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.accessPolicy !== undefined) {
-    bodyParams["accessPolicy"] = input.accessPolicy;
-  }
-  if (input.destinationName !== undefined) {
-    bodyParams["destinationName"] = input.destinationName;
-  }
-  return bodyParams;
+  return {
+    ...(input.accessPolicy !== undefined && {
+      accessPolicy: input.accessPolicy
+    }),
+    ...(input.destinationName !== undefined && {
+      destinationName: input.destinationName
+    })
+  };
 };
 
 const serializeAws_json1_1PutDestinationRequest = (
   input: PutDestinationRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.destinationName !== undefined) {
-    bodyParams["destinationName"] = input.destinationName;
-  }
-  if (input.roleArn !== undefined) {
-    bodyParams["roleArn"] = input.roleArn;
-  }
-  if (input.targetArn !== undefined) {
-    bodyParams["targetArn"] = input.targetArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.destinationName !== undefined && {
+      destinationName: input.destinationName
+    }),
+    ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
+    ...(input.targetArn !== undefined && { targetArn: input.targetArn })
+  };
 };
 
 const serializeAws_json1_1PutLogEventsRequest = (
   input: PutLogEventsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.logEvents !== undefined) {
-    bodyParams["logEvents"] = serializeAws_json1_1InputLogEvents(
-      input.logEvents,
-      context
-    );
-  }
-  if (input.logGroupName !== undefined) {
-    bodyParams["logGroupName"] = input.logGroupName;
-  }
-  if (input.logStreamName !== undefined) {
-    bodyParams["logStreamName"] = input.logStreamName;
-  }
-  if (input.sequenceToken !== undefined) {
-    bodyParams["sequenceToken"] = input.sequenceToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.logEvents !== undefined && {
+      logEvents: serializeAws_json1_1InputLogEvents(input.logEvents, context)
+    }),
+    ...(input.logGroupName !== undefined && {
+      logGroupName: input.logGroupName
+    }),
+    ...(input.logStreamName !== undefined && {
+      logStreamName: input.logStreamName
+    }),
+    ...(input.sequenceToken !== undefined && {
+      sequenceToken: input.sequenceToken
+    })
+  };
 };
 
 const serializeAws_json1_1PutMetricFilterRequest = (
   input: PutMetricFilterRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.filterName !== undefined) {
-    bodyParams["filterName"] = input.filterName;
-  }
-  if (input.filterPattern !== undefined) {
-    bodyParams["filterPattern"] = input.filterPattern;
-  }
-  if (input.logGroupName !== undefined) {
-    bodyParams["logGroupName"] = input.logGroupName;
-  }
-  if (input.metricTransformations !== undefined) {
-    bodyParams[
-      "metricTransformations"
-    ] = serializeAws_json1_1MetricTransformations(
-      input.metricTransformations,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.filterName !== undefined && { filterName: input.filterName }),
+    ...(input.filterPattern !== undefined && {
+      filterPattern: input.filterPattern
+    }),
+    ...(input.logGroupName !== undefined && {
+      logGroupName: input.logGroupName
+    }),
+    ...(input.metricTransformations !== undefined && {
+      metricTransformations: serializeAws_json1_1MetricTransformations(
+        input.metricTransformations,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1PutResourcePolicyRequest = (
   input: PutResourcePolicyRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.policyDocument !== undefined) {
-    bodyParams["policyDocument"] = input.policyDocument;
-  }
-  if (input.policyName !== undefined) {
-    bodyParams["policyName"] = input.policyName;
-  }
-  return bodyParams;
+  return {
+    ...(input.policyDocument !== undefined && {
+      policyDocument: input.policyDocument
+    }),
+    ...(input.policyName !== undefined && { policyName: input.policyName })
+  };
 };
 
 const serializeAws_json1_1PutRetentionPolicyRequest = (
   input: PutRetentionPolicyRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.logGroupName !== undefined) {
-    bodyParams["logGroupName"] = input.logGroupName;
-  }
-  if (input.retentionInDays !== undefined) {
-    bodyParams["retentionInDays"] = input.retentionInDays;
-  }
-  return bodyParams;
+  return {
+    ...(input.logGroupName !== undefined && {
+      logGroupName: input.logGroupName
+    }),
+    ...(input.retentionInDays !== undefined && {
+      retentionInDays: input.retentionInDays
+    })
+  };
 };
 
 const serializeAws_json1_1PutSubscriptionFilterRequest = (
   input: PutSubscriptionFilterRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.destinationArn !== undefined) {
-    bodyParams["destinationArn"] = input.destinationArn;
-  }
-  if (input.distribution !== undefined) {
-    bodyParams["distribution"] = input.distribution;
-  }
-  if (input.filterName !== undefined) {
-    bodyParams["filterName"] = input.filterName;
-  }
-  if (input.filterPattern !== undefined) {
-    bodyParams["filterPattern"] = input.filterPattern;
-  }
-  if (input.logGroupName !== undefined) {
-    bodyParams["logGroupName"] = input.logGroupName;
-  }
-  if (input.roleArn !== undefined) {
-    bodyParams["roleArn"] = input.roleArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.destinationArn !== undefined && {
+      destinationArn: input.destinationArn
+    }),
+    ...(input.distribution !== undefined && {
+      distribution: input.distribution
+    }),
+    ...(input.filterName !== undefined && { filterName: input.filterName }),
+    ...(input.filterPattern !== undefined && {
+      filterPattern: input.filterPattern
+    }),
+    ...(input.logGroupName !== undefined && {
+      logGroupName: input.logGroupName
+    }),
+    ...(input.roleArn !== undefined && { roleArn: input.roleArn })
+  };
 };
 
 const serializeAws_json1_1StartQueryRequest = (
   input: StartQueryRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.endTime !== undefined) {
-    bodyParams["endTime"] = input.endTime;
-  }
-  if (input.limit !== undefined) {
-    bodyParams["limit"] = input.limit;
-  }
-  if (input.logGroupName !== undefined) {
-    bodyParams["logGroupName"] = input.logGroupName;
-  }
-  if (input.logGroupNames !== undefined) {
-    bodyParams["logGroupNames"] = serializeAws_json1_1LogGroupNames(
-      input.logGroupNames,
-      context
-    );
-  }
-  if (input.queryString !== undefined) {
-    bodyParams["queryString"] = input.queryString;
-  }
-  if (input.startTime !== undefined) {
-    bodyParams["startTime"] = input.startTime;
-  }
-  return bodyParams;
+  return {
+    ...(input.endTime !== undefined && { endTime: input.endTime }),
+    ...(input.limit !== undefined && { limit: input.limit }),
+    ...(input.logGroupName !== undefined && {
+      logGroupName: input.logGroupName
+    }),
+    ...(input.logGroupNames !== undefined && {
+      logGroupNames: serializeAws_json1_1LogGroupNames(
+        input.logGroupNames,
+        context
+      )
+    }),
+    ...(input.queryString !== undefined && { queryString: input.queryString }),
+    ...(input.startTime !== undefined && { startTime: input.startTime })
+  };
 };
 
 const serializeAws_json1_1StopQueryRequest = (
   input: StopQueryRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.queryId !== undefined) {
-    bodyParams["queryId"] = input.queryId;
-  }
-  return bodyParams;
+  return {
+    ...(input.queryId !== undefined && { queryId: input.queryId })
+  };
 };
 
 const serializeAws_json1_1TagList = (
@@ -5115,14 +4994,14 @@ const serializeAws_json1_1TagLogGroupRequest = (
   input: TagLogGroupRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.logGroupName !== undefined) {
-    bodyParams["logGroupName"] = input.logGroupName;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_json1_1Tags(input.tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.logGroupName !== undefined && {
+      logGroupName: input.logGroupName
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_json1_1Tags(input.tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_1Tags = (
@@ -5146,31 +5025,31 @@ const serializeAws_json1_1TestMetricFilterRequest = (
   input: TestMetricFilterRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.filterPattern !== undefined) {
-    bodyParams["filterPattern"] = input.filterPattern;
-  }
-  if (input.logEventMessages !== undefined) {
-    bodyParams["logEventMessages"] = serializeAws_json1_1TestEventMessages(
-      input.logEventMessages,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.filterPattern !== undefined && {
+      filterPattern: input.filterPattern
+    }),
+    ...(input.logEventMessages !== undefined && {
+      logEventMessages: serializeAws_json1_1TestEventMessages(
+        input.logEventMessages,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1UntagLogGroupRequest = (
   input: UntagLogGroupRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.logGroupName !== undefined) {
-    bodyParams["logGroupName"] = input.logGroupName;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_json1_1TagList(input.tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.logGroupName !== undefined && {
+      logGroupName: input.logGroupName
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_json1_1TagList(input.tags, context)
+    })
+  };
 };
 
 const deserializeAws_json1_1CreateExportTaskResponse = (

@@ -8029,60 +8029,49 @@ const serializeAws_json1_1AcceptSharedDirectoryRequest = (
   input: AcceptSharedDirectoryRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.SharedDirectoryId !== undefined) {
-    bodyParams["SharedDirectoryId"] = input.SharedDirectoryId;
-  }
-  return bodyParams;
+  return {
+    ...(input.SharedDirectoryId !== undefined && {
+      SharedDirectoryId: input.SharedDirectoryId
+    })
+  };
 };
 
 const serializeAws_json1_1AddIpRoutesRequest = (
   input: AddIpRoutesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  if (input.IpRoutes !== undefined) {
-    bodyParams["IpRoutes"] = serializeAws_json1_1IpRoutes(
-      input.IpRoutes,
-      context
-    );
-  }
-  if (input.UpdateSecurityGroupForDirectoryControllers !== undefined) {
-    bodyParams["UpdateSecurityGroupForDirectoryControllers"] =
-      input.UpdateSecurityGroupForDirectoryControllers;
-  }
-  return bodyParams;
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.IpRoutes !== undefined && {
+      IpRoutes: serializeAws_json1_1IpRoutes(input.IpRoutes, context)
+    }),
+    ...(input.UpdateSecurityGroupForDirectoryControllers !== undefined && {
+      UpdateSecurityGroupForDirectoryControllers:
+        input.UpdateSecurityGroupForDirectoryControllers
+    })
+  };
 };
 
 const serializeAws_json1_1AddTagsToResourceRequest = (
   input: AddTagsToResourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ResourceId !== undefined) {
-    bodyParams["ResourceId"] = input.ResourceId;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1Tags(input.Tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_1Attribute = (
   input: Attribute,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_json1_1Attributes = (
@@ -8096,14 +8085,12 @@ const serializeAws_json1_1CancelSchemaExtensionRequest = (
   input: CancelSchemaExtensionRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  if (input.SchemaExtensionId !== undefined) {
-    bodyParams["SchemaExtensionId"] = input.SchemaExtensionId;
-  }
-  return bodyParams;
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.SchemaExtensionId !== undefined && {
+      SchemaExtensionId: input.SchemaExtensionId
+    })
+  };
 };
 
 const serializeAws_json1_1CidrIps = (
@@ -8117,515 +8104,390 @@ const serializeAws_json1_1ConnectDirectoryRequest = (
   input: ConnectDirectoryRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ConnectSettings !== undefined) {
-    bodyParams[
-      "ConnectSettings"
-    ] = serializeAws_json1_1DirectoryConnectSettings(
-      input.ConnectSettings,
-      context
-    );
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.Password !== undefined) {
-    bodyParams["Password"] = input.Password;
-  }
-  if (input.ShortName !== undefined) {
-    bodyParams["ShortName"] = input.ShortName;
-  }
-  if (input.Size !== undefined) {
-    bodyParams["Size"] = input.Size;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.ConnectSettings !== undefined && {
+      ConnectSettings: serializeAws_json1_1DirectoryConnectSettings(
+        input.ConnectSettings,
+        context
+      )
+    }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Password !== undefined && { Password: input.Password }),
+    ...(input.ShortName !== undefined && { ShortName: input.ShortName }),
+    ...(input.Size !== undefined && { Size: input.Size }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1Tags(input.Tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_1CreateAliasRequest = (
   input: CreateAliasRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Alias !== undefined) {
-    bodyParams["Alias"] = input.Alias;
-  }
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  return bodyParams;
+  return {
+    ...(input.Alias !== undefined && { Alias: input.Alias }),
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId })
+  };
 };
 
 const serializeAws_json1_1CreateComputerRequest = (
   input: CreateComputerRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ComputerAttributes !== undefined) {
-    bodyParams["ComputerAttributes"] = serializeAws_json1_1Attributes(
-      input.ComputerAttributes,
-      context
-    );
-  }
-  if (input.ComputerName !== undefined) {
-    bodyParams["ComputerName"] = input.ComputerName;
-  }
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  if (input.OrganizationalUnitDistinguishedName !== undefined) {
-    bodyParams["OrganizationalUnitDistinguishedName"] =
-      input.OrganizationalUnitDistinguishedName;
-  }
-  if (input.Password !== undefined) {
-    bodyParams["Password"] = input.Password;
-  }
-  return bodyParams;
+  return {
+    ...(input.ComputerAttributes !== undefined && {
+      ComputerAttributes: serializeAws_json1_1Attributes(
+        input.ComputerAttributes,
+        context
+      )
+    }),
+    ...(input.ComputerName !== undefined && {
+      ComputerName: input.ComputerName
+    }),
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.OrganizationalUnitDistinguishedName !== undefined && {
+      OrganizationalUnitDistinguishedName:
+        input.OrganizationalUnitDistinguishedName
+    }),
+    ...(input.Password !== undefined && { Password: input.Password })
+  };
 };
 
 const serializeAws_json1_1CreateConditionalForwarderRequest = (
   input: CreateConditionalForwarderRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  if (input.DnsIpAddrs !== undefined) {
-    bodyParams["DnsIpAddrs"] = serializeAws_json1_1DnsIpAddrs(
-      input.DnsIpAddrs,
-      context
-    );
-  }
-  if (input.RemoteDomainName !== undefined) {
-    bodyParams["RemoteDomainName"] = input.RemoteDomainName;
-  }
-  return bodyParams;
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.DnsIpAddrs !== undefined && {
+      DnsIpAddrs: serializeAws_json1_1DnsIpAddrs(input.DnsIpAddrs, context)
+    }),
+    ...(input.RemoteDomainName !== undefined && {
+      RemoteDomainName: input.RemoteDomainName
+    })
+  };
 };
 
 const serializeAws_json1_1CreateDirectoryRequest = (
   input: CreateDirectoryRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.Password !== undefined) {
-    bodyParams["Password"] = input.Password;
-  }
-  if (input.ShortName !== undefined) {
-    bodyParams["ShortName"] = input.ShortName;
-  }
-  if (input.Size !== undefined) {
-    bodyParams["Size"] = input.Size;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
-  }
-  if (input.VpcSettings !== undefined) {
-    bodyParams["VpcSettings"] = serializeAws_json1_1DirectoryVpcSettings(
-      input.VpcSettings,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Password !== undefined && { Password: input.Password }),
+    ...(input.ShortName !== undefined && { ShortName: input.ShortName }),
+    ...(input.Size !== undefined && { Size: input.Size }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1Tags(input.Tags, context)
+    }),
+    ...(input.VpcSettings !== undefined && {
+      VpcSettings: serializeAws_json1_1DirectoryVpcSettings(
+        input.VpcSettings,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1CreateLogSubscriptionRequest = (
   input: CreateLogSubscriptionRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  if (input.LogGroupName !== undefined) {
-    bodyParams["LogGroupName"] = input.LogGroupName;
-  }
-  return bodyParams;
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.LogGroupName !== undefined && {
+      LogGroupName: input.LogGroupName
+    })
+  };
 };
 
 const serializeAws_json1_1CreateMicrosoftADRequest = (
   input: CreateMicrosoftADRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Edition !== undefined) {
-    bodyParams["Edition"] = input.Edition;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.Password !== undefined) {
-    bodyParams["Password"] = input.Password;
-  }
-  if (input.ShortName !== undefined) {
-    bodyParams["ShortName"] = input.ShortName;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1Tags(input.Tags, context);
-  }
-  if (input.VpcSettings !== undefined) {
-    bodyParams["VpcSettings"] = serializeAws_json1_1DirectoryVpcSettings(
-      input.VpcSettings,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Edition !== undefined && { Edition: input.Edition }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Password !== undefined && { Password: input.Password }),
+    ...(input.ShortName !== undefined && { ShortName: input.ShortName }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1Tags(input.Tags, context)
+    }),
+    ...(input.VpcSettings !== undefined && {
+      VpcSettings: serializeAws_json1_1DirectoryVpcSettings(
+        input.VpcSettings,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1CreateSnapshotRequest = (
   input: CreateSnapshotRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  return bodyParams;
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.Name !== undefined && { Name: input.Name })
+  };
 };
 
 const serializeAws_json1_1CreateTrustRequest = (
   input: CreateTrustRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ConditionalForwarderIpAddrs !== undefined) {
-    bodyParams["ConditionalForwarderIpAddrs"] = serializeAws_json1_1DnsIpAddrs(
-      input.ConditionalForwarderIpAddrs,
-      context
-    );
-  }
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  if (input.RemoteDomainName !== undefined) {
-    bodyParams["RemoteDomainName"] = input.RemoteDomainName;
-  }
-  if (input.SelectiveAuth !== undefined) {
-    bodyParams["SelectiveAuth"] = input.SelectiveAuth;
-  }
-  if (input.TrustDirection !== undefined) {
-    bodyParams["TrustDirection"] = input.TrustDirection;
-  }
-  if (input.TrustPassword !== undefined) {
-    bodyParams["TrustPassword"] = input.TrustPassword;
-  }
-  if (input.TrustType !== undefined) {
-    bodyParams["TrustType"] = input.TrustType;
-  }
-  return bodyParams;
+  return {
+    ...(input.ConditionalForwarderIpAddrs !== undefined && {
+      ConditionalForwarderIpAddrs: serializeAws_json1_1DnsIpAddrs(
+        input.ConditionalForwarderIpAddrs,
+        context
+      )
+    }),
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.RemoteDomainName !== undefined && {
+      RemoteDomainName: input.RemoteDomainName
+    }),
+    ...(input.SelectiveAuth !== undefined && {
+      SelectiveAuth: input.SelectiveAuth
+    }),
+    ...(input.TrustDirection !== undefined && {
+      TrustDirection: input.TrustDirection
+    }),
+    ...(input.TrustPassword !== undefined && {
+      TrustPassword: input.TrustPassword
+    }),
+    ...(input.TrustType !== undefined && { TrustType: input.TrustType })
+  };
 };
 
 const serializeAws_json1_1DeleteConditionalForwarderRequest = (
   input: DeleteConditionalForwarderRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  if (input.RemoteDomainName !== undefined) {
-    bodyParams["RemoteDomainName"] = input.RemoteDomainName;
-  }
-  return bodyParams;
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.RemoteDomainName !== undefined && {
+      RemoteDomainName: input.RemoteDomainName
+    })
+  };
 };
 
 const serializeAws_json1_1DeleteDirectoryRequest = (
   input: DeleteDirectoryRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  return bodyParams;
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId })
+  };
 };
 
 const serializeAws_json1_1DeleteLogSubscriptionRequest = (
   input: DeleteLogSubscriptionRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  return bodyParams;
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId })
+  };
 };
 
 const serializeAws_json1_1DeleteSnapshotRequest = (
   input: DeleteSnapshotRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.SnapshotId !== undefined) {
-    bodyParams["SnapshotId"] = input.SnapshotId;
-  }
-  return bodyParams;
+  return {
+    ...(input.SnapshotId !== undefined && { SnapshotId: input.SnapshotId })
+  };
 };
 
 const serializeAws_json1_1DeleteTrustRequest = (
   input: DeleteTrustRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DeleteAssociatedConditionalForwarder !== undefined) {
-    bodyParams["DeleteAssociatedConditionalForwarder"] =
-      input.DeleteAssociatedConditionalForwarder;
-  }
-  if (input.TrustId !== undefined) {
-    bodyParams["TrustId"] = input.TrustId;
-  }
-  return bodyParams;
+  return {
+    ...(input.DeleteAssociatedConditionalForwarder !== undefined && {
+      DeleteAssociatedConditionalForwarder:
+        input.DeleteAssociatedConditionalForwarder
+    }),
+    ...(input.TrustId !== undefined && { TrustId: input.TrustId })
+  };
 };
 
 const serializeAws_json1_1DeregisterCertificateRequest = (
   input: DeregisterCertificateRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateId !== undefined) {
-    bodyParams["CertificateId"] = input.CertificateId;
-  }
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateId !== undefined && {
+      CertificateId: input.CertificateId
+    }),
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId })
+  };
 };
 
 const serializeAws_json1_1DeregisterEventTopicRequest = (
   input: DeregisterEventTopicRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  if (input.TopicName !== undefined) {
-    bodyParams["TopicName"] = input.TopicName;
-  }
-  return bodyParams;
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.TopicName !== undefined && { TopicName: input.TopicName })
+  };
 };
 
 const serializeAws_json1_1DescribeCertificateRequest = (
   input: DescribeCertificateRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateId !== undefined) {
-    bodyParams["CertificateId"] = input.CertificateId;
-  }
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateId !== undefined && {
+      CertificateId: input.CertificateId
+    }),
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId })
+  };
 };
 
 const serializeAws_json1_1DescribeConditionalForwardersRequest = (
   input: DescribeConditionalForwardersRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  if (input.RemoteDomainNames !== undefined) {
-    bodyParams["RemoteDomainNames"] = serializeAws_json1_1RemoteDomainNames(
-      input.RemoteDomainNames,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.RemoteDomainNames !== undefined && {
+      RemoteDomainNames: serializeAws_json1_1RemoteDomainNames(
+        input.RemoteDomainNames,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeDirectoriesRequest = (
   input: DescribeDirectoriesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DirectoryIds !== undefined) {
-    bodyParams["DirectoryIds"] = serializeAws_json1_1DirectoryIds(
-      input.DirectoryIds,
-      context
-    );
-  }
-  if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.DirectoryIds !== undefined && {
+      DirectoryIds: serializeAws_json1_1DirectoryIds(
+        input.DirectoryIds,
+        context
+      )
+    }),
+    ...(input.Limit !== undefined && { Limit: input.Limit }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1DescribeDomainControllersRequest = (
   input: DescribeDomainControllersRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  if (input.DomainControllerIds !== undefined) {
-    bodyParams["DomainControllerIds"] = serializeAws_json1_1DomainControllerIds(
-      input.DomainControllerIds,
-      context
-    );
-  }
-  if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.DomainControllerIds !== undefined && {
+      DomainControllerIds: serializeAws_json1_1DomainControllerIds(
+        input.DomainControllerIds,
+        context
+      )
+    }),
+    ...(input.Limit !== undefined && { Limit: input.Limit }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1DescribeEventTopicsRequest = (
   input: DescribeEventTopicsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  if (input.TopicNames !== undefined) {
-    bodyParams["TopicNames"] = serializeAws_json1_1TopicNames(
-      input.TopicNames,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.TopicNames !== undefined && {
+      TopicNames: serializeAws_json1_1TopicNames(input.TopicNames, context)
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeLDAPSSettingsRequest = (
   input: DescribeLDAPSSettingsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
-  }
-  return bodyParams;
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.Limit !== undefined && { Limit: input.Limit }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Type !== undefined && { Type: input.Type })
+  };
 };
 
 const serializeAws_json1_1DescribeSharedDirectoriesRequest = (
   input: DescribeSharedDirectoriesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.OwnerDirectoryId !== undefined) {
-    bodyParams["OwnerDirectoryId"] = input.OwnerDirectoryId;
-  }
-  if (input.SharedDirectoryIds !== undefined) {
-    bodyParams["SharedDirectoryIds"] = serializeAws_json1_1DirectoryIds(
-      input.SharedDirectoryIds,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Limit !== undefined && { Limit: input.Limit }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.OwnerDirectoryId !== undefined && {
+      OwnerDirectoryId: input.OwnerDirectoryId
+    }),
+    ...(input.SharedDirectoryIds !== undefined && {
+      SharedDirectoryIds: serializeAws_json1_1DirectoryIds(
+        input.SharedDirectoryIds,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeSnapshotsRequest = (
   input: DescribeSnapshotsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.SnapshotIds !== undefined) {
-    bodyParams["SnapshotIds"] = serializeAws_json1_1SnapshotIds(
-      input.SnapshotIds,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.Limit !== undefined && { Limit: input.Limit }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.SnapshotIds !== undefined && {
+      SnapshotIds: serializeAws_json1_1SnapshotIds(input.SnapshotIds, context)
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeTrustsRequest = (
   input: DescribeTrustsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.TrustIds !== undefined) {
-    bodyParams["TrustIds"] = serializeAws_json1_1TrustIds(
-      input.TrustIds,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.Limit !== undefined && { Limit: input.Limit }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.TrustIds !== undefined && {
+      TrustIds: serializeAws_json1_1TrustIds(input.TrustIds, context)
+    })
+  };
 };
 
 const serializeAws_json1_1DirectoryConnectSettings = (
   input: DirectoryConnectSettings,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CustomerDnsIps !== undefined) {
-    bodyParams["CustomerDnsIps"] = serializeAws_json1_1DnsIpAddrs(
-      input.CustomerDnsIps,
-      context
-    );
-  }
-  if (input.CustomerUserName !== undefined) {
-    bodyParams["CustomerUserName"] = input.CustomerUserName;
-  }
-  if (input.SubnetIds !== undefined) {
-    bodyParams["SubnetIds"] = serializeAws_json1_1SubnetIds(
-      input.SubnetIds,
-      context
-    );
-  }
-  if (input.VpcId !== undefined) {
-    bodyParams["VpcId"] = input.VpcId;
-  }
-  return bodyParams;
+  return {
+    ...(input.CustomerDnsIps !== undefined && {
+      CustomerDnsIps: serializeAws_json1_1DnsIpAddrs(
+        input.CustomerDnsIps,
+        context
+      )
+    }),
+    ...(input.CustomerUserName !== undefined && {
+      CustomerUserName: input.CustomerUserName
+    }),
+    ...(input.SubnetIds !== undefined && {
+      SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context)
+    }),
+    ...(input.VpcId !== undefined && { VpcId: input.VpcId })
+  };
 };
 
 const serializeAws_json1_1DirectoryIds = (
@@ -8639,59 +8501,42 @@ const serializeAws_json1_1DirectoryVpcSettings = (
   input: DirectoryVpcSettings,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.SubnetIds !== undefined) {
-    bodyParams["SubnetIds"] = serializeAws_json1_1SubnetIds(
-      input.SubnetIds,
-      context
-    );
-  }
-  if (input.VpcId !== undefined) {
-    bodyParams["VpcId"] = input.VpcId;
-  }
-  return bodyParams;
+  return {
+    ...(input.SubnetIds !== undefined && {
+      SubnetIds: serializeAws_json1_1SubnetIds(input.SubnetIds, context)
+    }),
+    ...(input.VpcId !== undefined && { VpcId: input.VpcId })
+  };
 };
 
 const serializeAws_json1_1DisableLDAPSRequest = (
   input: DisableLDAPSRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
-  }
-  return bodyParams;
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.Type !== undefined && { Type: input.Type })
+  };
 };
 
 const serializeAws_json1_1DisableRadiusRequest = (
   input: DisableRadiusRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  return bodyParams;
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId })
+  };
 };
 
 const serializeAws_json1_1DisableSsoRequest = (
   input: DisableSsoRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  if (input.Password !== undefined) {
-    bodyParams["Password"] = input.Password;
-  }
-  if (input.UserName !== undefined) {
-    bodyParams["UserName"] = input.UserName;
-  }
-  return bodyParams;
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.Password !== undefined && { Password: input.Password }),
+    ...(input.UserName !== undefined && { UserName: input.UserName })
+  };
 };
 
 const serializeAws_json1_1DnsIpAddrs = (
@@ -8712,81 +8557,62 @@ const serializeAws_json1_1EnableLDAPSRequest = (
   input: EnableLDAPSRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
-  }
-  return bodyParams;
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.Type !== undefined && { Type: input.Type })
+  };
 };
 
 const serializeAws_json1_1EnableRadiusRequest = (
   input: EnableRadiusRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  if (input.RadiusSettings !== undefined) {
-    bodyParams["RadiusSettings"] = serializeAws_json1_1RadiusSettings(
-      input.RadiusSettings,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.RadiusSettings !== undefined && {
+      RadiusSettings: serializeAws_json1_1RadiusSettings(
+        input.RadiusSettings,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1EnableSsoRequest = (
   input: EnableSsoRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  if (input.Password !== undefined) {
-    bodyParams["Password"] = input.Password;
-  }
-  if (input.UserName !== undefined) {
-    bodyParams["UserName"] = input.UserName;
-  }
-  return bodyParams;
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.Password !== undefined && { Password: input.Password }),
+    ...(input.UserName !== undefined && { UserName: input.UserName })
+  };
 };
 
 const serializeAws_json1_1GetDirectoryLimitsRequest = (
   input: GetDirectoryLimitsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  return bodyParams;
+  return {};
 };
 
 const serializeAws_json1_1GetSnapshotLimitsRequest = (
   input: GetSnapshotLimitsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  return bodyParams;
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId })
+  };
 };
 
 const serializeAws_json1_1IpRoute = (
   input: IpRoute,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CidrIp !== undefined) {
-    bodyParams["CidrIp"] = input.CidrIp;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  return bodyParams;
+  return {
+    ...(input.CidrIp !== undefined && { CidrIp: input.CidrIp }),
+    ...(input.Description !== undefined && { Description: input.Description })
+  };
 };
 
 const serializeAws_json1_1IpRoutes = (
@@ -8800,159 +8626,118 @@ const serializeAws_json1_1ListCertificatesRequest = (
   input: ListCertificatesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.Limit !== undefined && { Limit: input.Limit }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1ListIpRoutesRequest = (
   input: ListIpRoutesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.Limit !== undefined && { Limit: input.Limit }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1ListLogSubscriptionsRequest = (
   input: ListLogSubscriptionsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.Limit !== undefined && { Limit: input.Limit }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1ListSchemaExtensionsRequest = (
   input: ListSchemaExtensionsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.Limit !== undefined && { Limit: input.Limit }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1ListTagsForResourceRequest = (
   input: ListTagsForResourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ResourceId !== undefined) {
-    bodyParams["ResourceId"] = input.ResourceId;
-  }
-  return bodyParams;
+  return {
+    ...(input.Limit !== undefined && { Limit: input.Limit }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId })
+  };
 };
 
 const serializeAws_json1_1RadiusSettings = (
   input: RadiusSettings,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AuthenticationProtocol !== undefined) {
-    bodyParams["AuthenticationProtocol"] = input.AuthenticationProtocol;
-  }
-  if (input.DisplayLabel !== undefined) {
-    bodyParams["DisplayLabel"] = input.DisplayLabel;
-  }
-  if (input.RadiusPort !== undefined) {
-    bodyParams["RadiusPort"] = input.RadiusPort;
-  }
-  if (input.RadiusRetries !== undefined) {
-    bodyParams["RadiusRetries"] = input.RadiusRetries;
-  }
-  if (input.RadiusServers !== undefined) {
-    bodyParams["RadiusServers"] = serializeAws_json1_1Servers(
-      input.RadiusServers,
-      context
-    );
-  }
-  if (input.RadiusTimeout !== undefined) {
-    bodyParams["RadiusTimeout"] = input.RadiusTimeout;
-  }
-  if (input.SharedSecret !== undefined) {
-    bodyParams["SharedSecret"] = input.SharedSecret;
-  }
-  if (input.UseSameUsername !== undefined) {
-    bodyParams["UseSameUsername"] = input.UseSameUsername;
-  }
-  return bodyParams;
+  return {
+    ...(input.AuthenticationProtocol !== undefined && {
+      AuthenticationProtocol: input.AuthenticationProtocol
+    }),
+    ...(input.DisplayLabel !== undefined && {
+      DisplayLabel: input.DisplayLabel
+    }),
+    ...(input.RadiusPort !== undefined && { RadiusPort: input.RadiusPort }),
+    ...(input.RadiusRetries !== undefined && {
+      RadiusRetries: input.RadiusRetries
+    }),
+    ...(input.RadiusServers !== undefined && {
+      RadiusServers: serializeAws_json1_1Servers(input.RadiusServers, context)
+    }),
+    ...(input.RadiusTimeout !== undefined && {
+      RadiusTimeout: input.RadiusTimeout
+    }),
+    ...(input.SharedSecret !== undefined && {
+      SharedSecret: input.SharedSecret
+    }),
+    ...(input.UseSameUsername !== undefined && {
+      UseSameUsername: input.UseSameUsername
+    })
+  };
 };
 
 const serializeAws_json1_1RegisterCertificateRequest = (
   input: RegisterCertificateRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CertificateData !== undefined) {
-    bodyParams["CertificateData"] = input.CertificateData;
-  }
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  return bodyParams;
+  return {
+    ...(input.CertificateData !== undefined && {
+      CertificateData: input.CertificateData
+    }),
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId })
+  };
 };
 
 const serializeAws_json1_1RegisterEventTopicRequest = (
   input: RegisterEventTopicRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  if (input.TopicName !== undefined) {
-    bodyParams["TopicName"] = input.TopicName;
-  }
-  return bodyParams;
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.TopicName !== undefined && { TopicName: input.TopicName })
+  };
 };
 
 const serializeAws_json1_1RejectSharedDirectoryRequest = (
   input: RejectSharedDirectoryRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.SharedDirectoryId !== undefined) {
-    bodyParams["SharedDirectoryId"] = input.SharedDirectoryId;
-  }
-  return bodyParams;
+  return {
+    ...(input.SharedDirectoryId !== undefined && {
+      SharedDirectoryId: input.SharedDirectoryId
+    })
+  };
 };
 
 const serializeAws_json1_1RemoteDomainNames = (
@@ -8966,56 +8751,44 @@ const serializeAws_json1_1RemoveIpRoutesRequest = (
   input: RemoveIpRoutesRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CidrIps !== undefined) {
-    bodyParams["CidrIps"] = serializeAws_json1_1CidrIps(input.CidrIps, context);
-  }
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  return bodyParams;
+  return {
+    ...(input.CidrIps !== undefined && {
+      CidrIps: serializeAws_json1_1CidrIps(input.CidrIps, context)
+    }),
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId })
+  };
 };
 
 const serializeAws_json1_1RemoveTagsFromResourceRequest = (
   input: RemoveTagsFromResourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ResourceId !== undefined) {
-    bodyParams["ResourceId"] = input.ResourceId;
-  }
-  if (input.TagKeys !== undefined) {
-    bodyParams["TagKeys"] = serializeAws_json1_1TagKeys(input.TagKeys, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
+    ...(input.TagKeys !== undefined && {
+      TagKeys: serializeAws_json1_1TagKeys(input.TagKeys, context)
+    })
+  };
 };
 
 const serializeAws_json1_1ResetUserPasswordRequest = (
   input: ResetUserPasswordRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  if (input.NewPassword !== undefined) {
-    bodyParams["NewPassword"] = input.NewPassword;
-  }
-  if (input.UserName !== undefined) {
-    bodyParams["UserName"] = input.UserName;
-  }
-  return bodyParams;
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.NewPassword !== undefined && { NewPassword: input.NewPassword }),
+    ...(input.UserName !== undefined && { UserName: input.UserName })
+  };
 };
 
 const serializeAws_json1_1RestoreFromSnapshotRequest = (
   input: RestoreFromSnapshotRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.SnapshotId !== undefined) {
-    bodyParams["SnapshotId"] = input.SnapshotId;
-  }
-  return bodyParams;
+  return {
+    ...(input.SnapshotId !== undefined && { SnapshotId: input.SnapshotId })
+  };
 };
 
 const serializeAws_json1_1Servers = (
@@ -9029,37 +8802,24 @@ const serializeAws_json1_1ShareDirectoryRequest = (
   input: ShareDirectoryRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  if (input.ShareMethod !== undefined) {
-    bodyParams["ShareMethod"] = input.ShareMethod;
-  }
-  if (input.ShareNotes !== undefined) {
-    bodyParams["ShareNotes"] = input.ShareNotes;
-  }
-  if (input.ShareTarget !== undefined) {
-    bodyParams["ShareTarget"] = serializeAws_json1_1ShareTarget(
-      input.ShareTarget,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.ShareMethod !== undefined && { ShareMethod: input.ShareMethod }),
+    ...(input.ShareNotes !== undefined && { ShareNotes: input.ShareNotes }),
+    ...(input.ShareTarget !== undefined && {
+      ShareTarget: serializeAws_json1_1ShareTarget(input.ShareTarget, context)
+    })
+  };
 };
 
 const serializeAws_json1_1ShareTarget = (
   input: ShareTarget,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
-  }
-  if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
-  }
-  return bodyParams;
+  return {
+    ...(input.Id !== undefined && { Id: input.Id }),
+    ...(input.Type !== undefined && { Type: input.Type })
+  };
 };
 
 const serializeAws_json1_1SnapshotIds = (
@@ -9073,21 +8833,15 @@ const serializeAws_json1_1StartSchemaExtensionRequest = (
   input: StartSchemaExtensionRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.CreateSnapshotBeforeSchemaExtension !== undefined) {
-    bodyParams["CreateSnapshotBeforeSchemaExtension"] =
-      input.CreateSnapshotBeforeSchemaExtension;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  if (input.LdifContent !== undefined) {
-    bodyParams["LdifContent"] = input.LdifContent;
-  }
-  return bodyParams;
+  return {
+    ...(input.CreateSnapshotBeforeSchemaExtension !== undefined && {
+      CreateSnapshotBeforeSchemaExtension:
+        input.CreateSnapshotBeforeSchemaExtension
+    }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.LdifContent !== undefined && { LdifContent: input.LdifContent })
+  };
 };
 
 const serializeAws_json1_1SubnetIds = (
@@ -9098,14 +8852,10 @@ const serializeAws_json1_1SubnetIds = (
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_json1_1TagKeys = (
@@ -9140,107 +8890,88 @@ const serializeAws_json1_1UnshareDirectoryRequest = (
   input: UnshareDirectoryRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  if (input.UnshareTarget !== undefined) {
-    bodyParams["UnshareTarget"] = serializeAws_json1_1UnshareTarget(
-      input.UnshareTarget,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.UnshareTarget !== undefined && {
+      UnshareTarget: serializeAws_json1_1UnshareTarget(
+        input.UnshareTarget,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1UnshareTarget = (
   input: UnshareTarget,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
-  }
-  if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
-  }
-  return bodyParams;
+  return {
+    ...(input.Id !== undefined && { Id: input.Id }),
+    ...(input.Type !== undefined && { Type: input.Type })
+  };
 };
 
 const serializeAws_json1_1UpdateConditionalForwarderRequest = (
   input: UpdateConditionalForwarderRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  if (input.DnsIpAddrs !== undefined) {
-    bodyParams["DnsIpAddrs"] = serializeAws_json1_1DnsIpAddrs(
-      input.DnsIpAddrs,
-      context
-    );
-  }
-  if (input.RemoteDomainName !== undefined) {
-    bodyParams["RemoteDomainName"] = input.RemoteDomainName;
-  }
-  return bodyParams;
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.DnsIpAddrs !== undefined && {
+      DnsIpAddrs: serializeAws_json1_1DnsIpAddrs(input.DnsIpAddrs, context)
+    }),
+    ...(input.RemoteDomainName !== undefined && {
+      RemoteDomainName: input.RemoteDomainName
+    })
+  };
 };
 
 const serializeAws_json1_1UpdateNumberOfDomainControllersRequest = (
   input: UpdateNumberOfDomainControllersRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DesiredNumber !== undefined) {
-    bodyParams["DesiredNumber"] = input.DesiredNumber;
-  }
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  return bodyParams;
+  return {
+    ...(input.DesiredNumber !== undefined && {
+      DesiredNumber: input.DesiredNumber
+    }),
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId })
+  };
 };
 
 const serializeAws_json1_1UpdateRadiusRequest = (
   input: UpdateRadiusRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DirectoryId !== undefined) {
-    bodyParams["DirectoryId"] = input.DirectoryId;
-  }
-  if (input.RadiusSettings !== undefined) {
-    bodyParams["RadiusSettings"] = serializeAws_json1_1RadiusSettings(
-      input.RadiusSettings,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.DirectoryId !== undefined && { DirectoryId: input.DirectoryId }),
+    ...(input.RadiusSettings !== undefined && {
+      RadiusSettings: serializeAws_json1_1RadiusSettings(
+        input.RadiusSettings,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1UpdateTrustRequest = (
   input: UpdateTrustRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.SelectiveAuth !== undefined) {
-    bodyParams["SelectiveAuth"] = input.SelectiveAuth;
-  }
-  if (input.TrustId !== undefined) {
-    bodyParams["TrustId"] = input.TrustId;
-  }
-  return bodyParams;
+  return {
+    ...(input.SelectiveAuth !== undefined && {
+      SelectiveAuth: input.SelectiveAuth
+    }),
+    ...(input.TrustId !== undefined && { TrustId: input.TrustId })
+  };
 };
 
 const serializeAws_json1_1VerifyTrustRequest = (
   input: VerifyTrustRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.TrustId !== undefined) {
-    bodyParams["TrustId"] = input.TrustId;
-  }
-  return bodyParams;
+  return {
+    ...(input.TrustId !== undefined && { TrustId: input.TrustId })
+  };
 };
 
 const deserializeAws_json1_1AcceptSharedDirectoryResult = (

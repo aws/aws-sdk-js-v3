@@ -131,20 +131,16 @@ const serializeAws_restJson1_1Event = (
   input: Event,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.eventId !== undefined) {
-    bodyParams["eventId"] = input.eventId;
-  }
-  if (input.eventType !== undefined) {
-    bodyParams["eventType"] = input.eventType;
-  }
-  if (input.properties !== undefined) {
-    bodyParams["properties"] = __LazyJsonString.fromObject(input.properties);
-  }
-  if (input.sentAt !== undefined) {
-    bodyParams["sentAt"] = Math.round(input.sentAt.getTime() / 1000);
-  }
-  return bodyParams;
+  return {
+    ...(input.eventId !== undefined && { eventId: input.eventId }),
+    ...(input.eventType !== undefined && { eventType: input.eventType }),
+    ...(input.properties !== undefined && {
+      properties: __LazyJsonString.fromObject(input.properties)
+    }),
+    ...(input.sentAt !== undefined && {
+      sentAt: Math.round(input.sentAt.getTime() / 1000)
+    })
+  };
 };
 
 const serializeAws_restJson1_1EventList = (

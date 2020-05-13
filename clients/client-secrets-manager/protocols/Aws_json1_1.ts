@@ -2383,267 +2383,214 @@ const serializeAws_json1_1CancelRotateSecretRequest = (
   input: CancelRotateSecretRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.SecretId !== undefined) {
-    bodyParams["SecretId"] = input.SecretId;
-  }
-  return bodyParams;
+  return {
+    ...(input.SecretId !== undefined && { SecretId: input.SecretId })
+  };
 };
 
 const serializeAws_json1_1CreateSecretRequest = (
   input: CreateSecretRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ClientRequestToken === undefined) {
-    input.ClientRequestToken = generateIdempotencyToken();
-  }
-  if (input.ClientRequestToken !== undefined) {
-    bodyParams["ClientRequestToken"] = input.ClientRequestToken;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.KmsKeyId !== undefined) {
-    bodyParams["KmsKeyId"] = input.KmsKeyId;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.SecretBinary !== undefined) {
-    bodyParams["SecretBinary"] = context.base64Encoder(input.SecretBinary);
-  }
-  if (input.SecretString !== undefined) {
-    bodyParams["SecretString"] = input.SecretString;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1TagListType(input.Tags, context);
-  }
-  return bodyParams;
+  return {
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.KmsKeyId !== undefined && { KmsKeyId: input.KmsKeyId }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.SecretBinary !== undefined && {
+      SecretBinary: context.base64Encoder(input.SecretBinary)
+    }),
+    ...(input.SecretString !== undefined && {
+      SecretString: input.SecretString
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1TagListType(input.Tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_1DeleteResourcePolicyRequest = (
   input: DeleteResourcePolicyRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.SecretId !== undefined) {
-    bodyParams["SecretId"] = input.SecretId;
-  }
-  return bodyParams;
+  return {
+    ...(input.SecretId !== undefined && { SecretId: input.SecretId })
+  };
 };
 
 const serializeAws_json1_1DeleteSecretRequest = (
   input: DeleteSecretRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ForceDeleteWithoutRecovery !== undefined) {
-    bodyParams["ForceDeleteWithoutRecovery"] = input.ForceDeleteWithoutRecovery;
-  }
-  if (input.RecoveryWindowInDays !== undefined) {
-    bodyParams["RecoveryWindowInDays"] = input.RecoveryWindowInDays;
-  }
-  if (input.SecretId !== undefined) {
-    bodyParams["SecretId"] = input.SecretId;
-  }
-  return bodyParams;
+  return {
+    ...(input.ForceDeleteWithoutRecovery !== undefined && {
+      ForceDeleteWithoutRecovery: input.ForceDeleteWithoutRecovery
+    }),
+    ...(input.RecoveryWindowInDays !== undefined && {
+      RecoveryWindowInDays: input.RecoveryWindowInDays
+    }),
+    ...(input.SecretId !== undefined && { SecretId: input.SecretId })
+  };
 };
 
 const serializeAws_json1_1DescribeSecretRequest = (
   input: DescribeSecretRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.SecretId !== undefined) {
-    bodyParams["SecretId"] = input.SecretId;
-  }
-  return bodyParams;
+  return {
+    ...(input.SecretId !== undefined && { SecretId: input.SecretId })
+  };
 };
 
 const serializeAws_json1_1GetRandomPasswordRequest = (
   input: GetRandomPasswordRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ExcludeCharacters !== undefined) {
-    bodyParams["ExcludeCharacters"] = input.ExcludeCharacters;
-  }
-  if (input.ExcludeLowercase !== undefined) {
-    bodyParams["ExcludeLowercase"] = input.ExcludeLowercase;
-  }
-  if (input.ExcludeNumbers !== undefined) {
-    bodyParams["ExcludeNumbers"] = input.ExcludeNumbers;
-  }
-  if (input.ExcludePunctuation !== undefined) {
-    bodyParams["ExcludePunctuation"] = input.ExcludePunctuation;
-  }
-  if (input.ExcludeUppercase !== undefined) {
-    bodyParams["ExcludeUppercase"] = input.ExcludeUppercase;
-  }
-  if (input.IncludeSpace !== undefined) {
-    bodyParams["IncludeSpace"] = input.IncludeSpace;
-  }
-  if (input.PasswordLength !== undefined) {
-    bodyParams["PasswordLength"] = input.PasswordLength;
-  }
-  if (input.RequireEachIncludedType !== undefined) {
-    bodyParams["RequireEachIncludedType"] = input.RequireEachIncludedType;
-  }
-  return bodyParams;
+  return {
+    ...(input.ExcludeCharacters !== undefined && {
+      ExcludeCharacters: input.ExcludeCharacters
+    }),
+    ...(input.ExcludeLowercase !== undefined && {
+      ExcludeLowercase: input.ExcludeLowercase
+    }),
+    ...(input.ExcludeNumbers !== undefined && {
+      ExcludeNumbers: input.ExcludeNumbers
+    }),
+    ...(input.ExcludePunctuation !== undefined && {
+      ExcludePunctuation: input.ExcludePunctuation
+    }),
+    ...(input.ExcludeUppercase !== undefined && {
+      ExcludeUppercase: input.ExcludeUppercase
+    }),
+    ...(input.IncludeSpace !== undefined && {
+      IncludeSpace: input.IncludeSpace
+    }),
+    ...(input.PasswordLength !== undefined && {
+      PasswordLength: input.PasswordLength
+    }),
+    ...(input.RequireEachIncludedType !== undefined && {
+      RequireEachIncludedType: input.RequireEachIncludedType
+    })
+  };
 };
 
 const serializeAws_json1_1GetResourcePolicyRequest = (
   input: GetResourcePolicyRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.SecretId !== undefined) {
-    bodyParams["SecretId"] = input.SecretId;
-  }
-  return bodyParams;
+  return {
+    ...(input.SecretId !== undefined && { SecretId: input.SecretId })
+  };
 };
 
 const serializeAws_json1_1GetSecretValueRequest = (
   input: GetSecretValueRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.SecretId !== undefined) {
-    bodyParams["SecretId"] = input.SecretId;
-  }
-  if (input.VersionId !== undefined) {
-    bodyParams["VersionId"] = input.VersionId;
-  }
-  if (input.VersionStage !== undefined) {
-    bodyParams["VersionStage"] = input.VersionStage;
-  }
-  return bodyParams;
+  return {
+    ...(input.SecretId !== undefined && { SecretId: input.SecretId }),
+    ...(input.VersionId !== undefined && { VersionId: input.VersionId }),
+    ...(input.VersionStage !== undefined && {
+      VersionStage: input.VersionStage
+    })
+  };
 };
 
 const serializeAws_json1_1ListSecretVersionIdsRequest = (
   input: ListSecretVersionIdsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.IncludeDeprecated !== undefined) {
-    bodyParams["IncludeDeprecated"] = input.IncludeDeprecated;
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.SecretId !== undefined) {
-    bodyParams["SecretId"] = input.SecretId;
-  }
-  return bodyParams;
+  return {
+    ...(input.IncludeDeprecated !== undefined && {
+      IncludeDeprecated: input.IncludeDeprecated
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.SecretId !== undefined && { SecretId: input.SecretId })
+  };
 };
 
 const serializeAws_json1_1ListSecretsRequest = (
   input: ListSecretsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  };
 };
 
 const serializeAws_json1_1PutResourcePolicyRequest = (
   input: PutResourcePolicyRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ResourcePolicy !== undefined) {
-    bodyParams["ResourcePolicy"] = input.ResourcePolicy;
-  }
-  if (input.SecretId !== undefined) {
-    bodyParams["SecretId"] = input.SecretId;
-  }
-  return bodyParams;
+  return {
+    ...(input.ResourcePolicy !== undefined && {
+      ResourcePolicy: input.ResourcePolicy
+    }),
+    ...(input.SecretId !== undefined && { SecretId: input.SecretId })
+  };
 };
 
 const serializeAws_json1_1PutSecretValueRequest = (
   input: PutSecretValueRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ClientRequestToken === undefined) {
-    input.ClientRequestToken = generateIdempotencyToken();
-  }
-  if (input.ClientRequestToken !== undefined) {
-    bodyParams["ClientRequestToken"] = input.ClientRequestToken;
-  }
-  if (input.SecretBinary !== undefined) {
-    bodyParams["SecretBinary"] = context.base64Encoder(input.SecretBinary);
-  }
-  if (input.SecretId !== undefined) {
-    bodyParams["SecretId"] = input.SecretId;
-  }
-  if (input.SecretString !== undefined) {
-    bodyParams["SecretString"] = input.SecretString;
-  }
-  if (input.VersionStages !== undefined) {
-    bodyParams["VersionStages"] = serializeAws_json1_1SecretVersionStagesType(
-      input.VersionStages,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.SecretBinary !== undefined && {
+      SecretBinary: context.base64Encoder(input.SecretBinary)
+    }),
+    ...(input.SecretId !== undefined && { SecretId: input.SecretId }),
+    ...(input.SecretString !== undefined && {
+      SecretString: input.SecretString
+    }),
+    ...(input.VersionStages !== undefined && {
+      VersionStages: serializeAws_json1_1SecretVersionStagesType(
+        input.VersionStages,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1RestoreSecretRequest = (
   input: RestoreSecretRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.SecretId !== undefined) {
-    bodyParams["SecretId"] = input.SecretId;
-  }
-  return bodyParams;
+  return {
+    ...(input.SecretId !== undefined && { SecretId: input.SecretId })
+  };
 };
 
 const serializeAws_json1_1RotateSecretRequest = (
   input: RotateSecretRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ClientRequestToken === undefined) {
-    input.ClientRequestToken = generateIdempotencyToken();
-  }
-  if (input.ClientRequestToken !== undefined) {
-    bodyParams["ClientRequestToken"] = input.ClientRequestToken;
-  }
-  if (input.RotationLambdaARN !== undefined) {
-    bodyParams["RotationLambdaARN"] = input.RotationLambdaARN;
-  }
-  if (input.RotationRules !== undefined) {
-    bodyParams["RotationRules"] = serializeAws_json1_1RotationRulesType(
-      input.RotationRules,
-      context
-    );
-  }
-  if (input.SecretId !== undefined) {
-    bodyParams["SecretId"] = input.SecretId;
-  }
-  return bodyParams;
+  return {
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.RotationLambdaARN !== undefined && {
+      RotationLambdaARN: input.RotationLambdaARN
+    }),
+    ...(input.RotationRules !== undefined && {
+      RotationRules: serializeAws_json1_1RotationRulesType(
+        input.RotationRules,
+        context
+      )
+    }),
+    ...(input.SecretId !== undefined && { SecretId: input.SecretId })
+  };
 };
 
 const serializeAws_json1_1RotationRulesType = (
   input: RotationRulesType,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AutomaticallyAfterDays !== undefined) {
-    bodyParams["AutomaticallyAfterDays"] = input.AutomaticallyAfterDays;
-  }
-  return bodyParams;
+  return {
+    ...(input.AutomaticallyAfterDays !== undefined && {
+      AutomaticallyAfterDays: input.AutomaticallyAfterDays
+    })
+  };
 };
 
 const serializeAws_json1_1SecretVersionStagesType = (
@@ -2654,14 +2601,10 @@ const serializeAws_json1_1SecretVersionStagesType = (
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_json1_1TagKeyListType = (
@@ -2682,80 +2625,60 @@ const serializeAws_json1_1TagResourceRequest = (
   input: TagResourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.SecretId !== undefined) {
-    bodyParams["SecretId"] = input.SecretId;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1TagListType(input.Tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.SecretId !== undefined && { SecretId: input.SecretId }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1TagListType(input.Tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_1UntagResourceRequest = (
   input: UntagResourceRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.SecretId !== undefined) {
-    bodyParams["SecretId"] = input.SecretId;
-  }
-  if (input.TagKeys !== undefined) {
-    bodyParams["TagKeys"] = serializeAws_json1_1TagKeyListType(
-      input.TagKeys,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.SecretId !== undefined && { SecretId: input.SecretId }),
+    ...(input.TagKeys !== undefined && {
+      TagKeys: serializeAws_json1_1TagKeyListType(input.TagKeys, context)
+    })
+  };
 };
 
 const serializeAws_json1_1UpdateSecretRequest = (
   input: UpdateSecretRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ClientRequestToken === undefined) {
-    input.ClientRequestToken = generateIdempotencyToken();
-  }
-  if (input.ClientRequestToken !== undefined) {
-    bodyParams["ClientRequestToken"] = input.ClientRequestToken;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.KmsKeyId !== undefined) {
-    bodyParams["KmsKeyId"] = input.KmsKeyId;
-  }
-  if (input.SecretBinary !== undefined) {
-    bodyParams["SecretBinary"] = context.base64Encoder(input.SecretBinary);
-  }
-  if (input.SecretId !== undefined) {
-    bodyParams["SecretId"] = input.SecretId;
-  }
-  if (input.SecretString !== undefined) {
-    bodyParams["SecretString"] = input.SecretString;
-  }
-  return bodyParams;
+  return {
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.KmsKeyId !== undefined && { KmsKeyId: input.KmsKeyId }),
+    ...(input.SecretBinary !== undefined && {
+      SecretBinary: context.base64Encoder(input.SecretBinary)
+    }),
+    ...(input.SecretId !== undefined && { SecretId: input.SecretId }),
+    ...(input.SecretString !== undefined && {
+      SecretString: input.SecretString
+    })
+  };
 };
 
 const serializeAws_json1_1UpdateSecretVersionStageRequest = (
   input: UpdateSecretVersionStageRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MoveToVersionId !== undefined) {
-    bodyParams["MoveToVersionId"] = input.MoveToVersionId;
-  }
-  if (input.RemoveFromVersionId !== undefined) {
-    bodyParams["RemoveFromVersionId"] = input.RemoveFromVersionId;
-  }
-  if (input.SecretId !== undefined) {
-    bodyParams["SecretId"] = input.SecretId;
-  }
-  if (input.VersionStage !== undefined) {
-    bodyParams["VersionStage"] = input.VersionStage;
-  }
-  return bodyParams;
+  return {
+    ...(input.MoveToVersionId !== undefined && {
+      MoveToVersionId: input.MoveToVersionId
+    }),
+    ...(input.RemoveFromVersionId !== undefined && {
+      RemoveFromVersionId: input.RemoveFromVersionId
+    }),
+    ...(input.SecretId !== undefined && { SecretId: input.SecretId }),
+    ...(input.VersionStage !== undefined && {
+      VersionStage: input.VersionStage
+    })
+  };
 };
 
 const deserializeAws_json1_1CancelRotateSecretResponse = (

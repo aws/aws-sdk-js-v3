@@ -1137,51 +1137,35 @@ const serializeAws_restJson1_1Change = (
   input: Change,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ChangeType !== undefined) {
-    bodyParams["ChangeType"] = input.ChangeType;
-  }
-  if (input.Details !== undefined) {
-    bodyParams["Details"] = input.Details;
-  }
-  if (input.Entity !== undefined) {
-    bodyParams["Entity"] = serializeAws_restJson1_1Entity(
-      input.Entity,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.ChangeType !== undefined && { ChangeType: input.ChangeType }),
+    ...(input.Details !== undefined && { Details: input.Details }),
+    ...(input.Entity !== undefined && {
+      Entity: serializeAws_restJson1_1Entity(input.Entity, context)
+    })
+  };
 };
 
 const serializeAws_restJson1_1Entity = (
   input: Entity,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Identifier !== undefined) {
-    bodyParams["Identifier"] = input.Identifier;
-  }
-  if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
-  }
-  return bodyParams;
+  return {
+    ...(input.Identifier !== undefined && { Identifier: input.Identifier }),
+    ...(input.Type !== undefined && { Type: input.Type })
+  };
 };
 
 const serializeAws_restJson1_1Filter = (
   input: Filter,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.ValueList !== undefined) {
-    bodyParams["ValueList"] = serializeAws_restJson1_1ValueList(
-      input.ValueList,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.ValueList !== undefined && {
+      ValueList: serializeAws_restJson1_1ValueList(input.ValueList, context)
+    })
+  };
 };
 
 const serializeAws_restJson1_1FilterList = (
@@ -1202,14 +1186,10 @@ const serializeAws_restJson1_1Sort = (
   input: Sort,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.SortBy !== undefined) {
-    bodyParams["SortBy"] = input.SortBy;
-  }
-  if (input.SortOrder !== undefined) {
-    bodyParams["SortOrder"] = input.SortOrder;
-  }
-  return bodyParams;
+  return {
+    ...(input.SortBy !== undefined && { SortBy: input.SortBy }),
+    ...(input.SortOrder !== undefined && { SortOrder: input.SortOrder })
+  };
 };
 
 const serializeAws_restJson1_1ValueList = (

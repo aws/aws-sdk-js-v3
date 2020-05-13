@@ -1972,25 +1972,21 @@ const serializeAws_restJson1_1ArrayProperties = (
   input: ArrayProperties,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.size !== undefined) {
-    bodyParams["size"] = input.size;
-  }
-  return bodyParams;
+  return {
+    ...(input.size !== undefined && { size: input.size })
+  };
 };
 
 const serializeAws_restJson1_1ComputeEnvironmentOrder = (
   input: ComputeEnvironmentOrder,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.computeEnvironment !== undefined) {
-    bodyParams["computeEnvironment"] = input.computeEnvironment;
-  }
-  if (input.order !== undefined) {
-    bodyParams["order"] = input.order;
-  }
-  return bodyParams;
+  return {
+    ...(input.computeEnvironment !== undefined && {
+      computeEnvironment: input.computeEnvironment
+    }),
+    ...(input.order !== undefined && { order: input.order })
+  };
 };
 
 const serializeAws_restJson1_1ComputeEnvironmentOrders = (
@@ -2006,220 +2002,167 @@ const serializeAws_restJson1_1ComputeResource = (
   input: ComputeResource,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.allocationStrategy !== undefined) {
-    bodyParams["allocationStrategy"] = input.allocationStrategy;
-  }
-  if (input.bidPercentage !== undefined) {
-    bodyParams["bidPercentage"] = input.bidPercentage;
-  }
-  if (input.desiredvCpus !== undefined) {
-    bodyParams["desiredvCpus"] = input.desiredvCpus;
-  }
-  if (input.ec2KeyPair !== undefined) {
-    bodyParams["ec2KeyPair"] = input.ec2KeyPair;
-  }
-  if (input.imageId !== undefined) {
-    bodyParams["imageId"] = input.imageId;
-  }
-  if (input.instanceRole !== undefined) {
-    bodyParams["instanceRole"] = input.instanceRole;
-  }
-  if (input.instanceTypes !== undefined) {
-    bodyParams["instanceTypes"] = serializeAws_restJson1_1StringList(
-      input.instanceTypes,
-      context
-    );
-  }
-  if (input.launchTemplate !== undefined) {
-    bodyParams[
-      "launchTemplate"
-    ] = serializeAws_restJson1_1LaunchTemplateSpecification(
-      input.launchTemplate,
-      context
-    );
-  }
-  if (input.maxvCpus !== undefined) {
-    bodyParams["maxvCpus"] = input.maxvCpus;
-  }
-  if (input.minvCpus !== undefined) {
-    bodyParams["minvCpus"] = input.minvCpus;
-  }
-  if (input.placementGroup !== undefined) {
-    bodyParams["placementGroup"] = input.placementGroup;
-  }
-  if (input.securityGroupIds !== undefined) {
-    bodyParams["securityGroupIds"] = serializeAws_restJson1_1StringList(
-      input.securityGroupIds,
-      context
-    );
-  }
-  if (input.spotIamFleetRole !== undefined) {
-    bodyParams["spotIamFleetRole"] = input.spotIamFleetRole;
-  }
-  if (input.subnets !== undefined) {
-    bodyParams["subnets"] = serializeAws_restJson1_1StringList(
-      input.subnets,
-      context
-    );
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagsMap(input.tags, context);
-  }
-  if (input.type !== undefined) {
-    bodyParams["type"] = input.type;
-  }
-  return bodyParams;
+  return {
+    ...(input.allocationStrategy !== undefined && {
+      allocationStrategy: input.allocationStrategy
+    }),
+    ...(input.bidPercentage !== undefined && {
+      bidPercentage: input.bidPercentage
+    }),
+    ...(input.desiredvCpus !== undefined && {
+      desiredvCpus: input.desiredvCpus
+    }),
+    ...(input.ec2KeyPair !== undefined && { ec2KeyPair: input.ec2KeyPair }),
+    ...(input.imageId !== undefined && { imageId: input.imageId }),
+    ...(input.instanceRole !== undefined && {
+      instanceRole: input.instanceRole
+    }),
+    ...(input.instanceTypes !== undefined && {
+      instanceTypes: serializeAws_restJson1_1StringList(
+        input.instanceTypes,
+        context
+      )
+    }),
+    ...(input.launchTemplate !== undefined && {
+      launchTemplate: serializeAws_restJson1_1LaunchTemplateSpecification(
+        input.launchTemplate,
+        context
+      )
+    }),
+    ...(input.maxvCpus !== undefined && { maxvCpus: input.maxvCpus }),
+    ...(input.minvCpus !== undefined && { minvCpus: input.minvCpus }),
+    ...(input.placementGroup !== undefined && {
+      placementGroup: input.placementGroup
+    }),
+    ...(input.securityGroupIds !== undefined && {
+      securityGroupIds: serializeAws_restJson1_1StringList(
+        input.securityGroupIds,
+        context
+      )
+    }),
+    ...(input.spotIamFleetRole !== undefined && {
+      spotIamFleetRole: input.spotIamFleetRole
+    }),
+    ...(input.subnets !== undefined && {
+      subnets: serializeAws_restJson1_1StringList(input.subnets, context)
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagsMap(input.tags, context)
+    }),
+    ...(input.type !== undefined && { type: input.type })
+  };
 };
 
 const serializeAws_restJson1_1ComputeResourceUpdate = (
   input: ComputeResourceUpdate,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.desiredvCpus !== undefined) {
-    bodyParams["desiredvCpus"] = input.desiredvCpus;
-  }
-  if (input.maxvCpus !== undefined) {
-    bodyParams["maxvCpus"] = input.maxvCpus;
-  }
-  if (input.minvCpus !== undefined) {
-    bodyParams["minvCpus"] = input.minvCpus;
-  }
-  return bodyParams;
+  return {
+    ...(input.desiredvCpus !== undefined && {
+      desiredvCpus: input.desiredvCpus
+    }),
+    ...(input.maxvCpus !== undefined && { maxvCpus: input.maxvCpus }),
+    ...(input.minvCpus !== undefined && { minvCpus: input.minvCpus })
+  };
 };
 
 const serializeAws_restJson1_1ContainerOverrides = (
   input: ContainerOverrides,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.command !== undefined) {
-    bodyParams["command"] = serializeAws_restJson1_1StringList(
-      input.command,
-      context
-    );
-  }
-  if (input.environment !== undefined) {
-    bodyParams["environment"] = serializeAws_restJson1_1EnvironmentVariables(
-      input.environment,
-      context
-    );
-  }
-  if (input.instanceType !== undefined) {
-    bodyParams["instanceType"] = input.instanceType;
-  }
-  if (input.memory !== undefined) {
-    bodyParams["memory"] = input.memory;
-  }
-  if (input.resourceRequirements !== undefined) {
-    bodyParams[
-      "resourceRequirements"
-    ] = serializeAws_restJson1_1ResourceRequirements(
-      input.resourceRequirements,
-      context
-    );
-  }
-  if (input.vcpus !== undefined) {
-    bodyParams["vcpus"] = input.vcpus;
-  }
-  return bodyParams;
+  return {
+    ...(input.command !== undefined && {
+      command: serializeAws_restJson1_1StringList(input.command, context)
+    }),
+    ...(input.environment !== undefined && {
+      environment: serializeAws_restJson1_1EnvironmentVariables(
+        input.environment,
+        context
+      )
+    }),
+    ...(input.instanceType !== undefined && {
+      instanceType: input.instanceType
+    }),
+    ...(input.memory !== undefined && { memory: input.memory }),
+    ...(input.resourceRequirements !== undefined && {
+      resourceRequirements: serializeAws_restJson1_1ResourceRequirements(
+        input.resourceRequirements,
+        context
+      )
+    }),
+    ...(input.vcpus !== undefined && { vcpus: input.vcpus })
+  };
 };
 
 const serializeAws_restJson1_1ContainerProperties = (
   input: ContainerProperties,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.command !== undefined) {
-    bodyParams["command"] = serializeAws_restJson1_1StringList(
-      input.command,
-      context
-    );
-  }
-  if (input.environment !== undefined) {
-    bodyParams["environment"] = serializeAws_restJson1_1EnvironmentVariables(
-      input.environment,
-      context
-    );
-  }
-  if (input.image !== undefined) {
-    bodyParams["image"] = input.image;
-  }
-  if (input.instanceType !== undefined) {
-    bodyParams["instanceType"] = input.instanceType;
-  }
-  if (input.jobRoleArn !== undefined) {
-    bodyParams["jobRoleArn"] = input.jobRoleArn;
-  }
-  if (input.linuxParameters !== undefined) {
-    bodyParams["linuxParameters"] = serializeAws_restJson1_1LinuxParameters(
-      input.linuxParameters,
-      context
-    );
-  }
-  if (input.memory !== undefined) {
-    bodyParams["memory"] = input.memory;
-  }
-  if (input.mountPoints !== undefined) {
-    bodyParams["mountPoints"] = serializeAws_restJson1_1MountPoints(
-      input.mountPoints,
-      context
-    );
-  }
-  if (input.privileged !== undefined) {
-    bodyParams["privileged"] = input.privileged;
-  }
-  if (input.readonlyRootFilesystem !== undefined) {
-    bodyParams["readonlyRootFilesystem"] = input.readonlyRootFilesystem;
-  }
-  if (input.resourceRequirements !== undefined) {
-    bodyParams[
-      "resourceRequirements"
-    ] = serializeAws_restJson1_1ResourceRequirements(
-      input.resourceRequirements,
-      context
-    );
-  }
-  if (input.ulimits !== undefined) {
-    bodyParams["ulimits"] = serializeAws_restJson1_1Ulimits(
-      input.ulimits,
-      context
-    );
-  }
-  if (input.user !== undefined) {
-    bodyParams["user"] = input.user;
-  }
-  if (input.vcpus !== undefined) {
-    bodyParams["vcpus"] = input.vcpus;
-  }
-  if (input.volumes !== undefined) {
-    bodyParams["volumes"] = serializeAws_restJson1_1Volumes(
-      input.volumes,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.command !== undefined && {
+      command: serializeAws_restJson1_1StringList(input.command, context)
+    }),
+    ...(input.environment !== undefined && {
+      environment: serializeAws_restJson1_1EnvironmentVariables(
+        input.environment,
+        context
+      )
+    }),
+    ...(input.image !== undefined && { image: input.image }),
+    ...(input.instanceType !== undefined && {
+      instanceType: input.instanceType
+    }),
+    ...(input.jobRoleArn !== undefined && { jobRoleArn: input.jobRoleArn }),
+    ...(input.linuxParameters !== undefined && {
+      linuxParameters: serializeAws_restJson1_1LinuxParameters(
+        input.linuxParameters,
+        context
+      )
+    }),
+    ...(input.memory !== undefined && { memory: input.memory }),
+    ...(input.mountPoints !== undefined && {
+      mountPoints: serializeAws_restJson1_1MountPoints(
+        input.mountPoints,
+        context
+      )
+    }),
+    ...(input.privileged !== undefined && { privileged: input.privileged }),
+    ...(input.readonlyRootFilesystem !== undefined && {
+      readonlyRootFilesystem: input.readonlyRootFilesystem
+    }),
+    ...(input.resourceRequirements !== undefined && {
+      resourceRequirements: serializeAws_restJson1_1ResourceRequirements(
+        input.resourceRequirements,
+        context
+      )
+    }),
+    ...(input.ulimits !== undefined && {
+      ulimits: serializeAws_restJson1_1Ulimits(input.ulimits, context)
+    }),
+    ...(input.user !== undefined && { user: input.user }),
+    ...(input.vcpus !== undefined && { vcpus: input.vcpus }),
+    ...(input.volumes !== undefined && {
+      volumes: serializeAws_restJson1_1Volumes(input.volumes, context)
+    })
+  };
 };
 
 const serializeAws_restJson1_1Device = (
   input: Device,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.containerPath !== undefined) {
-    bodyParams["containerPath"] = input.containerPath;
-  }
-  if (input.hostPath !== undefined) {
-    bodyParams["hostPath"] = input.hostPath;
-  }
-  if (input.permissions !== undefined) {
-    bodyParams["permissions"] = serializeAws_restJson1_1DeviceCgroupPermissions(
-      input.permissions,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.containerPath !== undefined && {
+      containerPath: input.containerPath
+    }),
+    ...(input.hostPath !== undefined && { hostPath: input.hostPath }),
+    ...(input.permissions !== undefined && {
+      permissions: serializeAws_restJson1_1DeviceCgroupPermissions(
+        input.permissions,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1DeviceCgroupPermissions = (
@@ -2249,25 +2192,19 @@ const serializeAws_restJson1_1Host = (
   input: Host,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.sourcePath !== undefined) {
-    bodyParams["sourcePath"] = input.sourcePath;
-  }
-  return bodyParams;
+  return {
+    ...(input.sourcePath !== undefined && { sourcePath: input.sourcePath })
+  };
 };
 
 const serializeAws_restJson1_1JobDependency = (
   input: JobDependency,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.jobId !== undefined) {
-    bodyParams["jobId"] = input.jobId;
-  }
-  if (input.type !== undefined) {
-    bodyParams["type"] = input.type;
-  }
-  return bodyParams;
+  return {
+    ...(input.jobId !== undefined && { jobId: input.jobId }),
+    ...(input.type !== undefined && { type: input.type })
+  };
 };
 
 const serializeAws_restJson1_1JobDependencyList = (
@@ -2283,73 +2220,62 @@ const serializeAws_restJson1_1JobTimeout = (
   input: JobTimeout,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.attemptDurationSeconds !== undefined) {
-    bodyParams["attemptDurationSeconds"] = input.attemptDurationSeconds;
-  }
-  return bodyParams;
+  return {
+    ...(input.attemptDurationSeconds !== undefined && {
+      attemptDurationSeconds: input.attemptDurationSeconds
+    })
+  };
 };
 
 const serializeAws_restJson1_1KeyValuePair = (
   input: KeyValuePair,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.value !== undefined) {
-    bodyParams["value"] = input.value;
-  }
-  return bodyParams;
+  return {
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.value !== undefined && { value: input.value })
+  };
 };
 
 const serializeAws_restJson1_1LaunchTemplateSpecification = (
   input: LaunchTemplateSpecification,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.launchTemplateId !== undefined) {
-    bodyParams["launchTemplateId"] = input.launchTemplateId;
-  }
-  if (input.launchTemplateName !== undefined) {
-    bodyParams["launchTemplateName"] = input.launchTemplateName;
-  }
-  if (input.version !== undefined) {
-    bodyParams["version"] = input.version;
-  }
-  return bodyParams;
+  return {
+    ...(input.launchTemplateId !== undefined && {
+      launchTemplateId: input.launchTemplateId
+    }),
+    ...(input.launchTemplateName !== undefined && {
+      launchTemplateName: input.launchTemplateName
+    }),
+    ...(input.version !== undefined && { version: input.version })
+  };
 };
 
 const serializeAws_restJson1_1LinuxParameters = (
   input: LinuxParameters,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.devices !== undefined) {
-    bodyParams["devices"] = serializeAws_restJson1_1DevicesList(
-      input.devices,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.devices !== undefined && {
+      devices: serializeAws_restJson1_1DevicesList(input.devices, context)
+    })
+  };
 };
 
 const serializeAws_restJson1_1MountPoint = (
   input: MountPoint,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.containerPath !== undefined) {
-    bodyParams["containerPath"] = input.containerPath;
-  }
-  if (input.readOnly !== undefined) {
-    bodyParams["readOnly"] = input.readOnly;
-  }
-  if (input.sourceVolume !== undefined) {
-    bodyParams["sourceVolume"] = input.sourceVolume;
-  }
-  return bodyParams;
+  return {
+    ...(input.containerPath !== undefined && {
+      containerPath: input.containerPath
+    }),
+    ...(input.readOnly !== undefined && { readOnly: input.readOnly }),
+    ...(input.sourceVolume !== undefined && {
+      sourceVolume: input.sourceVolume
+    })
+  };
 };
 
 const serializeAws_restJson1_1MountPoints = (
@@ -2363,60 +2289,46 @@ const serializeAws_restJson1_1NodeOverrides = (
   input: NodeOverrides,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.nodePropertyOverrides !== undefined) {
-    bodyParams[
-      "nodePropertyOverrides"
-    ] = serializeAws_restJson1_1NodePropertyOverrides(
-      input.nodePropertyOverrides,
-      context
-    );
-  }
-  if (input.numNodes !== undefined) {
-    bodyParams["numNodes"] = input.numNodes;
-  }
-  return bodyParams;
+  return {
+    ...(input.nodePropertyOverrides !== undefined && {
+      nodePropertyOverrides: serializeAws_restJson1_1NodePropertyOverrides(
+        input.nodePropertyOverrides,
+        context
+      )
+    }),
+    ...(input.numNodes !== undefined && { numNodes: input.numNodes })
+  };
 };
 
 const serializeAws_restJson1_1NodeProperties = (
   input: NodeProperties,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.mainNode !== undefined) {
-    bodyParams["mainNode"] = input.mainNode;
-  }
-  if (input.nodeRangeProperties !== undefined) {
-    bodyParams[
-      "nodeRangeProperties"
-    ] = serializeAws_restJson1_1NodeRangeProperties(
-      input.nodeRangeProperties,
-      context
-    );
-  }
-  if (input.numNodes !== undefined) {
-    bodyParams["numNodes"] = input.numNodes;
-  }
-  return bodyParams;
+  return {
+    ...(input.mainNode !== undefined && { mainNode: input.mainNode }),
+    ...(input.nodeRangeProperties !== undefined && {
+      nodeRangeProperties: serializeAws_restJson1_1NodeRangeProperties(
+        input.nodeRangeProperties,
+        context
+      )
+    }),
+    ...(input.numNodes !== undefined && { numNodes: input.numNodes })
+  };
 };
 
 const serializeAws_restJson1_1NodePropertyOverride = (
   input: NodePropertyOverride,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.containerOverrides !== undefined) {
-    bodyParams[
-      "containerOverrides"
-    ] = serializeAws_restJson1_1ContainerOverrides(
-      input.containerOverrides,
-      context
-    );
-  }
-  if (input.targetNodes !== undefined) {
-    bodyParams["targetNodes"] = input.targetNodes;
-  }
-  return bodyParams;
+  return {
+    ...(input.containerOverrides !== undefined && {
+      containerOverrides: serializeAws_restJson1_1ContainerOverrides(
+        input.containerOverrides,
+        context
+      )
+    }),
+    ...(input.targetNodes !== undefined && { targetNodes: input.targetNodes })
+  };
 };
 
 const serializeAws_restJson1_1NodePropertyOverrides = (
@@ -2441,17 +2353,15 @@ const serializeAws_restJson1_1NodeRangeProperty = (
   input: NodeRangeProperty,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.container !== undefined) {
-    bodyParams["container"] = serializeAws_restJson1_1ContainerProperties(
-      input.container,
-      context
-    );
-  }
-  if (input.targetNodes !== undefined) {
-    bodyParams["targetNodes"] = input.targetNodes;
-  }
-  return bodyParams;
+  return {
+    ...(input.container !== undefined && {
+      container: serializeAws_restJson1_1ContainerProperties(
+        input.container,
+        context
+      )
+    }),
+    ...(input.targetNodes !== undefined && { targetNodes: input.targetNodes })
+  };
 };
 
 const serializeAws_restJson1_1ParametersMap = (
@@ -2468,14 +2378,10 @@ const serializeAws_restJson1_1ResourceRequirement = (
   input: ResourceRequirement,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.type !== undefined) {
-    bodyParams["type"] = input.type;
-  }
-  if (input.value !== undefined) {
-    bodyParams["value"] = input.value;
-  }
-  return bodyParams;
+  return {
+    ...(input.type !== undefined && { type: input.type }),
+    ...(input.value !== undefined && { value: input.value })
+  };
 };
 
 const serializeAws_restJson1_1ResourceRequirements = (
@@ -2491,11 +2397,9 @@ const serializeAws_restJson1_1RetryStrategy = (
   input: RetryStrategy,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.attempts !== undefined) {
-    bodyParams["attempts"] = input.attempts;
-  }
-  return bodyParams;
+  return {
+    ...(input.attempts !== undefined && { attempts: input.attempts })
+  };
 };
 
 const serializeAws_restJson1_1StringList = (
@@ -2519,17 +2423,11 @@ const serializeAws_restJson1_1Ulimit = (
   input: Ulimit,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.hardLimit !== undefined) {
-    bodyParams["hardLimit"] = input.hardLimit;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.softLimit !== undefined) {
-    bodyParams["softLimit"] = input.softLimit;
-  }
-  return bodyParams;
+  return {
+    ...(input.hardLimit !== undefined && { hardLimit: input.hardLimit }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.softLimit !== undefined && { softLimit: input.softLimit })
+  };
 };
 
 const serializeAws_restJson1_1Ulimits = (
@@ -2543,14 +2441,12 @@ const serializeAws_restJson1_1Volume = (
   input: Volume,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.host !== undefined) {
-    bodyParams["host"] = serializeAws_restJson1_1Host(input.host, context);
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  return bodyParams;
+  return {
+    ...(input.host !== undefined && {
+      host: serializeAws_restJson1_1Host(input.host, context)
+    }),
+    ...(input.name !== undefined && { name: input.name })
+  };
 };
 
 const serializeAws_restJson1_1Volumes = (

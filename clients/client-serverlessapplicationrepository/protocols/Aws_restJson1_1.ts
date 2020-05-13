@@ -2522,84 +2522,65 @@ const serializeAws_restJson1_1ApplicationPolicyStatement = (
   input: ApplicationPolicyStatement,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Actions !== undefined) {
-    bodyParams["actions"] = serializeAws_restJson1_1__listOf__string(
-      input.Actions,
-      context
-    );
-  }
-  if (input.Principals !== undefined) {
-    bodyParams["principals"] = serializeAws_restJson1_1__listOf__string(
-      input.Principals,
-      context
-    );
-  }
-  if (input.StatementId !== undefined) {
-    bodyParams["statementId"] = input.StatementId;
-  }
-  return bodyParams;
+  return {
+    ...(input.Actions !== undefined && {
+      actions: serializeAws_restJson1_1__listOf__string(input.Actions, context)
+    }),
+    ...(input.Principals !== undefined && {
+      principals: serializeAws_restJson1_1__listOf__string(
+        input.Principals,
+        context
+      )
+    }),
+    ...(input.StatementId !== undefined && { statementId: input.StatementId })
+  };
 };
 
 const serializeAws_restJson1_1ParameterValue = (
   input: ParameterValue,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["name"] = input.Name;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Name !== undefined && { name: input.Name }),
+    ...(input.Value !== undefined && { value: input.Value })
+  };
 };
 
 const serializeAws_restJson1_1RollbackConfiguration = (
   input: RollbackConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MonitoringTimeInMinutes !== undefined) {
-    bodyParams["monitoringTimeInMinutes"] = input.MonitoringTimeInMinutes;
-  }
-  if (input.RollbackTriggers !== undefined) {
-    bodyParams[
-      "rollbackTriggers"
-    ] = serializeAws_restJson1_1__listOfRollbackTrigger(
-      input.RollbackTriggers,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.MonitoringTimeInMinutes !== undefined && {
+      monitoringTimeInMinutes: input.MonitoringTimeInMinutes
+    }),
+    ...(input.RollbackTriggers !== undefined && {
+      rollbackTriggers: serializeAws_restJson1_1__listOfRollbackTrigger(
+        input.RollbackTriggers,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_restJson1_1RollbackTrigger = (
   input: RollbackTrigger,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Arn !== undefined) {
-    bodyParams["arn"] = input.Arn;
-  }
-  if (input.Type !== undefined) {
-    bodyParams["type"] = input.Type;
-  }
-  return bodyParams;
+  return {
+    ...(input.Arn !== undefined && { arn: input.Arn }),
+    ...(input.Type !== undefined && { type: input.Type })
+  };
 };
 
 const serializeAws_restJson1_1Tag = (
   input: Tag,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["key"] = input.Key;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && { key: input.Key }),
+    ...(input.Value !== undefined && { value: input.Value })
+  };
 };
 
 const serializeAws_restJson1_1__listOfApplicationPolicyStatement = (

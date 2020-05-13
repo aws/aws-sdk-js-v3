@@ -1672,136 +1672,112 @@ const serializeAws_json1_1CreateEnvironmentEC2Request = (
   input: CreateEnvironmentEC2Request,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.automaticStopTimeMinutes !== undefined) {
-    bodyParams["automaticStopTimeMinutes"] = input.automaticStopTimeMinutes;
-  }
-  if (input.clientRequestToken !== undefined) {
-    bodyParams["clientRequestToken"] = input.clientRequestToken;
-  }
-  if (input.description !== undefined) {
-    bodyParams["description"] = input.description;
-  }
-  if (input.instanceType !== undefined) {
-    bodyParams["instanceType"] = input.instanceType;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.ownerArn !== undefined) {
-    bodyParams["ownerArn"] = input.ownerArn;
-  }
-  if (input.subnetId !== undefined) {
-    bodyParams["subnetId"] = input.subnetId;
-  }
-  return bodyParams;
+  return {
+    ...(input.automaticStopTimeMinutes !== undefined && {
+      automaticStopTimeMinutes: input.automaticStopTimeMinutes
+    }),
+    ...(input.clientRequestToken !== undefined && {
+      clientRequestToken: input.clientRequestToken
+    }),
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.instanceType !== undefined && {
+      instanceType: input.instanceType
+    }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.ownerArn !== undefined && { ownerArn: input.ownerArn }),
+    ...(input.subnetId !== undefined && { subnetId: input.subnetId })
+  };
 };
 
 const serializeAws_json1_1CreateEnvironmentMembershipRequest = (
   input: CreateEnvironmentMembershipRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.environmentId !== undefined) {
-    bodyParams["environmentId"] = input.environmentId;
-  }
-  if (input.permissions !== undefined) {
-    bodyParams["permissions"] = input.permissions;
-  }
-  if (input.userArn !== undefined) {
-    bodyParams["userArn"] = input.userArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.environmentId !== undefined && {
+      environmentId: input.environmentId
+    }),
+    ...(input.permissions !== undefined && { permissions: input.permissions }),
+    ...(input.userArn !== undefined && { userArn: input.userArn })
+  };
 };
 
 const serializeAws_json1_1DeleteEnvironmentMembershipRequest = (
   input: DeleteEnvironmentMembershipRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.environmentId !== undefined) {
-    bodyParams["environmentId"] = input.environmentId;
-  }
-  if (input.userArn !== undefined) {
-    bodyParams["userArn"] = input.userArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.environmentId !== undefined && {
+      environmentId: input.environmentId
+    }),
+    ...(input.userArn !== undefined && { userArn: input.userArn })
+  };
 };
 
 const serializeAws_json1_1DeleteEnvironmentRequest = (
   input: DeleteEnvironmentRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.environmentId !== undefined) {
-    bodyParams["environmentId"] = input.environmentId;
-  }
-  return bodyParams;
+  return {
+    ...(input.environmentId !== undefined && {
+      environmentId: input.environmentId
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeEnvironmentMembershipsRequest = (
   input: DescribeEnvironmentMembershipsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.environmentId !== undefined) {
-    bodyParams["environmentId"] = input.environmentId;
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.permissions !== undefined) {
-    bodyParams["permissions"] = serializeAws_json1_1PermissionsList(
-      input.permissions,
-      context
-    );
-  }
-  if (input.userArn !== undefined) {
-    bodyParams["userArn"] = input.userArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.environmentId !== undefined && {
+      environmentId: input.environmentId
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.permissions !== undefined && {
+      permissions: serializeAws_json1_1PermissionsList(
+        input.permissions,
+        context
+      )
+    }),
+    ...(input.userArn !== undefined && { userArn: input.userArn })
+  };
 };
 
 const serializeAws_json1_1DescribeEnvironmentStatusRequest = (
   input: DescribeEnvironmentStatusRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.environmentId !== undefined) {
-    bodyParams["environmentId"] = input.environmentId;
-  }
-  return bodyParams;
+  return {
+    ...(input.environmentId !== undefined && {
+      environmentId: input.environmentId
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeEnvironmentsRequest = (
   input: DescribeEnvironmentsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.environmentIds !== undefined) {
-    bodyParams["environmentIds"] = serializeAws_json1_1BoundedEnvironmentIdList(
-      input.environmentIds,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.environmentIds !== undefined && {
+      environmentIds: serializeAws_json1_1BoundedEnvironmentIdList(
+        input.environmentIds,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_1ListEnvironmentsRequest = (
   input: ListEnvironmentsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  return bodyParams;
+  return {
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  };
 };
 
 const serializeAws_json1_1PermissionsList = (
@@ -1815,34 +1791,26 @@ const serializeAws_json1_1UpdateEnvironmentMembershipRequest = (
   input: UpdateEnvironmentMembershipRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.environmentId !== undefined) {
-    bodyParams["environmentId"] = input.environmentId;
-  }
-  if (input.permissions !== undefined) {
-    bodyParams["permissions"] = input.permissions;
-  }
-  if (input.userArn !== undefined) {
-    bodyParams["userArn"] = input.userArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.environmentId !== undefined && {
+      environmentId: input.environmentId
+    }),
+    ...(input.permissions !== undefined && { permissions: input.permissions }),
+    ...(input.userArn !== undefined && { userArn: input.userArn })
+  };
 };
 
 const serializeAws_json1_1UpdateEnvironmentRequest = (
   input: UpdateEnvironmentRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.description !== undefined) {
-    bodyParams["description"] = input.description;
-  }
-  if (input.environmentId !== undefined) {
-    bodyParams["environmentId"] = input.environmentId;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  return bodyParams;
+  return {
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.environmentId !== undefined && {
+      environmentId: input.environmentId
+    }),
+    ...(input.name !== undefined && { name: input.name })
+  };
 };
 
 const deserializeAws_json1_1BadRequestException = (

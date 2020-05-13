@@ -1974,36 +1974,28 @@ const serializeAws_restJson1_1S3EncryptionConfiguration = (
   input: S3EncryptionConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.KmsKeyArn !== undefined) {
-    bodyParams["KmsKeyArn"] = input.KmsKeyArn;
-  }
-  if (input.ObjectEncryptionType !== undefined) {
-    bodyParams["ObjectEncryptionType"] = input.ObjectEncryptionType;
-  }
-  return bodyParams;
+  return {
+    ...(input.KmsKeyArn !== undefined && { KmsKeyArn: input.KmsKeyArn }),
+    ...(input.ObjectEncryptionType !== undefined && {
+      ObjectEncryptionType: input.ObjectEncryptionType
+    })
+  };
 };
 
 const serializeAws_restJson1_1S3ExportConfiguration = (
   input: S3ExportConfiguration,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Bucket !== undefined) {
-    bodyParams["Bucket"] = input.Bucket;
-  }
-  if (input.EncryptionConfiguration !== undefined) {
-    bodyParams[
-      "EncryptionConfiguration"
-    ] = serializeAws_restJson1_1S3EncryptionConfiguration(
-      input.EncryptionConfiguration,
-      context
-    );
-  }
-  if (input.Prefix !== undefined) {
-    bodyParams["Prefix"] = input.Prefix;
-  }
-  return bodyParams;
+  return {
+    ...(input.Bucket !== undefined && { Bucket: input.Bucket }),
+    ...(input.EncryptionConfiguration !== undefined && {
+      EncryptionConfiguration: serializeAws_restJson1_1S3EncryptionConfiguration(
+        input.EncryptionConfiguration,
+        context
+      )
+    }),
+    ...(input.Prefix !== undefined && { Prefix: input.Prefix })
+  };
 };
 
 const serializeAws_restJson1_1Tags = (
@@ -2020,11 +2012,9 @@ const serializeAws_restJson1_1ValueHolder = (
   input: ValueHolder,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.IonText !== undefined) {
-    bodyParams["IonText"] = input.IonText;
-  }
-  return bodyParams;
+  return {
+    ...(input.IonText !== undefined && { IonText: input.IonText })
+  };
 };
 
 const deserializeAws_restJson1_1JournalS3ExportDescription = (

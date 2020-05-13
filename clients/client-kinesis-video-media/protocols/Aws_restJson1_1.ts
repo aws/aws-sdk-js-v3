@@ -280,22 +280,20 @@ const serializeAws_restJson1_1StartSelector = (
   input: StartSelector,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AfterFragmentNumber !== undefined) {
-    bodyParams["AfterFragmentNumber"] = input.AfterFragmentNumber;
-  }
-  if (input.ContinuationToken !== undefined) {
-    bodyParams["ContinuationToken"] = input.ContinuationToken;
-  }
-  if (input.StartSelectorType !== undefined) {
-    bodyParams["StartSelectorType"] = input.StartSelectorType;
-  }
-  if (input.StartTimestamp !== undefined) {
-    bodyParams["StartTimestamp"] = Math.round(
-      input.StartTimestamp.getTime() / 1000
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.AfterFragmentNumber !== undefined && {
+      AfterFragmentNumber: input.AfterFragmentNumber
+    }),
+    ...(input.ContinuationToken !== undefined && {
+      ContinuationToken: input.ContinuationToken
+    }),
+    ...(input.StartSelectorType !== undefined && {
+      StartSelectorType: input.StartSelectorType
+    }),
+    ...(input.StartTimestamp !== undefined && {
+      StartTimestamp: Math.round(input.StartTimestamp.getTime() / 1000)
+    })
+  };
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

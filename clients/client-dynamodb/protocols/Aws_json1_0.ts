@@ -5504,22 +5504,21 @@ const serializeAws_json1_0DescribeEndpointsRequest = (
   input: DescribeEndpointsRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  return bodyParams;
+  return {};
 };
 
 const serializeAws_json1_0AttributeDefinition = (
   input: AttributeDefinition,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AttributeName !== undefined) {
-    bodyParams["AttributeName"] = input.AttributeName;
-  }
-  if (input.AttributeType !== undefined) {
-    bodyParams["AttributeType"] = input.AttributeType;
-  }
-  return bodyParams;
+  return {
+    ...(input.AttributeName !== undefined && {
+      AttributeName: input.AttributeName
+    }),
+    ...(input.AttributeType !== undefined && {
+      AttributeType: input.AttributeType
+    })
+  };
 };
 
 const serializeAws_json1_0AttributeDefinitions = (
@@ -5552,47 +5551,28 @@ const serializeAws_json1_0AttributeValue = (
   input: AttributeValue,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.B !== undefined) {
-    bodyParams["B"] = context.base64Encoder(input.B);
-  }
-  if (input.BOOL !== undefined) {
-    bodyParams["BOOL"] = input.BOOL;
-  }
-  if (input.BS !== undefined) {
-    bodyParams["BS"] = serializeAws_json1_0BinarySetAttributeValue(
-      input.BS,
-      context
-    );
-  }
-  if (input.L !== undefined) {
-    bodyParams["L"] = serializeAws_json1_0ListAttributeValue(input.L, context);
-  }
-  if (input.M !== undefined) {
-    bodyParams["M"] = serializeAws_json1_0MapAttributeValue(input.M, context);
-  }
-  if (input.N !== undefined) {
-    bodyParams["N"] = input.N;
-  }
-  if (input.NS !== undefined) {
-    bodyParams["NS"] = serializeAws_json1_0NumberSetAttributeValue(
-      input.NS,
-      context
-    );
-  }
-  if (input.NULL !== undefined) {
-    bodyParams["NULL"] = input.NULL;
-  }
-  if (input.S !== undefined) {
-    bodyParams["S"] = input.S;
-  }
-  if (input.SS !== undefined) {
-    bodyParams["SS"] = serializeAws_json1_0StringSetAttributeValue(
-      input.SS,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.B !== undefined && { B: context.base64Encoder(input.B) }),
+    ...(input.BOOL !== undefined && { BOOL: input.BOOL }),
+    ...(input.BS !== undefined && {
+      BS: serializeAws_json1_0BinarySetAttributeValue(input.BS, context)
+    }),
+    ...(input.L !== undefined && {
+      L: serializeAws_json1_0ListAttributeValue(input.L, context)
+    }),
+    ...(input.M !== undefined && {
+      M: serializeAws_json1_0MapAttributeValue(input.M, context)
+    }),
+    ...(input.N !== undefined && { N: input.N }),
+    ...(input.NS !== undefined && {
+      NS: serializeAws_json1_0NumberSetAttributeValue(input.NS, context)
+    }),
+    ...(input.NULL !== undefined && { NULL: input.NULL }),
+    ...(input.S !== undefined && { S: input.S }),
+    ...(input.SS !== undefined && {
+      SS: serializeAws_json1_0StringSetAttributeValue(input.SS, context)
+    })
+  };
 };
 
 const serializeAws_json1_0AttributeValueList = (
@@ -5606,101 +5586,88 @@ const serializeAws_json1_0AttributeValueUpdate = (
   input: AttributeValueUpdate,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Action !== undefined) {
-    bodyParams["Action"] = input.Action;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = serializeAws_json1_0AttributeValue(
-      input.Value,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Action !== undefined && { Action: input.Action }),
+    ...(input.Value !== undefined && {
+      Value: serializeAws_json1_0AttributeValue(input.Value, context)
+    })
+  };
 };
 
 const serializeAws_json1_0AutoScalingPolicyUpdate = (
   input: AutoScalingPolicyUpdate,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.PolicyName !== undefined) {
-    bodyParams["PolicyName"] = input.PolicyName;
-  }
-  if (input.TargetTrackingScalingPolicyConfiguration !== undefined) {
-    bodyParams[
-      "TargetTrackingScalingPolicyConfiguration"
-    ] = serializeAws_json1_0AutoScalingTargetTrackingScalingPolicyConfigurationUpdate(
-      input.TargetTrackingScalingPolicyConfiguration,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.PolicyName !== undefined && { PolicyName: input.PolicyName }),
+    ...(input.TargetTrackingScalingPolicyConfiguration !== undefined && {
+      TargetTrackingScalingPolicyConfiguration: serializeAws_json1_0AutoScalingTargetTrackingScalingPolicyConfigurationUpdate(
+        input.TargetTrackingScalingPolicyConfiguration,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_0AutoScalingSettingsUpdate = (
   input: AutoScalingSettingsUpdate,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AutoScalingDisabled !== undefined) {
-    bodyParams["AutoScalingDisabled"] = input.AutoScalingDisabled;
-  }
-  if (input.AutoScalingRoleArn !== undefined) {
-    bodyParams["AutoScalingRoleArn"] = input.AutoScalingRoleArn;
-  }
-  if (input.MaximumUnits !== undefined) {
-    bodyParams["MaximumUnits"] = input.MaximumUnits;
-  }
-  if (input.MinimumUnits !== undefined) {
-    bodyParams["MinimumUnits"] = input.MinimumUnits;
-  }
-  if (input.ScalingPolicyUpdate !== undefined) {
-    bodyParams[
-      "ScalingPolicyUpdate"
-    ] = serializeAws_json1_0AutoScalingPolicyUpdate(
-      input.ScalingPolicyUpdate,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.AutoScalingDisabled !== undefined && {
+      AutoScalingDisabled: input.AutoScalingDisabled
+    }),
+    ...(input.AutoScalingRoleArn !== undefined && {
+      AutoScalingRoleArn: input.AutoScalingRoleArn
+    }),
+    ...(input.MaximumUnits !== undefined && {
+      MaximumUnits: input.MaximumUnits
+    }),
+    ...(input.MinimumUnits !== undefined && {
+      MinimumUnits: input.MinimumUnits
+    }),
+    ...(input.ScalingPolicyUpdate !== undefined && {
+      ScalingPolicyUpdate: serializeAws_json1_0AutoScalingPolicyUpdate(
+        input.ScalingPolicyUpdate,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_0AutoScalingTargetTrackingScalingPolicyConfigurationUpdate = (
   input: AutoScalingTargetTrackingScalingPolicyConfigurationUpdate,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DisableScaleIn !== undefined) {
-    bodyParams["DisableScaleIn"] = input.DisableScaleIn;
-  }
-  if (input.ScaleInCooldown !== undefined) {
-    bodyParams["ScaleInCooldown"] = input.ScaleInCooldown;
-  }
-  if (input.ScaleOutCooldown !== undefined) {
-    bodyParams["ScaleOutCooldown"] = input.ScaleOutCooldown;
-  }
-  if (input.TargetValue !== undefined) {
-    bodyParams["TargetValue"] = input.TargetValue;
-  }
-  return bodyParams;
+  return {
+    ...(input.DisableScaleIn !== undefined && {
+      DisableScaleIn: input.DisableScaleIn
+    }),
+    ...(input.ScaleInCooldown !== undefined && {
+      ScaleInCooldown: input.ScaleInCooldown
+    }),
+    ...(input.ScaleOutCooldown !== undefined && {
+      ScaleOutCooldown: input.ScaleOutCooldown
+    }),
+    ...(input.TargetValue !== undefined && { TargetValue: input.TargetValue })
+  };
 };
 
 const serializeAws_json1_0BatchGetItemInput = (
   input: BatchGetItemInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.RequestItems !== undefined) {
-    bodyParams["RequestItems"] = serializeAws_json1_0BatchGetRequestMap(
-      input.RequestItems,
-      context
-    );
-  }
-  if (input.ReturnConsumedCapacity !== undefined) {
-    bodyParams["ReturnConsumedCapacity"] = input.ReturnConsumedCapacity;
-  }
-  return bodyParams;
+  return {
+    ...(input.RequestItems !== undefined && {
+      RequestItems: serializeAws_json1_0BatchGetRequestMap(
+        input.RequestItems,
+        context
+      )
+    }),
+    ...(input.ReturnConsumedCapacity !== undefined && {
+      ReturnConsumedCapacity: input.ReturnConsumedCapacity
+    })
+  };
 };
 
 const serializeAws_json1_0BatchGetRequestMap = (
@@ -5717,21 +5684,20 @@ const serializeAws_json1_0BatchWriteItemInput = (
   input: BatchWriteItemInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.RequestItems !== undefined) {
-    bodyParams["RequestItems"] = serializeAws_json1_0BatchWriteItemRequestMap(
-      input.RequestItems,
-      context
-    );
-  }
-  if (input.ReturnConsumedCapacity !== undefined) {
-    bodyParams["ReturnConsumedCapacity"] = input.ReturnConsumedCapacity;
-  }
-  if (input.ReturnItemCollectionMetrics !== undefined) {
-    bodyParams["ReturnItemCollectionMetrics"] =
-      input.ReturnItemCollectionMetrics;
-  }
-  return bodyParams;
+  return {
+    ...(input.RequestItems !== undefined && {
+      RequestItems: serializeAws_json1_0BatchWriteItemRequestMap(
+        input.RequestItems,
+        context
+      )
+    }),
+    ...(input.ReturnConsumedCapacity !== undefined && {
+      ReturnConsumedCapacity: input.ReturnConsumedCapacity
+    }),
+    ...(input.ReturnItemCollectionMetrics !== undefined && {
+      ReturnItemCollectionMetrics: input.ReturnItemCollectionMetrics
+    })
+  };
 };
 
 const serializeAws_json1_0BatchWriteItemRequestMap = (
@@ -5755,478 +5721,397 @@ const serializeAws_json1_0Condition = (
   input: Condition,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AttributeValueList !== undefined) {
-    bodyParams["AttributeValueList"] = serializeAws_json1_0AttributeValueList(
-      input.AttributeValueList,
-      context
-    );
-  }
-  if (input.ComparisonOperator !== undefined) {
-    bodyParams["ComparisonOperator"] = input.ComparisonOperator;
-  }
-  return bodyParams;
+  return {
+    ...(input.AttributeValueList !== undefined && {
+      AttributeValueList: serializeAws_json1_0AttributeValueList(
+        input.AttributeValueList,
+        context
+      )
+    }),
+    ...(input.ComparisonOperator !== undefined && {
+      ComparisonOperator: input.ComparisonOperator
+    })
+  };
 };
 
 const serializeAws_json1_0ConditionCheck = (
   input: ConditionCheck,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ConditionExpression !== undefined) {
-    bodyParams["ConditionExpression"] = input.ConditionExpression;
-  }
-  if (input.ExpressionAttributeNames !== undefined) {
-    bodyParams[
-      "ExpressionAttributeNames"
-    ] = serializeAws_json1_0ExpressionAttributeNameMap(
-      input.ExpressionAttributeNames,
-      context
-    );
-  }
-  if (input.ExpressionAttributeValues !== undefined) {
-    bodyParams[
-      "ExpressionAttributeValues"
-    ] = serializeAws_json1_0ExpressionAttributeValueMap(
-      input.ExpressionAttributeValues,
-      context
-    );
-  }
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = serializeAws_json1_0Key(input.Key, context);
-  }
-  if (input.ReturnValuesOnConditionCheckFailure !== undefined) {
-    bodyParams["ReturnValuesOnConditionCheckFailure"] =
-      input.ReturnValuesOnConditionCheckFailure;
-  }
-  if (input.TableName !== undefined) {
-    bodyParams["TableName"] = input.TableName;
-  }
-  return bodyParams;
+  return {
+    ...(input.ConditionExpression !== undefined && {
+      ConditionExpression: input.ConditionExpression
+    }),
+    ...(input.ExpressionAttributeNames !== undefined && {
+      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(
+        input.ExpressionAttributeNames,
+        context
+      )
+    }),
+    ...(input.ExpressionAttributeValues !== undefined && {
+      ExpressionAttributeValues: serializeAws_json1_0ExpressionAttributeValueMap(
+        input.ExpressionAttributeValues,
+        context
+      )
+    }),
+    ...(input.Key !== undefined && {
+      Key: serializeAws_json1_0Key(input.Key, context)
+    }),
+    ...(input.ReturnValuesOnConditionCheckFailure !== undefined && {
+      ReturnValuesOnConditionCheckFailure:
+        input.ReturnValuesOnConditionCheckFailure
+    }),
+    ...(input.TableName !== undefined && { TableName: input.TableName })
+  };
 };
 
 const serializeAws_json1_0CreateBackupInput = (
   input: CreateBackupInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.BackupName !== undefined) {
-    bodyParams["BackupName"] = input.BackupName;
-  }
-  if (input.TableName !== undefined) {
-    bodyParams["TableName"] = input.TableName;
-  }
-  return bodyParams;
+  return {
+    ...(input.BackupName !== undefined && { BackupName: input.BackupName }),
+    ...(input.TableName !== undefined && { TableName: input.TableName })
+  };
 };
 
 const serializeAws_json1_0CreateGlobalSecondaryIndexAction = (
   input: CreateGlobalSecondaryIndexAction,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.IndexName !== undefined) {
-    bodyParams["IndexName"] = input.IndexName;
-  }
-  if (input.KeySchema !== undefined) {
-    bodyParams["KeySchema"] = serializeAws_json1_0KeySchema(
-      input.KeySchema,
-      context
-    );
-  }
-  if (input.Projection !== undefined) {
-    bodyParams["Projection"] = serializeAws_json1_0Projection(
-      input.Projection,
-      context
-    );
-  }
-  if (input.ProvisionedThroughput !== undefined) {
-    bodyParams[
-      "ProvisionedThroughput"
-    ] = serializeAws_json1_0ProvisionedThroughput(
-      input.ProvisionedThroughput,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.IndexName !== undefined && { IndexName: input.IndexName }),
+    ...(input.KeySchema !== undefined && {
+      KeySchema: serializeAws_json1_0KeySchema(input.KeySchema, context)
+    }),
+    ...(input.Projection !== undefined && {
+      Projection: serializeAws_json1_0Projection(input.Projection, context)
+    }),
+    ...(input.ProvisionedThroughput !== undefined && {
+      ProvisionedThroughput: serializeAws_json1_0ProvisionedThroughput(
+        input.ProvisionedThroughput,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_0CreateGlobalTableInput = (
   input: CreateGlobalTableInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.GlobalTableName !== undefined) {
-    bodyParams["GlobalTableName"] = input.GlobalTableName;
-  }
-  if (input.ReplicationGroup !== undefined) {
-    bodyParams["ReplicationGroup"] = serializeAws_json1_0ReplicaList(
-      input.ReplicationGroup,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.GlobalTableName !== undefined && {
+      GlobalTableName: input.GlobalTableName
+    }),
+    ...(input.ReplicationGroup !== undefined && {
+      ReplicationGroup: serializeAws_json1_0ReplicaList(
+        input.ReplicationGroup,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_0CreateReplicaAction = (
   input: CreateReplicaAction,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.RegionName !== undefined) {
-    bodyParams["RegionName"] = input.RegionName;
-  }
-  return bodyParams;
+  return {
+    ...(input.RegionName !== undefined && { RegionName: input.RegionName })
+  };
 };
 
 const serializeAws_json1_0CreateReplicationGroupMemberAction = (
   input: CreateReplicationGroupMemberAction,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.GlobalSecondaryIndexes !== undefined) {
-    bodyParams[
-      "GlobalSecondaryIndexes"
-    ] = serializeAws_json1_0ReplicaGlobalSecondaryIndexList(
-      input.GlobalSecondaryIndexes,
-      context
-    );
-  }
-  if (input.KMSMasterKeyId !== undefined) {
-    bodyParams["KMSMasterKeyId"] = input.KMSMasterKeyId;
-  }
-  if (input.ProvisionedThroughputOverride !== undefined) {
-    bodyParams[
-      "ProvisionedThroughputOverride"
-    ] = serializeAws_json1_0ProvisionedThroughputOverride(
-      input.ProvisionedThroughputOverride,
-      context
-    );
-  }
-  if (input.RegionName !== undefined) {
-    bodyParams["RegionName"] = input.RegionName;
-  }
-  return bodyParams;
+  return {
+    ...(input.GlobalSecondaryIndexes !== undefined && {
+      GlobalSecondaryIndexes: serializeAws_json1_0ReplicaGlobalSecondaryIndexList(
+        input.GlobalSecondaryIndexes,
+        context
+      )
+    }),
+    ...(input.KMSMasterKeyId !== undefined && {
+      KMSMasterKeyId: input.KMSMasterKeyId
+    }),
+    ...(input.ProvisionedThroughputOverride !== undefined && {
+      ProvisionedThroughputOverride: serializeAws_json1_0ProvisionedThroughputOverride(
+        input.ProvisionedThroughputOverride,
+        context
+      )
+    }),
+    ...(input.RegionName !== undefined && { RegionName: input.RegionName })
+  };
 };
 
 const serializeAws_json1_0CreateTableInput = (
   input: CreateTableInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AttributeDefinitions !== undefined) {
-    bodyParams[
-      "AttributeDefinitions"
-    ] = serializeAws_json1_0AttributeDefinitions(
-      input.AttributeDefinitions,
-      context
-    );
-  }
-  if (input.BillingMode !== undefined) {
-    bodyParams["BillingMode"] = input.BillingMode;
-  }
-  if (input.GlobalSecondaryIndexes !== undefined) {
-    bodyParams[
-      "GlobalSecondaryIndexes"
-    ] = serializeAws_json1_0GlobalSecondaryIndexList(
-      input.GlobalSecondaryIndexes,
-      context
-    );
-  }
-  if (input.KeySchema !== undefined) {
-    bodyParams["KeySchema"] = serializeAws_json1_0KeySchema(
-      input.KeySchema,
-      context
-    );
-  }
-  if (input.LocalSecondaryIndexes !== undefined) {
-    bodyParams[
-      "LocalSecondaryIndexes"
-    ] = serializeAws_json1_0LocalSecondaryIndexList(
-      input.LocalSecondaryIndexes,
-      context
-    );
-  }
-  if (input.ProvisionedThroughput !== undefined) {
-    bodyParams[
-      "ProvisionedThroughput"
-    ] = serializeAws_json1_0ProvisionedThroughput(
-      input.ProvisionedThroughput,
-      context
-    );
-  }
-  if (input.SSESpecification !== undefined) {
-    bodyParams["SSESpecification"] = serializeAws_json1_0SSESpecification(
-      input.SSESpecification,
-      context
-    );
-  }
-  if (input.StreamSpecification !== undefined) {
-    bodyParams["StreamSpecification"] = serializeAws_json1_0StreamSpecification(
-      input.StreamSpecification,
-      context
-    );
-  }
-  if (input.TableName !== undefined) {
-    bodyParams["TableName"] = input.TableName;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_0TagList(input.Tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.AttributeDefinitions !== undefined && {
+      AttributeDefinitions: serializeAws_json1_0AttributeDefinitions(
+        input.AttributeDefinitions,
+        context
+      )
+    }),
+    ...(input.BillingMode !== undefined && { BillingMode: input.BillingMode }),
+    ...(input.GlobalSecondaryIndexes !== undefined && {
+      GlobalSecondaryIndexes: serializeAws_json1_0GlobalSecondaryIndexList(
+        input.GlobalSecondaryIndexes,
+        context
+      )
+    }),
+    ...(input.KeySchema !== undefined && {
+      KeySchema: serializeAws_json1_0KeySchema(input.KeySchema, context)
+    }),
+    ...(input.LocalSecondaryIndexes !== undefined && {
+      LocalSecondaryIndexes: serializeAws_json1_0LocalSecondaryIndexList(
+        input.LocalSecondaryIndexes,
+        context
+      )
+    }),
+    ...(input.ProvisionedThroughput !== undefined && {
+      ProvisionedThroughput: serializeAws_json1_0ProvisionedThroughput(
+        input.ProvisionedThroughput,
+        context
+      )
+    }),
+    ...(input.SSESpecification !== undefined && {
+      SSESpecification: serializeAws_json1_0SSESpecification(
+        input.SSESpecification,
+        context
+      )
+    }),
+    ...(input.StreamSpecification !== undefined && {
+      StreamSpecification: serializeAws_json1_0StreamSpecification(
+        input.StreamSpecification,
+        context
+      )
+    }),
+    ...(input.TableName !== undefined && { TableName: input.TableName }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_0TagList(input.Tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_0Delete = (
   input: Delete,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ConditionExpression !== undefined) {
-    bodyParams["ConditionExpression"] = input.ConditionExpression;
-  }
-  if (input.ExpressionAttributeNames !== undefined) {
-    bodyParams[
-      "ExpressionAttributeNames"
-    ] = serializeAws_json1_0ExpressionAttributeNameMap(
-      input.ExpressionAttributeNames,
-      context
-    );
-  }
-  if (input.ExpressionAttributeValues !== undefined) {
-    bodyParams[
-      "ExpressionAttributeValues"
-    ] = serializeAws_json1_0ExpressionAttributeValueMap(
-      input.ExpressionAttributeValues,
-      context
-    );
-  }
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = serializeAws_json1_0Key(input.Key, context);
-  }
-  if (input.ReturnValuesOnConditionCheckFailure !== undefined) {
-    bodyParams["ReturnValuesOnConditionCheckFailure"] =
-      input.ReturnValuesOnConditionCheckFailure;
-  }
-  if (input.TableName !== undefined) {
-    bodyParams["TableName"] = input.TableName;
-  }
-  return bodyParams;
+  return {
+    ...(input.ConditionExpression !== undefined && {
+      ConditionExpression: input.ConditionExpression
+    }),
+    ...(input.ExpressionAttributeNames !== undefined && {
+      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(
+        input.ExpressionAttributeNames,
+        context
+      )
+    }),
+    ...(input.ExpressionAttributeValues !== undefined && {
+      ExpressionAttributeValues: serializeAws_json1_0ExpressionAttributeValueMap(
+        input.ExpressionAttributeValues,
+        context
+      )
+    }),
+    ...(input.Key !== undefined && {
+      Key: serializeAws_json1_0Key(input.Key, context)
+    }),
+    ...(input.ReturnValuesOnConditionCheckFailure !== undefined && {
+      ReturnValuesOnConditionCheckFailure:
+        input.ReturnValuesOnConditionCheckFailure
+    }),
+    ...(input.TableName !== undefined && { TableName: input.TableName })
+  };
 };
 
 const serializeAws_json1_0DeleteBackupInput = (
   input: DeleteBackupInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.BackupArn !== undefined) {
-    bodyParams["BackupArn"] = input.BackupArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.BackupArn !== undefined && { BackupArn: input.BackupArn })
+  };
 };
 
 const serializeAws_json1_0DeleteGlobalSecondaryIndexAction = (
   input: DeleteGlobalSecondaryIndexAction,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.IndexName !== undefined) {
-    bodyParams["IndexName"] = input.IndexName;
-  }
-  return bodyParams;
+  return {
+    ...(input.IndexName !== undefined && { IndexName: input.IndexName })
+  };
 };
 
 const serializeAws_json1_0DeleteItemInput = (
   input: DeleteItemInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ConditionExpression !== undefined) {
-    bodyParams["ConditionExpression"] = input.ConditionExpression;
-  }
-  if (input.ConditionalOperator !== undefined) {
-    bodyParams["ConditionalOperator"] = input.ConditionalOperator;
-  }
-  if (input.Expected !== undefined) {
-    bodyParams["Expected"] = serializeAws_json1_0ExpectedAttributeMap(
-      input.Expected,
-      context
-    );
-  }
-  if (input.ExpressionAttributeNames !== undefined) {
-    bodyParams[
-      "ExpressionAttributeNames"
-    ] = serializeAws_json1_0ExpressionAttributeNameMap(
-      input.ExpressionAttributeNames,
-      context
-    );
-  }
-  if (input.ExpressionAttributeValues !== undefined) {
-    bodyParams[
-      "ExpressionAttributeValues"
-    ] = serializeAws_json1_0ExpressionAttributeValueMap(
-      input.ExpressionAttributeValues,
-      context
-    );
-  }
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = serializeAws_json1_0Key(input.Key, context);
-  }
-  if (input.ReturnConsumedCapacity !== undefined) {
-    bodyParams["ReturnConsumedCapacity"] = input.ReturnConsumedCapacity;
-  }
-  if (input.ReturnItemCollectionMetrics !== undefined) {
-    bodyParams["ReturnItemCollectionMetrics"] =
-      input.ReturnItemCollectionMetrics;
-  }
-  if (input.ReturnValues !== undefined) {
-    bodyParams["ReturnValues"] = input.ReturnValues;
-  }
-  if (input.TableName !== undefined) {
-    bodyParams["TableName"] = input.TableName;
-  }
-  return bodyParams;
+  return {
+    ...(input.ConditionExpression !== undefined && {
+      ConditionExpression: input.ConditionExpression
+    }),
+    ...(input.ConditionalOperator !== undefined && {
+      ConditionalOperator: input.ConditionalOperator
+    }),
+    ...(input.Expected !== undefined && {
+      Expected: serializeAws_json1_0ExpectedAttributeMap(
+        input.Expected,
+        context
+      )
+    }),
+    ...(input.ExpressionAttributeNames !== undefined && {
+      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(
+        input.ExpressionAttributeNames,
+        context
+      )
+    }),
+    ...(input.ExpressionAttributeValues !== undefined && {
+      ExpressionAttributeValues: serializeAws_json1_0ExpressionAttributeValueMap(
+        input.ExpressionAttributeValues,
+        context
+      )
+    }),
+    ...(input.Key !== undefined && {
+      Key: serializeAws_json1_0Key(input.Key, context)
+    }),
+    ...(input.ReturnConsumedCapacity !== undefined && {
+      ReturnConsumedCapacity: input.ReturnConsumedCapacity
+    }),
+    ...(input.ReturnItemCollectionMetrics !== undefined && {
+      ReturnItemCollectionMetrics: input.ReturnItemCollectionMetrics
+    }),
+    ...(input.ReturnValues !== undefined && {
+      ReturnValues: input.ReturnValues
+    }),
+    ...(input.TableName !== undefined && { TableName: input.TableName })
+  };
 };
 
 const serializeAws_json1_0DeleteReplicaAction = (
   input: DeleteReplicaAction,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.RegionName !== undefined) {
-    bodyParams["RegionName"] = input.RegionName;
-  }
-  return bodyParams;
+  return {
+    ...(input.RegionName !== undefined && { RegionName: input.RegionName })
+  };
 };
 
 const serializeAws_json1_0DeleteReplicationGroupMemberAction = (
   input: DeleteReplicationGroupMemberAction,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.RegionName !== undefined) {
-    bodyParams["RegionName"] = input.RegionName;
-  }
-  return bodyParams;
+  return {
+    ...(input.RegionName !== undefined && { RegionName: input.RegionName })
+  };
 };
 
 const serializeAws_json1_0DeleteRequest = (
   input: DeleteRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = serializeAws_json1_0Key(input.Key, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && {
+      Key: serializeAws_json1_0Key(input.Key, context)
+    })
+  };
 };
 
 const serializeAws_json1_0DeleteTableInput = (
   input: DeleteTableInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.TableName !== undefined) {
-    bodyParams["TableName"] = input.TableName;
-  }
-  return bodyParams;
+  return {
+    ...(input.TableName !== undefined && { TableName: input.TableName })
+  };
 };
 
 const serializeAws_json1_0DescribeBackupInput = (
   input: DescribeBackupInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.BackupArn !== undefined) {
-    bodyParams["BackupArn"] = input.BackupArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.BackupArn !== undefined && { BackupArn: input.BackupArn })
+  };
 };
 
 const serializeAws_json1_0DescribeContinuousBackupsInput = (
   input: DescribeContinuousBackupsInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.TableName !== undefined) {
-    bodyParams["TableName"] = input.TableName;
-  }
-  return bodyParams;
+  return {
+    ...(input.TableName !== undefined && { TableName: input.TableName })
+  };
 };
 
 const serializeAws_json1_0DescribeContributorInsightsInput = (
   input: DescribeContributorInsightsInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.IndexName !== undefined) {
-    bodyParams["IndexName"] = input.IndexName;
-  }
-  if (input.TableName !== undefined) {
-    bodyParams["TableName"] = input.TableName;
-  }
-  return bodyParams;
+  return {
+    ...(input.IndexName !== undefined && { IndexName: input.IndexName }),
+    ...(input.TableName !== undefined && { TableName: input.TableName })
+  };
 };
 
 const serializeAws_json1_0DescribeGlobalTableInput = (
   input: DescribeGlobalTableInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.GlobalTableName !== undefined) {
-    bodyParams["GlobalTableName"] = input.GlobalTableName;
-  }
-  return bodyParams;
+  return {
+    ...(input.GlobalTableName !== undefined && {
+      GlobalTableName: input.GlobalTableName
+    })
+  };
 };
 
 const serializeAws_json1_0DescribeGlobalTableSettingsInput = (
   input: DescribeGlobalTableSettingsInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.GlobalTableName !== undefined) {
-    bodyParams["GlobalTableName"] = input.GlobalTableName;
-  }
-  return bodyParams;
+  return {
+    ...(input.GlobalTableName !== undefined && {
+      GlobalTableName: input.GlobalTableName
+    })
+  };
 };
 
 const serializeAws_json1_0DescribeLimitsInput = (
   input: DescribeLimitsInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  return bodyParams;
+  return {};
 };
 
 const serializeAws_json1_0DescribeTableInput = (
   input: DescribeTableInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.TableName !== undefined) {
-    bodyParams["TableName"] = input.TableName;
-  }
-  return bodyParams;
+  return {
+    ...(input.TableName !== undefined && { TableName: input.TableName })
+  };
 };
 
 const serializeAws_json1_0DescribeTableReplicaAutoScalingInput = (
   input: DescribeTableReplicaAutoScalingInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.TableName !== undefined) {
-    bodyParams["TableName"] = input.TableName;
-  }
-  return bodyParams;
+  return {
+    ...(input.TableName !== undefined && { TableName: input.TableName })
+  };
 };
 
 const serializeAws_json1_0DescribeTimeToLiveInput = (
   input: DescribeTimeToLiveInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.TableName !== undefined) {
-    bodyParams["TableName"] = input.TableName;
-  }
-  return bodyParams;
+  return {
+    ...(input.TableName !== undefined && { TableName: input.TableName })
+  };
 };
 
 const serializeAws_json1_0ExpectedAttributeMap = (
@@ -6243,26 +6128,21 @@ const serializeAws_json1_0ExpectedAttributeValue = (
   input: ExpectedAttributeValue,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AttributeValueList !== undefined) {
-    bodyParams["AttributeValueList"] = serializeAws_json1_0AttributeValueList(
-      input.AttributeValueList,
-      context
-    );
-  }
-  if (input.ComparisonOperator !== undefined) {
-    bodyParams["ComparisonOperator"] = input.ComparisonOperator;
-  }
-  if (input.Exists !== undefined) {
-    bodyParams["Exists"] = input.Exists;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = serializeAws_json1_0AttributeValue(
-      input.Value,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.AttributeValueList !== undefined && {
+      AttributeValueList: serializeAws_json1_0AttributeValueList(
+        input.AttributeValueList,
+        context
+      )
+    }),
+    ...(input.ComparisonOperator !== undefined && {
+      ComparisonOperator: input.ComparisonOperator
+    }),
+    ...(input.Exists !== undefined && { Exists: input.Exists }),
+    ...(input.Value !== undefined && {
+      Value: serializeAws_json1_0AttributeValue(input.Value, context)
+    })
+  };
 };
 
 const serializeAws_json1_0ExpressionAttributeNameMap = (
@@ -6296,112 +6176,90 @@ const serializeAws_json1_0FilterConditionMap = (
 };
 
 const serializeAws_json1_0Get = (input: Get, context: __SerdeContext): any => {
-  const bodyParams: any = {};
-  if (input.ExpressionAttributeNames !== undefined) {
-    bodyParams[
-      "ExpressionAttributeNames"
-    ] = serializeAws_json1_0ExpressionAttributeNameMap(
-      input.ExpressionAttributeNames,
-      context
-    );
-  }
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = serializeAws_json1_0Key(input.Key, context);
-  }
-  if (input.ProjectionExpression !== undefined) {
-    bodyParams["ProjectionExpression"] = input.ProjectionExpression;
-  }
-  if (input.TableName !== undefined) {
-    bodyParams["TableName"] = input.TableName;
-  }
-  return bodyParams;
+  return {
+    ...(input.ExpressionAttributeNames !== undefined && {
+      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(
+        input.ExpressionAttributeNames,
+        context
+      )
+    }),
+    ...(input.Key !== undefined && {
+      Key: serializeAws_json1_0Key(input.Key, context)
+    }),
+    ...(input.ProjectionExpression !== undefined && {
+      ProjectionExpression: input.ProjectionExpression
+    }),
+    ...(input.TableName !== undefined && { TableName: input.TableName })
+  };
 };
 
 const serializeAws_json1_0GetItemInput = (
   input: GetItemInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AttributesToGet !== undefined) {
-    bodyParams["AttributesToGet"] = serializeAws_json1_0AttributeNameList(
-      input.AttributesToGet,
-      context
-    );
-  }
-  if (input.ConsistentRead !== undefined) {
-    bodyParams["ConsistentRead"] = input.ConsistentRead;
-  }
-  if (input.ExpressionAttributeNames !== undefined) {
-    bodyParams[
-      "ExpressionAttributeNames"
-    ] = serializeAws_json1_0ExpressionAttributeNameMap(
-      input.ExpressionAttributeNames,
-      context
-    );
-  }
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = serializeAws_json1_0Key(input.Key, context);
-  }
-  if (input.ProjectionExpression !== undefined) {
-    bodyParams["ProjectionExpression"] = input.ProjectionExpression;
-  }
-  if (input.ReturnConsumedCapacity !== undefined) {
-    bodyParams["ReturnConsumedCapacity"] = input.ReturnConsumedCapacity;
-  }
-  if (input.TableName !== undefined) {
-    bodyParams["TableName"] = input.TableName;
-  }
-  return bodyParams;
+  return {
+    ...(input.AttributesToGet !== undefined && {
+      AttributesToGet: serializeAws_json1_0AttributeNameList(
+        input.AttributesToGet,
+        context
+      )
+    }),
+    ...(input.ConsistentRead !== undefined && {
+      ConsistentRead: input.ConsistentRead
+    }),
+    ...(input.ExpressionAttributeNames !== undefined && {
+      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(
+        input.ExpressionAttributeNames,
+        context
+      )
+    }),
+    ...(input.Key !== undefined && {
+      Key: serializeAws_json1_0Key(input.Key, context)
+    }),
+    ...(input.ProjectionExpression !== undefined && {
+      ProjectionExpression: input.ProjectionExpression
+    }),
+    ...(input.ReturnConsumedCapacity !== undefined && {
+      ReturnConsumedCapacity: input.ReturnConsumedCapacity
+    }),
+    ...(input.TableName !== undefined && { TableName: input.TableName })
+  };
 };
 
 const serializeAws_json1_0GlobalSecondaryIndex = (
   input: GlobalSecondaryIndex,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.IndexName !== undefined) {
-    bodyParams["IndexName"] = input.IndexName;
-  }
-  if (input.KeySchema !== undefined) {
-    bodyParams["KeySchema"] = serializeAws_json1_0KeySchema(
-      input.KeySchema,
-      context
-    );
-  }
-  if (input.Projection !== undefined) {
-    bodyParams["Projection"] = serializeAws_json1_0Projection(
-      input.Projection,
-      context
-    );
-  }
-  if (input.ProvisionedThroughput !== undefined) {
-    bodyParams[
-      "ProvisionedThroughput"
-    ] = serializeAws_json1_0ProvisionedThroughput(
-      input.ProvisionedThroughput,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.IndexName !== undefined && { IndexName: input.IndexName }),
+    ...(input.KeySchema !== undefined && {
+      KeySchema: serializeAws_json1_0KeySchema(input.KeySchema, context)
+    }),
+    ...(input.Projection !== undefined && {
+      Projection: serializeAws_json1_0Projection(input.Projection, context)
+    }),
+    ...(input.ProvisionedThroughput !== undefined && {
+      ProvisionedThroughput: serializeAws_json1_0ProvisionedThroughput(
+        input.ProvisionedThroughput,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_0GlobalSecondaryIndexAutoScalingUpdate = (
   input: GlobalSecondaryIndexAutoScalingUpdate,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.IndexName !== undefined) {
-    bodyParams["IndexName"] = input.IndexName;
-  }
-  if (input.ProvisionedWriteCapacityAutoScalingUpdate !== undefined) {
-    bodyParams[
-      "ProvisionedWriteCapacityAutoScalingUpdate"
-    ] = serializeAws_json1_0AutoScalingSettingsUpdate(
-      input.ProvisionedWriteCapacityAutoScalingUpdate,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.IndexName !== undefined && { IndexName: input.IndexName }),
+    ...(input.ProvisionedWriteCapacityAutoScalingUpdate !== undefined && {
+      ProvisionedWriteCapacityAutoScalingUpdate: serializeAws_json1_0AutoScalingSettingsUpdate(
+        input.ProvisionedWriteCapacityAutoScalingUpdate,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_0GlobalSecondaryIndexAutoScalingUpdateList = (
@@ -6426,26 +6284,26 @@ const serializeAws_json1_0GlobalSecondaryIndexUpdate = (
   input: GlobalSecondaryIndexUpdate,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Create !== undefined) {
-    bodyParams["Create"] = serializeAws_json1_0CreateGlobalSecondaryIndexAction(
-      input.Create,
-      context
-    );
-  }
-  if (input.Delete !== undefined) {
-    bodyParams["Delete"] = serializeAws_json1_0DeleteGlobalSecondaryIndexAction(
-      input.Delete,
-      context
-    );
-  }
-  if (input.Update !== undefined) {
-    bodyParams["Update"] = serializeAws_json1_0UpdateGlobalSecondaryIndexAction(
-      input.Update,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Create !== undefined && {
+      Create: serializeAws_json1_0CreateGlobalSecondaryIndexAction(
+        input.Create,
+        context
+      )
+    }),
+    ...(input.Delete !== undefined && {
+      Delete: serializeAws_json1_0DeleteGlobalSecondaryIndexAction(
+        input.Delete,
+        context
+      )
+    }),
+    ...(input.Update !== undefined && {
+      Update: serializeAws_json1_0UpdateGlobalSecondaryIndexAction(
+        input.Update,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_0GlobalSecondaryIndexUpdateList = (
@@ -6461,23 +6319,19 @@ const serializeAws_json1_0GlobalTableGlobalSecondaryIndexSettingsUpdate = (
   input: GlobalTableGlobalSecondaryIndexSettingsUpdate,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.IndexName !== undefined) {
-    bodyParams["IndexName"] = input.IndexName;
-  }
-  if (input.ProvisionedWriteCapacityAutoScalingSettingsUpdate !== undefined) {
-    bodyParams[
-      "ProvisionedWriteCapacityAutoScalingSettingsUpdate"
-    ] = serializeAws_json1_0AutoScalingSettingsUpdate(
-      input.ProvisionedWriteCapacityAutoScalingSettingsUpdate,
-      context
-    );
-  }
-  if (input.ProvisionedWriteCapacityUnits !== undefined) {
-    bodyParams["ProvisionedWriteCapacityUnits"] =
-      input.ProvisionedWriteCapacityUnits;
-  }
-  return bodyParams;
+  return {
+    ...(input.IndexName !== undefined && { IndexName: input.IndexName }),
+    ...(input.ProvisionedWriteCapacityAutoScalingSettingsUpdate !==
+      undefined && {
+      ProvisionedWriteCapacityAutoScalingSettingsUpdate: serializeAws_json1_0AutoScalingSettingsUpdate(
+        input.ProvisionedWriteCapacityAutoScalingSettingsUpdate,
+        context
+      )
+    }),
+    ...(input.ProvisionedWriteCapacityUnits !== undefined && {
+      ProvisionedWriteCapacityUnits: input.ProvisionedWriteCapacityUnits
+    })
+  };
 };
 
 const serializeAws_json1_0GlobalTableGlobalSecondaryIndexSettingsUpdateList = (
@@ -6532,45 +6386,41 @@ const serializeAws_json1_0KeySchemaElement = (
   input: KeySchemaElement,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AttributeName !== undefined) {
-    bodyParams["AttributeName"] = input.AttributeName;
-  }
-  if (input.KeyType !== undefined) {
-    bodyParams["KeyType"] = input.KeyType;
-  }
-  return bodyParams;
+  return {
+    ...(input.AttributeName !== undefined && {
+      AttributeName: input.AttributeName
+    }),
+    ...(input.KeyType !== undefined && { KeyType: input.KeyType })
+  };
 };
 
 const serializeAws_json1_0KeysAndAttributes = (
   input: KeysAndAttributes,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AttributesToGet !== undefined) {
-    bodyParams["AttributesToGet"] = serializeAws_json1_0AttributeNameList(
-      input.AttributesToGet,
-      context
-    );
-  }
-  if (input.ConsistentRead !== undefined) {
-    bodyParams["ConsistentRead"] = input.ConsistentRead;
-  }
-  if (input.ExpressionAttributeNames !== undefined) {
-    bodyParams[
-      "ExpressionAttributeNames"
-    ] = serializeAws_json1_0ExpressionAttributeNameMap(
-      input.ExpressionAttributeNames,
-      context
-    );
-  }
-  if (input.Keys !== undefined) {
-    bodyParams["Keys"] = serializeAws_json1_0KeyList(input.Keys, context);
-  }
-  if (input.ProjectionExpression !== undefined) {
-    bodyParams["ProjectionExpression"] = input.ProjectionExpression;
-  }
-  return bodyParams;
+  return {
+    ...(input.AttributesToGet !== undefined && {
+      AttributesToGet: serializeAws_json1_0AttributeNameList(
+        input.AttributesToGet,
+        context
+      )
+    }),
+    ...(input.ConsistentRead !== undefined && {
+      ConsistentRead: input.ConsistentRead
+    }),
+    ...(input.ExpressionAttributeNames !== undefined && {
+      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(
+        input.ExpressionAttributeNames,
+        context
+      )
+    }),
+    ...(input.Keys !== undefined && {
+      Keys: serializeAws_json1_0KeyList(input.Keys, context)
+    }),
+    ...(input.ProjectionExpression !== undefined && {
+      ProjectionExpression: input.ProjectionExpression
+    })
+  };
 };
 
 const serializeAws_json1_0ListAttributeValue = (
@@ -6584,116 +6434,85 @@ const serializeAws_json1_0ListBackupsInput = (
   input: ListBackupsInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.BackupType !== undefined) {
-    bodyParams["BackupType"] = input.BackupType;
-  }
-  if (input.ExclusiveStartBackupArn !== undefined) {
-    bodyParams["ExclusiveStartBackupArn"] = input.ExclusiveStartBackupArn;
-  }
-  if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
-  }
-  if (input.TableName !== undefined) {
-    bodyParams["TableName"] = input.TableName;
-  }
-  if (input.TimeRangeLowerBound !== undefined) {
-    bodyParams["TimeRangeLowerBound"] = Math.round(
-      input.TimeRangeLowerBound.getTime() / 1000
-    );
-  }
-  if (input.TimeRangeUpperBound !== undefined) {
-    bodyParams["TimeRangeUpperBound"] = Math.round(
-      input.TimeRangeUpperBound.getTime() / 1000
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.BackupType !== undefined && { BackupType: input.BackupType }),
+    ...(input.ExclusiveStartBackupArn !== undefined && {
+      ExclusiveStartBackupArn: input.ExclusiveStartBackupArn
+    }),
+    ...(input.Limit !== undefined && { Limit: input.Limit }),
+    ...(input.TableName !== undefined && { TableName: input.TableName }),
+    ...(input.TimeRangeLowerBound !== undefined && {
+      TimeRangeLowerBound: Math.round(
+        input.TimeRangeLowerBound.getTime() / 1000
+      )
+    }),
+    ...(input.TimeRangeUpperBound !== undefined && {
+      TimeRangeUpperBound: Math.round(
+        input.TimeRangeUpperBound.getTime() / 1000
+      )
+    })
+  };
 };
 
 const serializeAws_json1_0ListContributorInsightsInput = (
   input: ListContributorInsightsInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.TableName !== undefined) {
-    bodyParams["TableName"] = input.TableName;
-  }
-  return bodyParams;
+  return {
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.TableName !== undefined && { TableName: input.TableName })
+  };
 };
 
 const serializeAws_json1_0ListGlobalTablesInput = (
   input: ListGlobalTablesInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ExclusiveStartGlobalTableName !== undefined) {
-    bodyParams["ExclusiveStartGlobalTableName"] =
-      input.ExclusiveStartGlobalTableName;
-  }
-  if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
-  }
-  if (input.RegionName !== undefined) {
-    bodyParams["RegionName"] = input.RegionName;
-  }
-  return bodyParams;
+  return {
+    ...(input.ExclusiveStartGlobalTableName !== undefined && {
+      ExclusiveStartGlobalTableName: input.ExclusiveStartGlobalTableName
+    }),
+    ...(input.Limit !== undefined && { Limit: input.Limit }),
+    ...(input.RegionName !== undefined && { RegionName: input.RegionName })
+  };
 };
 
 const serializeAws_json1_0ListTablesInput = (
   input: ListTablesInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ExclusiveStartTableName !== undefined) {
-    bodyParams["ExclusiveStartTableName"] = input.ExclusiveStartTableName;
-  }
-  if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
-  }
-  return bodyParams;
+  return {
+    ...(input.ExclusiveStartTableName !== undefined && {
+      ExclusiveStartTableName: input.ExclusiveStartTableName
+    }),
+    ...(input.Limit !== undefined && { Limit: input.Limit })
+  };
 };
 
 const serializeAws_json1_0ListTagsOfResourceInput = (
   input: ListTagsOfResourceInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ResourceArn !== undefined) {
-    bodyParams["ResourceArn"] = input.ResourceArn;
-  }
-  return bodyParams;
+  return {
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn })
+  };
 };
 
 const serializeAws_json1_0LocalSecondaryIndex = (
   input: LocalSecondaryIndex,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.IndexName !== undefined) {
-    bodyParams["IndexName"] = input.IndexName;
-  }
-  if (input.KeySchema !== undefined) {
-    bodyParams["KeySchema"] = serializeAws_json1_0KeySchema(
-      input.KeySchema,
-      context
-    );
-  }
-  if (input.Projection !== undefined) {
-    bodyParams["Projection"] = serializeAws_json1_0Projection(
-      input.Projection,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.IndexName !== undefined && { IndexName: input.IndexName }),
+    ...(input.KeySchema !== undefined && {
+      KeySchema: serializeAws_json1_0KeySchema(input.KeySchema, context)
+    }),
+    ...(input.Projection !== undefined && {
+      Projection: serializeAws_json1_0Projection(input.Projection, context)
+    })
+  };
 };
 
 const serializeAws_json1_0LocalSecondaryIndexList = (
@@ -6733,147 +6552,126 @@ const serializeAws_json1_0PointInTimeRecoverySpecification = (
   input: PointInTimeRecoverySpecification,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.PointInTimeRecoveryEnabled !== undefined) {
-    bodyParams["PointInTimeRecoveryEnabled"] = input.PointInTimeRecoveryEnabled;
-  }
-  return bodyParams;
+  return {
+    ...(input.PointInTimeRecoveryEnabled !== undefined && {
+      PointInTimeRecoveryEnabled: input.PointInTimeRecoveryEnabled
+    })
+  };
 };
 
 const serializeAws_json1_0Projection = (
   input: Projection,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.NonKeyAttributes !== undefined) {
-    bodyParams[
-      "NonKeyAttributes"
-    ] = serializeAws_json1_0NonKeyAttributeNameList(
-      input.NonKeyAttributes,
-      context
-    );
-  }
-  if (input.ProjectionType !== undefined) {
-    bodyParams["ProjectionType"] = input.ProjectionType;
-  }
-  return bodyParams;
+  return {
+    ...(input.NonKeyAttributes !== undefined && {
+      NonKeyAttributes: serializeAws_json1_0NonKeyAttributeNameList(
+        input.NonKeyAttributes,
+        context
+      )
+    }),
+    ...(input.ProjectionType !== undefined && {
+      ProjectionType: input.ProjectionType
+    })
+  };
 };
 
 const serializeAws_json1_0ProvisionedThroughput = (
   input: ProvisionedThroughput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ReadCapacityUnits !== undefined) {
-    bodyParams["ReadCapacityUnits"] = input.ReadCapacityUnits;
-  }
-  if (input.WriteCapacityUnits !== undefined) {
-    bodyParams["WriteCapacityUnits"] = input.WriteCapacityUnits;
-  }
-  return bodyParams;
+  return {
+    ...(input.ReadCapacityUnits !== undefined && {
+      ReadCapacityUnits: input.ReadCapacityUnits
+    }),
+    ...(input.WriteCapacityUnits !== undefined && {
+      WriteCapacityUnits: input.WriteCapacityUnits
+    })
+  };
 };
 
 const serializeAws_json1_0ProvisionedThroughputOverride = (
   input: ProvisionedThroughputOverride,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ReadCapacityUnits !== undefined) {
-    bodyParams["ReadCapacityUnits"] = input.ReadCapacityUnits;
-  }
-  return bodyParams;
+  return {
+    ...(input.ReadCapacityUnits !== undefined && {
+      ReadCapacityUnits: input.ReadCapacityUnits
+    })
+  };
 };
 
 const serializeAws_json1_0Put = (input: Put, context: __SerdeContext): any => {
-  const bodyParams: any = {};
-  if (input.ConditionExpression !== undefined) {
-    bodyParams["ConditionExpression"] = input.ConditionExpression;
-  }
-  if (input.ExpressionAttributeNames !== undefined) {
-    bodyParams[
-      "ExpressionAttributeNames"
-    ] = serializeAws_json1_0ExpressionAttributeNameMap(
-      input.ExpressionAttributeNames,
-      context
-    );
-  }
-  if (input.ExpressionAttributeValues !== undefined) {
-    bodyParams[
-      "ExpressionAttributeValues"
-    ] = serializeAws_json1_0ExpressionAttributeValueMap(
-      input.ExpressionAttributeValues,
-      context
-    );
-  }
-  if (input.Item !== undefined) {
-    bodyParams["Item"] = serializeAws_json1_0PutItemInputAttributeMap(
-      input.Item,
-      context
-    );
-  }
-  if (input.ReturnValuesOnConditionCheckFailure !== undefined) {
-    bodyParams["ReturnValuesOnConditionCheckFailure"] =
-      input.ReturnValuesOnConditionCheckFailure;
-  }
-  if (input.TableName !== undefined) {
-    bodyParams["TableName"] = input.TableName;
-  }
-  return bodyParams;
+  return {
+    ...(input.ConditionExpression !== undefined && {
+      ConditionExpression: input.ConditionExpression
+    }),
+    ...(input.ExpressionAttributeNames !== undefined && {
+      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(
+        input.ExpressionAttributeNames,
+        context
+      )
+    }),
+    ...(input.ExpressionAttributeValues !== undefined && {
+      ExpressionAttributeValues: serializeAws_json1_0ExpressionAttributeValueMap(
+        input.ExpressionAttributeValues,
+        context
+      )
+    }),
+    ...(input.Item !== undefined && {
+      Item: serializeAws_json1_0PutItemInputAttributeMap(input.Item, context)
+    }),
+    ...(input.ReturnValuesOnConditionCheckFailure !== undefined && {
+      ReturnValuesOnConditionCheckFailure:
+        input.ReturnValuesOnConditionCheckFailure
+    }),
+    ...(input.TableName !== undefined && { TableName: input.TableName })
+  };
 };
 
 const serializeAws_json1_0PutItemInput = (
   input: PutItemInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ConditionExpression !== undefined) {
-    bodyParams["ConditionExpression"] = input.ConditionExpression;
-  }
-  if (input.ConditionalOperator !== undefined) {
-    bodyParams["ConditionalOperator"] = input.ConditionalOperator;
-  }
-  if (input.Expected !== undefined) {
-    bodyParams["Expected"] = serializeAws_json1_0ExpectedAttributeMap(
-      input.Expected,
-      context
-    );
-  }
-  if (input.ExpressionAttributeNames !== undefined) {
-    bodyParams[
-      "ExpressionAttributeNames"
-    ] = serializeAws_json1_0ExpressionAttributeNameMap(
-      input.ExpressionAttributeNames,
-      context
-    );
-  }
-  if (input.ExpressionAttributeValues !== undefined) {
-    bodyParams[
-      "ExpressionAttributeValues"
-    ] = serializeAws_json1_0ExpressionAttributeValueMap(
-      input.ExpressionAttributeValues,
-      context
-    );
-  }
-  if (input.Item !== undefined) {
-    bodyParams["Item"] = serializeAws_json1_0PutItemInputAttributeMap(
-      input.Item,
-      context
-    );
-  }
-  if (input.ReturnConsumedCapacity !== undefined) {
-    bodyParams["ReturnConsumedCapacity"] = input.ReturnConsumedCapacity;
-  }
-  if (input.ReturnItemCollectionMetrics !== undefined) {
-    bodyParams["ReturnItemCollectionMetrics"] =
-      input.ReturnItemCollectionMetrics;
-  }
-  if (input.ReturnValues !== undefined) {
-    bodyParams["ReturnValues"] = input.ReturnValues;
-  }
-  if (input.TableName !== undefined) {
-    bodyParams["TableName"] = input.TableName;
-  }
-  return bodyParams;
+  return {
+    ...(input.ConditionExpression !== undefined && {
+      ConditionExpression: input.ConditionExpression
+    }),
+    ...(input.ConditionalOperator !== undefined && {
+      ConditionalOperator: input.ConditionalOperator
+    }),
+    ...(input.Expected !== undefined && {
+      Expected: serializeAws_json1_0ExpectedAttributeMap(
+        input.Expected,
+        context
+      )
+    }),
+    ...(input.ExpressionAttributeNames !== undefined && {
+      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(
+        input.ExpressionAttributeNames,
+        context
+      )
+    }),
+    ...(input.ExpressionAttributeValues !== undefined && {
+      ExpressionAttributeValues: serializeAws_json1_0ExpressionAttributeValueMap(
+        input.ExpressionAttributeValues,
+        context
+      )
+    }),
+    ...(input.Item !== undefined && {
+      Item: serializeAws_json1_0PutItemInputAttributeMap(input.Item, context)
+    }),
+    ...(input.ReturnConsumedCapacity !== undefined && {
+      ReturnConsumedCapacity: input.ReturnConsumedCapacity
+    }),
+    ...(input.ReturnItemCollectionMetrics !== undefined && {
+      ReturnItemCollectionMetrics: input.ReturnItemCollectionMetrics
+    }),
+    ...(input.ReturnValues !== undefined && {
+      ReturnValues: input.ReturnValues
+    }),
+    ...(input.TableName !== undefined && { TableName: input.TableName })
+  };
 };
 
 const serializeAws_json1_0PutItemInputAttributeMap = (
@@ -6890,133 +6688,110 @@ const serializeAws_json1_0PutRequest = (
   input: PutRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Item !== undefined) {
-    bodyParams["Item"] = serializeAws_json1_0PutItemInputAttributeMap(
-      input.Item,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Item !== undefined && {
+      Item: serializeAws_json1_0PutItemInputAttributeMap(input.Item, context)
+    })
+  };
 };
 
 const serializeAws_json1_0QueryInput = (
   input: QueryInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AttributesToGet !== undefined) {
-    bodyParams["AttributesToGet"] = serializeAws_json1_0AttributeNameList(
-      input.AttributesToGet,
-      context
-    );
-  }
-  if (input.ConditionalOperator !== undefined) {
-    bodyParams["ConditionalOperator"] = input.ConditionalOperator;
-  }
-  if (input.ConsistentRead !== undefined) {
-    bodyParams["ConsistentRead"] = input.ConsistentRead;
-  }
-  if (input.ExclusiveStartKey !== undefined) {
-    bodyParams["ExclusiveStartKey"] = serializeAws_json1_0Key(
-      input.ExclusiveStartKey,
-      context
-    );
-  }
-  if (input.ExpressionAttributeNames !== undefined) {
-    bodyParams[
-      "ExpressionAttributeNames"
-    ] = serializeAws_json1_0ExpressionAttributeNameMap(
-      input.ExpressionAttributeNames,
-      context
-    );
-  }
-  if (input.ExpressionAttributeValues !== undefined) {
-    bodyParams[
-      "ExpressionAttributeValues"
-    ] = serializeAws_json1_0ExpressionAttributeValueMap(
-      input.ExpressionAttributeValues,
-      context
-    );
-  }
-  if (input.FilterExpression !== undefined) {
-    bodyParams["FilterExpression"] = input.FilterExpression;
-  }
-  if (input.IndexName !== undefined) {
-    bodyParams["IndexName"] = input.IndexName;
-  }
-  if (input.KeyConditionExpression !== undefined) {
-    bodyParams["KeyConditionExpression"] = input.KeyConditionExpression;
-  }
-  if (input.KeyConditions !== undefined) {
-    bodyParams["KeyConditions"] = serializeAws_json1_0KeyConditions(
-      input.KeyConditions,
-      context
-    );
-  }
-  if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
-  }
-  if (input.ProjectionExpression !== undefined) {
-    bodyParams["ProjectionExpression"] = input.ProjectionExpression;
-  }
-  if (input.QueryFilter !== undefined) {
-    bodyParams["QueryFilter"] = serializeAws_json1_0FilterConditionMap(
-      input.QueryFilter,
-      context
-    );
-  }
-  if (input.ReturnConsumedCapacity !== undefined) {
-    bodyParams["ReturnConsumedCapacity"] = input.ReturnConsumedCapacity;
-  }
-  if (input.ScanIndexForward !== undefined) {
-    bodyParams["ScanIndexForward"] = input.ScanIndexForward;
-  }
-  if (input.Select !== undefined) {
-    bodyParams["Select"] = input.Select;
-  }
-  if (input.TableName !== undefined) {
-    bodyParams["TableName"] = input.TableName;
-  }
-  return bodyParams;
+  return {
+    ...(input.AttributesToGet !== undefined && {
+      AttributesToGet: serializeAws_json1_0AttributeNameList(
+        input.AttributesToGet,
+        context
+      )
+    }),
+    ...(input.ConditionalOperator !== undefined && {
+      ConditionalOperator: input.ConditionalOperator
+    }),
+    ...(input.ConsistentRead !== undefined && {
+      ConsistentRead: input.ConsistentRead
+    }),
+    ...(input.ExclusiveStartKey !== undefined && {
+      ExclusiveStartKey: serializeAws_json1_0Key(
+        input.ExclusiveStartKey,
+        context
+      )
+    }),
+    ...(input.ExpressionAttributeNames !== undefined && {
+      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(
+        input.ExpressionAttributeNames,
+        context
+      )
+    }),
+    ...(input.ExpressionAttributeValues !== undefined && {
+      ExpressionAttributeValues: serializeAws_json1_0ExpressionAttributeValueMap(
+        input.ExpressionAttributeValues,
+        context
+      )
+    }),
+    ...(input.FilterExpression !== undefined && {
+      FilterExpression: input.FilterExpression
+    }),
+    ...(input.IndexName !== undefined && { IndexName: input.IndexName }),
+    ...(input.KeyConditionExpression !== undefined && {
+      KeyConditionExpression: input.KeyConditionExpression
+    }),
+    ...(input.KeyConditions !== undefined && {
+      KeyConditions: serializeAws_json1_0KeyConditions(
+        input.KeyConditions,
+        context
+      )
+    }),
+    ...(input.Limit !== undefined && { Limit: input.Limit }),
+    ...(input.ProjectionExpression !== undefined && {
+      ProjectionExpression: input.ProjectionExpression
+    }),
+    ...(input.QueryFilter !== undefined && {
+      QueryFilter: serializeAws_json1_0FilterConditionMap(
+        input.QueryFilter,
+        context
+      )
+    }),
+    ...(input.ReturnConsumedCapacity !== undefined && {
+      ReturnConsumedCapacity: input.ReturnConsumedCapacity
+    }),
+    ...(input.ScanIndexForward !== undefined && {
+      ScanIndexForward: input.ScanIndexForward
+    }),
+    ...(input.Select !== undefined && { Select: input.Select }),
+    ...(input.TableName !== undefined && { TableName: input.TableName })
+  };
 };
 
 const serializeAws_json1_0Replica = (
   input: Replica,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.RegionName !== undefined) {
-    bodyParams["RegionName"] = input.RegionName;
-  }
-  return bodyParams;
+  return {
+    ...(input.RegionName !== undefined && { RegionName: input.RegionName })
+  };
 };
 
 const serializeAws_json1_0ReplicaAutoScalingUpdate = (
   input: ReplicaAutoScalingUpdate,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.RegionName !== undefined) {
-    bodyParams["RegionName"] = input.RegionName;
-  }
-  if (input.ReplicaGlobalSecondaryIndexUpdates !== undefined) {
-    bodyParams[
-      "ReplicaGlobalSecondaryIndexUpdates"
-    ] = serializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingUpdateList(
-      input.ReplicaGlobalSecondaryIndexUpdates,
-      context
-    );
-  }
-  if (input.ReplicaProvisionedReadCapacityAutoScalingUpdate !== undefined) {
-    bodyParams[
-      "ReplicaProvisionedReadCapacityAutoScalingUpdate"
-    ] = serializeAws_json1_0AutoScalingSettingsUpdate(
-      input.ReplicaProvisionedReadCapacityAutoScalingUpdate,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.RegionName !== undefined && { RegionName: input.RegionName }),
+    ...(input.ReplicaGlobalSecondaryIndexUpdates !== undefined && {
+      ReplicaGlobalSecondaryIndexUpdates: serializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingUpdateList(
+        input.ReplicaGlobalSecondaryIndexUpdates,
+        context
+      )
+    }),
+    ...(input.ReplicaProvisionedReadCapacityAutoScalingUpdate !== undefined && {
+      ReplicaProvisionedReadCapacityAutoScalingUpdate: serializeAws_json1_0AutoScalingSettingsUpdate(
+        input.ReplicaProvisionedReadCapacityAutoScalingUpdate,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_0ReplicaAutoScalingUpdateList = (
@@ -7032,38 +6807,30 @@ const serializeAws_json1_0ReplicaGlobalSecondaryIndex = (
   input: ReplicaGlobalSecondaryIndex,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.IndexName !== undefined) {
-    bodyParams["IndexName"] = input.IndexName;
-  }
-  if (input.ProvisionedThroughputOverride !== undefined) {
-    bodyParams[
-      "ProvisionedThroughputOverride"
-    ] = serializeAws_json1_0ProvisionedThroughputOverride(
-      input.ProvisionedThroughputOverride,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.IndexName !== undefined && { IndexName: input.IndexName }),
+    ...(input.ProvisionedThroughputOverride !== undefined && {
+      ProvisionedThroughputOverride: serializeAws_json1_0ProvisionedThroughputOverride(
+        input.ProvisionedThroughputOverride,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingUpdate = (
   input: ReplicaGlobalSecondaryIndexAutoScalingUpdate,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.IndexName !== undefined) {
-    bodyParams["IndexName"] = input.IndexName;
-  }
-  if (input.ProvisionedReadCapacityAutoScalingUpdate !== undefined) {
-    bodyParams[
-      "ProvisionedReadCapacityAutoScalingUpdate"
-    ] = serializeAws_json1_0AutoScalingSettingsUpdate(
-      input.ProvisionedReadCapacityAutoScalingUpdate,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.IndexName !== undefined && { IndexName: input.IndexName }),
+    ...(input.ProvisionedReadCapacityAutoScalingUpdate !== undefined && {
+      ProvisionedReadCapacityAutoScalingUpdate: serializeAws_json1_0AutoScalingSettingsUpdate(
+        input.ProvisionedReadCapacityAutoScalingUpdate,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_0ReplicaGlobalSecondaryIndexAutoScalingUpdateList = (
@@ -7091,23 +6858,19 @@ const serializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsUpdate = (
   input: ReplicaGlobalSecondaryIndexSettingsUpdate,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.IndexName !== undefined) {
-    bodyParams["IndexName"] = input.IndexName;
-  }
-  if (input.ProvisionedReadCapacityAutoScalingSettingsUpdate !== undefined) {
-    bodyParams[
-      "ProvisionedReadCapacityAutoScalingSettingsUpdate"
-    ] = serializeAws_json1_0AutoScalingSettingsUpdate(
-      input.ProvisionedReadCapacityAutoScalingSettingsUpdate,
-      context
-    );
-  }
-  if (input.ProvisionedReadCapacityUnits !== undefined) {
-    bodyParams["ProvisionedReadCapacityUnits"] =
-      input.ProvisionedReadCapacityUnits;
-  }
-  return bodyParams;
+  return {
+    ...(input.IndexName !== undefined && { IndexName: input.IndexName }),
+    ...(input.ProvisionedReadCapacityAutoScalingSettingsUpdate !==
+      undefined && {
+      ProvisionedReadCapacityAutoScalingSettingsUpdate: serializeAws_json1_0AutoScalingSettingsUpdate(
+        input.ProvisionedReadCapacityAutoScalingSettingsUpdate,
+        context
+      )
+    }),
+    ...(input.ProvisionedReadCapacityUnits !== undefined && {
+      ProvisionedReadCapacityUnits: input.ProvisionedReadCapacityUnits
+    })
+  };
 };
 
 const serializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsUpdateList = (
@@ -7133,33 +6896,26 @@ const serializeAws_json1_0ReplicaSettingsUpdate = (
   input: ReplicaSettingsUpdate,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.RegionName !== undefined) {
-    bodyParams["RegionName"] = input.RegionName;
-  }
-  if (input.ReplicaGlobalSecondaryIndexSettingsUpdate !== undefined) {
-    bodyParams[
-      "ReplicaGlobalSecondaryIndexSettingsUpdate"
-    ] = serializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsUpdateList(
-      input.ReplicaGlobalSecondaryIndexSettingsUpdate,
-      context
-    );
-  }
-  if (
-    input.ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate !== undefined
-  ) {
-    bodyParams[
-      "ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate"
-    ] = serializeAws_json1_0AutoScalingSettingsUpdate(
-      input.ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate,
-      context
-    );
-  }
-  if (input.ReplicaProvisionedReadCapacityUnits !== undefined) {
-    bodyParams["ReplicaProvisionedReadCapacityUnits"] =
-      input.ReplicaProvisionedReadCapacityUnits;
-  }
-  return bodyParams;
+  return {
+    ...(input.RegionName !== undefined && { RegionName: input.RegionName }),
+    ...(input.ReplicaGlobalSecondaryIndexSettingsUpdate !== undefined && {
+      ReplicaGlobalSecondaryIndexSettingsUpdate: serializeAws_json1_0ReplicaGlobalSecondaryIndexSettingsUpdateList(
+        input.ReplicaGlobalSecondaryIndexSettingsUpdate,
+        context
+      )
+    }),
+    ...(input.ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate !==
+      undefined && {
+      ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate: serializeAws_json1_0AutoScalingSettingsUpdate(
+        input.ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate,
+        context
+      )
+    }),
+    ...(input.ReplicaProvisionedReadCapacityUnits !== undefined && {
+      ReplicaProvisionedReadCapacityUnits:
+        input.ReplicaProvisionedReadCapacityUnits
+    })
+  };
 };
 
 const serializeAws_json1_0ReplicaSettingsUpdateList = (
@@ -7175,20 +6931,14 @@ const serializeAws_json1_0ReplicaUpdate = (
   input: ReplicaUpdate,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Create !== undefined) {
-    bodyParams["Create"] = serializeAws_json1_0CreateReplicaAction(
-      input.Create,
-      context
-    );
-  }
-  if (input.Delete !== undefined) {
-    bodyParams["Delete"] = serializeAws_json1_0DeleteReplicaAction(
-      input.Delete,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Create !== undefined && {
+      Create: serializeAws_json1_0CreateReplicaAction(input.Create, context)
+    }),
+    ...(input.Delete !== undefined && {
+      Delete: serializeAws_json1_0DeleteReplicaAction(input.Delete, context)
+    })
+  };
 };
 
 const serializeAws_json1_0ReplicaUpdateList = (
@@ -7202,32 +6952,26 @@ const serializeAws_json1_0ReplicationGroupUpdate = (
   input: ReplicationGroupUpdate,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Create !== undefined) {
-    bodyParams[
-      "Create"
-    ] = serializeAws_json1_0CreateReplicationGroupMemberAction(
-      input.Create,
-      context
-    );
-  }
-  if (input.Delete !== undefined) {
-    bodyParams[
-      "Delete"
-    ] = serializeAws_json1_0DeleteReplicationGroupMemberAction(
-      input.Delete,
-      context
-    );
-  }
-  if (input.Update !== undefined) {
-    bodyParams[
-      "Update"
-    ] = serializeAws_json1_0UpdateReplicationGroupMemberAction(
-      input.Update,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.Create !== undefined && {
+      Create: serializeAws_json1_0CreateReplicationGroupMemberAction(
+        input.Create,
+        context
+      )
+    }),
+    ...(input.Delete !== undefined && {
+      Delete: serializeAws_json1_0DeleteReplicationGroupMemberAction(
+        input.Delete,
+        context
+      )
+    }),
+    ...(input.Update !== undefined && {
+      Update: serializeAws_json1_0UpdateReplicationGroupMemberAction(
+        input.Update,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_0ReplicationGroupUpdateList = (
@@ -7243,196 +6987,162 @@ const serializeAws_json1_0RestoreTableFromBackupInput = (
   input: RestoreTableFromBackupInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.BackupArn !== undefined) {
-    bodyParams["BackupArn"] = input.BackupArn;
-  }
-  if (input.BillingModeOverride !== undefined) {
-    bodyParams["BillingModeOverride"] = input.BillingModeOverride;
-  }
-  if (input.GlobalSecondaryIndexOverride !== undefined) {
-    bodyParams[
-      "GlobalSecondaryIndexOverride"
-    ] = serializeAws_json1_0GlobalSecondaryIndexList(
-      input.GlobalSecondaryIndexOverride,
-      context
-    );
-  }
-  if (input.LocalSecondaryIndexOverride !== undefined) {
-    bodyParams[
-      "LocalSecondaryIndexOverride"
-    ] = serializeAws_json1_0LocalSecondaryIndexList(
-      input.LocalSecondaryIndexOverride,
-      context
-    );
-  }
-  if (input.ProvisionedThroughputOverride !== undefined) {
-    bodyParams[
-      "ProvisionedThroughputOverride"
-    ] = serializeAws_json1_0ProvisionedThroughput(
-      input.ProvisionedThroughputOverride,
-      context
-    );
-  }
-  if (input.TargetTableName !== undefined) {
-    bodyParams["TargetTableName"] = input.TargetTableName;
-  }
-  return bodyParams;
+  return {
+    ...(input.BackupArn !== undefined && { BackupArn: input.BackupArn }),
+    ...(input.BillingModeOverride !== undefined && {
+      BillingModeOverride: input.BillingModeOverride
+    }),
+    ...(input.GlobalSecondaryIndexOverride !== undefined && {
+      GlobalSecondaryIndexOverride: serializeAws_json1_0GlobalSecondaryIndexList(
+        input.GlobalSecondaryIndexOverride,
+        context
+      )
+    }),
+    ...(input.LocalSecondaryIndexOverride !== undefined && {
+      LocalSecondaryIndexOverride: serializeAws_json1_0LocalSecondaryIndexList(
+        input.LocalSecondaryIndexOverride,
+        context
+      )
+    }),
+    ...(input.ProvisionedThroughputOverride !== undefined && {
+      ProvisionedThroughputOverride: serializeAws_json1_0ProvisionedThroughput(
+        input.ProvisionedThroughputOverride,
+        context
+      )
+    }),
+    ...(input.TargetTableName !== undefined && {
+      TargetTableName: input.TargetTableName
+    })
+  };
 };
 
 const serializeAws_json1_0RestoreTableToPointInTimeInput = (
   input: RestoreTableToPointInTimeInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.BillingModeOverride !== undefined) {
-    bodyParams["BillingModeOverride"] = input.BillingModeOverride;
-  }
-  if (input.GlobalSecondaryIndexOverride !== undefined) {
-    bodyParams[
-      "GlobalSecondaryIndexOverride"
-    ] = serializeAws_json1_0GlobalSecondaryIndexList(
-      input.GlobalSecondaryIndexOverride,
-      context
-    );
-  }
-  if (input.LocalSecondaryIndexOverride !== undefined) {
-    bodyParams[
-      "LocalSecondaryIndexOverride"
-    ] = serializeAws_json1_0LocalSecondaryIndexList(
-      input.LocalSecondaryIndexOverride,
-      context
-    );
-  }
-  if (input.ProvisionedThroughputOverride !== undefined) {
-    bodyParams[
-      "ProvisionedThroughputOverride"
-    ] = serializeAws_json1_0ProvisionedThroughput(
-      input.ProvisionedThroughputOverride,
-      context
-    );
-  }
-  if (input.RestoreDateTime !== undefined) {
-    bodyParams["RestoreDateTime"] = Math.round(
-      input.RestoreDateTime.getTime() / 1000
-    );
-  }
-  if (input.SourceTableName !== undefined) {
-    bodyParams["SourceTableName"] = input.SourceTableName;
-  }
-  if (input.TargetTableName !== undefined) {
-    bodyParams["TargetTableName"] = input.TargetTableName;
-  }
-  if (input.UseLatestRestorableTime !== undefined) {
-    bodyParams["UseLatestRestorableTime"] = input.UseLatestRestorableTime;
-  }
-  return bodyParams;
+  return {
+    ...(input.BillingModeOverride !== undefined && {
+      BillingModeOverride: input.BillingModeOverride
+    }),
+    ...(input.GlobalSecondaryIndexOverride !== undefined && {
+      GlobalSecondaryIndexOverride: serializeAws_json1_0GlobalSecondaryIndexList(
+        input.GlobalSecondaryIndexOverride,
+        context
+      )
+    }),
+    ...(input.LocalSecondaryIndexOverride !== undefined && {
+      LocalSecondaryIndexOverride: serializeAws_json1_0LocalSecondaryIndexList(
+        input.LocalSecondaryIndexOverride,
+        context
+      )
+    }),
+    ...(input.ProvisionedThroughputOverride !== undefined && {
+      ProvisionedThroughputOverride: serializeAws_json1_0ProvisionedThroughput(
+        input.ProvisionedThroughputOverride,
+        context
+      )
+    }),
+    ...(input.RestoreDateTime !== undefined && {
+      RestoreDateTime: Math.round(input.RestoreDateTime.getTime() / 1000)
+    }),
+    ...(input.SourceTableName !== undefined && {
+      SourceTableName: input.SourceTableName
+    }),
+    ...(input.TargetTableName !== undefined && {
+      TargetTableName: input.TargetTableName
+    }),
+    ...(input.UseLatestRestorableTime !== undefined && {
+      UseLatestRestorableTime: input.UseLatestRestorableTime
+    })
+  };
 };
 
 const serializeAws_json1_0SSESpecification = (
   input: SSESpecification,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Enabled !== undefined) {
-    bodyParams["Enabled"] = input.Enabled;
-  }
-  if (input.KMSMasterKeyId !== undefined) {
-    bodyParams["KMSMasterKeyId"] = input.KMSMasterKeyId;
-  }
-  if (input.SSEType !== undefined) {
-    bodyParams["SSEType"] = input.SSEType;
-  }
-  return bodyParams;
+  return {
+    ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
+    ...(input.KMSMasterKeyId !== undefined && {
+      KMSMasterKeyId: input.KMSMasterKeyId
+    }),
+    ...(input.SSEType !== undefined && { SSEType: input.SSEType })
+  };
 };
 
 const serializeAws_json1_0ScanInput = (
   input: ScanInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AttributesToGet !== undefined) {
-    bodyParams["AttributesToGet"] = serializeAws_json1_0AttributeNameList(
-      input.AttributesToGet,
-      context
-    );
-  }
-  if (input.ConditionalOperator !== undefined) {
-    bodyParams["ConditionalOperator"] = input.ConditionalOperator;
-  }
-  if (input.ConsistentRead !== undefined) {
-    bodyParams["ConsistentRead"] = input.ConsistentRead;
-  }
-  if (input.ExclusiveStartKey !== undefined) {
-    bodyParams["ExclusiveStartKey"] = serializeAws_json1_0Key(
-      input.ExclusiveStartKey,
-      context
-    );
-  }
-  if (input.ExpressionAttributeNames !== undefined) {
-    bodyParams[
-      "ExpressionAttributeNames"
-    ] = serializeAws_json1_0ExpressionAttributeNameMap(
-      input.ExpressionAttributeNames,
-      context
-    );
-  }
-  if (input.ExpressionAttributeValues !== undefined) {
-    bodyParams[
-      "ExpressionAttributeValues"
-    ] = serializeAws_json1_0ExpressionAttributeValueMap(
-      input.ExpressionAttributeValues,
-      context
-    );
-  }
-  if (input.FilterExpression !== undefined) {
-    bodyParams["FilterExpression"] = input.FilterExpression;
-  }
-  if (input.IndexName !== undefined) {
-    bodyParams["IndexName"] = input.IndexName;
-  }
-  if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
-  }
-  if (input.ProjectionExpression !== undefined) {
-    bodyParams["ProjectionExpression"] = input.ProjectionExpression;
-  }
-  if (input.ReturnConsumedCapacity !== undefined) {
-    bodyParams["ReturnConsumedCapacity"] = input.ReturnConsumedCapacity;
-  }
-  if (input.ScanFilter !== undefined) {
-    bodyParams["ScanFilter"] = serializeAws_json1_0FilterConditionMap(
-      input.ScanFilter,
-      context
-    );
-  }
-  if (input.Segment !== undefined) {
-    bodyParams["Segment"] = input.Segment;
-  }
-  if (input.Select !== undefined) {
-    bodyParams["Select"] = input.Select;
-  }
-  if (input.TableName !== undefined) {
-    bodyParams["TableName"] = input.TableName;
-  }
-  if (input.TotalSegments !== undefined) {
-    bodyParams["TotalSegments"] = input.TotalSegments;
-  }
-  return bodyParams;
+  return {
+    ...(input.AttributesToGet !== undefined && {
+      AttributesToGet: serializeAws_json1_0AttributeNameList(
+        input.AttributesToGet,
+        context
+      )
+    }),
+    ...(input.ConditionalOperator !== undefined && {
+      ConditionalOperator: input.ConditionalOperator
+    }),
+    ...(input.ConsistentRead !== undefined && {
+      ConsistentRead: input.ConsistentRead
+    }),
+    ...(input.ExclusiveStartKey !== undefined && {
+      ExclusiveStartKey: serializeAws_json1_0Key(
+        input.ExclusiveStartKey,
+        context
+      )
+    }),
+    ...(input.ExpressionAttributeNames !== undefined && {
+      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(
+        input.ExpressionAttributeNames,
+        context
+      )
+    }),
+    ...(input.ExpressionAttributeValues !== undefined && {
+      ExpressionAttributeValues: serializeAws_json1_0ExpressionAttributeValueMap(
+        input.ExpressionAttributeValues,
+        context
+      )
+    }),
+    ...(input.FilterExpression !== undefined && {
+      FilterExpression: input.FilterExpression
+    }),
+    ...(input.IndexName !== undefined && { IndexName: input.IndexName }),
+    ...(input.Limit !== undefined && { Limit: input.Limit }),
+    ...(input.ProjectionExpression !== undefined && {
+      ProjectionExpression: input.ProjectionExpression
+    }),
+    ...(input.ReturnConsumedCapacity !== undefined && {
+      ReturnConsumedCapacity: input.ReturnConsumedCapacity
+    }),
+    ...(input.ScanFilter !== undefined && {
+      ScanFilter: serializeAws_json1_0FilterConditionMap(
+        input.ScanFilter,
+        context
+      )
+    }),
+    ...(input.Segment !== undefined && { Segment: input.Segment }),
+    ...(input.Select !== undefined && { Select: input.Select }),
+    ...(input.TableName !== undefined && { TableName: input.TableName }),
+    ...(input.TotalSegments !== undefined && {
+      TotalSegments: input.TotalSegments
+    })
+  };
 };
 
 const serializeAws_json1_0StreamSpecification = (
   input: StreamSpecification,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.StreamEnabled !== undefined) {
-    bodyParams["StreamEnabled"] = input.StreamEnabled;
-  }
-  if (input.StreamViewType !== undefined) {
-    bodyParams["StreamViewType"] = input.StreamViewType;
-  }
-  return bodyParams;
+  return {
+    ...(input.StreamEnabled !== undefined && {
+      StreamEnabled: input.StreamEnabled
+    }),
+    ...(input.StreamViewType !== undefined && {
+      StreamViewType: input.StreamViewType
+    })
+  };
 };
 
 const serializeAws_json1_0StringSetAttributeValue = (
@@ -7443,14 +7153,10 @@ const serializeAws_json1_0StringSetAttributeValue = (
 };
 
 const serializeAws_json1_0Tag = (input: Tag, context: __SerdeContext): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_json1_0TagKeyList = (
@@ -7471,39 +7177,35 @@ const serializeAws_json1_0TagResourceInput = (
   input: TagResourceInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ResourceArn !== undefined) {
-    bodyParams["ResourceArn"] = input.ResourceArn;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_0TagList(input.Tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_0TagList(input.Tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_0TimeToLiveSpecification = (
   input: TimeToLiveSpecification,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AttributeName !== undefined) {
-    bodyParams["AttributeName"] = input.AttributeName;
-  }
-  if (input.Enabled !== undefined) {
-    bodyParams["Enabled"] = input.Enabled;
-  }
-  return bodyParams;
+  return {
+    ...(input.AttributeName !== undefined && {
+      AttributeName: input.AttributeName
+    }),
+    ...(input.Enabled !== undefined && { Enabled: input.Enabled })
+  };
 };
 
 const serializeAws_json1_0TransactGetItem = (
   input: TransactGetItem,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Get !== undefined) {
-    bodyParams["Get"] = serializeAws_json1_0Get(input.Get, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.Get !== undefined && {
+      Get: serializeAws_json1_0Get(input.Get, context)
+    })
+  };
 };
 
 const serializeAws_json1_0TransactGetItemList = (
@@ -7519,40 +7221,40 @@ const serializeAws_json1_0TransactGetItemsInput = (
   input: TransactGetItemsInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ReturnConsumedCapacity !== undefined) {
-    bodyParams["ReturnConsumedCapacity"] = input.ReturnConsumedCapacity;
-  }
-  if (input.TransactItems !== undefined) {
-    bodyParams["TransactItems"] = serializeAws_json1_0TransactGetItemList(
-      input.TransactItems,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.ReturnConsumedCapacity !== undefined && {
+      ReturnConsumedCapacity: input.ReturnConsumedCapacity
+    }),
+    ...(input.TransactItems !== undefined && {
+      TransactItems: serializeAws_json1_0TransactGetItemList(
+        input.TransactItems,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_0TransactWriteItem = (
   input: TransactWriteItem,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ConditionCheck !== undefined) {
-    bodyParams["ConditionCheck"] = serializeAws_json1_0ConditionCheck(
-      input.ConditionCheck,
-      context
-    );
-  }
-  if (input.Delete !== undefined) {
-    bodyParams["Delete"] = serializeAws_json1_0Delete(input.Delete, context);
-  }
-  if (input.Put !== undefined) {
-    bodyParams["Put"] = serializeAws_json1_0Put(input.Put, context);
-  }
-  if (input.Update !== undefined) {
-    bodyParams["Update"] = serializeAws_json1_0Update(input.Update, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.ConditionCheck !== undefined && {
+      ConditionCheck: serializeAws_json1_0ConditionCheck(
+        input.ConditionCheck,
+        context
+      )
+    }),
+    ...(input.Delete !== undefined && {
+      Delete: serializeAws_json1_0Delete(input.Delete, context)
+    }),
+    ...(input.Put !== undefined && {
+      Put: serializeAws_json1_0Put(input.Put, context)
+    }),
+    ...(input.Update !== undefined && {
+      Update: serializeAws_json1_0Update(input.Update, context)
+    })
+  };
 };
 
 const serializeAws_json1_0TransactWriteItemList = (
@@ -7568,424 +7270,347 @@ const serializeAws_json1_0TransactWriteItemsInput = (
   input: TransactWriteItemsInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ClientRequestToken === undefined) {
-    input.ClientRequestToken = generateIdempotencyToken();
-  }
-  if (input.ClientRequestToken !== undefined) {
-    bodyParams["ClientRequestToken"] = input.ClientRequestToken;
-  }
-  if (input.ReturnConsumedCapacity !== undefined) {
-    bodyParams["ReturnConsumedCapacity"] = input.ReturnConsumedCapacity;
-  }
-  if (input.ReturnItemCollectionMetrics !== undefined) {
-    bodyParams["ReturnItemCollectionMetrics"] =
-      input.ReturnItemCollectionMetrics;
-  }
-  if (input.TransactItems !== undefined) {
-    bodyParams["TransactItems"] = serializeAws_json1_0TransactWriteItemList(
-      input.TransactItems,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.ReturnConsumedCapacity !== undefined && {
+      ReturnConsumedCapacity: input.ReturnConsumedCapacity
+    }),
+    ...(input.ReturnItemCollectionMetrics !== undefined && {
+      ReturnItemCollectionMetrics: input.ReturnItemCollectionMetrics
+    }),
+    ...(input.TransactItems !== undefined && {
+      TransactItems: serializeAws_json1_0TransactWriteItemList(
+        input.TransactItems,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_0UntagResourceInput = (
   input: UntagResourceInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ResourceArn !== undefined) {
-    bodyParams["ResourceArn"] = input.ResourceArn;
-  }
-  if (input.TagKeys !== undefined) {
-    bodyParams["TagKeys"] = serializeAws_json1_0TagKeyList(
-      input.TagKeys,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.TagKeys !== undefined && {
+      TagKeys: serializeAws_json1_0TagKeyList(input.TagKeys, context)
+    })
+  };
 };
 
 const serializeAws_json1_0Update = (
   input: Update,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ConditionExpression !== undefined) {
-    bodyParams["ConditionExpression"] = input.ConditionExpression;
-  }
-  if (input.ExpressionAttributeNames !== undefined) {
-    bodyParams[
-      "ExpressionAttributeNames"
-    ] = serializeAws_json1_0ExpressionAttributeNameMap(
-      input.ExpressionAttributeNames,
-      context
-    );
-  }
-  if (input.ExpressionAttributeValues !== undefined) {
-    bodyParams[
-      "ExpressionAttributeValues"
-    ] = serializeAws_json1_0ExpressionAttributeValueMap(
-      input.ExpressionAttributeValues,
-      context
-    );
-  }
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = serializeAws_json1_0Key(input.Key, context);
-  }
-  if (input.ReturnValuesOnConditionCheckFailure !== undefined) {
-    bodyParams["ReturnValuesOnConditionCheckFailure"] =
-      input.ReturnValuesOnConditionCheckFailure;
-  }
-  if (input.TableName !== undefined) {
-    bodyParams["TableName"] = input.TableName;
-  }
-  if (input.UpdateExpression !== undefined) {
-    bodyParams["UpdateExpression"] = input.UpdateExpression;
-  }
-  return bodyParams;
+  return {
+    ...(input.ConditionExpression !== undefined && {
+      ConditionExpression: input.ConditionExpression
+    }),
+    ...(input.ExpressionAttributeNames !== undefined && {
+      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(
+        input.ExpressionAttributeNames,
+        context
+      )
+    }),
+    ...(input.ExpressionAttributeValues !== undefined && {
+      ExpressionAttributeValues: serializeAws_json1_0ExpressionAttributeValueMap(
+        input.ExpressionAttributeValues,
+        context
+      )
+    }),
+    ...(input.Key !== undefined && {
+      Key: serializeAws_json1_0Key(input.Key, context)
+    }),
+    ...(input.ReturnValuesOnConditionCheckFailure !== undefined && {
+      ReturnValuesOnConditionCheckFailure:
+        input.ReturnValuesOnConditionCheckFailure
+    }),
+    ...(input.TableName !== undefined && { TableName: input.TableName }),
+    ...(input.UpdateExpression !== undefined && {
+      UpdateExpression: input.UpdateExpression
+    })
+  };
 };
 
 const serializeAws_json1_0UpdateContinuousBackupsInput = (
   input: UpdateContinuousBackupsInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.PointInTimeRecoverySpecification !== undefined) {
-    bodyParams[
-      "PointInTimeRecoverySpecification"
-    ] = serializeAws_json1_0PointInTimeRecoverySpecification(
-      input.PointInTimeRecoverySpecification,
-      context
-    );
-  }
-  if (input.TableName !== undefined) {
-    bodyParams["TableName"] = input.TableName;
-  }
-  return bodyParams;
+  return {
+    ...(input.PointInTimeRecoverySpecification !== undefined && {
+      PointInTimeRecoverySpecification: serializeAws_json1_0PointInTimeRecoverySpecification(
+        input.PointInTimeRecoverySpecification,
+        context
+      )
+    }),
+    ...(input.TableName !== undefined && { TableName: input.TableName })
+  };
 };
 
 const serializeAws_json1_0UpdateContributorInsightsInput = (
   input: UpdateContributorInsightsInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ContributorInsightsAction !== undefined) {
-    bodyParams["ContributorInsightsAction"] = input.ContributorInsightsAction;
-  }
-  if (input.IndexName !== undefined) {
-    bodyParams["IndexName"] = input.IndexName;
-  }
-  if (input.TableName !== undefined) {
-    bodyParams["TableName"] = input.TableName;
-  }
-  return bodyParams;
+  return {
+    ...(input.ContributorInsightsAction !== undefined && {
+      ContributorInsightsAction: input.ContributorInsightsAction
+    }),
+    ...(input.IndexName !== undefined && { IndexName: input.IndexName }),
+    ...(input.TableName !== undefined && { TableName: input.TableName })
+  };
 };
 
 const serializeAws_json1_0UpdateGlobalSecondaryIndexAction = (
   input: UpdateGlobalSecondaryIndexAction,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.IndexName !== undefined) {
-    bodyParams["IndexName"] = input.IndexName;
-  }
-  if (input.ProvisionedThroughput !== undefined) {
-    bodyParams[
-      "ProvisionedThroughput"
-    ] = serializeAws_json1_0ProvisionedThroughput(
-      input.ProvisionedThroughput,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.IndexName !== undefined && { IndexName: input.IndexName }),
+    ...(input.ProvisionedThroughput !== undefined && {
+      ProvisionedThroughput: serializeAws_json1_0ProvisionedThroughput(
+        input.ProvisionedThroughput,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_0UpdateGlobalTableInput = (
   input: UpdateGlobalTableInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.GlobalTableName !== undefined) {
-    bodyParams["GlobalTableName"] = input.GlobalTableName;
-  }
-  if (input.ReplicaUpdates !== undefined) {
-    bodyParams["ReplicaUpdates"] = serializeAws_json1_0ReplicaUpdateList(
-      input.ReplicaUpdates,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.GlobalTableName !== undefined && {
+      GlobalTableName: input.GlobalTableName
+    }),
+    ...(input.ReplicaUpdates !== undefined && {
+      ReplicaUpdates: serializeAws_json1_0ReplicaUpdateList(
+        input.ReplicaUpdates,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_0UpdateGlobalTableSettingsInput = (
   input: UpdateGlobalTableSettingsInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.GlobalTableBillingMode !== undefined) {
-    bodyParams["GlobalTableBillingMode"] = input.GlobalTableBillingMode;
-  }
-  if (input.GlobalTableGlobalSecondaryIndexSettingsUpdate !== undefined) {
-    bodyParams[
-      "GlobalTableGlobalSecondaryIndexSettingsUpdate"
-    ] = serializeAws_json1_0GlobalTableGlobalSecondaryIndexSettingsUpdateList(
-      input.GlobalTableGlobalSecondaryIndexSettingsUpdate,
-      context
-    );
-  }
-  if (input.GlobalTableName !== undefined) {
-    bodyParams["GlobalTableName"] = input.GlobalTableName;
-  }
-  if (
-    input.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate !==
-    undefined
-  ) {
-    bodyParams[
-      "GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate"
-    ] = serializeAws_json1_0AutoScalingSettingsUpdate(
-      input.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate,
-      context
-    );
-  }
-  if (input.GlobalTableProvisionedWriteCapacityUnits !== undefined) {
-    bodyParams["GlobalTableProvisionedWriteCapacityUnits"] =
-      input.GlobalTableProvisionedWriteCapacityUnits;
-  }
-  if (input.ReplicaSettingsUpdate !== undefined) {
-    bodyParams[
-      "ReplicaSettingsUpdate"
-    ] = serializeAws_json1_0ReplicaSettingsUpdateList(
-      input.ReplicaSettingsUpdate,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.GlobalTableBillingMode !== undefined && {
+      GlobalTableBillingMode: input.GlobalTableBillingMode
+    }),
+    ...(input.GlobalTableGlobalSecondaryIndexSettingsUpdate !== undefined && {
+      GlobalTableGlobalSecondaryIndexSettingsUpdate: serializeAws_json1_0GlobalTableGlobalSecondaryIndexSettingsUpdateList(
+        input.GlobalTableGlobalSecondaryIndexSettingsUpdate,
+        context
+      )
+    }),
+    ...(input.GlobalTableName !== undefined && {
+      GlobalTableName: input.GlobalTableName
+    }),
+    ...(input.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate !==
+      undefined && {
+      GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate: serializeAws_json1_0AutoScalingSettingsUpdate(
+        input.GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate,
+        context
+      )
+    }),
+    ...(input.GlobalTableProvisionedWriteCapacityUnits !== undefined && {
+      GlobalTableProvisionedWriteCapacityUnits:
+        input.GlobalTableProvisionedWriteCapacityUnits
+    }),
+    ...(input.ReplicaSettingsUpdate !== undefined && {
+      ReplicaSettingsUpdate: serializeAws_json1_0ReplicaSettingsUpdateList(
+        input.ReplicaSettingsUpdate,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_0UpdateItemInput = (
   input: UpdateItemInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AttributeUpdates !== undefined) {
-    bodyParams["AttributeUpdates"] = serializeAws_json1_0AttributeUpdates(
-      input.AttributeUpdates,
-      context
-    );
-  }
-  if (input.ConditionExpression !== undefined) {
-    bodyParams["ConditionExpression"] = input.ConditionExpression;
-  }
-  if (input.ConditionalOperator !== undefined) {
-    bodyParams["ConditionalOperator"] = input.ConditionalOperator;
-  }
-  if (input.Expected !== undefined) {
-    bodyParams["Expected"] = serializeAws_json1_0ExpectedAttributeMap(
-      input.Expected,
-      context
-    );
-  }
-  if (input.ExpressionAttributeNames !== undefined) {
-    bodyParams[
-      "ExpressionAttributeNames"
-    ] = serializeAws_json1_0ExpressionAttributeNameMap(
-      input.ExpressionAttributeNames,
-      context
-    );
-  }
-  if (input.ExpressionAttributeValues !== undefined) {
-    bodyParams[
-      "ExpressionAttributeValues"
-    ] = serializeAws_json1_0ExpressionAttributeValueMap(
-      input.ExpressionAttributeValues,
-      context
-    );
-  }
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = serializeAws_json1_0Key(input.Key, context);
-  }
-  if (input.ReturnConsumedCapacity !== undefined) {
-    bodyParams["ReturnConsumedCapacity"] = input.ReturnConsumedCapacity;
-  }
-  if (input.ReturnItemCollectionMetrics !== undefined) {
-    bodyParams["ReturnItemCollectionMetrics"] =
-      input.ReturnItemCollectionMetrics;
-  }
-  if (input.ReturnValues !== undefined) {
-    bodyParams["ReturnValues"] = input.ReturnValues;
-  }
-  if (input.TableName !== undefined) {
-    bodyParams["TableName"] = input.TableName;
-  }
-  if (input.UpdateExpression !== undefined) {
-    bodyParams["UpdateExpression"] = input.UpdateExpression;
-  }
-  return bodyParams;
+  return {
+    ...(input.AttributeUpdates !== undefined && {
+      AttributeUpdates: serializeAws_json1_0AttributeUpdates(
+        input.AttributeUpdates,
+        context
+      )
+    }),
+    ...(input.ConditionExpression !== undefined && {
+      ConditionExpression: input.ConditionExpression
+    }),
+    ...(input.ConditionalOperator !== undefined && {
+      ConditionalOperator: input.ConditionalOperator
+    }),
+    ...(input.Expected !== undefined && {
+      Expected: serializeAws_json1_0ExpectedAttributeMap(
+        input.Expected,
+        context
+      )
+    }),
+    ...(input.ExpressionAttributeNames !== undefined && {
+      ExpressionAttributeNames: serializeAws_json1_0ExpressionAttributeNameMap(
+        input.ExpressionAttributeNames,
+        context
+      )
+    }),
+    ...(input.ExpressionAttributeValues !== undefined && {
+      ExpressionAttributeValues: serializeAws_json1_0ExpressionAttributeValueMap(
+        input.ExpressionAttributeValues,
+        context
+      )
+    }),
+    ...(input.Key !== undefined && {
+      Key: serializeAws_json1_0Key(input.Key, context)
+    }),
+    ...(input.ReturnConsumedCapacity !== undefined && {
+      ReturnConsumedCapacity: input.ReturnConsumedCapacity
+    }),
+    ...(input.ReturnItemCollectionMetrics !== undefined && {
+      ReturnItemCollectionMetrics: input.ReturnItemCollectionMetrics
+    }),
+    ...(input.ReturnValues !== undefined && {
+      ReturnValues: input.ReturnValues
+    }),
+    ...(input.TableName !== undefined && { TableName: input.TableName }),
+    ...(input.UpdateExpression !== undefined && {
+      UpdateExpression: input.UpdateExpression
+    })
+  };
 };
 
 const serializeAws_json1_0UpdateReplicationGroupMemberAction = (
   input: UpdateReplicationGroupMemberAction,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.GlobalSecondaryIndexes !== undefined) {
-    bodyParams[
-      "GlobalSecondaryIndexes"
-    ] = serializeAws_json1_0ReplicaGlobalSecondaryIndexList(
-      input.GlobalSecondaryIndexes,
-      context
-    );
-  }
-  if (input.KMSMasterKeyId !== undefined) {
-    bodyParams["KMSMasterKeyId"] = input.KMSMasterKeyId;
-  }
-  if (input.ProvisionedThroughputOverride !== undefined) {
-    bodyParams[
-      "ProvisionedThroughputOverride"
-    ] = serializeAws_json1_0ProvisionedThroughputOverride(
-      input.ProvisionedThroughputOverride,
-      context
-    );
-  }
-  if (input.RegionName !== undefined) {
-    bodyParams["RegionName"] = input.RegionName;
-  }
-  return bodyParams;
+  return {
+    ...(input.GlobalSecondaryIndexes !== undefined && {
+      GlobalSecondaryIndexes: serializeAws_json1_0ReplicaGlobalSecondaryIndexList(
+        input.GlobalSecondaryIndexes,
+        context
+      )
+    }),
+    ...(input.KMSMasterKeyId !== undefined && {
+      KMSMasterKeyId: input.KMSMasterKeyId
+    }),
+    ...(input.ProvisionedThroughputOverride !== undefined && {
+      ProvisionedThroughputOverride: serializeAws_json1_0ProvisionedThroughputOverride(
+        input.ProvisionedThroughputOverride,
+        context
+      )
+    }),
+    ...(input.RegionName !== undefined && { RegionName: input.RegionName })
+  };
 };
 
 const serializeAws_json1_0UpdateTableInput = (
   input: UpdateTableInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.AttributeDefinitions !== undefined) {
-    bodyParams[
-      "AttributeDefinitions"
-    ] = serializeAws_json1_0AttributeDefinitions(
-      input.AttributeDefinitions,
-      context
-    );
-  }
-  if (input.BillingMode !== undefined) {
-    bodyParams["BillingMode"] = input.BillingMode;
-  }
-  if (input.GlobalSecondaryIndexUpdates !== undefined) {
-    bodyParams[
-      "GlobalSecondaryIndexUpdates"
-    ] = serializeAws_json1_0GlobalSecondaryIndexUpdateList(
-      input.GlobalSecondaryIndexUpdates,
-      context
-    );
-  }
-  if (input.ProvisionedThroughput !== undefined) {
-    bodyParams[
-      "ProvisionedThroughput"
-    ] = serializeAws_json1_0ProvisionedThroughput(
-      input.ProvisionedThroughput,
-      context
-    );
-  }
-  if (input.ReplicaUpdates !== undefined) {
-    bodyParams[
-      "ReplicaUpdates"
-    ] = serializeAws_json1_0ReplicationGroupUpdateList(
-      input.ReplicaUpdates,
-      context
-    );
-  }
-  if (input.SSESpecification !== undefined) {
-    bodyParams["SSESpecification"] = serializeAws_json1_0SSESpecification(
-      input.SSESpecification,
-      context
-    );
-  }
-  if (input.StreamSpecification !== undefined) {
-    bodyParams["StreamSpecification"] = serializeAws_json1_0StreamSpecification(
-      input.StreamSpecification,
-      context
-    );
-  }
-  if (input.TableName !== undefined) {
-    bodyParams["TableName"] = input.TableName;
-  }
-  return bodyParams;
+  return {
+    ...(input.AttributeDefinitions !== undefined && {
+      AttributeDefinitions: serializeAws_json1_0AttributeDefinitions(
+        input.AttributeDefinitions,
+        context
+      )
+    }),
+    ...(input.BillingMode !== undefined && { BillingMode: input.BillingMode }),
+    ...(input.GlobalSecondaryIndexUpdates !== undefined && {
+      GlobalSecondaryIndexUpdates: serializeAws_json1_0GlobalSecondaryIndexUpdateList(
+        input.GlobalSecondaryIndexUpdates,
+        context
+      )
+    }),
+    ...(input.ProvisionedThroughput !== undefined && {
+      ProvisionedThroughput: serializeAws_json1_0ProvisionedThroughput(
+        input.ProvisionedThroughput,
+        context
+      )
+    }),
+    ...(input.ReplicaUpdates !== undefined && {
+      ReplicaUpdates: serializeAws_json1_0ReplicationGroupUpdateList(
+        input.ReplicaUpdates,
+        context
+      )
+    }),
+    ...(input.SSESpecification !== undefined && {
+      SSESpecification: serializeAws_json1_0SSESpecification(
+        input.SSESpecification,
+        context
+      )
+    }),
+    ...(input.StreamSpecification !== undefined && {
+      StreamSpecification: serializeAws_json1_0StreamSpecification(
+        input.StreamSpecification,
+        context
+      )
+    }),
+    ...(input.TableName !== undefined && { TableName: input.TableName })
+  };
 };
 
 const serializeAws_json1_0UpdateTableReplicaAutoScalingInput = (
   input: UpdateTableReplicaAutoScalingInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.GlobalSecondaryIndexUpdates !== undefined) {
-    bodyParams[
-      "GlobalSecondaryIndexUpdates"
-    ] = serializeAws_json1_0GlobalSecondaryIndexAutoScalingUpdateList(
-      input.GlobalSecondaryIndexUpdates,
-      context
-    );
-  }
-  if (input.ProvisionedWriteCapacityAutoScalingUpdate !== undefined) {
-    bodyParams[
-      "ProvisionedWriteCapacityAutoScalingUpdate"
-    ] = serializeAws_json1_0AutoScalingSettingsUpdate(
-      input.ProvisionedWriteCapacityAutoScalingUpdate,
-      context
-    );
-  }
-  if (input.ReplicaUpdates !== undefined) {
-    bodyParams[
-      "ReplicaUpdates"
-    ] = serializeAws_json1_0ReplicaAutoScalingUpdateList(
-      input.ReplicaUpdates,
-      context
-    );
-  }
-  if (input.TableName !== undefined) {
-    bodyParams["TableName"] = input.TableName;
-  }
-  return bodyParams;
+  return {
+    ...(input.GlobalSecondaryIndexUpdates !== undefined && {
+      GlobalSecondaryIndexUpdates: serializeAws_json1_0GlobalSecondaryIndexAutoScalingUpdateList(
+        input.GlobalSecondaryIndexUpdates,
+        context
+      )
+    }),
+    ...(input.ProvisionedWriteCapacityAutoScalingUpdate !== undefined && {
+      ProvisionedWriteCapacityAutoScalingUpdate: serializeAws_json1_0AutoScalingSettingsUpdate(
+        input.ProvisionedWriteCapacityAutoScalingUpdate,
+        context
+      )
+    }),
+    ...(input.ReplicaUpdates !== undefined && {
+      ReplicaUpdates: serializeAws_json1_0ReplicaAutoScalingUpdateList(
+        input.ReplicaUpdates,
+        context
+      )
+    }),
+    ...(input.TableName !== undefined && { TableName: input.TableName })
+  };
 };
 
 const serializeAws_json1_0UpdateTimeToLiveInput = (
   input: UpdateTimeToLiveInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.TableName !== undefined) {
-    bodyParams["TableName"] = input.TableName;
-  }
-  if (input.TimeToLiveSpecification !== undefined) {
-    bodyParams[
-      "TimeToLiveSpecification"
-    ] = serializeAws_json1_0TimeToLiveSpecification(
-      input.TimeToLiveSpecification,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.TableName !== undefined && { TableName: input.TableName }),
+    ...(input.TimeToLiveSpecification !== undefined && {
+      TimeToLiveSpecification: serializeAws_json1_0TimeToLiveSpecification(
+        input.TimeToLiveSpecification,
+        context
+      )
+    })
+  };
 };
 
 const serializeAws_json1_0WriteRequest = (
   input: WriteRequest,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DeleteRequest !== undefined) {
-    bodyParams["DeleteRequest"] = serializeAws_json1_0DeleteRequest(
-      input.DeleteRequest,
-      context
-    );
-  }
-  if (input.PutRequest !== undefined) {
-    bodyParams["PutRequest"] = serializeAws_json1_0PutRequest(
-      input.PutRequest,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.DeleteRequest !== undefined && {
+      DeleteRequest: serializeAws_json1_0DeleteRequest(
+        input.DeleteRequest,
+        context
+      )
+    }),
+    ...(input.PutRequest !== undefined && {
+      PutRequest: serializeAws_json1_0PutRequest(input.PutRequest, context)
+    })
+  };
 };
 
 const serializeAws_json1_0WriteRequests = (

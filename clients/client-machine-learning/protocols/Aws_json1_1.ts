@@ -3103,432 +3103,307 @@ const serializeAws_json1_1AddTagsInput = (
   input: AddTagsInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ResourceId !== undefined) {
-    bodyParams["ResourceId"] = input.ResourceId;
-  }
-  if (input.ResourceType !== undefined) {
-    bodyParams["ResourceType"] = input.ResourceType;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_json1_1TagList(input.Tags, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
+    ...(input.ResourceType !== undefined && {
+      ResourceType: input.ResourceType
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_json1_1TagList(input.Tags, context)
+    })
+  };
 };
 
 const serializeAws_json1_1CreateBatchPredictionInput = (
   input: CreateBatchPredictionInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.BatchPredictionDataSourceId !== undefined) {
-    bodyParams["BatchPredictionDataSourceId"] =
-      input.BatchPredictionDataSourceId;
-  }
-  if (input.BatchPredictionId !== undefined) {
-    bodyParams["BatchPredictionId"] = input.BatchPredictionId;
-  }
-  if (input.BatchPredictionName !== undefined) {
-    bodyParams["BatchPredictionName"] = input.BatchPredictionName;
-  }
-  if (input.MLModelId !== undefined) {
-    bodyParams["MLModelId"] = input.MLModelId;
-  }
-  if (input.OutputUri !== undefined) {
-    bodyParams["OutputUri"] = input.OutputUri;
-  }
-  return bodyParams;
+  return {
+    ...(input.BatchPredictionDataSourceId !== undefined && {
+      BatchPredictionDataSourceId: input.BatchPredictionDataSourceId
+    }),
+    ...(input.BatchPredictionId !== undefined && {
+      BatchPredictionId: input.BatchPredictionId
+    }),
+    ...(input.BatchPredictionName !== undefined && {
+      BatchPredictionName: input.BatchPredictionName
+    }),
+    ...(input.MLModelId !== undefined && { MLModelId: input.MLModelId }),
+    ...(input.OutputUri !== undefined && { OutputUri: input.OutputUri })
+  };
 };
 
 const serializeAws_json1_1CreateDataSourceFromRDSInput = (
   input: CreateDataSourceFromRDSInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ComputeStatistics !== undefined) {
-    bodyParams["ComputeStatistics"] = input.ComputeStatistics;
-  }
-  if (input.DataSourceId !== undefined) {
-    bodyParams["DataSourceId"] = input.DataSourceId;
-  }
-  if (input.DataSourceName !== undefined) {
-    bodyParams["DataSourceName"] = input.DataSourceName;
-  }
-  if (input.RDSData !== undefined) {
-    bodyParams["RDSData"] = serializeAws_json1_1RDSDataSpec(
-      input.RDSData,
-      context
-    );
-  }
-  if (input.RoleARN !== undefined) {
-    bodyParams["RoleARN"] = input.RoleARN;
-  }
-  return bodyParams;
+  return {
+    ...(input.ComputeStatistics !== undefined && {
+      ComputeStatistics: input.ComputeStatistics
+    }),
+    ...(input.DataSourceId !== undefined && {
+      DataSourceId: input.DataSourceId
+    }),
+    ...(input.DataSourceName !== undefined && {
+      DataSourceName: input.DataSourceName
+    }),
+    ...(input.RDSData !== undefined && {
+      RDSData: serializeAws_json1_1RDSDataSpec(input.RDSData, context)
+    }),
+    ...(input.RoleARN !== undefined && { RoleARN: input.RoleARN })
+  };
 };
 
 const serializeAws_json1_1CreateDataSourceFromRedshiftInput = (
   input: CreateDataSourceFromRedshiftInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ComputeStatistics !== undefined) {
-    bodyParams["ComputeStatistics"] = input.ComputeStatistics;
-  }
-  if (input.DataSourceId !== undefined) {
-    bodyParams["DataSourceId"] = input.DataSourceId;
-  }
-  if (input.DataSourceName !== undefined) {
-    bodyParams["DataSourceName"] = input.DataSourceName;
-  }
-  if (input.DataSpec !== undefined) {
-    bodyParams["DataSpec"] = serializeAws_json1_1RedshiftDataSpec(
-      input.DataSpec,
-      context
-    );
-  }
-  if (input.RoleARN !== undefined) {
-    bodyParams["RoleARN"] = input.RoleARN;
-  }
-  return bodyParams;
+  return {
+    ...(input.ComputeStatistics !== undefined && {
+      ComputeStatistics: input.ComputeStatistics
+    }),
+    ...(input.DataSourceId !== undefined && {
+      DataSourceId: input.DataSourceId
+    }),
+    ...(input.DataSourceName !== undefined && {
+      DataSourceName: input.DataSourceName
+    }),
+    ...(input.DataSpec !== undefined && {
+      DataSpec: serializeAws_json1_1RedshiftDataSpec(input.DataSpec, context)
+    }),
+    ...(input.RoleARN !== undefined && { RoleARN: input.RoleARN })
+  };
 };
 
 const serializeAws_json1_1CreateDataSourceFromS3Input = (
   input: CreateDataSourceFromS3Input,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ComputeStatistics !== undefined) {
-    bodyParams["ComputeStatistics"] = input.ComputeStatistics;
-  }
-  if (input.DataSourceId !== undefined) {
-    bodyParams["DataSourceId"] = input.DataSourceId;
-  }
-  if (input.DataSourceName !== undefined) {
-    bodyParams["DataSourceName"] = input.DataSourceName;
-  }
-  if (input.DataSpec !== undefined) {
-    bodyParams["DataSpec"] = serializeAws_json1_1S3DataSpec(
-      input.DataSpec,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.ComputeStatistics !== undefined && {
+      ComputeStatistics: input.ComputeStatistics
+    }),
+    ...(input.DataSourceId !== undefined && {
+      DataSourceId: input.DataSourceId
+    }),
+    ...(input.DataSourceName !== undefined && {
+      DataSourceName: input.DataSourceName
+    }),
+    ...(input.DataSpec !== undefined && {
+      DataSpec: serializeAws_json1_1S3DataSpec(input.DataSpec, context)
+    })
+  };
 };
 
 const serializeAws_json1_1CreateEvaluationInput = (
   input: CreateEvaluationInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EvaluationDataSourceId !== undefined) {
-    bodyParams["EvaluationDataSourceId"] = input.EvaluationDataSourceId;
-  }
-  if (input.EvaluationId !== undefined) {
-    bodyParams["EvaluationId"] = input.EvaluationId;
-  }
-  if (input.EvaluationName !== undefined) {
-    bodyParams["EvaluationName"] = input.EvaluationName;
-  }
-  if (input.MLModelId !== undefined) {
-    bodyParams["MLModelId"] = input.MLModelId;
-  }
-  return bodyParams;
+  return {
+    ...(input.EvaluationDataSourceId !== undefined && {
+      EvaluationDataSourceId: input.EvaluationDataSourceId
+    }),
+    ...(input.EvaluationId !== undefined && {
+      EvaluationId: input.EvaluationId
+    }),
+    ...(input.EvaluationName !== undefined && {
+      EvaluationName: input.EvaluationName
+    }),
+    ...(input.MLModelId !== undefined && { MLModelId: input.MLModelId })
+  };
 };
 
 const serializeAws_json1_1CreateMLModelInput = (
   input: CreateMLModelInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MLModelId !== undefined) {
-    bodyParams["MLModelId"] = input.MLModelId;
-  }
-  if (input.MLModelName !== undefined) {
-    bodyParams["MLModelName"] = input.MLModelName;
-  }
-  if (input.MLModelType !== undefined) {
-    bodyParams["MLModelType"] = input.MLModelType;
-  }
-  if (input.Parameters !== undefined) {
-    bodyParams["Parameters"] = serializeAws_json1_1TrainingParameters(
-      input.Parameters,
-      context
-    );
-  }
-  if (input.Recipe !== undefined) {
-    bodyParams["Recipe"] = input.Recipe;
-  }
-  if (input.RecipeUri !== undefined) {
-    bodyParams["RecipeUri"] = input.RecipeUri;
-  }
-  if (input.TrainingDataSourceId !== undefined) {
-    bodyParams["TrainingDataSourceId"] = input.TrainingDataSourceId;
-  }
-  return bodyParams;
+  return {
+    ...(input.MLModelId !== undefined && { MLModelId: input.MLModelId }),
+    ...(input.MLModelName !== undefined && { MLModelName: input.MLModelName }),
+    ...(input.MLModelType !== undefined && { MLModelType: input.MLModelType }),
+    ...(input.Parameters !== undefined && {
+      Parameters: serializeAws_json1_1TrainingParameters(
+        input.Parameters,
+        context
+      )
+    }),
+    ...(input.Recipe !== undefined && { Recipe: input.Recipe }),
+    ...(input.RecipeUri !== undefined && { RecipeUri: input.RecipeUri }),
+    ...(input.TrainingDataSourceId !== undefined && {
+      TrainingDataSourceId: input.TrainingDataSourceId
+    })
+  };
 };
 
 const serializeAws_json1_1CreateRealtimeEndpointInput = (
   input: CreateRealtimeEndpointInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MLModelId !== undefined) {
-    bodyParams["MLModelId"] = input.MLModelId;
-  }
-  return bodyParams;
+  return {
+    ...(input.MLModelId !== undefined && { MLModelId: input.MLModelId })
+  };
 };
 
 const serializeAws_json1_1DeleteBatchPredictionInput = (
   input: DeleteBatchPredictionInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.BatchPredictionId !== undefined) {
-    bodyParams["BatchPredictionId"] = input.BatchPredictionId;
-  }
-  return bodyParams;
+  return {
+    ...(input.BatchPredictionId !== undefined && {
+      BatchPredictionId: input.BatchPredictionId
+    })
+  };
 };
 
 const serializeAws_json1_1DeleteDataSourceInput = (
   input: DeleteDataSourceInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DataSourceId !== undefined) {
-    bodyParams["DataSourceId"] = input.DataSourceId;
-  }
-  return bodyParams;
+  return {
+    ...(input.DataSourceId !== undefined && {
+      DataSourceId: input.DataSourceId
+    })
+  };
 };
 
 const serializeAws_json1_1DeleteEvaluationInput = (
   input: DeleteEvaluationInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EvaluationId !== undefined) {
-    bodyParams["EvaluationId"] = input.EvaluationId;
-  }
-  return bodyParams;
+  return {
+    ...(input.EvaluationId !== undefined && {
+      EvaluationId: input.EvaluationId
+    })
+  };
 };
 
 const serializeAws_json1_1DeleteMLModelInput = (
   input: DeleteMLModelInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MLModelId !== undefined) {
-    bodyParams["MLModelId"] = input.MLModelId;
-  }
-  return bodyParams;
+  return {
+    ...(input.MLModelId !== undefined && { MLModelId: input.MLModelId })
+  };
 };
 
 const serializeAws_json1_1DeleteRealtimeEndpointInput = (
   input: DeleteRealtimeEndpointInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MLModelId !== undefined) {
-    bodyParams["MLModelId"] = input.MLModelId;
-  }
-  return bodyParams;
+  return {
+    ...(input.MLModelId !== undefined && { MLModelId: input.MLModelId })
+  };
 };
 
 const serializeAws_json1_1DeleteTagsInput = (
   input: DeleteTagsInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ResourceId !== undefined) {
-    bodyParams["ResourceId"] = input.ResourceId;
-  }
-  if (input.ResourceType !== undefined) {
-    bodyParams["ResourceType"] = input.ResourceType;
-  }
-  if (input.TagKeys !== undefined) {
-    bodyParams["TagKeys"] = serializeAws_json1_1TagKeyList(
-      input.TagKeys,
-      context
-    );
-  }
-  return bodyParams;
+  return {
+    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
+    ...(input.ResourceType !== undefined && {
+      ResourceType: input.ResourceType
+    }),
+    ...(input.TagKeys !== undefined && {
+      TagKeys: serializeAws_json1_1TagKeyList(input.TagKeys, context)
+    })
+  };
 };
 
 const serializeAws_json1_1DescribeBatchPredictionsInput = (
   input: DescribeBatchPredictionsInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EQ !== undefined) {
-    bodyParams["EQ"] = input.EQ;
-  }
-  if (input.FilterVariable !== undefined) {
-    bodyParams["FilterVariable"] = input.FilterVariable;
-  }
-  if (input.GE !== undefined) {
-    bodyParams["GE"] = input.GE;
-  }
-  if (input.GT !== undefined) {
-    bodyParams["GT"] = input.GT;
-  }
-  if (input.LE !== undefined) {
-    bodyParams["LE"] = input.LE;
-  }
-  if (input.LT !== undefined) {
-    bodyParams["LT"] = input.LT;
-  }
-  if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
-  }
-  if (input.NE !== undefined) {
-    bodyParams["NE"] = input.NE;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.Prefix !== undefined) {
-    bodyParams["Prefix"] = input.Prefix;
-  }
-  if (input.SortOrder !== undefined) {
-    bodyParams["SortOrder"] = input.SortOrder;
-  }
-  return bodyParams;
+  return {
+    ...(input.EQ !== undefined && { EQ: input.EQ }),
+    ...(input.FilterVariable !== undefined && {
+      FilterVariable: input.FilterVariable
+    }),
+    ...(input.GE !== undefined && { GE: input.GE }),
+    ...(input.GT !== undefined && { GT: input.GT }),
+    ...(input.LE !== undefined && { LE: input.LE }),
+    ...(input.LT !== undefined && { LT: input.LT }),
+    ...(input.Limit !== undefined && { Limit: input.Limit }),
+    ...(input.NE !== undefined && { NE: input.NE }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Prefix !== undefined && { Prefix: input.Prefix }),
+    ...(input.SortOrder !== undefined && { SortOrder: input.SortOrder })
+  };
 };
 
 const serializeAws_json1_1DescribeDataSourcesInput = (
   input: DescribeDataSourcesInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EQ !== undefined) {
-    bodyParams["EQ"] = input.EQ;
-  }
-  if (input.FilterVariable !== undefined) {
-    bodyParams["FilterVariable"] = input.FilterVariable;
-  }
-  if (input.GE !== undefined) {
-    bodyParams["GE"] = input.GE;
-  }
-  if (input.GT !== undefined) {
-    bodyParams["GT"] = input.GT;
-  }
-  if (input.LE !== undefined) {
-    bodyParams["LE"] = input.LE;
-  }
-  if (input.LT !== undefined) {
-    bodyParams["LT"] = input.LT;
-  }
-  if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
-  }
-  if (input.NE !== undefined) {
-    bodyParams["NE"] = input.NE;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.Prefix !== undefined) {
-    bodyParams["Prefix"] = input.Prefix;
-  }
-  if (input.SortOrder !== undefined) {
-    bodyParams["SortOrder"] = input.SortOrder;
-  }
-  return bodyParams;
+  return {
+    ...(input.EQ !== undefined && { EQ: input.EQ }),
+    ...(input.FilterVariable !== undefined && {
+      FilterVariable: input.FilterVariable
+    }),
+    ...(input.GE !== undefined && { GE: input.GE }),
+    ...(input.GT !== undefined && { GT: input.GT }),
+    ...(input.LE !== undefined && { LE: input.LE }),
+    ...(input.LT !== undefined && { LT: input.LT }),
+    ...(input.Limit !== undefined && { Limit: input.Limit }),
+    ...(input.NE !== undefined && { NE: input.NE }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Prefix !== undefined && { Prefix: input.Prefix }),
+    ...(input.SortOrder !== undefined && { SortOrder: input.SortOrder })
+  };
 };
 
 const serializeAws_json1_1DescribeEvaluationsInput = (
   input: DescribeEvaluationsInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EQ !== undefined) {
-    bodyParams["EQ"] = input.EQ;
-  }
-  if (input.FilterVariable !== undefined) {
-    bodyParams["FilterVariable"] = input.FilterVariable;
-  }
-  if (input.GE !== undefined) {
-    bodyParams["GE"] = input.GE;
-  }
-  if (input.GT !== undefined) {
-    bodyParams["GT"] = input.GT;
-  }
-  if (input.LE !== undefined) {
-    bodyParams["LE"] = input.LE;
-  }
-  if (input.LT !== undefined) {
-    bodyParams["LT"] = input.LT;
-  }
-  if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
-  }
-  if (input.NE !== undefined) {
-    bodyParams["NE"] = input.NE;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.Prefix !== undefined) {
-    bodyParams["Prefix"] = input.Prefix;
-  }
-  if (input.SortOrder !== undefined) {
-    bodyParams["SortOrder"] = input.SortOrder;
-  }
-  return bodyParams;
+  return {
+    ...(input.EQ !== undefined && { EQ: input.EQ }),
+    ...(input.FilterVariable !== undefined && {
+      FilterVariable: input.FilterVariable
+    }),
+    ...(input.GE !== undefined && { GE: input.GE }),
+    ...(input.GT !== undefined && { GT: input.GT }),
+    ...(input.LE !== undefined && { LE: input.LE }),
+    ...(input.LT !== undefined && { LT: input.LT }),
+    ...(input.Limit !== undefined && { Limit: input.Limit }),
+    ...(input.NE !== undefined && { NE: input.NE }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Prefix !== undefined && { Prefix: input.Prefix }),
+    ...(input.SortOrder !== undefined && { SortOrder: input.SortOrder })
+  };
 };
 
 const serializeAws_json1_1DescribeMLModelsInput = (
   input: DescribeMLModelsInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EQ !== undefined) {
-    bodyParams["EQ"] = input.EQ;
-  }
-  if (input.FilterVariable !== undefined) {
-    bodyParams["FilterVariable"] = input.FilterVariable;
-  }
-  if (input.GE !== undefined) {
-    bodyParams["GE"] = input.GE;
-  }
-  if (input.GT !== undefined) {
-    bodyParams["GT"] = input.GT;
-  }
-  if (input.LE !== undefined) {
-    bodyParams["LE"] = input.LE;
-  }
-  if (input.LT !== undefined) {
-    bodyParams["LT"] = input.LT;
-  }
-  if (input.Limit !== undefined) {
-    bodyParams["Limit"] = input.Limit;
-  }
-  if (input.NE !== undefined) {
-    bodyParams["NE"] = input.NE;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.Prefix !== undefined) {
-    bodyParams["Prefix"] = input.Prefix;
-  }
-  if (input.SortOrder !== undefined) {
-    bodyParams["SortOrder"] = input.SortOrder;
-  }
-  return bodyParams;
+  return {
+    ...(input.EQ !== undefined && { EQ: input.EQ }),
+    ...(input.FilterVariable !== undefined && {
+      FilterVariable: input.FilterVariable
+    }),
+    ...(input.GE !== undefined && { GE: input.GE }),
+    ...(input.GT !== undefined && { GT: input.GT }),
+    ...(input.LE !== undefined && { LE: input.LE }),
+    ...(input.LT !== undefined && { LT: input.LT }),
+    ...(input.Limit !== undefined && { Limit: input.Limit }),
+    ...(input.NE !== undefined && { NE: input.NE }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Prefix !== undefined && { Prefix: input.Prefix }),
+    ...(input.SortOrder !== undefined && { SortOrder: input.SortOrder })
+  };
 };
 
 const serializeAws_json1_1DescribeTagsInput = (
   input: DescribeTagsInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ResourceId !== undefined) {
-    bodyParams["ResourceId"] = input.ResourceId;
-  }
-  if (input.ResourceType !== undefined) {
-    bodyParams["ResourceType"] = input.ResourceType;
-  }
-  return bodyParams;
+  return {
+    ...(input.ResourceId !== undefined && { ResourceId: input.ResourceId }),
+    ...(input.ResourceType !== undefined && {
+      ResourceType: input.ResourceType
+    })
+  };
 };
 
 const serializeAws_json1_1EDPSecurityGroupIds = (
@@ -3542,147 +3417,127 @@ const serializeAws_json1_1GetBatchPredictionInput = (
   input: GetBatchPredictionInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.BatchPredictionId !== undefined) {
-    bodyParams["BatchPredictionId"] = input.BatchPredictionId;
-  }
-  return bodyParams;
+  return {
+    ...(input.BatchPredictionId !== undefined && {
+      BatchPredictionId: input.BatchPredictionId
+    })
+  };
 };
 
 const serializeAws_json1_1GetDataSourceInput = (
   input: GetDataSourceInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DataSourceId !== undefined) {
-    bodyParams["DataSourceId"] = input.DataSourceId;
-  }
-  if (input.Verbose !== undefined) {
-    bodyParams["Verbose"] = input.Verbose;
-  }
-  return bodyParams;
+  return {
+    ...(input.DataSourceId !== undefined && {
+      DataSourceId: input.DataSourceId
+    }),
+    ...(input.Verbose !== undefined && { Verbose: input.Verbose })
+  };
 };
 
 const serializeAws_json1_1GetEvaluationInput = (
   input: GetEvaluationInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EvaluationId !== undefined) {
-    bodyParams["EvaluationId"] = input.EvaluationId;
-  }
-  return bodyParams;
+  return {
+    ...(input.EvaluationId !== undefined && {
+      EvaluationId: input.EvaluationId
+    })
+  };
 };
 
 const serializeAws_json1_1GetMLModelInput = (
   input: GetMLModelInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MLModelId !== undefined) {
-    bodyParams["MLModelId"] = input.MLModelId;
-  }
-  if (input.Verbose !== undefined) {
-    bodyParams["Verbose"] = input.Verbose;
-  }
-  return bodyParams;
+  return {
+    ...(input.MLModelId !== undefined && { MLModelId: input.MLModelId }),
+    ...(input.Verbose !== undefined && { Verbose: input.Verbose })
+  };
 };
 
 const serializeAws_json1_1PredictInput = (
   input: PredictInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MLModelId !== undefined) {
-    bodyParams["MLModelId"] = input.MLModelId;
-  }
-  if (input.PredictEndpoint !== undefined) {
-    bodyParams["PredictEndpoint"] = input.PredictEndpoint;
-  }
-  if (input.Record !== undefined) {
-    bodyParams["Record"] = serializeAws_json1_1Record(input.Record, context);
-  }
-  return bodyParams;
+  return {
+    ...(input.MLModelId !== undefined && { MLModelId: input.MLModelId }),
+    ...(input.PredictEndpoint !== undefined && {
+      PredictEndpoint: input.PredictEndpoint
+    }),
+    ...(input.Record !== undefined && {
+      Record: serializeAws_json1_1Record(input.Record, context)
+    })
+  };
 };
 
 const serializeAws_json1_1RDSDataSpec = (
   input: RDSDataSpec,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DataRearrangement !== undefined) {
-    bodyParams["DataRearrangement"] = input.DataRearrangement;
-  }
-  if (input.DataSchema !== undefined) {
-    bodyParams["DataSchema"] = input.DataSchema;
-  }
-  if (input.DataSchemaUri !== undefined) {
-    bodyParams["DataSchemaUri"] = input.DataSchemaUri;
-  }
-  if (input.DatabaseCredentials !== undefined) {
-    bodyParams[
-      "DatabaseCredentials"
-    ] = serializeAws_json1_1RDSDatabaseCredentials(
-      input.DatabaseCredentials,
-      context
-    );
-  }
-  if (input.DatabaseInformation !== undefined) {
-    bodyParams["DatabaseInformation"] = serializeAws_json1_1RDSDatabase(
-      input.DatabaseInformation,
-      context
-    );
-  }
-  if (input.ResourceRole !== undefined) {
-    bodyParams["ResourceRole"] = input.ResourceRole;
-  }
-  if (input.S3StagingLocation !== undefined) {
-    bodyParams["S3StagingLocation"] = input.S3StagingLocation;
-  }
-  if (input.SecurityGroupIds !== undefined) {
-    bodyParams["SecurityGroupIds"] = serializeAws_json1_1EDPSecurityGroupIds(
-      input.SecurityGroupIds,
-      context
-    );
-  }
-  if (input.SelectSqlQuery !== undefined) {
-    bodyParams["SelectSqlQuery"] = input.SelectSqlQuery;
-  }
-  if (input.ServiceRole !== undefined) {
-    bodyParams["ServiceRole"] = input.ServiceRole;
-  }
-  if (input.SubnetId !== undefined) {
-    bodyParams["SubnetId"] = input.SubnetId;
-  }
-  return bodyParams;
+  return {
+    ...(input.DataRearrangement !== undefined && {
+      DataRearrangement: input.DataRearrangement
+    }),
+    ...(input.DataSchema !== undefined && { DataSchema: input.DataSchema }),
+    ...(input.DataSchemaUri !== undefined && {
+      DataSchemaUri: input.DataSchemaUri
+    }),
+    ...(input.DatabaseCredentials !== undefined && {
+      DatabaseCredentials: serializeAws_json1_1RDSDatabaseCredentials(
+        input.DatabaseCredentials,
+        context
+      )
+    }),
+    ...(input.DatabaseInformation !== undefined && {
+      DatabaseInformation: serializeAws_json1_1RDSDatabase(
+        input.DatabaseInformation,
+        context
+      )
+    }),
+    ...(input.ResourceRole !== undefined && {
+      ResourceRole: input.ResourceRole
+    }),
+    ...(input.S3StagingLocation !== undefined && {
+      S3StagingLocation: input.S3StagingLocation
+    }),
+    ...(input.SecurityGroupIds !== undefined && {
+      SecurityGroupIds: serializeAws_json1_1EDPSecurityGroupIds(
+        input.SecurityGroupIds,
+        context
+      )
+    }),
+    ...(input.SelectSqlQuery !== undefined && {
+      SelectSqlQuery: input.SelectSqlQuery
+    }),
+    ...(input.ServiceRole !== undefined && { ServiceRole: input.ServiceRole }),
+    ...(input.SubnetId !== undefined && { SubnetId: input.SubnetId })
+  };
 };
 
 const serializeAws_json1_1RDSDatabase = (
   input: RDSDatabase,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DatabaseName !== undefined) {
-    bodyParams["DatabaseName"] = input.DatabaseName;
-  }
-  if (input.InstanceIdentifier !== undefined) {
-    bodyParams["InstanceIdentifier"] = input.InstanceIdentifier;
-  }
-  return bodyParams;
+  return {
+    ...(input.DatabaseName !== undefined && {
+      DatabaseName: input.DatabaseName
+    }),
+    ...(input.InstanceIdentifier !== undefined && {
+      InstanceIdentifier: input.InstanceIdentifier
+    })
+  };
 };
 
 const serializeAws_json1_1RDSDatabaseCredentials = (
   input: RDSDatabaseCredentials,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Password !== undefined) {
-    bodyParams["Password"] = input.Password;
-  }
-  if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
-  }
-  return bodyParams;
+  return {
+    ...(input.Password !== undefined && { Password: input.Password }),
+    ...(input.Username !== undefined && { Username: input.Username })
+  };
 };
 
 const serializeAws_json1_1Record = (
@@ -3699,96 +3554,82 @@ const serializeAws_json1_1RedshiftDataSpec = (
   input: RedshiftDataSpec,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DataRearrangement !== undefined) {
-    bodyParams["DataRearrangement"] = input.DataRearrangement;
-  }
-  if (input.DataSchema !== undefined) {
-    bodyParams["DataSchema"] = input.DataSchema;
-  }
-  if (input.DataSchemaUri !== undefined) {
-    bodyParams["DataSchemaUri"] = input.DataSchemaUri;
-  }
-  if (input.DatabaseCredentials !== undefined) {
-    bodyParams[
-      "DatabaseCredentials"
-    ] = serializeAws_json1_1RedshiftDatabaseCredentials(
-      input.DatabaseCredentials,
-      context
-    );
-  }
-  if (input.DatabaseInformation !== undefined) {
-    bodyParams["DatabaseInformation"] = serializeAws_json1_1RedshiftDatabase(
-      input.DatabaseInformation,
-      context
-    );
-  }
-  if (input.S3StagingLocation !== undefined) {
-    bodyParams["S3StagingLocation"] = input.S3StagingLocation;
-  }
-  if (input.SelectSqlQuery !== undefined) {
-    bodyParams["SelectSqlQuery"] = input.SelectSqlQuery;
-  }
-  return bodyParams;
+  return {
+    ...(input.DataRearrangement !== undefined && {
+      DataRearrangement: input.DataRearrangement
+    }),
+    ...(input.DataSchema !== undefined && { DataSchema: input.DataSchema }),
+    ...(input.DataSchemaUri !== undefined && {
+      DataSchemaUri: input.DataSchemaUri
+    }),
+    ...(input.DatabaseCredentials !== undefined && {
+      DatabaseCredentials: serializeAws_json1_1RedshiftDatabaseCredentials(
+        input.DatabaseCredentials,
+        context
+      )
+    }),
+    ...(input.DatabaseInformation !== undefined && {
+      DatabaseInformation: serializeAws_json1_1RedshiftDatabase(
+        input.DatabaseInformation,
+        context
+      )
+    }),
+    ...(input.S3StagingLocation !== undefined && {
+      S3StagingLocation: input.S3StagingLocation
+    }),
+    ...(input.SelectSqlQuery !== undefined && {
+      SelectSqlQuery: input.SelectSqlQuery
+    })
+  };
 };
 
 const serializeAws_json1_1RedshiftDatabase = (
   input: RedshiftDatabase,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ClusterIdentifier !== undefined) {
-    bodyParams["ClusterIdentifier"] = input.ClusterIdentifier;
-  }
-  if (input.DatabaseName !== undefined) {
-    bodyParams["DatabaseName"] = input.DatabaseName;
-  }
-  return bodyParams;
+  return {
+    ...(input.ClusterIdentifier !== undefined && {
+      ClusterIdentifier: input.ClusterIdentifier
+    }),
+    ...(input.DatabaseName !== undefined && {
+      DatabaseName: input.DatabaseName
+    })
+  };
 };
 
 const serializeAws_json1_1RedshiftDatabaseCredentials = (
   input: RedshiftDatabaseCredentials,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Password !== undefined) {
-    bodyParams["Password"] = input.Password;
-  }
-  if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
-  }
-  return bodyParams;
+  return {
+    ...(input.Password !== undefined && { Password: input.Password }),
+    ...(input.Username !== undefined && { Username: input.Username })
+  };
 };
 
 const serializeAws_json1_1S3DataSpec = (
   input: S3DataSpec,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DataLocationS3 !== undefined) {
-    bodyParams["DataLocationS3"] = input.DataLocationS3;
-  }
-  if (input.DataRearrangement !== undefined) {
-    bodyParams["DataRearrangement"] = input.DataRearrangement;
-  }
-  if (input.DataSchema !== undefined) {
-    bodyParams["DataSchema"] = input.DataSchema;
-  }
-  if (input.DataSchemaLocationS3 !== undefined) {
-    bodyParams["DataSchemaLocationS3"] = input.DataSchemaLocationS3;
-  }
-  return bodyParams;
+  return {
+    ...(input.DataLocationS3 !== undefined && {
+      DataLocationS3: input.DataLocationS3
+    }),
+    ...(input.DataRearrangement !== undefined && {
+      DataRearrangement: input.DataRearrangement
+    }),
+    ...(input.DataSchema !== undefined && { DataSchema: input.DataSchema }),
+    ...(input.DataSchemaLocationS3 !== undefined && {
+      DataSchemaLocationS3: input.DataSchemaLocationS3
+    })
+  };
 };
 
 const serializeAws_json1_1Tag = (input: Tag, context: __SerdeContext): any => {
-  const bodyParams: any = {};
-  if (input.Key !== undefined) {
-    bodyParams["Key"] = input.Key;
-  }
-  if (input.Value !== undefined) {
-    bodyParams["Value"] = input.Value;
-  }
-  return bodyParams;
+  return {
+    ...(input.Key !== undefined && { Key: input.Key }),
+    ...(input.Value !== undefined && { Value: input.Value })
+  };
 };
 
 const serializeAws_json1_1TagKeyList = (
@@ -3819,59 +3660,55 @@ const serializeAws_json1_1UpdateBatchPredictionInput = (
   input: UpdateBatchPredictionInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.BatchPredictionId !== undefined) {
-    bodyParams["BatchPredictionId"] = input.BatchPredictionId;
-  }
-  if (input.BatchPredictionName !== undefined) {
-    bodyParams["BatchPredictionName"] = input.BatchPredictionName;
-  }
-  return bodyParams;
+  return {
+    ...(input.BatchPredictionId !== undefined && {
+      BatchPredictionId: input.BatchPredictionId
+    }),
+    ...(input.BatchPredictionName !== undefined && {
+      BatchPredictionName: input.BatchPredictionName
+    })
+  };
 };
 
 const serializeAws_json1_1UpdateDataSourceInput = (
   input: UpdateDataSourceInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DataSourceId !== undefined) {
-    bodyParams["DataSourceId"] = input.DataSourceId;
-  }
-  if (input.DataSourceName !== undefined) {
-    bodyParams["DataSourceName"] = input.DataSourceName;
-  }
-  return bodyParams;
+  return {
+    ...(input.DataSourceId !== undefined && {
+      DataSourceId: input.DataSourceId
+    }),
+    ...(input.DataSourceName !== undefined && {
+      DataSourceName: input.DataSourceName
+    })
+  };
 };
 
 const serializeAws_json1_1UpdateEvaluationInput = (
   input: UpdateEvaluationInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.EvaluationId !== undefined) {
-    bodyParams["EvaluationId"] = input.EvaluationId;
-  }
-  if (input.EvaluationName !== undefined) {
-    bodyParams["EvaluationName"] = input.EvaluationName;
-  }
-  return bodyParams;
+  return {
+    ...(input.EvaluationId !== undefined && {
+      EvaluationId: input.EvaluationId
+    }),
+    ...(input.EvaluationName !== undefined && {
+      EvaluationName: input.EvaluationName
+    })
+  };
 };
 
 const serializeAws_json1_1UpdateMLModelInput = (
   input: UpdateMLModelInput,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.MLModelId !== undefined) {
-    bodyParams["MLModelId"] = input.MLModelId;
-  }
-  if (input.MLModelName !== undefined) {
-    bodyParams["MLModelName"] = input.MLModelName;
-  }
-  if (input.ScoreThreshold !== undefined) {
-    bodyParams["ScoreThreshold"] = input.ScoreThreshold;
-  }
-  return bodyParams;
+  return {
+    ...(input.MLModelId !== undefined && { MLModelId: input.MLModelId }),
+    ...(input.MLModelName !== undefined && { MLModelName: input.MLModelName }),
+    ...(input.ScoreThreshold !== undefined && {
+      ScoreThreshold: input.ScoreThreshold
+    })
+  };
 };
 
 const deserializeAws_json1_1AddTagsOutput = (

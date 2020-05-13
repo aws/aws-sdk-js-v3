@@ -3616,82 +3616,59 @@ const serializeAws_restJson1_1ConfigurationId = (
   input: ConfigurationId,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Id !== undefined) {
-    bodyParams["id"] = input.Id;
-  }
-  if (input.Revision !== undefined) {
-    bodyParams["revision"] = input.Revision;
-  }
-  return bodyParams;
+  return {
+    ...(input.Id !== undefined && { id: input.Id }),
+    ...(input.Revision !== undefined && { revision: input.Revision })
+  };
 };
 
 const serializeAws_restJson1_1EncryptionOptions = (
   input: EncryptionOptions,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.KmsKeyId !== undefined) {
-    bodyParams["kmsKeyId"] = input.KmsKeyId;
-  }
-  if (input.UseAwsOwnedKey !== undefined) {
-    bodyParams["useAwsOwnedKey"] = input.UseAwsOwnedKey;
-  }
-  return bodyParams;
+  return {
+    ...(input.KmsKeyId !== undefined && { kmsKeyId: input.KmsKeyId }),
+    ...(input.UseAwsOwnedKey !== undefined && {
+      useAwsOwnedKey: input.UseAwsOwnedKey
+    })
+  };
 };
 
 const serializeAws_restJson1_1Logs = (
   input: Logs,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.Audit !== undefined) {
-    bodyParams["audit"] = input.Audit;
-  }
-  if (input.General !== undefined) {
-    bodyParams["general"] = input.General;
-  }
-  return bodyParams;
+  return {
+    ...(input.Audit !== undefined && { audit: input.Audit }),
+    ...(input.General !== undefined && { general: input.General })
+  };
 };
 
 const serializeAws_restJson1_1User = (
   input: User,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.ConsoleAccess !== undefined) {
-    bodyParams["consoleAccess"] = input.ConsoleAccess;
-  }
-  if (input.Groups !== undefined) {
-    bodyParams["groups"] = serializeAws_restJson1_1__listOf__string(
-      input.Groups,
-      context
-    );
-  }
-  if (input.Password !== undefined) {
-    bodyParams["password"] = input.Password;
-  }
-  if (input.Username !== undefined) {
-    bodyParams["username"] = input.Username;
-  }
-  return bodyParams;
+  return {
+    ...(input.ConsoleAccess !== undefined && {
+      consoleAccess: input.ConsoleAccess
+    }),
+    ...(input.Groups !== undefined && {
+      groups: serializeAws_restJson1_1__listOf__string(input.Groups, context)
+    }),
+    ...(input.Password !== undefined && { password: input.Password }),
+    ...(input.Username !== undefined && { username: input.Username })
+  };
 };
 
 const serializeAws_restJson1_1WeeklyStartTime = (
   input: WeeklyStartTime,
   context: __SerdeContext
 ): any => {
-  const bodyParams: any = {};
-  if (input.DayOfWeek !== undefined) {
-    bodyParams["dayOfWeek"] = input.DayOfWeek;
-  }
-  if (input.TimeOfDay !== undefined) {
-    bodyParams["timeOfDay"] = input.TimeOfDay;
-  }
-  if (input.TimeZone !== undefined) {
-    bodyParams["timeZone"] = input.TimeZone;
-  }
-  return bodyParams;
+  return {
+    ...(input.DayOfWeek !== undefined && { dayOfWeek: input.DayOfWeek }),
+    ...(input.TimeOfDay !== undefined && { timeOfDay: input.TimeOfDay }),
+    ...(input.TimeZone !== undefined && { timeZone: input.TimeZone })
+  };
 };
 
 const serializeAws_restJson1_1__listOfUser = (
