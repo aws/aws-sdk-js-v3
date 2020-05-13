@@ -547,50 +547,33 @@ export const serializeAws_restJson1_1CreateApiKeyCommand = async (
   };
   let resolvedPath = "/apikeys";
   let body: any;
-  const bodyParams: any = {};
-  if (input.customerId !== undefined) {
-    bodyParams["customerId"] = input.customerId;
-  }
-  if (input.description !== undefined) {
-    bodyParams["description"] = input.description;
-  }
-  if (input.enabled !== undefined) {
-    bodyParams["enabled"] = input.enabled;
-  }
-  if (input.generateDistinctId !== undefined) {
-    bodyParams["generateDistinctId"] = input.generateDistinctId;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.stageKeys !== undefined) {
-    bodyParams["stageKeys"] = serializeAws_restJson1_1ListOfStageKeys(
-      input.stageKeys,
-      context
-    );
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1MapOfStringToString(
-      input.tags,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  if (input.value !== undefined) {
-    bodyParams["value"] = input.value;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.customerId !== undefined && { customerId: input.customerId }),
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.enabled !== undefined && { enabled: input.enabled }),
+    ...(input.generateDistinctId !== undefined && {
+      generateDistinctId: input.generateDistinctId
+    }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.stageKeys !== undefined && {
+      stageKeys: serializeAws_restJson1_1ListOfStageKeys(
+        input.stageKeys,
+        context
+      )
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1MapOfStringToString(input.tags, context)
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title }),
+    ...(input.value !== undefined && { value: input.value })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -624,52 +607,40 @@ export const serializeAws_restJson1_1CreateAuthorizerCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.authType !== undefined) {
-    bodyParams["authType"] = input.authType;
-  }
-  if (input.authorizerCredentials !== undefined) {
-    bodyParams["authorizerCredentials"] = input.authorizerCredentials;
-  }
-  if (input.authorizerResultTtlInSeconds !== undefined) {
-    bodyParams["authorizerResultTtlInSeconds"] =
-      input.authorizerResultTtlInSeconds;
-  }
-  if (input.authorizerUri !== undefined) {
-    bodyParams["authorizerUri"] = input.authorizerUri;
-  }
-  if (input.identitySource !== undefined) {
-    bodyParams["identitySource"] = input.identitySource;
-  }
-  if (input.identityValidationExpression !== undefined) {
-    bodyParams["identityValidationExpression"] =
-      input.identityValidationExpression;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.providerARNs !== undefined) {
-    bodyParams["providerARNs"] = serializeAws_restJson1_1ListOfARNs(
-      input.providerARNs,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  if (input.type !== undefined) {
-    bodyParams["type"] = input.type;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.authType !== undefined && { authType: input.authType }),
+    ...(input.authorizerCredentials !== undefined && {
+      authorizerCredentials: input.authorizerCredentials
+    }),
+    ...(input.authorizerResultTtlInSeconds !== undefined && {
+      authorizerResultTtlInSeconds: input.authorizerResultTtlInSeconds
+    }),
+    ...(input.authorizerUri !== undefined && {
+      authorizerUri: input.authorizerUri
+    }),
+    ...(input.identitySource !== undefined && {
+      identitySource: input.identitySource
+    }),
+    ...(input.identityValidationExpression !== undefined && {
+      identityValidationExpression: input.identityValidationExpression
+    }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.providerARNs !== undefined && {
+      providerARNs: serializeAws_restJson1_1ListOfARNs(
+        input.providerARNs,
+        context
+      )
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title }),
+    ...(input.type !== undefined && { type: input.type })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -703,32 +674,20 @@ export const serializeAws_restJson1_1CreateBasePathMappingCommand = async (
     throw new Error("No value provided for input HTTP label: domainName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.basePath !== undefined) {
-    bodyParams["basePath"] = input.basePath;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.restApiId !== undefined) {
-    bodyParams["restApiId"] = input.restApiId;
-  }
-  if (input.stage !== undefined) {
-    bodyParams["stage"] = input.stage;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.basePath !== undefined && { basePath: input.basePath }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.restApiId !== undefined && { restApiId: input.restApiId }),
+    ...(input.stage !== undefined && { stage: input.stage }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -762,55 +721,43 @@ export const serializeAws_restJson1_1CreateDeploymentCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.cacheClusterEnabled !== undefined) {
-    bodyParams["cacheClusterEnabled"] = input.cacheClusterEnabled;
-  }
-  if (input.cacheClusterSize !== undefined) {
-    bodyParams["cacheClusterSize"] = input.cacheClusterSize;
-  }
-  if (input.canarySettings !== undefined) {
-    bodyParams[
-      "canarySettings"
-    ] = serializeAws_restJson1_1DeploymentCanarySettings(
-      input.canarySettings,
-      context
-    );
-  }
-  if (input.description !== undefined) {
-    bodyParams["description"] = input.description;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.stageDescription !== undefined) {
-    bodyParams["stageDescription"] = input.stageDescription;
-  }
-  if (input.stageName !== undefined) {
-    bodyParams["stageName"] = input.stageName;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  if (input.tracingEnabled !== undefined) {
-    bodyParams["tracingEnabled"] = input.tracingEnabled;
-  }
-  if (input.variables !== undefined) {
-    bodyParams["variables"] = serializeAws_restJson1_1MapOfStringToString(
-      input.variables,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.cacheClusterEnabled !== undefined && {
+      cacheClusterEnabled: input.cacheClusterEnabled
+    }),
+    ...(input.cacheClusterSize !== undefined && {
+      cacheClusterSize: input.cacheClusterSize
+    }),
+    ...(input.canarySettings !== undefined && {
+      canarySettings: serializeAws_restJson1_1DeploymentCanarySettings(
+        input.canarySettings,
+        context
+      )
+    }),
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.stageDescription !== undefined && {
+      stageDescription: input.stageDescription
+    }),
+    ...(input.stageName !== undefined && { stageName: input.stageName }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title }),
+    ...(input.tracingEnabled !== undefined && {
+      tracingEnabled: input.tracingEnabled
+    }),
+    ...(input.variables !== undefined && {
+      variables: serializeAws_restJson1_1MapOfStringToString(
+        input.variables,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -844,32 +791,24 @@ export const serializeAws_restJson1_1CreateDocumentationPartCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.location !== undefined) {
-    bodyParams["location"] = serializeAws_restJson1_1DocumentationPartLocation(
-      input.location,
-      context
-    );
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.properties !== undefined) {
-    bodyParams["properties"] = input.properties;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.location !== undefined && {
+      location: serializeAws_restJson1_1DocumentationPartLocation(
+        input.location,
+        context
+      )
+    }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.properties !== undefined && { properties: input.properties }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -903,32 +842,22 @@ export const serializeAws_restJson1_1CreateDocumentationVersionCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.description !== undefined) {
-    bodyParams["description"] = input.description;
-  }
-  if (input.documentationVersion !== undefined) {
-    bodyParams["documentationVersion"] = input.documentationVersion;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.stageName !== undefined) {
-    bodyParams["stageName"] = input.stageName;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.documentationVersion !== undefined && {
+      documentationVersion: input.documentationVersion
+    }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.stageName !== undefined && { stageName: input.stageName }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -950,64 +879,51 @@ export const serializeAws_restJson1_1CreateDomainNameCommand = async (
   };
   let resolvedPath = "/domainnames";
   let body: any;
-  const bodyParams: any = {};
-  if (input.certificateArn !== undefined) {
-    bodyParams["certificateArn"] = input.certificateArn;
-  }
-  if (input.certificateBody !== undefined) {
-    bodyParams["certificateBody"] = input.certificateBody;
-  }
-  if (input.certificateChain !== undefined) {
-    bodyParams["certificateChain"] = input.certificateChain;
-  }
-  if (input.certificateName !== undefined) {
-    bodyParams["certificateName"] = input.certificateName;
-  }
-  if (input.certificatePrivateKey !== undefined) {
-    bodyParams["certificatePrivateKey"] = input.certificatePrivateKey;
-  }
-  if (input.domainName !== undefined) {
-    bodyParams["domainName"] = input.domainName;
-  }
-  if (input.endpointConfiguration !== undefined) {
-    bodyParams[
-      "endpointConfiguration"
-    ] = serializeAws_restJson1_1EndpointConfiguration(
-      input.endpointConfiguration,
-      context
-    );
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.regionalCertificateArn !== undefined) {
-    bodyParams["regionalCertificateArn"] = input.regionalCertificateArn;
-  }
-  if (input.regionalCertificateName !== undefined) {
-    bodyParams["regionalCertificateName"] = input.regionalCertificateName;
-  }
-  if (input.securityPolicy !== undefined) {
-    bodyParams["securityPolicy"] = input.securityPolicy;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1MapOfStringToString(
-      input.tags,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.certificateArn !== undefined && {
+      certificateArn: input.certificateArn
+    }),
+    ...(input.certificateBody !== undefined && {
+      certificateBody: input.certificateBody
+    }),
+    ...(input.certificateChain !== undefined && {
+      certificateChain: input.certificateChain
+    }),
+    ...(input.certificateName !== undefined && {
+      certificateName: input.certificateName
+    }),
+    ...(input.certificatePrivateKey !== undefined && {
+      certificatePrivateKey: input.certificatePrivateKey
+    }),
+    ...(input.domainName !== undefined && { domainName: input.domainName }),
+    ...(input.endpointConfiguration !== undefined && {
+      endpointConfiguration: serializeAws_restJson1_1EndpointConfiguration(
+        input.endpointConfiguration,
+        context
+      )
+    }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.regionalCertificateArn !== undefined && {
+      regionalCertificateArn: input.regionalCertificateArn
+    }),
+    ...(input.regionalCertificateName !== undefined && {
+      regionalCertificateName: input.regionalCertificateName
+    }),
+    ...(input.securityPolicy !== undefined && {
+      securityPolicy: input.securityPolicy
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1MapOfStringToString(input.tags, context)
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1041,32 +957,20 @@ export const serializeAws_restJson1_1CreateModelCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.contentType !== undefined) {
-    bodyParams["contentType"] = input.contentType;
-  }
-  if (input.description !== undefined) {
-    bodyParams["description"] = input.description;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.schema !== undefined) {
-    bodyParams["schema"] = input.schema;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.contentType !== undefined && { contentType: input.contentType }),
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.schema !== undefined && { schema: input.schema }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1100,29 +1004,23 @@ export const serializeAws_restJson1_1CreateRequestValidatorCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  if (input.validateRequestBody !== undefined) {
-    bodyParams["validateRequestBody"] = input.validateRequestBody;
-  }
-  if (input.validateRequestParameters !== undefined) {
-    bodyParams["validateRequestParameters"] = input.validateRequestParameters;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title }),
+    ...(input.validateRequestBody !== undefined && {
+      validateRequestBody: input.validateRequestBody
+    }),
+    ...(input.validateRequestParameters !== undefined && {
+      validateRequestParameters: input.validateRequestParameters
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1168,26 +1066,18 @@ export const serializeAws_restJson1_1CreateResourceCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.pathPart !== undefined) {
-    bodyParams["pathPart"] = input.pathPart;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.pathPart !== undefined && { pathPart: input.pathPart }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1209,61 +1099,42 @@ export const serializeAws_restJson1_1CreateRestApiCommand = async (
   };
   let resolvedPath = "/restapis";
   let body: any;
-  const bodyParams: any = {};
-  if (input.apiKeySource !== undefined) {
-    bodyParams["apiKeySource"] = input.apiKeySource;
-  }
-  if (input.binaryMediaTypes !== undefined) {
-    bodyParams["binaryMediaTypes"] = serializeAws_restJson1_1ListOfString(
-      input.binaryMediaTypes,
-      context
-    );
-  }
-  if (input.cloneFrom !== undefined) {
-    bodyParams["cloneFrom"] = input.cloneFrom;
-  }
-  if (input.description !== undefined) {
-    bodyParams["description"] = input.description;
-  }
-  if (input.endpointConfiguration !== undefined) {
-    bodyParams[
-      "endpointConfiguration"
-    ] = serializeAws_restJson1_1EndpointConfiguration(
-      input.endpointConfiguration,
-      context
-    );
-  }
-  if (input.minimumCompressionSize !== undefined) {
-    bodyParams["minimumCompressionSize"] = input.minimumCompressionSize;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.policy !== undefined) {
-    bodyParams["policy"] = input.policy;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1MapOfStringToString(
-      input.tags,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  if (input.version !== undefined) {
-    bodyParams["version"] = input.version;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.apiKeySource !== undefined && {
+      apiKeySource: input.apiKeySource
+    }),
+    ...(input.binaryMediaTypes !== undefined && {
+      binaryMediaTypes: serializeAws_restJson1_1ListOfString(
+        input.binaryMediaTypes,
+        context
+      )
+    }),
+    ...(input.cloneFrom !== undefined && { cloneFrom: input.cloneFrom }),
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.endpointConfiguration !== undefined && {
+      endpointConfiguration: serializeAws_restJson1_1EndpointConfiguration(
+        input.endpointConfiguration,
+        context
+      )
+    }),
+    ...(input.minimumCompressionSize !== undefined && {
+      minimumCompressionSize: input.minimumCompressionSize
+    }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.policy !== undefined && { policy: input.policy }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1MapOfStringToString(input.tags, context)
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title }),
+    ...(input.version !== undefined && { version: input.version })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1297,62 +1168,49 @@ export const serializeAws_restJson1_1CreateStageCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.cacheClusterEnabled !== undefined) {
-    bodyParams["cacheClusterEnabled"] = input.cacheClusterEnabled;
-  }
-  if (input.cacheClusterSize !== undefined) {
-    bodyParams["cacheClusterSize"] = input.cacheClusterSize;
-  }
-  if (input.canarySettings !== undefined) {
-    bodyParams["canarySettings"] = serializeAws_restJson1_1CanarySettings(
-      input.canarySettings,
-      context
-    );
-  }
-  if (input.deploymentId !== undefined) {
-    bodyParams["deploymentId"] = input.deploymentId;
-  }
-  if (input.description !== undefined) {
-    bodyParams["description"] = input.description;
-  }
-  if (input.documentationVersion !== undefined) {
-    bodyParams["documentationVersion"] = input.documentationVersion;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.stageName !== undefined) {
-    bodyParams["stageName"] = input.stageName;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1MapOfStringToString(
-      input.tags,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  if (input.tracingEnabled !== undefined) {
-    bodyParams["tracingEnabled"] = input.tracingEnabled;
-  }
-  if (input.variables !== undefined) {
-    bodyParams["variables"] = serializeAws_restJson1_1MapOfStringToString(
-      input.variables,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.cacheClusterEnabled !== undefined && {
+      cacheClusterEnabled: input.cacheClusterEnabled
+    }),
+    ...(input.cacheClusterSize !== undefined && {
+      cacheClusterSize: input.cacheClusterSize
+    }),
+    ...(input.canarySettings !== undefined && {
+      canarySettings: serializeAws_restJson1_1CanarySettings(
+        input.canarySettings,
+        context
+      )
+    }),
+    ...(input.deploymentId !== undefined && {
+      deploymentId: input.deploymentId
+    }),
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.documentationVersion !== undefined && {
+      documentationVersion: input.documentationVersion
+    }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.stageName !== undefined && { stageName: input.stageName }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1MapOfStringToString(input.tags, context)
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title }),
+    ...(input.tracingEnabled !== undefined && {
+      tracingEnabled: input.tracingEnabled
+    }),
+    ...(input.variables !== undefined && {
+      variables: serializeAws_restJson1_1MapOfStringToString(
+        input.variables,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1374,50 +1232,36 @@ export const serializeAws_restJson1_1CreateUsagePlanCommand = async (
   };
   let resolvedPath = "/usageplans";
   let body: any;
-  const bodyParams: any = {};
-  if (input.apiStages !== undefined) {
-    bodyParams["apiStages"] = serializeAws_restJson1_1ListOfApiStage(
-      input.apiStages,
-      context
-    );
-  }
-  if (input.description !== undefined) {
-    bodyParams["description"] = input.description;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.quota !== undefined) {
-    bodyParams["quota"] = serializeAws_restJson1_1QuotaSettings(
-      input.quota,
-      context
-    );
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1MapOfStringToString(
-      input.tags,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.throttle !== undefined) {
-    bodyParams["throttle"] = serializeAws_restJson1_1ThrottleSettings(
-      input.throttle,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.apiStages !== undefined && {
+      apiStages: serializeAws_restJson1_1ListOfApiStage(
+        input.apiStages,
+        context
+      )
+    }),
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.quota !== undefined && {
+      quota: serializeAws_restJson1_1QuotaSettings(input.quota, context)
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1MapOfStringToString(input.tags, context)
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.throttle !== undefined && {
+      throttle: serializeAws_restJson1_1ThrottleSettings(
+        input.throttle,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1453,29 +1297,19 @@ export const serializeAws_restJson1_1CreateUsagePlanKeyCommand = async (
     throw new Error("No value provided for input HTTP label: usagePlanId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.keyId !== undefined) {
-    bodyParams["keyId"] = input.keyId;
-  }
-  if (input.keyType !== undefined) {
-    bodyParams["keyType"] = input.keyType;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.keyId !== undefined && { keyId: input.keyId }),
+    ...(input.keyType !== undefined && { keyType: input.keyType }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1497,38 +1331,27 @@ export const serializeAws_restJson1_1CreateVpcLinkCommand = async (
   };
   let resolvedPath = "/vpclinks";
   let body: any;
-  const bodyParams: any = {};
-  if (input.description !== undefined) {
-    bodyParams["description"] = input.description;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1MapOfStringToString(
-      input.tags,
-      context
-    );
-  }
-  if (input.targetArns !== undefined) {
-    bodyParams["targetArns"] = serializeAws_restJson1_1ListOfString(
-      input.targetArns,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1MapOfStringToString(input.tags, context)
+    }),
+    ...(input.targetArns !== undefined && {
+      targetArns: serializeAws_restJson1_1ListOfString(
+        input.targetArns,
+        context
+      )
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1562,23 +1385,17 @@ export const serializeAws_restJson1_1DeleteApiKeyCommand = async (
     throw new Error("No value provided for input HTTP label: apiKey.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1626,23 +1443,17 @@ export const serializeAws_restJson1_1DeleteAuthorizerCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1688,23 +1499,17 @@ export const serializeAws_restJson1_1DeleteBasePathMappingCommand = async (
     throw new Error("No value provided for input HTTP label: domainName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1742,23 +1547,17 @@ export const serializeAws_restJson1_1DeleteClientCertificateCommand = async (
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1806,23 +1605,17 @@ export const serializeAws_restJson1_1DeleteDeploymentCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1873,23 +1666,17 @@ export const serializeAws_restJson1_1DeleteDocumentationPartCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1940,23 +1727,17 @@ export const serializeAws_restJson1_1DeleteDocumentationVersionCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1990,23 +1771,17 @@ export const serializeAws_restJson1_1DeleteDomainNameCommand = async (
     throw new Error("No value provided for input HTTP label: domainName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2054,23 +1829,17 @@ export const serializeAws_restJson1_1DeleteGatewayResponseCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2129,23 +1898,17 @@ export const serializeAws_restJson1_1DeleteIntegrationCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2216,23 +1979,17 @@ export const serializeAws_restJson1_1DeleteIntegrationResponseCommand = async (
     throw new Error("No value provided for input HTTP label: statusCode.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2291,23 +2048,17 @@ export const serializeAws_restJson1_1DeleteMethodCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2378,23 +2129,17 @@ export const serializeAws_restJson1_1DeleteMethodResponseCommand = async (
     throw new Error("No value provided for input HTTP label: statusCode.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2440,23 +2185,17 @@ export const serializeAws_restJson1_1DeleteModelCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2507,23 +2246,17 @@ export const serializeAws_restJson1_1DeleteRequestValidatorCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2569,23 +2302,17 @@ export const serializeAws_restJson1_1DeleteResourceCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2619,23 +2346,17 @@ export const serializeAws_restJson1_1DeleteRestApiCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2681,23 +2402,17 @@ export const serializeAws_restJson1_1DeleteStageCommand = async (
     throw new Error("No value provided for input HTTP label: stageName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2733,23 +2448,17 @@ export const serializeAws_restJson1_1DeleteUsagePlanCommand = async (
     throw new Error("No value provided for input HTTP label: usagePlanId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2797,23 +2506,17 @@ export const serializeAws_restJson1_1DeleteUsagePlanKeyCommand = async (
     throw new Error("No value provided for input HTTP label: usagePlanId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2847,23 +2550,17 @@ export const serializeAws_restJson1_1DeleteVpcLinkCommand = async (
     throw new Error("No value provided for input HTTP label: vpcLinkId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2910,23 +2607,17 @@ export const serializeAws_restJson1_1FlushStageAuthorizersCacheCommand = async (
     throw new Error("No value provided for input HTTP label: stageName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2972,23 +2663,17 @@ export const serializeAws_restJson1_1FlushStageCacheCommand = async (
     throw new Error("No value provided for input HTTP label: stageName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3010,32 +2695,21 @@ export const serializeAws_restJson1_1GenerateClientCertificateCommand = async (
   };
   let resolvedPath = "/clientcertificates";
   let body: any;
-  const bodyParams: any = {};
-  if (input.description !== undefined) {
-    bodyParams["description"] = input.description;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1MapOfStringToString(
-      input.tags,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1MapOfStringToString(input.tags, context)
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3057,23 +2731,17 @@ export const serializeAws_restJson1_1GetAccountCommand = async (
   };
   let resolvedPath = "/account";
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3112,23 +2780,17 @@ export const serializeAws_restJson1_1GetApiKeyCommand = async (
     })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3160,23 +2822,17 @@ export const serializeAws_restJson1_1GetApiKeysCommand = async (
     ...(input.position !== undefined && { position: input.position })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3225,23 +2881,17 @@ export const serializeAws_restJson1_1GetAuthorizerCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3279,23 +2929,17 @@ export const serializeAws_restJson1_1GetAuthorizersCommand = async (
     ...(input.position !== undefined && { position: input.position })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3342,23 +2986,17 @@ export const serializeAws_restJson1_1GetBasePathMappingCommand = async (
     throw new Error("No value provided for input HTTP label: domainName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3396,23 +3034,17 @@ export const serializeAws_restJson1_1GetBasePathMappingsCommand = async (
     ...(input.position !== undefined && { position: input.position })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3451,23 +3083,17 @@ export const serializeAws_restJson1_1GetClientCertificateCommand = async (
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3493,23 +3119,17 @@ export const serializeAws_restJson1_1GetClientCertificatesCommand = async (
     ...(input.position !== undefined && { position: input.position })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3563,23 +3183,17 @@ export const serializeAws_restJson1_1GetDeploymentCommand = async (
     })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3618,23 +3232,17 @@ export const serializeAws_restJson1_1GetDeploymentsCommand = async (
     ...(input.position !== undefined && { position: input.position })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3686,23 +3294,17 @@ export const serializeAws_restJson1_1GetDocumentationPartCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3746,23 +3348,17 @@ export const serializeAws_restJson1_1GetDocumentationPartsCommand = async (
     ...(input.type !== undefined && { type: input.type })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3814,23 +3410,17 @@ export const serializeAws_restJson1_1GetDocumentationVersionCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3868,23 +3458,17 @@ export const serializeAws_restJson1_1GetDocumentationVersionsCommand = async (
     ...(input.position !== undefined && { position: input.position })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3919,23 +3503,17 @@ export const serializeAws_restJson1_1GetDomainNameCommand = async (
     throw new Error("No value provided for input HTTP label: domainName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3961,23 +3539,17 @@ export const serializeAws_restJson1_1GetDomainNamesCommand = async (
     ...(input.position !== undefined && { position: input.position })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4038,14 +3610,14 @@ export const serializeAws_restJson1_1GetExportCommand = async (
     throw new Error("No value provided for input HTTP label: stageName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.parameters !== undefined) {
-    bodyParams["parameters"] = serializeAws_restJson1_1MapOfStringToString(
-      input.parameters,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.parameters !== undefined && {
+      parameters: serializeAws_restJson1_1MapOfStringToString(
+        input.parameters,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4093,23 +3665,17 @@ export const serializeAws_restJson1_1GetGatewayResponseCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4147,23 +3713,17 @@ export const serializeAws_restJson1_1GetGatewayResponsesCommand = async (
     ...(input.position !== undefined && { position: input.position })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4223,23 +3783,17 @@ export const serializeAws_restJson1_1GetIntegrationCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4310,23 +3864,17 @@ export const serializeAws_restJson1_1GetIntegrationResponseCommand = async (
     throw new Error("No value provided for input HTTP label: statusCode.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4385,23 +3933,17 @@ export const serializeAws_restJson1_1GetMethodCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4472,23 +4014,17 @@ export const serializeAws_restJson1_1GetMethodResponseCommand = async (
     throw new Error("No value provided for input HTTP label: statusCode.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4537,23 +4073,17 @@ export const serializeAws_restJson1_1GetModelCommand = async (
     ...(input.flatten !== undefined && { flatten: input.flatten.toString() })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4601,23 +4131,17 @@ export const serializeAws_restJson1_1GetModelTemplateCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4655,23 +4179,17 @@ export const serializeAws_restJson1_1GetModelsCommand = async (
     ...(input.position !== undefined && { position: input.position })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4723,23 +4241,17 @@ export const serializeAws_restJson1_1GetRequestValidatorCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4777,23 +4289,17 @@ export const serializeAws_restJson1_1GetRequestValidatorsCommand = async (
     ...(input.position !== undefined && { position: input.position })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4845,23 +4351,17 @@ export const serializeAws_restJson1_1GetResourceCommand = async (
     })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4903,23 +4403,17 @@ export const serializeAws_restJson1_1GetResourcesCommand = async (
     ...(input.position !== undefined && { position: input.position })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4954,23 +4448,17 @@ export const serializeAws_restJson1_1GetRestApiCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4996,23 +4484,17 @@ export const serializeAws_restJson1_1GetRestApisCommand = async (
     ...(input.position !== undefined && { position: input.position })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -5071,14 +4553,14 @@ export const serializeAws_restJson1_1GetSdkCommand = async (
     throw new Error("No value provided for input HTTP label: stageName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.parameters !== undefined) {
-    bodyParams["parameters"] = serializeAws_restJson1_1MapOfStringToString(
-      input.parameters,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.parameters !== undefined && {
+      parameters: serializeAws_restJson1_1MapOfStringToString(
+        input.parameters,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -5112,23 +4594,17 @@ export const serializeAws_restJson1_1GetSdkTypeCommand = async (
     throw new Error("No value provided for input HTTP label: id.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -5154,23 +4630,17 @@ export const serializeAws_restJson1_1GetSdkTypesCommand = async (
     ...(input.position !== undefined && { position: input.position })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -5217,23 +4687,17 @@ export const serializeAws_restJson1_1GetStageCommand = async (
     throw new Error("No value provided for input HTTP label: stageName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -5272,23 +4736,17 @@ export const serializeAws_restJson1_1GetStagesCommand = async (
     })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -5329,23 +4787,17 @@ export const serializeAws_restJson1_1GetTagsCommand = async (
     ...(input.position !== undefined && { position: input.position })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -5389,23 +4841,17 @@ export const serializeAws_restJson1_1GetUsageCommand = async (
     ...(input.startDate !== undefined && { startDate: input.startDate })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -5442,23 +4888,17 @@ export const serializeAws_restJson1_1GetUsagePlanCommand = async (
     throw new Error("No value provided for input HTTP label: usagePlanId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -5506,23 +4946,17 @@ export const serializeAws_restJson1_1GetUsagePlanKeyCommand = async (
     throw new Error("No value provided for input HTTP label: usagePlanId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -5563,23 +4997,17 @@ export const serializeAws_restJson1_1GetUsagePlanKeysCommand = async (
     ...(input.position !== undefined && { position: input.position })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -5607,23 +5035,17 @@ export const serializeAws_restJson1_1GetUsagePlansCommand = async (
     ...(input.position !== undefined && { position: input.position })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -5658,23 +5080,17 @@ export const serializeAws_restJson1_1GetVpcLinkCommand = async (
     throw new Error("No value provided for input HTTP label: vpcLinkId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -5700,23 +5116,17 @@ export const serializeAws_restJson1_1GetVpcLinksCommand = async (
     ...(input.position !== undefined && { position: input.position })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -5746,23 +5156,17 @@ export const serializeAws_restJson1_1ImportApiKeysCommand = async (
     ...(input.format !== undefined && { format: input.format })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -5803,23 +5207,17 @@ export const serializeAws_restJson1_1ImportDocumentationPartsCommand = async (
     ...(input.mode !== undefined && { mode: input.mode })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -5848,29 +5246,23 @@ export const serializeAws_restJson1_1ImportRestApiCommand = async (
     })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.parameters !== undefined) {
-    bodyParams["parameters"] = serializeAws_restJson1_1MapOfStringToString(
-      input.parameters,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.parameters !== undefined && {
+      parameters: serializeAws_restJson1_1MapOfStringToString(
+        input.parameters,
+        context
+      )
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -5919,42 +5311,30 @@ export const serializeAws_restJson1_1PutGatewayResponseCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.responseParameters !== undefined) {
-    bodyParams[
-      "responseParameters"
-    ] = serializeAws_restJson1_1MapOfStringToString(
-      input.responseParameters,
-      context
-    );
-  }
-  if (input.responseTemplates !== undefined) {
-    bodyParams[
-      "responseTemplates"
-    ] = serializeAws_restJson1_1MapOfStringToString(
-      input.responseTemplates,
-      context
-    );
-  }
-  if (input.statusCode !== undefined) {
-    bodyParams["statusCode"] = input.statusCode;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.responseParameters !== undefined && {
+      responseParameters: serializeAws_restJson1_1MapOfStringToString(
+        input.responseParameters,
+        context
+      )
+    }),
+    ...(input.responseTemplates !== undefined && {
+      responseTemplates: serializeAws_restJson1_1MapOfStringToString(
+        input.responseTemplates,
+        context
+      )
+    }),
+    ...(input.statusCode !== undefined && { statusCode: input.statusCode }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -6013,75 +5393,59 @@ export const serializeAws_restJson1_1PutIntegrationCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.cacheKeyParameters !== undefined) {
-    bodyParams["cacheKeyParameters"] = serializeAws_restJson1_1ListOfString(
-      input.cacheKeyParameters,
-      context
-    );
-  }
-  if (input.cacheNamespace !== undefined) {
-    bodyParams["cacheNamespace"] = input.cacheNamespace;
-  }
-  if (input.connectionId !== undefined) {
-    bodyParams["connectionId"] = input.connectionId;
-  }
-  if (input.connectionType !== undefined) {
-    bodyParams["connectionType"] = input.connectionType;
-  }
-  if (input.contentHandling !== undefined) {
-    bodyParams["contentHandling"] = input.contentHandling;
-  }
-  if (input.credentials !== undefined) {
-    bodyParams["credentials"] = input.credentials;
-  }
-  if (input.integrationHttpMethod !== undefined) {
-    bodyParams["httpMethod"] = input.integrationHttpMethod;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.passthroughBehavior !== undefined) {
-    bodyParams["passthroughBehavior"] = input.passthroughBehavior;
-  }
-  if (input.requestParameters !== undefined) {
-    bodyParams[
-      "requestParameters"
-    ] = serializeAws_restJson1_1MapOfStringToString(
-      input.requestParameters,
-      context
-    );
-  }
-  if (input.requestTemplates !== undefined) {
-    bodyParams[
-      "requestTemplates"
-    ] = serializeAws_restJson1_1MapOfStringToString(
-      input.requestTemplates,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.timeoutInMillis !== undefined) {
-    bodyParams["timeoutInMillis"] = input.timeoutInMillis;
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  if (input.type !== undefined) {
-    bodyParams["type"] = input.type;
-  }
-  if (input.uri !== undefined) {
-    bodyParams["uri"] = input.uri;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.cacheKeyParameters !== undefined && {
+      cacheKeyParameters: serializeAws_restJson1_1ListOfString(
+        input.cacheKeyParameters,
+        context
+      )
+    }),
+    ...(input.cacheNamespace !== undefined && {
+      cacheNamespace: input.cacheNamespace
+    }),
+    ...(input.connectionId !== undefined && {
+      connectionId: input.connectionId
+    }),
+    ...(input.connectionType !== undefined && {
+      connectionType: input.connectionType
+    }),
+    ...(input.contentHandling !== undefined && {
+      contentHandling: input.contentHandling
+    }),
+    ...(input.credentials !== undefined && { credentials: input.credentials }),
+    ...(input.integrationHttpMethod !== undefined && {
+      httpMethod: input.integrationHttpMethod
+    }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.passthroughBehavior !== undefined && {
+      passthroughBehavior: input.passthroughBehavior
+    }),
+    ...(input.requestParameters !== undefined && {
+      requestParameters: serializeAws_restJson1_1MapOfStringToString(
+        input.requestParameters,
+        context
+      )
+    }),
+    ...(input.requestTemplates !== undefined && {
+      requestTemplates: serializeAws_restJson1_1MapOfStringToString(
+        input.requestTemplates,
+        context
+      )
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.timeoutInMillis !== undefined && {
+      timeoutInMillis: input.timeoutInMillis
+    }),
+    ...(input.title !== undefined && { title: input.title }),
+    ...(input.type !== undefined && { type: input.type }),
+    ...(input.uri !== undefined && { uri: input.uri })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -6152,45 +5516,35 @@ export const serializeAws_restJson1_1PutIntegrationResponseCommand = async (
     throw new Error("No value provided for input HTTP label: statusCode.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.contentHandling !== undefined) {
-    bodyParams["contentHandling"] = input.contentHandling;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.responseParameters !== undefined) {
-    bodyParams[
-      "responseParameters"
-    ] = serializeAws_restJson1_1MapOfStringToString(
-      input.responseParameters,
-      context
-    );
-  }
-  if (input.responseTemplates !== undefined) {
-    bodyParams[
-      "responseTemplates"
-    ] = serializeAws_restJson1_1MapOfStringToString(
-      input.responseTemplates,
-      context
-    );
-  }
-  if (input.selectionPattern !== undefined) {
-    bodyParams["selectionPattern"] = input.selectionPattern;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.contentHandling !== undefined && {
+      contentHandling: input.contentHandling
+    }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.responseParameters !== undefined && {
+      responseParameters: serializeAws_restJson1_1MapOfStringToString(
+        input.responseParameters,
+        context
+      )
+    }),
+    ...(input.responseTemplates !== undefined && {
+      responseTemplates: serializeAws_restJson1_1MapOfStringToString(
+        input.responseTemplates,
+        context
+      )
+    }),
+    ...(input.selectionPattern !== undefined && {
+      selectionPattern: input.selectionPattern
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -6249,58 +5603,50 @@ export const serializeAws_restJson1_1PutMethodCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.apiKeyRequired !== undefined) {
-    bodyParams["apiKeyRequired"] = input.apiKeyRequired;
-  }
-  if (input.authorizationScopes !== undefined) {
-    bodyParams["authorizationScopes"] = serializeAws_restJson1_1ListOfString(
-      input.authorizationScopes,
-      context
-    );
-  }
-  if (input.authorizationType !== undefined) {
-    bodyParams["authorizationType"] = input.authorizationType;
-  }
-  if (input.authorizerId !== undefined) {
-    bodyParams["authorizerId"] = input.authorizerId;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.operationName !== undefined) {
-    bodyParams["operationName"] = input.operationName;
-  }
-  if (input.requestModels !== undefined) {
-    bodyParams["requestModels"] = serializeAws_restJson1_1MapOfStringToString(
-      input.requestModels,
-      context
-    );
-  }
-  if (input.requestParameters !== undefined) {
-    bodyParams[
-      "requestParameters"
-    ] = serializeAws_restJson1_1MapOfStringToBoolean(
-      input.requestParameters,
-      context
-    );
-  }
-  if (input.requestValidatorId !== undefined) {
-    bodyParams["requestValidatorId"] = input.requestValidatorId;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.apiKeyRequired !== undefined && {
+      apiKeyRequired: input.apiKeyRequired
+    }),
+    ...(input.authorizationScopes !== undefined && {
+      authorizationScopes: serializeAws_restJson1_1ListOfString(
+        input.authorizationScopes,
+        context
+      )
+    }),
+    ...(input.authorizationType !== undefined && {
+      authorizationType: input.authorizationType
+    }),
+    ...(input.authorizerId !== undefined && {
+      authorizerId: input.authorizerId
+    }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.operationName !== undefined && {
+      operationName: input.operationName
+    }),
+    ...(input.requestModels !== undefined && {
+      requestModels: serializeAws_restJson1_1MapOfStringToString(
+        input.requestModels,
+        context
+      )
+    }),
+    ...(input.requestParameters !== undefined && {
+      requestParameters: serializeAws_restJson1_1MapOfStringToBoolean(
+        input.requestParameters,
+        context
+      )
+    }),
+    ...(input.requestValidatorId !== undefined && {
+      requestValidatorId: input.requestValidatorId
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -6371,37 +5717,29 @@ export const serializeAws_restJson1_1PutMethodResponseCommand = async (
     throw new Error("No value provided for input HTTP label: statusCode.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.responseModels !== undefined) {
-    bodyParams["responseModels"] = serializeAws_restJson1_1MapOfStringToString(
-      input.responseModels,
-      context
-    );
-  }
-  if (input.responseParameters !== undefined) {
-    bodyParams[
-      "responseParameters"
-    ] = serializeAws_restJson1_1MapOfStringToBoolean(
-      input.responseParameters,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.responseModels !== undefined && {
+      responseModels: serializeAws_restJson1_1MapOfStringToString(
+        input.responseModels,
+        context
+      )
+    }),
+    ...(input.responseParameters !== undefined && {
+      responseParameters: serializeAws_restJson1_1MapOfStringToBoolean(
+        input.responseParameters,
+        context
+      )
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -6441,29 +5779,23 @@ export const serializeAws_restJson1_1PutRestApiCommand = async (
     ...(input.mode !== undefined && { mode: input.mode })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.parameters !== undefined) {
-    bodyParams["parameters"] = serializeAws_restJson1_1MapOfStringToString(
-      input.parameters,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.parameters !== undefined && {
+      parameters: serializeAws_restJson1_1MapOfStringToString(
+        input.parameters,
+        context
+      )
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -6500,29 +5832,20 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1MapOfStringToString(
-      input.tags,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1MapOfStringToString(input.tags, context)
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -6570,40 +5893,36 @@ export const serializeAws_restJson1_1TestInvokeAuthorizerCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.additionalContext !== undefined) {
-    bodyParams[
-      "additionalContext"
-    ] = serializeAws_restJson1_1MapOfStringToString(
-      input.additionalContext,
-      context
-    );
-  }
-  if (input.body !== undefined) {
-    bodyParams["body"] = input.body;
-  }
-  if (input.headers !== undefined) {
-    bodyParams["headers"] = serializeAws_restJson1_1MapOfStringToString(
-      input.headers,
-      context
-    );
-  }
-  if (input.multiValueHeaders !== undefined) {
-    bodyParams["multiValueHeaders"] = serializeAws_restJson1_1MapOfStringToList(
-      input.multiValueHeaders,
-      context
-    );
-  }
-  if (input.pathWithQueryString !== undefined) {
-    bodyParams["pathWithQueryString"] = input.pathWithQueryString;
-  }
-  if (input.stageVariables !== undefined) {
-    bodyParams["stageVariables"] = serializeAws_restJson1_1MapOfStringToString(
-      input.stageVariables,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.additionalContext !== undefined && {
+      additionalContext: serializeAws_restJson1_1MapOfStringToString(
+        input.additionalContext,
+        context
+      )
+    }),
+    ...(input.body !== undefined && { body: input.body }),
+    ...(input.headers !== undefined && {
+      headers: serializeAws_restJson1_1MapOfStringToString(
+        input.headers,
+        context
+      )
+    }),
+    ...(input.multiValueHeaders !== undefined && {
+      multiValueHeaders: serializeAws_restJson1_1MapOfStringToList(
+        input.multiValueHeaders,
+        context
+      )
+    }),
+    ...(input.pathWithQueryString !== undefined && {
+      pathWithQueryString: input.pathWithQueryString
+    }),
+    ...(input.stageVariables !== undefined && {
+      stageVariables: serializeAws_restJson1_1MapOfStringToString(
+        input.stageVariables,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -6662,35 +5981,33 @@ export const serializeAws_restJson1_1TestInvokeMethodCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.body !== undefined) {
-    bodyParams["body"] = input.body;
-  }
-  if (input.clientCertificateId !== undefined) {
-    bodyParams["clientCertificateId"] = input.clientCertificateId;
-  }
-  if (input.headers !== undefined) {
-    bodyParams["headers"] = serializeAws_restJson1_1MapOfStringToString(
-      input.headers,
-      context
-    );
-  }
-  if (input.multiValueHeaders !== undefined) {
-    bodyParams["multiValueHeaders"] = serializeAws_restJson1_1MapOfStringToList(
-      input.multiValueHeaders,
-      context
-    );
-  }
-  if (input.pathWithQueryString !== undefined) {
-    bodyParams["pathWithQueryString"] = input.pathWithQueryString;
-  }
-  if (input.stageVariables !== undefined) {
-    bodyParams["stageVariables"] = serializeAws_restJson1_1MapOfStringToString(
-      input.stageVariables,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.body !== undefined && { body: input.body }),
+    ...(input.clientCertificateId !== undefined && {
+      clientCertificateId: input.clientCertificateId
+    }),
+    ...(input.headers !== undefined && {
+      headers: serializeAws_restJson1_1MapOfStringToString(
+        input.headers,
+        context
+      )
+    }),
+    ...(input.multiValueHeaders !== undefined && {
+      multiValueHeaders: serializeAws_restJson1_1MapOfStringToList(
+        input.multiValueHeaders,
+        context
+      )
+    }),
+    ...(input.pathWithQueryString !== undefined && {
+      pathWithQueryString: input.pathWithQueryString
+    }),
+    ...(input.stageVariables !== undefined && {
+      stageVariables: serializeAws_restJson1_1MapOfStringToString(
+        input.stageVariables,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -6731,23 +6048,17 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
     })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -6770,31 +6081,23 @@ export const serializeAws_restJson1_1UpdateAccountCommand = async (
   };
   let resolvedPath = "/account";
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.patchOperations !== undefined) {
-    bodyParams[
-      "patchOperations"
-    ] = serializeAws_restJson1_1ListOfPatchOperation(
-      input.patchOperations,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.patchOperations !== undefined && {
+      patchOperations: serializeAws_restJson1_1ListOfPatchOperation(
+        input.patchOperations,
+        context
+      )
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -6828,31 +6131,23 @@ export const serializeAws_restJson1_1UpdateApiKeyCommand = async (
     throw new Error("No value provided for input HTTP label: apiKey.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.patchOperations !== undefined) {
-    bodyParams[
-      "patchOperations"
-    ] = serializeAws_restJson1_1ListOfPatchOperation(
-      input.patchOperations,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.patchOperations !== undefined && {
+      patchOperations: serializeAws_restJson1_1ListOfPatchOperation(
+        input.patchOperations,
+        context
+      )
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -6900,31 +6195,23 @@ export const serializeAws_restJson1_1UpdateAuthorizerCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.patchOperations !== undefined) {
-    bodyParams[
-      "patchOperations"
-    ] = serializeAws_restJson1_1ListOfPatchOperation(
-      input.patchOperations,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.patchOperations !== undefined && {
+      patchOperations: serializeAws_restJson1_1ListOfPatchOperation(
+        input.patchOperations,
+        context
+      )
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -6970,31 +6257,23 @@ export const serializeAws_restJson1_1UpdateBasePathMappingCommand = async (
     throw new Error("No value provided for input HTTP label: domainName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.patchOperations !== undefined) {
-    bodyParams[
-      "patchOperations"
-    ] = serializeAws_restJson1_1ListOfPatchOperation(
-      input.patchOperations,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.patchOperations !== undefined && {
+      patchOperations: serializeAws_restJson1_1ListOfPatchOperation(
+        input.patchOperations,
+        context
+      )
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -7032,31 +6311,23 @@ export const serializeAws_restJson1_1UpdateClientCertificateCommand = async (
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.patchOperations !== undefined) {
-    bodyParams[
-      "patchOperations"
-    ] = serializeAws_restJson1_1ListOfPatchOperation(
-      input.patchOperations,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.patchOperations !== undefined && {
+      patchOperations: serializeAws_restJson1_1ListOfPatchOperation(
+        input.patchOperations,
+        context
+      )
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -7104,31 +6375,23 @@ export const serializeAws_restJson1_1UpdateDeploymentCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.patchOperations !== undefined) {
-    bodyParams[
-      "patchOperations"
-    ] = serializeAws_restJson1_1ListOfPatchOperation(
-      input.patchOperations,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.patchOperations !== undefined && {
+      patchOperations: serializeAws_restJson1_1ListOfPatchOperation(
+        input.patchOperations,
+        context
+      )
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -7179,31 +6442,23 @@ export const serializeAws_restJson1_1UpdateDocumentationPartCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.patchOperations !== undefined) {
-    bodyParams[
-      "patchOperations"
-    ] = serializeAws_restJson1_1ListOfPatchOperation(
-      input.patchOperations,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.patchOperations !== undefined && {
+      patchOperations: serializeAws_restJson1_1ListOfPatchOperation(
+        input.patchOperations,
+        context
+      )
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -7254,31 +6509,23 @@ export const serializeAws_restJson1_1UpdateDocumentationVersionCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.patchOperations !== undefined) {
-    bodyParams[
-      "patchOperations"
-    ] = serializeAws_restJson1_1ListOfPatchOperation(
-      input.patchOperations,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.patchOperations !== undefined && {
+      patchOperations: serializeAws_restJson1_1ListOfPatchOperation(
+        input.patchOperations,
+        context
+      )
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -7312,31 +6559,23 @@ export const serializeAws_restJson1_1UpdateDomainNameCommand = async (
     throw new Error("No value provided for input HTTP label: domainName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.patchOperations !== undefined) {
-    bodyParams[
-      "patchOperations"
-    ] = serializeAws_restJson1_1ListOfPatchOperation(
-      input.patchOperations,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.patchOperations !== undefined && {
+      patchOperations: serializeAws_restJson1_1ListOfPatchOperation(
+        input.patchOperations,
+        context
+      )
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -7384,31 +6623,23 @@ export const serializeAws_restJson1_1UpdateGatewayResponseCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.patchOperations !== undefined) {
-    bodyParams[
-      "patchOperations"
-    ] = serializeAws_restJson1_1ListOfPatchOperation(
-      input.patchOperations,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.patchOperations !== undefined && {
+      patchOperations: serializeAws_restJson1_1ListOfPatchOperation(
+        input.patchOperations,
+        context
+      )
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -7467,31 +6698,23 @@ export const serializeAws_restJson1_1UpdateIntegrationCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.patchOperations !== undefined) {
-    bodyParams[
-      "patchOperations"
-    ] = serializeAws_restJson1_1ListOfPatchOperation(
-      input.patchOperations,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.patchOperations !== undefined && {
+      patchOperations: serializeAws_restJson1_1ListOfPatchOperation(
+        input.patchOperations,
+        context
+      )
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -7562,31 +6785,23 @@ export const serializeAws_restJson1_1UpdateIntegrationResponseCommand = async (
     throw new Error("No value provided for input HTTP label: statusCode.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.patchOperations !== undefined) {
-    bodyParams[
-      "patchOperations"
-    ] = serializeAws_restJson1_1ListOfPatchOperation(
-      input.patchOperations,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.patchOperations !== undefined && {
+      patchOperations: serializeAws_restJson1_1ListOfPatchOperation(
+        input.patchOperations,
+        context
+      )
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -7645,31 +6860,23 @@ export const serializeAws_restJson1_1UpdateMethodCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.patchOperations !== undefined) {
-    bodyParams[
-      "patchOperations"
-    ] = serializeAws_restJson1_1ListOfPatchOperation(
-      input.patchOperations,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.patchOperations !== undefined && {
+      patchOperations: serializeAws_restJson1_1ListOfPatchOperation(
+        input.patchOperations,
+        context
+      )
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -7740,31 +6947,23 @@ export const serializeAws_restJson1_1UpdateMethodResponseCommand = async (
     throw new Error("No value provided for input HTTP label: statusCode.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.patchOperations !== undefined) {
-    bodyParams[
-      "patchOperations"
-    ] = serializeAws_restJson1_1ListOfPatchOperation(
-      input.patchOperations,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.patchOperations !== undefined && {
+      patchOperations: serializeAws_restJson1_1ListOfPatchOperation(
+        input.patchOperations,
+        context
+      )
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -7810,31 +7009,23 @@ export const serializeAws_restJson1_1UpdateModelCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.patchOperations !== undefined) {
-    bodyParams[
-      "patchOperations"
-    ] = serializeAws_restJson1_1ListOfPatchOperation(
-      input.patchOperations,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.patchOperations !== undefined && {
+      patchOperations: serializeAws_restJson1_1ListOfPatchOperation(
+        input.patchOperations,
+        context
+      )
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -7885,31 +7076,23 @@ export const serializeAws_restJson1_1UpdateRequestValidatorCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.patchOperations !== undefined) {
-    bodyParams[
-      "patchOperations"
-    ] = serializeAws_restJson1_1ListOfPatchOperation(
-      input.patchOperations,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.patchOperations !== undefined && {
+      patchOperations: serializeAws_restJson1_1ListOfPatchOperation(
+        input.patchOperations,
+        context
+      )
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -7955,31 +7138,23 @@ export const serializeAws_restJson1_1UpdateResourceCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.patchOperations !== undefined) {
-    bodyParams[
-      "patchOperations"
-    ] = serializeAws_restJson1_1ListOfPatchOperation(
-      input.patchOperations,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.patchOperations !== undefined && {
+      patchOperations: serializeAws_restJson1_1ListOfPatchOperation(
+        input.patchOperations,
+        context
+      )
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -8013,31 +7188,23 @@ export const serializeAws_restJson1_1UpdateRestApiCommand = async (
     throw new Error("No value provided for input HTTP label: restApiId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.patchOperations !== undefined) {
-    bodyParams[
-      "patchOperations"
-    ] = serializeAws_restJson1_1ListOfPatchOperation(
-      input.patchOperations,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.patchOperations !== undefined && {
+      patchOperations: serializeAws_restJson1_1ListOfPatchOperation(
+        input.patchOperations,
+        context
+      )
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -8083,31 +7250,23 @@ export const serializeAws_restJson1_1UpdateStageCommand = async (
     throw new Error("No value provided for input HTTP label: stageName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.patchOperations !== undefined) {
-    bodyParams[
-      "patchOperations"
-    ] = serializeAws_restJson1_1ListOfPatchOperation(
-      input.patchOperations,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.patchOperations !== undefined && {
+      patchOperations: serializeAws_restJson1_1ListOfPatchOperation(
+        input.patchOperations,
+        context
+      )
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -8155,31 +7314,23 @@ export const serializeAws_restJson1_1UpdateUsageCommand = async (
     throw new Error("No value provided for input HTTP label: usagePlanId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.patchOperations !== undefined) {
-    bodyParams[
-      "patchOperations"
-    ] = serializeAws_restJson1_1ListOfPatchOperation(
-      input.patchOperations,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.patchOperations !== undefined && {
+      patchOperations: serializeAws_restJson1_1ListOfPatchOperation(
+        input.patchOperations,
+        context
+      )
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -8215,31 +7366,23 @@ export const serializeAws_restJson1_1UpdateUsagePlanCommand = async (
     throw new Error("No value provided for input HTTP label: usagePlanId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.patchOperations !== undefined) {
-    bodyParams[
-      "patchOperations"
-    ] = serializeAws_restJson1_1ListOfPatchOperation(
-      input.patchOperations,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.patchOperations !== undefined && {
+      patchOperations: serializeAws_restJson1_1ListOfPatchOperation(
+        input.patchOperations,
+        context
+      )
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -8273,31 +7416,23 @@ export const serializeAws_restJson1_1UpdateVpcLinkCommand = async (
     throw new Error("No value provided for input HTTP label: vpcLinkId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.patchOperations !== undefined) {
-    bodyParams[
-      "patchOperations"
-    ] = serializeAws_restJson1_1ListOfPatchOperation(
-      input.patchOperations,
-      context
-    );
-  }
-  if (input.template !== undefined) {
-    bodyParams["template"] = input.template;
-  }
-  if (input.templateSkipList !== undefined) {
-    bodyParams["templateSkipList"] = serializeAws_restJson1_1ListOfString(
-      input.templateSkipList,
-      context
-    );
-  }
-  if (input.title !== undefined) {
-    bodyParams["title"] = input.title;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.patchOperations !== undefined && {
+      patchOperations: serializeAws_restJson1_1ListOfPatchOperation(
+        input.patchOperations,
+        context
+      )
+    }),
+    ...(input.template !== undefined && { template: input.template }),
+    ...(input.templateSkipList !== undefined && {
+      templateSkipList: serializeAws_restJson1_1ListOfString(
+        input.templateSkipList,
+        context
+      )
+    }),
+    ...(input.title !== undefined && { title: input.title })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

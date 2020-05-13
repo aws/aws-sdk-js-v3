@@ -377,32 +377,30 @@ export const serializeAws_restJson1_1PutSigningProfileCommand = async (
     throw new Error("No value provided for input HTTP label: profileName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.overrides !== undefined) {
-    bodyParams["overrides"] = serializeAws_restJson1_1SigningPlatformOverrides(
-      input.overrides,
-      context
-    );
-  }
-  if (input.platformId !== undefined) {
-    bodyParams["platformId"] = input.platformId;
-  }
-  if (input.signingMaterial !== undefined) {
-    bodyParams["signingMaterial"] = serializeAws_restJson1_1SigningMaterial(
-      input.signingMaterial,
-      context
-    );
-  }
-  if (input.signingParameters !== undefined) {
-    bodyParams["signingParameters"] = serializeAws_restJson1_1SigningParameters(
-      input.signingParameters,
-      context
-    );
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.overrides !== undefined && {
+      overrides: serializeAws_restJson1_1SigningPlatformOverrides(
+        input.overrides,
+        context
+      )
+    }),
+    ...(input.platformId !== undefined && { platformId: input.platformId }),
+    ...(input.signingMaterial !== undefined && {
+      signingMaterial: serializeAws_restJson1_1SigningMaterial(
+        input.signingMaterial,
+        context
+      )
+    }),
+    ...(input.signingParameters !== undefined && {
+      signingParameters: serializeAws_restJson1_1SigningParameters(
+        input.signingParameters,
+        context
+      )
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -424,29 +422,19 @@ export const serializeAws_restJson1_1StartSigningJobCommand = async (
   };
   let resolvedPath = "/signing-jobs";
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientRequestToken === undefined) {
-    input.clientRequestToken = generateIdempotencyToken();
-  }
-  if (input.clientRequestToken !== undefined) {
-    bodyParams["clientRequestToken"] = input.clientRequestToken;
-  }
-  if (input.destination !== undefined) {
-    bodyParams["destination"] = serializeAws_restJson1_1Destination(
-      input.destination,
-      context
-    );
-  }
-  if (input.profileName !== undefined) {
-    bodyParams["profileName"] = input.profileName;
-  }
-  if (input.source !== undefined) {
-    bodyParams["source"] = serializeAws_restJson1_1Source(
-      input.source,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
+    ...(input.destination !== undefined && {
+      destination: serializeAws_restJson1_1Destination(
+        input.destination,
+        context
+      )
+    }),
+    ...(input.profileName !== undefined && { profileName: input.profileName }),
+    ...(input.source !== undefined && {
+      source: serializeAws_restJson1_1Source(input.source, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -482,11 +470,11 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

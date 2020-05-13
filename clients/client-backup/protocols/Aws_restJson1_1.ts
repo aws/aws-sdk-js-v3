@@ -237,23 +237,23 @@ export const serializeAws_restJson1_1CreateBackupPlanCommand = async (
   };
   let resolvedPath = "/backup/plans";
   let body: any;
-  const bodyParams: any = {};
-  if (input.BackupPlan !== undefined) {
-    bodyParams["BackupPlan"] = serializeAws_restJson1_1BackupPlanInput(
-      input.BackupPlan,
-      context
-    );
-  }
-  if (input.BackupPlanTags !== undefined) {
-    bodyParams["BackupPlanTags"] = serializeAws_restJson1_1Tags(
-      input.BackupPlanTags,
-      context
-    );
-  }
-  if (input.CreatorRequestId !== undefined) {
-    bodyParams["CreatorRequestId"] = input.CreatorRequestId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.BackupPlan !== undefined && {
+      BackupPlan: serializeAws_restJson1_1BackupPlanInput(
+        input.BackupPlan,
+        context
+      )
+    }),
+    ...(input.BackupPlanTags !== undefined && {
+      BackupPlanTags: serializeAws_restJson1_1Tags(
+        input.BackupPlanTags,
+        context
+      )
+    }),
+    ...(input.CreatorRequestId !== undefined && {
+      CreatorRequestId: input.CreatorRequestId
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -289,17 +289,17 @@ export const serializeAws_restJson1_1CreateBackupSelectionCommand = async (
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.BackupSelection !== undefined) {
-    bodyParams["BackupSelection"] = serializeAws_restJson1_1BackupSelection(
-      input.BackupSelection,
-      context
-    );
-  }
-  if (input.CreatorRequestId !== undefined) {
-    bodyParams["CreatorRequestId"] = input.CreatorRequestId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.BackupSelection !== undefined && {
+      BackupSelection: serializeAws_restJson1_1BackupSelection(
+        input.BackupSelection,
+        context
+      )
+    }),
+    ...(input.CreatorRequestId !== undefined && {
+      CreatorRequestId: input.CreatorRequestId
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -335,20 +335,20 @@ export const serializeAws_restJson1_1CreateBackupVaultCommand = async (
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.BackupVaultTags !== undefined) {
-    bodyParams["BackupVaultTags"] = serializeAws_restJson1_1Tags(
-      input.BackupVaultTags,
-      context
-    );
-  }
-  if (input.CreatorRequestId !== undefined) {
-    bodyParams["CreatorRequestId"] = input.CreatorRequestId;
-  }
-  if (input.EncryptionKeyArn !== undefined) {
-    bodyParams["EncryptionKeyArn"] = input.EncryptionKeyArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.BackupVaultTags !== undefined && {
+      BackupVaultTags: serializeAws_restJson1_1Tags(
+        input.BackupVaultTags,
+        context
+      )
+    }),
+    ...(input.CreatorRequestId !== undefined && {
+      CreatorRequestId: input.CreatorRequestId
+    }),
+    ...(input.EncryptionKeyArn !== undefined && {
+      EncryptionKeyArn: input.EncryptionKeyArn
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -911,11 +911,11 @@ export const serializeAws_restJson1_1GetBackupPlanFromJSONCommand = async (
   };
   let resolvedPath = "/backup/template/json/toPlan";
   let body: any;
-  const bodyParams: any = {};
-  if (input.BackupPlanTemplateJson !== undefined) {
-    bodyParams["BackupPlanTemplateJson"] = input.BackupPlanTemplateJson;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.BackupPlanTemplateJson !== undefined && {
+      BackupPlanTemplateJson: input.BackupPlanTemplateJson
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1650,11 +1650,9 @@ export const serializeAws_restJson1_1PutBackupVaultAccessPolicyCommand = async (
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Policy !== undefined) {
-    bodyParams["Policy"] = input.Policy;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Policy !== undefined && { Policy: input.Policy })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1691,17 +1689,15 @@ export const serializeAws_restJson1_1PutBackupVaultNotificationsCommand = async 
     throw new Error("No value provided for input HTTP label: BackupVaultName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.BackupVaultEvents !== undefined) {
-    bodyParams["BackupVaultEvents"] = serializeAws_restJson1_1BackupVaultEvents(
-      input.BackupVaultEvents,
-      context
-    );
-  }
-  if (input.SNSTopicArn !== undefined) {
-    bodyParams["SNSTopicArn"] = input.SNSTopicArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.BackupVaultEvents !== undefined && {
+      BackupVaultEvents: serializeAws_restJson1_1BackupVaultEvents(
+        input.BackupVaultEvents,
+        context
+      )
+    }),
+    ...(input.SNSTopicArn !== undefined && { SNSTopicArn: input.SNSTopicArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1723,38 +1719,31 @@ export const serializeAws_restJson1_1StartBackupJobCommand = async (
   };
   let resolvedPath = "/backup-jobs";
   let body: any;
-  const bodyParams: any = {};
-  if (input.BackupVaultName !== undefined) {
-    bodyParams["BackupVaultName"] = input.BackupVaultName;
-  }
-  if (input.CompleteWindowMinutes !== undefined) {
-    bodyParams["CompleteWindowMinutes"] = input.CompleteWindowMinutes;
-  }
-  if (input.IamRoleArn !== undefined) {
-    bodyParams["IamRoleArn"] = input.IamRoleArn;
-  }
-  if (input.IdempotencyToken !== undefined) {
-    bodyParams["IdempotencyToken"] = input.IdempotencyToken;
-  }
-  if (input.Lifecycle !== undefined) {
-    bodyParams["Lifecycle"] = serializeAws_restJson1_1Lifecycle(
-      input.Lifecycle,
-      context
-    );
-  }
-  if (input.RecoveryPointTags !== undefined) {
-    bodyParams["RecoveryPointTags"] = serializeAws_restJson1_1Tags(
-      input.RecoveryPointTags,
-      context
-    );
-  }
-  if (input.ResourceArn !== undefined) {
-    bodyParams["ResourceArn"] = input.ResourceArn;
-  }
-  if (input.StartWindowMinutes !== undefined) {
-    bodyParams["StartWindowMinutes"] = input.StartWindowMinutes;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.BackupVaultName !== undefined && {
+      BackupVaultName: input.BackupVaultName
+    }),
+    ...(input.CompleteWindowMinutes !== undefined && {
+      CompleteWindowMinutes: input.CompleteWindowMinutes
+    }),
+    ...(input.IamRoleArn !== undefined && { IamRoleArn: input.IamRoleArn }),
+    ...(input.IdempotencyToken !== undefined && {
+      IdempotencyToken: input.IdempotencyToken
+    }),
+    ...(input.Lifecycle !== undefined && {
+      Lifecycle: serializeAws_restJson1_1Lifecycle(input.Lifecycle, context)
+    }),
+    ...(input.RecoveryPointTags !== undefined && {
+      RecoveryPointTags: serializeAws_restJson1_1Tags(
+        input.RecoveryPointTags,
+        context
+      )
+    }),
+    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.StartWindowMinutes !== undefined && {
+      StartWindowMinutes: input.StartWindowMinutes
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1776,29 +1765,24 @@ export const serializeAws_restJson1_1StartCopyJobCommand = async (
   };
   let resolvedPath = "/copy-jobs";
   let body: any;
-  const bodyParams: any = {};
-  if (input.DestinationBackupVaultArn !== undefined) {
-    bodyParams["DestinationBackupVaultArn"] = input.DestinationBackupVaultArn;
-  }
-  if (input.IamRoleArn !== undefined) {
-    bodyParams["IamRoleArn"] = input.IamRoleArn;
-  }
-  if (input.IdempotencyToken !== undefined) {
-    bodyParams["IdempotencyToken"] = input.IdempotencyToken;
-  }
-  if (input.Lifecycle !== undefined) {
-    bodyParams["Lifecycle"] = serializeAws_restJson1_1Lifecycle(
-      input.Lifecycle,
-      context
-    );
-  }
-  if (input.RecoveryPointArn !== undefined) {
-    bodyParams["RecoveryPointArn"] = input.RecoveryPointArn;
-  }
-  if (input.SourceBackupVaultName !== undefined) {
-    bodyParams["SourceBackupVaultName"] = input.SourceBackupVaultName;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DestinationBackupVaultArn !== undefined && {
+      DestinationBackupVaultArn: input.DestinationBackupVaultArn
+    }),
+    ...(input.IamRoleArn !== undefined && { IamRoleArn: input.IamRoleArn }),
+    ...(input.IdempotencyToken !== undefined && {
+      IdempotencyToken: input.IdempotencyToken
+    }),
+    ...(input.Lifecycle !== undefined && {
+      Lifecycle: serializeAws_restJson1_1Lifecycle(input.Lifecycle, context)
+    }),
+    ...(input.RecoveryPointArn !== undefined && {
+      RecoveryPointArn: input.RecoveryPointArn
+    }),
+    ...(input.SourceBackupVaultName !== undefined && {
+      SourceBackupVaultName: input.SourceBackupVaultName
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1820,26 +1804,21 @@ export const serializeAws_restJson1_1StartRestoreJobCommand = async (
   };
   let resolvedPath = "/restore-jobs";
   let body: any;
-  const bodyParams: any = {};
-  if (input.IamRoleArn !== undefined) {
-    bodyParams["IamRoleArn"] = input.IamRoleArn;
-  }
-  if (input.IdempotencyToken !== undefined) {
-    bodyParams["IdempotencyToken"] = input.IdempotencyToken;
-  }
-  if (input.Metadata !== undefined) {
-    bodyParams["Metadata"] = serializeAws_restJson1_1Metadata(
-      input.Metadata,
-      context
-    );
-  }
-  if (input.RecoveryPointArn !== undefined) {
-    bodyParams["RecoveryPointArn"] = input.RecoveryPointArn;
-  }
-  if (input.ResourceType !== undefined) {
-    bodyParams["ResourceType"] = input.ResourceType;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.IamRoleArn !== undefined && { IamRoleArn: input.IamRoleArn }),
+    ...(input.IdempotencyToken !== undefined && {
+      IdempotencyToken: input.IdempotencyToken
+    }),
+    ...(input.Metadata !== undefined && {
+      Metadata: serializeAws_restJson1_1Metadata(input.Metadata, context)
+    }),
+    ...(input.RecoveryPointArn !== undefined && {
+      RecoveryPointArn: input.RecoveryPointArn
+    }),
+    ...(input.ResourceType !== undefined && {
+      ResourceType: input.ResourceType
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1910,11 +1889,11 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_restJson1_1Tags(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1950,14 +1929,11 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.TagKeyList !== undefined) {
-    bodyParams["TagKeyList"] = serializeAws_restJson1_1TagKeyList(
-      input.TagKeyList,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.TagKeyList !== undefined && {
+      TagKeyList: serializeAws_restJson1_1TagKeyList(input.TagKeyList, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1993,14 +1969,14 @@ export const serializeAws_restJson1_1UpdateBackupPlanCommand = async (
     throw new Error("No value provided for input HTTP label: BackupPlanId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.BackupPlan !== undefined) {
-    bodyParams["BackupPlan"] = serializeAws_restJson1_1BackupPlanInput(
-      input.BackupPlan,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.BackupPlan !== undefined && {
+      BackupPlan: serializeAws_restJson1_1BackupPlanInput(
+        input.BackupPlan,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2053,14 +2029,11 @@ export const serializeAws_restJson1_1UpdateRecoveryPointLifecycleCommand = async
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Lifecycle !== undefined) {
-    bodyParams["Lifecycle"] = serializeAws_restJson1_1Lifecycle(
-      input.Lifecycle,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Lifecycle !== undefined && {
+      Lifecycle: serializeAws_restJson1_1Lifecycle(input.Lifecycle, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

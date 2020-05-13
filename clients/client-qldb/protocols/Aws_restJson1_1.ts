@@ -95,20 +95,18 @@ export const serializeAws_restJson1_1CreateLedgerCommand = async (
   };
   let resolvedPath = "/ledgers";
   let body: any;
-  const bodyParams: any = {};
-  if (input.DeletionProtection !== undefined) {
-    bodyParams["DeletionProtection"] = input.DeletionProtection;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.PermissionsMode !== undefined) {
-    bodyParams["PermissionsMode"] = input.PermissionsMode;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DeletionProtection !== undefined && {
+      DeletionProtection: input.DeletionProtection
+    }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.PermissionsMode !== undefined && {
+      PermissionsMode: input.PermissionsMode
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_restJson1_1Tags(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -253,29 +251,21 @@ export const serializeAws_restJson1_1ExportJournalToS3Command = async (
     throw new Error("No value provided for input HTTP label: Name.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.ExclusiveEndTime !== undefined) {
-    bodyParams["ExclusiveEndTime"] = Math.round(
-      input.ExclusiveEndTime.getTime() / 1000
-    );
-  }
-  if (input.InclusiveStartTime !== undefined) {
-    bodyParams["InclusiveStartTime"] = Math.round(
-      input.InclusiveStartTime.getTime() / 1000
-    );
-  }
-  if (input.RoleArn !== undefined) {
-    bodyParams["RoleArn"] = input.RoleArn;
-  }
-  if (input.S3ExportConfiguration !== undefined) {
-    bodyParams[
-      "S3ExportConfiguration"
-    ] = serializeAws_restJson1_1S3ExportConfiguration(
-      input.S3ExportConfiguration,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ExclusiveEndTime !== undefined && {
+      ExclusiveEndTime: Math.round(input.ExclusiveEndTime.getTime() / 1000)
+    }),
+    ...(input.InclusiveStartTime !== undefined && {
+      InclusiveStartTime: Math.round(input.InclusiveStartTime.getTime() / 1000)
+    }),
+    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
+    ...(input.S3ExportConfiguration !== undefined && {
+      S3ExportConfiguration: serializeAws_restJson1_1S3ExportConfiguration(
+        input.S3ExportConfiguration,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -309,20 +299,20 @@ export const serializeAws_restJson1_1GetBlockCommand = async (
     throw new Error("No value provided for input HTTP label: Name.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.BlockAddress !== undefined) {
-    bodyParams["BlockAddress"] = serializeAws_restJson1_1ValueHolder(
-      input.BlockAddress,
-      context
-    );
-  }
-  if (input.DigestTipAddress !== undefined) {
-    bodyParams["DigestTipAddress"] = serializeAws_restJson1_1ValueHolder(
-      input.DigestTipAddress,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.BlockAddress !== undefined && {
+      BlockAddress: serializeAws_restJson1_1ValueHolder(
+        input.BlockAddress,
+        context
+      )
+    }),
+    ...(input.DigestTipAddress !== undefined && {
+      DigestTipAddress: serializeAws_restJson1_1ValueHolder(
+        input.DigestTipAddress,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -389,23 +379,21 @@ export const serializeAws_restJson1_1GetRevisionCommand = async (
     throw new Error("No value provided for input HTTP label: Name.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.BlockAddress !== undefined) {
-    bodyParams["BlockAddress"] = serializeAws_restJson1_1ValueHolder(
-      input.BlockAddress,
-      context
-    );
-  }
-  if (input.DigestTipAddress !== undefined) {
-    bodyParams["DigestTipAddress"] = serializeAws_restJson1_1ValueHolder(
-      input.DigestTipAddress,
-      context
-    );
-  }
-  if (input.DocumentId !== undefined) {
-    bodyParams["DocumentId"] = input.DocumentId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.BlockAddress !== undefined && {
+      BlockAddress: serializeAws_restJson1_1ValueHolder(
+        input.BlockAddress,
+        context
+      )
+    }),
+    ...(input.DigestTipAddress !== undefined && {
+      DigestTipAddress: serializeAws_restJson1_1ValueHolder(
+        input.DigestTipAddress,
+        context
+      )
+    }),
+    ...(input.DocumentId !== undefined && { DocumentId: input.DocumentId })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -572,11 +560,11 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_restJson1_1Tags(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -651,11 +639,11 @@ export const serializeAws_restJson1_1UpdateLedgerCommand = async (
     throw new Error("No value provided for input HTTP label: Name.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.DeletionProtection !== undefined) {
-    bodyParams["DeletionProtection"] = input.DeletionProtection;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DeletionProtection !== undefined && {
+      DeletionProtection: input.DeletionProtection
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

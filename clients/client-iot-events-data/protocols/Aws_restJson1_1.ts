@@ -58,14 +58,11 @@ export const serializeAws_restJson1_1BatchPutMessageCommand = async (
   };
   let resolvedPath = "/inputs/messages";
   let body: any;
-  const bodyParams: any = {};
-  if (input.messages !== undefined) {
-    bodyParams["messages"] = serializeAws_restJson1_1Messages(
-      input.messages,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.messages !== undefined && {
+      messages: serializeAws_restJson1_1Messages(input.messages, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -87,14 +84,14 @@ export const serializeAws_restJson1_1BatchUpdateDetectorCommand = async (
   };
   let resolvedPath = "/detectors";
   let body: any;
-  const bodyParams: any = {};
-  if (input.detectors !== undefined) {
-    bodyParams["detectors"] = serializeAws_restJson1_1UpdateDetectorRequests(
-      input.detectors,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.detectors !== undefined && {
+      detectors: serializeAws_restJson1_1UpdateDetectorRequests(
+        input.detectors,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

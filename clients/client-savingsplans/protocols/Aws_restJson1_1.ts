@@ -76,74 +76,58 @@ export const serializeAws_restJson1_1DescribeSavingsPlansOfferingRatesCommand = 
   };
   let resolvedPath = "/DescribeSavingsPlansOfferingRates";
   let body: any;
-  const bodyParams: any = {};
-  if (input.filters !== undefined) {
-    bodyParams[
-      "filters"
-    ] = serializeAws_restJson1_1SavingsPlanOfferingRateFiltersList(
-      input.filters,
-      context
-    );
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.operations !== undefined) {
-    bodyParams[
-      "operations"
-    ] = serializeAws_restJson1_1SavingsPlanRateOperationList(
-      input.operations,
-      context
-    );
-  }
-  if (input.products !== undefined) {
-    bodyParams["products"] = serializeAws_restJson1_1SavingsPlanProductTypeList(
-      input.products,
-      context
-    );
-  }
-  if (input.savingsPlanOfferingIds !== undefined) {
-    bodyParams["savingsPlanOfferingIds"] = serializeAws_restJson1_1UUIDs(
-      input.savingsPlanOfferingIds,
-      context
-    );
-  }
-  if (input.savingsPlanPaymentOptions !== undefined) {
-    bodyParams[
-      "savingsPlanPaymentOptions"
-    ] = serializeAws_restJson1_1SavingsPlanPaymentOptionList(
-      input.savingsPlanPaymentOptions,
-      context
-    );
-  }
-  if (input.savingsPlanTypes !== undefined) {
-    bodyParams[
-      "savingsPlanTypes"
-    ] = serializeAws_restJson1_1SavingsPlanTypeList(
-      input.savingsPlanTypes,
-      context
-    );
-  }
-  if (input.serviceCodes !== undefined) {
-    bodyParams[
-      "serviceCodes"
-    ] = serializeAws_restJson1_1SavingsPlanRateServiceCodeList(
-      input.serviceCodes,
-      context
-    );
-  }
-  if (input.usageTypes !== undefined) {
-    bodyParams[
-      "usageTypes"
-    ] = serializeAws_restJson1_1SavingsPlanRateUsageTypeList(
-      input.usageTypes,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.filters !== undefined && {
+      filters: serializeAws_restJson1_1SavingsPlanOfferingRateFiltersList(
+        input.filters,
+        context
+      )
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.operations !== undefined && {
+      operations: serializeAws_restJson1_1SavingsPlanRateOperationList(
+        input.operations,
+        context
+      )
+    }),
+    ...(input.products !== undefined && {
+      products: serializeAws_restJson1_1SavingsPlanProductTypeList(
+        input.products,
+        context
+      )
+    }),
+    ...(input.savingsPlanOfferingIds !== undefined && {
+      savingsPlanOfferingIds: serializeAws_restJson1_1UUIDs(
+        input.savingsPlanOfferingIds,
+        context
+      )
+    }),
+    ...(input.savingsPlanPaymentOptions !== undefined && {
+      savingsPlanPaymentOptions: serializeAws_restJson1_1SavingsPlanPaymentOptionList(
+        input.savingsPlanPaymentOptions,
+        context
+      )
+    }),
+    ...(input.savingsPlanTypes !== undefined && {
+      savingsPlanTypes: serializeAws_restJson1_1SavingsPlanTypeList(
+        input.savingsPlanTypes,
+        context
+      )
+    }),
+    ...(input.serviceCodes !== undefined && {
+      serviceCodes: serializeAws_restJson1_1SavingsPlanRateServiceCodeList(
+        input.serviceCodes,
+        context
+      )
+    }),
+    ...(input.usageTypes !== undefined && {
+      usageTypes: serializeAws_restJson1_1SavingsPlanRateUsageTypeList(
+        input.usageTypes,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -165,85 +149,65 @@ export const serializeAws_restJson1_1DescribeSavingsPlansOfferingsCommand = asyn
   };
   let resolvedPath = "/DescribeSavingsPlansOfferings";
   let body: any;
-  const bodyParams: any = {};
-  if (input.currencies !== undefined) {
-    bodyParams["currencies"] = serializeAws_restJson1_1CurrencyList(
-      input.currencies,
-      context
-    );
-  }
-  if (input.descriptions !== undefined) {
-    bodyParams[
-      "descriptions"
-    ] = serializeAws_restJson1_1SavingsPlanDescriptionsList(
-      input.descriptions,
-      context
-    );
-  }
-  if (input.durations !== undefined) {
-    bodyParams["durations"] = serializeAws_restJson1_1DurationsList(
-      input.durations,
-      context
-    );
-  }
-  if (input.filters !== undefined) {
-    bodyParams[
-      "filters"
-    ] = serializeAws_restJson1_1SavingsPlanOfferingFiltersList(
-      input.filters,
-      context
-    );
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.offeringIds !== undefined) {
-    bodyParams["offeringIds"] = serializeAws_restJson1_1UUIDs(
-      input.offeringIds,
-      context
-    );
-  }
-  if (input.operations !== undefined) {
-    bodyParams["operations"] = serializeAws_restJson1_1SavingsPlanOperationList(
-      input.operations,
-      context
-    );
-  }
-  if (input.paymentOptions !== undefined) {
-    bodyParams[
-      "paymentOptions"
-    ] = serializeAws_restJson1_1SavingsPlanPaymentOptionList(
-      input.paymentOptions,
-      context
-    );
-  }
-  if (input.planTypes !== undefined) {
-    bodyParams["planTypes"] = serializeAws_restJson1_1SavingsPlanTypeList(
-      input.planTypes,
-      context
-    );
-  }
-  if (input.productType !== undefined) {
-    bodyParams["productType"] = input.productType;
-  }
-  if (input.serviceCodes !== undefined) {
-    bodyParams[
-      "serviceCodes"
-    ] = serializeAws_restJson1_1SavingsPlanServiceCodeList(
-      input.serviceCodes,
-      context
-    );
-  }
-  if (input.usageTypes !== undefined) {
-    bodyParams["usageTypes"] = serializeAws_restJson1_1SavingsPlanUsageTypeList(
-      input.usageTypes,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.currencies !== undefined && {
+      currencies: serializeAws_restJson1_1CurrencyList(
+        input.currencies,
+        context
+      )
+    }),
+    ...(input.descriptions !== undefined && {
+      descriptions: serializeAws_restJson1_1SavingsPlanDescriptionsList(
+        input.descriptions,
+        context
+      )
+    }),
+    ...(input.durations !== undefined && {
+      durations: serializeAws_restJson1_1DurationsList(input.durations, context)
+    }),
+    ...(input.filters !== undefined && {
+      filters: serializeAws_restJson1_1SavingsPlanOfferingFiltersList(
+        input.filters,
+        context
+      )
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.offeringIds !== undefined && {
+      offeringIds: serializeAws_restJson1_1UUIDs(input.offeringIds, context)
+    }),
+    ...(input.operations !== undefined && {
+      operations: serializeAws_restJson1_1SavingsPlanOperationList(
+        input.operations,
+        context
+      )
+    }),
+    ...(input.paymentOptions !== undefined && {
+      paymentOptions: serializeAws_restJson1_1SavingsPlanPaymentOptionList(
+        input.paymentOptions,
+        context
+      )
+    }),
+    ...(input.planTypes !== undefined && {
+      planTypes: serializeAws_restJson1_1SavingsPlanTypeList(
+        input.planTypes,
+        context
+      )
+    }),
+    ...(input.productType !== undefined && { productType: input.productType }),
+    ...(input.serviceCodes !== undefined && {
+      serviceCodes: serializeAws_restJson1_1SavingsPlanServiceCodeList(
+        input.serviceCodes,
+        context
+      )
+    }),
+    ...(input.usageTypes !== undefined && {
+      usageTypes: serializeAws_restJson1_1SavingsPlanUsageTypeList(
+        input.usageTypes,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -265,26 +229,19 @@ export const serializeAws_restJson1_1CreateSavingsPlanCommand = async (
   };
   let resolvedPath = "/CreateSavingsPlan";
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientToken === undefined) {
-    input.clientToken = generateIdempotencyToken();
-  }
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.commitment !== undefined) {
-    bodyParams["commitment"] = input.commitment;
-  }
-  if (input.savingsPlanOfferingId !== undefined) {
-    bodyParams["savingsPlanOfferingId"] = input.savingsPlanOfferingId;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
-  }
-  if (input.upfrontPaymentAmount !== undefined) {
-    bodyParams["upfrontPaymentAmount"] = input.upfrontPaymentAmount;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.commitment !== undefined && { commitment: input.commitment }),
+    ...(input.savingsPlanOfferingId !== undefined && {
+      savingsPlanOfferingId: input.savingsPlanOfferingId
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.tags, context)
+    }),
+    ...(input.upfrontPaymentAmount !== undefined && {
+      upfrontPaymentAmount: input.upfrontPaymentAmount
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -306,23 +263,19 @@ export const serializeAws_restJson1_1DescribeSavingsPlanRatesCommand = async (
   };
   let resolvedPath = "/DescribeSavingsPlanRates";
   let body: any;
-  const bodyParams: any = {};
-  if (input.filters !== undefined) {
-    bodyParams["filters"] = serializeAws_restJson1_1SavingsPlanRateFilterList(
-      input.filters,
-      context
-    );
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.savingsPlanId !== undefined) {
-    bodyParams["savingsPlanId"] = input.savingsPlanId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.filters !== undefined && {
+      filters: serializeAws_restJson1_1SavingsPlanRateFilterList(
+        input.filters,
+        context
+      )
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.savingsPlanId !== undefined && {
+      savingsPlanId: input.savingsPlanId
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -344,38 +297,34 @@ export const serializeAws_restJson1_1DescribeSavingsPlansCommand = async (
   };
   let resolvedPath = "/DescribeSavingsPlans";
   let body: any;
-  const bodyParams: any = {};
-  if (input.filters !== undefined) {
-    bodyParams["filters"] = serializeAws_restJson1_1SavingsPlanFilterList(
-      input.filters,
-      context
-    );
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.savingsPlanArns !== undefined) {
-    bodyParams["savingsPlanArns"] = serializeAws_restJson1_1SavingsPlanArnList(
-      input.savingsPlanArns,
-      context
-    );
-  }
-  if (input.savingsPlanIds !== undefined) {
-    bodyParams["savingsPlanIds"] = serializeAws_restJson1_1SavingsPlanIdList(
-      input.savingsPlanIds,
-      context
-    );
-  }
-  if (input.states !== undefined) {
-    bodyParams["states"] = serializeAws_restJson1_1SavingsPlanStateList(
-      input.states,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.filters !== undefined && {
+      filters: serializeAws_restJson1_1SavingsPlanFilterList(
+        input.filters,
+        context
+      )
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.savingsPlanArns !== undefined && {
+      savingsPlanArns: serializeAws_restJson1_1SavingsPlanArnList(
+        input.savingsPlanArns,
+        context
+      )
+    }),
+    ...(input.savingsPlanIds !== undefined && {
+      savingsPlanIds: serializeAws_restJson1_1SavingsPlanIdList(
+        input.savingsPlanIds,
+        context
+      )
+    }),
+    ...(input.states !== undefined && {
+      states: serializeAws_restJson1_1SavingsPlanStateList(
+        input.states,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -397,11 +346,9 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   };
   let resolvedPath = "/ListTagsForResource";
   let body: any;
-  const bodyParams: any = {};
-  if (input.resourceArn !== undefined) {
-    bodyParams["resourceArn"] = input.resourceArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -423,14 +370,12 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   };
   let resolvedPath = "/TagResource";
   let body: any;
-  const bodyParams: any = {};
-  if (input.resourceArn !== undefined) {
-    bodyParams["resourceArn"] = input.resourceArn;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -452,17 +397,12 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   };
   let resolvedPath = "/UntagResource";
   let body: any;
-  const bodyParams: any = {};
-  if (input.resourceArn !== undefined) {
-    bodyParams["resourceArn"] = input.resourceArn;
-  }
-  if (input.tagKeys !== undefined) {
-    bodyParams["tagKeys"] = serializeAws_restJson1_1TagKeyList(
-      input.tagKeys,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
+    ...(input.tagKeys !== undefined && {
+      tagKeys: serializeAws_restJson1_1TagKeyList(input.tagKeys, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

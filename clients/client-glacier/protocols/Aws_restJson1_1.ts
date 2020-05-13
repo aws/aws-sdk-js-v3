@@ -317,11 +317,11 @@ export const serializeAws_restJson1_1AddTagsToVaultCommand = async (
     operation: "add"
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1TagMap(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_restJson1_1TagMap(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1528,14 +1528,11 @@ export const serializeAws_restJson1_1RemoveTagsFromVaultCommand = async (
     operation: "remove"
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.TagKeys !== undefined) {
-    bodyParams["TagKeys"] = serializeAws_restJson1_1TagKeyList(
-      input.TagKeys,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.TagKeys !== undefined && {
+      TagKeys: serializeAws_restJson1_1TagKeyList(input.TagKeys, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1570,14 +1567,11 @@ export const serializeAws_restJson1_1SetDataRetrievalPolicyCommand = async (
     throw new Error("No value provided for input HTTP label: accountId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Policy !== undefined) {
-    bodyParams["Policy"] = serializeAws_restJson1_1DataRetrievalPolicy(
-      input.Policy,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Policy !== undefined && {
+      Policy: serializeAws_restJson1_1DataRetrievalPolicy(input.Policy, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

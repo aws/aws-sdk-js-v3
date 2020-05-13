@@ -205,23 +205,16 @@ export const serializeAws_restJson1_1CreateMeshCommand = async (
   };
   let resolvedPath = "/v20190125/meshes";
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientToken === undefined) {
-    input.clientToken = generateIdempotencyToken();
-  }
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.meshName !== undefined) {
-    bodyParams["meshName"] = input.meshName;
-  }
-  if (input.spec !== undefined) {
-    bodyParams["spec"] = serializeAws_restJson1_1MeshSpec(input.spec, context);
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagList(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.meshName !== undefined && { meshName: input.meshName }),
+    ...(input.spec !== undefined && {
+      spec: serializeAws_restJson1_1MeshSpec(input.spec, context)
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagList(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -272,23 +265,16 @@ export const serializeAws_restJson1_1CreateRouteCommand = async (
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientToken === undefined) {
-    input.clientToken = generateIdempotencyToken();
-  }
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.routeName !== undefined) {
-    bodyParams["routeName"] = input.routeName;
-  }
-  if (input.spec !== undefined) {
-    bodyParams["spec"] = serializeAws_restJson1_1RouteSpec(input.spec, context);
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagList(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.routeName !== undefined && { routeName: input.routeName }),
+    ...(input.spec !== undefined && {
+      spec: serializeAws_restJson1_1RouteSpec(input.spec, context)
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagList(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -322,26 +308,18 @@ export const serializeAws_restJson1_1CreateVirtualNodeCommand = async (
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientToken === undefined) {
-    input.clientToken = generateIdempotencyToken();
-  }
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.spec !== undefined) {
-    bodyParams["spec"] = serializeAws_restJson1_1VirtualNodeSpec(
-      input.spec,
-      context
-    );
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagList(input.tags, context);
-  }
-  if (input.virtualNodeName !== undefined) {
-    bodyParams["virtualNodeName"] = input.virtualNodeName;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.spec !== undefined && {
+      spec: serializeAws_restJson1_1VirtualNodeSpec(input.spec, context)
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagList(input.tags, context)
+    }),
+    ...(input.virtualNodeName !== undefined && {
+      virtualNodeName: input.virtualNodeName
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -375,26 +353,18 @@ export const serializeAws_restJson1_1CreateVirtualRouterCommand = async (
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientToken === undefined) {
-    input.clientToken = generateIdempotencyToken();
-  }
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.spec !== undefined) {
-    bodyParams["spec"] = serializeAws_restJson1_1VirtualRouterSpec(
-      input.spec,
-      context
-    );
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagList(input.tags, context);
-  }
-  if (input.virtualRouterName !== undefined) {
-    bodyParams["virtualRouterName"] = input.virtualRouterName;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.spec !== undefined && {
+      spec: serializeAws_restJson1_1VirtualRouterSpec(input.spec, context)
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagList(input.tags, context)
+    }),
+    ...(input.virtualRouterName !== undefined && {
+      virtualRouterName: input.virtualRouterName
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -428,26 +398,18 @@ export const serializeAws_restJson1_1CreateVirtualServiceCommand = async (
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientToken === undefined) {
-    input.clientToken = generateIdempotencyToken();
-  }
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.spec !== undefined) {
-    bodyParams["spec"] = serializeAws_restJson1_1VirtualServiceSpec(
-      input.spec,
-      context
-    );
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagList(input.tags, context);
-  }
-  if (input.virtualServiceName !== undefined) {
-    bodyParams["virtualServiceName"] = input.virtualServiceName;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.spec !== undefined && {
+      spec: serializeAws_restJson1_1VirtualServiceSpec(input.spec, context)
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagList(input.tags, context)
+    }),
+    ...(input.virtualServiceName !== undefined && {
+      virtualServiceName: input.virtualServiceName
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1180,11 +1142,11 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagList(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagList(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1210,14 +1172,11 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.tagKeys !== undefined) {
-    bodyParams["tagKeys"] = serializeAws_restJson1_1TagKeyList(
-      input.tagKeys,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.tagKeys !== undefined && {
+      tagKeys: serializeAws_restJson1_1TagKeyList(input.tagKeys, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1252,17 +1211,12 @@ export const serializeAws_restJson1_1UpdateMeshCommand = async (
     throw new Error("No value provided for input HTTP label: meshName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientToken === undefined) {
-    input.clientToken = generateIdempotencyToken();
-  }
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.spec !== undefined) {
-    bodyParams["spec"] = serializeAws_restJson1_1MeshSpec(input.spec, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.spec !== undefined && {
+      spec: serializeAws_restJson1_1MeshSpec(input.spec, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1325,17 +1279,12 @@ export const serializeAws_restJson1_1UpdateRouteCommand = async (
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientToken === undefined) {
-    input.clientToken = generateIdempotencyToken();
-  }
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.spec !== undefined) {
-    bodyParams["spec"] = serializeAws_restJson1_1RouteSpec(input.spec, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.spec !== undefined && {
+      spec: serializeAws_restJson1_1RouteSpec(input.spec, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1384,20 +1333,12 @@ export const serializeAws_restJson1_1UpdateVirtualNodeCommand = async (
     throw new Error("No value provided for input HTTP label: virtualNodeName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientToken === undefined) {
-    input.clientToken = generateIdempotencyToken();
-  }
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.spec !== undefined) {
-    bodyParams["spec"] = serializeAws_restJson1_1VirtualNodeSpec(
-      input.spec,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.spec !== undefined && {
+      spec: serializeAws_restJson1_1VirtualNodeSpec(input.spec, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1448,20 +1389,12 @@ export const serializeAws_restJson1_1UpdateVirtualRouterCommand = async (
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientToken === undefined) {
-    input.clientToken = generateIdempotencyToken();
-  }
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.spec !== undefined) {
-    bodyParams["spec"] = serializeAws_restJson1_1VirtualRouterSpec(
-      input.spec,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.spec !== undefined && {
+      spec: serializeAws_restJson1_1VirtualRouterSpec(input.spec, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1512,20 +1445,12 @@ export const serializeAws_restJson1_1UpdateVirtualServiceCommand = async (
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientToken === undefined) {
-    input.clientToken = generateIdempotencyToken();
-  }
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.spec !== undefined) {
-    bodyParams["spec"] = serializeAws_restJson1_1VirtualServiceSpec(
-      input.spec,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.spec !== undefined && {
+      spec: serializeAws_restJson1_1VirtualServiceSpec(input.spec, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

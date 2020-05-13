@@ -54,14 +54,11 @@ export const serializeAws_restJson1_1CreateParticipantConnectionCommand = async 
   };
   let resolvedPath = "/participant/connection";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Type !== undefined) {
-    bodyParams["Type"] = serializeAws_restJson1_1ConnectionTypeList(
-      input.Type,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Type !== undefined && {
+      Type: serializeAws_restJson1_1ConnectionTypeList(input.Type, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -86,14 +83,9 @@ export const serializeAws_restJson1_1DisconnectParticipantCommand = async (
   };
   let resolvedPath = "/participant/disconnect";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ClientToken === undefined) {
-    input.ClientToken = generateIdempotencyToken();
-  }
-  if (input.ClientToken !== undefined) {
-    bodyParams["ClientToken"] = input.ClientToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ClientToken: input.ClientToken ?? generateIdempotencyToken()
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -118,29 +110,21 @@ export const serializeAws_restJson1_1GetTranscriptCommand = async (
   };
   let resolvedPath = "/participant/transcript";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ContactId !== undefined) {
-    bodyParams["ContactId"] = input.ContactId;
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ScanDirection !== undefined) {
-    bodyParams["ScanDirection"] = input.ScanDirection;
-  }
-  if (input.SortOrder !== undefined) {
-    bodyParams["SortOrder"] = input.SortOrder;
-  }
-  if (input.StartPosition !== undefined) {
-    bodyParams["StartPosition"] = serializeAws_restJson1_1StartPosition(
-      input.StartPosition,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ContactId !== undefined && { ContactId: input.ContactId }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ScanDirection !== undefined && {
+      ScanDirection: input.ScanDirection
+    }),
+    ...(input.SortOrder !== undefined && { SortOrder: input.SortOrder }),
+    ...(input.StartPosition !== undefined && {
+      StartPosition: serializeAws_restJson1_1StartPosition(
+        input.StartPosition,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -165,20 +149,11 @@ export const serializeAws_restJson1_1SendEventCommand = async (
   };
   let resolvedPath = "/participant/event";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ClientToken === undefined) {
-    input.ClientToken = generateIdempotencyToken();
-  }
-  if (input.ClientToken !== undefined) {
-    bodyParams["ClientToken"] = input.ClientToken;
-  }
-  if (input.Content !== undefined) {
-    bodyParams["Content"] = input.Content;
-  }
-  if (input.ContentType !== undefined) {
-    bodyParams["ContentType"] = input.ContentType;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.Content !== undefined && { Content: input.Content }),
+    ...(input.ContentType !== undefined && { ContentType: input.ContentType })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -203,20 +178,11 @@ export const serializeAws_restJson1_1SendMessageCommand = async (
   };
   let resolvedPath = "/participant/message";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ClientToken === undefined) {
-    input.ClientToken = generateIdempotencyToken();
-  }
-  if (input.ClientToken !== undefined) {
-    bodyParams["ClientToken"] = input.ClientToken;
-  }
-  if (input.Content !== undefined) {
-    bodyParams["Content"] = input.Content;
-  }
-  if (input.ContentType !== undefined) {
-    bodyParams["ContentType"] = input.ContentType;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.Content !== undefined && { Content: input.Content }),
+    ...(input.ContentType !== undefined && { ContentType: input.ContentType })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

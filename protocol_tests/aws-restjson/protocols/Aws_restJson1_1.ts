@@ -870,11 +870,9 @@ export const serializeAws_restJson1_1JsonBlobsCommand = async (
   };
   let resolvedPath = "/JsonBlobs";
   let body: any;
-  const bodyParams: any = {};
-  if (input.data !== undefined) {
-    bodyParams["data"] = context.base64Encoder(input.data);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.data !== undefined && { data: context.base64Encoder(input.data) })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -896,35 +894,23 @@ export const serializeAws_restJson1_1JsonEnumsCommand = async (
   };
   let resolvedPath = "/JsonEnums";
   let body: any;
-  const bodyParams: any = {};
-  if (input.fooEnum1 !== undefined) {
-    bodyParams["fooEnum1"] = input.fooEnum1;
-  }
-  if (input.fooEnum2 !== undefined) {
-    bodyParams["fooEnum2"] = input.fooEnum2;
-  }
-  if (input.fooEnum3 !== undefined) {
-    bodyParams["fooEnum3"] = input.fooEnum3;
-  }
-  if (input.fooEnumList !== undefined) {
-    bodyParams["fooEnumList"] = serializeAws_restJson1_1FooEnumList(
-      input.fooEnumList,
-      context
-    );
-  }
-  if (input.fooEnumMap !== undefined) {
-    bodyParams["fooEnumMap"] = serializeAws_restJson1_1FooEnumMap(
-      input.fooEnumMap,
-      context
-    );
-  }
-  if (input.fooEnumSet !== undefined) {
-    bodyParams["fooEnumSet"] = serializeAws_restJson1_1FooEnumSet(
-      input.fooEnumSet,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.fooEnum1 !== undefined && { fooEnum1: input.fooEnum1 }),
+    ...(input.fooEnum2 !== undefined && { fooEnum2: input.fooEnum2 }),
+    ...(input.fooEnum3 !== undefined && { fooEnum3: input.fooEnum3 }),
+    ...(input.fooEnumList !== undefined && {
+      fooEnumList: serializeAws_restJson1_1FooEnumList(
+        input.fooEnumList,
+        context
+      )
+    }),
+    ...(input.fooEnumMap !== undefined && {
+      fooEnumMap: serializeAws_restJson1_1FooEnumMap(input.fooEnumMap, context)
+    }),
+    ...(input.fooEnumSet !== undefined && {
+      fooEnumSet: serializeAws_restJson1_1FooEnumSet(input.fooEnumSet, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -946,56 +932,47 @@ export const serializeAws_restJson1_1JsonListsCommand = async (
   };
   let resolvedPath = "/JsonLists";
   let body: any;
-  const bodyParams: any = {};
-  if (input.booleanList !== undefined) {
-    bodyParams["booleanList"] = serializeAws_restJson1_1BooleanList(
-      input.booleanList,
-      context
-    );
-  }
-  if (input.enumList !== undefined) {
-    bodyParams["enumList"] = serializeAws_restJson1_1FooEnumList(
-      input.enumList,
-      context
-    );
-  }
-  if (input.integerList !== undefined) {
-    bodyParams["integerList"] = serializeAws_restJson1_1IntegerList(
-      input.integerList,
-      context
-    );
-  }
-  if (input.nestedStringList !== undefined) {
-    bodyParams["nestedStringList"] = serializeAws_restJson1_1NestedStringList(
-      input.nestedStringList,
-      context
-    );
-  }
-  if (input.stringList !== undefined) {
-    bodyParams["stringList"] = serializeAws_restJson1_1StringList(
-      input.stringList,
-      context
-    );
-  }
-  if (input.stringSet !== undefined) {
-    bodyParams["stringSet"] = serializeAws_restJson1_1StringSet(
-      input.stringSet,
-      context
-    );
-  }
-  if (input.structureList !== undefined) {
-    bodyParams["myStructureList"] = serializeAws_restJson1_1StructureList(
-      input.structureList,
-      context
-    );
-  }
-  if (input.timestampList !== undefined) {
-    bodyParams["timestampList"] = serializeAws_restJson1_1TimestampList(
-      input.timestampList,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.booleanList !== undefined && {
+      booleanList: serializeAws_restJson1_1BooleanList(
+        input.booleanList,
+        context
+      )
+    }),
+    ...(input.enumList !== undefined && {
+      enumList: serializeAws_restJson1_1FooEnumList(input.enumList, context)
+    }),
+    ...(input.integerList !== undefined && {
+      integerList: serializeAws_restJson1_1IntegerList(
+        input.integerList,
+        context
+      )
+    }),
+    ...(input.nestedStringList !== undefined && {
+      nestedStringList: serializeAws_restJson1_1NestedStringList(
+        input.nestedStringList,
+        context
+      )
+    }),
+    ...(input.stringList !== undefined && {
+      stringList: serializeAws_restJson1_1StringList(input.stringList, context)
+    }),
+    ...(input.stringSet !== undefined && {
+      stringSet: serializeAws_restJson1_1StringSet(input.stringSet, context)
+    }),
+    ...(input.structureList !== undefined && {
+      myStructureList: serializeAws_restJson1_1StructureList(
+        input.structureList,
+        context
+      )
+    }),
+    ...(input.timestampList !== undefined && {
+      timestampList: serializeAws_restJson1_1TimestampList(
+        input.timestampList,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1017,14 +994,14 @@ export const serializeAws_restJson1_1JsonMapsCommand = async (
   };
   let resolvedPath = "/JsonMaps";
   let body: any;
-  const bodyParams: any = {};
-  if (input.myMap !== undefined) {
-    bodyParams["myMap"] = serializeAws_restJson1_1JsonMapsInputOutputMap(
-      input.myMap,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.myMap !== undefined && {
+      myMap: serializeAws_restJson1_1JsonMapsInputOutputMap(
+        input.myMap,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1046,22 +1023,20 @@ export const serializeAws_restJson1_1JsonTimestampsCommand = async (
   };
   let resolvedPath = "/JsonTimestamps";
   let body: any;
-  const bodyParams: any = {};
-  if (input.dateTime !== undefined) {
-    bodyParams["dateTime"] = input.dateTime.toISOString().split(".")[0] + "Z";
-  }
-  if (input.epochSeconds !== undefined) {
-    bodyParams["epochSeconds"] = Math.round(
-      input.epochSeconds.getTime() / 1000
-    );
-  }
-  if (input.httpDate !== undefined) {
-    bodyParams["httpDate"] = __dateToUtcString(input.httpDate);
-  }
-  if (input.normal !== undefined) {
-    bodyParams["normal"] = Math.round(input.normal.getTime() / 1000);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.dateTime !== undefined && {
+      dateTime: input.dateTime.toISOString().split(".")[0] + "Z"
+    }),
+    ...(input.epochSeconds !== undefined && {
+      epochSeconds: Math.round(input.epochSeconds.getTime() / 1000)
+    }),
+    ...(input.httpDate !== undefined && {
+      httpDate: __dateToUtcString(input.httpDate)
+    }),
+    ...(input.normal !== undefined && {
+      normal: Math.round(input.normal.getTime() / 1000)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1230,16 +1205,14 @@ export const serializeAws_restJson1_1RecursiveShapesCommand = async (
   };
   let resolvedPath = "/RecursiveShapes";
   let body: any;
-  const bodyParams: any = {};
-  if (input.nested !== undefined) {
-    bodyParams[
-      "nested"
-    ] = serializeAws_restJson1_1RecursiveShapesInputOutputNested1(
-      input.nested,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.nested !== undefined && {
+      nested: serializeAws_restJson1_1RecursiveShapesInputOutputNested1(
+        input.nested,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1262,35 +1235,25 @@ export const serializeAws_restJson1_1SimpleScalarPropertiesCommand = async (
   };
   let resolvedPath = "/SimpleScalarProperties";
   let body: any;
-  const bodyParams: any = {};
-  if (input.byteValue !== undefined) {
-    bodyParams["byteValue"] = input.byteValue;
-  }
-  if (input.doubleValue !== undefined) {
-    bodyParams["DoubleDribble"] = input.doubleValue;
-  }
-  if (input.falseBooleanValue !== undefined) {
-    bodyParams["falseBooleanValue"] = input.falseBooleanValue;
-  }
-  if (input.floatValue !== undefined) {
-    bodyParams["floatValue"] = input.floatValue;
-  }
-  if (input.integerValue !== undefined) {
-    bodyParams["integerValue"] = input.integerValue;
-  }
-  if (input.longValue !== undefined) {
-    bodyParams["longValue"] = input.longValue;
-  }
-  if (input.shortValue !== undefined) {
-    bodyParams["shortValue"] = input.shortValue;
-  }
-  if (input.stringValue !== undefined) {
-    bodyParams["stringValue"] = input.stringValue;
-  }
-  if (input.trueBooleanValue !== undefined) {
-    bodyParams["trueBooleanValue"] = input.trueBooleanValue;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.byteValue !== undefined && { byteValue: input.byteValue }),
+    ...(input.doubleValue !== undefined && {
+      DoubleDribble: input.doubleValue
+    }),
+    ...(input.falseBooleanValue !== undefined && {
+      falseBooleanValue: input.falseBooleanValue
+    }),
+    ...(input.floatValue !== undefined && { floatValue: input.floatValue }),
+    ...(input.integerValue !== undefined && {
+      integerValue: input.integerValue
+    }),
+    ...(input.longValue !== undefined && { longValue: input.longValue }),
+    ...(input.shortValue !== undefined && { shortValue: input.shortValue }),
+    ...(input.stringValue !== undefined && { stringValue: input.stringValue }),
+    ...(input.trueBooleanValue !== undefined && {
+      trueBooleanValue: input.trueBooleanValue
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

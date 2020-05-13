@@ -72,26 +72,22 @@ export const serializeAws_restJson1_1CreateLifecyclePolicyCommand = async (
   };
   let resolvedPath = "/policies";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.ExecutionRoleArn !== undefined) {
-    bodyParams["ExecutionRoleArn"] = input.ExecutionRoleArn;
-  }
-  if (input.PolicyDetails !== undefined) {
-    bodyParams["PolicyDetails"] = serializeAws_restJson1_1PolicyDetails(
-      input.PolicyDetails,
-      context
-    );
-  }
-  if (input.State !== undefined) {
-    bodyParams["State"] = input.State;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1TagMap(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.ExecutionRoleArn !== undefined && {
+      ExecutionRoleArn: input.ExecutionRoleArn
+    }),
+    ...(input.PolicyDetails !== undefined && {
+      PolicyDetails: serializeAws_restJson1_1PolicyDetails(
+        input.PolicyDetails,
+        context
+      )
+    }),
+    ...(input.State !== undefined && { State: input.State }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_restJson1_1TagMap(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -265,11 +261,11 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1TagMap(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_restJson1_1TagMap(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -344,23 +340,19 @@ export const serializeAws_restJson1_1UpdateLifecyclePolicyCommand = async (
     throw new Error("No value provided for input HTTP label: PolicyId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.ExecutionRoleArn !== undefined) {
-    bodyParams["ExecutionRoleArn"] = input.ExecutionRoleArn;
-  }
-  if (input.PolicyDetails !== undefined) {
-    bodyParams["PolicyDetails"] = serializeAws_restJson1_1PolicyDetails(
-      input.PolicyDetails,
-      context
-    );
-  }
-  if (input.State !== undefined) {
-    bodyParams["State"] = input.State;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.ExecutionRoleArn !== undefined && {
+      ExecutionRoleArn: input.ExecutionRoleArn
+    }),
+    ...(input.PolicyDetails !== undefined && {
+      PolicyDetails: serializeAws_restJson1_1PolicyDetails(
+        input.PolicyDetails,
+        context
+      )
+    }),
+    ...(input.State !== undefined && { State: input.State })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

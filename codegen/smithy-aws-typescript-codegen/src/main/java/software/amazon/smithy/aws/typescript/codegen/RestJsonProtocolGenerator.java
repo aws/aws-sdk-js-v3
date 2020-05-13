@@ -24,6 +24,7 @@ import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
+import software.amazon.smithy.model.traits.IdempotencyTokenTrait;
 import software.amazon.smithy.model.traits.JsonNameTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
@@ -102,35 +103,31 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
 
         SymbolProvider symbolProvider = context.getSymbolProvider();
 
-        writer.write("const bodyParams: any = {};");
-        for (HttpBinding binding : documentBindings) {
-            MemberShape memberShape = binding.getMember();
-            // The name of the member to get from the input shape.
-            String memberName = symbolProvider.toMemberName(memberShape);
-            String inputLocation = "input." + memberName;
-            // Use the jsonName trait value if present, otherwise use the member name.
-            String locationName = memberShape.getTrait(JsonNameTrait.class)
-                    .map(JsonNameTrait::getValue)
-                    .orElseGet(binding::getLocationName);
-            Shape target = context.getModel().expectShape(memberShape.getTarget());
-
-            // Handle if the member is an idempotency token that should be auto-filled.
-            AwsProtocolUtils.writeIdempotencyAutofill(context, memberShape, inputLocation);
-
-            // Generate an if statement to set the bodyParam if the member is set.
-            writer.openBlock("if ($L !== undefined) {", "}", inputLocation, () -> {
+        writer.openBlock("body = JSON.stringify({", "});", () -> {
+            for (HttpBinding binding : documentBindings) {
+                MemberShape memberShape = binding.getMember();
+                // The name of the member to get from the input shape.
+                String memberName = symbolProvider.toMemberName(memberShape);
+                String inputLocation = "input." + memberName;
+                // Use the jsonName trait value if present, otherwise use the member name.
+                String locationName = memberShape.getTrait(JsonNameTrait.class)
+                        .map(JsonNameTrait::getValue)
+                        .orElseGet(binding::getLocationName);
+                Shape target = context.getModel().expectShape(memberShape.getTarget());
+    
                 // Handle @timestampFormat on members not just the targeted shape.
                 String valueProvider = memberShape.hasTrait(TimestampFormatTrait.class)
                         ? AwsProtocolUtils.getInputTimestampValueProvider(context, memberShape,
                                 getDocumentTimestampFormat(), inputLocation)
                         : target.accept(getMemberSerVisitor(context, inputLocation));
 
-                // Dispatch to the input value provider for any additional handling.
-                writer.write("bodyParams['$L'] = $L;", locationName, valueProvider);
-            });
-        }
-
-        writer.write("body = JSON.stringify(bodyParams);");
+                if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {
+                    writer.write("'$L': $L ?? generateIdempotencyToken(),", locationName, valueProvider);
+                } else {
+                    writer.write("...($L !== undefined && { '$L': $L }),", inputLocation, locationName, valueProvider);
+                }
+            }
+        });
     }
 
     @Override

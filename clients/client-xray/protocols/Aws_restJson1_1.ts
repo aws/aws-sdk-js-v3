@@ -148,17 +148,12 @@ export const serializeAws_restJson1_1BatchGetTracesCommand = async (
   };
   let resolvedPath = "/Traces";
   let body: any;
-  const bodyParams: any = {};
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.TraceIds !== undefined) {
-    bodyParams["TraceIds"] = serializeAws_restJson1_1TraceIdList(
-      input.TraceIds,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.TraceIds !== undefined && {
+      TraceIds: serializeAws_restJson1_1TraceIdList(input.TraceIds, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -180,14 +175,12 @@ export const serializeAws_restJson1_1CreateGroupCommand = async (
   };
   let resolvedPath = "/CreateGroup";
   let body: any;
-  const bodyParams: any = {};
-  if (input.FilterExpression !== undefined) {
-    bodyParams["FilterExpression"] = input.FilterExpression;
-  }
-  if (input.GroupName !== undefined) {
-    bodyParams["GroupName"] = input.GroupName;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.FilterExpression !== undefined && {
+      FilterExpression: input.FilterExpression
+    }),
+    ...(input.GroupName !== undefined && { GroupName: input.GroupName })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -209,14 +202,14 @@ export const serializeAws_restJson1_1CreateSamplingRuleCommand = async (
   };
   let resolvedPath = "/CreateSamplingRule";
   let body: any;
-  const bodyParams: any = {};
-  if (input.SamplingRule !== undefined) {
-    bodyParams["SamplingRule"] = serializeAws_restJson1_1SamplingRule(
-      input.SamplingRule,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.SamplingRule !== undefined && {
+      SamplingRule: serializeAws_restJson1_1SamplingRule(
+        input.SamplingRule,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -238,14 +231,10 @@ export const serializeAws_restJson1_1DeleteGroupCommand = async (
   };
   let resolvedPath = "/DeleteGroup";
   let body: any;
-  const bodyParams: any = {};
-  if (input.GroupARN !== undefined) {
-    bodyParams["GroupARN"] = input.GroupARN;
-  }
-  if (input.GroupName !== undefined) {
-    bodyParams["GroupName"] = input.GroupName;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.GroupARN !== undefined && { GroupARN: input.GroupARN }),
+    ...(input.GroupName !== undefined && { GroupName: input.GroupName })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -267,14 +256,10 @@ export const serializeAws_restJson1_1DeleteSamplingRuleCommand = async (
   };
   let resolvedPath = "/DeleteSamplingRule";
   let body: any;
-  const bodyParams: any = {};
-  if (input.RuleARN !== undefined) {
-    bodyParams["RuleARN"] = input.RuleARN;
-  }
-  if (input.RuleName !== undefined) {
-    bodyParams["RuleName"] = input.RuleName;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.RuleARN !== undefined && { RuleARN: input.RuleARN }),
+    ...(input.RuleName !== undefined && { RuleName: input.RuleName })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -318,14 +303,10 @@ export const serializeAws_restJson1_1GetGroupCommand = async (
   };
   let resolvedPath = "/GetGroup";
   let body: any;
-  const bodyParams: any = {};
-  if (input.GroupARN !== undefined) {
-    bodyParams["GroupARN"] = input.GroupARN;
-  }
-  if (input.GroupName !== undefined) {
-    bodyParams["GroupName"] = input.GroupName;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.GroupARN !== undefined && { GroupARN: input.GroupARN }),
+    ...(input.GroupName !== undefined && { GroupName: input.GroupName })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -347,11 +328,9 @@ export const serializeAws_restJson1_1GetGroupsCommand = async (
   };
   let resolvedPath = "/Groups";
   let body: any;
-  const bodyParams: any = {};
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -373,11 +352,9 @@ export const serializeAws_restJson1_1GetSamplingRulesCommand = async (
   };
   let resolvedPath = "/GetSamplingRules";
   let body: any;
-  const bodyParams: any = {};
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -399,11 +376,9 @@ export const serializeAws_restJson1_1GetSamplingStatisticSummariesCommand = asyn
   };
   let resolvedPath = "/SamplingStatisticSummaries";
   let body: any;
-  const bodyParams: any = {};
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -425,16 +400,14 @@ export const serializeAws_restJson1_1GetSamplingTargetsCommand = async (
   };
   let resolvedPath = "/SamplingTargets";
   let body: any;
-  const bodyParams: any = {};
-  if (input.SamplingStatisticsDocuments !== undefined) {
-    bodyParams[
-      "SamplingStatisticsDocuments"
-    ] = serializeAws_restJson1_1SamplingStatisticsDocumentList(
-      input.SamplingStatisticsDocuments,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.SamplingStatisticsDocuments !== undefined && {
+      SamplingStatisticsDocuments: serializeAws_restJson1_1SamplingStatisticsDocumentList(
+        input.SamplingStatisticsDocuments,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -456,23 +429,17 @@ export const serializeAws_restJson1_1GetServiceGraphCommand = async (
   };
   let resolvedPath = "/ServiceGraph";
   let body: any;
-  const bodyParams: any = {};
-  if (input.EndTime !== undefined) {
-    bodyParams["EndTime"] = Math.round(input.EndTime.getTime() / 1000);
-  }
-  if (input.GroupARN !== undefined) {
-    bodyParams["GroupARN"] = input.GroupARN;
-  }
-  if (input.GroupName !== undefined) {
-    bodyParams["GroupName"] = input.GroupName;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.StartTime !== undefined) {
-    bodyParams["StartTime"] = Math.round(input.StartTime.getTime() / 1000);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.EndTime !== undefined && {
+      EndTime: Math.round(input.EndTime.getTime() / 1000)
+    }),
+    ...(input.GroupARN !== undefined && { GroupARN: input.GroupARN }),
+    ...(input.GroupName !== undefined && { GroupName: input.GroupName }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.StartTime !== undefined && {
+      StartTime: Math.round(input.StartTime.getTime() / 1000)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -494,29 +461,21 @@ export const serializeAws_restJson1_1GetTimeSeriesServiceStatisticsCommand = asy
   };
   let resolvedPath = "/TimeSeriesServiceStatistics";
   let body: any;
-  const bodyParams: any = {};
-  if (input.EndTime !== undefined) {
-    bodyParams["EndTime"] = Math.round(input.EndTime.getTime() / 1000);
-  }
-  if (input.EntitySelectorExpression !== undefined) {
-    bodyParams["EntitySelectorExpression"] = input.EntitySelectorExpression;
-  }
-  if (input.GroupARN !== undefined) {
-    bodyParams["GroupARN"] = input.GroupARN;
-  }
-  if (input.GroupName !== undefined) {
-    bodyParams["GroupName"] = input.GroupName;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.Period !== undefined) {
-    bodyParams["Period"] = input.Period;
-  }
-  if (input.StartTime !== undefined) {
-    bodyParams["StartTime"] = Math.round(input.StartTime.getTime() / 1000);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.EndTime !== undefined && {
+      EndTime: Math.round(input.EndTime.getTime() / 1000)
+    }),
+    ...(input.EntitySelectorExpression !== undefined && {
+      EntitySelectorExpression: input.EntitySelectorExpression
+    }),
+    ...(input.GroupARN !== undefined && { GroupARN: input.GroupARN }),
+    ...(input.GroupName !== undefined && { GroupName: input.GroupName }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Period !== undefined && { Period: input.Period }),
+    ...(input.StartTime !== undefined && {
+      StartTime: Math.round(input.StartTime.getTime() / 1000)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -538,17 +497,12 @@ export const serializeAws_restJson1_1GetTraceGraphCommand = async (
   };
   let resolvedPath = "/TraceGraph";
   let body: any;
-  const bodyParams: any = {};
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.TraceIds !== undefined) {
-    bodyParams["TraceIds"] = serializeAws_restJson1_1TraceIdList(
-      input.TraceIds,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.TraceIds !== undefined && {
+      TraceIds: serializeAws_restJson1_1TraceIdList(input.TraceIds, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -570,32 +524,28 @@ export const serializeAws_restJson1_1GetTraceSummariesCommand = async (
   };
   let resolvedPath = "/TraceSummaries";
   let body: any;
-  const bodyParams: any = {};
-  if (input.EndTime !== undefined) {
-    bodyParams["EndTime"] = Math.round(input.EndTime.getTime() / 1000);
-  }
-  if (input.FilterExpression !== undefined) {
-    bodyParams["FilterExpression"] = input.FilterExpression;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.Sampling !== undefined) {
-    bodyParams["Sampling"] = input.Sampling;
-  }
-  if (input.SamplingStrategy !== undefined) {
-    bodyParams["SamplingStrategy"] = serializeAws_restJson1_1SamplingStrategy(
-      input.SamplingStrategy,
-      context
-    );
-  }
-  if (input.StartTime !== undefined) {
-    bodyParams["StartTime"] = Math.round(input.StartTime.getTime() / 1000);
-  }
-  if (input.TimeRangeType !== undefined) {
-    bodyParams["TimeRangeType"] = input.TimeRangeType;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.EndTime !== undefined && {
+      EndTime: Math.round(input.EndTime.getTime() / 1000)
+    }),
+    ...(input.FilterExpression !== undefined && {
+      FilterExpression: input.FilterExpression
+    }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Sampling !== undefined && { Sampling: input.Sampling }),
+    ...(input.SamplingStrategy !== undefined && {
+      SamplingStrategy: serializeAws_restJson1_1SamplingStrategy(
+        input.SamplingStrategy,
+        context
+      )
+    }),
+    ...(input.StartTime !== undefined && {
+      StartTime: Math.round(input.StartTime.getTime() / 1000)
+    }),
+    ...(input.TimeRangeType !== undefined && {
+      TimeRangeType: input.TimeRangeType
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -617,14 +567,10 @@ export const serializeAws_restJson1_1PutEncryptionConfigCommand = async (
   };
   let resolvedPath = "/PutEncryptionConfig";
   let body: any;
-  const bodyParams: any = {};
-  if (input.KeyId !== undefined) {
-    bodyParams["KeyId"] = input.KeyId;
-  }
-  if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.KeyId !== undefined && { KeyId: input.KeyId }),
+    ...(input.Type !== undefined && { Type: input.Type })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -646,25 +592,19 @@ export const serializeAws_restJson1_1PutTelemetryRecordsCommand = async (
   };
   let resolvedPath = "/TelemetryRecords";
   let body: any;
-  const bodyParams: any = {};
-  if (input.EC2InstanceId !== undefined) {
-    bodyParams["EC2InstanceId"] = input.EC2InstanceId;
-  }
-  if (input.Hostname !== undefined) {
-    bodyParams["Hostname"] = input.Hostname;
-  }
-  if (input.ResourceARN !== undefined) {
-    bodyParams["ResourceARN"] = input.ResourceARN;
-  }
-  if (input.TelemetryRecords !== undefined) {
-    bodyParams[
-      "TelemetryRecords"
-    ] = serializeAws_restJson1_1TelemetryRecordList(
-      input.TelemetryRecords,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.EC2InstanceId !== undefined && {
+      EC2InstanceId: input.EC2InstanceId
+    }),
+    ...(input.Hostname !== undefined && { Hostname: input.Hostname }),
+    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.TelemetryRecords !== undefined && {
+      TelemetryRecords: serializeAws_restJson1_1TelemetryRecordList(
+        input.TelemetryRecords,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -686,16 +626,14 @@ export const serializeAws_restJson1_1PutTraceSegmentsCommand = async (
   };
   let resolvedPath = "/TraceSegments";
   let body: any;
-  const bodyParams: any = {};
-  if (input.TraceSegmentDocuments !== undefined) {
-    bodyParams[
-      "TraceSegmentDocuments"
-    ] = serializeAws_restJson1_1TraceSegmentDocumentList(
-      input.TraceSegmentDocuments,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.TraceSegmentDocuments !== undefined && {
+      TraceSegmentDocuments: serializeAws_restJson1_1TraceSegmentDocumentList(
+        input.TraceSegmentDocuments,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -717,17 +655,13 @@ export const serializeAws_restJson1_1UpdateGroupCommand = async (
   };
   let resolvedPath = "/UpdateGroup";
   let body: any;
-  const bodyParams: any = {};
-  if (input.FilterExpression !== undefined) {
-    bodyParams["FilterExpression"] = input.FilterExpression;
-  }
-  if (input.GroupARN !== undefined) {
-    bodyParams["GroupARN"] = input.GroupARN;
-  }
-  if (input.GroupName !== undefined) {
-    bodyParams["GroupName"] = input.GroupName;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.FilterExpression !== undefined && {
+      FilterExpression: input.FilterExpression
+    }),
+    ...(input.GroupARN !== undefined && { GroupARN: input.GroupARN }),
+    ...(input.GroupName !== undefined && { GroupName: input.GroupName })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -749,16 +683,14 @@ export const serializeAws_restJson1_1UpdateSamplingRuleCommand = async (
   };
   let resolvedPath = "/UpdateSamplingRule";
   let body: any;
-  const bodyParams: any = {};
-  if (input.SamplingRuleUpdate !== undefined) {
-    bodyParams[
-      "SamplingRuleUpdate"
-    ] = serializeAws_restJson1_1SamplingRuleUpdate(
-      input.SamplingRuleUpdate,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.SamplingRuleUpdate !== undefined && {
+      SamplingRuleUpdate: serializeAws_restJson1_1SamplingRuleUpdate(
+        input.SamplingRuleUpdate,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

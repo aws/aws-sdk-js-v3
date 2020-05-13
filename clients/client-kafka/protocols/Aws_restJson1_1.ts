@@ -140,60 +140,51 @@ export const serializeAws_restJson1_1CreateClusterCommand = async (
   };
   let resolvedPath = "/v1/clusters";
   let body: any;
-  const bodyParams: any = {};
-  if (input.BrokerNodeGroupInfo !== undefined) {
-    bodyParams[
-      "brokerNodeGroupInfo"
-    ] = serializeAws_restJson1_1BrokerNodeGroupInfo(
-      input.BrokerNodeGroupInfo,
-      context
-    );
-  }
-  if (input.ClientAuthentication !== undefined) {
-    bodyParams[
-      "clientAuthentication"
-    ] = serializeAws_restJson1_1ClientAuthentication(
-      input.ClientAuthentication,
-      context
-    );
-  }
-  if (input.ClusterName !== undefined) {
-    bodyParams["clusterName"] = input.ClusterName;
-  }
-  if (input.ConfigurationInfo !== undefined) {
-    bodyParams["configurationInfo"] = serializeAws_restJson1_1ConfigurationInfo(
-      input.ConfigurationInfo,
-      context
-    );
-  }
-  if (input.EncryptionInfo !== undefined) {
-    bodyParams["encryptionInfo"] = serializeAws_restJson1_1EncryptionInfo(
-      input.EncryptionInfo,
-      context
-    );
-  }
-  if (input.EnhancedMonitoring !== undefined) {
-    bodyParams["enhancedMonitoring"] = input.EnhancedMonitoring;
-  }
-  if (input.KafkaVersion !== undefined) {
-    bodyParams["kafkaVersion"] = input.KafkaVersion;
-  }
-  if (input.NumberOfBrokerNodes !== undefined) {
-    bodyParams["numberOfBrokerNodes"] = input.NumberOfBrokerNodes;
-  }
-  if (input.OpenMonitoring !== undefined) {
-    bodyParams["openMonitoring"] = serializeAws_restJson1_1OpenMonitoringInfo(
-      input.OpenMonitoring,
-      context
-    );
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1__mapOf__string(
-      input.Tags,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.BrokerNodeGroupInfo !== undefined && {
+      brokerNodeGroupInfo: serializeAws_restJson1_1BrokerNodeGroupInfo(
+        input.BrokerNodeGroupInfo,
+        context
+      )
+    }),
+    ...(input.ClientAuthentication !== undefined && {
+      clientAuthentication: serializeAws_restJson1_1ClientAuthentication(
+        input.ClientAuthentication,
+        context
+      )
+    }),
+    ...(input.ClusterName !== undefined && { clusterName: input.ClusterName }),
+    ...(input.ConfigurationInfo !== undefined && {
+      configurationInfo: serializeAws_restJson1_1ConfigurationInfo(
+        input.ConfigurationInfo,
+        context
+      )
+    }),
+    ...(input.EncryptionInfo !== undefined && {
+      encryptionInfo: serializeAws_restJson1_1EncryptionInfo(
+        input.EncryptionInfo,
+        context
+      )
+    }),
+    ...(input.EnhancedMonitoring !== undefined && {
+      enhancedMonitoring: input.EnhancedMonitoring
+    }),
+    ...(input.KafkaVersion !== undefined && {
+      kafkaVersion: input.KafkaVersion
+    }),
+    ...(input.NumberOfBrokerNodes !== undefined && {
+      numberOfBrokerNodes: input.NumberOfBrokerNodes
+    }),
+    ...(input.OpenMonitoring !== undefined && {
+      openMonitoring: serializeAws_restJson1_1OpenMonitoringInfo(
+        input.OpenMonitoring,
+        context
+      )
+    }),
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1__mapOf__string(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -215,25 +206,19 @@ export const serializeAws_restJson1_1CreateConfigurationCommand = async (
   };
   let resolvedPath = "/v1/configurations";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["description"] = input.Description;
-  }
-  if (input.KafkaVersions !== undefined) {
-    bodyParams["kafkaVersions"] = serializeAws_restJson1_1__listOf__string(
-      input.KafkaVersions,
-      context
-    );
-  }
-  if (input.Name !== undefined) {
-    bodyParams["name"] = input.Name;
-  }
-  if (input.ServerProperties !== undefined) {
-    bodyParams["serverProperties"] = context.base64Encoder(
-      input.ServerProperties
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Description !== undefined && { description: input.Description }),
+    ...(input.KafkaVersions !== undefined && {
+      kafkaVersions: serializeAws_restJson1_1__listOf__string(
+        input.KafkaVersions,
+        context
+      )
+    }),
+    ...(input.Name !== undefined && { name: input.Name }),
+    ...(input.ServerProperties !== undefined && {
+      serverProperties: context.base64Encoder(input.ServerProperties)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -703,14 +688,11 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1__mapOf__string(
-      input.Tags,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1__mapOf__string(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -785,14 +767,14 @@ export const serializeAws_restJson1_1UpdateBrokerCountCommand = async (
     throw new Error("No value provided for input HTTP label: ClusterArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.CurrentVersion !== undefined) {
-    bodyParams["currentVersion"] = input.CurrentVersion;
-  }
-  if (input.TargetNumberOfBrokerNodes !== undefined) {
-    bodyParams["targetNumberOfBrokerNodes"] = input.TargetNumberOfBrokerNodes;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.CurrentVersion !== undefined && {
+      currentVersion: input.CurrentVersion
+    }),
+    ...(input.TargetNumberOfBrokerNodes !== undefined && {
+      targetNumberOfBrokerNodes: input.TargetNumberOfBrokerNodes
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -826,19 +808,17 @@ export const serializeAws_restJson1_1UpdateBrokerStorageCommand = async (
     throw new Error("No value provided for input HTTP label: ClusterArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.CurrentVersion !== undefined) {
-    bodyParams["currentVersion"] = input.CurrentVersion;
-  }
-  if (input.TargetBrokerEBSVolumeInfo !== undefined) {
-    bodyParams[
-      "targetBrokerEBSVolumeInfo"
-    ] = serializeAws_restJson1_1__listOfBrokerEBSVolumeInfo(
-      input.TargetBrokerEBSVolumeInfo,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.CurrentVersion !== undefined && {
+      currentVersion: input.CurrentVersion
+    }),
+    ...(input.TargetBrokerEBSVolumeInfo !== undefined && {
+      targetBrokerEBSVolumeInfo: serializeAws_restJson1_1__listOfBrokerEBSVolumeInfo(
+        input.TargetBrokerEBSVolumeInfo,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -872,17 +852,17 @@ export const serializeAws_restJson1_1UpdateClusterConfigurationCommand = async (
     throw new Error("No value provided for input HTTP label: ClusterArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.ConfigurationInfo !== undefined) {
-    bodyParams["configurationInfo"] = serializeAws_restJson1_1ConfigurationInfo(
-      input.ConfigurationInfo,
-      context
-    );
-  }
-  if (input.CurrentVersion !== undefined) {
-    bodyParams["currentVersion"] = input.CurrentVersion;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ConfigurationInfo !== undefined && {
+      configurationInfo: serializeAws_restJson1_1ConfigurationInfo(
+        input.ConfigurationInfo,
+        context
+      )
+    }),
+    ...(input.CurrentVersion !== undefined && {
+      currentVersion: input.CurrentVersion
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -916,20 +896,20 @@ export const serializeAws_restJson1_1UpdateMonitoringCommand = async (
     throw new Error("No value provided for input HTTP label: ClusterArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.CurrentVersion !== undefined) {
-    bodyParams["currentVersion"] = input.CurrentVersion;
-  }
-  if (input.EnhancedMonitoring !== undefined) {
-    bodyParams["enhancedMonitoring"] = input.EnhancedMonitoring;
-  }
-  if (input.OpenMonitoring !== undefined) {
-    bodyParams["openMonitoring"] = serializeAws_restJson1_1OpenMonitoringInfo(
-      input.OpenMonitoring,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.CurrentVersion !== undefined && {
+      currentVersion: input.CurrentVersion
+    }),
+    ...(input.EnhancedMonitoring !== undefined && {
+      enhancedMonitoring: input.EnhancedMonitoring
+    }),
+    ...(input.OpenMonitoring !== undefined && {
+      openMonitoring: serializeAws_restJson1_1OpenMonitoringInfo(
+        input.OpenMonitoring,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

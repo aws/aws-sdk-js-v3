@@ -88,11 +88,11 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

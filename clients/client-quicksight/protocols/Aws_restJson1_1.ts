@@ -485,43 +485,36 @@ export const serializeAws_restJson1_1CreateDashboardCommand = async (
     throw new Error("No value provided for input HTTP label: DashboardId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.DashboardPublishOptions !== undefined) {
-    bodyParams[
-      "DashboardPublishOptions"
-    ] = serializeAws_restJson1_1DashboardPublishOptions(
-      input.DashboardPublishOptions,
-      context
-    );
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.Parameters !== undefined) {
-    bodyParams["Parameters"] = serializeAws_restJson1_1_Parameters(
-      input.Parameters,
-      context
-    );
-  }
-  if (input.Permissions !== undefined) {
-    bodyParams["Permissions"] = serializeAws_restJson1_1ResourcePermissionList(
-      input.Permissions,
-      context
-    );
-  }
-  if (input.SourceEntity !== undefined) {
-    bodyParams["SourceEntity"] = serializeAws_restJson1_1DashboardSourceEntity(
-      input.SourceEntity,
-      context
-    );
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1TagList(input.Tags, context);
-  }
-  if (input.VersionDescription !== undefined) {
-    bodyParams["VersionDescription"] = input.VersionDescription;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DashboardPublishOptions !== undefined && {
+      DashboardPublishOptions: serializeAws_restJson1_1DashboardPublishOptions(
+        input.DashboardPublishOptions,
+        context
+      )
+    }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Parameters !== undefined && {
+      Parameters: serializeAws_restJson1_1_Parameters(input.Parameters, context)
+    }),
+    ...(input.Permissions !== undefined && {
+      Permissions: serializeAws_restJson1_1ResourcePermissionList(
+        input.Permissions,
+        context
+      )
+    }),
+    ...(input.SourceEntity !== undefined && {
+      SourceEntity: serializeAws_restJson1_1DashboardSourceEntity(
+        input.SourceEntity,
+        context
+      )
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_restJson1_1TagList(input.Tags, context)
+    }),
+    ...(input.VersionDescription !== undefined && {
+      VersionDescription: input.VersionDescription
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -557,52 +550,44 @@ export const serializeAws_restJson1_1CreateDataSetCommand = async (
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.ColumnGroups !== undefined) {
-    bodyParams["ColumnGroups"] = serializeAws_restJson1_1ColumnGroupList(
-      input.ColumnGroups,
-      context
-    );
-  }
-  if (input.DataSetId !== undefined) {
-    bodyParams["DataSetId"] = input.DataSetId;
-  }
-  if (input.ImportMode !== undefined) {
-    bodyParams["ImportMode"] = input.ImportMode;
-  }
-  if (input.LogicalTableMap !== undefined) {
-    bodyParams["LogicalTableMap"] = serializeAws_restJson1_1LogicalTableMap(
-      input.LogicalTableMap,
-      context
-    );
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.Permissions !== undefined) {
-    bodyParams["Permissions"] = serializeAws_restJson1_1ResourcePermissionList(
-      input.Permissions,
-      context
-    );
-  }
-  if (input.PhysicalTableMap !== undefined) {
-    bodyParams["PhysicalTableMap"] = serializeAws_restJson1_1PhysicalTableMap(
-      input.PhysicalTableMap,
-      context
-    );
-  }
-  if (input.RowLevelPermissionDataSet !== undefined) {
-    bodyParams[
-      "RowLevelPermissionDataSet"
-    ] = serializeAws_restJson1_1RowLevelPermissionDataSet(
-      input.RowLevelPermissionDataSet,
-      context
-    );
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1TagList(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ColumnGroups !== undefined && {
+      ColumnGroups: serializeAws_restJson1_1ColumnGroupList(
+        input.ColumnGroups,
+        context
+      )
+    }),
+    ...(input.DataSetId !== undefined && { DataSetId: input.DataSetId }),
+    ...(input.ImportMode !== undefined && { ImportMode: input.ImportMode }),
+    ...(input.LogicalTableMap !== undefined && {
+      LogicalTableMap: serializeAws_restJson1_1LogicalTableMap(
+        input.LogicalTableMap,
+        context
+      )
+    }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Permissions !== undefined && {
+      Permissions: serializeAws_restJson1_1ResourcePermissionList(
+        input.Permissions,
+        context
+      )
+    }),
+    ...(input.PhysicalTableMap !== undefined && {
+      PhysicalTableMap: serializeAws_restJson1_1PhysicalTableMap(
+        input.PhysicalTableMap,
+        context
+      )
+    }),
+    ...(input.RowLevelPermissionDataSet !== undefined && {
+      RowLevelPermissionDataSet: serializeAws_restJson1_1RowLevelPermissionDataSet(
+        input.RowLevelPermissionDataSet,
+        context
+      )
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_restJson1_1TagList(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -638,54 +623,46 @@ export const serializeAws_restJson1_1CreateDataSourceCommand = async (
     throw new Error("No value provided for input HTTP label: AwsAccountId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Credentials !== undefined) {
-    bodyParams["Credentials"] = serializeAws_restJson1_1DataSourceCredentials(
-      input.Credentials,
-      context
-    );
-  }
-  if (input.DataSourceId !== undefined) {
-    bodyParams["DataSourceId"] = input.DataSourceId;
-  }
-  if (input.DataSourceParameters !== undefined) {
-    bodyParams[
-      "DataSourceParameters"
-    ] = serializeAws_restJson1_1DataSourceParameters(
-      input.DataSourceParameters,
-      context
-    );
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.Permissions !== undefined) {
-    bodyParams["Permissions"] = serializeAws_restJson1_1ResourcePermissionList(
-      input.Permissions,
-      context
-    );
-  }
-  if (input.SslProperties !== undefined) {
-    bodyParams["SslProperties"] = serializeAws_restJson1_1SslProperties(
-      input.SslProperties,
-      context
-    );
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1TagList(input.Tags, context);
-  }
-  if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
-  }
-  if (input.VpcConnectionProperties !== undefined) {
-    bodyParams[
-      "VpcConnectionProperties"
-    ] = serializeAws_restJson1_1VpcConnectionProperties(
-      input.VpcConnectionProperties,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Credentials !== undefined && {
+      Credentials: serializeAws_restJson1_1DataSourceCredentials(
+        input.Credentials,
+        context
+      )
+    }),
+    ...(input.DataSourceId !== undefined && {
+      DataSourceId: input.DataSourceId
+    }),
+    ...(input.DataSourceParameters !== undefined && {
+      DataSourceParameters: serializeAws_restJson1_1DataSourceParameters(
+        input.DataSourceParameters,
+        context
+      )
+    }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Permissions !== undefined && {
+      Permissions: serializeAws_restJson1_1ResourcePermissionList(
+        input.Permissions,
+        context
+      )
+    }),
+    ...(input.SslProperties !== undefined && {
+      SslProperties: serializeAws_restJson1_1SslProperties(
+        input.SslProperties,
+        context
+      )
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_restJson1_1TagList(input.Tags, context)
+    }),
+    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.VpcConnectionProperties !== undefined && {
+      VpcConnectionProperties: serializeAws_restJson1_1VpcConnectionProperties(
+        input.VpcConnectionProperties,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -733,14 +710,10 @@ export const serializeAws_restJson1_1CreateGroupCommand = async (
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.GroupName !== undefined) {
-    bodyParams["GroupName"] = input.GroupName;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.GroupName !== undefined && { GroupName: input.GroupName })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -861,23 +834,18 @@ export const serializeAws_restJson1_1CreateIAMPolicyAssignmentCommand = async (
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.AssignmentName !== undefined) {
-    bodyParams["AssignmentName"] = input.AssignmentName;
-  }
-  if (input.AssignmentStatus !== undefined) {
-    bodyParams["AssignmentStatus"] = input.AssignmentStatus;
-  }
-  if (input.Identities !== undefined) {
-    bodyParams["Identities"] = serializeAws_restJson1_1IdentityMap(
-      input.Identities,
-      context
-    );
-  }
-  if (input.PolicyArn !== undefined) {
-    bodyParams["PolicyArn"] = input.PolicyArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AssignmentName !== undefined && {
+      AssignmentName: input.AssignmentName
+    }),
+    ...(input.AssignmentStatus !== undefined && {
+      AssignmentStatus: input.AssignmentStatus
+    }),
+    ...(input.Identities !== undefined && {
+      Identities: serializeAws_restJson1_1IdentityMap(input.Identities, context)
+    }),
+    ...(input.PolicyArn !== undefined && { PolicyArn: input.PolicyArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -987,29 +955,27 @@ export const serializeAws_restJson1_1CreateTemplateCommand = async (
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.Permissions !== undefined) {
-    bodyParams["Permissions"] = serializeAws_restJson1_1ResourcePermissionList(
-      input.Permissions,
-      context
-    );
-  }
-  if (input.SourceEntity !== undefined) {
-    bodyParams["SourceEntity"] = serializeAws_restJson1_1TemplateSourceEntity(
-      input.SourceEntity,
-      context
-    );
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1TagList(input.Tags, context);
-  }
-  if (input.VersionDescription !== undefined) {
-    bodyParams["VersionDescription"] = input.VersionDescription;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Permissions !== undefined && {
+      Permissions: serializeAws_restJson1_1ResourcePermissionList(
+        input.Permissions,
+        context
+      )
+    }),
+    ...(input.SourceEntity !== undefined && {
+      SourceEntity: serializeAws_restJson1_1TemplateSourceEntity(
+        input.SourceEntity,
+        context
+      )
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_restJson1_1TagList(input.Tags, context)
+    }),
+    ...(input.VersionDescription !== undefined && {
+      VersionDescription: input.VersionDescription
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1070,11 +1036,11 @@ export const serializeAws_restJson1_1CreateTemplateAliasCommand = async (
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.TemplateVersionNumber !== undefined) {
-    bodyParams["TemplateVersionNumber"] = input.TemplateVersionNumber;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.TemplateVersionNumber !== undefined && {
+      TemplateVersionNumber: input.TemplateVersionNumber
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2785,11 +2751,11 @@ export const serializeAws_restJson1_1ListIAMPolicyAssignmentsCommand = async (
     ...(input.NextToken !== undefined && { "next-token": input.NextToken })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.AssignmentStatus !== undefined) {
-    bodyParams["AssignmentStatus"] = input.AssignmentStatus;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AssignmentStatus !== undefined && {
+      AssignmentStatus: input.AssignmentStatus
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3266,26 +3232,16 @@ export const serializeAws_restJson1_1RegisterUserCommand = async (
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Email !== undefined) {
-    bodyParams["Email"] = input.Email;
-  }
-  if (input.IamArn !== undefined) {
-    bodyParams["IamArn"] = input.IamArn;
-  }
-  if (input.IdentityType !== undefined) {
-    bodyParams["IdentityType"] = input.IdentityType;
-  }
-  if (input.SessionName !== undefined) {
-    bodyParams["SessionName"] = input.SessionName;
-  }
-  if (input.UserName !== undefined) {
-    bodyParams["UserName"] = input.UserName;
-  }
-  if (input.UserRole !== undefined) {
-    bodyParams["UserRole"] = input.UserRole;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Email !== undefined && { Email: input.Email }),
+    ...(input.IamArn !== undefined && { IamArn: input.IamArn }),
+    ...(input.IdentityType !== undefined && {
+      IdentityType: input.IdentityType
+    }),
+    ...(input.SessionName !== undefined && { SessionName: input.SessionName }),
+    ...(input.UserName !== undefined && { UserName: input.UserName }),
+    ...(input.UserRole !== undefined && { UserRole: input.UserRole })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3321,11 +3277,11 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1TagList(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_restJson1_1TagList(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3416,34 +3372,27 @@ export const serializeAws_restJson1_1UpdateDashboardCommand = async (
     throw new Error("No value provided for input HTTP label: DashboardId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.DashboardPublishOptions !== undefined) {
-    bodyParams[
-      "DashboardPublishOptions"
-    ] = serializeAws_restJson1_1DashboardPublishOptions(
-      input.DashboardPublishOptions,
-      context
-    );
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.Parameters !== undefined) {
-    bodyParams["Parameters"] = serializeAws_restJson1_1_Parameters(
-      input.Parameters,
-      context
-    );
-  }
-  if (input.SourceEntity !== undefined) {
-    bodyParams["SourceEntity"] = serializeAws_restJson1_1DashboardSourceEntity(
-      input.SourceEntity,
-      context
-    );
-  }
-  if (input.VersionDescription !== undefined) {
-    bodyParams["VersionDescription"] = input.VersionDescription;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DashboardPublishOptions !== undefined && {
+      DashboardPublishOptions: serializeAws_restJson1_1DashboardPublishOptions(
+        input.DashboardPublishOptions,
+        context
+      )
+    }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Parameters !== undefined && {
+      Parameters: serializeAws_restJson1_1_Parameters(input.Parameters, context)
+    }),
+    ...(input.SourceEntity !== undefined && {
+      SourceEntity: serializeAws_restJson1_1DashboardSourceEntity(
+        input.SourceEntity,
+        context
+      )
+    }),
+    ...(input.VersionDescription !== undefined && {
+      VersionDescription: input.VersionDescription
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3494,24 +3443,20 @@ export const serializeAws_restJson1_1UpdateDashboardPermissionsCommand = async (
     throw new Error("No value provided for input HTTP label: DashboardId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.GrantPermissions !== undefined) {
-    bodyParams[
-      "GrantPermissions"
-    ] = serializeAws_restJson1_1UpdateResourcePermissionList(
-      input.GrantPermissions,
-      context
-    );
-  }
-  if (input.RevokePermissions !== undefined) {
-    bodyParams[
-      "RevokePermissions"
-    ] = serializeAws_restJson1_1UpdateResourcePermissionList(
-      input.RevokePermissions,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.GrantPermissions !== undefined && {
+      GrantPermissions: serializeAws_restJson1_1UpdateResourcePermissionList(
+        input.GrantPermissions,
+        context
+      )
+    }),
+    ...(input.RevokePermissions !== undefined && {
+      RevokePermissions: serializeAws_restJson1_1UpdateResourcePermissionList(
+        input.RevokePermissions,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3623,40 +3568,34 @@ export const serializeAws_restJson1_1UpdateDataSetCommand = async (
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.ColumnGroups !== undefined) {
-    bodyParams["ColumnGroups"] = serializeAws_restJson1_1ColumnGroupList(
-      input.ColumnGroups,
-      context
-    );
-  }
-  if (input.ImportMode !== undefined) {
-    bodyParams["ImportMode"] = input.ImportMode;
-  }
-  if (input.LogicalTableMap !== undefined) {
-    bodyParams["LogicalTableMap"] = serializeAws_restJson1_1LogicalTableMap(
-      input.LogicalTableMap,
-      context
-    );
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.PhysicalTableMap !== undefined) {
-    bodyParams["PhysicalTableMap"] = serializeAws_restJson1_1PhysicalTableMap(
-      input.PhysicalTableMap,
-      context
-    );
-  }
-  if (input.RowLevelPermissionDataSet !== undefined) {
-    bodyParams[
-      "RowLevelPermissionDataSet"
-    ] = serializeAws_restJson1_1RowLevelPermissionDataSet(
-      input.RowLevelPermissionDataSet,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ColumnGroups !== undefined && {
+      ColumnGroups: serializeAws_restJson1_1ColumnGroupList(
+        input.ColumnGroups,
+        context
+      )
+    }),
+    ...(input.ImportMode !== undefined && { ImportMode: input.ImportMode }),
+    ...(input.LogicalTableMap !== undefined && {
+      LogicalTableMap: serializeAws_restJson1_1LogicalTableMap(
+        input.LogicalTableMap,
+        context
+      )
+    }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.PhysicalTableMap !== undefined && {
+      PhysicalTableMap: serializeAws_restJson1_1PhysicalTableMap(
+        input.PhysicalTableMap,
+        context
+      )
+    }),
+    ...(input.RowLevelPermissionDataSet !== undefined && {
+      RowLevelPermissionDataSet: serializeAws_restJson1_1RowLevelPermissionDataSet(
+        input.RowLevelPermissionDataSet,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3705,24 +3644,20 @@ export const serializeAws_restJson1_1UpdateDataSetPermissionsCommand = async (
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.GrantPermissions !== undefined) {
-    bodyParams[
-      "GrantPermissions"
-    ] = serializeAws_restJson1_1ResourcePermissionList(
-      input.GrantPermissions,
-      context
-    );
-  }
-  if (input.RevokePermissions !== undefined) {
-    bodyParams[
-      "RevokePermissions"
-    ] = serializeAws_restJson1_1ResourcePermissionList(
-      input.RevokePermissions,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.GrantPermissions !== undefined && {
+      GrantPermissions: serializeAws_restJson1_1ResourcePermissionList(
+        input.GrantPermissions,
+        context
+      )
+    }),
+    ...(input.RevokePermissions !== undefined && {
+      RevokePermissions: serializeAws_restJson1_1ResourcePermissionList(
+        input.RevokePermissions,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3772,39 +3707,33 @@ export const serializeAws_restJson1_1UpdateDataSourceCommand = async (
     throw new Error("No value provided for input HTTP label: DataSourceId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Credentials !== undefined) {
-    bodyParams["Credentials"] = serializeAws_restJson1_1DataSourceCredentials(
-      input.Credentials,
-      context
-    );
-  }
-  if (input.DataSourceParameters !== undefined) {
-    bodyParams[
-      "DataSourceParameters"
-    ] = serializeAws_restJson1_1DataSourceParameters(
-      input.DataSourceParameters,
-      context
-    );
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.SslProperties !== undefined) {
-    bodyParams["SslProperties"] = serializeAws_restJson1_1SslProperties(
-      input.SslProperties,
-      context
-    );
-  }
-  if (input.VpcConnectionProperties !== undefined) {
-    bodyParams[
-      "VpcConnectionProperties"
-    ] = serializeAws_restJson1_1VpcConnectionProperties(
-      input.VpcConnectionProperties,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Credentials !== undefined && {
+      Credentials: serializeAws_restJson1_1DataSourceCredentials(
+        input.Credentials,
+        context
+      )
+    }),
+    ...(input.DataSourceParameters !== undefined && {
+      DataSourceParameters: serializeAws_restJson1_1DataSourceParameters(
+        input.DataSourceParameters,
+        context
+      )
+    }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.SslProperties !== undefined && {
+      SslProperties: serializeAws_restJson1_1SslProperties(
+        input.SslProperties,
+        context
+      )
+    }),
+    ...(input.VpcConnectionProperties !== undefined && {
+      VpcConnectionProperties: serializeAws_restJson1_1VpcConnectionProperties(
+        input.VpcConnectionProperties,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3855,24 +3784,20 @@ export const serializeAws_restJson1_1UpdateDataSourcePermissionsCommand = async 
     throw new Error("No value provided for input HTTP label: DataSourceId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.GrantPermissions !== undefined) {
-    bodyParams[
-      "GrantPermissions"
-    ] = serializeAws_restJson1_1ResourcePermissionList(
-      input.GrantPermissions,
-      context
-    );
-  }
-  if (input.RevokePermissions !== undefined) {
-    bodyParams[
-      "RevokePermissions"
-    ] = serializeAws_restJson1_1ResourcePermissionList(
-      input.RevokePermissions,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.GrantPermissions !== undefined && {
+      GrantPermissions: serializeAws_restJson1_1ResourcePermissionList(
+        input.GrantPermissions,
+        context
+      )
+    }),
+    ...(input.RevokePermissions !== undefined && {
+      RevokePermissions: serializeAws_restJson1_1ResourcePermissionList(
+        input.RevokePermissions,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3933,11 +3858,9 @@ export const serializeAws_restJson1_1UpdateGroupCommand = async (
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Description !== undefined && { Description: input.Description })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4000,20 +3923,15 @@ export const serializeAws_restJson1_1UpdateIAMPolicyAssignmentCommand = async (
     throw new Error("No value provided for input HTTP label: Namespace.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.AssignmentStatus !== undefined) {
-    bodyParams["AssignmentStatus"] = input.AssignmentStatus;
-  }
-  if (input.Identities !== undefined) {
-    bodyParams["Identities"] = serializeAws_restJson1_1IdentityMap(
-      input.Identities,
-      context
-    );
-  }
-  if (input.PolicyArn !== undefined) {
-    bodyParams["PolicyArn"] = input.PolicyArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AssignmentStatus !== undefined && {
+      AssignmentStatus: input.AssignmentStatus
+    }),
+    ...(input.Identities !== undefined && {
+      Identities: serializeAws_restJson1_1IdentityMap(input.Identities, context)
+    }),
+    ...(input.PolicyArn !== undefined && { PolicyArn: input.PolicyArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4061,20 +3979,18 @@ export const serializeAws_restJson1_1UpdateTemplateCommand = async (
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.SourceEntity !== undefined) {
-    bodyParams["SourceEntity"] = serializeAws_restJson1_1TemplateSourceEntity(
-      input.SourceEntity,
-      context
-    );
-  }
-  if (input.VersionDescription !== undefined) {
-    bodyParams["VersionDescription"] = input.VersionDescription;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.SourceEntity !== undefined && {
+      SourceEntity: serializeAws_restJson1_1TemplateSourceEntity(
+        input.SourceEntity,
+        context
+      )
+    }),
+    ...(input.VersionDescription !== undefined && {
+      VersionDescription: input.VersionDescription
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4135,11 +4051,11 @@ export const serializeAws_restJson1_1UpdateTemplateAliasCommand = async (
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.TemplateVersionNumber !== undefined) {
-    bodyParams["TemplateVersionNumber"] = input.TemplateVersionNumber;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.TemplateVersionNumber !== undefined && {
+      TemplateVersionNumber: input.TemplateVersionNumber
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4188,24 +4104,20 @@ export const serializeAws_restJson1_1UpdateTemplatePermissionsCommand = async (
     throw new Error("No value provided for input HTTP label: TemplateId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.GrantPermissions !== undefined) {
-    bodyParams[
-      "GrantPermissions"
-    ] = serializeAws_restJson1_1UpdateResourcePermissionList(
-      input.GrantPermissions,
-      context
-    );
-  }
-  if (input.RevokePermissions !== undefined) {
-    bodyParams[
-      "RevokePermissions"
-    ] = serializeAws_restJson1_1UpdateResourcePermissionList(
-      input.RevokePermissions,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.GrantPermissions !== undefined && {
+      GrantPermissions: serializeAws_restJson1_1UpdateResourcePermissionList(
+        input.GrantPermissions,
+        context
+      )
+    }),
+    ...(input.RevokePermissions !== undefined && {
+      RevokePermissions: serializeAws_restJson1_1UpdateResourcePermissionList(
+        input.RevokePermissions,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4266,14 +4178,10 @@ export const serializeAws_restJson1_1UpdateUserCommand = async (
     throw new Error("No value provided for input HTTP label: UserName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Email !== undefined) {
-    bodyParams["Email"] = input.Email;
-  }
-  if (input.Role !== undefined) {
-    bodyParams["Role"] = input.Role;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Email !== undefined && { Email: input.Email }),
+    ...(input.Role !== undefined && { Role: input.Role })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

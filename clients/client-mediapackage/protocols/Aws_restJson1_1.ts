@@ -124,17 +124,13 @@ export const serializeAws_restJson1_1CreateChannelCommand = async (
   };
   let resolvedPath = "/channels";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["description"] = input.Description;
-  }
-  if (input.Id !== undefined) {
-    bodyParams["id"] = input.Id;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Description !== undefined && { description: input.Description }),
+    ...(input.Id !== undefined && { id: input.Id }),
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1Tags(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -156,26 +152,20 @@ export const serializeAws_restJson1_1CreateHarvestJobCommand = async (
   };
   let resolvedPath = "/harvest_jobs";
   let body: any;
-  const bodyParams: any = {};
-  if (input.EndTime !== undefined) {
-    bodyParams["endTime"] = input.EndTime;
-  }
-  if (input.Id !== undefined) {
-    bodyParams["id"] = input.Id;
-  }
-  if (input.OriginEndpointId !== undefined) {
-    bodyParams["originEndpointId"] = input.OriginEndpointId;
-  }
-  if (input.S3Destination !== undefined) {
-    bodyParams["s3Destination"] = serializeAws_restJson1_1S3Destination(
-      input.S3Destination,
-      context
-    );
-  }
-  if (input.StartTime !== undefined) {
-    bodyParams["startTime"] = input.StartTime;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.EndTime !== undefined && { endTime: input.EndTime }),
+    ...(input.Id !== undefined && { id: input.Id }),
+    ...(input.OriginEndpointId !== undefined && {
+      originEndpointId: input.OriginEndpointId
+    }),
+    ...(input.S3Destination !== undefined && {
+      s3Destination: serializeAws_restJson1_1S3Destination(
+        input.S3Destination,
+        context
+      )
+    }),
+    ...(input.StartTime !== undefined && { startTime: input.StartTime })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -197,70 +187,54 @@ export const serializeAws_restJson1_1CreateOriginEndpointCommand = async (
   };
   let resolvedPath = "/origin_endpoints";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Authorization !== undefined) {
-    bodyParams["authorization"] = serializeAws_restJson1_1Authorization(
-      input.Authorization,
-      context
-    );
-  }
-  if (input.ChannelId !== undefined) {
-    bodyParams["channelId"] = input.ChannelId;
-  }
-  if (input.CmafPackage !== undefined) {
-    bodyParams[
-      "cmafPackage"
-    ] = serializeAws_restJson1_1CmafPackageCreateOrUpdateParameters(
-      input.CmafPackage,
-      context
-    );
-  }
-  if (input.DashPackage !== undefined) {
-    bodyParams["dashPackage"] = serializeAws_restJson1_1DashPackage(
-      input.DashPackage,
-      context
-    );
-  }
-  if (input.Description !== undefined) {
-    bodyParams["description"] = input.Description;
-  }
-  if (input.HlsPackage !== undefined) {
-    bodyParams["hlsPackage"] = serializeAws_restJson1_1HlsPackage(
-      input.HlsPackage,
-      context
-    );
-  }
-  if (input.Id !== undefined) {
-    bodyParams["id"] = input.Id;
-  }
-  if (input.ManifestName !== undefined) {
-    bodyParams["manifestName"] = input.ManifestName;
-  }
-  if (input.MssPackage !== undefined) {
-    bodyParams["mssPackage"] = serializeAws_restJson1_1MssPackage(
-      input.MssPackage,
-      context
-    );
-  }
-  if (input.Origination !== undefined) {
-    bodyParams["origination"] = input.Origination;
-  }
-  if (input.StartoverWindowSeconds !== undefined) {
-    bodyParams["startoverWindowSeconds"] = input.StartoverWindowSeconds;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
-  }
-  if (input.TimeDelaySeconds !== undefined) {
-    bodyParams["timeDelaySeconds"] = input.TimeDelaySeconds;
-  }
-  if (input.Whitelist !== undefined) {
-    bodyParams["whitelist"] = serializeAws_restJson1_1__listOf__string(
-      input.Whitelist,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Authorization !== undefined && {
+      authorization: serializeAws_restJson1_1Authorization(
+        input.Authorization,
+        context
+      )
+    }),
+    ...(input.ChannelId !== undefined && { channelId: input.ChannelId }),
+    ...(input.CmafPackage !== undefined && {
+      cmafPackage: serializeAws_restJson1_1CmafPackageCreateOrUpdateParameters(
+        input.CmafPackage,
+        context
+      )
+    }),
+    ...(input.DashPackage !== undefined && {
+      dashPackage: serializeAws_restJson1_1DashPackage(
+        input.DashPackage,
+        context
+      )
+    }),
+    ...(input.Description !== undefined && { description: input.Description }),
+    ...(input.HlsPackage !== undefined && {
+      hlsPackage: serializeAws_restJson1_1HlsPackage(input.HlsPackage, context)
+    }),
+    ...(input.Id !== undefined && { id: input.Id }),
+    ...(input.ManifestName !== undefined && {
+      manifestName: input.ManifestName
+    }),
+    ...(input.MssPackage !== undefined && {
+      mssPackage: serializeAws_restJson1_1MssPackage(input.MssPackage, context)
+    }),
+    ...(input.Origination !== undefined && { origination: input.Origination }),
+    ...(input.StartoverWindowSeconds !== undefined && {
+      startoverWindowSeconds: input.StartoverWindowSeconds
+    }),
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1Tags(input.Tags, context)
+    }),
+    ...(input.TimeDelaySeconds !== undefined && {
+      timeDelaySeconds: input.TimeDelaySeconds
+    }),
+    ...(input.Whitelist !== undefined && {
+      whitelist: serializeAws_restJson1_1__listOf__string(
+        input.Whitelist,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -670,14 +644,11 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1__mapOf__string(
-      input.Tags,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1__mapOf__string(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -752,11 +723,9 @@ export const serializeAws_restJson1_1UpdateChannelCommand = async (
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["description"] = input.Description;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Description !== undefined && { description: input.Description })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -790,61 +759,49 @@ export const serializeAws_restJson1_1UpdateOriginEndpointCommand = async (
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Authorization !== undefined) {
-    bodyParams["authorization"] = serializeAws_restJson1_1Authorization(
-      input.Authorization,
-      context
-    );
-  }
-  if (input.CmafPackage !== undefined) {
-    bodyParams[
-      "cmafPackage"
-    ] = serializeAws_restJson1_1CmafPackageCreateOrUpdateParameters(
-      input.CmafPackage,
-      context
-    );
-  }
-  if (input.DashPackage !== undefined) {
-    bodyParams["dashPackage"] = serializeAws_restJson1_1DashPackage(
-      input.DashPackage,
-      context
-    );
-  }
-  if (input.Description !== undefined) {
-    bodyParams["description"] = input.Description;
-  }
-  if (input.HlsPackage !== undefined) {
-    bodyParams["hlsPackage"] = serializeAws_restJson1_1HlsPackage(
-      input.HlsPackage,
-      context
-    );
-  }
-  if (input.ManifestName !== undefined) {
-    bodyParams["manifestName"] = input.ManifestName;
-  }
-  if (input.MssPackage !== undefined) {
-    bodyParams["mssPackage"] = serializeAws_restJson1_1MssPackage(
-      input.MssPackage,
-      context
-    );
-  }
-  if (input.Origination !== undefined) {
-    bodyParams["origination"] = input.Origination;
-  }
-  if (input.StartoverWindowSeconds !== undefined) {
-    bodyParams["startoverWindowSeconds"] = input.StartoverWindowSeconds;
-  }
-  if (input.TimeDelaySeconds !== undefined) {
-    bodyParams["timeDelaySeconds"] = input.TimeDelaySeconds;
-  }
-  if (input.Whitelist !== undefined) {
-    bodyParams["whitelist"] = serializeAws_restJson1_1__listOf__string(
-      input.Whitelist,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Authorization !== undefined && {
+      authorization: serializeAws_restJson1_1Authorization(
+        input.Authorization,
+        context
+      )
+    }),
+    ...(input.CmafPackage !== undefined && {
+      cmafPackage: serializeAws_restJson1_1CmafPackageCreateOrUpdateParameters(
+        input.CmafPackage,
+        context
+      )
+    }),
+    ...(input.DashPackage !== undefined && {
+      dashPackage: serializeAws_restJson1_1DashPackage(
+        input.DashPackage,
+        context
+      )
+    }),
+    ...(input.Description !== undefined && { description: input.Description }),
+    ...(input.HlsPackage !== undefined && {
+      hlsPackage: serializeAws_restJson1_1HlsPackage(input.HlsPackage, context)
+    }),
+    ...(input.ManifestName !== undefined && {
+      manifestName: input.ManifestName
+    }),
+    ...(input.MssPackage !== undefined && {
+      mssPackage: serializeAws_restJson1_1MssPackage(input.MssPackage, context)
+    }),
+    ...(input.Origination !== undefined && { origination: input.Origination }),
+    ...(input.StartoverWindowSeconds !== undefined && {
+      startoverWindowSeconds: input.StartoverWindowSeconds
+    }),
+    ...(input.TimeDelaySeconds !== undefined && {
+      timeDelaySeconds: input.TimeDelaySeconds
+    }),
+    ...(input.Whitelist !== undefined && {
+      whitelist: serializeAws_restJson1_1__listOf__string(
+        input.Whitelist,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

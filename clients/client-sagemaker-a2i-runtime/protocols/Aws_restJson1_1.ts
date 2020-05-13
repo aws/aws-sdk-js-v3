@@ -165,30 +165,26 @@ export const serializeAws_restJson1_1StartHumanLoopCommand = async (
   };
   let resolvedPath = "/human-loops";
   let body: any;
-  const bodyParams: any = {};
-  if (input.DataAttributes !== undefined) {
-    bodyParams[
-      "DataAttributes"
-    ] = serializeAws_restJson1_1HumanReviewDataAttributes(
-      input.DataAttributes,
-      context
-    );
-  }
-  if (input.FlowDefinitionArn !== undefined) {
-    bodyParams["FlowDefinitionArn"] = input.FlowDefinitionArn;
-  }
-  if (input.HumanLoopInput !== undefined) {
-    bodyParams[
-      "HumanLoopInput"
-    ] = serializeAws_restJson1_1HumanLoopInputContent(
-      input.HumanLoopInput,
-      context
-    );
-  }
-  if (input.HumanLoopName !== undefined) {
-    bodyParams["HumanLoopName"] = input.HumanLoopName;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DataAttributes !== undefined && {
+      DataAttributes: serializeAws_restJson1_1HumanReviewDataAttributes(
+        input.DataAttributes,
+        context
+      )
+    }),
+    ...(input.FlowDefinitionArn !== undefined && {
+      FlowDefinitionArn: input.FlowDefinitionArn
+    }),
+    ...(input.HumanLoopInput !== undefined && {
+      HumanLoopInput: serializeAws_restJson1_1HumanLoopInputContent(
+        input.HumanLoopInput,
+        context
+      )
+    }),
+    ...(input.HumanLoopName !== undefined && {
+      HumanLoopName: input.HumanLoopName
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -210,11 +206,11 @@ export const serializeAws_restJson1_1StopHumanLoopCommand = async (
   };
   let resolvedPath = "/human-loops/stop";
   let body: any;
-  const bodyParams: any = {};
-  if (input.HumanLoopName !== undefined) {
-    bodyParams["HumanLoopName"] = input.HumanLoopName;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.HumanLoopName !== undefined && {
+      HumanLoopName: input.HumanLoopName
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

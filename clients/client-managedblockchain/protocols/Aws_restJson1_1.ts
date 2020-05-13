@@ -145,25 +145,18 @@ export const serializeAws_restJson1_1CreateMemberCommand = async (
     throw new Error("No value provided for input HTTP label: NetworkId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.ClientRequestToken === undefined) {
-    input.ClientRequestToken = generateIdempotencyToken();
-  }
-  if (input.ClientRequestToken !== undefined) {
-    bodyParams["ClientRequestToken"] = input.ClientRequestToken;
-  }
-  if (input.InvitationId !== undefined) {
-    bodyParams["InvitationId"] = input.InvitationId;
-  }
-  if (input.MemberConfiguration !== undefined) {
-    bodyParams[
-      "MemberConfiguration"
-    ] = serializeAws_restJson1_1MemberConfiguration(
-      input.MemberConfiguration,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.InvitationId !== undefined && {
+      InvitationId: input.InvitationId
+    }),
+    ...(input.MemberConfiguration !== undefined && {
+      MemberConfiguration: serializeAws_restJson1_1MemberConfiguration(
+        input.MemberConfiguration,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -185,48 +178,33 @@ export const serializeAws_restJson1_1CreateNetworkCommand = async (
   };
   let resolvedPath = "/networks";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ClientRequestToken === undefined) {
-    input.ClientRequestToken = generateIdempotencyToken();
-  }
-  if (input.ClientRequestToken !== undefined) {
-    bodyParams["ClientRequestToken"] = input.ClientRequestToken;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Framework !== undefined) {
-    bodyParams["Framework"] = input.Framework;
-  }
-  if (input.FrameworkConfiguration !== undefined) {
-    bodyParams[
-      "FrameworkConfiguration"
-    ] = serializeAws_restJson1_1NetworkFrameworkConfiguration(
-      input.FrameworkConfiguration,
-      context
-    );
-  }
-  if (input.FrameworkVersion !== undefined) {
-    bodyParams["FrameworkVersion"] = input.FrameworkVersion;
-  }
-  if (input.MemberConfiguration !== undefined) {
-    bodyParams[
-      "MemberConfiguration"
-    ] = serializeAws_restJson1_1MemberConfiguration(
-      input.MemberConfiguration,
-      context
-    );
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.VotingPolicy !== undefined) {
-    bodyParams["VotingPolicy"] = serializeAws_restJson1_1VotingPolicy(
-      input.VotingPolicy,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Framework !== undefined && { Framework: input.Framework }),
+    ...(input.FrameworkConfiguration !== undefined && {
+      FrameworkConfiguration: serializeAws_restJson1_1NetworkFrameworkConfiguration(
+        input.FrameworkConfiguration,
+        context
+      )
+    }),
+    ...(input.FrameworkVersion !== undefined && {
+      FrameworkVersion: input.FrameworkVersion
+    }),
+    ...(input.MemberConfiguration !== undefined && {
+      MemberConfiguration: serializeAws_restJson1_1MemberConfiguration(
+        input.MemberConfiguration,
+        context
+      )
+    }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.VotingPolicy !== undefined && {
+      VotingPolicy: serializeAws_restJson1_1VotingPolicy(
+        input.VotingPolicy,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -272,20 +250,15 @@ export const serializeAws_restJson1_1CreateNodeCommand = async (
     throw new Error("No value provided for input HTTP label: NetworkId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.ClientRequestToken === undefined) {
-    input.ClientRequestToken = generateIdempotencyToken();
-  }
-  if (input.ClientRequestToken !== undefined) {
-    bodyParams["ClientRequestToken"] = input.ClientRequestToken;
-  }
-  if (input.NodeConfiguration !== undefined) {
-    bodyParams["NodeConfiguration"] = serializeAws_restJson1_1NodeConfiguration(
-      input.NodeConfiguration,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.NodeConfiguration !== undefined && {
+      NodeConfiguration: serializeAws_restJson1_1NodeConfiguration(
+        input.NodeConfiguration,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -319,26 +292,14 @@ export const serializeAws_restJson1_1CreateProposalCommand = async (
     throw new Error("No value provided for input HTTP label: NetworkId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Actions !== undefined) {
-    bodyParams["Actions"] = serializeAws_restJson1_1ProposalActions(
-      input.Actions,
-      context
-    );
-  }
-  if (input.ClientRequestToken === undefined) {
-    input.ClientRequestToken = generateIdempotencyToken();
-  }
-  if (input.ClientRequestToken !== undefined) {
-    bodyParams["ClientRequestToken"] = input.ClientRequestToken;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.MemberId !== undefined) {
-    bodyParams["MemberId"] = input.MemberId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Actions !== undefined && {
+      Actions: serializeAws_restJson1_1ProposalActions(input.Actions, context)
+    }),
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.MemberId !== undefined && { MemberId: input.MemberId })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -948,14 +909,12 @@ export const serializeAws_restJson1_1VoteOnProposalCommand = async (
     throw new Error("No value provided for input HTTP label: ProposalId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Vote !== undefined) {
-    bodyParams["Vote"] = input.Vote;
-  }
-  if (input.VoterMemberId !== undefined) {
-    bodyParams["VoterMemberId"] = input.VoterMemberId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Vote !== undefined && { Vote: input.Vote }),
+    ...(input.VoterMemberId !== undefined && {
+      VoterMemberId: input.VoterMemberId
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

@@ -156,17 +156,13 @@ export const serializeAws_restJson1_1CreateDiscovererCommand = async (
   };
   let resolvedPath = "/v1/discoverers";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.SourceArn !== undefined) {
-    bodyParams["SourceArn"] = input.SourceArn;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.SourceArn !== undefined && { SourceArn: input.SourceArn }),
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1Tags(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -202,14 +198,12 @@ export const serializeAws_restJson1_1CreateRegistryCommand = async (
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1Tags(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -258,20 +252,14 @@ export const serializeAws_restJson1_1CreateSchemaCommand = async (
     throw new Error("No value provided for input HTTP label: SchemaName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Content !== undefined) {
-    bodyParams["Content"] = input.Content;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
-  }
-  if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Content !== undefined && { Content: input.Content }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1Tags(input.Tags, context)
+    }),
+    ...(input.Type !== undefined && { Type: input.Type })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -729,19 +717,15 @@ export const serializeAws_restJson1_1GetDiscoveredSchemaCommand = async (
   };
   let resolvedPath = "/v1/discover";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Events !== undefined) {
-    bodyParams[
-      "Events"
-    ] = serializeAws_restJson1_1__listOfGetDiscoveredSchemaVersionItemInput(
-      input.Events,
-      context
-    );
-  }
-  if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Events !== undefined && {
+      Events: serializeAws_restJson1_1__listOfGetDiscoveredSchemaVersionItemInput(
+        input.Events,
+        context
+      )
+    }),
+    ...(input.Type !== undefined && { Type: input.Type })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -956,14 +940,10 @@ export const serializeAws_restJson1_1LockServiceLinkedRoleCommand = async (
   };
   let resolvedPath = "/slr-deletion/lock";
   let body: any;
-  const bodyParams: any = {};
-  if (input.RoleArn !== undefined) {
-    bodyParams["RoleArn"] = input.RoleArn;
-  }
-  if (input.Timeout !== undefined) {
-    bodyParams["Timeout"] = input.Timeout;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn }),
+    ...(input.Timeout !== undefined && { Timeout: input.Timeout })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1176,11 +1156,11 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1Tags(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1202,11 +1182,9 @@ export const serializeAws_restJson1_1UnlockServiceLinkedRoleCommand = async (
   };
   let resolvedPath = "/slr-deletion/unlock";
   let body: any;
-  const bodyParams: any = {};
-  if (input.RoleArn !== undefined) {
-    bodyParams["RoleArn"] = input.RoleArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1283,11 +1261,9 @@ export const serializeAws_restJson1_1UpdateDiscovererCommand = async (
     throw new Error("No value provided for input HTTP label: DiscovererId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Description !== undefined && { Description: input.Description })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1323,11 +1299,9 @@ export const serializeAws_restJson1_1UpdateRegistryCommand = async (
     throw new Error("No value provided for input HTTP label: RegistryName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Description !== undefined && { Description: input.Description })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1376,23 +1350,12 @@ export const serializeAws_restJson1_1UpdateSchemaCommand = async (
     throw new Error("No value provided for input HTTP label: SchemaName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.ClientTokenId === undefined) {
-    input.ClientTokenId = generateIdempotencyToken();
-  }
-  if (input.ClientTokenId !== undefined) {
-    bodyParams["ClientTokenId"] = input.ClientTokenId;
-  }
-  if (input.Content !== undefined) {
-    bodyParams["Content"] = input.Content;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ClientTokenId: input.ClientTokenId ?? generateIdempotencyToken(),
+    ...(input.Content !== undefined && { Content: input.Content }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Type !== undefined && { Type: input.Type })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

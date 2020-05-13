@@ -27,23 +27,14 @@ export const serializeAws_restJson1_1PutEventsCommand = async (
   };
   let resolvedPath = "/events";
   let body: any;
-  const bodyParams: any = {};
-  if (input.eventList !== undefined) {
-    bodyParams["eventList"] = serializeAws_restJson1_1EventList(
-      input.eventList,
-      context
-    );
-  }
-  if (input.sessionId !== undefined) {
-    bodyParams["sessionId"] = input.sessionId;
-  }
-  if (input.trackingId !== undefined) {
-    bodyParams["trackingId"] = input.trackingId;
-  }
-  if (input.userId !== undefined) {
-    bodyParams["userId"] = input.userId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.eventList !== undefined && {
+      eventList: serializeAws_restJson1_1EventList(input.eventList, context)
+    }),
+    ...(input.sessionId !== undefined && { sessionId: input.sessionId }),
+    ...(input.trackingId !== undefined && { trackingId: input.trackingId }),
+    ...(input.userId !== undefined && { userId: input.userId })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

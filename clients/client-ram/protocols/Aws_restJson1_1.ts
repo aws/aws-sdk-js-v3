@@ -146,14 +146,12 @@ export const serializeAws_restJson1_1AcceptResourceShareInvitationCommand = asyn
   };
   let resolvedPath = "/acceptresourceshareinvitation";
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.resourceShareInvitationArn !== undefined) {
-    bodyParams["resourceShareInvitationArn"] = input.resourceShareInvitationArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
+    ...(input.resourceShareInvitationArn !== undefined && {
+      resourceShareInvitationArn: input.resourceShareInvitationArn
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -175,26 +173,24 @@ export const serializeAws_restJson1_1AssociateResourceShareCommand = async (
   };
   let resolvedPath = "/associateresourceshare";
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.principals !== undefined) {
-    bodyParams["principals"] = serializeAws_restJson1_1PrincipalArnOrIdList(
-      input.principals,
-      context
-    );
-  }
-  if (input.resourceArns !== undefined) {
-    bodyParams["resourceArns"] = serializeAws_restJson1_1ResourceArnList(
-      input.resourceArns,
-      context
-    );
-  }
-  if (input.resourceShareArn !== undefined) {
-    bodyParams["resourceShareArn"] = input.resourceShareArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
+    ...(input.principals !== undefined && {
+      principals: serializeAws_restJson1_1PrincipalArnOrIdList(
+        input.principals,
+        context
+      )
+    }),
+    ...(input.resourceArns !== undefined && {
+      resourceArns: serializeAws_restJson1_1ResourceArnList(
+        input.resourceArns,
+        context
+      )
+    }),
+    ...(input.resourceShareArn !== undefined && {
+      resourceShareArn: input.resourceShareArn
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -216,20 +212,16 @@ export const serializeAws_restJson1_1AssociateResourceSharePermissionCommand = a
   };
   let resolvedPath = "/associateresourcesharepermission";
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.permissionArn !== undefined) {
-    bodyParams["permissionArn"] = input.permissionArn;
-  }
-  if (input.replace !== undefined) {
-    bodyParams["replace"] = input.replace;
-  }
-  if (input.resourceShareArn !== undefined) {
-    bodyParams["resourceShareArn"] = input.resourceShareArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
+    ...(input.permissionArn !== undefined && {
+      permissionArn: input.permissionArn
+    }),
+    ...(input.replace !== undefined && { replace: input.replace }),
+    ...(input.resourceShareArn !== undefined && {
+      resourceShareArn: input.resourceShareArn
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -251,38 +243,34 @@ export const serializeAws_restJson1_1CreateResourceShareCommand = async (
   };
   let resolvedPath = "/createresourceshare";
   let body: any;
-  const bodyParams: any = {};
-  if (input.allowExternalPrincipals !== undefined) {
-    bodyParams["allowExternalPrincipals"] = input.allowExternalPrincipals;
-  }
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.permissionArns !== undefined) {
-    bodyParams["permissionArns"] = serializeAws_restJson1_1PermissionArnList(
-      input.permissionArns,
-      context
-    );
-  }
-  if (input.principals !== undefined) {
-    bodyParams["principals"] = serializeAws_restJson1_1PrincipalArnOrIdList(
-      input.principals,
-      context
-    );
-  }
-  if (input.resourceArns !== undefined) {
-    bodyParams["resourceArns"] = serializeAws_restJson1_1ResourceArnList(
-      input.resourceArns,
-      context
-    );
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagList(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.allowExternalPrincipals !== undefined && {
+      allowExternalPrincipals: input.allowExternalPrincipals
+    }),
+    ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.permissionArns !== undefined && {
+      permissionArns: serializeAws_restJson1_1PermissionArnList(
+        input.permissionArns,
+        context
+      )
+    }),
+    ...(input.principals !== undefined && {
+      principals: serializeAws_restJson1_1PrincipalArnOrIdList(
+        input.principals,
+        context
+      )
+    }),
+    ...(input.resourceArns !== undefined && {
+      resourceArns: serializeAws_restJson1_1ResourceArnList(
+        input.resourceArns,
+        context
+      )
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagList(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -332,26 +320,24 @@ export const serializeAws_restJson1_1DisassociateResourceShareCommand = async (
   };
   let resolvedPath = "/disassociateresourceshare";
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.principals !== undefined) {
-    bodyParams["principals"] = serializeAws_restJson1_1PrincipalArnOrIdList(
-      input.principals,
-      context
-    );
-  }
-  if (input.resourceArns !== undefined) {
-    bodyParams["resourceArns"] = serializeAws_restJson1_1ResourceArnList(
-      input.resourceArns,
-      context
-    );
-  }
-  if (input.resourceShareArn !== undefined) {
-    bodyParams["resourceShareArn"] = input.resourceShareArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
+    ...(input.principals !== undefined && {
+      principals: serializeAws_restJson1_1PrincipalArnOrIdList(
+        input.principals,
+        context
+      )
+    }),
+    ...(input.resourceArns !== undefined && {
+      resourceArns: serializeAws_restJson1_1ResourceArnList(
+        input.resourceArns,
+        context
+      )
+    }),
+    ...(input.resourceShareArn !== undefined && {
+      resourceShareArn: input.resourceShareArn
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -373,17 +359,15 @@ export const serializeAws_restJson1_1DisassociateResourceSharePermissionCommand 
   };
   let resolvedPath = "/disassociateresourcesharepermission";
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.permissionArn !== undefined) {
-    bodyParams["permissionArn"] = input.permissionArn;
-  }
-  if (input.resourceShareArn !== undefined) {
-    bodyParams["resourceShareArn"] = input.resourceShareArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
+    ...(input.permissionArn !== undefined && {
+      permissionArn: input.permissionArn
+    }),
+    ...(input.resourceShareArn !== undefined && {
+      resourceShareArn: input.resourceShareArn
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -427,14 +411,14 @@ export const serializeAws_restJson1_1GetPermissionCommand = async (
   };
   let resolvedPath = "/getpermission";
   let body: any;
-  const bodyParams: any = {};
-  if (input.permissionArn !== undefined) {
-    bodyParams["permissionArn"] = input.permissionArn;
-  }
-  if (input.permissionVersion !== undefined) {
-    bodyParams["permissionVersion"] = input.permissionVersion;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.permissionArn !== undefined && {
+      permissionArn: input.permissionArn
+    }),
+    ...(input.permissionVersion !== undefined && {
+      permissionVersion: input.permissionVersion
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -456,23 +440,17 @@ export const serializeAws_restJson1_1GetResourcePoliciesCommand = async (
   };
   let resolvedPath = "/getresourcepolicies";
   let body: any;
-  const bodyParams: any = {};
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.principal !== undefined) {
-    bodyParams["principal"] = input.principal;
-  }
-  if (input.resourceArns !== undefined) {
-    bodyParams["resourceArns"] = serializeAws_restJson1_1ResourceArnList(
-      input.resourceArns,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.principal !== undefined && { principal: input.principal }),
+    ...(input.resourceArns !== undefined && {
+      resourceArns: serializeAws_restJson1_1ResourceArnList(
+        input.resourceArns,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -494,34 +472,24 @@ export const serializeAws_restJson1_1GetResourceShareAssociationsCommand = async
   };
   let resolvedPath = "/getresourceshareassociations";
   let body: any;
-  const bodyParams: any = {};
-  if (input.associationStatus !== undefined) {
-    bodyParams["associationStatus"] = input.associationStatus;
-  }
-  if (input.associationType !== undefined) {
-    bodyParams["associationType"] = input.associationType;
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.principal !== undefined) {
-    bodyParams["principal"] = input.principal;
-  }
-  if (input.resourceArn !== undefined) {
-    bodyParams["resourceArn"] = input.resourceArn;
-  }
-  if (input.resourceShareArns !== undefined) {
-    bodyParams[
-      "resourceShareArns"
-    ] = serializeAws_restJson1_1ResourceShareArnList(
-      input.resourceShareArns,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.associationStatus !== undefined && {
+      associationStatus: input.associationStatus
+    }),
+    ...(input.associationType !== undefined && {
+      associationType: input.associationType
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.principal !== undefined && { principal: input.principal }),
+    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
+    ...(input.resourceShareArns !== undefined && {
+      resourceShareArns: serializeAws_restJson1_1ResourceShareArnList(
+        input.resourceShareArns,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -543,30 +511,22 @@ export const serializeAws_restJson1_1GetResourceShareInvitationsCommand = async 
   };
   let resolvedPath = "/getresourceshareinvitations";
   let body: any;
-  const bodyParams: any = {};
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.resourceShareArns !== undefined) {
-    bodyParams[
-      "resourceShareArns"
-    ] = serializeAws_restJson1_1ResourceShareArnList(
-      input.resourceShareArns,
-      context
-    );
-  }
-  if (input.resourceShareInvitationArns !== undefined) {
-    bodyParams[
-      "resourceShareInvitationArns"
-    ] = serializeAws_restJson1_1ResourceShareInvitationArnList(
-      input.resourceShareInvitationArns,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.resourceShareArns !== undefined && {
+      resourceShareArns: serializeAws_restJson1_1ResourceShareArnList(
+        input.resourceShareArns,
+        context
+      )
+    }),
+    ...(input.resourceShareInvitationArns !== undefined && {
+      resourceShareInvitationArns: serializeAws_restJson1_1ResourceShareInvitationArnList(
+        input.resourceShareInvitationArns,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -588,37 +548,26 @@ export const serializeAws_restJson1_1GetResourceSharesCommand = async (
   };
   let resolvedPath = "/getresourceshares";
   let body: any;
-  const bodyParams: any = {};
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.resourceOwner !== undefined) {
-    bodyParams["resourceOwner"] = input.resourceOwner;
-  }
-  if (input.resourceShareArns !== undefined) {
-    bodyParams[
-      "resourceShareArns"
-    ] = serializeAws_restJson1_1ResourceShareArnList(
-      input.resourceShareArns,
-      context
-    );
-  }
-  if (input.resourceShareStatus !== undefined) {
-    bodyParams["resourceShareStatus"] = input.resourceShareStatus;
-  }
-  if (input.tagFilters !== undefined) {
-    bodyParams["tagFilters"] = serializeAws_restJson1_1TagFilters(
-      input.tagFilters,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.resourceOwner !== undefined && {
+      resourceOwner: input.resourceOwner
+    }),
+    ...(input.resourceShareArns !== undefined && {
+      resourceShareArns: serializeAws_restJson1_1ResourceShareArnList(
+        input.resourceShareArns,
+        context
+      )
+    }),
+    ...(input.resourceShareStatus !== undefined && {
+      resourceShareStatus: input.resourceShareStatus
+    }),
+    ...(input.tagFilters !== undefined && {
+      tagFilters: serializeAws_restJson1_1TagFilters(input.tagFilters, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -640,17 +589,13 @@ export const serializeAws_restJson1_1ListPendingInvitationResourcesCommand = asy
   };
   let resolvedPath = "/listpendinginvitationresources";
   let body: any;
-  const bodyParams: any = {};
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.resourceShareInvitationArn !== undefined) {
-    bodyParams["resourceShareInvitationArn"] = input.resourceShareInvitationArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.resourceShareInvitationArn !== undefined && {
+      resourceShareInvitationArn: input.resourceShareInvitationArn
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -672,17 +617,13 @@ export const serializeAws_restJson1_1ListPermissionsCommand = async (
   };
   let resolvedPath = "/listpermissions";
   let body: any;
-  const bodyParams: any = {};
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.resourceType !== undefined) {
-    bodyParams["resourceType"] = input.resourceType;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.resourceType !== undefined && {
+      resourceType: input.resourceType
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -704,37 +645,29 @@ export const serializeAws_restJson1_1ListPrincipalsCommand = async (
   };
   let resolvedPath = "/listprincipals";
   let body: any;
-  const bodyParams: any = {};
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.principals !== undefined) {
-    bodyParams["principals"] = serializeAws_restJson1_1PrincipalArnOrIdList(
-      input.principals,
-      context
-    );
-  }
-  if (input.resourceArn !== undefined) {
-    bodyParams["resourceArn"] = input.resourceArn;
-  }
-  if (input.resourceOwner !== undefined) {
-    bodyParams["resourceOwner"] = input.resourceOwner;
-  }
-  if (input.resourceShareArns !== undefined) {
-    bodyParams[
-      "resourceShareArns"
-    ] = serializeAws_restJson1_1ResourceShareArnList(
-      input.resourceShareArns,
-      context
-    );
-  }
-  if (input.resourceType !== undefined) {
-    bodyParams["resourceType"] = input.resourceType;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.principals !== undefined && {
+      principals: serializeAws_restJson1_1PrincipalArnOrIdList(
+        input.principals,
+        context
+      )
+    }),
+    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
+    ...(input.resourceOwner !== undefined && {
+      resourceOwner: input.resourceOwner
+    }),
+    ...(input.resourceShareArns !== undefined && {
+      resourceShareArns: serializeAws_restJson1_1ResourceShareArnList(
+        input.resourceShareArns,
+        context
+      )
+    }),
+    ...(input.resourceType !== undefined && {
+      resourceType: input.resourceType
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -756,17 +689,13 @@ export const serializeAws_restJson1_1ListResourceSharePermissionsCommand = async
   };
   let resolvedPath = "/listresourcesharepermissions";
   let body: any;
-  const bodyParams: any = {};
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.resourceShareArn !== undefined) {
-    bodyParams["resourceShareArn"] = input.resourceShareArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.resourceShareArn !== undefined && {
+      resourceShareArn: input.resourceShareArn
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -788,37 +717,29 @@ export const serializeAws_restJson1_1ListResourcesCommand = async (
   };
   let resolvedPath = "/listresources";
   let body: any;
-  const bodyParams: any = {};
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.principal !== undefined) {
-    bodyParams["principal"] = input.principal;
-  }
-  if (input.resourceArns !== undefined) {
-    bodyParams["resourceArns"] = serializeAws_restJson1_1ResourceArnList(
-      input.resourceArns,
-      context
-    );
-  }
-  if (input.resourceOwner !== undefined) {
-    bodyParams["resourceOwner"] = input.resourceOwner;
-  }
-  if (input.resourceShareArns !== undefined) {
-    bodyParams[
-      "resourceShareArns"
-    ] = serializeAws_restJson1_1ResourceShareArnList(
-      input.resourceShareArns,
-      context
-    );
-  }
-  if (input.resourceType !== undefined) {
-    bodyParams["resourceType"] = input.resourceType;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.principal !== undefined && { principal: input.principal }),
+    ...(input.resourceArns !== undefined && {
+      resourceArns: serializeAws_restJson1_1ResourceArnList(
+        input.resourceArns,
+        context
+      )
+    }),
+    ...(input.resourceOwner !== undefined && {
+      resourceOwner: input.resourceOwner
+    }),
+    ...(input.resourceShareArns !== undefined && {
+      resourceShareArns: serializeAws_restJson1_1ResourceShareArnList(
+        input.resourceShareArns,
+        context
+      )
+    }),
+    ...(input.resourceType !== undefined && {
+      resourceType: input.resourceType
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -867,14 +788,12 @@ export const serializeAws_restJson1_1RejectResourceShareInvitationCommand = asyn
   };
   let resolvedPath = "/rejectresourceshareinvitation";
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.resourceShareInvitationArn !== undefined) {
-    bodyParams["resourceShareInvitationArn"] = input.resourceShareInvitationArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
+    ...(input.resourceShareInvitationArn !== undefined && {
+      resourceShareInvitationArn: input.resourceShareInvitationArn
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -896,14 +815,14 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   };
   let resolvedPath = "/tagresource";
   let body: any;
-  const bodyParams: any = {};
-  if (input.resourceShareArn !== undefined) {
-    bodyParams["resourceShareArn"] = input.resourceShareArn;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagList(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.resourceShareArn !== undefined && {
+      resourceShareArn: input.resourceShareArn
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagList(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -925,17 +844,14 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   };
   let resolvedPath = "/untagresource";
   let body: any;
-  const bodyParams: any = {};
-  if (input.resourceShareArn !== undefined) {
-    bodyParams["resourceShareArn"] = input.resourceShareArn;
-  }
-  if (input.tagKeys !== undefined) {
-    bodyParams["tagKeys"] = serializeAws_restJson1_1TagKeyList(
-      input.tagKeys,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.resourceShareArn !== undefined && {
+      resourceShareArn: input.resourceShareArn
+    }),
+    ...(input.tagKeys !== undefined && {
+      tagKeys: serializeAws_restJson1_1TagKeyList(input.tagKeys, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -957,20 +873,16 @@ export const serializeAws_restJson1_1UpdateResourceShareCommand = async (
   };
   let resolvedPath = "/updateresourceshare";
   let body: any;
-  const bodyParams: any = {};
-  if (input.allowExternalPrincipals !== undefined) {
-    bodyParams["allowExternalPrincipals"] = input.allowExternalPrincipals;
-  }
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.resourceShareArn !== undefined) {
-    bodyParams["resourceShareArn"] = input.resourceShareArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.allowExternalPrincipals !== undefined && {
+      allowExternalPrincipals: input.allowExternalPrincipals
+    }),
+    ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.resourceShareArn !== undefined && {
+      resourceShareArn: input.resourceShareArn
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

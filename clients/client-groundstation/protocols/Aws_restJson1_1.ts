@@ -186,20 +186,18 @@ export const serializeAws_restJson1_1CreateConfigCommand = async (
   };
   let resolvedPath = "/config";
   let body: any;
-  const bodyParams: any = {};
-  if (input.configData !== undefined) {
-    bodyParams["configData"] = serializeAws_restJson1_1ConfigTypeData(
-      input.configData,
-      context
-    );
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagsMap(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.configData !== undefined && {
+      configData: serializeAws_restJson1_1ConfigTypeData(
+        input.configData,
+        context
+      )
+    }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagsMap(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -221,17 +219,17 @@ export const serializeAws_restJson1_1CreateDataflowEndpointGroupCommand = async 
   };
   let resolvedPath = "/dataflowEndpointGroup";
   let body: any;
-  const bodyParams: any = {};
-  if (input.endpointDetails !== undefined) {
-    bodyParams["endpointDetails"] = serializeAws_restJson1_1EndpointDetailsList(
-      input.endpointDetails,
-      context
-    );
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagsMap(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.endpointDetails !== undefined && {
+      endpointDetails: serializeAws_restJson1_1EndpointDetailsList(
+        input.endpointDetails,
+        context
+      )
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagsMap(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -253,35 +251,31 @@ export const serializeAws_restJson1_1CreateMissionProfileCommand = async (
   };
   let resolvedPath = "/missionprofile";
   let body: any;
-  const bodyParams: any = {};
-  if (input.contactPostPassDurationSeconds !== undefined) {
-    bodyParams["contactPostPassDurationSeconds"] =
-      input.contactPostPassDurationSeconds;
-  }
-  if (input.contactPrePassDurationSeconds !== undefined) {
-    bodyParams["contactPrePassDurationSeconds"] =
-      input.contactPrePassDurationSeconds;
-  }
-  if (input.dataflowEdges !== undefined) {
-    bodyParams["dataflowEdges"] = serializeAws_restJson1_1DataflowEdgeList(
-      input.dataflowEdges,
-      context
-    );
-  }
-  if (input.minimumViableContactDurationSeconds !== undefined) {
-    bodyParams["minimumViableContactDurationSeconds"] =
-      input.minimumViableContactDurationSeconds;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagsMap(input.tags, context);
-  }
-  if (input.trackingConfigArn !== undefined) {
-    bodyParams["trackingConfigArn"] = input.trackingConfigArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.contactPostPassDurationSeconds !== undefined && {
+      contactPostPassDurationSeconds: input.contactPostPassDurationSeconds
+    }),
+    ...(input.contactPrePassDurationSeconds !== undefined && {
+      contactPrePassDurationSeconds: input.contactPrePassDurationSeconds
+    }),
+    ...(input.dataflowEdges !== undefined && {
+      dataflowEdges: serializeAws_restJson1_1DataflowEdgeList(
+        input.dataflowEdges,
+        context
+      )
+    }),
+    ...(input.minimumViableContactDurationSeconds !== undefined && {
+      minimumViableContactDurationSeconds:
+        input.minimumViableContactDurationSeconds
+    }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagsMap(input.tags, context)
+    }),
+    ...(input.trackingConfigArn !== undefined && {
+      trackingConfigArn: input.trackingConfigArn
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -602,35 +596,28 @@ export const serializeAws_restJson1_1ListContactsCommand = async (
   };
   let resolvedPath = "/contacts";
   let body: any;
-  const bodyParams: any = {};
-  if (input.endTime !== undefined) {
-    bodyParams["endTime"] = Math.round(input.endTime.getTime() / 1000);
-  }
-  if (input.groundStation !== undefined) {
-    bodyParams["groundStation"] = input.groundStation;
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.missionProfileArn !== undefined) {
-    bodyParams["missionProfileArn"] = input.missionProfileArn;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.satelliteArn !== undefined) {
-    bodyParams["satelliteArn"] = input.satelliteArn;
-  }
-  if (input.startTime !== undefined) {
-    bodyParams["startTime"] = Math.round(input.startTime.getTime() / 1000);
-  }
-  if (input.statusList !== undefined) {
-    bodyParams["statusList"] = serializeAws_restJson1_1StatusList(
-      input.statusList,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.endTime !== undefined && {
+      endTime: Math.round(input.endTime.getTime() / 1000)
+    }),
+    ...(input.groundStation !== undefined && {
+      groundStation: input.groundStation
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.missionProfileArn !== undefined && {
+      missionProfileArn: input.missionProfileArn
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.satelliteArn !== undefined && {
+      satelliteArn: input.satelliteArn
+    }),
+    ...(input.startTime !== undefined && {
+      startTime: Math.round(input.startTime.getTime() / 1000)
+    }),
+    ...(input.statusList !== undefined && {
+      statusList: serializeAws_restJson1_1StatusList(input.statusList, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -708,26 +695,26 @@ export const serializeAws_restJson1_1ReserveContactCommand = async (
   };
   let resolvedPath = "/contact";
   let body: any;
-  const bodyParams: any = {};
-  if (input.endTime !== undefined) {
-    bodyParams["endTime"] = Math.round(input.endTime.getTime() / 1000);
-  }
-  if (input.groundStation !== undefined) {
-    bodyParams["groundStation"] = input.groundStation;
-  }
-  if (input.missionProfileArn !== undefined) {
-    bodyParams["missionProfileArn"] = input.missionProfileArn;
-  }
-  if (input.satelliteArn !== undefined) {
-    bodyParams["satelliteArn"] = input.satelliteArn;
-  }
-  if (input.startTime !== undefined) {
-    bodyParams["startTime"] = Math.round(input.startTime.getTime() / 1000);
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagsMap(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.endTime !== undefined && {
+      endTime: Math.round(input.endTime.getTime() / 1000)
+    }),
+    ...(input.groundStation !== undefined && {
+      groundStation: input.groundStation
+    }),
+    ...(input.missionProfileArn !== undefined && {
+      missionProfileArn: input.missionProfileArn
+    }),
+    ...(input.satelliteArn !== undefined && {
+      satelliteArn: input.satelliteArn
+    }),
+    ...(input.startTime !== undefined && {
+      startTime: Math.round(input.startTime.getTime() / 1000)
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagsMap(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -773,17 +760,15 @@ export const serializeAws_restJson1_1UpdateConfigCommand = async (
     throw new Error("No value provided for input HTTP label: configType.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.configData !== undefined) {
-    bodyParams["configData"] = serializeAws_restJson1_1ConfigTypeData(
-      input.configData,
-      context
-    );
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.configData !== undefined && {
+      configData: serializeAws_restJson1_1ConfigTypeData(
+        input.configData,
+        context
+      )
+    }),
+    ...(input.name !== undefined && { name: input.name })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -821,32 +806,28 @@ export const serializeAws_restJson1_1UpdateMissionProfileCommand = async (
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.contactPostPassDurationSeconds !== undefined) {
-    bodyParams["contactPostPassDurationSeconds"] =
-      input.contactPostPassDurationSeconds;
-  }
-  if (input.contactPrePassDurationSeconds !== undefined) {
-    bodyParams["contactPrePassDurationSeconds"] =
-      input.contactPrePassDurationSeconds;
-  }
-  if (input.dataflowEdges !== undefined) {
-    bodyParams["dataflowEdges"] = serializeAws_restJson1_1DataflowEdgeList(
-      input.dataflowEdges,
-      context
-    );
-  }
-  if (input.minimumViableContactDurationSeconds !== undefined) {
-    bodyParams["minimumViableContactDurationSeconds"] =
-      input.minimumViableContactDurationSeconds;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.trackingConfigArn !== undefined) {
-    bodyParams["trackingConfigArn"] = input.trackingConfigArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.contactPostPassDurationSeconds !== undefined && {
+      contactPostPassDurationSeconds: input.contactPostPassDurationSeconds
+    }),
+    ...(input.contactPrePassDurationSeconds !== undefined && {
+      contactPrePassDurationSeconds: input.contactPrePassDurationSeconds
+    }),
+    ...(input.dataflowEdges !== undefined && {
+      dataflowEdges: serializeAws_restJson1_1DataflowEdgeList(
+        input.dataflowEdges,
+        context
+      )
+    }),
+    ...(input.minimumViableContactDurationSeconds !== undefined && {
+      minimumViableContactDurationSeconds:
+        input.minimumViableContactDurationSeconds
+    }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.trackingConfigArn !== undefined && {
+      trackingConfigArn: input.trackingConfigArn
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -868,14 +849,10 @@ export const serializeAws_restJson1_1GetMinuteUsageCommand = async (
   };
   let resolvedPath = "/minute-usage";
   let body: any;
-  const bodyParams: any = {};
-  if (input.month !== undefined) {
-    bodyParams["month"] = input.month;
-  }
-  if (input.year !== undefined) {
-    bodyParams["year"] = input.year;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.month !== undefined && { month: input.month }),
+    ...(input.year !== undefined && { year: input.year })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1037,11 +1014,11 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagsMap(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagsMap(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

@@ -52,37 +52,29 @@ export const serializeAws_restJson1_1GetDASHStreamingSessionURLCommand = async (
   };
   let resolvedPath = "/getDASHStreamingSessionURL";
   let body: any;
-  const bodyParams: any = {};
-  if (input.DASHFragmentSelector !== undefined) {
-    bodyParams[
-      "DASHFragmentSelector"
-    ] = serializeAws_restJson1_1DASHFragmentSelector(
-      input.DASHFragmentSelector,
-      context
-    );
-  }
-  if (input.DisplayFragmentNumber !== undefined) {
-    bodyParams["DisplayFragmentNumber"] = input.DisplayFragmentNumber;
-  }
-  if (input.DisplayFragmentTimestamp !== undefined) {
-    bodyParams["DisplayFragmentTimestamp"] = input.DisplayFragmentTimestamp;
-  }
-  if (input.Expires !== undefined) {
-    bodyParams["Expires"] = input.Expires;
-  }
-  if (input.MaxManifestFragmentResults !== undefined) {
-    bodyParams["MaxManifestFragmentResults"] = input.MaxManifestFragmentResults;
-  }
-  if (input.PlaybackMode !== undefined) {
-    bodyParams["PlaybackMode"] = input.PlaybackMode;
-  }
-  if (input.StreamARN !== undefined) {
-    bodyParams["StreamARN"] = input.StreamARN;
-  }
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DASHFragmentSelector !== undefined && {
+      DASHFragmentSelector: serializeAws_restJson1_1DASHFragmentSelector(
+        input.DASHFragmentSelector,
+        context
+      )
+    }),
+    ...(input.DisplayFragmentNumber !== undefined && {
+      DisplayFragmentNumber: input.DisplayFragmentNumber
+    }),
+    ...(input.DisplayFragmentTimestamp !== undefined && {
+      DisplayFragmentTimestamp: input.DisplayFragmentTimestamp
+    }),
+    ...(input.Expires !== undefined && { Expires: input.Expires }),
+    ...(input.MaxManifestFragmentResults !== undefined && {
+      MaxManifestFragmentResults: input.MaxManifestFragmentResults
+    }),
+    ...(input.PlaybackMode !== undefined && {
+      PlaybackMode: input.PlaybackMode
+    }),
+    ...(input.StreamARN !== undefined && { StreamARN: input.StreamARN }),
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -104,41 +96,32 @@ export const serializeAws_restJson1_1GetHLSStreamingSessionURLCommand = async (
   };
   let resolvedPath = "/getHLSStreamingSessionURL";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ContainerFormat !== undefined) {
-    bodyParams["ContainerFormat"] = input.ContainerFormat;
-  }
-  if (input.DiscontinuityMode !== undefined) {
-    bodyParams["DiscontinuityMode"] = input.DiscontinuityMode;
-  }
-  if (input.DisplayFragmentTimestamp !== undefined) {
-    bodyParams["DisplayFragmentTimestamp"] = input.DisplayFragmentTimestamp;
-  }
-  if (input.Expires !== undefined) {
-    bodyParams["Expires"] = input.Expires;
-  }
-  if (input.HLSFragmentSelector !== undefined) {
-    bodyParams[
-      "HLSFragmentSelector"
-    ] = serializeAws_restJson1_1HLSFragmentSelector(
-      input.HLSFragmentSelector,
-      context
-    );
-  }
-  if (input.MaxMediaPlaylistFragmentResults !== undefined) {
-    bodyParams["MaxMediaPlaylistFragmentResults"] =
-      input.MaxMediaPlaylistFragmentResults;
-  }
-  if (input.PlaybackMode !== undefined) {
-    bodyParams["PlaybackMode"] = input.PlaybackMode;
-  }
-  if (input.StreamARN !== undefined) {
-    bodyParams["StreamARN"] = input.StreamARN;
-  }
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ContainerFormat !== undefined && {
+      ContainerFormat: input.ContainerFormat
+    }),
+    ...(input.DiscontinuityMode !== undefined && {
+      DiscontinuityMode: input.DiscontinuityMode
+    }),
+    ...(input.DisplayFragmentTimestamp !== undefined && {
+      DisplayFragmentTimestamp: input.DisplayFragmentTimestamp
+    }),
+    ...(input.Expires !== undefined && { Expires: input.Expires }),
+    ...(input.HLSFragmentSelector !== undefined && {
+      HLSFragmentSelector: serializeAws_restJson1_1HLSFragmentSelector(
+        input.HLSFragmentSelector,
+        context
+      )
+    }),
+    ...(input.MaxMediaPlaylistFragmentResults !== undefined && {
+      MaxMediaPlaylistFragmentResults: input.MaxMediaPlaylistFragmentResults
+    }),
+    ...(input.PlaybackMode !== undefined && {
+      PlaybackMode: input.PlaybackMode
+    }),
+    ...(input.StreamARN !== undefined && { StreamARN: input.StreamARN }),
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -160,17 +143,15 @@ export const serializeAws_restJson1_1GetMediaForFragmentListCommand = async (
   };
   let resolvedPath = "/getMediaForFragmentList";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Fragments !== undefined) {
-    bodyParams["Fragments"] = serializeAws_restJson1_1FragmentNumberList(
-      input.Fragments,
-      context
-    );
-  }
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Fragments !== undefined && {
+      Fragments: serializeAws_restJson1_1FragmentNumberList(
+        input.Fragments,
+        context
+      )
+    }),
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -192,23 +173,17 @@ export const serializeAws_restJson1_1ListFragmentsCommand = async (
   };
   let resolvedPath = "/listFragments";
   let body: any;
-  const bodyParams: any = {};
-  if (input.FragmentSelector !== undefined) {
-    bodyParams["FragmentSelector"] = serializeAws_restJson1_1FragmentSelector(
-      input.FragmentSelector,
-      context
-    );
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.FragmentSelector !== undefined && {
+      FragmentSelector: serializeAws_restJson1_1FragmentSelector(
+        input.FragmentSelector,
+        context
+      )
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

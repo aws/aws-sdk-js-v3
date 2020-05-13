@@ -127,34 +127,28 @@ export const serializeAws_restJson1_1CreateDetectorModelCommand = async (
   };
   let resolvedPath = "/detector-models";
   let body: any;
-  const bodyParams: any = {};
-  if (input.detectorModelDefinition !== undefined) {
-    bodyParams[
-      "detectorModelDefinition"
-    ] = serializeAws_restJson1_1DetectorModelDefinition(
-      input.detectorModelDefinition,
-      context
-    );
-  }
-  if (input.detectorModelDescription !== undefined) {
-    bodyParams["detectorModelDescription"] = input.detectorModelDescription;
-  }
-  if (input.detectorModelName !== undefined) {
-    bodyParams["detectorModelName"] = input.detectorModelName;
-  }
-  if (input.evaluationMethod !== undefined) {
-    bodyParams["evaluationMethod"] = input.evaluationMethod;
-  }
-  if (input.key !== undefined) {
-    bodyParams["key"] = input.key;
-  }
-  if (input.roleArn !== undefined) {
-    bodyParams["roleArn"] = input.roleArn;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1Tags(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.detectorModelDefinition !== undefined && {
+      detectorModelDefinition: serializeAws_restJson1_1DetectorModelDefinition(
+        input.detectorModelDefinition,
+        context
+      )
+    }),
+    ...(input.detectorModelDescription !== undefined && {
+      detectorModelDescription: input.detectorModelDescription
+    }),
+    ...(input.detectorModelName !== undefined && {
+      detectorModelName: input.detectorModelName
+    }),
+    ...(input.evaluationMethod !== undefined && {
+      evaluationMethod: input.evaluationMethod
+    }),
+    ...(input.key !== undefined && { key: input.key }),
+    ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1Tags(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -176,23 +170,21 @@ export const serializeAws_restJson1_1CreateInputCommand = async (
   };
   let resolvedPath = "/inputs";
   let body: any;
-  const bodyParams: any = {};
-  if (input.inputDefinition !== undefined) {
-    bodyParams["inputDefinition"] = serializeAws_restJson1_1InputDefinition(
-      input.inputDefinition,
-      context
-    );
-  }
-  if (input.inputDescription !== undefined) {
-    bodyParams["inputDescription"] = input.inputDescription;
-  }
-  if (input.inputName !== undefined) {
-    bodyParams["inputName"] = input.inputName;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1Tags(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.inputDefinition !== undefined && {
+      inputDefinition: serializeAws_restJson1_1InputDefinition(
+        input.inputDefinition,
+        context
+      )
+    }),
+    ...(input.inputDescription !== undefined && {
+      inputDescription: input.inputDescription
+    }),
+    ...(input.inputName !== undefined && { inputName: input.inputName }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1Tags(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -507,14 +499,14 @@ export const serializeAws_restJson1_1PutLoggingOptionsCommand = async (
   };
   let resolvedPath = "/logging";
   let body: any;
-  const bodyParams: any = {};
-  if (input.loggingOptions !== undefined) {
-    bodyParams["loggingOptions"] = serializeAws_restJson1_1LoggingOptions(
-      input.loggingOptions,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.loggingOptions !== undefined && {
+      loggingOptions: serializeAws_restJson1_1LoggingOptions(
+        input.loggingOptions,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -539,11 +531,11 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1Tags(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1Tags(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -610,25 +602,21 @@ export const serializeAws_restJson1_1UpdateDetectorModelCommand = async (
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.detectorModelDefinition !== undefined) {
-    bodyParams[
-      "detectorModelDefinition"
-    ] = serializeAws_restJson1_1DetectorModelDefinition(
-      input.detectorModelDefinition,
-      context
-    );
-  }
-  if (input.detectorModelDescription !== undefined) {
-    bodyParams["detectorModelDescription"] = input.detectorModelDescription;
-  }
-  if (input.evaluationMethod !== undefined) {
-    bodyParams["evaluationMethod"] = input.evaluationMethod;
-  }
-  if (input.roleArn !== undefined) {
-    bodyParams["roleArn"] = input.roleArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.detectorModelDefinition !== undefined && {
+      detectorModelDefinition: serializeAws_restJson1_1DetectorModelDefinition(
+        input.detectorModelDefinition,
+        context
+      )
+    }),
+    ...(input.detectorModelDescription !== undefined && {
+      detectorModelDescription: input.detectorModelDescription
+    }),
+    ...(input.evaluationMethod !== undefined && {
+      evaluationMethod: input.evaluationMethod
+    }),
+    ...(input.roleArn !== undefined && { roleArn: input.roleArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -662,17 +650,17 @@ export const serializeAws_restJson1_1UpdateInputCommand = async (
     throw new Error("No value provided for input HTTP label: inputName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.inputDefinition !== undefined) {
-    bodyParams["inputDefinition"] = serializeAws_restJson1_1InputDefinition(
-      input.inputDefinition,
-      context
-    );
-  }
-  if (input.inputDescription !== undefined) {
-    bodyParams["inputDescription"] = input.inputDescription;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.inputDefinition !== undefined && {
+      inputDefinition: serializeAws_restJson1_1InputDefinition(
+        input.inputDefinition,
+        context
+      )
+    }),
+    ...(input.inputDescription !== undefined && {
+      inputDescription: input.inputDescription
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

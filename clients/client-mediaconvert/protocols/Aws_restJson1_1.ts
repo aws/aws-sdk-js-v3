@@ -261,11 +261,9 @@ export const serializeAws_restJson1_1AssociateCertificateCommand = async (
   };
   let resolvedPath = "/2017-08-29/certificates";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Arn !== undefined) {
-    bodyParams["arn"] = input.Arn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Arn !== undefined && { arn: input.Arn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -320,61 +318,40 @@ export const serializeAws_restJson1_1CreateJobCommand = async (
   };
   let resolvedPath = "/2017-08-29/jobs";
   let body: any;
-  const bodyParams: any = {};
-  if (input.AccelerationSettings !== undefined) {
-    bodyParams[
-      "accelerationSettings"
-    ] = serializeAws_restJson1_1AccelerationSettings(
-      input.AccelerationSettings,
-      context
-    );
-  }
-  if (input.BillingTagsSource !== undefined) {
-    bodyParams["billingTagsSource"] = input.BillingTagsSource;
-  }
-  if (input.ClientRequestToken === undefined) {
-    input.ClientRequestToken = generateIdempotencyToken();
-  }
-  if (input.ClientRequestToken !== undefined) {
-    bodyParams["clientRequestToken"] = input.ClientRequestToken;
-  }
-  if (input.JobTemplate !== undefined) {
-    bodyParams["jobTemplate"] = input.JobTemplate;
-  }
-  if (input.Priority !== undefined) {
-    bodyParams["priority"] = input.Priority;
-  }
-  if (input.Queue !== undefined) {
-    bodyParams["queue"] = input.Queue;
-  }
-  if (input.Role !== undefined) {
-    bodyParams["role"] = input.Role;
-  }
-  if (input.Settings !== undefined) {
-    bodyParams["settings"] = serializeAws_restJson1_1JobSettings(
-      input.Settings,
-      context
-    );
-  }
-  if (input.SimulateReservedQueue !== undefined) {
-    bodyParams["simulateReservedQueue"] = input.SimulateReservedQueue;
-  }
-  if (input.StatusUpdateInterval !== undefined) {
-    bodyParams["statusUpdateInterval"] = input.StatusUpdateInterval;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1__mapOf__string(
-      input.Tags,
-      context
-    );
-  }
-  if (input.UserMetadata !== undefined) {
-    bodyParams["userMetadata"] = serializeAws_restJson1_1__mapOf__string(
-      input.UserMetadata,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AccelerationSettings !== undefined && {
+      accelerationSettings: serializeAws_restJson1_1AccelerationSettings(
+        input.AccelerationSettings,
+        context
+      )
+    }),
+    ...(input.BillingTagsSource !== undefined && {
+      billingTagsSource: input.BillingTagsSource
+    }),
+    clientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.JobTemplate !== undefined && { jobTemplate: input.JobTemplate }),
+    ...(input.Priority !== undefined && { priority: input.Priority }),
+    ...(input.Queue !== undefined && { queue: input.Queue }),
+    ...(input.Role !== undefined && { role: input.Role }),
+    ...(input.Settings !== undefined && {
+      settings: serializeAws_restJson1_1JobSettings(input.Settings, context)
+    }),
+    ...(input.SimulateReservedQueue !== undefined && {
+      simulateReservedQueue: input.SimulateReservedQueue
+    }),
+    ...(input.StatusUpdateInterval !== undefined && {
+      statusUpdateInterval: input.StatusUpdateInterval
+    }),
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1__mapOf__string(input.Tags, context)
+    }),
+    ...(input.UserMetadata !== undefined && {
+      userMetadata: serializeAws_restJson1_1__mapOf__string(
+        input.UserMetadata,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -396,46 +373,31 @@ export const serializeAws_restJson1_1CreateJobTemplateCommand = async (
   };
   let resolvedPath = "/2017-08-29/jobTemplates";
   let body: any;
-  const bodyParams: any = {};
-  if (input.AccelerationSettings !== undefined) {
-    bodyParams[
-      "accelerationSettings"
-    ] = serializeAws_restJson1_1AccelerationSettings(
-      input.AccelerationSettings,
-      context
-    );
-  }
-  if (input.Category !== undefined) {
-    bodyParams["category"] = input.Category;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["description"] = input.Description;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["name"] = input.Name;
-  }
-  if (input.Priority !== undefined) {
-    bodyParams["priority"] = input.Priority;
-  }
-  if (input.Queue !== undefined) {
-    bodyParams["queue"] = input.Queue;
-  }
-  if (input.Settings !== undefined) {
-    bodyParams["settings"] = serializeAws_restJson1_1JobTemplateSettings(
-      input.Settings,
-      context
-    );
-  }
-  if (input.StatusUpdateInterval !== undefined) {
-    bodyParams["statusUpdateInterval"] = input.StatusUpdateInterval;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1__mapOf__string(
-      input.Tags,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AccelerationSettings !== undefined && {
+      accelerationSettings: serializeAws_restJson1_1AccelerationSettings(
+        input.AccelerationSettings,
+        context
+      )
+    }),
+    ...(input.Category !== undefined && { category: input.Category }),
+    ...(input.Description !== undefined && { description: input.Description }),
+    ...(input.Name !== undefined && { name: input.Name }),
+    ...(input.Priority !== undefined && { priority: input.Priority }),
+    ...(input.Queue !== undefined && { queue: input.Queue }),
+    ...(input.Settings !== undefined && {
+      settings: serializeAws_restJson1_1JobTemplateSettings(
+        input.Settings,
+        context
+      )
+    }),
+    ...(input.StatusUpdateInterval !== undefined && {
+      statusUpdateInterval: input.StatusUpdateInterval
+    }),
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1__mapOf__string(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -457,29 +419,17 @@ export const serializeAws_restJson1_1CreatePresetCommand = async (
   };
   let resolvedPath = "/2017-08-29/presets";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Category !== undefined) {
-    bodyParams["category"] = input.Category;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["description"] = input.Description;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["name"] = input.Name;
-  }
-  if (input.Settings !== undefined) {
-    bodyParams["settings"] = serializeAws_restJson1_1PresetSettings(
-      input.Settings,
-      context
-    );
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1__mapOf__string(
-      input.Tags,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Category !== undefined && { category: input.Category }),
+    ...(input.Description !== undefined && { description: input.Description }),
+    ...(input.Name !== undefined && { name: input.Name }),
+    ...(input.Settings !== undefined && {
+      settings: serializeAws_restJson1_1PresetSettings(input.Settings, context)
+    }),
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1__mapOf__string(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -501,34 +451,21 @@ export const serializeAws_restJson1_1CreateQueueCommand = async (
   };
   let resolvedPath = "/2017-08-29/queues";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["description"] = input.Description;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["name"] = input.Name;
-  }
-  if (input.PricingPlan !== undefined) {
-    bodyParams["pricingPlan"] = input.PricingPlan;
-  }
-  if (input.ReservationPlanSettings !== undefined) {
-    bodyParams[
-      "reservationPlanSettings"
-    ] = serializeAws_restJson1_1ReservationPlanSettings(
-      input.ReservationPlanSettings,
-      context
-    );
-  }
-  if (input.Status !== undefined) {
-    bodyParams["status"] = input.Status;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1__mapOf__string(
-      input.Tags,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Description !== undefined && { description: input.Description }),
+    ...(input.Name !== undefined && { name: input.Name }),
+    ...(input.PricingPlan !== undefined && { pricingPlan: input.PricingPlan }),
+    ...(input.ReservationPlanSettings !== undefined && {
+      reservationPlanSettings: serializeAws_restJson1_1ReservationPlanSettings(
+        input.ReservationPlanSettings,
+        context
+      )
+    }),
+    ...(input.Status !== undefined && { status: input.Status }),
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1__mapOf__string(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -649,17 +586,11 @@ export const serializeAws_restJson1_1DescribeEndpointsCommand = async (
   };
   let resolvedPath = "/2017-08-29/endpoints";
   let body: any;
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["maxResults"] = input.MaxResults;
-  }
-  if (input.Mode !== undefined) {
-    bodyParams["mode"] = input.Mode;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["nextToken"] = input.NextToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
+    ...(input.Mode !== undefined && { mode: input.Mode }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1002,17 +933,12 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   };
   let resolvedPath = "/2017-08-29/tags";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Arn !== undefined) {
-    bodyParams["arn"] = input.Arn;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1__mapOf__string(
-      input.Tags,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Arn !== undefined && { arn: input.Arn }),
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1__mapOf__string(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1046,14 +972,11 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: Arn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.TagKeys !== undefined) {
-    bodyParams["tagKeys"] = serializeAws_restJson1_1__listOf__string(
-      input.TagKeys,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.TagKeys !== undefined && {
+      tagKeys: serializeAws_restJson1_1__listOf__string(input.TagKeys, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1087,37 +1010,27 @@ export const serializeAws_restJson1_1UpdateJobTemplateCommand = async (
     throw new Error("No value provided for input HTTP label: Name.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.AccelerationSettings !== undefined) {
-    bodyParams[
-      "accelerationSettings"
-    ] = serializeAws_restJson1_1AccelerationSettings(
-      input.AccelerationSettings,
-      context
-    );
-  }
-  if (input.Category !== undefined) {
-    bodyParams["category"] = input.Category;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["description"] = input.Description;
-  }
-  if (input.Priority !== undefined) {
-    bodyParams["priority"] = input.Priority;
-  }
-  if (input.Queue !== undefined) {
-    bodyParams["queue"] = input.Queue;
-  }
-  if (input.Settings !== undefined) {
-    bodyParams["settings"] = serializeAws_restJson1_1JobTemplateSettings(
-      input.Settings,
-      context
-    );
-  }
-  if (input.StatusUpdateInterval !== undefined) {
-    bodyParams["statusUpdateInterval"] = input.StatusUpdateInterval;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AccelerationSettings !== undefined && {
+      accelerationSettings: serializeAws_restJson1_1AccelerationSettings(
+        input.AccelerationSettings,
+        context
+      )
+    }),
+    ...(input.Category !== undefined && { category: input.Category }),
+    ...(input.Description !== undefined && { description: input.Description }),
+    ...(input.Priority !== undefined && { priority: input.Priority }),
+    ...(input.Queue !== undefined && { queue: input.Queue }),
+    ...(input.Settings !== undefined && {
+      settings: serializeAws_restJson1_1JobTemplateSettings(
+        input.Settings,
+        context
+      )
+    }),
+    ...(input.StatusUpdateInterval !== undefined && {
+      statusUpdateInterval: input.StatusUpdateInterval
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1151,20 +1064,13 @@ export const serializeAws_restJson1_1UpdatePresetCommand = async (
     throw new Error("No value provided for input HTTP label: Name.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Category !== undefined) {
-    bodyParams["category"] = input.Category;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["description"] = input.Description;
-  }
-  if (input.Settings !== undefined) {
-    bodyParams["settings"] = serializeAws_restJson1_1PresetSettings(
-      input.Settings,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Category !== undefined && { category: input.Category }),
+    ...(input.Description !== undefined && { description: input.Description }),
+    ...(input.Settings !== undefined && {
+      settings: serializeAws_restJson1_1PresetSettings(input.Settings, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1198,22 +1104,16 @@ export const serializeAws_restJson1_1UpdateQueueCommand = async (
     throw new Error("No value provided for input HTTP label: Name.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["description"] = input.Description;
-  }
-  if (input.ReservationPlanSettings !== undefined) {
-    bodyParams[
-      "reservationPlanSettings"
-    ] = serializeAws_restJson1_1ReservationPlanSettings(
-      input.ReservationPlanSettings,
-      context
-    );
-  }
-  if (input.Status !== undefined) {
-    bodyParams["status"] = input.Status;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Description !== undefined && { description: input.Description }),
+    ...(input.ReservationPlanSettings !== undefined && {
+      reservationPlanSettings: serializeAws_restJson1_1ReservationPlanSettings(
+        input.ReservationPlanSettings,
+        context
+      )
+    }),
+    ...(input.Status !== undefined && { status: input.Status })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

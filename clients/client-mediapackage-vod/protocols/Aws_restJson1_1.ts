@@ -95,23 +95,17 @@ export const serializeAws_restJson1_1CreateAssetCommand = async (
   };
   let resolvedPath = "/assets";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Id !== undefined) {
-    bodyParams["id"] = input.Id;
-  }
-  if (input.PackagingGroupId !== undefined) {
-    bodyParams["packagingGroupId"] = input.PackagingGroupId;
-  }
-  if (input.ResourceId !== undefined) {
-    bodyParams["resourceId"] = input.ResourceId;
-  }
-  if (input.SourceArn !== undefined) {
-    bodyParams["sourceArn"] = input.SourceArn;
-  }
-  if (input.SourceRoleArn !== undefined) {
-    bodyParams["sourceRoleArn"] = input.SourceRoleArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Id !== undefined && { id: input.Id }),
+    ...(input.PackagingGroupId !== undefined && {
+      packagingGroupId: input.PackagingGroupId
+    }),
+    ...(input.ResourceId !== undefined && { resourceId: input.ResourceId }),
+    ...(input.SourceArn !== undefined && { sourceArn: input.SourceArn }),
+    ...(input.SourceRoleArn !== undefined && {
+      sourceRoleArn: input.SourceRoleArn
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -133,38 +127,30 @@ export const serializeAws_restJson1_1CreatePackagingConfigurationCommand = async
   };
   let resolvedPath = "/packaging_configurations";
   let body: any;
-  const bodyParams: any = {};
-  if (input.CmafPackage !== undefined) {
-    bodyParams["cmafPackage"] = serializeAws_restJson1_1CmafPackage(
-      input.CmafPackage,
-      context
-    );
-  }
-  if (input.DashPackage !== undefined) {
-    bodyParams["dashPackage"] = serializeAws_restJson1_1DashPackage(
-      input.DashPackage,
-      context
-    );
-  }
-  if (input.HlsPackage !== undefined) {
-    bodyParams["hlsPackage"] = serializeAws_restJson1_1HlsPackage(
-      input.HlsPackage,
-      context
-    );
-  }
-  if (input.Id !== undefined) {
-    bodyParams["id"] = input.Id;
-  }
-  if (input.MssPackage !== undefined) {
-    bodyParams["mssPackage"] = serializeAws_restJson1_1MssPackage(
-      input.MssPackage,
-      context
-    );
-  }
-  if (input.PackagingGroupId !== undefined) {
-    bodyParams["packagingGroupId"] = input.PackagingGroupId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.CmafPackage !== undefined && {
+      cmafPackage: serializeAws_restJson1_1CmafPackage(
+        input.CmafPackage,
+        context
+      )
+    }),
+    ...(input.DashPackage !== undefined && {
+      dashPackage: serializeAws_restJson1_1DashPackage(
+        input.DashPackage,
+        context
+      )
+    }),
+    ...(input.HlsPackage !== undefined && {
+      hlsPackage: serializeAws_restJson1_1HlsPackage(input.HlsPackage, context)
+    }),
+    ...(input.Id !== undefined && { id: input.Id }),
+    ...(input.MssPackage !== undefined && {
+      mssPackage: serializeAws_restJson1_1MssPackage(input.MssPackage, context)
+    }),
+    ...(input.PackagingGroupId !== undefined && {
+      packagingGroupId: input.PackagingGroupId
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -186,11 +172,9 @@ export const serializeAws_restJson1_1CreatePackagingGroupCommand = async (
   };
   let resolvedPath = "/packaging_groups";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Id !== undefined) {
-    bodyParams["id"] = input.Id;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Id !== undefined && { id: input.Id })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

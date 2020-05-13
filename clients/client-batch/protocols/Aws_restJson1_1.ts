@@ -124,14 +124,10 @@ export const serializeAws_restJson1_1CancelJobCommand = async (
   };
   let resolvedPath = "/v1/canceljob";
   let body: any;
-  const bodyParams: any = {};
-  if (input.jobId !== undefined) {
-    bodyParams["jobId"] = input.jobId;
-  }
-  if (input.reason !== undefined) {
-    bodyParams["reason"] = input.reason;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.jobId !== undefined && { jobId: input.jobId }),
+    ...(input.reason !== undefined && { reason: input.reason })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -153,26 +149,20 @@ export const serializeAws_restJson1_1CreateComputeEnvironmentCommand = async (
   };
   let resolvedPath = "/v1/createcomputeenvironment";
   let body: any;
-  const bodyParams: any = {};
-  if (input.computeEnvironmentName !== undefined) {
-    bodyParams["computeEnvironmentName"] = input.computeEnvironmentName;
-  }
-  if (input.computeResources !== undefined) {
-    bodyParams["computeResources"] = serializeAws_restJson1_1ComputeResource(
-      input.computeResources,
-      context
-    );
-  }
-  if (input.serviceRole !== undefined) {
-    bodyParams["serviceRole"] = input.serviceRole;
-  }
-  if (input.state !== undefined) {
-    bodyParams["state"] = input.state;
-  }
-  if (input.type !== undefined) {
-    bodyParams["type"] = input.type;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.computeEnvironmentName !== undefined && {
+      computeEnvironmentName: input.computeEnvironmentName
+    }),
+    ...(input.computeResources !== undefined && {
+      computeResources: serializeAws_restJson1_1ComputeResource(
+        input.computeResources,
+        context
+      )
+    }),
+    ...(input.serviceRole !== undefined && { serviceRole: input.serviceRole }),
+    ...(input.state !== undefined && { state: input.state }),
+    ...(input.type !== undefined && { type: input.type })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -194,25 +184,19 @@ export const serializeAws_restJson1_1CreateJobQueueCommand = async (
   };
   let resolvedPath = "/v1/createjobqueue";
   let body: any;
-  const bodyParams: any = {};
-  if (input.computeEnvironmentOrder !== undefined) {
-    bodyParams[
-      "computeEnvironmentOrder"
-    ] = serializeAws_restJson1_1ComputeEnvironmentOrders(
-      input.computeEnvironmentOrder,
-      context
-    );
-  }
-  if (input.jobQueueName !== undefined) {
-    bodyParams["jobQueueName"] = input.jobQueueName;
-  }
-  if (input.priority !== undefined) {
-    bodyParams["priority"] = input.priority;
-  }
-  if (input.state !== undefined) {
-    bodyParams["state"] = input.state;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.computeEnvironmentOrder !== undefined && {
+      computeEnvironmentOrder: serializeAws_restJson1_1ComputeEnvironmentOrders(
+        input.computeEnvironmentOrder,
+        context
+      )
+    }),
+    ...(input.jobQueueName !== undefined && {
+      jobQueueName: input.jobQueueName
+    }),
+    ...(input.priority !== undefined && { priority: input.priority }),
+    ...(input.state !== undefined && { state: input.state })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -234,11 +218,11 @@ export const serializeAws_restJson1_1DeleteComputeEnvironmentCommand = async (
   };
   let resolvedPath = "/v1/deletecomputeenvironment";
   let body: any;
-  const bodyParams: any = {};
-  if (input.computeEnvironment !== undefined) {
-    bodyParams["computeEnvironment"] = input.computeEnvironment;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.computeEnvironment !== undefined && {
+      computeEnvironment: input.computeEnvironment
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -260,11 +244,9 @@ export const serializeAws_restJson1_1DeleteJobQueueCommand = async (
   };
   let resolvedPath = "/v1/deletejobqueue";
   let body: any;
-  const bodyParams: any = {};
-  if (input.jobQueue !== undefined) {
-    bodyParams["jobQueue"] = input.jobQueue;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.jobQueue !== undefined && { jobQueue: input.jobQueue })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -286,11 +268,11 @@ export const serializeAws_restJson1_1DeregisterJobDefinitionCommand = async (
   };
   let resolvedPath = "/v1/deregisterjobdefinition";
   let body: any;
-  const bodyParams: any = {};
-  if (input.jobDefinition !== undefined) {
-    bodyParams["jobDefinition"] = input.jobDefinition;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.jobDefinition !== undefined && {
+      jobDefinition: input.jobDefinition
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -312,20 +294,16 @@ export const serializeAws_restJson1_1DescribeComputeEnvironmentsCommand = async 
   };
   let resolvedPath = "/v1/describecomputeenvironments";
   let body: any;
-  const bodyParams: any = {};
-  if (input.computeEnvironments !== undefined) {
-    bodyParams["computeEnvironments"] = serializeAws_restJson1_1StringList(
-      input.computeEnvironments,
-      context
-    );
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.computeEnvironments !== undefined && {
+      computeEnvironments: serializeAws_restJson1_1StringList(
+        input.computeEnvironments,
+        context
+      )
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -347,26 +325,20 @@ export const serializeAws_restJson1_1DescribeJobDefinitionsCommand = async (
   };
   let resolvedPath = "/v1/describejobdefinitions";
   let body: any;
-  const bodyParams: any = {};
-  if (input.jobDefinitionName !== undefined) {
-    bodyParams["jobDefinitionName"] = input.jobDefinitionName;
-  }
-  if (input.jobDefinitions !== undefined) {
-    bodyParams["jobDefinitions"] = serializeAws_restJson1_1StringList(
-      input.jobDefinitions,
-      context
-    );
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.status !== undefined) {
-    bodyParams["status"] = input.status;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.jobDefinitionName !== undefined && {
+      jobDefinitionName: input.jobDefinitionName
+    }),
+    ...(input.jobDefinitions !== undefined && {
+      jobDefinitions: serializeAws_restJson1_1StringList(
+        input.jobDefinitions,
+        context
+      )
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.status !== undefined && { status: input.status })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -388,20 +360,13 @@ export const serializeAws_restJson1_1DescribeJobQueuesCommand = async (
   };
   let resolvedPath = "/v1/describejobqueues";
   let body: any;
-  const bodyParams: any = {};
-  if (input.jobQueues !== undefined) {
-    bodyParams["jobQueues"] = serializeAws_restJson1_1StringList(
-      input.jobQueues,
-      context
-    );
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.jobQueues !== undefined && {
+      jobQueues: serializeAws_restJson1_1StringList(input.jobQueues, context)
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -423,14 +388,11 @@ export const serializeAws_restJson1_1DescribeJobsCommand = async (
   };
   let resolvedPath = "/v1/describejobs";
   let body: any;
-  const bodyParams: any = {};
-  if (input.jobs !== undefined) {
-    bodyParams["jobs"] = serializeAws_restJson1_1StringList(
-      input.jobs,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.jobs !== undefined && {
+      jobs: serializeAws_restJson1_1StringList(input.jobs, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -452,26 +414,16 @@ export const serializeAws_restJson1_1ListJobsCommand = async (
   };
   let resolvedPath = "/v1/listjobs";
   let body: any;
-  const bodyParams: any = {};
-  if (input.arrayJobId !== undefined) {
-    bodyParams["arrayJobId"] = input.arrayJobId;
-  }
-  if (input.jobQueue !== undefined) {
-    bodyParams["jobQueue"] = input.jobQueue;
-  }
-  if (input.jobStatus !== undefined) {
-    bodyParams["jobStatus"] = input.jobStatus;
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.multiNodeJobId !== undefined) {
-    bodyParams["multiNodeJobId"] = input.multiNodeJobId;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.arrayJobId !== undefined && { arrayJobId: input.arrayJobId }),
+    ...(input.jobQueue !== undefined && { jobQueue: input.jobQueue }),
+    ...(input.jobStatus !== undefined && { jobStatus: input.jobStatus }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.multiNodeJobId !== undefined && {
+      multiNodeJobId: input.multiNodeJobId
+    }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -493,46 +445,39 @@ export const serializeAws_restJson1_1RegisterJobDefinitionCommand = async (
   };
   let resolvedPath = "/v1/registerjobdefinition";
   let body: any;
-  const bodyParams: any = {};
-  if (input.containerProperties !== undefined) {
-    bodyParams[
-      "containerProperties"
-    ] = serializeAws_restJson1_1ContainerProperties(
-      input.containerProperties,
-      context
-    );
-  }
-  if (input.jobDefinitionName !== undefined) {
-    bodyParams["jobDefinitionName"] = input.jobDefinitionName;
-  }
-  if (input.nodeProperties !== undefined) {
-    bodyParams["nodeProperties"] = serializeAws_restJson1_1NodeProperties(
-      input.nodeProperties,
-      context
-    );
-  }
-  if (input.parameters !== undefined) {
-    bodyParams["parameters"] = serializeAws_restJson1_1ParametersMap(
-      input.parameters,
-      context
-    );
-  }
-  if (input.retryStrategy !== undefined) {
-    bodyParams["retryStrategy"] = serializeAws_restJson1_1RetryStrategy(
-      input.retryStrategy,
-      context
-    );
-  }
-  if (input.timeout !== undefined) {
-    bodyParams["timeout"] = serializeAws_restJson1_1JobTimeout(
-      input.timeout,
-      context
-    );
-  }
-  if (input.type !== undefined) {
-    bodyParams["type"] = input.type;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.containerProperties !== undefined && {
+      containerProperties: serializeAws_restJson1_1ContainerProperties(
+        input.containerProperties,
+        context
+      )
+    }),
+    ...(input.jobDefinitionName !== undefined && {
+      jobDefinitionName: input.jobDefinitionName
+    }),
+    ...(input.nodeProperties !== undefined && {
+      nodeProperties: serializeAws_restJson1_1NodeProperties(
+        input.nodeProperties,
+        context
+      )
+    }),
+    ...(input.parameters !== undefined && {
+      parameters: serializeAws_restJson1_1ParametersMap(
+        input.parameters,
+        context
+      )
+    }),
+    ...(input.retryStrategy !== undefined && {
+      retryStrategy: serializeAws_restJson1_1RetryStrategy(
+        input.retryStrategy,
+        context
+      )
+    }),
+    ...(input.timeout !== undefined && {
+      timeout: serializeAws_restJson1_1JobTimeout(input.timeout, context)
+    }),
+    ...(input.type !== undefined && { type: input.type })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -554,61 +499,52 @@ export const serializeAws_restJson1_1SubmitJobCommand = async (
   };
   let resolvedPath = "/v1/submitjob";
   let body: any;
-  const bodyParams: any = {};
-  if (input.arrayProperties !== undefined) {
-    bodyParams["arrayProperties"] = serializeAws_restJson1_1ArrayProperties(
-      input.arrayProperties,
-      context
-    );
-  }
-  if (input.containerOverrides !== undefined) {
-    bodyParams[
-      "containerOverrides"
-    ] = serializeAws_restJson1_1ContainerOverrides(
-      input.containerOverrides,
-      context
-    );
-  }
-  if (input.dependsOn !== undefined) {
-    bodyParams["dependsOn"] = serializeAws_restJson1_1JobDependencyList(
-      input.dependsOn,
-      context
-    );
-  }
-  if (input.jobDefinition !== undefined) {
-    bodyParams["jobDefinition"] = input.jobDefinition;
-  }
-  if (input.jobName !== undefined) {
-    bodyParams["jobName"] = input.jobName;
-  }
-  if (input.jobQueue !== undefined) {
-    bodyParams["jobQueue"] = input.jobQueue;
-  }
-  if (input.nodeOverrides !== undefined) {
-    bodyParams["nodeOverrides"] = serializeAws_restJson1_1NodeOverrides(
-      input.nodeOverrides,
-      context
-    );
-  }
-  if (input.parameters !== undefined) {
-    bodyParams["parameters"] = serializeAws_restJson1_1ParametersMap(
-      input.parameters,
-      context
-    );
-  }
-  if (input.retryStrategy !== undefined) {
-    bodyParams["retryStrategy"] = serializeAws_restJson1_1RetryStrategy(
-      input.retryStrategy,
-      context
-    );
-  }
-  if (input.timeout !== undefined) {
-    bodyParams["timeout"] = serializeAws_restJson1_1JobTimeout(
-      input.timeout,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.arrayProperties !== undefined && {
+      arrayProperties: serializeAws_restJson1_1ArrayProperties(
+        input.arrayProperties,
+        context
+      )
+    }),
+    ...(input.containerOverrides !== undefined && {
+      containerOverrides: serializeAws_restJson1_1ContainerOverrides(
+        input.containerOverrides,
+        context
+      )
+    }),
+    ...(input.dependsOn !== undefined && {
+      dependsOn: serializeAws_restJson1_1JobDependencyList(
+        input.dependsOn,
+        context
+      )
+    }),
+    ...(input.jobDefinition !== undefined && {
+      jobDefinition: input.jobDefinition
+    }),
+    ...(input.jobName !== undefined && { jobName: input.jobName }),
+    ...(input.jobQueue !== undefined && { jobQueue: input.jobQueue }),
+    ...(input.nodeOverrides !== undefined && {
+      nodeOverrides: serializeAws_restJson1_1NodeOverrides(
+        input.nodeOverrides,
+        context
+      )
+    }),
+    ...(input.parameters !== undefined && {
+      parameters: serializeAws_restJson1_1ParametersMap(
+        input.parameters,
+        context
+      )
+    }),
+    ...(input.retryStrategy !== undefined && {
+      retryStrategy: serializeAws_restJson1_1RetryStrategy(
+        input.retryStrategy,
+        context
+      )
+    }),
+    ...(input.timeout !== undefined && {
+      timeout: serializeAws_restJson1_1JobTimeout(input.timeout, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -630,14 +566,10 @@ export const serializeAws_restJson1_1TerminateJobCommand = async (
   };
   let resolvedPath = "/v1/terminatejob";
   let body: any;
-  const bodyParams: any = {};
-  if (input.jobId !== undefined) {
-    bodyParams["jobId"] = input.jobId;
-  }
-  if (input.reason !== undefined) {
-    bodyParams["reason"] = input.reason;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.jobId !== undefined && { jobId: input.jobId }),
+    ...(input.reason !== undefined && { reason: input.reason })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -659,25 +591,19 @@ export const serializeAws_restJson1_1UpdateComputeEnvironmentCommand = async (
   };
   let resolvedPath = "/v1/updatecomputeenvironment";
   let body: any;
-  const bodyParams: any = {};
-  if (input.computeEnvironment !== undefined) {
-    bodyParams["computeEnvironment"] = input.computeEnvironment;
-  }
-  if (input.computeResources !== undefined) {
-    bodyParams[
-      "computeResources"
-    ] = serializeAws_restJson1_1ComputeResourceUpdate(
-      input.computeResources,
-      context
-    );
-  }
-  if (input.serviceRole !== undefined) {
-    bodyParams["serviceRole"] = input.serviceRole;
-  }
-  if (input.state !== undefined) {
-    bodyParams["state"] = input.state;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.computeEnvironment !== undefined && {
+      computeEnvironment: input.computeEnvironment
+    }),
+    ...(input.computeResources !== undefined && {
+      computeResources: serializeAws_restJson1_1ComputeResourceUpdate(
+        input.computeResources,
+        context
+      )
+    }),
+    ...(input.serviceRole !== undefined && { serviceRole: input.serviceRole }),
+    ...(input.state !== undefined && { state: input.state })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -699,25 +625,17 @@ export const serializeAws_restJson1_1UpdateJobQueueCommand = async (
   };
   let resolvedPath = "/v1/updatejobqueue";
   let body: any;
-  const bodyParams: any = {};
-  if (input.computeEnvironmentOrder !== undefined) {
-    bodyParams[
-      "computeEnvironmentOrder"
-    ] = serializeAws_restJson1_1ComputeEnvironmentOrders(
-      input.computeEnvironmentOrder,
-      context
-    );
-  }
-  if (input.jobQueue !== undefined) {
-    bodyParams["jobQueue"] = input.jobQueue;
-  }
-  if (input.priority !== undefined) {
-    bodyParams["priority"] = input.priority;
-  }
-  if (input.state !== undefined) {
-    bodyParams["state"] = input.state;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.computeEnvironmentOrder !== undefined && {
+      computeEnvironmentOrder: serializeAws_restJson1_1ComputeEnvironmentOrders(
+        input.computeEnvironmentOrder,
+        context
+      )
+    }),
+    ...(input.jobQueue !== undefined && { jobQueue: input.jobQueue }),
+    ...(input.priority !== undefined && { priority: input.priority }),
+    ...(input.state !== undefined && { state: input.state })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

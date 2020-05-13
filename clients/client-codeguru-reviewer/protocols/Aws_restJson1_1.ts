@@ -51,20 +51,12 @@ export const serializeAws_restJson1_1AssociateRepositoryCommand = async (
   };
   let resolvedPath = "/associations";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ClientRequestToken === undefined) {
-    input.ClientRequestToken = generateIdempotencyToken();
-  }
-  if (input.ClientRequestToken !== undefined) {
-    bodyParams["ClientRequestToken"] = input.ClientRequestToken;
-  }
-  if (input.Repository !== undefined) {
-    bodyParams["Repository"] = serializeAws_restJson1_1Repository(
-      input.Repository,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.Repository !== undefined && {
+      Repository: serializeAws_restJson1_1Repository(input.Repository, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

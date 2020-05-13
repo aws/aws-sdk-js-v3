@@ -93,56 +93,35 @@ export const serializeAws_restJson1_1CreateApplicationCommand = async (
   };
   let resolvedPath = "/applications";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Author !== undefined) {
-    bodyParams["author"] = input.Author;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["description"] = input.Description;
-  }
-  if (input.HomePageUrl !== undefined) {
-    bodyParams["homePageUrl"] = input.HomePageUrl;
-  }
-  if (input.Labels !== undefined) {
-    bodyParams["labels"] = serializeAws_restJson1_1__listOf__string(
-      input.Labels,
-      context
-    );
-  }
-  if (input.LicenseBody !== undefined) {
-    bodyParams["licenseBody"] = input.LicenseBody;
-  }
-  if (input.LicenseUrl !== undefined) {
-    bodyParams["licenseUrl"] = input.LicenseUrl;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["name"] = input.Name;
-  }
-  if (input.ReadmeBody !== undefined) {
-    bodyParams["readmeBody"] = input.ReadmeBody;
-  }
-  if (input.ReadmeUrl !== undefined) {
-    bodyParams["readmeUrl"] = input.ReadmeUrl;
-  }
-  if (input.SemanticVersion !== undefined) {
-    bodyParams["semanticVersion"] = input.SemanticVersion;
-  }
-  if (input.SourceCodeArchiveUrl !== undefined) {
-    bodyParams["sourceCodeArchiveUrl"] = input.SourceCodeArchiveUrl;
-  }
-  if (input.SourceCodeUrl !== undefined) {
-    bodyParams["sourceCodeUrl"] = input.SourceCodeUrl;
-  }
-  if (input.SpdxLicenseId !== undefined) {
-    bodyParams["spdxLicenseId"] = input.SpdxLicenseId;
-  }
-  if (input.TemplateBody !== undefined) {
-    bodyParams["templateBody"] = input.TemplateBody;
-  }
-  if (input.TemplateUrl !== undefined) {
-    bodyParams["templateUrl"] = input.TemplateUrl;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Author !== undefined && { author: input.Author }),
+    ...(input.Description !== undefined && { description: input.Description }),
+    ...(input.HomePageUrl !== undefined && { homePageUrl: input.HomePageUrl }),
+    ...(input.Labels !== undefined && {
+      labels: serializeAws_restJson1_1__listOf__string(input.Labels, context)
+    }),
+    ...(input.LicenseBody !== undefined && { licenseBody: input.LicenseBody }),
+    ...(input.LicenseUrl !== undefined && { licenseUrl: input.LicenseUrl }),
+    ...(input.Name !== undefined && { name: input.Name }),
+    ...(input.ReadmeBody !== undefined && { readmeBody: input.ReadmeBody }),
+    ...(input.ReadmeUrl !== undefined && { readmeUrl: input.ReadmeUrl }),
+    ...(input.SemanticVersion !== undefined && {
+      semanticVersion: input.SemanticVersion
+    }),
+    ...(input.SourceCodeArchiveUrl !== undefined && {
+      sourceCodeArchiveUrl: input.SourceCodeArchiveUrl
+    }),
+    ...(input.SourceCodeUrl !== undefined && {
+      sourceCodeUrl: input.SourceCodeUrl
+    }),
+    ...(input.SpdxLicenseId !== undefined && {
+      spdxLicenseId: input.SpdxLicenseId
+    }),
+    ...(input.TemplateBody !== undefined && {
+      templateBody: input.TemplateBody
+    }),
+    ...(input.TemplateUrl !== undefined && { templateUrl: input.TemplateUrl })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -192,20 +171,18 @@ export const serializeAws_restJson1_1CreateApplicationVersionCommand = async (
     throw new Error("No value provided for input HTTP label: SemanticVersion.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.SourceCodeArchiveUrl !== undefined) {
-    bodyParams["sourceCodeArchiveUrl"] = input.SourceCodeArchiveUrl;
-  }
-  if (input.SourceCodeUrl !== undefined) {
-    bodyParams["sourceCodeUrl"] = input.SourceCodeUrl;
-  }
-  if (input.TemplateBody !== undefined) {
-    bodyParams["templateBody"] = input.TemplateBody;
-  }
-  if (input.TemplateUrl !== undefined) {
-    bodyParams["templateUrl"] = input.TemplateUrl;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.SourceCodeArchiveUrl !== undefined && {
+      sourceCodeArchiveUrl: input.SourceCodeArchiveUrl
+    }),
+    ...(input.SourceCodeUrl !== undefined && {
+      sourceCodeUrl: input.SourceCodeUrl
+    }),
+    ...(input.TemplateBody !== undefined && {
+      templateBody: input.TemplateBody
+    }),
+    ...(input.TemplateUrl !== undefined && { templateUrl: input.TemplateUrl })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -241,66 +218,51 @@ export const serializeAws_restJson1_1CreateCloudFormationChangeSetCommand = asyn
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Capabilities !== undefined) {
-    bodyParams["capabilities"] = serializeAws_restJson1_1__listOf__string(
-      input.Capabilities,
-      context
-    );
-  }
-  if (input.ChangeSetName !== undefined) {
-    bodyParams["changeSetName"] = input.ChangeSetName;
-  }
-  if (input.ClientToken !== undefined) {
-    bodyParams["clientToken"] = input.ClientToken;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["description"] = input.Description;
-  }
-  if (input.NotificationArns !== undefined) {
-    bodyParams["notificationArns"] = serializeAws_restJson1_1__listOf__string(
-      input.NotificationArns,
-      context
-    );
-  }
-  if (input.ParameterOverrides !== undefined) {
-    bodyParams[
-      "parameterOverrides"
-    ] = serializeAws_restJson1_1__listOfParameterValue(
-      input.ParameterOverrides,
-      context
-    );
-  }
-  if (input.ResourceTypes !== undefined) {
-    bodyParams["resourceTypes"] = serializeAws_restJson1_1__listOf__string(
-      input.ResourceTypes,
-      context
-    );
-  }
-  if (input.RollbackConfiguration !== undefined) {
-    bodyParams[
-      "rollbackConfiguration"
-    ] = serializeAws_restJson1_1RollbackConfiguration(
-      input.RollbackConfiguration,
-      context
-    );
-  }
-  if (input.SemanticVersion !== undefined) {
-    bodyParams["semanticVersion"] = input.SemanticVersion;
-  }
-  if (input.StackName !== undefined) {
-    bodyParams["stackName"] = input.StackName;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1__listOfTag(
-      input.Tags,
-      context
-    );
-  }
-  if (input.TemplateId !== undefined) {
-    bodyParams["templateId"] = input.TemplateId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Capabilities !== undefined && {
+      capabilities: serializeAws_restJson1_1__listOf__string(
+        input.Capabilities,
+        context
+      )
+    }),
+    ...(input.ChangeSetName !== undefined && {
+      changeSetName: input.ChangeSetName
+    }),
+    ...(input.ClientToken !== undefined && { clientToken: input.ClientToken }),
+    ...(input.Description !== undefined && { description: input.Description }),
+    ...(input.NotificationArns !== undefined && {
+      notificationArns: serializeAws_restJson1_1__listOf__string(
+        input.NotificationArns,
+        context
+      )
+    }),
+    ...(input.ParameterOverrides !== undefined && {
+      parameterOverrides: serializeAws_restJson1_1__listOfParameterValue(
+        input.ParameterOverrides,
+        context
+      )
+    }),
+    ...(input.ResourceTypes !== undefined && {
+      resourceTypes: serializeAws_restJson1_1__listOf__string(
+        input.ResourceTypes,
+        context
+      )
+    }),
+    ...(input.RollbackConfiguration !== undefined && {
+      rollbackConfiguration: serializeAws_restJson1_1RollbackConfiguration(
+        input.RollbackConfiguration,
+        context
+      )
+    }),
+    ...(input.SemanticVersion !== undefined && {
+      semanticVersion: input.SemanticVersion
+    }),
+    ...(input.StackName !== undefined && { stackName: input.StackName }),
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1__listOfTag(input.Tags, context)
+    }),
+    ...(input.TemplateId !== undefined && { templateId: input.TemplateId })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -336,11 +298,11 @@ export const serializeAws_restJson1_1CreateCloudFormationTemplateCommand = async
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.SemanticVersion !== undefined) {
-    bodyParams["semanticVersion"] = input.SemanticVersion;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.SemanticVersion !== undefined && {
+      semanticVersion: input.SemanticVersion
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -649,16 +611,14 @@ export const serializeAws_restJson1_1PutApplicationPolicyCommand = async (
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Statements !== undefined) {
-    bodyParams[
-      "statements"
-    ] = serializeAws_restJson1_1__listOfApplicationPolicyStatement(
-      input.Statements,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Statements !== undefined && {
+      statements: serializeAws_restJson1_1__listOfApplicationPolicyStatement(
+        input.Statements,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -694,29 +654,16 @@ export const serializeAws_restJson1_1UpdateApplicationCommand = async (
     throw new Error("No value provided for input HTTP label: ApplicationId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Author !== undefined) {
-    bodyParams["author"] = input.Author;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["description"] = input.Description;
-  }
-  if (input.HomePageUrl !== undefined) {
-    bodyParams["homePageUrl"] = input.HomePageUrl;
-  }
-  if (input.Labels !== undefined) {
-    bodyParams["labels"] = serializeAws_restJson1_1__listOf__string(
-      input.Labels,
-      context
-    );
-  }
-  if (input.ReadmeBody !== undefined) {
-    bodyParams["readmeBody"] = input.ReadmeBody;
-  }
-  if (input.ReadmeUrl !== undefined) {
-    bodyParams["readmeUrl"] = input.ReadmeUrl;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Author !== undefined && { author: input.Author }),
+    ...(input.Description !== undefined && { description: input.Description }),
+    ...(input.HomePageUrl !== undefined && { homePageUrl: input.HomePageUrl }),
+    ...(input.Labels !== undefined && {
+      labels: serializeAws_restJson1_1__listOf__string(input.Labels, context)
+    }),
+    ...(input.ReadmeBody !== undefined && { readmeBody: input.ReadmeBody }),
+    ...(input.ReadmeUrl !== undefined && { readmeUrl: input.ReadmeUrl })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

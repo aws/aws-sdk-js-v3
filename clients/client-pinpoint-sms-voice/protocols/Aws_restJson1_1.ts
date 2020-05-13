@@ -72,11 +72,11 @@ export const serializeAws_restJson1_1CreateConfigurationSetCommand = async (
   };
   let resolvedPath = "/v1/sms-voice/configuration-sets";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ConfigurationSetName !== undefined) {
-    bodyParams["ConfigurationSetName"] = input.ConfigurationSetName;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ConfigurationSetName !== undefined && {
+      ConfigurationSetName: input.ConfigurationSetName
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -115,19 +115,17 @@ export const serializeAws_restJson1_1CreateConfigurationSetEventDestinationComma
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.EventDestination !== undefined) {
-    bodyParams[
-      "EventDestination"
-    ] = serializeAws_restJson1_1EventDestinationDefinition(
-      input.EventDestination,
-      context
-    );
-  }
-  if (input.EventDestinationName !== undefined) {
-    bodyParams["EventDestinationName"] = input.EventDestinationName;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.EventDestination !== undefined && {
+      EventDestination: serializeAws_restJson1_1EventDestinationDefinition(
+        input.EventDestination,
+        context
+      )
+    }),
+    ...(input.EventDestinationName !== undefined && {
+      EventDestinationName: input.EventDestinationName
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -304,26 +302,24 @@ export const serializeAws_restJson1_1SendVoiceMessageCommand = async (
   };
   let resolvedPath = "/v1/sms-voice/voice/message";
   let body: any;
-  const bodyParams: any = {};
-  if (input.CallerId !== undefined) {
-    bodyParams["CallerId"] = input.CallerId;
-  }
-  if (input.ConfigurationSetName !== undefined) {
-    bodyParams["ConfigurationSetName"] = input.ConfigurationSetName;
-  }
-  if (input.Content !== undefined) {
-    bodyParams["Content"] = serializeAws_restJson1_1VoiceMessageContent(
-      input.Content,
-      context
-    );
-  }
-  if (input.DestinationPhoneNumber !== undefined) {
-    bodyParams["DestinationPhoneNumber"] = input.DestinationPhoneNumber;
-  }
-  if (input.OriginationPhoneNumber !== undefined) {
-    bodyParams["OriginationPhoneNumber"] = input.OriginationPhoneNumber;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.CallerId !== undefined && { CallerId: input.CallerId }),
+    ...(input.ConfigurationSetName !== undefined && {
+      ConfigurationSetName: input.ConfigurationSetName
+    }),
+    ...(input.Content !== undefined && {
+      Content: serializeAws_restJson1_1VoiceMessageContent(
+        input.Content,
+        context
+      )
+    }),
+    ...(input.DestinationPhoneNumber !== undefined && {
+      DestinationPhoneNumber: input.DestinationPhoneNumber
+    }),
+    ...(input.OriginationPhoneNumber !== undefined && {
+      OriginationPhoneNumber: input.OriginationPhoneNumber
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -378,16 +374,14 @@ export const serializeAws_restJson1_1UpdateConfigurationSetEventDestinationComma
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.EventDestination !== undefined) {
-    bodyParams[
-      "EventDestination"
-    ] = serializeAws_restJson1_1EventDestinationDefinition(
-      input.EventDestination,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.EventDestination !== undefined && {
+      EventDestination: serializeAws_restJson1_1EventDestinationDefinition(
+        input.EventDestination,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

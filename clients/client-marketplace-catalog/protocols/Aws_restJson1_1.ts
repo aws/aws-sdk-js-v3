@@ -142,26 +142,17 @@ export const serializeAws_restJson1_1ListChangeSetsCommand = async (
   };
   let resolvedPath = "/ListChangeSets";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Catalog !== undefined) {
-    bodyParams["Catalog"] = input.Catalog;
-  }
-  if (input.FilterList !== undefined) {
-    bodyParams["FilterList"] = serializeAws_restJson1_1FilterList(
-      input.FilterList,
-      context
-    );
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.Sort !== undefined) {
-    bodyParams["Sort"] = serializeAws_restJson1_1Sort(input.Sort, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Catalog !== undefined && { Catalog: input.Catalog }),
+    ...(input.FilterList !== undefined && {
+      FilterList: serializeAws_restJson1_1FilterList(input.FilterList, context)
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Sort !== undefined && {
+      Sort: serializeAws_restJson1_1Sort(input.Sort, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -183,29 +174,18 @@ export const serializeAws_restJson1_1ListEntitiesCommand = async (
   };
   let resolvedPath = "/ListEntities";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Catalog !== undefined) {
-    bodyParams["Catalog"] = input.Catalog;
-  }
-  if (input.EntityType !== undefined) {
-    bodyParams["EntityType"] = input.EntityType;
-  }
-  if (input.FilterList !== undefined) {
-    bodyParams["FilterList"] = serializeAws_restJson1_1FilterList(
-      input.FilterList,
-      context
-    );
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.Sort !== undefined) {
-    bodyParams["Sort"] = serializeAws_restJson1_1Sort(input.Sort, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Catalog !== undefined && { Catalog: input.Catalog }),
+    ...(input.EntityType !== undefined && { EntityType: input.EntityType }),
+    ...(input.FilterList !== undefined && {
+      FilterList: serializeAws_restJson1_1FilterList(input.FilterList, context)
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.Sort !== undefined && {
+      Sort: serializeAws_restJson1_1Sort(input.Sort, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -227,23 +207,21 @@ export const serializeAws_restJson1_1StartChangeSetCommand = async (
   };
   let resolvedPath = "/StartChangeSet";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Catalog !== undefined) {
-    bodyParams["Catalog"] = input.Catalog;
-  }
-  if (input.ChangeSet !== undefined) {
-    bodyParams["ChangeSet"] = serializeAws_restJson1_1RequestedChangeList(
-      input.ChangeSet,
-      context
-    );
-  }
-  if (input.ChangeSetName !== undefined) {
-    bodyParams["ChangeSetName"] = input.ChangeSetName;
-  }
-  if (input.ClientRequestToken !== undefined) {
-    bodyParams["ClientRequestToken"] = input.ClientRequestToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Catalog !== undefined && { Catalog: input.Catalog }),
+    ...(input.ChangeSet !== undefined && {
+      ChangeSet: serializeAws_restJson1_1RequestedChangeList(
+        input.ChangeSet,
+        context
+      )
+    }),
+    ...(input.ChangeSetName !== undefined && {
+      ChangeSetName: input.ChangeSetName
+    }),
+    ...(input.ClientRequestToken !== undefined && {
+      ClientRequestToken: input.ClientRequestToken
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

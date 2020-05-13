@@ -114,29 +114,22 @@ export const serializeAws_restJson1_1CreateAnalyzerCommand = async (
   };
   let resolvedPath = "/analyzer";
   let body: any;
-  const bodyParams: any = {};
-  if (input.analyzerName !== undefined) {
-    bodyParams["analyzerName"] = input.analyzerName;
-  }
-  if (input.archiveRules !== undefined) {
-    bodyParams["archiveRules"] = serializeAws_restJson1_1InlineArchiveRulesList(
-      input.archiveRules,
-      context
-    );
-  }
-  if (input.clientToken === undefined) {
-    input.clientToken = generateIdempotencyToken();
-  }
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagsMap(input.tags, context);
-  }
-  if (input.type !== undefined) {
-    bodyParams["type"] = input.type;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.analyzerName !== undefined && {
+      analyzerName: input.analyzerName
+    }),
+    ...(input.archiveRules !== undefined && {
+      archiveRules: serializeAws_restJson1_1InlineArchiveRulesList(
+        input.archiveRules,
+        context
+      )
+    }),
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagsMap(input.tags, context)
+    }),
+    ...(input.type !== undefined && { type: input.type })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -172,23 +165,13 @@ export const serializeAws_restJson1_1CreateArchiveRuleCommand = async (
     throw new Error("No value provided for input HTTP label: analyzerName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientToken === undefined) {
-    input.clientToken = generateIdempotencyToken();
-  }
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.filter !== undefined) {
-    bodyParams["filter"] = serializeAws_restJson1_1FilterCriteriaMap(
-      input.filter,
-      context
-    );
-  }
-  if (input.ruleName !== undefined) {
-    bodyParams["ruleName"] = input.ruleName;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.filter !== undefined && {
+      filter: serializeAws_restJson1_1FilterCriteriaMap(input.filter, context)
+    }),
+    ...(input.ruleName !== undefined && { ruleName: input.ruleName })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -445,20 +428,14 @@ export const serializeAws_restJson1_1ListAnalyzedResourcesCommand = async (
   };
   let resolvedPath = "/analyzed-resource";
   let body: any;
-  const bodyParams: any = {};
-  if (input.analyzerArn !== undefined) {
-    bodyParams["analyzerArn"] = input.analyzerArn;
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.resourceType !== undefined) {
-    bodyParams["resourceType"] = input.resourceType;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.analyzerArn !== undefined && { analyzerArn: input.analyzerArn }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.resourceType !== undefined && {
+      resourceType: input.resourceType
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -551,29 +528,17 @@ export const serializeAws_restJson1_1ListFindingsCommand = async (
   };
   let resolvedPath = "/finding";
   let body: any;
-  const bodyParams: any = {};
-  if (input.analyzerArn !== undefined) {
-    bodyParams["analyzerArn"] = input.analyzerArn;
-  }
-  if (input.filter !== undefined) {
-    bodyParams["filter"] = serializeAws_restJson1_1FilterCriteriaMap(
-      input.filter,
-      context
-    );
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.sort !== undefined) {
-    bodyParams["sort"] = serializeAws_restJson1_1SortCriteria(
-      input.sort,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.analyzerArn !== undefined && { analyzerArn: input.analyzerArn }),
+    ...(input.filter !== undefined && {
+      filter: serializeAws_restJson1_1FilterCriteriaMap(input.filter, context)
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.sort !== undefined && {
+      sort: serializeAws_restJson1_1SortCriteria(input.sort, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -630,14 +595,10 @@ export const serializeAws_restJson1_1StartResourceScanCommand = async (
   };
   let resolvedPath = "/resource/scan";
   let body: any;
-  const bodyParams: any = {};
-  if (input.analyzerArn !== undefined) {
-    bodyParams["analyzerArn"] = input.analyzerArn;
-  }
-  if (input.resourceArn !== undefined) {
-    bodyParams["resourceArn"] = input.resourceArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.analyzerArn !== undefined && { analyzerArn: input.analyzerArn }),
+    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -673,11 +634,11 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagsMap(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagsMap(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -766,20 +727,12 @@ export const serializeAws_restJson1_1UpdateArchiveRuleCommand = async (
     throw new Error("No value provided for input HTTP label: ruleName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientToken === undefined) {
-    input.clientToken = generateIdempotencyToken();
-  }
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.filter !== undefined) {
-    bodyParams["filter"] = serializeAws_restJson1_1FilterCriteriaMap(
-      input.filter,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.filter !== undefined && {
+      filter: serializeAws_restJson1_1FilterCriteriaMap(input.filter, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -801,29 +754,15 @@ export const serializeAws_restJson1_1UpdateFindingsCommand = async (
   };
   let resolvedPath = "/finding";
   let body: any;
-  const bodyParams: any = {};
-  if (input.analyzerArn !== undefined) {
-    bodyParams["analyzerArn"] = input.analyzerArn;
-  }
-  if (input.clientToken === undefined) {
-    input.clientToken = generateIdempotencyToken();
-  }
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.ids !== undefined) {
-    bodyParams["ids"] = serializeAws_restJson1_1FindingIdList(
-      input.ids,
-      context
-    );
-  }
-  if (input.resourceArn !== undefined) {
-    bodyParams["resourceArn"] = input.resourceArn;
-  }
-  if (input.status !== undefined) {
-    bodyParams["status"] = input.status;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.analyzerArn !== undefined && { analyzerArn: input.analyzerArn }),
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.ids !== undefined && {
+      ids: serializeAws_restJson1_1FindingIdList(input.ids, context)
+    }),
+    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
+    ...(input.status !== undefined && { status: input.status })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

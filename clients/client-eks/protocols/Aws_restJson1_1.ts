@@ -142,38 +142,24 @@ export const serializeAws_restJson1_1CreateClusterCommand = async (
   };
   let resolvedPath = "/clusters";
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientRequestToken === undefined) {
-    input.clientRequestToken = generateIdempotencyToken();
-  }
-  if (input.clientRequestToken !== undefined) {
-    bodyParams["clientRequestToken"] = input.clientRequestToken;
-  }
-  if (input.logging !== undefined) {
-    bodyParams["logging"] = serializeAws_restJson1_1Logging(
-      input.logging,
-      context
-    );
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.resourcesVpcConfig !== undefined) {
-    bodyParams["resourcesVpcConfig"] = serializeAws_restJson1_1VpcConfigRequest(
-      input.resourcesVpcConfig,
-      context
-    );
-  }
-  if (input.roleArn !== undefined) {
-    bodyParams["roleArn"] = input.roleArn;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
-  }
-  if (input.version !== undefined) {
-    bodyParams["version"] = input.version;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
+    ...(input.logging !== undefined && {
+      logging: serializeAws_restJson1_1Logging(input.logging, context)
+    }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.resourcesVpcConfig !== undefined && {
+      resourcesVpcConfig: serializeAws_restJson1_1VpcConfigRequest(
+        input.resourcesVpcConfig,
+        context
+      )
+    }),
+    ...(input.roleArn !== undefined && { roleArn: input.roleArn }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.tags, context)
+    }),
+    ...(input.version !== undefined && { version: input.version })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -209,35 +195,27 @@ export const serializeAws_restJson1_1CreateFargateProfileCommand = async (
     throw new Error("No value provided for input HTTP label: clusterName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientRequestToken === undefined) {
-    input.clientRequestToken = generateIdempotencyToken();
-  }
-  if (input.clientRequestToken !== undefined) {
-    bodyParams["clientRequestToken"] = input.clientRequestToken;
-  }
-  if (input.fargateProfileName !== undefined) {
-    bodyParams["fargateProfileName"] = input.fargateProfileName;
-  }
-  if (input.podExecutionRoleArn !== undefined) {
-    bodyParams["podExecutionRoleArn"] = input.podExecutionRoleArn;
-  }
-  if (input.selectors !== undefined) {
-    bodyParams["selectors"] = serializeAws_restJson1_1FargateProfileSelectors(
-      input.selectors,
-      context
-    );
-  }
-  if (input.subnets !== undefined) {
-    bodyParams["subnets"] = serializeAws_restJson1_1StringList(
-      input.subnets,
-      context
-    );
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
+    ...(input.fargateProfileName !== undefined && {
+      fargateProfileName: input.fargateProfileName
+    }),
+    ...(input.podExecutionRoleArn !== undefined && {
+      podExecutionRoleArn: input.podExecutionRoleArn
+    }),
+    ...(input.selectors !== undefined && {
+      selectors: serializeAws_restJson1_1FargateProfileSelectors(
+        input.selectors,
+        context
+      )
+    }),
+    ...(input.subnets !== undefined && {
+      subnets: serializeAws_restJson1_1StringList(input.subnets, context)
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -273,67 +251,46 @@ export const serializeAws_restJson1_1CreateNodegroupCommand = async (
     throw new Error("No value provided for input HTTP label: clusterName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.amiType !== undefined) {
-    bodyParams["amiType"] = input.amiType;
-  }
-  if (input.clientRequestToken === undefined) {
-    input.clientRequestToken = generateIdempotencyToken();
-  }
-  if (input.clientRequestToken !== undefined) {
-    bodyParams["clientRequestToken"] = input.clientRequestToken;
-  }
-  if (input.diskSize !== undefined) {
-    bodyParams["diskSize"] = input.diskSize;
-  }
-  if (input.instanceTypes !== undefined) {
-    bodyParams["instanceTypes"] = serializeAws_restJson1_1StringList(
-      input.instanceTypes,
-      context
-    );
-  }
-  if (input.labels !== undefined) {
-    bodyParams["labels"] = serializeAws_restJson1_1labelsMap(
-      input.labels,
-      context
-    );
-  }
-  if (input.nodeRole !== undefined) {
-    bodyParams["nodeRole"] = input.nodeRole;
-  }
-  if (input.nodegroupName !== undefined) {
-    bodyParams["nodegroupName"] = input.nodegroupName;
-  }
-  if (input.releaseVersion !== undefined) {
-    bodyParams["releaseVersion"] = input.releaseVersion;
-  }
-  if (input.remoteAccess !== undefined) {
-    bodyParams["remoteAccess"] = serializeAws_restJson1_1RemoteAccessConfig(
-      input.remoteAccess,
-      context
-    );
-  }
-  if (input.scalingConfig !== undefined) {
-    bodyParams[
-      "scalingConfig"
-    ] = serializeAws_restJson1_1NodegroupScalingConfig(
-      input.scalingConfig,
-      context
-    );
-  }
-  if (input.subnets !== undefined) {
-    bodyParams["subnets"] = serializeAws_restJson1_1StringList(
-      input.subnets,
-      context
-    );
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
-  }
-  if (input.version !== undefined) {
-    bodyParams["version"] = input.version;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.amiType !== undefined && { amiType: input.amiType }),
+    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
+    ...(input.diskSize !== undefined && { diskSize: input.diskSize }),
+    ...(input.instanceTypes !== undefined && {
+      instanceTypes: serializeAws_restJson1_1StringList(
+        input.instanceTypes,
+        context
+      )
+    }),
+    ...(input.labels !== undefined && {
+      labels: serializeAws_restJson1_1labelsMap(input.labels, context)
+    }),
+    ...(input.nodeRole !== undefined && { nodeRole: input.nodeRole }),
+    ...(input.nodegroupName !== undefined && {
+      nodegroupName: input.nodegroupName
+    }),
+    ...(input.releaseVersion !== undefined && {
+      releaseVersion: input.releaseVersion
+    }),
+    ...(input.remoteAccess !== undefined && {
+      remoteAccess: serializeAws_restJson1_1RemoteAccessConfig(
+        input.remoteAccess,
+        context
+      )
+    }),
+    ...(input.scalingConfig !== undefined && {
+      scalingConfig: serializeAws_restJson1_1NodegroupScalingConfig(
+        input.scalingConfig,
+        context
+      )
+    }),
+    ...(input.subnets !== undefined && {
+      subnets: serializeAws_restJson1_1StringList(input.subnets, context)
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.tags, context)
+    }),
+    ...(input.version !== undefined && { version: input.version })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -878,11 +835,11 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -957,26 +914,18 @@ export const serializeAws_restJson1_1UpdateClusterConfigCommand = async (
     throw new Error("No value provided for input HTTP label: name.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientRequestToken === undefined) {
-    input.clientRequestToken = generateIdempotencyToken();
-  }
-  if (input.clientRequestToken !== undefined) {
-    bodyParams["clientRequestToken"] = input.clientRequestToken;
-  }
-  if (input.logging !== undefined) {
-    bodyParams["logging"] = serializeAws_restJson1_1Logging(
-      input.logging,
-      context
-    );
-  }
-  if (input.resourcesVpcConfig !== undefined) {
-    bodyParams["resourcesVpcConfig"] = serializeAws_restJson1_1VpcConfigRequest(
-      input.resourcesVpcConfig,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
+    ...(input.logging !== undefined && {
+      logging: serializeAws_restJson1_1Logging(input.logging, context)
+    }),
+    ...(input.resourcesVpcConfig !== undefined && {
+      resourcesVpcConfig: serializeAws_restJson1_1VpcConfigRequest(
+        input.resourcesVpcConfig,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1010,17 +959,10 @@ export const serializeAws_restJson1_1UpdateClusterVersionCommand = async (
     throw new Error("No value provided for input HTTP label: name.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientRequestToken === undefined) {
-    input.clientRequestToken = generateIdempotencyToken();
-  }
-  if (input.clientRequestToken !== undefined) {
-    bodyParams["clientRequestToken"] = input.clientRequestToken;
-  }
-  if (input.version !== undefined) {
-    bodyParams["version"] = input.version;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
+    ...(input.version !== undefined && { version: input.version })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1071,28 +1013,18 @@ export const serializeAws_restJson1_1UpdateNodegroupConfigCommand = async (
     throw new Error("No value provided for input HTTP label: nodegroupName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientRequestToken === undefined) {
-    input.clientRequestToken = generateIdempotencyToken();
-  }
-  if (input.clientRequestToken !== undefined) {
-    bodyParams["clientRequestToken"] = input.clientRequestToken;
-  }
-  if (input.labels !== undefined) {
-    bodyParams["labels"] = serializeAws_restJson1_1UpdateLabelsPayload(
-      input.labels,
-      context
-    );
-  }
-  if (input.scalingConfig !== undefined) {
-    bodyParams[
-      "scalingConfig"
-    ] = serializeAws_restJson1_1NodegroupScalingConfig(
-      input.scalingConfig,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
+    ...(input.labels !== undefined && {
+      labels: serializeAws_restJson1_1UpdateLabelsPayload(input.labels, context)
+    }),
+    ...(input.scalingConfig !== undefined && {
+      scalingConfig: serializeAws_restJson1_1NodegroupScalingConfig(
+        input.scalingConfig,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1143,23 +1075,14 @@ export const serializeAws_restJson1_1UpdateNodegroupVersionCommand = async (
     throw new Error("No value provided for input HTTP label: nodegroupName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientRequestToken === undefined) {
-    input.clientRequestToken = generateIdempotencyToken();
-  }
-  if (input.clientRequestToken !== undefined) {
-    bodyParams["clientRequestToken"] = input.clientRequestToken;
-  }
-  if (input.force !== undefined) {
-    bodyParams["force"] = input.force;
-  }
-  if (input.releaseVersion !== undefined) {
-    bodyParams["releaseVersion"] = input.releaseVersion;
-  }
-  if (input.version !== undefined) {
-    bodyParams["version"] = input.version;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
+    ...(input.force !== undefined && { force: input.force }),
+    ...(input.releaseVersion !== undefined && {
+      releaseVersion: input.releaseVersion
+    }),
+    ...(input.version !== undefined && { version: input.version })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

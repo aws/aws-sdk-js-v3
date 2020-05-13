@@ -236,14 +236,12 @@ export const serializeAws_restJson1_1CancelImageCreationCommand = async (
   };
   let resolvedPath = "/CancelImageCreation";
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.imageBuildVersionArn !== undefined) {
-    bodyParams["imageBuildVersionArn"] = input.imageBuildVersionArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.clientToken !== undefined && { clientToken: input.clientToken }),
+    ...(input.imageBuildVersionArn !== undefined && {
+      imageBuildVersionArn: input.imageBuildVersionArn
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -265,41 +263,24 @@ export const serializeAws_restJson1_1CreateComponentCommand = async (
   };
   let resolvedPath = "/CreateComponent";
   let body: any;
-  const bodyParams: any = {};
-  if (input.changeDescription !== undefined) {
-    bodyParams["changeDescription"] = input.changeDescription;
-  }
-  if (input.clientToken === undefined) {
-    input.clientToken = generateIdempotencyToken();
-  }
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.data !== undefined) {
-    bodyParams["data"] = input.data;
-  }
-  if (input.description !== undefined) {
-    bodyParams["description"] = input.description;
-  }
-  if (input.kmsKeyId !== undefined) {
-    bodyParams["kmsKeyId"] = input.kmsKeyId;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.platform !== undefined) {
-    bodyParams["platform"] = input.platform;
-  }
-  if (input.semanticVersion !== undefined) {
-    bodyParams["semanticVersion"] = input.semanticVersion;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
-  }
-  if (input.uri !== undefined) {
-    bodyParams["uri"] = input.uri;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.changeDescription !== undefined && {
+      changeDescription: input.changeDescription
+    }),
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.data !== undefined && { data: input.data }),
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.kmsKeyId !== undefined && { kmsKeyId: input.kmsKeyId }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.platform !== undefined && { platform: input.platform }),
+    ...(input.semanticVersion !== undefined && {
+      semanticVersion: input.semanticVersion
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.tags, context)
+    }),
+    ...(input.uri !== undefined && { uri: input.uri })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -321,29 +302,20 @@ export const serializeAws_restJson1_1CreateDistributionConfigurationCommand = as
   };
   let resolvedPath = "/CreateDistributionConfiguration";
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientToken === undefined) {
-    input.clientToken = generateIdempotencyToken();
-  }
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.description !== undefined) {
-    bodyParams["description"] = input.description;
-  }
-  if (input.distributions !== undefined) {
-    bodyParams["distributions"] = serializeAws_restJson1_1DistributionList(
-      input.distributions,
-      context
-    );
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.distributions !== undefined && {
+      distributions: serializeAws_restJson1_1DistributionList(
+        input.distributions,
+        context
+      )
+    }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -365,36 +337,27 @@ export const serializeAws_restJson1_1CreateImageCommand = async (
   };
   let resolvedPath = "/CreateImage";
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientToken === undefined) {
-    input.clientToken = generateIdempotencyToken();
-  }
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.distributionConfigurationArn !== undefined) {
-    bodyParams["distributionConfigurationArn"] =
-      input.distributionConfigurationArn;
-  }
-  if (input.imageRecipeArn !== undefined) {
-    bodyParams["imageRecipeArn"] = input.imageRecipeArn;
-  }
-  if (input.imageTestsConfiguration !== undefined) {
-    bodyParams[
-      "imageTestsConfiguration"
-    ] = serializeAws_restJson1_1ImageTestsConfiguration(
-      input.imageTestsConfiguration,
-      context
-    );
-  }
-  if (input.infrastructureConfigurationArn !== undefined) {
-    bodyParams["infrastructureConfigurationArn"] =
-      input.infrastructureConfigurationArn;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.distributionConfigurationArn !== undefined && {
+      distributionConfigurationArn: input.distributionConfigurationArn
+    }),
+    ...(input.imageRecipeArn !== undefined && {
+      imageRecipeArn: input.imageRecipeArn
+    }),
+    ...(input.imageTestsConfiguration !== undefined && {
+      imageTestsConfiguration: serializeAws_restJson1_1ImageTestsConfiguration(
+        input.imageTestsConfiguration,
+        context
+      )
+    }),
+    ...(input.infrastructureConfigurationArn !== undefined && {
+      infrastructureConfigurationArn: input.infrastructureConfigurationArn
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -416,51 +379,33 @@ export const serializeAws_restJson1_1CreateImagePipelineCommand = async (
   };
   let resolvedPath = "/CreateImagePipeline";
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientToken === undefined) {
-    input.clientToken = generateIdempotencyToken();
-  }
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.description !== undefined) {
-    bodyParams["description"] = input.description;
-  }
-  if (input.distributionConfigurationArn !== undefined) {
-    bodyParams["distributionConfigurationArn"] =
-      input.distributionConfigurationArn;
-  }
-  if (input.imageRecipeArn !== undefined) {
-    bodyParams["imageRecipeArn"] = input.imageRecipeArn;
-  }
-  if (input.imageTestsConfiguration !== undefined) {
-    bodyParams[
-      "imageTestsConfiguration"
-    ] = serializeAws_restJson1_1ImageTestsConfiguration(
-      input.imageTestsConfiguration,
-      context
-    );
-  }
-  if (input.infrastructureConfigurationArn !== undefined) {
-    bodyParams["infrastructureConfigurationArn"] =
-      input.infrastructureConfigurationArn;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.schedule !== undefined) {
-    bodyParams["schedule"] = serializeAws_restJson1_1Schedule(
-      input.schedule,
-      context
-    );
-  }
-  if (input.status !== undefined) {
-    bodyParams["status"] = input.status;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.distributionConfigurationArn !== undefined && {
+      distributionConfigurationArn: input.distributionConfigurationArn
+    }),
+    ...(input.imageRecipeArn !== undefined && {
+      imageRecipeArn: input.imageRecipeArn
+    }),
+    ...(input.imageTestsConfiguration !== undefined && {
+      imageTestsConfiguration: serializeAws_restJson1_1ImageTestsConfiguration(
+        input.imageTestsConfiguration,
+        context
+      )
+    }),
+    ...(input.infrastructureConfigurationArn !== undefined && {
+      infrastructureConfigurationArn: input.infrastructureConfigurationArn
+    }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.schedule !== undefined && {
+      schedule: serializeAws_restJson1_1Schedule(input.schedule, context)
+    }),
+    ...(input.status !== undefined && { status: input.status }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -482,45 +427,30 @@ export const serializeAws_restJson1_1CreateImageRecipeCommand = async (
   };
   let resolvedPath = "/CreateImageRecipe";
   let body: any;
-  const bodyParams: any = {};
-  if (input.blockDeviceMappings !== undefined) {
-    bodyParams[
-      "blockDeviceMappings"
-    ] = serializeAws_restJson1_1InstanceBlockDeviceMappings(
-      input.blockDeviceMappings,
-      context
-    );
-  }
-  if (input.clientToken === undefined) {
-    input.clientToken = generateIdempotencyToken();
-  }
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.components !== undefined) {
-    bodyParams[
-      "components"
-    ] = serializeAws_restJson1_1ComponentConfigurationList(
-      input.components,
-      context
-    );
-  }
-  if (input.description !== undefined) {
-    bodyParams["description"] = input.description;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.parentImage !== undefined) {
-    bodyParams["parentImage"] = input.parentImage;
-  }
-  if (input.semanticVersion !== undefined) {
-    bodyParams["semanticVersion"] = input.semanticVersion;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.blockDeviceMappings !== undefined && {
+      blockDeviceMappings: serializeAws_restJson1_1InstanceBlockDeviceMappings(
+        input.blockDeviceMappings,
+        context
+      )
+    }),
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.components !== undefined && {
+      components: serializeAws_restJson1_1ComponentConfigurationList(
+        input.components,
+        context
+      )
+    }),
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.parentImage !== undefined && { parentImage: input.parentImage }),
+    ...(input.semanticVersion !== undefined && {
+      semanticVersion: input.semanticVersion
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -542,56 +472,38 @@ export const serializeAws_restJson1_1CreateInfrastructureConfigurationCommand = 
   };
   let resolvedPath = "/CreateInfrastructureConfiguration";
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientToken === undefined) {
-    input.clientToken = generateIdempotencyToken();
-  }
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.description !== undefined) {
-    bodyParams["description"] = input.description;
-  }
-  if (input.instanceProfileName !== undefined) {
-    bodyParams["instanceProfileName"] = input.instanceProfileName;
-  }
-  if (input.instanceTypes !== undefined) {
-    bodyParams["instanceTypes"] = serializeAws_restJson1_1InstanceTypeList(
-      input.instanceTypes,
-      context
-    );
-  }
-  if (input.keyPair !== undefined) {
-    bodyParams["keyPair"] = input.keyPair;
-  }
-  if (input.logging !== undefined) {
-    bodyParams["logging"] = serializeAws_restJson1_1Logging(
-      input.logging,
-      context
-    );
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.securityGroupIds !== undefined) {
-    bodyParams["securityGroupIds"] = serializeAws_restJson1_1SecurityGroupIds(
-      input.securityGroupIds,
-      context
-    );
-  }
-  if (input.snsTopicArn !== undefined) {
-    bodyParams["snsTopicArn"] = input.snsTopicArn;
-  }
-  if (input.subnetId !== undefined) {
-    bodyParams["subnetId"] = input.subnetId;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
-  }
-  if (input.terminateInstanceOnFailure !== undefined) {
-    bodyParams["terminateInstanceOnFailure"] = input.terminateInstanceOnFailure;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.instanceProfileName !== undefined && {
+      instanceProfileName: input.instanceProfileName
+    }),
+    ...(input.instanceTypes !== undefined && {
+      instanceTypes: serializeAws_restJson1_1InstanceTypeList(
+        input.instanceTypes,
+        context
+      )
+    }),
+    ...(input.keyPair !== undefined && { keyPair: input.keyPair }),
+    ...(input.logging !== undefined && {
+      logging: serializeAws_restJson1_1Logging(input.logging, context)
+    }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.securityGroupIds !== undefined && {
+      securityGroupIds: serializeAws_restJson1_1SecurityGroupIds(
+        input.securityGroupIds,
+        context
+      )
+    }),
+    ...(input.snsTopicArn !== undefined && { snsTopicArn: input.snsTopicArn }),
+    ...(input.subnetId !== undefined && { subnetId: input.subnetId }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.tags, context)
+    }),
+    ...(input.terminateInstanceOnFailure !== undefined && {
+      terminateInstanceOnFailure: input.terminateInstanceOnFailure
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1016,47 +928,26 @@ export const serializeAws_restJson1_1ImportComponentCommand = async (
   };
   let resolvedPath = "/ImportComponent";
   let body: any;
-  const bodyParams: any = {};
-  if (input.changeDescription !== undefined) {
-    bodyParams["changeDescription"] = input.changeDescription;
-  }
-  if (input.clientToken === undefined) {
-    input.clientToken = generateIdempotencyToken();
-  }
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.data !== undefined) {
-    bodyParams["data"] = input.data;
-  }
-  if (input.description !== undefined) {
-    bodyParams["description"] = input.description;
-  }
-  if (input.format !== undefined) {
-    bodyParams["format"] = input.format;
-  }
-  if (input.kmsKeyId !== undefined) {
-    bodyParams["kmsKeyId"] = input.kmsKeyId;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.platform !== undefined) {
-    bodyParams["platform"] = input.platform;
-  }
-  if (input.semanticVersion !== undefined) {
-    bodyParams["semanticVersion"] = input.semanticVersion;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
-  }
-  if (input.type !== undefined) {
-    bodyParams["type"] = input.type;
-  }
-  if (input.uri !== undefined) {
-    bodyParams["uri"] = input.uri;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.changeDescription !== undefined && {
+      changeDescription: input.changeDescription
+    }),
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.data !== undefined && { data: input.data }),
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.format !== undefined && { format: input.format }),
+    ...(input.kmsKeyId !== undefined && { kmsKeyId: input.kmsKeyId }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.platform !== undefined && { platform: input.platform }),
+    ...(input.semanticVersion !== undefined && {
+      semanticVersion: input.semanticVersion
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.tags, context)
+    }),
+    ...(input.type !== undefined && { type: input.type }),
+    ...(input.uri !== undefined && { uri: input.uri })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1078,17 +969,13 @@ export const serializeAws_restJson1_1ListComponentBuildVersionsCommand = async (
   };
   let resolvedPath = "/ListComponentBuildVersions";
   let body: any;
-  const bodyParams: any = {};
-  if (input.componentVersionArn !== undefined) {
-    bodyParams["componentVersionArn"] = input.componentVersionArn;
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.componentVersionArn !== undefined && {
+      componentVersionArn: input.componentVersionArn
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1110,23 +997,14 @@ export const serializeAws_restJson1_1ListComponentsCommand = async (
   };
   let resolvedPath = "/ListComponents";
   let body: any;
-  const bodyParams: any = {};
-  if (input.filters !== undefined) {
-    bodyParams["filters"] = serializeAws_restJson1_1FilterList(
-      input.filters,
-      context
-    );
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.owner !== undefined) {
-    bodyParams["owner"] = input.owner;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.filters !== undefined && {
+      filters: serializeAws_restJson1_1FilterList(input.filters, context)
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.owner !== undefined && { owner: input.owner })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1148,20 +1026,13 @@ export const serializeAws_restJson1_1ListDistributionConfigurationsCommand = asy
   };
   let resolvedPath = "/ListDistributionConfigurations";
   let body: any;
-  const bodyParams: any = {};
-  if (input.filters !== undefined) {
-    bodyParams["filters"] = serializeAws_restJson1_1FilterList(
-      input.filters,
-      context
-    );
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.filters !== undefined && {
+      filters: serializeAws_restJson1_1FilterList(input.filters, context)
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1183,23 +1054,16 @@ export const serializeAws_restJson1_1ListImageBuildVersionsCommand = async (
   };
   let resolvedPath = "/ListImageBuildVersions";
   let body: any;
-  const bodyParams: any = {};
-  if (input.filters !== undefined) {
-    bodyParams["filters"] = serializeAws_restJson1_1FilterList(
-      input.filters,
-      context
-    );
-  }
-  if (input.imageVersionArn !== undefined) {
-    bodyParams["imageVersionArn"] = input.imageVersionArn;
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.filters !== undefined && {
+      filters: serializeAws_restJson1_1FilterList(input.filters, context)
+    }),
+    ...(input.imageVersionArn !== undefined && {
+      imageVersionArn: input.imageVersionArn
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1221,23 +1085,16 @@ export const serializeAws_restJson1_1ListImagePipelineImagesCommand = async (
   };
   let resolvedPath = "/ListImagePipelineImages";
   let body: any;
-  const bodyParams: any = {};
-  if (input.filters !== undefined) {
-    bodyParams["filters"] = serializeAws_restJson1_1FilterList(
-      input.filters,
-      context
-    );
-  }
-  if (input.imagePipelineArn !== undefined) {
-    bodyParams["imagePipelineArn"] = input.imagePipelineArn;
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.filters !== undefined && {
+      filters: serializeAws_restJson1_1FilterList(input.filters, context)
+    }),
+    ...(input.imagePipelineArn !== undefined && {
+      imagePipelineArn: input.imagePipelineArn
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1259,20 +1116,13 @@ export const serializeAws_restJson1_1ListImagePipelinesCommand = async (
   };
   let resolvedPath = "/ListImagePipelines";
   let body: any;
-  const bodyParams: any = {};
-  if (input.filters !== undefined) {
-    bodyParams["filters"] = serializeAws_restJson1_1FilterList(
-      input.filters,
-      context
-    );
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.filters !== undefined && {
+      filters: serializeAws_restJson1_1FilterList(input.filters, context)
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1294,23 +1144,14 @@ export const serializeAws_restJson1_1ListImageRecipesCommand = async (
   };
   let resolvedPath = "/ListImageRecipes";
   let body: any;
-  const bodyParams: any = {};
-  if (input.filters !== undefined) {
-    bodyParams["filters"] = serializeAws_restJson1_1FilterList(
-      input.filters,
-      context
-    );
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.owner !== undefined) {
-    bodyParams["owner"] = input.owner;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.filters !== undefined && {
+      filters: serializeAws_restJson1_1FilterList(input.filters, context)
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.owner !== undefined && { owner: input.owner })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1332,23 +1173,14 @@ export const serializeAws_restJson1_1ListImagesCommand = async (
   };
   let resolvedPath = "/ListImages";
   let body: any;
-  const bodyParams: any = {};
-  if (input.filters !== undefined) {
-    bodyParams["filters"] = serializeAws_restJson1_1FilterList(
-      input.filters,
-      context
-    );
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.owner !== undefined) {
-    bodyParams["owner"] = input.owner;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.filters !== undefined && {
+      filters: serializeAws_restJson1_1FilterList(input.filters, context)
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.owner !== undefined && { owner: input.owner })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1370,20 +1202,13 @@ export const serializeAws_restJson1_1ListInfrastructureConfigurationsCommand = a
   };
   let resolvedPath = "/ListInfrastructureConfigurations";
   let body: any;
-  const bodyParams: any = {};
-  if (input.filters !== undefined) {
-    bodyParams["filters"] = serializeAws_restJson1_1FilterList(
-      input.filters,
-      context
-    );
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.filters !== undefined && {
+      filters: serializeAws_restJson1_1FilterList(input.filters, context)
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1440,14 +1265,12 @@ export const serializeAws_restJson1_1PutComponentPolicyCommand = async (
   };
   let resolvedPath = "/PutComponentPolicy";
   let body: any;
-  const bodyParams: any = {};
-  if (input.componentArn !== undefined) {
-    bodyParams["componentArn"] = input.componentArn;
-  }
-  if (input.policy !== undefined) {
-    bodyParams["policy"] = input.policy;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.componentArn !== undefined && {
+      componentArn: input.componentArn
+    }),
+    ...(input.policy !== undefined && { policy: input.policy })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1469,14 +1292,10 @@ export const serializeAws_restJson1_1PutImagePolicyCommand = async (
   };
   let resolvedPath = "/PutImagePolicy";
   let body: any;
-  const bodyParams: any = {};
-  if (input.imageArn !== undefined) {
-    bodyParams["imageArn"] = input.imageArn;
-  }
-  if (input.policy !== undefined) {
-    bodyParams["policy"] = input.policy;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.imageArn !== undefined && { imageArn: input.imageArn }),
+    ...(input.policy !== undefined && { policy: input.policy })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1498,14 +1317,12 @@ export const serializeAws_restJson1_1PutImageRecipePolicyCommand = async (
   };
   let resolvedPath = "/PutImageRecipePolicy";
   let body: any;
-  const bodyParams: any = {};
-  if (input.imageRecipeArn !== undefined) {
-    bodyParams["imageRecipeArn"] = input.imageRecipeArn;
-  }
-  if (input.policy !== undefined) {
-    bodyParams["policy"] = input.policy;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.imageRecipeArn !== undefined && {
+      imageRecipeArn: input.imageRecipeArn
+    }),
+    ...(input.policy !== undefined && { policy: input.policy })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1527,17 +1344,12 @@ export const serializeAws_restJson1_1StartImagePipelineExecutionCommand = async 
   };
   let resolvedPath = "/StartImagePipelineExecution";
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientToken === undefined) {
-    input.clientToken = generateIdempotencyToken();
-  }
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.imagePipelineArn !== undefined) {
-    bodyParams["imagePipelineArn"] = input.imagePipelineArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.imagePipelineArn !== undefined && {
+      imagePipelineArn: input.imagePipelineArn
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1573,11 +1385,11 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1640,27 +1452,19 @@ export const serializeAws_restJson1_1UpdateDistributionConfigurationCommand = as
   };
   let resolvedPath = "/UpdateDistributionConfiguration";
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientToken === undefined) {
-    input.clientToken = generateIdempotencyToken();
-  }
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.description !== undefined) {
-    bodyParams["description"] = input.description;
-  }
-  if (input.distributionConfigurationArn !== undefined) {
-    bodyParams["distributionConfigurationArn"] =
-      input.distributionConfigurationArn;
-  }
-  if (input.distributions !== undefined) {
-    bodyParams["distributions"] = serializeAws_restJson1_1DistributionList(
-      input.distributions,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.distributionConfigurationArn !== undefined && {
+      distributionConfigurationArn: input.distributionConfigurationArn
+    }),
+    ...(input.distributions !== undefined && {
+      distributions: serializeAws_restJson1_1DistributionList(
+        input.distributions,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1682,48 +1486,32 @@ export const serializeAws_restJson1_1UpdateImagePipelineCommand = async (
   };
   let resolvedPath = "/UpdateImagePipeline";
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientToken === undefined) {
-    input.clientToken = generateIdempotencyToken();
-  }
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.description !== undefined) {
-    bodyParams["description"] = input.description;
-  }
-  if (input.distributionConfigurationArn !== undefined) {
-    bodyParams["distributionConfigurationArn"] =
-      input.distributionConfigurationArn;
-  }
-  if (input.imagePipelineArn !== undefined) {
-    bodyParams["imagePipelineArn"] = input.imagePipelineArn;
-  }
-  if (input.imageRecipeArn !== undefined) {
-    bodyParams["imageRecipeArn"] = input.imageRecipeArn;
-  }
-  if (input.imageTestsConfiguration !== undefined) {
-    bodyParams[
-      "imageTestsConfiguration"
-    ] = serializeAws_restJson1_1ImageTestsConfiguration(
-      input.imageTestsConfiguration,
-      context
-    );
-  }
-  if (input.infrastructureConfigurationArn !== undefined) {
-    bodyParams["infrastructureConfigurationArn"] =
-      input.infrastructureConfigurationArn;
-  }
-  if (input.schedule !== undefined) {
-    bodyParams["schedule"] = serializeAws_restJson1_1Schedule(
-      input.schedule,
-      context
-    );
-  }
-  if (input.status !== undefined) {
-    bodyParams["status"] = input.status;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.distributionConfigurationArn !== undefined && {
+      distributionConfigurationArn: input.distributionConfigurationArn
+    }),
+    ...(input.imagePipelineArn !== undefined && {
+      imagePipelineArn: input.imagePipelineArn
+    }),
+    ...(input.imageRecipeArn !== undefined && {
+      imageRecipeArn: input.imageRecipeArn
+    }),
+    ...(input.imageTestsConfiguration !== undefined && {
+      imageTestsConfiguration: serializeAws_restJson1_1ImageTestsConfiguration(
+        input.imageTestsConfiguration,
+        context
+      )
+    }),
+    ...(input.infrastructureConfigurationArn !== undefined && {
+      infrastructureConfigurationArn: input.infrastructureConfigurationArn
+    }),
+    ...(input.schedule !== undefined && {
+      schedule: serializeAws_restJson1_1Schedule(input.schedule, context)
+    }),
+    ...(input.status !== undefined && { status: input.status })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1745,54 +1533,37 @@ export const serializeAws_restJson1_1UpdateInfrastructureConfigurationCommand = 
   };
   let resolvedPath = "/UpdateInfrastructureConfiguration";
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientToken === undefined) {
-    input.clientToken = generateIdempotencyToken();
-  }
-  if (input.clientToken !== undefined) {
-    bodyParams["clientToken"] = input.clientToken;
-  }
-  if (input.description !== undefined) {
-    bodyParams["description"] = input.description;
-  }
-  if (input.infrastructureConfigurationArn !== undefined) {
-    bodyParams["infrastructureConfigurationArn"] =
-      input.infrastructureConfigurationArn;
-  }
-  if (input.instanceProfileName !== undefined) {
-    bodyParams["instanceProfileName"] = input.instanceProfileName;
-  }
-  if (input.instanceTypes !== undefined) {
-    bodyParams["instanceTypes"] = serializeAws_restJson1_1InstanceTypeList(
-      input.instanceTypes,
-      context
-    );
-  }
-  if (input.keyPair !== undefined) {
-    bodyParams["keyPair"] = input.keyPair;
-  }
-  if (input.logging !== undefined) {
-    bodyParams["logging"] = serializeAws_restJson1_1Logging(
-      input.logging,
-      context
-    );
-  }
-  if (input.securityGroupIds !== undefined) {
-    bodyParams["securityGroupIds"] = serializeAws_restJson1_1SecurityGroupIds(
-      input.securityGroupIds,
-      context
-    );
-  }
-  if (input.snsTopicArn !== undefined) {
-    bodyParams["snsTopicArn"] = input.snsTopicArn;
-  }
-  if (input.subnetId !== undefined) {
-    bodyParams["subnetId"] = input.subnetId;
-  }
-  if (input.terminateInstanceOnFailure !== undefined) {
-    bodyParams["terminateInstanceOnFailure"] = input.terminateInstanceOnFailure;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    clientToken: input.clientToken ?? generateIdempotencyToken(),
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.infrastructureConfigurationArn !== undefined && {
+      infrastructureConfigurationArn: input.infrastructureConfigurationArn
+    }),
+    ...(input.instanceProfileName !== undefined && {
+      instanceProfileName: input.instanceProfileName
+    }),
+    ...(input.instanceTypes !== undefined && {
+      instanceTypes: serializeAws_restJson1_1InstanceTypeList(
+        input.instanceTypes,
+        context
+      )
+    }),
+    ...(input.keyPair !== undefined && { keyPair: input.keyPair }),
+    ...(input.logging !== undefined && {
+      logging: serializeAws_restJson1_1Logging(input.logging, context)
+    }),
+    ...(input.securityGroupIds !== undefined && {
+      securityGroupIds: serializeAws_restJson1_1SecurityGroupIds(
+        input.securityGroupIds,
+        context
+      )
+    }),
+    ...(input.snsTopicArn !== undefined && { snsTopicArn: input.snsTopicArn }),
+    ...(input.subnetId !== undefined && { subnetId: input.subnetId }),
+    ...(input.terminateInstanceOnFailure !== undefined && {
+      terminateInstanceOnFailure: input.terminateInstanceOnFailure
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

@@ -482,11 +482,11 @@ export const serializeAws_restJson1_1AssociatePhoneNumberWithUserCommand = async
     operation: "associate-phone-number"
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.E164PhoneNumber !== undefined) {
-    bodyParams["E164PhoneNumber"] = input.E164PhoneNumber;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.E164PhoneNumber !== undefined && {
+      E164PhoneNumber: input.E164PhoneNumber
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -528,19 +528,17 @@ export const serializeAws_restJson1_1AssociatePhoneNumbersWithVoiceConnectorComm
     operation: "associate-phone-numbers"
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.E164PhoneNumbers !== undefined) {
-    bodyParams[
-      "E164PhoneNumbers"
-    ] = serializeAws_restJson1_1E164PhoneNumberList(
-      input.E164PhoneNumbers,
-      context
-    );
-  }
-  if (input.ForceAssociate !== undefined) {
-    bodyParams["ForceAssociate"] = input.ForceAssociate;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.E164PhoneNumbers !== undefined && {
+      E164PhoneNumbers: serializeAws_restJson1_1E164PhoneNumberList(
+        input.E164PhoneNumbers,
+        context
+      )
+    }),
+    ...(input.ForceAssociate !== undefined && {
+      ForceAssociate: input.ForceAssociate
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -582,19 +580,17 @@ export const serializeAws_restJson1_1AssociatePhoneNumbersWithVoiceConnectorGrou
     operation: "associate-phone-numbers"
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.E164PhoneNumbers !== undefined) {
-    bodyParams[
-      "E164PhoneNumbers"
-    ] = serializeAws_restJson1_1E164PhoneNumberList(
-      input.E164PhoneNumbers,
-      context
-    );
-  }
-  if (input.ForceAssociate !== undefined) {
-    bodyParams["ForceAssociate"] = input.ForceAssociate;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.E164PhoneNumbers !== undefined && {
+      E164PhoneNumbers: serializeAws_restJson1_1E164PhoneNumberList(
+        input.E164PhoneNumbers,
+        context
+      )
+    }),
+    ...(input.ForceAssociate !== undefined && {
+      ForceAssociate: input.ForceAssociate
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -632,16 +628,14 @@ export const serializeAws_restJson1_1AssociateSigninDelegateGroupsWithAccountCom
     operation: "associate-signin-delegate-groups"
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.SigninDelegateGroups !== undefined) {
-    bodyParams[
-      "SigninDelegateGroups"
-    ] = serializeAws_restJson1_1SigninDelegateGroupList(
-      input.SigninDelegateGroups,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.SigninDelegateGroups !== undefined && {
+      SigninDelegateGroups: serializeAws_restJson1_1SigninDelegateGroupList(
+        input.SigninDelegateGroups,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -679,16 +673,14 @@ export const serializeAws_restJson1_1BatchCreateAttendeeCommand = async (
     operation: "batch-create"
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.Attendees !== undefined) {
-    bodyParams[
-      "Attendees"
-    ] = serializeAws_restJson1_1CreateAttendeeRequestItemList(
-      input.Attendees,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Attendees !== undefined && {
+      Attendees: serializeAws_restJson1_1CreateAttendeeRequestItemList(
+        input.Attendees,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -738,16 +730,14 @@ export const serializeAws_restJson1_1BatchCreateRoomMembershipCommand = async (
     operation: "batch-create"
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.MembershipItemList !== undefined) {
-    bodyParams[
-      "MembershipItemList"
-    ] = serializeAws_restJson1_1MembershipItemList(
-      input.MembershipItemList,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.MembershipItemList !== undefined && {
+      MembershipItemList: serializeAws_restJson1_1MembershipItemList(
+        input.MembershipItemList,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -773,14 +763,14 @@ export const serializeAws_restJson1_1BatchDeletePhoneNumberCommand = async (
     operation: "batch-delete"
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.PhoneNumberIds !== undefined) {
-    bodyParams["PhoneNumberIds"] = serializeAws_restJson1_1NonEmptyStringList(
-      input.PhoneNumberIds,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.PhoneNumberIds !== undefined && {
+      PhoneNumberIds: serializeAws_restJson1_1NonEmptyStringList(
+        input.PhoneNumberIds,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -818,14 +808,11 @@ export const serializeAws_restJson1_1BatchSuspendUserCommand = async (
     operation: "suspend"
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.UserIdList !== undefined) {
-    bodyParams["UserIdList"] = serializeAws_restJson1_1UserIdList(
-      input.UserIdList,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.UserIdList !== undefined && {
+      UserIdList: serializeAws_restJson1_1UserIdList(input.UserIdList, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -863,14 +850,11 @@ export const serializeAws_restJson1_1BatchUnsuspendUserCommand = async (
     operation: "unsuspend"
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.UserIdList !== undefined) {
-    bodyParams["UserIdList"] = serializeAws_restJson1_1UserIdList(
-      input.UserIdList,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.UserIdList !== undefined && {
+      UserIdList: serializeAws_restJson1_1UserIdList(input.UserIdList, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -896,16 +880,14 @@ export const serializeAws_restJson1_1BatchUpdatePhoneNumberCommand = async (
     operation: "batch-update"
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.UpdatePhoneNumberRequestItems !== undefined) {
-    bodyParams[
-      "UpdatePhoneNumberRequestItems"
-    ] = serializeAws_restJson1_1UpdatePhoneNumberRequestItemList(
-      input.UpdatePhoneNumberRequestItems,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.UpdatePhoneNumberRequestItems !== undefined && {
+      UpdatePhoneNumberRequestItems: serializeAws_restJson1_1UpdatePhoneNumberRequestItemList(
+        input.UpdatePhoneNumberRequestItems,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -940,16 +922,14 @@ export const serializeAws_restJson1_1BatchUpdateUserCommand = async (
     throw new Error("No value provided for input HTTP label: AccountId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.UpdateUserRequestItems !== undefined) {
-    bodyParams[
-      "UpdateUserRequestItems"
-    ] = serializeAws_restJson1_1UpdateUserRequestItemList(
-      input.UpdateUserRequestItems,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.UpdateUserRequestItems !== undefined && {
+      UpdateUserRequestItems: serializeAws_restJson1_1UpdateUserRequestItemList(
+        input.UpdateUserRequestItems,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -971,11 +951,9 @@ export const serializeAws_restJson1_1CreateAccountCommand = async (
   };
   let resolvedPath = "/accounts";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Name !== undefined && { Name: input.Name })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1009,11 +987,11 @@ export const serializeAws_restJson1_1CreateAttendeeCommand = async (
     throw new Error("No value provided for input HTTP label: MeetingId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.ExternalUserId !== undefined) {
-    bodyParams["ExternalUserId"] = input.ExternalUserId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ExternalUserId !== undefined && {
+      ExternalUserId: input.ExternalUserId
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1047,14 +1025,10 @@ export const serializeAws_restJson1_1CreateBotCommand = async (
     throw new Error("No value provided for input HTTP label: AccountId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.DisplayName !== undefined) {
-    bodyParams["DisplayName"] = input.DisplayName;
-  }
-  if (input.Domain !== undefined) {
-    bodyParams["Domain"] = input.Domain;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DisplayName !== undefined && { DisplayName: input.DisplayName }),
+    ...(input.Domain !== undefined && { Domain: input.Domain })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1076,28 +1050,19 @@ export const serializeAws_restJson1_1CreateMeetingCommand = async (
   };
   let resolvedPath = "/meetings";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ClientRequestToken === undefined) {
-    input.ClientRequestToken = generateIdempotencyToken();
-  }
-  if (input.ClientRequestToken !== undefined) {
-    bodyParams["ClientRequestToken"] = input.ClientRequestToken;
-  }
-  if (input.MediaRegion !== undefined) {
-    bodyParams["MediaRegion"] = input.MediaRegion;
-  }
-  if (input.MeetingHostId !== undefined) {
-    bodyParams["MeetingHostId"] = input.MeetingHostId;
-  }
-  if (input.NotificationsConfiguration !== undefined) {
-    bodyParams[
-      "NotificationsConfiguration"
-    ] = serializeAws_restJson1_1MeetingNotificationConfiguration(
-      input.NotificationsConfiguration,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.MediaRegion !== undefined && { MediaRegion: input.MediaRegion }),
+    ...(input.MeetingHostId !== undefined && {
+      MeetingHostId: input.MeetingHostId
+    }),
+    ...(input.NotificationsConfiguration !== undefined && {
+      NotificationsConfiguration: serializeAws_restJson1_1MeetingNotificationConfiguration(
+        input.NotificationsConfiguration,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1119,19 +1084,15 @@ export const serializeAws_restJson1_1CreatePhoneNumberOrderCommand = async (
   };
   let resolvedPath = "/phone-number-orders";
   let body: any;
-  const bodyParams: any = {};
-  if (input.E164PhoneNumbers !== undefined) {
-    bodyParams[
-      "E164PhoneNumbers"
-    ] = serializeAws_restJson1_1E164PhoneNumberList(
-      input.E164PhoneNumbers,
-      context
-    );
-  }
-  if (input.ProductType !== undefined) {
-    bodyParams["ProductType"] = input.ProductType;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.E164PhoneNumbers !== undefined && {
+      E164PhoneNumbers: serializeAws_restJson1_1E164PhoneNumberList(
+        input.E164PhoneNumbers,
+        context
+      )
+    }),
+    ...(input.ProductType !== undefined && { ProductType: input.ProductType })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1165,17 +1126,10 @@ export const serializeAws_restJson1_1CreateRoomCommand = async (
     throw new Error("No value provided for input HTTP label: AccountId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.ClientRequestToken === undefined) {
-    input.ClientRequestToken = generateIdempotencyToken();
-  }
-  if (input.ClientRequestToken !== undefined) {
-    bodyParams["ClientRequestToken"] = input.ClientRequestToken;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ClientRequestToken: input.ClientRequestToken ?? generateIdempotencyToken(),
+    ...(input.Name !== undefined && { Name: input.Name })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1221,14 +1175,10 @@ export const serializeAws_restJson1_1CreateRoomMembershipCommand = async (
     throw new Error("No value provided for input HTTP label: RoomId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.MemberId !== undefined) {
-    bodyParams["MemberId"] = input.MemberId;
-  }
-  if (input.Role !== undefined) {
-    bodyParams["Role"] = input.Role;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.MemberId !== undefined && { MemberId: input.MemberId }),
+    ...(input.Role !== undefined && { Role: input.Role })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1265,17 +1215,11 @@ export const serializeAws_restJson1_1CreateUserCommand = async (
     operation: "create"
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.Email !== undefined) {
-    bodyParams["Email"] = input.Email;
-  }
-  if (input.UserType !== undefined) {
-    bodyParams["UserType"] = input.UserType;
-  }
-  if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Email !== undefined && { Email: input.Email }),
+    ...(input.UserType !== undefined && { UserType: input.UserType }),
+    ...(input.Username !== undefined && { Username: input.Username })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1298,17 +1242,13 @@ export const serializeAws_restJson1_1CreateVoiceConnectorCommand = async (
   };
   let resolvedPath = "/voice-connectors";
   let body: any;
-  const bodyParams: any = {};
-  if (input.AwsRegion !== undefined) {
-    bodyParams["AwsRegion"] = input.AwsRegion;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.RequireEncryption !== undefined) {
-    bodyParams["RequireEncryption"] = input.RequireEncryption;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AwsRegion !== undefined && { AwsRegion: input.AwsRegion }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.RequireEncryption !== undefined && {
+      RequireEncryption: input.RequireEncryption
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1330,19 +1270,15 @@ export const serializeAws_restJson1_1CreateVoiceConnectorGroupCommand = async (
   };
   let resolvedPath = "/voice-connector-groups";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.VoiceConnectorItems !== undefined) {
-    bodyParams[
-      "VoiceConnectorItems"
-    ] = serializeAws_restJson1_1VoiceConnectorItemList(
-      input.VoiceConnectorItems,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.VoiceConnectorItems !== undefined && {
+      VoiceConnectorItems: serializeAws_restJson1_1VoiceConnectorItemList(
+        input.VoiceConnectorItems,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1864,14 +1800,14 @@ export const serializeAws_restJson1_1DeleteVoiceConnectorTerminationCredentialsC
     operation: "delete"
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.Usernames !== undefined) {
-    bodyParams["Usernames"] = serializeAws_restJson1_1SensitiveStringList(
-      input.Usernames,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Usernames !== undefined && {
+      Usernames: serializeAws_restJson1_1SensitiveStringList(
+        input.Usernames,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1962,16 +1898,14 @@ export const serializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceConnectorC
     operation: "disassociate-phone-numbers"
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.E164PhoneNumbers !== undefined) {
-    bodyParams[
-      "E164PhoneNumbers"
-    ] = serializeAws_restJson1_1E164PhoneNumberList(
-      input.E164PhoneNumbers,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.E164PhoneNumbers !== undefined && {
+      E164PhoneNumbers: serializeAws_restJson1_1E164PhoneNumberList(
+        input.E164PhoneNumbers,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2013,16 +1947,14 @@ export const serializeAws_restJson1_1DisassociatePhoneNumbersFromVoiceConnectorG
     operation: "disassociate-phone-numbers"
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.E164PhoneNumbers !== undefined) {
-    bodyParams[
-      "E164PhoneNumbers"
-    ] = serializeAws_restJson1_1E164PhoneNumberList(
-      input.E164PhoneNumbers,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.E164PhoneNumbers !== undefined && {
+      E164PhoneNumbers: serializeAws_restJson1_1E164PhoneNumberList(
+        input.E164PhoneNumbers,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2060,14 +1992,14 @@ export const serializeAws_restJson1_1DisassociateSigninDelegateGroupsFromAccount
     operation: "disassociate-signin-delegate-groups"
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.GroupNames !== undefined) {
-    bodyParams["GroupNames"] = serializeAws_restJson1_1NonEmptyStringList(
-      input.GroupNames,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.GroupNames !== undefined && {
+      GroupNames: serializeAws_restJson1_1NonEmptyStringList(
+        input.GroupNames,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2851,17 +2783,15 @@ export const serializeAws_restJson1_1InviteUsersCommand = async (
     operation: "add"
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.UserEmailList !== undefined) {
-    bodyParams["UserEmailList"] = serializeAws_restJson1_1UserEmailList(
-      input.UserEmailList,
-      context
-    );
-  }
-  if (input.UserType !== undefined) {
-    bodyParams["UserType"] = input.UserType;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.UserEmailList !== undefined && {
+      UserEmailList: serializeAws_restJson1_1UserEmailList(
+        input.UserEmailList,
+        context
+      )
+    }),
+    ...(input.UserType !== undefined && { UserType: input.UserType })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3388,15 +3318,14 @@ export const serializeAws_restJson1_1PutEventsConfigurationCommand = async (
     throw new Error("No value provided for input HTTP label: BotId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.LambdaFunctionArn !== undefined) {
-    bodyParams["LambdaFunctionArn"] = input.LambdaFunctionArn;
-  }
-  if (input.OutboundEventsHTTPSEndpoint !== undefined) {
-    bodyParams["OutboundEventsHTTPSEndpoint"] =
-      input.OutboundEventsHTTPSEndpoint;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.LambdaFunctionArn !== undefined && {
+      LambdaFunctionArn: input.LambdaFunctionArn
+    }),
+    ...(input.OutboundEventsHTTPSEndpoint !== undefined && {
+      OutboundEventsHTTPSEndpoint: input.OutboundEventsHTTPSEndpoint
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3435,16 +3364,14 @@ export const serializeAws_restJson1_1PutVoiceConnectorLoggingConfigurationComman
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.LoggingConfiguration !== undefined) {
-    bodyParams[
-      "LoggingConfiguration"
-    ] = serializeAws_restJson1_1LoggingConfiguration(
-      input.LoggingConfiguration,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.LoggingConfiguration !== undefined && {
+      LoggingConfiguration: serializeAws_restJson1_1LoggingConfiguration(
+        input.LoggingConfiguration,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3482,14 +3409,14 @@ export const serializeAws_restJson1_1PutVoiceConnectorOriginationCommand = async
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Origination !== undefined) {
-    bodyParams["Origination"] = serializeAws_restJson1_1Origination(
-      input.Origination,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Origination !== undefined && {
+      Origination: serializeAws_restJson1_1Origination(
+        input.Origination,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3528,16 +3455,14 @@ export const serializeAws_restJson1_1PutVoiceConnectorStreamingConfigurationComm
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.StreamingConfiguration !== undefined) {
-    bodyParams[
-      "StreamingConfiguration"
-    ] = serializeAws_restJson1_1StreamingConfiguration(
-      input.StreamingConfiguration,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.StreamingConfiguration !== undefined && {
+      StreamingConfiguration: serializeAws_restJson1_1StreamingConfiguration(
+        input.StreamingConfiguration,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3575,14 +3500,14 @@ export const serializeAws_restJson1_1PutVoiceConnectorTerminationCommand = async
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Termination !== undefined) {
-    bodyParams["Termination"] = serializeAws_restJson1_1Termination(
-      input.Termination,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Termination !== undefined && {
+      Termination: serializeAws_restJson1_1Termination(
+        input.Termination,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3624,14 +3549,14 @@ export const serializeAws_restJson1_1PutVoiceConnectorTerminationCredentialsComm
     operation: "put"
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.Credentials !== undefined) {
-    bodyParams["Credentials"] = serializeAws_restJson1_1CredentialList(
-      input.Credentials,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Credentials !== undefined && {
+      Credentials: serializeAws_restJson1_1CredentialList(
+        input.Credentials,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3839,11 +3764,9 @@ export const serializeAws_restJson1_1UpdateAccountCommand = async (
     throw new Error("No value provided for input HTTP label: AccountId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Name !== undefined && { Name: input.Name })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3877,14 +3800,14 @@ export const serializeAws_restJson1_1UpdateAccountSettingsCommand = async (
     throw new Error("No value provided for input HTTP label: AccountId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.AccountSettings !== undefined) {
-    bodyParams["AccountSettings"] = serializeAws_restJson1_1AccountSettings(
-      input.AccountSettings,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AccountSettings !== undefined && {
+      AccountSettings: serializeAws_restJson1_1AccountSettings(
+        input.AccountSettings,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3930,11 +3853,9 @@ export const serializeAws_restJson1_1UpdateBotCommand = async (
     throw new Error("No value provided for input HTTP label: BotId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Disabled !== undefined) {
-    bodyParams["Disabled"] = input.Disabled;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Disabled !== undefined && { Disabled: input.Disabled })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3956,24 +3877,20 @@ export const serializeAws_restJson1_1UpdateGlobalSettingsCommand = async (
   };
   let resolvedPath = "/settings";
   let body: any;
-  const bodyParams: any = {};
-  if (input.BusinessCalling !== undefined) {
-    bodyParams[
-      "BusinessCalling"
-    ] = serializeAws_restJson1_1BusinessCallingSettings(
-      input.BusinessCalling,
-      context
-    );
-  }
-  if (input.VoiceConnector !== undefined) {
-    bodyParams[
-      "VoiceConnector"
-    ] = serializeAws_restJson1_1VoiceConnectorSettings(
-      input.VoiceConnector,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.BusinessCalling !== undefined && {
+      BusinessCalling: serializeAws_restJson1_1BusinessCallingSettings(
+        input.BusinessCalling,
+        context
+      )
+    }),
+    ...(input.VoiceConnector !== undefined && {
+      VoiceConnector: serializeAws_restJson1_1VoiceConnectorSettings(
+        input.VoiceConnector,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4009,14 +3926,10 @@ export const serializeAws_restJson1_1UpdatePhoneNumberCommand = async (
     throw new Error("No value provided for input HTTP label: PhoneNumberId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.CallingName !== undefined) {
-    bodyParams["CallingName"] = input.CallingName;
-  }
-  if (input.ProductType !== undefined) {
-    bodyParams["ProductType"] = input.ProductType;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.CallingName !== undefined && { CallingName: input.CallingName }),
+    ...(input.ProductType !== undefined && { ProductType: input.ProductType })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4038,11 +3951,9 @@ export const serializeAws_restJson1_1UpdatePhoneNumberSettingsCommand = async (
   };
   let resolvedPath = "/settings/phone-number";
   let body: any;
-  const bodyParams: any = {};
-  if (input.CallingName !== undefined) {
-    bodyParams["CallingName"] = input.CallingName;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.CallingName !== undefined && { CallingName: input.CallingName })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4088,11 +3999,9 @@ export const serializeAws_restJson1_1UpdateRoomCommand = async (
     throw new Error("No value provided for input HTTP label: RoomId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Name !== undefined && { Name: input.Name })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4151,11 +4060,9 @@ export const serializeAws_restJson1_1UpdateRoomMembershipCommand = async (
     throw new Error("No value provided for input HTTP label: RoomId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Role !== undefined) {
-    bodyParams["Role"] = input.Role;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Role !== undefined && { Role: input.Role })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4201,22 +4108,16 @@ export const serializeAws_restJson1_1UpdateUserCommand = async (
     throw new Error("No value provided for input HTTP label: UserId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.AlexaForBusinessMetadata !== undefined) {
-    bodyParams[
-      "AlexaForBusinessMetadata"
-    ] = serializeAws_restJson1_1AlexaForBusinessMetadata(
-      input.AlexaForBusinessMetadata,
-      context
-    );
-  }
-  if (input.LicenseType !== undefined) {
-    bodyParams["LicenseType"] = input.LicenseType;
-  }
-  if (input.UserType !== undefined) {
-    bodyParams["UserType"] = input.UserType;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AlexaForBusinessMetadata !== undefined && {
+      AlexaForBusinessMetadata: serializeAws_restJson1_1AlexaForBusinessMetadata(
+        input.AlexaForBusinessMetadata,
+        context
+      )
+    }),
+    ...(input.LicenseType !== undefined && { LicenseType: input.LicenseType }),
+    ...(input.UserType !== undefined && { UserType: input.UserType })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4262,14 +4163,14 @@ export const serializeAws_restJson1_1UpdateUserSettingsCommand = async (
     throw new Error("No value provided for input HTTP label: UserId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.UserSettings !== undefined) {
-    bodyParams["UserSettings"] = serializeAws_restJson1_1UserSettings(
-      input.UserSettings,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.UserSettings !== undefined && {
+      UserSettings: serializeAws_restJson1_1UserSettings(
+        input.UserSettings,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4307,14 +4208,12 @@ export const serializeAws_restJson1_1UpdateVoiceConnectorCommand = async (
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.RequireEncryption !== undefined) {
-    bodyParams["RequireEncryption"] = input.RequireEncryption;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.RequireEncryption !== undefined && {
+      RequireEncryption: input.RequireEncryption
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4352,19 +4251,15 @@ export const serializeAws_restJson1_1UpdateVoiceConnectorGroupCommand = async (
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.VoiceConnectorItems !== undefined) {
-    bodyParams[
-      "VoiceConnectorItems"
-    ] = serializeAws_restJson1_1VoiceConnectorItemList(
-      input.VoiceConnectorItems,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.VoiceConnectorItems !== undefined && {
+      VoiceConnectorItems: serializeAws_restJson1_1VoiceConnectorItemList(
+        input.VoiceConnectorItems,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

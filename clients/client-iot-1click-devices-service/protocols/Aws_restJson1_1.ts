@@ -166,14 +166,11 @@ export const serializeAws_restJson1_1FinalizeDeviceClaimCommand = async (
     throw new Error("No value provided for input HTTP label: DeviceId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1__mapOf__string(
-      input.Tags,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1__mapOf__string(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -273,17 +270,17 @@ export const serializeAws_restJson1_1InvokeDeviceMethodCommand = async (
     throw new Error("No value provided for input HTTP label: DeviceId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.DeviceMethod !== undefined) {
-    bodyParams["deviceMethod"] = serializeAws_restJson1_1DeviceMethod(
-      input.DeviceMethod,
-      context
-    );
-  }
-  if (input.DeviceMethodParameters !== undefined) {
-    bodyParams["deviceMethodParameters"] = input.DeviceMethodParameters;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DeviceMethod !== undefined && {
+      deviceMethod: serializeAws_restJson1_1DeviceMethod(
+        input.DeviceMethod,
+        context
+      )
+    }),
+    ...(input.DeviceMethodParameters !== undefined && {
+      deviceMethodParameters: input.DeviceMethodParameters
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -433,14 +430,11 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1__mapOf__string(
-      input.Tags,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1__mapOf__string(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -548,11 +542,9 @@ export const serializeAws_restJson1_1UpdateDeviceStateCommand = async (
     throw new Error("No value provided for input HTTP label: DeviceId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Enabled !== undefined) {
-    bodyParams["enabled"] = input.Enabled;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Enabled !== undefined && { enabled: input.Enabled })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
