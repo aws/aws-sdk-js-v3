@@ -7768,60 +7768,53 @@ const deserializeAws_json1_1AccessDeniedException = (
   output: any,
   context: __SerdeContext
 ): AccessDeniedException => {
-  let contents: any = {
+  return {
     __type: "AccessDeniedException",
-    Code: undefined,
-    Logref: undefined,
-    Message: undefined
-  };
-  if (output.Code !== undefined && output.Code !== null) {
-    contents.Code = output.Code;
-  }
-  if (output.Logref !== undefined && output.Logref !== null) {
-    contents.Logref = output.Logref;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Code:
+      output.Code !== undefined && output.Code !== null
+        ? output.Code
+        : undefined,
+    Logref:
+      output.Logref !== undefined && output.Logref !== null
+        ? output.Logref
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1AgeRange = (
   output: any,
   context: __SerdeContext
 ): AgeRange => {
-  let contents: any = {
+  return {
     __type: "AgeRange",
-    High: undefined,
-    Low: undefined
-  };
-  if (output.High !== undefined && output.High !== null) {
-    contents.High = output.High;
-  }
-  if (output.Low !== undefined && output.Low !== null) {
-    contents.Low = output.Low;
-  }
-  return contents;
+    High:
+      output.High !== undefined && output.High !== null
+        ? output.High
+        : undefined,
+    Low:
+      output.Low !== undefined && output.Low !== null ? output.Low : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Asset = (
   output: any,
   context: __SerdeContext
 ): Asset => {
-  let contents: any = {
+  return {
     __type: "Asset",
-    GroundTruthManifest: undefined
-  };
-  if (
-    output.GroundTruthManifest !== undefined &&
-    output.GroundTruthManifest !== null
-  ) {
-    contents.GroundTruthManifest = deserializeAws_json1_1GroundTruthManifest(
-      output.GroundTruthManifest,
-      context
-    );
-  }
-  return contents;
+    GroundTruthManifest:
+      output.GroundTruthManifest !== undefined &&
+      output.GroundTruthManifest !== null
+        ? deserializeAws_json1_1GroundTruthManifest(
+            output.GroundTruthManifest,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Assets = (
@@ -7837,111 +7830,96 @@ const deserializeAws_json1_1Beard = (
   output: any,
   context: __SerdeContext
 ): Beard => {
-  let contents: any = {
+  return {
     __type: "Beard",
-    Confidence: undefined,
-    Value: undefined
-  };
-  if (output.Confidence !== undefined && output.Confidence !== null) {
-    contents.Confidence = output.Confidence;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Confidence:
+      output.Confidence !== undefined && output.Confidence !== null
+        ? output.Confidence
+        : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1BoundingBox = (
   output: any,
   context: __SerdeContext
 ): BoundingBox => {
-  let contents: any = {
+  return {
     __type: "BoundingBox",
-    Height: undefined,
-    Left: undefined,
-    Top: undefined,
-    Width: undefined
-  };
-  if (output.Height !== undefined && output.Height !== null) {
-    contents.Height = output.Height;
-  }
-  if (output.Left !== undefined && output.Left !== null) {
-    contents.Left = output.Left;
-  }
-  if (output.Top !== undefined && output.Top !== null) {
-    contents.Top = output.Top;
-  }
-  if (output.Width !== undefined && output.Width !== null) {
-    contents.Width = output.Width;
-  }
-  return contents;
+    Height:
+      output.Height !== undefined && output.Height !== null
+        ? output.Height
+        : undefined,
+    Left:
+      output.Left !== undefined && output.Left !== null
+        ? output.Left
+        : undefined,
+    Top:
+      output.Top !== undefined && output.Top !== null ? output.Top : undefined,
+    Width:
+      output.Width !== undefined && output.Width !== null
+        ? output.Width
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Celebrity = (
   output: any,
   context: __SerdeContext
 ): Celebrity => {
-  let contents: any = {
+  return {
     __type: "Celebrity",
-    Face: undefined,
-    Id: undefined,
-    MatchConfidence: undefined,
-    Name: undefined,
-    Urls: undefined
-  };
-  if (output.Face !== undefined && output.Face !== null) {
-    contents.Face = deserializeAws_json1_1ComparedFace(output.Face, context);
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.MatchConfidence !== undefined && output.MatchConfidence !== null) {
-    contents.MatchConfidence = output.MatchConfidence;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Urls !== undefined && output.Urls !== null) {
-    contents.Urls = deserializeAws_json1_1Urls(output.Urls, context);
-  }
-  return contents;
+    Face:
+      output.Face !== undefined && output.Face !== null
+        ? deserializeAws_json1_1ComparedFace(output.Face, context)
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    MatchConfidence:
+      output.MatchConfidence !== undefined && output.MatchConfidence !== null
+        ? output.MatchConfidence
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Urls:
+      output.Urls !== undefined && output.Urls !== null
+        ? deserializeAws_json1_1Urls(output.Urls, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CelebrityDetail = (
   output: any,
   context: __SerdeContext
 ): CelebrityDetail => {
-  let contents: any = {
+  return {
     __type: "CelebrityDetail",
-    BoundingBox: undefined,
-    Confidence: undefined,
-    Face: undefined,
-    Id: undefined,
-    Name: undefined,
-    Urls: undefined
-  };
-  if (output.BoundingBox !== undefined && output.BoundingBox !== null) {
-    contents.BoundingBox = deserializeAws_json1_1BoundingBox(
-      output.BoundingBox,
-      context
-    );
-  }
-  if (output.Confidence !== undefined && output.Confidence !== null) {
-    contents.Confidence = output.Confidence;
-  }
-  if (output.Face !== undefined && output.Face !== null) {
-    contents.Face = deserializeAws_json1_1FaceDetail(output.Face, context);
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Urls !== undefined && output.Urls !== null) {
-    contents.Urls = deserializeAws_json1_1Urls(output.Urls, context);
-  }
-  return contents;
+    BoundingBox:
+      output.BoundingBox !== undefined && output.BoundingBox !== null
+        ? deserializeAws_json1_1BoundingBox(output.BoundingBox, context)
+        : undefined,
+    Confidence:
+      output.Confidence !== undefined && output.Confidence !== null
+        ? output.Confidence
+        : undefined,
+    Face:
+      output.Face !== undefined && output.Face !== null
+        ? deserializeAws_json1_1FaceDetail(output.Face, context)
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Urls:
+      output.Urls !== undefined && output.Urls !== null
+        ? deserializeAws_json1_1Urls(output.Urls, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CelebrityList = (
@@ -7957,21 +7935,17 @@ const deserializeAws_json1_1CelebrityRecognition = (
   output: any,
   context: __SerdeContext
 ): CelebrityRecognition => {
-  let contents: any = {
+  return {
     __type: "CelebrityRecognition",
-    Celebrity: undefined,
-    Timestamp: undefined
-  };
-  if (output.Celebrity !== undefined && output.Celebrity !== null) {
-    contents.Celebrity = deserializeAws_json1_1CelebrityDetail(
-      output.Celebrity,
-      context
-    );
-  }
-  if (output.Timestamp !== undefined && output.Timestamp !== null) {
-    contents.Timestamp = output.Timestamp;
-  }
-  return contents;
+    Celebrity:
+      output.Celebrity !== undefined && output.Celebrity !== null
+        ? deserializeAws_json1_1CelebrityDetail(output.Celebrity, context)
+        : undefined,
+    Timestamp:
+      output.Timestamp !== undefined && output.Timestamp !== null
+        ? output.Timestamp
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CelebrityRecognitions = (
@@ -7994,18 +7968,17 @@ const deserializeAws_json1_1CompareFacesMatch = (
   output: any,
   context: __SerdeContext
 ): CompareFacesMatch => {
-  let contents: any = {
+  return {
     __type: "CompareFacesMatch",
-    Face: undefined,
-    Similarity: undefined
-  };
-  if (output.Face !== undefined && output.Face !== null) {
-    contents.Face = deserializeAws_json1_1ComparedFace(output.Face, context);
-  }
-  if (output.Similarity !== undefined && output.Similarity !== null) {
-    contents.Similarity = output.Similarity;
-  }
-  return contents;
+    Face:
+      output.Face !== undefined && output.Face !== null
+        ? deserializeAws_json1_1ComparedFace(output.Face, context)
+        : undefined,
+    Similarity:
+      output.Similarity !== undefined && output.Similarity !== null
+        ? output.Similarity
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CompareFacesMatchList = (
@@ -8021,47 +7994,40 @@ const deserializeAws_json1_1CompareFacesResponse = (
   output: any,
   context: __SerdeContext
 ): CompareFacesResponse => {
-  let contents: any = {
+  return {
     __type: "CompareFacesResponse",
-    FaceMatches: undefined,
-    SourceImageFace: undefined,
-    SourceImageOrientationCorrection: undefined,
-    TargetImageOrientationCorrection: undefined,
-    UnmatchedFaces: undefined
-  };
-  if (output.FaceMatches !== undefined && output.FaceMatches !== null) {
-    contents.FaceMatches = deserializeAws_json1_1CompareFacesMatchList(
-      output.FaceMatches,
-      context
-    );
-  }
-  if (output.SourceImageFace !== undefined && output.SourceImageFace !== null) {
-    contents.SourceImageFace = deserializeAws_json1_1ComparedSourceImageFace(
-      output.SourceImageFace,
-      context
-    );
-  }
-  if (
-    output.SourceImageOrientationCorrection !== undefined &&
-    output.SourceImageOrientationCorrection !== null
-  ) {
-    contents.SourceImageOrientationCorrection =
-      output.SourceImageOrientationCorrection;
-  }
-  if (
-    output.TargetImageOrientationCorrection !== undefined &&
-    output.TargetImageOrientationCorrection !== null
-  ) {
-    contents.TargetImageOrientationCorrection =
-      output.TargetImageOrientationCorrection;
-  }
-  if (output.UnmatchedFaces !== undefined && output.UnmatchedFaces !== null) {
-    contents.UnmatchedFaces = deserializeAws_json1_1CompareFacesUnmatchList(
-      output.UnmatchedFaces,
-      context
-    );
-  }
-  return contents;
+    FaceMatches:
+      output.FaceMatches !== undefined && output.FaceMatches !== null
+        ? deserializeAws_json1_1CompareFacesMatchList(
+            output.FaceMatches,
+            context
+          )
+        : undefined,
+    SourceImageFace:
+      output.SourceImageFace !== undefined && output.SourceImageFace !== null
+        ? deserializeAws_json1_1ComparedSourceImageFace(
+            output.SourceImageFace,
+            context
+          )
+        : undefined,
+    SourceImageOrientationCorrection:
+      output.SourceImageOrientationCorrection !== undefined &&
+      output.SourceImageOrientationCorrection !== null
+        ? output.SourceImageOrientationCorrection
+        : undefined,
+    TargetImageOrientationCorrection:
+      output.TargetImageOrientationCorrection !== undefined &&
+      output.TargetImageOrientationCorrection !== null
+        ? output.TargetImageOrientationCorrection
+        : undefined,
+    UnmatchedFaces:
+      output.UnmatchedFaces !== undefined && output.UnmatchedFaces !== null
+        ? deserializeAws_json1_1CompareFacesUnmatchList(
+            output.UnmatchedFaces,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CompareFacesUnmatchList = (
@@ -8077,39 +8043,29 @@ const deserializeAws_json1_1ComparedFace = (
   output: any,
   context: __SerdeContext
 ): ComparedFace => {
-  let contents: any = {
+  return {
     __type: "ComparedFace",
-    BoundingBox: undefined,
-    Confidence: undefined,
-    Landmarks: undefined,
-    Pose: undefined,
-    Quality: undefined
-  };
-  if (output.BoundingBox !== undefined && output.BoundingBox !== null) {
-    contents.BoundingBox = deserializeAws_json1_1BoundingBox(
-      output.BoundingBox,
-      context
-    );
-  }
-  if (output.Confidence !== undefined && output.Confidence !== null) {
-    contents.Confidence = output.Confidence;
-  }
-  if (output.Landmarks !== undefined && output.Landmarks !== null) {
-    contents.Landmarks = deserializeAws_json1_1Landmarks(
-      output.Landmarks,
-      context
-    );
-  }
-  if (output.Pose !== undefined && output.Pose !== null) {
-    contents.Pose = deserializeAws_json1_1Pose(output.Pose, context);
-  }
-  if (output.Quality !== undefined && output.Quality !== null) {
-    contents.Quality = deserializeAws_json1_1ImageQuality(
-      output.Quality,
-      context
-    );
-  }
-  return contents;
+    BoundingBox:
+      output.BoundingBox !== undefined && output.BoundingBox !== null
+        ? deserializeAws_json1_1BoundingBox(output.BoundingBox, context)
+        : undefined,
+    Confidence:
+      output.Confidence !== undefined && output.Confidence !== null
+        ? output.Confidence
+        : undefined,
+    Landmarks:
+      output.Landmarks !== undefined && output.Landmarks !== null
+        ? deserializeAws_json1_1Landmarks(output.Landmarks, context)
+        : undefined,
+    Pose:
+      output.Pose !== undefined && output.Pose !== null
+        ? deserializeAws_json1_1Pose(output.Pose, context)
+        : undefined,
+    Quality:
+      output.Quality !== undefined && output.Quality !== null
+        ? deserializeAws_json1_1ImageQuality(output.Quality, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ComparedFaceList = (
@@ -8125,42 +8081,34 @@ const deserializeAws_json1_1ComparedSourceImageFace = (
   output: any,
   context: __SerdeContext
 ): ComparedSourceImageFace => {
-  let contents: any = {
+  return {
     __type: "ComparedSourceImageFace",
-    BoundingBox: undefined,
-    Confidence: undefined
-  };
-  if (output.BoundingBox !== undefined && output.BoundingBox !== null) {
-    contents.BoundingBox = deserializeAws_json1_1BoundingBox(
-      output.BoundingBox,
-      context
-    );
-  }
-  if (output.Confidence !== undefined && output.Confidence !== null) {
-    contents.Confidence = output.Confidence;
-  }
-  return contents;
+    BoundingBox:
+      output.BoundingBox !== undefined && output.BoundingBox !== null
+        ? deserializeAws_json1_1BoundingBox(output.BoundingBox, context)
+        : undefined,
+    Confidence:
+      output.Confidence !== undefined && output.Confidence !== null
+        ? output.Confidence
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ContentModerationDetection = (
   output: any,
   context: __SerdeContext
 ): ContentModerationDetection => {
-  let contents: any = {
+  return {
     __type: "ContentModerationDetection",
-    ModerationLabel: undefined,
-    Timestamp: undefined
-  };
-  if (output.ModerationLabel !== undefined && output.ModerationLabel !== null) {
-    contents.ModerationLabel = deserializeAws_json1_1ModerationLabel(
-      output.ModerationLabel,
-      context
-    );
-  }
-  if (output.Timestamp !== undefined && output.Timestamp !== null) {
-    contents.Timestamp = output.Timestamp;
-  }
-  return contents;
+    ModerationLabel:
+      output.ModerationLabel !== undefined && output.ModerationLabel !== null
+        ? deserializeAws_json1_1ModerationLabel(output.ModerationLabel, context)
+        : undefined,
+    Timestamp:
+      output.Timestamp !== undefined && output.Timestamp !== null
+        ? output.Timestamp
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ContentModerationDetections = (
@@ -8176,98 +8124,83 @@ const deserializeAws_json1_1CreateCollectionResponse = (
   output: any,
   context: __SerdeContext
 ): CreateCollectionResponse => {
-  let contents: any = {
+  return {
     __type: "CreateCollectionResponse",
-    CollectionArn: undefined,
-    FaceModelVersion: undefined,
-    StatusCode: undefined
-  };
-  if (output.CollectionArn !== undefined && output.CollectionArn !== null) {
-    contents.CollectionArn = output.CollectionArn;
-  }
-  if (
-    output.FaceModelVersion !== undefined &&
-    output.FaceModelVersion !== null
-  ) {
-    contents.FaceModelVersion = output.FaceModelVersion;
-  }
-  if (output.StatusCode !== undefined && output.StatusCode !== null) {
-    contents.StatusCode = output.StatusCode;
-  }
-  return contents;
+    CollectionArn:
+      output.CollectionArn !== undefined && output.CollectionArn !== null
+        ? output.CollectionArn
+        : undefined,
+    FaceModelVersion:
+      output.FaceModelVersion !== undefined && output.FaceModelVersion !== null
+        ? output.FaceModelVersion
+        : undefined,
+    StatusCode:
+      output.StatusCode !== undefined && output.StatusCode !== null
+        ? output.StatusCode
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateProjectResponse = (
   output: any,
   context: __SerdeContext
 ): CreateProjectResponse => {
-  let contents: any = {
+  return {
     __type: "CreateProjectResponse",
-    ProjectArn: undefined
-  };
-  if (output.ProjectArn !== undefined && output.ProjectArn !== null) {
-    contents.ProjectArn = output.ProjectArn;
-  }
-  return contents;
+    ProjectArn:
+      output.ProjectArn !== undefined && output.ProjectArn !== null
+        ? output.ProjectArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateProjectVersionResponse = (
   output: any,
   context: __SerdeContext
 ): CreateProjectVersionResponse => {
-  let contents: any = {
+  return {
     __type: "CreateProjectVersionResponse",
-    ProjectVersionArn: undefined
-  };
-  if (
-    output.ProjectVersionArn !== undefined &&
-    output.ProjectVersionArn !== null
-  ) {
-    contents.ProjectVersionArn = output.ProjectVersionArn;
-  }
-  return contents;
+    ProjectVersionArn:
+      output.ProjectVersionArn !== undefined &&
+      output.ProjectVersionArn !== null
+        ? output.ProjectVersionArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateStreamProcessorResponse = (
   output: any,
   context: __SerdeContext
 ): CreateStreamProcessorResponse => {
-  let contents: any = {
+  return {
     __type: "CreateStreamProcessorResponse",
-    StreamProcessorArn: undefined
-  };
-  if (
-    output.StreamProcessorArn !== undefined &&
-    output.StreamProcessorArn !== null
-  ) {
-    contents.StreamProcessorArn = output.StreamProcessorArn;
-  }
-  return contents;
+    StreamProcessorArn:
+      output.StreamProcessorArn !== undefined &&
+      output.StreamProcessorArn !== null
+        ? output.StreamProcessorArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CustomLabel = (
   output: any,
   context: __SerdeContext
 ): CustomLabel => {
-  let contents: any = {
+  return {
     __type: "CustomLabel",
-    Confidence: undefined,
-    Geometry: undefined,
-    Name: undefined
-  };
-  if (output.Confidence !== undefined && output.Confidence !== null) {
-    contents.Confidence = output.Confidence;
-  }
-  if (output.Geometry !== undefined && output.Geometry !== null) {
-    contents.Geometry = deserializeAws_json1_1Geometry(
-      output.Geometry,
-      context
-    );
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    Confidence:
+      output.Confidence !== undefined && output.Confidence !== null
+        ? output.Confidence
+        : undefined,
+    Geometry:
+      output.Geometry !== undefined && output.Geometry !== null
+        ? deserializeAws_json1_1Geometry(output.Geometry, context)
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CustomLabels = (
@@ -8283,336 +8216,274 @@ const deserializeAws_json1_1DeleteCollectionResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteCollectionResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteCollectionResponse",
-    StatusCode: undefined
-  };
-  if (output.StatusCode !== undefined && output.StatusCode !== null) {
-    contents.StatusCode = output.StatusCode;
-  }
-  return contents;
+    StatusCode:
+      output.StatusCode !== undefined && output.StatusCode !== null
+        ? output.StatusCode
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteFacesResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteFacesResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteFacesResponse",
-    DeletedFaces: undefined
-  };
-  if (output.DeletedFaces !== undefined && output.DeletedFaces !== null) {
-    contents.DeletedFaces = deserializeAws_json1_1FaceIdList(
-      output.DeletedFaces,
-      context
-    );
-  }
-  return contents;
+    DeletedFaces:
+      output.DeletedFaces !== undefined && output.DeletedFaces !== null
+        ? deserializeAws_json1_1FaceIdList(output.DeletedFaces, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteStreamProcessorResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteStreamProcessorResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteStreamProcessorResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeCollectionResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeCollectionResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeCollectionResponse",
-    CollectionARN: undefined,
-    CreationTimestamp: undefined,
-    FaceCount: undefined,
-    FaceModelVersion: undefined
-  };
-  if (output.CollectionARN !== undefined && output.CollectionARN !== null) {
-    contents.CollectionARN = output.CollectionARN;
-  }
-  if (
-    output.CreationTimestamp !== undefined &&
-    output.CreationTimestamp !== null
-  ) {
-    contents.CreationTimestamp = new Date(
-      Math.round(output.CreationTimestamp * 1000)
-    );
-  }
-  if (output.FaceCount !== undefined && output.FaceCount !== null) {
-    contents.FaceCount = output.FaceCount;
-  }
-  if (
-    output.FaceModelVersion !== undefined &&
-    output.FaceModelVersion !== null
-  ) {
-    contents.FaceModelVersion = output.FaceModelVersion;
-  }
-  return contents;
+    CollectionARN:
+      output.CollectionARN !== undefined && output.CollectionARN !== null
+        ? output.CollectionARN
+        : undefined,
+    CreationTimestamp:
+      output.CreationTimestamp !== undefined &&
+      output.CreationTimestamp !== null
+        ? new Date(Math.round(output.CreationTimestamp * 1000))
+        : undefined,
+    FaceCount:
+      output.FaceCount !== undefined && output.FaceCount !== null
+        ? output.FaceCount
+        : undefined,
+    FaceModelVersion:
+      output.FaceModelVersion !== undefined && output.FaceModelVersion !== null
+        ? output.FaceModelVersion
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeProjectVersionsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeProjectVersionsResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeProjectVersionsResponse",
-    NextToken: undefined,
-    ProjectVersionDescriptions: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (
-    output.ProjectVersionDescriptions !== undefined &&
-    output.ProjectVersionDescriptions !== null
-  ) {
-    contents.ProjectVersionDescriptions = deserializeAws_json1_1ProjectVersionDescriptions(
-      output.ProjectVersionDescriptions,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    ProjectVersionDescriptions:
+      output.ProjectVersionDescriptions !== undefined &&
+      output.ProjectVersionDescriptions !== null
+        ? deserializeAws_json1_1ProjectVersionDescriptions(
+            output.ProjectVersionDescriptions,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeProjectsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeProjectsResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeProjectsResponse",
-    NextToken: undefined,
-    ProjectDescriptions: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (
-    output.ProjectDescriptions !== undefined &&
-    output.ProjectDescriptions !== null
-  ) {
-    contents.ProjectDescriptions = deserializeAws_json1_1ProjectDescriptions(
-      output.ProjectDescriptions,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    ProjectDescriptions:
+      output.ProjectDescriptions !== undefined &&
+      output.ProjectDescriptions !== null
+        ? deserializeAws_json1_1ProjectDescriptions(
+            output.ProjectDescriptions,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeStreamProcessorResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeStreamProcessorResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeStreamProcessorResponse",
-    CreationTimestamp: undefined,
-    Input: undefined,
-    LastUpdateTimestamp: undefined,
-    Name: undefined,
-    Output: undefined,
-    RoleArn: undefined,
-    Settings: undefined,
-    Status: undefined,
-    StatusMessage: undefined,
-    StreamProcessorArn: undefined
-  };
-  if (
-    output.CreationTimestamp !== undefined &&
-    output.CreationTimestamp !== null
-  ) {
-    contents.CreationTimestamp = new Date(
-      Math.round(output.CreationTimestamp * 1000)
-    );
-  }
-  if (output.Input !== undefined && output.Input !== null) {
-    contents.Input = deserializeAws_json1_1StreamProcessorInput(
-      output.Input,
-      context
-    );
-  }
-  if (
-    output.LastUpdateTimestamp !== undefined &&
-    output.LastUpdateTimestamp !== null
-  ) {
-    contents.LastUpdateTimestamp = new Date(
-      Math.round(output.LastUpdateTimestamp * 1000)
-    );
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Output !== undefined && output.Output !== null) {
-    contents.Output = deserializeAws_json1_1StreamProcessorOutput(
-      output.Output,
-      context
-    );
-  }
-  if (output.RoleArn !== undefined && output.RoleArn !== null) {
-    contents.RoleArn = output.RoleArn;
-  }
-  if (output.Settings !== undefined && output.Settings !== null) {
-    contents.Settings = deserializeAws_json1_1StreamProcessorSettings(
-      output.Settings,
-      context
-    );
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.StatusMessage !== undefined && output.StatusMessage !== null) {
-    contents.StatusMessage = output.StatusMessage;
-  }
-  if (
-    output.StreamProcessorArn !== undefined &&
-    output.StreamProcessorArn !== null
-  ) {
-    contents.StreamProcessorArn = output.StreamProcessorArn;
-  }
-  return contents;
+    CreationTimestamp:
+      output.CreationTimestamp !== undefined &&
+      output.CreationTimestamp !== null
+        ? new Date(Math.round(output.CreationTimestamp * 1000))
+        : undefined,
+    Input:
+      output.Input !== undefined && output.Input !== null
+        ? deserializeAws_json1_1StreamProcessorInput(output.Input, context)
+        : undefined,
+    LastUpdateTimestamp:
+      output.LastUpdateTimestamp !== undefined &&
+      output.LastUpdateTimestamp !== null
+        ? new Date(Math.round(output.LastUpdateTimestamp * 1000))
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Output:
+      output.Output !== undefined && output.Output !== null
+        ? deserializeAws_json1_1StreamProcessorOutput(output.Output, context)
+        : undefined,
+    RoleArn:
+      output.RoleArn !== undefined && output.RoleArn !== null
+        ? output.RoleArn
+        : undefined,
+    Settings:
+      output.Settings !== undefined && output.Settings !== null
+        ? deserializeAws_json1_1StreamProcessorSettings(
+            output.Settings,
+            context
+          )
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    StatusMessage:
+      output.StatusMessage !== undefined && output.StatusMessage !== null
+        ? output.StatusMessage
+        : undefined,
+    StreamProcessorArn:
+      output.StreamProcessorArn !== undefined &&
+      output.StreamProcessorArn !== null
+        ? output.StreamProcessorArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DetectCustomLabelsResponse = (
   output: any,
   context: __SerdeContext
 ): DetectCustomLabelsResponse => {
-  let contents: any = {
+  return {
     __type: "DetectCustomLabelsResponse",
-    CustomLabels: undefined
-  };
-  if (output.CustomLabels !== undefined && output.CustomLabels !== null) {
-    contents.CustomLabels = deserializeAws_json1_1CustomLabels(
-      output.CustomLabels,
-      context
-    );
-  }
-  return contents;
+    CustomLabels:
+      output.CustomLabels !== undefined && output.CustomLabels !== null
+        ? deserializeAws_json1_1CustomLabels(output.CustomLabels, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DetectFacesResponse = (
   output: any,
   context: __SerdeContext
 ): DetectFacesResponse => {
-  let contents: any = {
+  return {
     __type: "DetectFacesResponse",
-    FaceDetails: undefined,
-    OrientationCorrection: undefined
-  };
-  if (output.FaceDetails !== undefined && output.FaceDetails !== null) {
-    contents.FaceDetails = deserializeAws_json1_1FaceDetailList(
-      output.FaceDetails,
-      context
-    );
-  }
-  if (
-    output.OrientationCorrection !== undefined &&
-    output.OrientationCorrection !== null
-  ) {
-    contents.OrientationCorrection = output.OrientationCorrection;
-  }
-  return contents;
+    FaceDetails:
+      output.FaceDetails !== undefined && output.FaceDetails !== null
+        ? deserializeAws_json1_1FaceDetailList(output.FaceDetails, context)
+        : undefined,
+    OrientationCorrection:
+      output.OrientationCorrection !== undefined &&
+      output.OrientationCorrection !== null
+        ? output.OrientationCorrection
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DetectLabelsResponse = (
   output: any,
   context: __SerdeContext
 ): DetectLabelsResponse => {
-  let contents: any = {
+  return {
     __type: "DetectLabelsResponse",
-    LabelModelVersion: undefined,
-    Labels: undefined,
-    OrientationCorrection: undefined
-  };
-  if (
-    output.LabelModelVersion !== undefined &&
-    output.LabelModelVersion !== null
-  ) {
-    contents.LabelModelVersion = output.LabelModelVersion;
-  }
-  if (output.Labels !== undefined && output.Labels !== null) {
-    contents.Labels = deserializeAws_json1_1Labels(output.Labels, context);
-  }
-  if (
-    output.OrientationCorrection !== undefined &&
-    output.OrientationCorrection !== null
-  ) {
-    contents.OrientationCorrection = output.OrientationCorrection;
-  }
-  return contents;
+    LabelModelVersion:
+      output.LabelModelVersion !== undefined &&
+      output.LabelModelVersion !== null
+        ? output.LabelModelVersion
+        : undefined,
+    Labels:
+      output.Labels !== undefined && output.Labels !== null
+        ? deserializeAws_json1_1Labels(output.Labels, context)
+        : undefined,
+    OrientationCorrection:
+      output.OrientationCorrection !== undefined &&
+      output.OrientationCorrection !== null
+        ? output.OrientationCorrection
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DetectModerationLabelsResponse = (
   output: any,
   context: __SerdeContext
 ): DetectModerationLabelsResponse => {
-  let contents: any = {
+  return {
     __type: "DetectModerationLabelsResponse",
-    HumanLoopActivationOutput: undefined,
-    ModerationLabels: undefined,
-    ModerationModelVersion: undefined
-  };
-  if (
-    output.HumanLoopActivationOutput !== undefined &&
-    output.HumanLoopActivationOutput !== null
-  ) {
-    contents.HumanLoopActivationOutput = deserializeAws_json1_1HumanLoopActivationOutput(
-      output.HumanLoopActivationOutput,
-      context
-    );
-  }
-  if (
-    output.ModerationLabels !== undefined &&
-    output.ModerationLabels !== null
-  ) {
-    contents.ModerationLabels = deserializeAws_json1_1ModerationLabels(
-      output.ModerationLabels,
-      context
-    );
-  }
-  if (
-    output.ModerationModelVersion !== undefined &&
-    output.ModerationModelVersion !== null
-  ) {
-    contents.ModerationModelVersion = output.ModerationModelVersion;
-  }
-  return contents;
+    HumanLoopActivationOutput:
+      output.HumanLoopActivationOutput !== undefined &&
+      output.HumanLoopActivationOutput !== null
+        ? deserializeAws_json1_1HumanLoopActivationOutput(
+            output.HumanLoopActivationOutput,
+            context
+          )
+        : undefined,
+    ModerationLabels:
+      output.ModerationLabels !== undefined && output.ModerationLabels !== null
+        ? deserializeAws_json1_1ModerationLabels(
+            output.ModerationLabels,
+            context
+          )
+        : undefined,
+    ModerationModelVersion:
+      output.ModerationModelVersion !== undefined &&
+      output.ModerationModelVersion !== null
+        ? output.ModerationModelVersion
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DetectTextResponse = (
   output: any,
   context: __SerdeContext
 ): DetectTextResponse => {
-  let contents: any = {
+  return {
     __type: "DetectTextResponse",
-    TextDetections: undefined
-  };
-  if (output.TextDetections !== undefined && output.TextDetections !== null) {
-    contents.TextDetections = deserializeAws_json1_1TextDetectionList(
-      output.TextDetections,
-      context
-    );
-  }
-  return contents;
+    TextDetections:
+      output.TextDetections !== undefined && output.TextDetections !== null
+        ? deserializeAws_json1_1TextDetectionList(
+            output.TextDetections,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Emotion = (
   output: any,
   context: __SerdeContext
 ): Emotion => {
-  let contents: any = {
+  return {
     __type: "Emotion",
-    Confidence: undefined,
-    Type: undefined
-  };
-  if (output.Confidence !== undefined && output.Confidence !== null) {
-    contents.Confidence = output.Confidence;
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    Confidence:
+      output.Confidence !== undefined && output.Confidence !== null
+        ? output.Confidence
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Emotions = (
@@ -8628,184 +8499,149 @@ const deserializeAws_json1_1EvaluationResult = (
   output: any,
   context: __SerdeContext
 ): EvaluationResult => {
-  let contents: any = {
+  return {
     __type: "EvaluationResult",
-    F1Score: undefined,
-    Summary: undefined
-  };
-  if (output.F1Score !== undefined && output.F1Score !== null) {
-    contents.F1Score = output.F1Score;
-  }
-  if (output.Summary !== undefined && output.Summary !== null) {
-    contents.Summary = deserializeAws_json1_1Summary(output.Summary, context);
-  }
-  return contents;
+    F1Score:
+      output.F1Score !== undefined && output.F1Score !== null
+        ? output.F1Score
+        : undefined,
+    Summary:
+      output.Summary !== undefined && output.Summary !== null
+        ? deserializeAws_json1_1Summary(output.Summary, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EyeOpen = (
   output: any,
   context: __SerdeContext
 ): EyeOpen => {
-  let contents: any = {
+  return {
     __type: "EyeOpen",
-    Confidence: undefined,
-    Value: undefined
-  };
-  if (output.Confidence !== undefined && output.Confidence !== null) {
-    contents.Confidence = output.Confidence;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Confidence:
+      output.Confidence !== undefined && output.Confidence !== null
+        ? output.Confidence
+        : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Eyeglasses = (
   output: any,
   context: __SerdeContext
 ): Eyeglasses => {
-  let contents: any = {
+  return {
     __type: "Eyeglasses",
-    Confidence: undefined,
-    Value: undefined
-  };
-  if (output.Confidence !== undefined && output.Confidence !== null) {
-    contents.Confidence = output.Confidence;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Confidence:
+      output.Confidence !== undefined && output.Confidence !== null
+        ? output.Confidence
+        : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Face = (
   output: any,
   context: __SerdeContext
 ): Face => {
-  let contents: any = {
+  return {
     __type: "Face",
-    BoundingBox: undefined,
-    Confidence: undefined,
-    ExternalImageId: undefined,
-    FaceId: undefined,
-    ImageId: undefined
-  };
-  if (output.BoundingBox !== undefined && output.BoundingBox !== null) {
-    contents.BoundingBox = deserializeAws_json1_1BoundingBox(
-      output.BoundingBox,
-      context
-    );
-  }
-  if (output.Confidence !== undefined && output.Confidence !== null) {
-    contents.Confidence = output.Confidence;
-  }
-  if (output.ExternalImageId !== undefined && output.ExternalImageId !== null) {
-    contents.ExternalImageId = output.ExternalImageId;
-  }
-  if (output.FaceId !== undefined && output.FaceId !== null) {
-    contents.FaceId = output.FaceId;
-  }
-  if (output.ImageId !== undefined && output.ImageId !== null) {
-    contents.ImageId = output.ImageId;
-  }
-  return contents;
+    BoundingBox:
+      output.BoundingBox !== undefined && output.BoundingBox !== null
+        ? deserializeAws_json1_1BoundingBox(output.BoundingBox, context)
+        : undefined,
+    Confidence:
+      output.Confidence !== undefined && output.Confidence !== null
+        ? output.Confidence
+        : undefined,
+    ExternalImageId:
+      output.ExternalImageId !== undefined && output.ExternalImageId !== null
+        ? output.ExternalImageId
+        : undefined,
+    FaceId:
+      output.FaceId !== undefined && output.FaceId !== null
+        ? output.FaceId
+        : undefined,
+    ImageId:
+      output.ImageId !== undefined && output.ImageId !== null
+        ? output.ImageId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1FaceDetail = (
   output: any,
   context: __SerdeContext
 ): FaceDetail => {
-  let contents: any = {
+  return {
     __type: "FaceDetail",
-    AgeRange: undefined,
-    Beard: undefined,
-    BoundingBox: undefined,
-    Confidence: undefined,
-    Emotions: undefined,
-    Eyeglasses: undefined,
-    EyesOpen: undefined,
-    Gender: undefined,
-    Landmarks: undefined,
-    MouthOpen: undefined,
-    Mustache: undefined,
-    Pose: undefined,
-    Quality: undefined,
-    Smile: undefined,
-    Sunglasses: undefined
-  };
-  if (output.AgeRange !== undefined && output.AgeRange !== null) {
-    contents.AgeRange = deserializeAws_json1_1AgeRange(
-      output.AgeRange,
-      context
-    );
-  }
-  if (output.Beard !== undefined && output.Beard !== null) {
-    contents.Beard = deserializeAws_json1_1Beard(output.Beard, context);
-  }
-  if (output.BoundingBox !== undefined && output.BoundingBox !== null) {
-    contents.BoundingBox = deserializeAws_json1_1BoundingBox(
-      output.BoundingBox,
-      context
-    );
-  }
-  if (output.Confidence !== undefined && output.Confidence !== null) {
-    contents.Confidence = output.Confidence;
-  }
-  if (output.Emotions !== undefined && output.Emotions !== null) {
-    contents.Emotions = deserializeAws_json1_1Emotions(
-      output.Emotions,
-      context
-    );
-  }
-  if (output.Eyeglasses !== undefined && output.Eyeglasses !== null) {
-    contents.Eyeglasses = deserializeAws_json1_1Eyeglasses(
-      output.Eyeglasses,
-      context
-    );
-  }
-  if (output.EyesOpen !== undefined && output.EyesOpen !== null) {
-    contents.EyesOpen = deserializeAws_json1_1EyeOpen(output.EyesOpen, context);
-  }
-  if (output.Gender !== undefined && output.Gender !== null) {
-    contents.Gender = deserializeAws_json1_1Gender(output.Gender, context);
-  }
-  if (output.Landmarks !== undefined && output.Landmarks !== null) {
-    contents.Landmarks = deserializeAws_json1_1Landmarks(
-      output.Landmarks,
-      context
-    );
-  }
-  if (output.MouthOpen !== undefined && output.MouthOpen !== null) {
-    contents.MouthOpen = deserializeAws_json1_1MouthOpen(
-      output.MouthOpen,
-      context
-    );
-  }
-  if (output.Mustache !== undefined && output.Mustache !== null) {
-    contents.Mustache = deserializeAws_json1_1Mustache(
-      output.Mustache,
-      context
-    );
-  }
-  if (output.Pose !== undefined && output.Pose !== null) {
-    contents.Pose = deserializeAws_json1_1Pose(output.Pose, context);
-  }
-  if (output.Quality !== undefined && output.Quality !== null) {
-    contents.Quality = deserializeAws_json1_1ImageQuality(
-      output.Quality,
-      context
-    );
-  }
-  if (output.Smile !== undefined && output.Smile !== null) {
-    contents.Smile = deserializeAws_json1_1Smile(output.Smile, context);
-  }
-  if (output.Sunglasses !== undefined && output.Sunglasses !== null) {
-    contents.Sunglasses = deserializeAws_json1_1Sunglasses(
-      output.Sunglasses,
-      context
-    );
-  }
-  return contents;
+    AgeRange:
+      output.AgeRange !== undefined && output.AgeRange !== null
+        ? deserializeAws_json1_1AgeRange(output.AgeRange, context)
+        : undefined,
+    Beard:
+      output.Beard !== undefined && output.Beard !== null
+        ? deserializeAws_json1_1Beard(output.Beard, context)
+        : undefined,
+    BoundingBox:
+      output.BoundingBox !== undefined && output.BoundingBox !== null
+        ? deserializeAws_json1_1BoundingBox(output.BoundingBox, context)
+        : undefined,
+    Confidence:
+      output.Confidence !== undefined && output.Confidence !== null
+        ? output.Confidence
+        : undefined,
+    Emotions:
+      output.Emotions !== undefined && output.Emotions !== null
+        ? deserializeAws_json1_1Emotions(output.Emotions, context)
+        : undefined,
+    Eyeglasses:
+      output.Eyeglasses !== undefined && output.Eyeglasses !== null
+        ? deserializeAws_json1_1Eyeglasses(output.Eyeglasses, context)
+        : undefined,
+    EyesOpen:
+      output.EyesOpen !== undefined && output.EyesOpen !== null
+        ? deserializeAws_json1_1EyeOpen(output.EyesOpen, context)
+        : undefined,
+    Gender:
+      output.Gender !== undefined && output.Gender !== null
+        ? deserializeAws_json1_1Gender(output.Gender, context)
+        : undefined,
+    Landmarks:
+      output.Landmarks !== undefined && output.Landmarks !== null
+        ? deserializeAws_json1_1Landmarks(output.Landmarks, context)
+        : undefined,
+    MouthOpen:
+      output.MouthOpen !== undefined && output.MouthOpen !== null
+        ? deserializeAws_json1_1MouthOpen(output.MouthOpen, context)
+        : undefined,
+    Mustache:
+      output.Mustache !== undefined && output.Mustache !== null
+        ? deserializeAws_json1_1Mustache(output.Mustache, context)
+        : undefined,
+    Pose:
+      output.Pose !== undefined && output.Pose !== null
+        ? deserializeAws_json1_1Pose(output.Pose, context)
+        : undefined,
+    Quality:
+      output.Quality !== undefined && output.Quality !== null
+        ? deserializeAws_json1_1ImageQuality(output.Quality, context)
+        : undefined,
+    Smile:
+      output.Smile !== undefined && output.Smile !== null
+        ? deserializeAws_json1_1Smile(output.Smile, context)
+        : undefined,
+    Sunglasses:
+      output.Sunglasses !== undefined && output.Sunglasses !== null
+        ? deserializeAws_json1_1Sunglasses(output.Sunglasses, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1FaceDetailList = (
@@ -8821,18 +8657,17 @@ const deserializeAws_json1_1FaceDetection = (
   output: any,
   context: __SerdeContext
 ): FaceDetection => {
-  let contents: any = {
+  return {
     __type: "FaceDetection",
-    Face: undefined,
-    Timestamp: undefined
-  };
-  if (output.Face !== undefined && output.Face !== null) {
-    contents.Face = deserializeAws_json1_1FaceDetail(output.Face, context);
-  }
-  if (output.Timestamp !== undefined && output.Timestamp !== null) {
-    contents.Timestamp = output.Timestamp;
-  }
-  return contents;
+    Face:
+      output.Face !== undefined && output.Face !== null
+        ? deserializeAws_json1_1FaceDetail(output.Face, context)
+        : undefined,
+    Timestamp:
+      output.Timestamp !== undefined && output.Timestamp !== null
+        ? output.Timestamp
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1FaceDetections = (
@@ -8864,18 +8699,17 @@ const deserializeAws_json1_1FaceMatch = (
   output: any,
   context: __SerdeContext
 ): FaceMatch => {
-  let contents: any = {
+  return {
     __type: "FaceMatch",
-    Face: undefined,
-    Similarity: undefined
-  };
-  if (output.Face !== undefined && output.Face !== null) {
-    contents.Face = deserializeAws_json1_1Face(output.Face, context);
-  }
-  if (output.Similarity !== undefined && output.Similarity !== null) {
-    contents.Similarity = output.Similarity;
-  }
-  return contents;
+    Face:
+      output.Face !== undefined && output.Face !== null
+        ? deserializeAws_json1_1Face(output.Face, context)
+        : undefined,
+    Similarity:
+      output.Similarity !== undefined && output.Similarity !== null
+        ? output.Similarity
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1FaceMatchList = (
@@ -8898,21 +8732,17 @@ const deserializeAws_json1_1FaceRecord = (
   output: any,
   context: __SerdeContext
 ): FaceRecord => {
-  let contents: any = {
+  return {
     __type: "FaceRecord",
-    Face: undefined,
-    FaceDetail: undefined
-  };
-  if (output.Face !== undefined && output.Face !== null) {
-    contents.Face = deserializeAws_json1_1Face(output.Face, context);
-  }
-  if (output.FaceDetail !== undefined && output.FaceDetail !== null) {
-    contents.FaceDetail = deserializeAws_json1_1FaceDetail(
-      output.FaceDetail,
-      context
-    );
-  }
-  return contents;
+    Face:
+      output.Face !== undefined && output.Face !== null
+        ? deserializeAws_json1_1Face(output.Face, context)
+        : undefined,
+    FaceDetail:
+      output.FaceDetail !== undefined && output.FaceDetail !== null
+        ? deserializeAws_json1_1FaceDetail(output.FaceDetail, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1FaceRecordList = (
@@ -8928,361 +8758,300 @@ const deserializeAws_json1_1FaceSearchSettings = (
   output: any,
   context: __SerdeContext
 ): FaceSearchSettings => {
-  let contents: any = {
+  return {
     __type: "FaceSearchSettings",
-    CollectionId: undefined,
-    FaceMatchThreshold: undefined
-  };
-  if (output.CollectionId !== undefined && output.CollectionId !== null) {
-    contents.CollectionId = output.CollectionId;
-  }
-  if (
-    output.FaceMatchThreshold !== undefined &&
-    output.FaceMatchThreshold !== null
-  ) {
-    contents.FaceMatchThreshold = output.FaceMatchThreshold;
-  }
-  return contents;
+    CollectionId:
+      output.CollectionId !== undefined && output.CollectionId !== null
+        ? output.CollectionId
+        : undefined,
+    FaceMatchThreshold:
+      output.FaceMatchThreshold !== undefined &&
+      output.FaceMatchThreshold !== null
+        ? output.FaceMatchThreshold
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Gender = (
   output: any,
   context: __SerdeContext
 ): Gender => {
-  let contents: any = {
+  return {
     __type: "Gender",
-    Confidence: undefined,
-    Value: undefined
-  };
-  if (output.Confidence !== undefined && output.Confidence !== null) {
-    contents.Confidence = output.Confidence;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Confidence:
+      output.Confidence !== undefined && output.Confidence !== null
+        ? output.Confidence
+        : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Geometry = (
   output: any,
   context: __SerdeContext
 ): Geometry => {
-  let contents: any = {
+  return {
     __type: "Geometry",
-    BoundingBox: undefined,
-    Polygon: undefined
-  };
-  if (output.BoundingBox !== undefined && output.BoundingBox !== null) {
-    contents.BoundingBox = deserializeAws_json1_1BoundingBox(
-      output.BoundingBox,
-      context
-    );
-  }
-  if (output.Polygon !== undefined && output.Polygon !== null) {
-    contents.Polygon = deserializeAws_json1_1Polygon(output.Polygon, context);
-  }
-  return contents;
+    BoundingBox:
+      output.BoundingBox !== undefined && output.BoundingBox !== null
+        ? deserializeAws_json1_1BoundingBox(output.BoundingBox, context)
+        : undefined,
+    Polygon:
+      output.Polygon !== undefined && output.Polygon !== null
+        ? deserializeAws_json1_1Polygon(output.Polygon, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetCelebrityInfoResponse = (
   output: any,
   context: __SerdeContext
 ): GetCelebrityInfoResponse => {
-  let contents: any = {
+  return {
     __type: "GetCelebrityInfoResponse",
-    Name: undefined,
-    Urls: undefined
-  };
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Urls !== undefined && output.Urls !== null) {
-    contents.Urls = deserializeAws_json1_1Urls(output.Urls, context);
-  }
-  return contents;
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Urls:
+      output.Urls !== undefined && output.Urls !== null
+        ? deserializeAws_json1_1Urls(output.Urls, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetCelebrityRecognitionResponse = (
   output: any,
   context: __SerdeContext
 ): GetCelebrityRecognitionResponse => {
-  let contents: any = {
+  return {
     __type: "GetCelebrityRecognitionResponse",
-    Celebrities: undefined,
-    JobStatus: undefined,
-    NextToken: undefined,
-    StatusMessage: undefined,
-    VideoMetadata: undefined
-  };
-  if (output.Celebrities !== undefined && output.Celebrities !== null) {
-    contents.Celebrities = deserializeAws_json1_1CelebrityRecognitions(
-      output.Celebrities,
-      context
-    );
-  }
-  if (output.JobStatus !== undefined && output.JobStatus !== null) {
-    contents.JobStatus = output.JobStatus;
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.StatusMessage !== undefined && output.StatusMessage !== null) {
-    contents.StatusMessage = output.StatusMessage;
-  }
-  if (output.VideoMetadata !== undefined && output.VideoMetadata !== null) {
-    contents.VideoMetadata = deserializeAws_json1_1VideoMetadata(
-      output.VideoMetadata,
-      context
-    );
-  }
-  return contents;
+    Celebrities:
+      output.Celebrities !== undefined && output.Celebrities !== null
+        ? deserializeAws_json1_1CelebrityRecognitions(
+            output.Celebrities,
+            context
+          )
+        : undefined,
+    JobStatus:
+      output.JobStatus !== undefined && output.JobStatus !== null
+        ? output.JobStatus
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    StatusMessage:
+      output.StatusMessage !== undefined && output.StatusMessage !== null
+        ? output.StatusMessage
+        : undefined,
+    VideoMetadata:
+      output.VideoMetadata !== undefined && output.VideoMetadata !== null
+        ? deserializeAws_json1_1VideoMetadata(output.VideoMetadata, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetContentModerationResponse = (
   output: any,
   context: __SerdeContext
 ): GetContentModerationResponse => {
-  let contents: any = {
+  return {
     __type: "GetContentModerationResponse",
-    JobStatus: undefined,
-    ModerationLabels: undefined,
-    ModerationModelVersion: undefined,
-    NextToken: undefined,
-    StatusMessage: undefined,
-    VideoMetadata: undefined
-  };
-  if (output.JobStatus !== undefined && output.JobStatus !== null) {
-    contents.JobStatus = output.JobStatus;
-  }
-  if (
-    output.ModerationLabels !== undefined &&
-    output.ModerationLabels !== null
-  ) {
-    contents.ModerationLabels = deserializeAws_json1_1ContentModerationDetections(
-      output.ModerationLabels,
-      context
-    );
-  }
-  if (
-    output.ModerationModelVersion !== undefined &&
-    output.ModerationModelVersion !== null
-  ) {
-    contents.ModerationModelVersion = output.ModerationModelVersion;
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.StatusMessage !== undefined && output.StatusMessage !== null) {
-    contents.StatusMessage = output.StatusMessage;
-  }
-  if (output.VideoMetadata !== undefined && output.VideoMetadata !== null) {
-    contents.VideoMetadata = deserializeAws_json1_1VideoMetadata(
-      output.VideoMetadata,
-      context
-    );
-  }
-  return contents;
+    JobStatus:
+      output.JobStatus !== undefined && output.JobStatus !== null
+        ? output.JobStatus
+        : undefined,
+    ModerationLabels:
+      output.ModerationLabels !== undefined && output.ModerationLabels !== null
+        ? deserializeAws_json1_1ContentModerationDetections(
+            output.ModerationLabels,
+            context
+          )
+        : undefined,
+    ModerationModelVersion:
+      output.ModerationModelVersion !== undefined &&
+      output.ModerationModelVersion !== null
+        ? output.ModerationModelVersion
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    StatusMessage:
+      output.StatusMessage !== undefined && output.StatusMessage !== null
+        ? output.StatusMessage
+        : undefined,
+    VideoMetadata:
+      output.VideoMetadata !== undefined && output.VideoMetadata !== null
+        ? deserializeAws_json1_1VideoMetadata(output.VideoMetadata, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetFaceDetectionResponse = (
   output: any,
   context: __SerdeContext
 ): GetFaceDetectionResponse => {
-  let contents: any = {
+  return {
     __type: "GetFaceDetectionResponse",
-    Faces: undefined,
-    JobStatus: undefined,
-    NextToken: undefined,
-    StatusMessage: undefined,
-    VideoMetadata: undefined
-  };
-  if (output.Faces !== undefined && output.Faces !== null) {
-    contents.Faces = deserializeAws_json1_1FaceDetections(
-      output.Faces,
-      context
-    );
-  }
-  if (output.JobStatus !== undefined && output.JobStatus !== null) {
-    contents.JobStatus = output.JobStatus;
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.StatusMessage !== undefined && output.StatusMessage !== null) {
-    contents.StatusMessage = output.StatusMessage;
-  }
-  if (output.VideoMetadata !== undefined && output.VideoMetadata !== null) {
-    contents.VideoMetadata = deserializeAws_json1_1VideoMetadata(
-      output.VideoMetadata,
-      context
-    );
-  }
-  return contents;
+    Faces:
+      output.Faces !== undefined && output.Faces !== null
+        ? deserializeAws_json1_1FaceDetections(output.Faces, context)
+        : undefined,
+    JobStatus:
+      output.JobStatus !== undefined && output.JobStatus !== null
+        ? output.JobStatus
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    StatusMessage:
+      output.StatusMessage !== undefined && output.StatusMessage !== null
+        ? output.StatusMessage
+        : undefined,
+    VideoMetadata:
+      output.VideoMetadata !== undefined && output.VideoMetadata !== null
+        ? deserializeAws_json1_1VideoMetadata(output.VideoMetadata, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetFaceSearchResponse = (
   output: any,
   context: __SerdeContext
 ): GetFaceSearchResponse => {
-  let contents: any = {
+  return {
     __type: "GetFaceSearchResponse",
-    JobStatus: undefined,
-    NextToken: undefined,
-    Persons: undefined,
-    StatusMessage: undefined,
-    VideoMetadata: undefined
-  };
-  if (output.JobStatus !== undefined && output.JobStatus !== null) {
-    contents.JobStatus = output.JobStatus;
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.Persons !== undefined && output.Persons !== null) {
-    contents.Persons = deserializeAws_json1_1PersonMatches(
-      output.Persons,
-      context
-    );
-  }
-  if (output.StatusMessage !== undefined && output.StatusMessage !== null) {
-    contents.StatusMessage = output.StatusMessage;
-  }
-  if (output.VideoMetadata !== undefined && output.VideoMetadata !== null) {
-    contents.VideoMetadata = deserializeAws_json1_1VideoMetadata(
-      output.VideoMetadata,
-      context
-    );
-  }
-  return contents;
+    JobStatus:
+      output.JobStatus !== undefined && output.JobStatus !== null
+        ? output.JobStatus
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Persons:
+      output.Persons !== undefined && output.Persons !== null
+        ? deserializeAws_json1_1PersonMatches(output.Persons, context)
+        : undefined,
+    StatusMessage:
+      output.StatusMessage !== undefined && output.StatusMessage !== null
+        ? output.StatusMessage
+        : undefined,
+    VideoMetadata:
+      output.VideoMetadata !== undefined && output.VideoMetadata !== null
+        ? deserializeAws_json1_1VideoMetadata(output.VideoMetadata, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetLabelDetectionResponse = (
   output: any,
   context: __SerdeContext
 ): GetLabelDetectionResponse => {
-  let contents: any = {
+  return {
     __type: "GetLabelDetectionResponse",
-    JobStatus: undefined,
-    LabelModelVersion: undefined,
-    Labels: undefined,
-    NextToken: undefined,
-    StatusMessage: undefined,
-    VideoMetadata: undefined
-  };
-  if (output.JobStatus !== undefined && output.JobStatus !== null) {
-    contents.JobStatus = output.JobStatus;
-  }
-  if (
-    output.LabelModelVersion !== undefined &&
-    output.LabelModelVersion !== null
-  ) {
-    contents.LabelModelVersion = output.LabelModelVersion;
-  }
-  if (output.Labels !== undefined && output.Labels !== null) {
-    contents.Labels = deserializeAws_json1_1LabelDetections(
-      output.Labels,
-      context
-    );
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.StatusMessage !== undefined && output.StatusMessage !== null) {
-    contents.StatusMessage = output.StatusMessage;
-  }
-  if (output.VideoMetadata !== undefined && output.VideoMetadata !== null) {
-    contents.VideoMetadata = deserializeAws_json1_1VideoMetadata(
-      output.VideoMetadata,
-      context
-    );
-  }
-  return contents;
+    JobStatus:
+      output.JobStatus !== undefined && output.JobStatus !== null
+        ? output.JobStatus
+        : undefined,
+    LabelModelVersion:
+      output.LabelModelVersion !== undefined &&
+      output.LabelModelVersion !== null
+        ? output.LabelModelVersion
+        : undefined,
+    Labels:
+      output.Labels !== undefined && output.Labels !== null
+        ? deserializeAws_json1_1LabelDetections(output.Labels, context)
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    StatusMessage:
+      output.StatusMessage !== undefined && output.StatusMessage !== null
+        ? output.StatusMessage
+        : undefined,
+    VideoMetadata:
+      output.VideoMetadata !== undefined && output.VideoMetadata !== null
+        ? deserializeAws_json1_1VideoMetadata(output.VideoMetadata, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetPersonTrackingResponse = (
   output: any,
   context: __SerdeContext
 ): GetPersonTrackingResponse => {
-  let contents: any = {
+  return {
     __type: "GetPersonTrackingResponse",
-    JobStatus: undefined,
-    NextToken: undefined,
-    Persons: undefined,
-    StatusMessage: undefined,
-    VideoMetadata: undefined
-  };
-  if (output.JobStatus !== undefined && output.JobStatus !== null) {
-    contents.JobStatus = output.JobStatus;
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.Persons !== undefined && output.Persons !== null) {
-    contents.Persons = deserializeAws_json1_1PersonDetections(
-      output.Persons,
-      context
-    );
-  }
-  if (output.StatusMessage !== undefined && output.StatusMessage !== null) {
-    contents.StatusMessage = output.StatusMessage;
-  }
-  if (output.VideoMetadata !== undefined && output.VideoMetadata !== null) {
-    contents.VideoMetadata = deserializeAws_json1_1VideoMetadata(
-      output.VideoMetadata,
-      context
-    );
-  }
-  return contents;
+    JobStatus:
+      output.JobStatus !== undefined && output.JobStatus !== null
+        ? output.JobStatus
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Persons:
+      output.Persons !== undefined && output.Persons !== null
+        ? deserializeAws_json1_1PersonDetections(output.Persons, context)
+        : undefined,
+    StatusMessage:
+      output.StatusMessage !== undefined && output.StatusMessage !== null
+        ? output.StatusMessage
+        : undefined,
+    VideoMetadata:
+      output.VideoMetadata !== undefined && output.VideoMetadata !== null
+        ? deserializeAws_json1_1VideoMetadata(output.VideoMetadata, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GroundTruthManifest = (
   output: any,
   context: __SerdeContext
 ): GroundTruthManifest => {
-  let contents: any = {
+  return {
     __type: "GroundTruthManifest",
-    S3Object: undefined
-  };
-  if (output.S3Object !== undefined && output.S3Object !== null) {
-    contents.S3Object = deserializeAws_json1_1S3Object(
-      output.S3Object,
-      context
-    );
-  }
-  return contents;
+    S3Object:
+      output.S3Object !== undefined && output.S3Object !== null
+        ? deserializeAws_json1_1S3Object(output.S3Object, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1HumanLoopActivationOutput = (
   output: any,
   context: __SerdeContext
 ): HumanLoopActivationOutput => {
-  let contents: any = {
+  return {
     __type: "HumanLoopActivationOutput",
-    HumanLoopActivationConditionsEvaluationResults: undefined,
-    HumanLoopActivationReasons: undefined,
-    HumanLoopArn: undefined
-  };
-  if (
-    output.HumanLoopActivationConditionsEvaluationResults !== undefined &&
-    output.HumanLoopActivationConditionsEvaluationResults !== null
-  ) {
-    contents.HumanLoopActivationConditionsEvaluationResults = new __LazyJsonString(
-      output.HumanLoopActivationConditionsEvaluationResults
-    );
-  }
-  if (
-    output.HumanLoopActivationReasons !== undefined &&
-    output.HumanLoopActivationReasons !== null
-  ) {
-    contents.HumanLoopActivationReasons = deserializeAws_json1_1HumanLoopActivationReasons(
-      output.HumanLoopActivationReasons,
-      context
-    );
-  }
-  if (output.HumanLoopArn !== undefined && output.HumanLoopArn !== null) {
-    contents.HumanLoopArn = output.HumanLoopArn;
-  }
-  return contents;
+    HumanLoopActivationConditionsEvaluationResults:
+      output.HumanLoopActivationConditionsEvaluationResults !== undefined &&
+      output.HumanLoopActivationConditionsEvaluationResults !== null
+        ? new __LazyJsonString(
+            output.HumanLoopActivationConditionsEvaluationResults
+          )
+        : undefined,
+    HumanLoopActivationReasons:
+      output.HumanLoopActivationReasons !== undefined &&
+      output.HumanLoopActivationReasons !== null
+        ? deserializeAws_json1_1HumanLoopActivationReasons(
+            output.HumanLoopActivationReasons,
+            context
+          )
+        : undefined,
+    HumanLoopArn:
+      output.HumanLoopArn !== undefined && output.HumanLoopArn !== null
+        ? output.HumanLoopArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1HumanLoopActivationReasons = (
@@ -9296,155 +9065,135 @@ const deserializeAws_json1_1HumanLoopQuotaExceededException = (
   output: any,
   context: __SerdeContext
 ): HumanLoopQuotaExceededException => {
-  let contents: any = {
+  return {
     __type: "HumanLoopQuotaExceededException",
-    Code: undefined,
-    Logref: undefined,
-    Message: undefined,
-    QuotaCode: undefined,
-    ResourceType: undefined,
-    ServiceCode: undefined
-  };
-  if (output.Code !== undefined && output.Code !== null) {
-    contents.Code = output.Code;
-  }
-  if (output.Logref !== undefined && output.Logref !== null) {
-    contents.Logref = output.Logref;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.QuotaCode !== undefined && output.QuotaCode !== null) {
-    contents.QuotaCode = output.QuotaCode;
-  }
-  if (output.ResourceType !== undefined && output.ResourceType !== null) {
-    contents.ResourceType = output.ResourceType;
-  }
-  if (output.ServiceCode !== undefined && output.ServiceCode !== null) {
-    contents.ServiceCode = output.ServiceCode;
-  }
-  return contents;
+    Code:
+      output.Code !== undefined && output.Code !== null
+        ? output.Code
+        : undefined,
+    Logref:
+      output.Logref !== undefined && output.Logref !== null
+        ? output.Logref
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    QuotaCode:
+      output.QuotaCode !== undefined && output.QuotaCode !== null
+        ? output.QuotaCode
+        : undefined,
+    ResourceType:
+      output.ResourceType !== undefined && output.ResourceType !== null
+        ? output.ResourceType
+        : undefined,
+    ServiceCode:
+      output.ServiceCode !== undefined && output.ServiceCode !== null
+        ? output.ServiceCode
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1IdempotentParameterMismatchException = (
   output: any,
   context: __SerdeContext
 ): IdempotentParameterMismatchException => {
-  let contents: any = {
+  return {
     __type: "IdempotentParameterMismatchException",
-    Code: undefined,
-    Logref: undefined,
-    Message: undefined
-  };
-  if (output.Code !== undefined && output.Code !== null) {
-    contents.Code = output.Code;
-  }
-  if (output.Logref !== undefined && output.Logref !== null) {
-    contents.Logref = output.Logref;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Code:
+      output.Code !== undefined && output.Code !== null
+        ? output.Code
+        : undefined,
+    Logref:
+      output.Logref !== undefined && output.Logref !== null
+        ? output.Logref
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ImageQuality = (
   output: any,
   context: __SerdeContext
 ): ImageQuality => {
-  let contents: any = {
+  return {
     __type: "ImageQuality",
-    Brightness: undefined,
-    Sharpness: undefined
-  };
-  if (output.Brightness !== undefined && output.Brightness !== null) {
-    contents.Brightness = output.Brightness;
-  }
-  if (output.Sharpness !== undefined && output.Sharpness !== null) {
-    contents.Sharpness = output.Sharpness;
-  }
-  return contents;
+    Brightness:
+      output.Brightness !== undefined && output.Brightness !== null
+        ? output.Brightness
+        : undefined,
+    Sharpness:
+      output.Sharpness !== undefined && output.Sharpness !== null
+        ? output.Sharpness
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ImageTooLargeException = (
   output: any,
   context: __SerdeContext
 ): ImageTooLargeException => {
-  let contents: any = {
+  return {
     __type: "ImageTooLargeException",
-    Code: undefined,
-    Logref: undefined,
-    Message: undefined
-  };
-  if (output.Code !== undefined && output.Code !== null) {
-    contents.Code = output.Code;
-  }
-  if (output.Logref !== undefined && output.Logref !== null) {
-    contents.Logref = output.Logref;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Code:
+      output.Code !== undefined && output.Code !== null
+        ? output.Code
+        : undefined,
+    Logref:
+      output.Logref !== undefined && output.Logref !== null
+        ? output.Logref
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1IndexFacesResponse = (
   output: any,
   context: __SerdeContext
 ): IndexFacesResponse => {
-  let contents: any = {
+  return {
     __type: "IndexFacesResponse",
-    FaceModelVersion: undefined,
-    FaceRecords: undefined,
-    OrientationCorrection: undefined,
-    UnindexedFaces: undefined
-  };
-  if (
-    output.FaceModelVersion !== undefined &&
-    output.FaceModelVersion !== null
-  ) {
-    contents.FaceModelVersion = output.FaceModelVersion;
-  }
-  if (output.FaceRecords !== undefined && output.FaceRecords !== null) {
-    contents.FaceRecords = deserializeAws_json1_1FaceRecordList(
-      output.FaceRecords,
-      context
-    );
-  }
-  if (
-    output.OrientationCorrection !== undefined &&
-    output.OrientationCorrection !== null
-  ) {
-    contents.OrientationCorrection = output.OrientationCorrection;
-  }
-  if (output.UnindexedFaces !== undefined && output.UnindexedFaces !== null) {
-    contents.UnindexedFaces = deserializeAws_json1_1UnindexedFaces(
-      output.UnindexedFaces,
-      context
-    );
-  }
-  return contents;
+    FaceModelVersion:
+      output.FaceModelVersion !== undefined && output.FaceModelVersion !== null
+        ? output.FaceModelVersion
+        : undefined,
+    FaceRecords:
+      output.FaceRecords !== undefined && output.FaceRecords !== null
+        ? deserializeAws_json1_1FaceRecordList(output.FaceRecords, context)
+        : undefined,
+    OrientationCorrection:
+      output.OrientationCorrection !== undefined &&
+      output.OrientationCorrection !== null
+        ? output.OrientationCorrection
+        : undefined,
+    UnindexedFaces:
+      output.UnindexedFaces !== undefined && output.UnindexedFaces !== null
+        ? deserializeAws_json1_1UnindexedFaces(output.UnindexedFaces, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Instance = (
   output: any,
   context: __SerdeContext
 ): Instance => {
-  let contents: any = {
+  return {
     __type: "Instance",
-    BoundingBox: undefined,
-    Confidence: undefined
-  };
-  if (output.BoundingBox !== undefined && output.BoundingBox !== null) {
-    contents.BoundingBox = deserializeAws_json1_1BoundingBox(
-      output.BoundingBox,
-      context
-    );
-  }
-  if (output.Confidence !== undefined && output.Confidence !== null) {
-    contents.Confidence = output.Confidence;
-  }
-  return contents;
+    BoundingBox:
+      output.BoundingBox !== undefined && output.BoundingBox !== null
+        ? deserializeAws_json1_1BoundingBox(output.BoundingBox, context)
+        : undefined,
+    Confidence:
+      output.Confidence !== undefined && output.Confidence !== null
+        ? output.Confidence
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Instances = (
@@ -9460,185 +9209,169 @@ const deserializeAws_json1_1InternalServerError = (
   output: any,
   context: __SerdeContext
 ): InternalServerError => {
-  let contents: any = {
+  return {
     __type: "InternalServerError",
-    Code: undefined,
-    Logref: undefined,
-    Message: undefined
-  };
-  if (output.Code !== undefined && output.Code !== null) {
-    contents.Code = output.Code;
-  }
-  if (output.Logref !== undefined && output.Logref !== null) {
-    contents.Logref = output.Logref;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Code:
+      output.Code !== undefined && output.Code !== null
+        ? output.Code
+        : undefined,
+    Logref:
+      output.Logref !== undefined && output.Logref !== null
+        ? output.Logref
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidImageFormatException = (
   output: any,
   context: __SerdeContext
 ): InvalidImageFormatException => {
-  let contents: any = {
+  return {
     __type: "InvalidImageFormatException",
-    Code: undefined,
-    Logref: undefined,
-    Message: undefined
-  };
-  if (output.Code !== undefined && output.Code !== null) {
-    contents.Code = output.Code;
-  }
-  if (output.Logref !== undefined && output.Logref !== null) {
-    contents.Logref = output.Logref;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Code:
+      output.Code !== undefined && output.Code !== null
+        ? output.Code
+        : undefined,
+    Logref:
+      output.Logref !== undefined && output.Logref !== null
+        ? output.Logref
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidPaginationTokenException = (
   output: any,
   context: __SerdeContext
 ): InvalidPaginationTokenException => {
-  let contents: any = {
+  return {
     __type: "InvalidPaginationTokenException",
-    Code: undefined,
-    Logref: undefined,
-    Message: undefined
-  };
-  if (output.Code !== undefined && output.Code !== null) {
-    contents.Code = output.Code;
-  }
-  if (output.Logref !== undefined && output.Logref !== null) {
-    contents.Logref = output.Logref;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Code:
+      output.Code !== undefined && output.Code !== null
+        ? output.Code
+        : undefined,
+    Logref:
+      output.Logref !== undefined && output.Logref !== null
+        ? output.Logref
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidParameterException = (
   output: any,
   context: __SerdeContext
 ): InvalidParameterException => {
-  let contents: any = {
+  return {
     __type: "InvalidParameterException",
-    Code: undefined,
-    Logref: undefined,
-    Message: undefined
-  };
-  if (output.Code !== undefined && output.Code !== null) {
-    contents.Code = output.Code;
-  }
-  if (output.Logref !== undefined && output.Logref !== null) {
-    contents.Logref = output.Logref;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Code:
+      output.Code !== undefined && output.Code !== null
+        ? output.Code
+        : undefined,
+    Logref:
+      output.Logref !== undefined && output.Logref !== null
+        ? output.Logref
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidS3ObjectException = (
   output: any,
   context: __SerdeContext
 ): InvalidS3ObjectException => {
-  let contents: any = {
+  return {
     __type: "InvalidS3ObjectException",
-    Code: undefined,
-    Logref: undefined,
-    Message: undefined
-  };
-  if (output.Code !== undefined && output.Code !== null) {
-    contents.Code = output.Code;
-  }
-  if (output.Logref !== undefined && output.Logref !== null) {
-    contents.Logref = output.Logref;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Code:
+      output.Code !== undefined && output.Code !== null
+        ? output.Code
+        : undefined,
+    Logref:
+      output.Logref !== undefined && output.Logref !== null
+        ? output.Logref
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1KinesisDataStream = (
   output: any,
   context: __SerdeContext
 ): KinesisDataStream => {
-  let contents: any = {
+  return {
     __type: "KinesisDataStream",
-    Arn: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1KinesisVideoStream = (
   output: any,
   context: __SerdeContext
 ): KinesisVideoStream => {
-  let contents: any = {
+  return {
     __type: "KinesisVideoStream",
-    Arn: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Label = (
   output: any,
   context: __SerdeContext
 ): Label => {
-  let contents: any = {
+  return {
     __type: "Label",
-    Confidence: undefined,
-    Instances: undefined,
-    Name: undefined,
-    Parents: undefined
-  };
-  if (output.Confidence !== undefined && output.Confidence !== null) {
-    contents.Confidence = output.Confidence;
-  }
-  if (output.Instances !== undefined && output.Instances !== null) {
-    contents.Instances = deserializeAws_json1_1Instances(
-      output.Instances,
-      context
-    );
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Parents !== undefined && output.Parents !== null) {
-    contents.Parents = deserializeAws_json1_1Parents(output.Parents, context);
-  }
-  return contents;
+    Confidence:
+      output.Confidence !== undefined && output.Confidence !== null
+        ? output.Confidence
+        : undefined,
+    Instances:
+      output.Instances !== undefined && output.Instances !== null
+        ? deserializeAws_json1_1Instances(output.Instances, context)
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Parents:
+      output.Parents !== undefined && output.Parents !== null
+        ? deserializeAws_json1_1Parents(output.Parents, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LabelDetection = (
   output: any,
   context: __SerdeContext
 ): LabelDetection => {
-  let contents: any = {
+  return {
     __type: "LabelDetection",
-    Label: undefined,
-    Timestamp: undefined
-  };
-  if (output.Label !== undefined && output.Label !== null) {
-    contents.Label = deserializeAws_json1_1Label(output.Label, context);
-  }
-  if (output.Timestamp !== undefined && output.Timestamp !== null) {
-    contents.Timestamp = output.Timestamp;
-  }
-  return contents;
+    Label:
+      output.Label !== undefined && output.Label !== null
+        ? deserializeAws_json1_1Label(output.Label, context)
+        : undefined,
+    Timestamp:
+      output.Timestamp !== undefined && output.Timestamp !== null
+        ? output.Timestamp
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LabelDetections = (
@@ -9663,22 +9396,15 @@ const deserializeAws_json1_1Landmark = (
   output: any,
   context: __SerdeContext
 ): Landmark => {
-  let contents: any = {
+  return {
     __type: "Landmark",
-    Type: undefined,
-    X: undefined,
-    Y: undefined
-  };
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  if (output.X !== undefined && output.X !== null) {
-    contents.X = output.X;
-  }
-  if (output.Y !== undefined && output.Y !== null) {
-    contents.Y = output.Y;
-  }
-  return contents;
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined,
+    X: output.X !== undefined && output.X !== null ? output.X : undefined,
+    Y: output.Y !== undefined && output.Y !== null ? output.Y : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Landmarks = (
@@ -9694,124 +9420,108 @@ const deserializeAws_json1_1LimitExceededException = (
   output: any,
   context: __SerdeContext
 ): LimitExceededException => {
-  let contents: any = {
+  return {
     __type: "LimitExceededException",
-    Code: undefined,
-    Logref: undefined,
-    Message: undefined
-  };
-  if (output.Code !== undefined && output.Code !== null) {
-    contents.Code = output.Code;
-  }
-  if (output.Logref !== undefined && output.Logref !== null) {
-    contents.Logref = output.Logref;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Code:
+      output.Code !== undefined && output.Code !== null
+        ? output.Code
+        : undefined,
+    Logref:
+      output.Logref !== undefined && output.Logref !== null
+        ? output.Logref
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListCollectionsResponse = (
   output: any,
   context: __SerdeContext
 ): ListCollectionsResponse => {
-  let contents: any = {
+  return {
     __type: "ListCollectionsResponse",
-    CollectionIds: undefined,
-    FaceModelVersions: undefined,
-    NextToken: undefined
-  };
-  if (output.CollectionIds !== undefined && output.CollectionIds !== null) {
-    contents.CollectionIds = deserializeAws_json1_1CollectionIdList(
-      output.CollectionIds,
-      context
-    );
-  }
-  if (
-    output.FaceModelVersions !== undefined &&
-    output.FaceModelVersions !== null
-  ) {
-    contents.FaceModelVersions = deserializeAws_json1_1FaceModelVersionList(
-      output.FaceModelVersions,
-      context
-    );
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  return contents;
+    CollectionIds:
+      output.CollectionIds !== undefined && output.CollectionIds !== null
+        ? deserializeAws_json1_1CollectionIdList(output.CollectionIds, context)
+        : undefined,
+    FaceModelVersions:
+      output.FaceModelVersions !== undefined &&
+      output.FaceModelVersions !== null
+        ? deserializeAws_json1_1FaceModelVersionList(
+            output.FaceModelVersions,
+            context
+          )
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListFacesResponse = (
   output: any,
   context: __SerdeContext
 ): ListFacesResponse => {
-  let contents: any = {
+  return {
     __type: "ListFacesResponse",
-    FaceModelVersion: undefined,
-    Faces: undefined,
-    NextToken: undefined
-  };
-  if (
-    output.FaceModelVersion !== undefined &&
-    output.FaceModelVersion !== null
-  ) {
-    contents.FaceModelVersion = output.FaceModelVersion;
-  }
-  if (output.Faces !== undefined && output.Faces !== null) {
-    contents.Faces = deserializeAws_json1_1FaceList(output.Faces, context);
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  return contents;
+    FaceModelVersion:
+      output.FaceModelVersion !== undefined && output.FaceModelVersion !== null
+        ? output.FaceModelVersion
+        : undefined,
+    Faces:
+      output.Faces !== undefined && output.Faces !== null
+        ? deserializeAws_json1_1FaceList(output.Faces, context)
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListStreamProcessorsResponse = (
   output: any,
   context: __SerdeContext
 ): ListStreamProcessorsResponse => {
-  let contents: any = {
+  return {
     __type: "ListStreamProcessorsResponse",
-    NextToken: undefined,
-    StreamProcessors: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (
-    output.StreamProcessors !== undefined &&
-    output.StreamProcessors !== null
-  ) {
-    contents.StreamProcessors = deserializeAws_json1_1StreamProcessorList(
-      output.StreamProcessors,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    StreamProcessors:
+      output.StreamProcessors !== undefined && output.StreamProcessors !== null
+        ? deserializeAws_json1_1StreamProcessorList(
+            output.StreamProcessors,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ModerationLabel = (
   output: any,
   context: __SerdeContext
 ): ModerationLabel => {
-  let contents: any = {
+  return {
     __type: "ModerationLabel",
-    Confidence: undefined,
-    Name: undefined,
-    ParentName: undefined
-  };
-  if (output.Confidence !== undefined && output.Confidence !== null) {
-    contents.Confidence = output.Confidence;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.ParentName !== undefined && output.ParentName !== null) {
-    contents.ParentName = output.ParentName;
-  }
-  return contents;
+    Confidence:
+      output.Confidence !== undefined && output.Confidence !== null
+        ? output.Confidence
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    ParentName:
+      output.ParentName !== undefined && output.ParentName !== null
+        ? output.ParentName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ModerationLabels = (
@@ -9827,68 +9537,64 @@ const deserializeAws_json1_1MouthOpen = (
   output: any,
   context: __SerdeContext
 ): MouthOpen => {
-  let contents: any = {
+  return {
     __type: "MouthOpen",
-    Confidence: undefined,
-    Value: undefined
-  };
-  if (output.Confidence !== undefined && output.Confidence !== null) {
-    contents.Confidence = output.Confidence;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Confidence:
+      output.Confidence !== undefined && output.Confidence !== null
+        ? output.Confidence
+        : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Mustache = (
   output: any,
   context: __SerdeContext
 ): Mustache => {
-  let contents: any = {
+  return {
     __type: "Mustache",
-    Confidence: undefined,
-    Value: undefined
-  };
-  if (output.Confidence !== undefined && output.Confidence !== null) {
-    contents.Confidence = output.Confidence;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Confidence:
+      output.Confidence !== undefined && output.Confidence !== null
+        ? output.Confidence
+        : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1OutputConfig = (
   output: any,
   context: __SerdeContext
 ): OutputConfig => {
-  let contents: any = {
+  return {
     __type: "OutputConfig",
-    S3Bucket: undefined,
-    S3KeyPrefix: undefined
-  };
-  if (output.S3Bucket !== undefined && output.S3Bucket !== null) {
-    contents.S3Bucket = output.S3Bucket;
-  }
-  if (output.S3KeyPrefix !== undefined && output.S3KeyPrefix !== null) {
-    contents.S3KeyPrefix = output.S3KeyPrefix;
-  }
-  return contents;
+    S3Bucket:
+      output.S3Bucket !== undefined && output.S3Bucket !== null
+        ? output.S3Bucket
+        : undefined,
+    S3KeyPrefix:
+      output.S3KeyPrefix !== undefined && output.S3KeyPrefix !== null
+        ? output.S3KeyPrefix
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Parent = (
   output: any,
   context: __SerdeContext
 ): Parent => {
-  let contents: any = {
+  return {
     __type: "Parent",
-    Name: undefined
-  };
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Parents = (
@@ -9904,46 +9610,38 @@ const deserializeAws_json1_1PersonDetail = (
   output: any,
   context: __SerdeContext
 ): PersonDetail => {
-  let contents: any = {
+  return {
     __type: "PersonDetail",
-    BoundingBox: undefined,
-    Face: undefined,
-    Index: undefined
-  };
-  if (output.BoundingBox !== undefined && output.BoundingBox !== null) {
-    contents.BoundingBox = deserializeAws_json1_1BoundingBox(
-      output.BoundingBox,
-      context
-    );
-  }
-  if (output.Face !== undefined && output.Face !== null) {
-    contents.Face = deserializeAws_json1_1FaceDetail(output.Face, context);
-  }
-  if (output.Index !== undefined && output.Index !== null) {
-    contents.Index = output.Index;
-  }
-  return contents;
+    BoundingBox:
+      output.BoundingBox !== undefined && output.BoundingBox !== null
+        ? deserializeAws_json1_1BoundingBox(output.BoundingBox, context)
+        : undefined,
+    Face:
+      output.Face !== undefined && output.Face !== null
+        ? deserializeAws_json1_1FaceDetail(output.Face, context)
+        : undefined,
+    Index:
+      output.Index !== undefined && output.Index !== null
+        ? output.Index
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PersonDetection = (
   output: any,
   context: __SerdeContext
 ): PersonDetection => {
-  let contents: any = {
+  return {
     __type: "PersonDetection",
-    Person: undefined,
-    Timestamp: undefined
-  };
-  if (output.Person !== undefined && output.Person !== null) {
-    contents.Person = deserializeAws_json1_1PersonDetail(
-      output.Person,
-      context
-    );
-  }
-  if (output.Timestamp !== undefined && output.Timestamp !== null) {
-    contents.Timestamp = output.Timestamp;
-  }
-  return contents;
+    Person:
+      output.Person !== undefined && output.Person !== null
+        ? deserializeAws_json1_1PersonDetail(output.Person, context)
+        : undefined,
+    Timestamp:
+      output.Timestamp !== undefined && output.Timestamp !== null
+        ? output.Timestamp
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PersonDetections = (
@@ -9959,28 +9657,21 @@ const deserializeAws_json1_1PersonMatch = (
   output: any,
   context: __SerdeContext
 ): PersonMatch => {
-  let contents: any = {
+  return {
     __type: "PersonMatch",
-    FaceMatches: undefined,
-    Person: undefined,
-    Timestamp: undefined
-  };
-  if (output.FaceMatches !== undefined && output.FaceMatches !== null) {
-    contents.FaceMatches = deserializeAws_json1_1FaceMatchList(
-      output.FaceMatches,
-      context
-    );
-  }
-  if (output.Person !== undefined && output.Person !== null) {
-    contents.Person = deserializeAws_json1_1PersonDetail(
-      output.Person,
-      context
-    );
-  }
-  if (output.Timestamp !== undefined && output.Timestamp !== null) {
-    contents.Timestamp = output.Timestamp;
-  }
-  return contents;
+    FaceMatches:
+      output.FaceMatches !== undefined && output.FaceMatches !== null
+        ? deserializeAws_json1_1FaceMatchList(output.FaceMatches, context)
+        : undefined,
+    Person:
+      output.Person !== undefined && output.Person !== null
+        ? deserializeAws_json1_1PersonDetail(output.Person, context)
+        : undefined,
+    Timestamp:
+      output.Timestamp !== undefined && output.Timestamp !== null
+        ? output.Timestamp
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PersonMatches = (
@@ -9996,18 +9687,11 @@ const deserializeAws_json1_1Point = (
   output: any,
   context: __SerdeContext
 ): Point => {
-  let contents: any = {
+  return {
     __type: "Point",
-    X: undefined,
-    Y: undefined
-  };
-  if (output.X !== undefined && output.X !== null) {
-    contents.X = output.X;
-  }
-  if (output.Y !== undefined && output.Y !== null) {
-    contents.Y = output.Y;
-  }
-  return contents;
+    X: output.X !== undefined && output.X !== null ? output.X : undefined,
+    Y: output.Y !== undefined && output.Y !== null ? output.Y : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Polygon = (
@@ -10023,49 +9707,41 @@ const deserializeAws_json1_1Pose = (
   output: any,
   context: __SerdeContext
 ): Pose => {
-  let contents: any = {
+  return {
     __type: "Pose",
-    Pitch: undefined,
-    Roll: undefined,
-    Yaw: undefined
-  };
-  if (output.Pitch !== undefined && output.Pitch !== null) {
-    contents.Pitch = output.Pitch;
-  }
-  if (output.Roll !== undefined && output.Roll !== null) {
-    contents.Roll = output.Roll;
-  }
-  if (output.Yaw !== undefined && output.Yaw !== null) {
-    contents.Yaw = output.Yaw;
-  }
-  return contents;
+    Pitch:
+      output.Pitch !== undefined && output.Pitch !== null
+        ? output.Pitch
+        : undefined,
+    Roll:
+      output.Roll !== undefined && output.Roll !== null
+        ? output.Roll
+        : undefined,
+    Yaw:
+      output.Yaw !== undefined && output.Yaw !== null ? output.Yaw : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ProjectDescription = (
   output: any,
   context: __SerdeContext
 ): ProjectDescription => {
-  let contents: any = {
+  return {
     __type: "ProjectDescription",
-    CreationTimestamp: undefined,
-    ProjectArn: undefined,
-    Status: undefined
-  };
-  if (
-    output.CreationTimestamp !== undefined &&
-    output.CreationTimestamp !== null
-  ) {
-    contents.CreationTimestamp = new Date(
-      Math.round(output.CreationTimestamp * 1000)
-    );
-  }
-  if (output.ProjectArn !== undefined && output.ProjectArn !== null) {
-    contents.ProjectArn = output.ProjectArn;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  return contents;
+    CreationTimestamp:
+      output.CreationTimestamp !== undefined &&
+      output.CreationTimestamp !== null
+        ? new Date(Math.round(output.CreationTimestamp * 1000))
+        : undefined,
+    ProjectArn:
+      output.ProjectArn !== undefined && output.ProjectArn !== null
+        ? output.ProjectArn
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ProjectDescriptions = (
@@ -10081,95 +9757,69 @@ const deserializeAws_json1_1ProjectVersionDescription = (
   output: any,
   context: __SerdeContext
 ): ProjectVersionDescription => {
-  let contents: any = {
+  return {
     __type: "ProjectVersionDescription",
-    BillableTrainingTimeInSeconds: undefined,
-    CreationTimestamp: undefined,
-    EvaluationResult: undefined,
-    MinInferenceUnits: undefined,
-    OutputConfig: undefined,
-    ProjectVersionArn: undefined,
-    Status: undefined,
-    StatusMessage: undefined,
-    TestingDataResult: undefined,
-    TrainingDataResult: undefined,
-    TrainingEndTimestamp: undefined
-  };
-  if (
-    output.BillableTrainingTimeInSeconds !== undefined &&
-    output.BillableTrainingTimeInSeconds !== null
-  ) {
-    contents.BillableTrainingTimeInSeconds =
-      output.BillableTrainingTimeInSeconds;
-  }
-  if (
-    output.CreationTimestamp !== undefined &&
-    output.CreationTimestamp !== null
-  ) {
-    contents.CreationTimestamp = new Date(
-      Math.round(output.CreationTimestamp * 1000)
-    );
-  }
-  if (
-    output.EvaluationResult !== undefined &&
-    output.EvaluationResult !== null
-  ) {
-    contents.EvaluationResult = deserializeAws_json1_1EvaluationResult(
-      output.EvaluationResult,
-      context
-    );
-  }
-  if (
-    output.MinInferenceUnits !== undefined &&
-    output.MinInferenceUnits !== null
-  ) {
-    contents.MinInferenceUnits = output.MinInferenceUnits;
-  }
-  if (output.OutputConfig !== undefined && output.OutputConfig !== null) {
-    contents.OutputConfig = deserializeAws_json1_1OutputConfig(
-      output.OutputConfig,
-      context
-    );
-  }
-  if (
-    output.ProjectVersionArn !== undefined &&
-    output.ProjectVersionArn !== null
-  ) {
-    contents.ProjectVersionArn = output.ProjectVersionArn;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.StatusMessage !== undefined && output.StatusMessage !== null) {
-    contents.StatusMessage = output.StatusMessage;
-  }
-  if (
-    output.TestingDataResult !== undefined &&
-    output.TestingDataResult !== null
-  ) {
-    contents.TestingDataResult = deserializeAws_json1_1TestingDataResult(
-      output.TestingDataResult,
-      context
-    );
-  }
-  if (
-    output.TrainingDataResult !== undefined &&
-    output.TrainingDataResult !== null
-  ) {
-    contents.TrainingDataResult = deserializeAws_json1_1TrainingDataResult(
-      output.TrainingDataResult,
-      context
-    );
-  }
-  if (
-    output.TrainingEndTimestamp !== undefined &&
-    output.TrainingEndTimestamp !== null
-  ) {
-    contents.TrainingEndTimestamp = new Date(
-      Math.round(output.TrainingEndTimestamp * 1000)
-    );
-  }
-  return contents;
+    BillableTrainingTimeInSeconds:
+      output.BillableTrainingTimeInSeconds !== undefined &&
+      output.BillableTrainingTimeInSeconds !== null
+        ? output.BillableTrainingTimeInSeconds
+        : undefined,
+    CreationTimestamp:
+      output.CreationTimestamp !== undefined &&
+      output.CreationTimestamp !== null
+        ? new Date(Math.round(output.CreationTimestamp * 1000))
+        : undefined,
+    EvaluationResult:
+      output.EvaluationResult !== undefined && output.EvaluationResult !== null
+        ? deserializeAws_json1_1EvaluationResult(
+            output.EvaluationResult,
+            context
+          )
+        : undefined,
+    MinInferenceUnits:
+      output.MinInferenceUnits !== undefined &&
+      output.MinInferenceUnits !== null
+        ? output.MinInferenceUnits
+        : undefined,
+    OutputConfig:
+      output.OutputConfig !== undefined && output.OutputConfig !== null
+        ? deserializeAws_json1_1OutputConfig(output.OutputConfig, context)
+        : undefined,
+    ProjectVersionArn:
+      output.ProjectVersionArn !== undefined &&
+      output.ProjectVersionArn !== null
+        ? output.ProjectVersionArn
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    StatusMessage:
+      output.StatusMessage !== undefined && output.StatusMessage !== null
+        ? output.StatusMessage
+        : undefined,
+    TestingDataResult:
+      output.TestingDataResult !== undefined &&
+      output.TestingDataResult !== null
+        ? deserializeAws_json1_1TestingDataResult(
+            output.TestingDataResult,
+            context
+          )
+        : undefined,
+    TrainingDataResult:
+      output.TrainingDataResult !== undefined &&
+      output.TrainingDataResult !== null
+        ? deserializeAws_json1_1TrainingDataResult(
+            output.TrainingDataResult,
+            context
+          )
+        : undefined,
+    TrainingEndTimestamp:
+      output.TrainingEndTimestamp !== undefined &&
+      output.TrainingEndTimestamp !== null
+        ? new Date(Math.round(output.TrainingEndTimestamp * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ProjectVersionDescriptions = (
@@ -10185,22 +9835,21 @@ const deserializeAws_json1_1ProvisionedThroughputExceededException = (
   output: any,
   context: __SerdeContext
 ): ProvisionedThroughputExceededException => {
-  let contents: any = {
+  return {
     __type: "ProvisionedThroughputExceededException",
-    Code: undefined,
-    Logref: undefined,
-    Message: undefined
-  };
-  if (output.Code !== undefined && output.Code !== null) {
-    contents.Code = output.Code;
-  }
-  if (output.Logref !== undefined && output.Logref !== null) {
-    contents.Logref = output.Logref;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Code:
+      output.Code !== undefined && output.Code !== null
+        ? output.Code
+        : undefined,
+    Logref:
+      output.Logref !== undefined && output.Logref !== null
+        ? output.Logref
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Reasons = (
@@ -10214,401 +9863,355 @@ const deserializeAws_json1_1RecognizeCelebritiesResponse = (
   output: any,
   context: __SerdeContext
 ): RecognizeCelebritiesResponse => {
-  let contents: any = {
+  return {
     __type: "RecognizeCelebritiesResponse",
-    CelebrityFaces: undefined,
-    OrientationCorrection: undefined,
-    UnrecognizedFaces: undefined
-  };
-  if (output.CelebrityFaces !== undefined && output.CelebrityFaces !== null) {
-    contents.CelebrityFaces = deserializeAws_json1_1CelebrityList(
-      output.CelebrityFaces,
-      context
-    );
-  }
-  if (
-    output.OrientationCorrection !== undefined &&
-    output.OrientationCorrection !== null
-  ) {
-    contents.OrientationCorrection = output.OrientationCorrection;
-  }
-  if (
-    output.UnrecognizedFaces !== undefined &&
-    output.UnrecognizedFaces !== null
-  ) {
-    contents.UnrecognizedFaces = deserializeAws_json1_1ComparedFaceList(
-      output.UnrecognizedFaces,
-      context
-    );
-  }
-  return contents;
+    CelebrityFaces:
+      output.CelebrityFaces !== undefined && output.CelebrityFaces !== null
+        ? deserializeAws_json1_1CelebrityList(output.CelebrityFaces, context)
+        : undefined,
+    OrientationCorrection:
+      output.OrientationCorrection !== undefined &&
+      output.OrientationCorrection !== null
+        ? output.OrientationCorrection
+        : undefined,
+    UnrecognizedFaces:
+      output.UnrecognizedFaces !== undefined &&
+      output.UnrecognizedFaces !== null
+        ? deserializeAws_json1_1ComparedFaceList(
+            output.UnrecognizedFaces,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceAlreadyExistsException = (
   output: any,
   context: __SerdeContext
 ): ResourceAlreadyExistsException => {
-  let contents: any = {
+  return {
     __type: "ResourceAlreadyExistsException",
-    Code: undefined,
-    Logref: undefined,
-    Message: undefined
-  };
-  if (output.Code !== undefined && output.Code !== null) {
-    contents.Code = output.Code;
-  }
-  if (output.Logref !== undefined && output.Logref !== null) {
-    contents.Logref = output.Logref;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Code:
+      output.Code !== undefined && output.Code !== null
+        ? output.Code
+        : undefined,
+    Logref:
+      output.Logref !== undefined && output.Logref !== null
+        ? output.Logref
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceInUseException = (
   output: any,
   context: __SerdeContext
 ): ResourceInUseException => {
-  let contents: any = {
+  return {
     __type: "ResourceInUseException",
-    Code: undefined,
-    Logref: undefined,
-    Message: undefined
-  };
-  if (output.Code !== undefined && output.Code !== null) {
-    contents.Code = output.Code;
-  }
-  if (output.Logref !== undefined && output.Logref !== null) {
-    contents.Logref = output.Logref;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Code:
+      output.Code !== undefined && output.Code !== null
+        ? output.Code
+        : undefined,
+    Logref:
+      output.Logref !== undefined && output.Logref !== null
+        ? output.Logref
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ResourceNotFoundException => {
-  let contents: any = {
+  return {
     __type: "ResourceNotFoundException",
-    Code: undefined,
-    Logref: undefined,
-    Message: undefined
-  };
-  if (output.Code !== undefined && output.Code !== null) {
-    contents.Code = output.Code;
-  }
-  if (output.Logref !== undefined && output.Logref !== null) {
-    contents.Logref = output.Logref;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Code:
+      output.Code !== undefined && output.Code !== null
+        ? output.Code
+        : undefined,
+    Logref:
+      output.Logref !== undefined && output.Logref !== null
+        ? output.Logref
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceNotReadyException = (
   output: any,
   context: __SerdeContext
 ): ResourceNotReadyException => {
-  let contents: any = {
+  return {
     __type: "ResourceNotReadyException",
-    Code: undefined,
-    Logref: undefined,
-    Message: undefined
-  };
-  if (output.Code !== undefined && output.Code !== null) {
-    contents.Code = output.Code;
-  }
-  if (output.Logref !== undefined && output.Logref !== null) {
-    contents.Logref = output.Logref;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Code:
+      output.Code !== undefined && output.Code !== null
+        ? output.Code
+        : undefined,
+    Logref:
+      output.Logref !== undefined && output.Logref !== null
+        ? output.Logref
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1S3Object = (
   output: any,
   context: __SerdeContext
 ): S3Object => {
-  let contents: any = {
+  return {
     __type: "S3Object",
-    Bucket: undefined,
-    Name: undefined,
-    Version: undefined
-  };
-  if (output.Bucket !== undefined && output.Bucket !== null) {
-    contents.Bucket = output.Bucket;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Version !== undefined && output.Version !== null) {
-    contents.Version = output.Version;
-  }
-  return contents;
+    Bucket:
+      output.Bucket !== undefined && output.Bucket !== null
+        ? output.Bucket
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Version:
+      output.Version !== undefined && output.Version !== null
+        ? output.Version
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SearchFacesByImageResponse = (
   output: any,
   context: __SerdeContext
 ): SearchFacesByImageResponse => {
-  let contents: any = {
+  return {
     __type: "SearchFacesByImageResponse",
-    FaceMatches: undefined,
-    FaceModelVersion: undefined,
-    SearchedFaceBoundingBox: undefined,
-    SearchedFaceConfidence: undefined
-  };
-  if (output.FaceMatches !== undefined && output.FaceMatches !== null) {
-    contents.FaceMatches = deserializeAws_json1_1FaceMatchList(
-      output.FaceMatches,
-      context
-    );
-  }
-  if (
-    output.FaceModelVersion !== undefined &&
-    output.FaceModelVersion !== null
-  ) {
-    contents.FaceModelVersion = output.FaceModelVersion;
-  }
-  if (
-    output.SearchedFaceBoundingBox !== undefined &&
-    output.SearchedFaceBoundingBox !== null
-  ) {
-    contents.SearchedFaceBoundingBox = deserializeAws_json1_1BoundingBox(
-      output.SearchedFaceBoundingBox,
-      context
-    );
-  }
-  if (
-    output.SearchedFaceConfidence !== undefined &&
-    output.SearchedFaceConfidence !== null
-  ) {
-    contents.SearchedFaceConfidence = output.SearchedFaceConfidence;
-  }
-  return contents;
+    FaceMatches:
+      output.FaceMatches !== undefined && output.FaceMatches !== null
+        ? deserializeAws_json1_1FaceMatchList(output.FaceMatches, context)
+        : undefined,
+    FaceModelVersion:
+      output.FaceModelVersion !== undefined && output.FaceModelVersion !== null
+        ? output.FaceModelVersion
+        : undefined,
+    SearchedFaceBoundingBox:
+      output.SearchedFaceBoundingBox !== undefined &&
+      output.SearchedFaceBoundingBox !== null
+        ? deserializeAws_json1_1BoundingBox(
+            output.SearchedFaceBoundingBox,
+            context
+          )
+        : undefined,
+    SearchedFaceConfidence:
+      output.SearchedFaceConfidence !== undefined &&
+      output.SearchedFaceConfidence !== null
+        ? output.SearchedFaceConfidence
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SearchFacesResponse = (
   output: any,
   context: __SerdeContext
 ): SearchFacesResponse => {
-  let contents: any = {
+  return {
     __type: "SearchFacesResponse",
-    FaceMatches: undefined,
-    FaceModelVersion: undefined,
-    SearchedFaceId: undefined
-  };
-  if (output.FaceMatches !== undefined && output.FaceMatches !== null) {
-    contents.FaceMatches = deserializeAws_json1_1FaceMatchList(
-      output.FaceMatches,
-      context
-    );
-  }
-  if (
-    output.FaceModelVersion !== undefined &&
-    output.FaceModelVersion !== null
-  ) {
-    contents.FaceModelVersion = output.FaceModelVersion;
-  }
-  if (output.SearchedFaceId !== undefined && output.SearchedFaceId !== null) {
-    contents.SearchedFaceId = output.SearchedFaceId;
-  }
-  return contents;
+    FaceMatches:
+      output.FaceMatches !== undefined && output.FaceMatches !== null
+        ? deserializeAws_json1_1FaceMatchList(output.FaceMatches, context)
+        : undefined,
+    FaceModelVersion:
+      output.FaceModelVersion !== undefined && output.FaceModelVersion !== null
+        ? output.FaceModelVersion
+        : undefined,
+    SearchedFaceId:
+      output.SearchedFaceId !== undefined && output.SearchedFaceId !== null
+        ? output.SearchedFaceId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Smile = (
   output: any,
   context: __SerdeContext
 ): Smile => {
-  let contents: any = {
+  return {
     __type: "Smile",
-    Confidence: undefined,
-    Value: undefined
-  };
-  if (output.Confidence !== undefined && output.Confidence !== null) {
-    contents.Confidence = output.Confidence;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Confidence:
+      output.Confidence !== undefined && output.Confidence !== null
+        ? output.Confidence
+        : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StartCelebrityRecognitionResponse = (
   output: any,
   context: __SerdeContext
 ): StartCelebrityRecognitionResponse => {
-  let contents: any = {
+  return {
     __type: "StartCelebrityRecognitionResponse",
-    JobId: undefined
-  };
-  if (output.JobId !== undefined && output.JobId !== null) {
-    contents.JobId = output.JobId;
-  }
-  return contents;
+    JobId:
+      output.JobId !== undefined && output.JobId !== null
+        ? output.JobId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StartContentModerationResponse = (
   output: any,
   context: __SerdeContext
 ): StartContentModerationResponse => {
-  let contents: any = {
+  return {
     __type: "StartContentModerationResponse",
-    JobId: undefined
-  };
-  if (output.JobId !== undefined && output.JobId !== null) {
-    contents.JobId = output.JobId;
-  }
-  return contents;
+    JobId:
+      output.JobId !== undefined && output.JobId !== null
+        ? output.JobId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StartFaceDetectionResponse = (
   output: any,
   context: __SerdeContext
 ): StartFaceDetectionResponse => {
-  let contents: any = {
+  return {
     __type: "StartFaceDetectionResponse",
-    JobId: undefined
-  };
-  if (output.JobId !== undefined && output.JobId !== null) {
-    contents.JobId = output.JobId;
-  }
-  return contents;
+    JobId:
+      output.JobId !== undefined && output.JobId !== null
+        ? output.JobId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StartFaceSearchResponse = (
   output: any,
   context: __SerdeContext
 ): StartFaceSearchResponse => {
-  let contents: any = {
+  return {
     __type: "StartFaceSearchResponse",
-    JobId: undefined
-  };
-  if (output.JobId !== undefined && output.JobId !== null) {
-    contents.JobId = output.JobId;
-  }
-  return contents;
+    JobId:
+      output.JobId !== undefined && output.JobId !== null
+        ? output.JobId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StartLabelDetectionResponse = (
   output: any,
   context: __SerdeContext
 ): StartLabelDetectionResponse => {
-  let contents: any = {
+  return {
     __type: "StartLabelDetectionResponse",
-    JobId: undefined
-  };
-  if (output.JobId !== undefined && output.JobId !== null) {
-    contents.JobId = output.JobId;
-  }
-  return contents;
+    JobId:
+      output.JobId !== undefined && output.JobId !== null
+        ? output.JobId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StartPersonTrackingResponse = (
   output: any,
   context: __SerdeContext
 ): StartPersonTrackingResponse => {
-  let contents: any = {
+  return {
     __type: "StartPersonTrackingResponse",
-    JobId: undefined
-  };
-  if (output.JobId !== undefined && output.JobId !== null) {
-    contents.JobId = output.JobId;
-  }
-  return contents;
+    JobId:
+      output.JobId !== undefined && output.JobId !== null
+        ? output.JobId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StartProjectVersionResponse = (
   output: any,
   context: __SerdeContext
 ): StartProjectVersionResponse => {
-  let contents: any = {
+  return {
     __type: "StartProjectVersionResponse",
-    Status: undefined
-  };
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  return contents;
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StartStreamProcessorResponse = (
   output: any,
   context: __SerdeContext
 ): StartStreamProcessorResponse => {
-  let contents: any = {
+  return {
     __type: "StartStreamProcessorResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1StopProjectVersionResponse = (
   output: any,
   context: __SerdeContext
 ): StopProjectVersionResponse => {
-  let contents: any = {
+  return {
     __type: "StopProjectVersionResponse",
-    Status: undefined
-  };
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  return contents;
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StopStreamProcessorResponse = (
   output: any,
   context: __SerdeContext
 ): StopStreamProcessorResponse => {
-  let contents: any = {
+  return {
     __type: "StopStreamProcessorResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1StreamProcessor = (
   output: any,
   context: __SerdeContext
 ): StreamProcessor => {
-  let contents: any = {
+  return {
     __type: "StreamProcessor",
-    Name: undefined,
-    Status: undefined
-  };
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  return contents;
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StreamProcessorInput = (
   output: any,
   context: __SerdeContext
 ): StreamProcessorInput => {
-  let contents: any = {
+  return {
     __type: "StreamProcessorInput",
-    KinesisVideoStream: undefined
-  };
-  if (
-    output.KinesisVideoStream !== undefined &&
-    output.KinesisVideoStream !== null
-  ) {
-    contents.KinesisVideoStream = deserializeAws_json1_1KinesisVideoStream(
-      output.KinesisVideoStream,
-      context
-    );
-  }
-  return contents;
+    KinesisVideoStream:
+      output.KinesisVideoStream !== undefined &&
+      output.KinesisVideoStream !== null
+        ? deserializeAws_json1_1KinesisVideoStream(
+            output.KinesisVideoStream,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StreamProcessorList = (
@@ -10624,145 +10227,124 @@ const deserializeAws_json1_1StreamProcessorOutput = (
   output: any,
   context: __SerdeContext
 ): StreamProcessorOutput => {
-  let contents: any = {
+  return {
     __type: "StreamProcessorOutput",
-    KinesisDataStream: undefined
-  };
-  if (
-    output.KinesisDataStream !== undefined &&
-    output.KinesisDataStream !== null
-  ) {
-    contents.KinesisDataStream = deserializeAws_json1_1KinesisDataStream(
-      output.KinesisDataStream,
-      context
-    );
-  }
-  return contents;
+    KinesisDataStream:
+      output.KinesisDataStream !== undefined &&
+      output.KinesisDataStream !== null
+        ? deserializeAws_json1_1KinesisDataStream(
+            output.KinesisDataStream,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StreamProcessorSettings = (
   output: any,
   context: __SerdeContext
 ): StreamProcessorSettings => {
-  let contents: any = {
+  return {
     __type: "StreamProcessorSettings",
-    FaceSearch: undefined
-  };
-  if (output.FaceSearch !== undefined && output.FaceSearch !== null) {
-    contents.FaceSearch = deserializeAws_json1_1FaceSearchSettings(
-      output.FaceSearch,
-      context
-    );
-  }
-  return contents;
+    FaceSearch:
+      output.FaceSearch !== undefined && output.FaceSearch !== null
+        ? deserializeAws_json1_1FaceSearchSettings(output.FaceSearch, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Summary = (
   output: any,
   context: __SerdeContext
 ): Summary => {
-  let contents: any = {
+  return {
     __type: "Summary",
-    S3Object: undefined
-  };
-  if (output.S3Object !== undefined && output.S3Object !== null) {
-    contents.S3Object = deserializeAws_json1_1S3Object(
-      output.S3Object,
-      context
-    );
-  }
-  return contents;
+    S3Object:
+      output.S3Object !== undefined && output.S3Object !== null
+        ? deserializeAws_json1_1S3Object(output.S3Object, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Sunglasses = (
   output: any,
   context: __SerdeContext
 ): Sunglasses => {
-  let contents: any = {
+  return {
     __type: "Sunglasses",
-    Confidence: undefined,
-    Value: undefined
-  };
-  if (output.Confidence !== undefined && output.Confidence !== null) {
-    contents.Confidence = output.Confidence;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Confidence:
+      output.Confidence !== undefined && output.Confidence !== null
+        ? output.Confidence
+        : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TestingData = (
   output: any,
   context: __SerdeContext
 ): TestingData => {
-  let contents: any = {
+  return {
     __type: "TestingData",
-    Assets: undefined,
-    AutoCreate: undefined
-  };
-  if (output.Assets !== undefined && output.Assets !== null) {
-    contents.Assets = deserializeAws_json1_1Assets(output.Assets, context);
-  }
-  if (output.AutoCreate !== undefined && output.AutoCreate !== null) {
-    contents.AutoCreate = output.AutoCreate;
-  }
-  return contents;
+    Assets:
+      output.Assets !== undefined && output.Assets !== null
+        ? deserializeAws_json1_1Assets(output.Assets, context)
+        : undefined,
+    AutoCreate:
+      output.AutoCreate !== undefined && output.AutoCreate !== null
+        ? output.AutoCreate
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TestingDataResult = (
   output: any,
   context: __SerdeContext
 ): TestingDataResult => {
-  let contents: any = {
+  return {
     __type: "TestingDataResult",
-    Input: undefined,
-    Output: undefined
-  };
-  if (output.Input !== undefined && output.Input !== null) {
-    contents.Input = deserializeAws_json1_1TestingData(output.Input, context);
-  }
-  if (output.Output !== undefined && output.Output !== null) {
-    contents.Output = deserializeAws_json1_1TestingData(output.Output, context);
-  }
-  return contents;
+    Input:
+      output.Input !== undefined && output.Input !== null
+        ? deserializeAws_json1_1TestingData(output.Input, context)
+        : undefined,
+    Output:
+      output.Output !== undefined && output.Output !== null
+        ? deserializeAws_json1_1TestingData(output.Output, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TextDetection = (
   output: any,
   context: __SerdeContext
 ): TextDetection => {
-  let contents: any = {
+  return {
     __type: "TextDetection",
-    Confidence: undefined,
-    DetectedText: undefined,
-    Geometry: undefined,
-    Id: undefined,
-    ParentId: undefined,
-    Type: undefined
-  };
-  if (output.Confidence !== undefined && output.Confidence !== null) {
-    contents.Confidence = output.Confidence;
-  }
-  if (output.DetectedText !== undefined && output.DetectedText !== null) {
-    contents.DetectedText = output.DetectedText;
-  }
-  if (output.Geometry !== undefined && output.Geometry !== null) {
-    contents.Geometry = deserializeAws_json1_1Geometry(
-      output.Geometry,
-      context
-    );
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.ParentId !== undefined && output.ParentId !== null) {
-    contents.ParentId = output.ParentId;
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    Confidence:
+      output.Confidence !== undefined && output.Confidence !== null
+        ? output.Confidence
+        : undefined,
+    DetectedText:
+      output.DetectedText !== undefined && output.DetectedText !== null
+        ? output.DetectedText
+        : undefined,
+    Geometry:
+      output.Geometry !== undefined && output.Geometry !== null
+        ? deserializeAws_json1_1Geometry(output.Geometry, context)
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    ParentId:
+      output.ParentId !== undefined && output.ParentId !== null
+        ? output.ParentId
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TextDetectionList = (
@@ -10778,78 +10360,68 @@ const deserializeAws_json1_1ThrottlingException = (
   output: any,
   context: __SerdeContext
 ): ThrottlingException => {
-  let contents: any = {
+  return {
     __type: "ThrottlingException",
-    Code: undefined,
-    Logref: undefined,
-    Message: undefined
-  };
-  if (output.Code !== undefined && output.Code !== null) {
-    contents.Code = output.Code;
-  }
-  if (output.Logref !== undefined && output.Logref !== null) {
-    contents.Logref = output.Logref;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Code:
+      output.Code !== undefined && output.Code !== null
+        ? output.Code
+        : undefined,
+    Logref:
+      output.Logref !== undefined && output.Logref !== null
+        ? output.Logref
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TrainingData = (
   output: any,
   context: __SerdeContext
 ): TrainingData => {
-  let contents: any = {
+  return {
     __type: "TrainingData",
-    Assets: undefined
-  };
-  if (output.Assets !== undefined && output.Assets !== null) {
-    contents.Assets = deserializeAws_json1_1Assets(output.Assets, context);
-  }
-  return contents;
+    Assets:
+      output.Assets !== undefined && output.Assets !== null
+        ? deserializeAws_json1_1Assets(output.Assets, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TrainingDataResult = (
   output: any,
   context: __SerdeContext
 ): TrainingDataResult => {
-  let contents: any = {
+  return {
     __type: "TrainingDataResult",
-    Input: undefined,
-    Output: undefined
-  };
-  if (output.Input !== undefined && output.Input !== null) {
-    contents.Input = deserializeAws_json1_1TrainingData(output.Input, context);
-  }
-  if (output.Output !== undefined && output.Output !== null) {
-    contents.Output = deserializeAws_json1_1TrainingData(
-      output.Output,
-      context
-    );
-  }
-  return contents;
+    Input:
+      output.Input !== undefined && output.Input !== null
+        ? deserializeAws_json1_1TrainingData(output.Input, context)
+        : undefined,
+    Output:
+      output.Output !== undefined && output.Output !== null
+        ? deserializeAws_json1_1TrainingData(output.Output, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UnindexedFace = (
   output: any,
   context: __SerdeContext
 ): UnindexedFace => {
-  let contents: any = {
+  return {
     __type: "UnindexedFace",
-    FaceDetail: undefined,
-    Reasons: undefined
-  };
-  if (output.FaceDetail !== undefined && output.FaceDetail !== null) {
-    contents.FaceDetail = deserializeAws_json1_1FaceDetail(
-      output.FaceDetail,
-      context
-    );
-  }
-  if (output.Reasons !== undefined && output.Reasons !== null) {
-    contents.Reasons = deserializeAws_json1_1Reasons(output.Reasons, context);
-  }
-  return contents;
+    FaceDetail:
+      output.FaceDetail !== undefined && output.FaceDetail !== null
+        ? deserializeAws_json1_1FaceDetail(output.FaceDetail, context)
+        : undefined,
+    Reasons:
+      output.Reasons !== undefined && output.Reasons !== null
+        ? deserializeAws_json1_1Reasons(output.Reasons, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UnindexedFaces = (
@@ -10872,56 +10444,54 @@ const deserializeAws_json1_1VideoMetadata = (
   output: any,
   context: __SerdeContext
 ): VideoMetadata => {
-  let contents: any = {
+  return {
     __type: "VideoMetadata",
-    Codec: undefined,
-    DurationMillis: undefined,
-    Format: undefined,
-    FrameHeight: undefined,
-    FrameRate: undefined,
-    FrameWidth: undefined
-  };
-  if (output.Codec !== undefined && output.Codec !== null) {
-    contents.Codec = output.Codec;
-  }
-  if (output.DurationMillis !== undefined && output.DurationMillis !== null) {
-    contents.DurationMillis = output.DurationMillis;
-  }
-  if (output.Format !== undefined && output.Format !== null) {
-    contents.Format = output.Format;
-  }
-  if (output.FrameHeight !== undefined && output.FrameHeight !== null) {
-    contents.FrameHeight = output.FrameHeight;
-  }
-  if (output.FrameRate !== undefined && output.FrameRate !== null) {
-    contents.FrameRate = output.FrameRate;
-  }
-  if (output.FrameWidth !== undefined && output.FrameWidth !== null) {
-    contents.FrameWidth = output.FrameWidth;
-  }
-  return contents;
+    Codec:
+      output.Codec !== undefined && output.Codec !== null
+        ? output.Codec
+        : undefined,
+    DurationMillis:
+      output.DurationMillis !== undefined && output.DurationMillis !== null
+        ? output.DurationMillis
+        : undefined,
+    Format:
+      output.Format !== undefined && output.Format !== null
+        ? output.Format
+        : undefined,
+    FrameHeight:
+      output.FrameHeight !== undefined && output.FrameHeight !== null
+        ? output.FrameHeight
+        : undefined,
+    FrameRate:
+      output.FrameRate !== undefined && output.FrameRate !== null
+        ? output.FrameRate
+        : undefined,
+    FrameWidth:
+      output.FrameWidth !== undefined && output.FrameWidth !== null
+        ? output.FrameWidth
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1VideoTooLargeException = (
   output: any,
   context: __SerdeContext
 ): VideoTooLargeException => {
-  let contents: any = {
+  return {
     __type: "VideoTooLargeException",
-    Code: undefined,
-    Logref: undefined,
-    Message: undefined
-  };
-  if (output.Code !== undefined && output.Code !== null) {
-    contents.Code = output.Code;
-  }
-  if (output.Logref !== undefined && output.Logref !== null) {
-    contents.Logref = output.Logref;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Code:
+      output.Code !== undefined && output.Code !== null
+        ? output.Code
+        : undefined,
+    Logref:
+      output.Logref !== undefined && output.Logref !== null
+        ? output.Logref
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

@@ -5995,66 +5995,61 @@ const deserializeAws_json1_1AcknowledgeJobOutput = (
   output: any,
   context: __SerdeContext
 ): AcknowledgeJobOutput => {
-  let contents: any = {
+  return {
     __type: "AcknowledgeJobOutput",
-    status: undefined
-  };
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  return contents;
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1AcknowledgeThirdPartyJobOutput = (
   output: any,
   context: __SerdeContext
 ): AcknowledgeThirdPartyJobOutput => {
-  let contents: any = {
+  return {
     __type: "AcknowledgeThirdPartyJobOutput",
-    status: undefined
-  };
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  return contents;
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ActionConfigurationProperty = (
   output: any,
   context: __SerdeContext
 ): ActionConfigurationProperty => {
-  let contents: any = {
+  return {
     __type: "ActionConfigurationProperty",
-    description: undefined,
-    key: undefined,
-    name: undefined,
-    queryable: undefined,
-    required: undefined,
-    secret: undefined,
-    type: undefined
-  };
-  if (output.description !== undefined && output.description !== null) {
-    contents.description = output.description;
-  }
-  if (output.key !== undefined && output.key !== null) {
-    contents.key = output.key;
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (output.queryable !== undefined && output.queryable !== null) {
-    contents.queryable = output.queryable;
-  }
-  if (output.required !== undefined && output.required !== null) {
-    contents.required = output.required;
-  }
-  if (output.secret !== undefined && output.secret !== null) {
-    contents.secret = output.secret;
-  }
-  if (output.type !== undefined && output.type !== null) {
-    contents.type = output.type;
-  }
-  return contents;
+    description:
+      output.description !== undefined && output.description !== null
+        ? output.description
+        : undefined,
+    key:
+      output.key !== undefined && output.key !== null ? output.key : undefined,
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    queryable:
+      output.queryable !== undefined && output.queryable !== null
+        ? output.queryable
+        : undefined,
+    required:
+      output.required !== undefined && output.required !== null
+        ? output.required
+        : undefined,
+    secret:
+      output.secret !== undefined && output.secret !== null
+        ? output.secret
+        : undefined,
+    type:
+      output.type !== undefined && output.type !== null
+        ? output.type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ActionConfigurationPropertyList = (
@@ -6070,182 +6065,152 @@ const deserializeAws_json1_1ActionDeclaration = (
   output: any,
   context: __SerdeContext
 ): ActionDeclaration => {
-  let contents: any = {
+  return {
     __type: "ActionDeclaration",
-    actionTypeId: undefined,
-    configuration: undefined,
-    inputArtifacts: undefined,
-    name: undefined,
-    namespace: undefined,
-    outputArtifacts: undefined,
-    region: undefined,
-    roleArn: undefined,
-    runOrder: undefined
-  };
-  if (output.actionTypeId !== undefined && output.actionTypeId !== null) {
-    contents.actionTypeId = deserializeAws_json1_1ActionTypeId(
-      output.actionTypeId,
-      context
-    );
-  }
-  if (output.configuration !== undefined && output.configuration !== null) {
-    contents.configuration = deserializeAws_json1_1ActionConfigurationMap(
-      output.configuration,
-      context
-    );
-  }
-  if (output.inputArtifacts !== undefined && output.inputArtifacts !== null) {
-    contents.inputArtifacts = deserializeAws_json1_1InputArtifactList(
-      output.inputArtifacts,
-      context
-    );
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (output.namespace !== undefined && output.namespace !== null) {
-    contents.namespace = output.namespace;
-  }
-  if (output.outputArtifacts !== undefined && output.outputArtifacts !== null) {
-    contents.outputArtifacts = deserializeAws_json1_1OutputArtifactList(
-      output.outputArtifacts,
-      context
-    );
-  }
-  if (output.region !== undefined && output.region !== null) {
-    contents.region = output.region;
-  }
-  if (output.roleArn !== undefined && output.roleArn !== null) {
-    contents.roleArn = output.roleArn;
-  }
-  if (output.runOrder !== undefined && output.runOrder !== null) {
-    contents.runOrder = output.runOrder;
-  }
-  return contents;
+    actionTypeId:
+      output.actionTypeId !== undefined && output.actionTypeId !== null
+        ? deserializeAws_json1_1ActionTypeId(output.actionTypeId, context)
+        : undefined,
+    configuration:
+      output.configuration !== undefined && output.configuration !== null
+        ? deserializeAws_json1_1ActionConfigurationMap(
+            output.configuration,
+            context
+          )
+        : undefined,
+    inputArtifacts:
+      output.inputArtifacts !== undefined && output.inputArtifacts !== null
+        ? deserializeAws_json1_1InputArtifactList(
+            output.inputArtifacts,
+            context
+          )
+        : undefined,
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    namespace:
+      output.namespace !== undefined && output.namespace !== null
+        ? output.namespace
+        : undefined,
+    outputArtifacts:
+      output.outputArtifacts !== undefined && output.outputArtifacts !== null
+        ? deserializeAws_json1_1OutputArtifactList(
+            output.outputArtifacts,
+            context
+          )
+        : undefined,
+    region:
+      output.region !== undefined && output.region !== null
+        ? output.region
+        : undefined,
+    roleArn:
+      output.roleArn !== undefined && output.roleArn !== null
+        ? output.roleArn
+        : undefined,
+    runOrder:
+      output.runOrder !== undefined && output.runOrder !== null
+        ? output.runOrder
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ActionExecution = (
   output: any,
   context: __SerdeContext
 ): ActionExecution => {
-  let contents: any = {
+  return {
     __type: "ActionExecution",
-    errorDetails: undefined,
-    externalExecutionId: undefined,
-    externalExecutionUrl: undefined,
-    lastStatusChange: undefined,
-    lastUpdatedBy: undefined,
-    percentComplete: undefined,
-    status: undefined,
-    summary: undefined,
-    token: undefined
-  };
-  if (output.errorDetails !== undefined && output.errorDetails !== null) {
-    contents.errorDetails = deserializeAws_json1_1ErrorDetails(
-      output.errorDetails,
-      context
-    );
-  }
-  if (
-    output.externalExecutionId !== undefined &&
-    output.externalExecutionId !== null
-  ) {
-    contents.externalExecutionId = output.externalExecutionId;
-  }
-  if (
-    output.externalExecutionUrl !== undefined &&
-    output.externalExecutionUrl !== null
-  ) {
-    contents.externalExecutionUrl = output.externalExecutionUrl;
-  }
-  if (
-    output.lastStatusChange !== undefined &&
-    output.lastStatusChange !== null
-  ) {
-    contents.lastStatusChange = new Date(
-      Math.round(output.lastStatusChange * 1000)
-    );
-  }
-  if (output.lastUpdatedBy !== undefined && output.lastUpdatedBy !== null) {
-    contents.lastUpdatedBy = output.lastUpdatedBy;
-  }
-  if (output.percentComplete !== undefined && output.percentComplete !== null) {
-    contents.percentComplete = output.percentComplete;
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  if (output.summary !== undefined && output.summary !== null) {
-    contents.summary = output.summary;
-  }
-  if (output.token !== undefined && output.token !== null) {
-    contents.token = output.token;
-  }
-  return contents;
+    errorDetails:
+      output.errorDetails !== undefined && output.errorDetails !== null
+        ? deserializeAws_json1_1ErrorDetails(output.errorDetails, context)
+        : undefined,
+    externalExecutionId:
+      output.externalExecutionId !== undefined &&
+      output.externalExecutionId !== null
+        ? output.externalExecutionId
+        : undefined,
+    externalExecutionUrl:
+      output.externalExecutionUrl !== undefined &&
+      output.externalExecutionUrl !== null
+        ? output.externalExecutionUrl
+        : undefined,
+    lastStatusChange:
+      output.lastStatusChange !== undefined && output.lastStatusChange !== null
+        ? new Date(Math.round(output.lastStatusChange * 1000))
+        : undefined,
+    lastUpdatedBy:
+      output.lastUpdatedBy !== undefined && output.lastUpdatedBy !== null
+        ? output.lastUpdatedBy
+        : undefined,
+    percentComplete:
+      output.percentComplete !== undefined && output.percentComplete !== null
+        ? output.percentComplete
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined,
+    summary:
+      output.summary !== undefined && output.summary !== null
+        ? output.summary
+        : undefined,
+    token:
+      output.token !== undefined && output.token !== null
+        ? output.token
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ActionExecutionDetail = (
   output: any,
   context: __SerdeContext
 ): ActionExecutionDetail => {
-  let contents: any = {
+  return {
     __type: "ActionExecutionDetail",
-    actionExecutionId: undefined,
-    actionName: undefined,
-    input: undefined,
-    lastUpdateTime: undefined,
-    output: undefined,
-    pipelineExecutionId: undefined,
-    pipelineVersion: undefined,
-    stageName: undefined,
-    startTime: undefined,
-    status: undefined
-  };
-  if (
-    output.actionExecutionId !== undefined &&
-    output.actionExecutionId !== null
-  ) {
-    contents.actionExecutionId = output.actionExecutionId;
-  }
-  if (output.actionName !== undefined && output.actionName !== null) {
-    contents.actionName = output.actionName;
-  }
-  if (output.input !== undefined && output.input !== null) {
-    contents.input = deserializeAws_json1_1ActionExecutionInput(
-      output.input,
-      context
-    );
-  }
-  if (output.lastUpdateTime !== undefined && output.lastUpdateTime !== null) {
-    contents.lastUpdateTime = new Date(
-      Math.round(output.lastUpdateTime * 1000)
-    );
-  }
-  if (output.output !== undefined && output.output !== null) {
-    contents.output = deserializeAws_json1_1ActionExecutionOutput(
-      output.output,
-      context
-    );
-  }
-  if (
-    output.pipelineExecutionId !== undefined &&
-    output.pipelineExecutionId !== null
-  ) {
-    contents.pipelineExecutionId = output.pipelineExecutionId;
-  }
-  if (output.pipelineVersion !== undefined && output.pipelineVersion !== null) {
-    contents.pipelineVersion = output.pipelineVersion;
-  }
-  if (output.stageName !== undefined && output.stageName !== null) {
-    contents.stageName = output.stageName;
-  }
-  if (output.startTime !== undefined && output.startTime !== null) {
-    contents.startTime = new Date(Math.round(output.startTime * 1000));
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  return contents;
+    actionExecutionId:
+      output.actionExecutionId !== undefined &&
+      output.actionExecutionId !== null
+        ? output.actionExecutionId
+        : undefined,
+    actionName:
+      output.actionName !== undefined && output.actionName !== null
+        ? output.actionName
+        : undefined,
+    input:
+      output.input !== undefined && output.input !== null
+        ? deserializeAws_json1_1ActionExecutionInput(output.input, context)
+        : undefined,
+    lastUpdateTime:
+      output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
+        ? new Date(Math.round(output.lastUpdateTime * 1000))
+        : undefined,
+    output:
+      output.output !== undefined && output.output !== null
+        ? deserializeAws_json1_1ActionExecutionOutput(output.output, context)
+        : undefined,
+    pipelineExecutionId:
+      output.pipelineExecutionId !== undefined &&
+      output.pipelineExecutionId !== null
+        ? output.pipelineExecutionId
+        : undefined,
+    pipelineVersion:
+      output.pipelineVersion !== undefined && output.pipelineVersion !== null
+        ? output.pipelineVersion
+        : undefined,
+    stageName:
+      output.stageName !== undefined && output.stageName !== null
+        ? output.stageName
+        : undefined,
+    startTime:
+      output.startTime !== undefined && output.startTime !== null
+        ? new Date(Math.round(output.startTime * 1000))
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ActionExecutionDetailList = (
@@ -6261,190 +6226,164 @@ const deserializeAws_json1_1ActionExecutionInput = (
   output: any,
   context: __SerdeContext
 ): ActionExecutionInput => {
-  let contents: any = {
+  return {
     __type: "ActionExecutionInput",
-    actionTypeId: undefined,
-    configuration: undefined,
-    inputArtifacts: undefined,
-    namespace: undefined,
-    region: undefined,
-    resolvedConfiguration: undefined,
-    roleArn: undefined
-  };
-  if (output.actionTypeId !== undefined && output.actionTypeId !== null) {
-    contents.actionTypeId = deserializeAws_json1_1ActionTypeId(
-      output.actionTypeId,
-      context
-    );
-  }
-  if (output.configuration !== undefined && output.configuration !== null) {
-    contents.configuration = deserializeAws_json1_1ActionConfigurationMap(
-      output.configuration,
-      context
-    );
-  }
-  if (output.inputArtifacts !== undefined && output.inputArtifacts !== null) {
-    contents.inputArtifacts = deserializeAws_json1_1ArtifactDetailList(
-      output.inputArtifacts,
-      context
-    );
-  }
-  if (output.namespace !== undefined && output.namespace !== null) {
-    contents.namespace = output.namespace;
-  }
-  if (output.region !== undefined && output.region !== null) {
-    contents.region = output.region;
-  }
-  if (
-    output.resolvedConfiguration !== undefined &&
-    output.resolvedConfiguration !== null
-  ) {
-    contents.resolvedConfiguration = deserializeAws_json1_1ResolvedActionConfigurationMap(
-      output.resolvedConfiguration,
-      context
-    );
-  }
-  if (output.roleArn !== undefined && output.roleArn !== null) {
-    contents.roleArn = output.roleArn;
-  }
-  return contents;
+    actionTypeId:
+      output.actionTypeId !== undefined && output.actionTypeId !== null
+        ? deserializeAws_json1_1ActionTypeId(output.actionTypeId, context)
+        : undefined,
+    configuration:
+      output.configuration !== undefined && output.configuration !== null
+        ? deserializeAws_json1_1ActionConfigurationMap(
+            output.configuration,
+            context
+          )
+        : undefined,
+    inputArtifacts:
+      output.inputArtifacts !== undefined && output.inputArtifacts !== null
+        ? deserializeAws_json1_1ArtifactDetailList(
+            output.inputArtifacts,
+            context
+          )
+        : undefined,
+    namespace:
+      output.namespace !== undefined && output.namespace !== null
+        ? output.namespace
+        : undefined,
+    region:
+      output.region !== undefined && output.region !== null
+        ? output.region
+        : undefined,
+    resolvedConfiguration:
+      output.resolvedConfiguration !== undefined &&
+      output.resolvedConfiguration !== null
+        ? deserializeAws_json1_1ResolvedActionConfigurationMap(
+            output.resolvedConfiguration,
+            context
+          )
+        : undefined,
+    roleArn:
+      output.roleArn !== undefined && output.roleArn !== null
+        ? output.roleArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ActionExecutionOutput = (
   output: any,
   context: __SerdeContext
 ): ActionExecutionOutput => {
-  let contents: any = {
+  return {
     __type: "ActionExecutionOutput",
-    executionResult: undefined,
-    outputArtifacts: undefined,
-    outputVariables: undefined
-  };
-  if (output.executionResult !== undefined && output.executionResult !== null) {
-    contents.executionResult = deserializeAws_json1_1ActionExecutionResult(
-      output.executionResult,
-      context
-    );
-  }
-  if (output.outputArtifacts !== undefined && output.outputArtifacts !== null) {
-    contents.outputArtifacts = deserializeAws_json1_1ArtifactDetailList(
-      output.outputArtifacts,
-      context
-    );
-  }
-  if (output.outputVariables !== undefined && output.outputVariables !== null) {
-    contents.outputVariables = deserializeAws_json1_1OutputVariablesMap(
-      output.outputVariables,
-      context
-    );
-  }
-  return contents;
+    executionResult:
+      output.executionResult !== undefined && output.executionResult !== null
+        ? deserializeAws_json1_1ActionExecutionResult(
+            output.executionResult,
+            context
+          )
+        : undefined,
+    outputArtifacts:
+      output.outputArtifacts !== undefined && output.outputArtifacts !== null
+        ? deserializeAws_json1_1ArtifactDetailList(
+            output.outputArtifacts,
+            context
+          )
+        : undefined,
+    outputVariables:
+      output.outputVariables !== undefined && output.outputVariables !== null
+        ? deserializeAws_json1_1OutputVariablesMap(
+            output.outputVariables,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ActionExecutionResult = (
   output: any,
   context: __SerdeContext
 ): ActionExecutionResult => {
-  let contents: any = {
+  return {
     __type: "ActionExecutionResult",
-    externalExecutionId: undefined,
-    externalExecutionSummary: undefined,
-    externalExecutionUrl: undefined
-  };
-  if (
-    output.externalExecutionId !== undefined &&
-    output.externalExecutionId !== null
-  ) {
-    contents.externalExecutionId = output.externalExecutionId;
-  }
-  if (
-    output.externalExecutionSummary !== undefined &&
-    output.externalExecutionSummary !== null
-  ) {
-    contents.externalExecutionSummary = output.externalExecutionSummary;
-  }
-  if (
-    output.externalExecutionUrl !== undefined &&
-    output.externalExecutionUrl !== null
-  ) {
-    contents.externalExecutionUrl = output.externalExecutionUrl;
-  }
-  return contents;
+    externalExecutionId:
+      output.externalExecutionId !== undefined &&
+      output.externalExecutionId !== null
+        ? output.externalExecutionId
+        : undefined,
+    externalExecutionSummary:
+      output.externalExecutionSummary !== undefined &&
+      output.externalExecutionSummary !== null
+        ? output.externalExecutionSummary
+        : undefined,
+    externalExecutionUrl:
+      output.externalExecutionUrl !== undefined &&
+      output.externalExecutionUrl !== null
+        ? output.externalExecutionUrl
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ActionNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ActionNotFoundException => {
-  let contents: any = {
+  return {
     __type: "ActionNotFoundException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ActionRevision = (
   output: any,
   context: __SerdeContext
 ): ActionRevision => {
-  let contents: any = {
+  return {
     __type: "ActionRevision",
-    created: undefined,
-    revisionChangeId: undefined,
-    revisionId: undefined
-  };
-  if (output.created !== undefined && output.created !== null) {
-    contents.created = new Date(Math.round(output.created * 1000));
-  }
-  if (
-    output.revisionChangeId !== undefined &&
-    output.revisionChangeId !== null
-  ) {
-    contents.revisionChangeId = output.revisionChangeId;
-  }
-  if (output.revisionId !== undefined && output.revisionId !== null) {
-    contents.revisionId = output.revisionId;
-  }
-  return contents;
+    created:
+      output.created !== undefined && output.created !== null
+        ? new Date(Math.round(output.created * 1000))
+        : undefined,
+    revisionChangeId:
+      output.revisionChangeId !== undefined && output.revisionChangeId !== null
+        ? output.revisionChangeId
+        : undefined,
+    revisionId:
+      output.revisionId !== undefined && output.revisionId !== null
+        ? output.revisionId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ActionState = (
   output: any,
   context: __SerdeContext
 ): ActionState => {
-  let contents: any = {
+  return {
     __type: "ActionState",
-    actionName: undefined,
-    currentRevision: undefined,
-    entityUrl: undefined,
-    latestExecution: undefined,
-    revisionUrl: undefined
-  };
-  if (output.actionName !== undefined && output.actionName !== null) {
-    contents.actionName = output.actionName;
-  }
-  if (output.currentRevision !== undefined && output.currentRevision !== null) {
-    contents.currentRevision = deserializeAws_json1_1ActionRevision(
-      output.currentRevision,
-      context
-    );
-  }
-  if (output.entityUrl !== undefined && output.entityUrl !== null) {
-    contents.entityUrl = output.entityUrl;
-  }
-  if (output.latestExecution !== undefined && output.latestExecution !== null) {
-    contents.latestExecution = deserializeAws_json1_1ActionExecution(
-      output.latestExecution,
-      context
-    );
-  }
-  if (output.revisionUrl !== undefined && output.revisionUrl !== null) {
-    contents.revisionUrl = output.revisionUrl;
-  }
-  return contents;
+    actionName:
+      output.actionName !== undefined && output.actionName !== null
+        ? output.actionName
+        : undefined,
+    currentRevision:
+      output.currentRevision !== undefined && output.currentRevision !== null
+        ? deserializeAws_json1_1ActionRevision(output.currentRevision, context)
+        : undefined,
+    entityUrl:
+      output.entityUrl !== undefined && output.entityUrl !== null
+        ? output.entityUrl
+        : undefined,
+    latestExecution:
+      output.latestExecution !== undefined && output.latestExecution !== null
+        ? deserializeAws_json1_1ActionExecution(output.latestExecution, context)
+        : undefined,
+    revisionUrl:
+      output.revisionUrl !== undefined && output.revisionUrl !== null
+        ? output.revisionUrl
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ActionStateList = (
@@ -6460,51 +6399,41 @@ const deserializeAws_json1_1ActionType = (
   output: any,
   context: __SerdeContext
 ): ActionType => {
-  let contents: any = {
+  return {
     __type: "ActionType",
-    actionConfigurationProperties: undefined,
-    id: undefined,
-    inputArtifactDetails: undefined,
-    outputArtifactDetails: undefined,
-    settings: undefined
-  };
-  if (
-    output.actionConfigurationProperties !== undefined &&
-    output.actionConfigurationProperties !== null
-  ) {
-    contents.actionConfigurationProperties = deserializeAws_json1_1ActionConfigurationPropertyList(
-      output.actionConfigurationProperties,
-      context
-    );
-  }
-  if (output.id !== undefined && output.id !== null) {
-    contents.id = deserializeAws_json1_1ActionTypeId(output.id, context);
-  }
-  if (
-    output.inputArtifactDetails !== undefined &&
-    output.inputArtifactDetails !== null
-  ) {
-    contents.inputArtifactDetails = deserializeAws_json1_1ArtifactDetails(
-      output.inputArtifactDetails,
-      context
-    );
-  }
-  if (
-    output.outputArtifactDetails !== undefined &&
-    output.outputArtifactDetails !== null
-  ) {
-    contents.outputArtifactDetails = deserializeAws_json1_1ArtifactDetails(
-      output.outputArtifactDetails,
-      context
-    );
-  }
-  if (output.settings !== undefined && output.settings !== null) {
-    contents.settings = deserializeAws_json1_1ActionTypeSettings(
-      output.settings,
-      context
-    );
-  }
-  return contents;
+    actionConfigurationProperties:
+      output.actionConfigurationProperties !== undefined &&
+      output.actionConfigurationProperties !== null
+        ? deserializeAws_json1_1ActionConfigurationPropertyList(
+            output.actionConfigurationProperties,
+            context
+          )
+        : undefined,
+    id:
+      output.id !== undefined && output.id !== null
+        ? deserializeAws_json1_1ActionTypeId(output.id, context)
+        : undefined,
+    inputArtifactDetails:
+      output.inputArtifactDetails !== undefined &&
+      output.inputArtifactDetails !== null
+        ? deserializeAws_json1_1ArtifactDetails(
+            output.inputArtifactDetails,
+            context
+          )
+        : undefined,
+    outputArtifactDetails:
+      output.outputArtifactDetails !== undefined &&
+      output.outputArtifactDetails !== null
+        ? deserializeAws_json1_1ArtifactDetails(
+            output.outputArtifactDetails,
+            context
+          )
+        : undefined,
+    settings:
+      output.settings !== undefined && output.settings !== null
+        ? deserializeAws_json1_1ActionTypeSettings(output.settings, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ActionTypeList = (
@@ -6520,73 +6449,59 @@ const deserializeAws_json1_1ActionTypeSettings = (
   output: any,
   context: __SerdeContext
 ): ActionTypeSettings => {
-  let contents: any = {
+  return {
     __type: "ActionTypeSettings",
-    entityUrlTemplate: undefined,
-    executionUrlTemplate: undefined,
-    revisionUrlTemplate: undefined,
-    thirdPartyConfigurationUrl: undefined
-  };
-  if (
-    output.entityUrlTemplate !== undefined &&
-    output.entityUrlTemplate !== null
-  ) {
-    contents.entityUrlTemplate = output.entityUrlTemplate;
-  }
-  if (
-    output.executionUrlTemplate !== undefined &&
-    output.executionUrlTemplate !== null
-  ) {
-    contents.executionUrlTemplate = output.executionUrlTemplate;
-  }
-  if (
-    output.revisionUrlTemplate !== undefined &&
-    output.revisionUrlTemplate !== null
-  ) {
-    contents.revisionUrlTemplate = output.revisionUrlTemplate;
-  }
-  if (
-    output.thirdPartyConfigurationUrl !== undefined &&
-    output.thirdPartyConfigurationUrl !== null
-  ) {
-    contents.thirdPartyConfigurationUrl = output.thirdPartyConfigurationUrl;
-  }
-  return contents;
+    entityUrlTemplate:
+      output.entityUrlTemplate !== undefined &&
+      output.entityUrlTemplate !== null
+        ? output.entityUrlTemplate
+        : undefined,
+    executionUrlTemplate:
+      output.executionUrlTemplate !== undefined &&
+      output.executionUrlTemplate !== null
+        ? output.executionUrlTemplate
+        : undefined,
+    revisionUrlTemplate:
+      output.revisionUrlTemplate !== undefined &&
+      output.revisionUrlTemplate !== null
+        ? output.revisionUrlTemplate
+        : undefined,
+    thirdPartyConfigurationUrl:
+      output.thirdPartyConfigurationUrl !== undefined &&
+      output.thirdPartyConfigurationUrl !== null
+        ? output.thirdPartyConfigurationUrl
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ApprovalAlreadyCompletedException = (
   output: any,
   context: __SerdeContext
 ): ApprovalAlreadyCompletedException => {
-  let contents: any = {
+  return {
     __type: "ApprovalAlreadyCompletedException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ArtifactDetail = (
   output: any,
   context: __SerdeContext
 ): ArtifactDetail => {
-  let contents: any = {
+  return {
     __type: "ArtifactDetail",
-    name: undefined,
-    s3location: undefined
-  };
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (output.s3location !== undefined && output.s3location !== null) {
-    contents.s3location = deserializeAws_json1_1S3Location(
-      output.s3location,
-      context
-    );
-  }
-  return contents;
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    s3location:
+      output.s3location !== undefined && output.s3location !== null
+        ? deserializeAws_json1_1S3Location(output.s3location, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ArtifactDetailList = (
@@ -6602,55 +6517,51 @@ const deserializeAws_json1_1ArtifactDetails = (
   output: any,
   context: __SerdeContext
 ): ArtifactDetails => {
-  let contents: any = {
+  return {
     __type: "ArtifactDetails",
-    maximumCount: undefined,
-    minimumCount: undefined
-  };
-  if (output.maximumCount !== undefined && output.maximumCount !== null) {
-    contents.maximumCount = output.maximumCount;
-  }
-  if (output.minimumCount !== undefined && output.minimumCount !== null) {
-    contents.minimumCount = output.minimumCount;
-  }
-  return contents;
+    maximumCount:
+      output.maximumCount !== undefined && output.maximumCount !== null
+        ? output.maximumCount
+        : undefined,
+    minimumCount:
+      output.minimumCount !== undefined && output.minimumCount !== null
+        ? output.minimumCount
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ArtifactRevision = (
   output: any,
   context: __SerdeContext
 ): ArtifactRevision => {
-  let contents: any = {
+  return {
     __type: "ArtifactRevision",
-    created: undefined,
-    name: undefined,
-    revisionChangeIdentifier: undefined,
-    revisionId: undefined,
-    revisionSummary: undefined,
-    revisionUrl: undefined
-  };
-  if (output.created !== undefined && output.created !== null) {
-    contents.created = new Date(Math.round(output.created * 1000));
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (
-    output.revisionChangeIdentifier !== undefined &&
-    output.revisionChangeIdentifier !== null
-  ) {
-    contents.revisionChangeIdentifier = output.revisionChangeIdentifier;
-  }
-  if (output.revisionId !== undefined && output.revisionId !== null) {
-    contents.revisionId = output.revisionId;
-  }
-  if (output.revisionSummary !== undefined && output.revisionSummary !== null) {
-    contents.revisionSummary = output.revisionSummary;
-  }
-  if (output.revisionUrl !== undefined && output.revisionUrl !== null) {
-    contents.revisionUrl = output.revisionUrl;
-  }
-  return contents;
+    created:
+      output.created !== undefined && output.created !== null
+        ? new Date(Math.round(output.created * 1000))
+        : undefined,
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    revisionChangeIdentifier:
+      output.revisionChangeIdentifier !== undefined &&
+      output.revisionChangeIdentifier !== null
+        ? output.revisionChangeIdentifier
+        : undefined,
+    revisionId:
+      output.revisionId !== undefined && output.revisionId !== null
+        ? output.revisionId
+        : undefined,
+    revisionSummary:
+      output.revisionSummary !== undefined && output.revisionSummary !== null
+        ? output.revisionSummary
+        : undefined,
+    revisionUrl:
+      output.revisionUrl !== undefined && output.revisionUrl !== null
+        ? output.revisionUrl
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ArtifactRevisionList = (
@@ -6666,25 +6577,21 @@ const deserializeAws_json1_1ArtifactStore = (
   output: any,
   context: __SerdeContext
 ): ArtifactStore => {
-  let contents: any = {
+  return {
     __type: "ArtifactStore",
-    encryptionKey: undefined,
-    location: undefined,
-    type: undefined
-  };
-  if (output.encryptionKey !== undefined && output.encryptionKey !== null) {
-    contents.encryptionKey = deserializeAws_json1_1EncryptionKey(
-      output.encryptionKey,
-      context
-    );
-  }
-  if (output.location !== undefined && output.location !== null) {
-    contents.location = output.location;
-  }
-  if (output.type !== undefined && output.type !== null) {
-    contents.type = output.type;
-  }
-  return contents;
+    encryptionKey:
+      output.encryptionKey !== undefined && output.encryptionKey !== null
+        ? deserializeAws_json1_1EncryptionKey(output.encryptionKey, context)
+        : undefined,
+    location:
+      output.location !== undefined && output.location !== null
+        ? output.location
+        : undefined,
+    type:
+      output.type !== undefined && output.type !== null
+        ? output.type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ArtifactStoreMap = (
@@ -6701,269 +6608,231 @@ const deserializeAws_json1_1BlockerDeclaration = (
   output: any,
   context: __SerdeContext
 ): BlockerDeclaration => {
-  let contents: any = {
+  return {
     __type: "BlockerDeclaration",
-    name: undefined,
-    type: undefined
-  };
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (output.type !== undefined && output.type !== null) {
-    contents.type = output.type;
-  }
-  return contents;
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    type:
+      output.type !== undefined && output.type !== null
+        ? output.type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ConcurrentModificationException = (
   output: any,
   context: __SerdeContext
 ): ConcurrentModificationException => {
-  let contents: any = {
+  return {
     __type: "ConcurrentModificationException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateCustomActionTypeOutput = (
   output: any,
   context: __SerdeContext
 ): CreateCustomActionTypeOutput => {
-  let contents: any = {
+  return {
     __type: "CreateCustomActionTypeOutput",
-    actionType: undefined,
-    tags: undefined
-  };
-  if (output.actionType !== undefined && output.actionType !== null) {
-    contents.actionType = deserializeAws_json1_1ActionType(
-      output.actionType,
-      context
-    );
-  }
-  if (output.tags !== undefined && output.tags !== null) {
-    contents.tags = deserializeAws_json1_1TagList(output.tags, context);
-  }
-  return contents;
+    actionType:
+      output.actionType !== undefined && output.actionType !== null
+        ? deserializeAws_json1_1ActionType(output.actionType, context)
+        : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_json1_1TagList(output.tags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreatePipelineOutput = (
   output: any,
   context: __SerdeContext
 ): CreatePipelineOutput => {
-  let contents: any = {
+  return {
     __type: "CreatePipelineOutput",
-    pipeline: undefined,
-    tags: undefined
-  };
-  if (output.pipeline !== undefined && output.pipeline !== null) {
-    contents.pipeline = deserializeAws_json1_1PipelineDeclaration(
-      output.pipeline,
-      context
-    );
-  }
-  if (output.tags !== undefined && output.tags !== null) {
-    contents.tags = deserializeAws_json1_1TagList(output.tags, context);
-  }
-  return contents;
+    pipeline:
+      output.pipeline !== undefined && output.pipeline !== null
+        ? deserializeAws_json1_1PipelineDeclaration(output.pipeline, context)
+        : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_json1_1TagList(output.tags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteWebhookOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteWebhookOutput => {
-  let contents: any = {
+  return {
     __type: "DeleteWebhookOutput"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DeregisterWebhookWithThirdPartyOutput = (
   output: any,
   context: __SerdeContext
 ): DeregisterWebhookWithThirdPartyOutput => {
-  let contents: any = {
+  return {
     __type: "DeregisterWebhookWithThirdPartyOutput"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DuplicatedStopRequestException = (
   output: any,
   context: __SerdeContext
 ): DuplicatedStopRequestException => {
-  let contents: any = {
+  return {
     __type: "DuplicatedStopRequestException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ErrorDetails = (
   output: any,
   context: __SerdeContext
 ): ErrorDetails => {
-  let contents: any = {
+  return {
     __type: "ErrorDetails",
-    code: undefined,
-    message: undefined
-  };
-  if (output.code !== undefined && output.code !== null) {
-    contents.code = output.code;
-  }
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    code:
+      output.code !== undefined && output.code !== null
+        ? output.code
+        : undefined,
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ExecutionTrigger = (
   output: any,
   context: __SerdeContext
 ): ExecutionTrigger => {
-  let contents: any = {
+  return {
     __type: "ExecutionTrigger",
-    triggerDetail: undefined,
-    triggerType: undefined
-  };
-  if (output.triggerDetail !== undefined && output.triggerDetail !== null) {
-    contents.triggerDetail = output.triggerDetail;
-  }
-  if (output.triggerType !== undefined && output.triggerType !== null) {
-    contents.triggerType = output.triggerType;
-  }
-  return contents;
+    triggerDetail:
+      output.triggerDetail !== undefined && output.triggerDetail !== null
+        ? output.triggerDetail
+        : undefined,
+    triggerType:
+      output.triggerType !== undefined && output.triggerType !== null
+        ? output.triggerType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetJobDetailsOutput = (
   output: any,
   context: __SerdeContext
 ): GetJobDetailsOutput => {
-  let contents: any = {
+  return {
     __type: "GetJobDetailsOutput",
-    jobDetails: undefined
-  };
-  if (output.jobDetails !== undefined && output.jobDetails !== null) {
-    contents.jobDetails = deserializeAws_json1_1JobDetails(
-      output.jobDetails,
-      context
-    );
-  }
-  return contents;
+    jobDetails:
+      output.jobDetails !== undefined && output.jobDetails !== null
+        ? deserializeAws_json1_1JobDetails(output.jobDetails, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetPipelineExecutionOutput = (
   output: any,
   context: __SerdeContext
 ): GetPipelineExecutionOutput => {
-  let contents: any = {
+  return {
     __type: "GetPipelineExecutionOutput",
-    pipelineExecution: undefined
-  };
-  if (
-    output.pipelineExecution !== undefined &&
-    output.pipelineExecution !== null
-  ) {
-    contents.pipelineExecution = deserializeAws_json1_1PipelineExecution(
-      output.pipelineExecution,
-      context
-    );
-  }
-  return contents;
+    pipelineExecution:
+      output.pipelineExecution !== undefined &&
+      output.pipelineExecution !== null
+        ? deserializeAws_json1_1PipelineExecution(
+            output.pipelineExecution,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetPipelineOutput = (
   output: any,
   context: __SerdeContext
 ): GetPipelineOutput => {
-  let contents: any = {
+  return {
     __type: "GetPipelineOutput",
-    metadata: undefined,
-    pipeline: undefined
-  };
-  if (output.metadata !== undefined && output.metadata !== null) {
-    contents.metadata = deserializeAws_json1_1PipelineMetadata(
-      output.metadata,
-      context
-    );
-  }
-  if (output.pipeline !== undefined && output.pipeline !== null) {
-    contents.pipeline = deserializeAws_json1_1PipelineDeclaration(
-      output.pipeline,
-      context
-    );
-  }
-  return contents;
+    metadata:
+      output.metadata !== undefined && output.metadata !== null
+        ? deserializeAws_json1_1PipelineMetadata(output.metadata, context)
+        : undefined,
+    pipeline:
+      output.pipeline !== undefined && output.pipeline !== null
+        ? deserializeAws_json1_1PipelineDeclaration(output.pipeline, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetPipelineStateOutput = (
   output: any,
   context: __SerdeContext
 ): GetPipelineStateOutput => {
-  let contents: any = {
+  return {
     __type: "GetPipelineStateOutput",
-    created: undefined,
-    pipelineName: undefined,
-    pipelineVersion: undefined,
-    stageStates: undefined,
-    updated: undefined
-  };
-  if (output.created !== undefined && output.created !== null) {
-    contents.created = new Date(Math.round(output.created * 1000));
-  }
-  if (output.pipelineName !== undefined && output.pipelineName !== null) {
-    contents.pipelineName = output.pipelineName;
-  }
-  if (output.pipelineVersion !== undefined && output.pipelineVersion !== null) {
-    contents.pipelineVersion = output.pipelineVersion;
-  }
-  if (output.stageStates !== undefined && output.stageStates !== null) {
-    contents.stageStates = deserializeAws_json1_1StageStateList(
-      output.stageStates,
-      context
-    );
-  }
-  if (output.updated !== undefined && output.updated !== null) {
-    contents.updated = new Date(Math.round(output.updated * 1000));
-  }
-  return contents;
+    created:
+      output.created !== undefined && output.created !== null
+        ? new Date(Math.round(output.created * 1000))
+        : undefined,
+    pipelineName:
+      output.pipelineName !== undefined && output.pipelineName !== null
+        ? output.pipelineName
+        : undefined,
+    pipelineVersion:
+      output.pipelineVersion !== undefined && output.pipelineVersion !== null
+        ? output.pipelineVersion
+        : undefined,
+    stageStates:
+      output.stageStates !== undefined && output.stageStates !== null
+        ? deserializeAws_json1_1StageStateList(output.stageStates, context)
+        : undefined,
+    updated:
+      output.updated !== undefined && output.updated !== null
+        ? new Date(Math.round(output.updated * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetThirdPartyJobDetailsOutput = (
   output: any,
   context: __SerdeContext
 ): GetThirdPartyJobDetailsOutput => {
-  let contents: any = {
+  return {
     __type: "GetThirdPartyJobDetailsOutput",
-    jobDetails: undefined
-  };
-  if (output.jobDetails !== undefined && output.jobDetails !== null) {
-    contents.jobDetails = deserializeAws_json1_1ThirdPartyJobDetails(
-      output.jobDetails,
-      context
-    );
-  }
-  return contents;
+    jobDetails:
+      output.jobDetails !== undefined && output.jobDetails !== null
+        ? deserializeAws_json1_1ThirdPartyJobDetails(output.jobDetails, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InputArtifact = (
   output: any,
   context: __SerdeContext
 ): InputArtifact => {
-  let contents: any = {
+  return {
     __type: "InputArtifact",
-    name: undefined
-  };
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  return contents;
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InputArtifactList = (
@@ -6979,288 +6848,246 @@ const deserializeAws_json1_1InvalidActionDeclarationException = (
   output: any,
   context: __SerdeContext
 ): InvalidActionDeclarationException => {
-  let contents: any = {
+  return {
     __type: "InvalidActionDeclarationException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidApprovalTokenException = (
   output: any,
   context: __SerdeContext
 ): InvalidApprovalTokenException => {
-  let contents: any = {
+  return {
     __type: "InvalidApprovalTokenException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidArnException = (
   output: any,
   context: __SerdeContext
 ): InvalidArnException => {
-  let contents: any = {
+  return {
     __type: "InvalidArnException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidBlockerDeclarationException = (
   output: any,
   context: __SerdeContext
 ): InvalidBlockerDeclarationException => {
-  let contents: any = {
+  return {
     __type: "InvalidBlockerDeclarationException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidClientTokenException = (
   output: any,
   context: __SerdeContext
 ): InvalidClientTokenException => {
-  let contents: any = {
+  return {
     __type: "InvalidClientTokenException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidJobException = (
   output: any,
   context: __SerdeContext
 ): InvalidJobException => {
-  let contents: any = {
+  return {
     __type: "InvalidJobException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidNextTokenException = (
   output: any,
   context: __SerdeContext
 ): InvalidNextTokenException => {
-  let contents: any = {
+  return {
     __type: "InvalidNextTokenException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidStageDeclarationException = (
   output: any,
   context: __SerdeContext
 ): InvalidStageDeclarationException => {
-  let contents: any = {
+  return {
     __type: "InvalidStageDeclarationException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidStructureException = (
   output: any,
   context: __SerdeContext
 ): InvalidStructureException => {
-  let contents: any = {
+  return {
     __type: "InvalidStructureException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidTagsException = (
   output: any,
   context: __SerdeContext
 ): InvalidTagsException => {
-  let contents: any = {
+  return {
     __type: "InvalidTagsException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidWebhookAuthenticationParametersException = (
   output: any,
   context: __SerdeContext
 ): InvalidWebhookAuthenticationParametersException => {
-  let contents: any = {
+  return {
     __type: "InvalidWebhookAuthenticationParametersException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidWebhookFilterPatternException = (
   output: any,
   context: __SerdeContext
 ): InvalidWebhookFilterPatternException => {
-  let contents: any = {
+  return {
     __type: "InvalidWebhookFilterPatternException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Job = (
   output: any,
   context: __SerdeContext
 ): Job => {
-  let contents: any = {
+  return {
     __type: "Job",
-    accountId: undefined,
-    data: undefined,
-    id: undefined,
-    nonce: undefined
-  };
-  if (output.accountId !== undefined && output.accountId !== null) {
-    contents.accountId = output.accountId;
-  }
-  if (output.data !== undefined && output.data !== null) {
-    contents.data = deserializeAws_json1_1JobData(output.data, context);
-  }
-  if (output.id !== undefined && output.id !== null) {
-    contents.id = output.id;
-  }
-  if (output.nonce !== undefined && output.nonce !== null) {
-    contents.nonce = output.nonce;
-  }
-  return contents;
+    accountId:
+      output.accountId !== undefined && output.accountId !== null
+        ? output.accountId
+        : undefined,
+    data:
+      output.data !== undefined && output.data !== null
+        ? deserializeAws_json1_1JobData(output.data, context)
+        : undefined,
+    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    nonce:
+      output.nonce !== undefined && output.nonce !== null
+        ? output.nonce
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1JobData = (
   output: any,
   context: __SerdeContext
 ): JobData => {
-  let contents: any = {
+  return {
     __type: "JobData",
-    actionConfiguration: undefined,
-    actionTypeId: undefined,
-    artifactCredentials: undefined,
-    continuationToken: undefined,
-    encryptionKey: undefined,
-    inputArtifacts: undefined,
-    outputArtifacts: undefined,
-    pipelineContext: undefined
-  };
-  if (
-    output.actionConfiguration !== undefined &&
-    output.actionConfiguration !== null
-  ) {
-    contents.actionConfiguration = deserializeAws_json1_1ActionConfiguration(
-      output.actionConfiguration,
-      context
-    );
-  }
-  if (output.actionTypeId !== undefined && output.actionTypeId !== null) {
-    contents.actionTypeId = deserializeAws_json1_1ActionTypeId(
-      output.actionTypeId,
-      context
-    );
-  }
-  if (
-    output.artifactCredentials !== undefined &&
-    output.artifactCredentials !== null
-  ) {
-    contents.artifactCredentials = deserializeAws_json1_1AWSSessionCredentials(
-      output.artifactCredentials,
-      context
-    );
-  }
-  if (
-    output.continuationToken !== undefined &&
-    output.continuationToken !== null
-  ) {
-    contents.continuationToken = output.continuationToken;
-  }
-  if (output.encryptionKey !== undefined && output.encryptionKey !== null) {
-    contents.encryptionKey = deserializeAws_json1_1EncryptionKey(
-      output.encryptionKey,
-      context
-    );
-  }
-  if (output.inputArtifacts !== undefined && output.inputArtifacts !== null) {
-    contents.inputArtifacts = deserializeAws_json1_1ArtifactList(
-      output.inputArtifacts,
-      context
-    );
-  }
-  if (output.outputArtifacts !== undefined && output.outputArtifacts !== null) {
-    contents.outputArtifacts = deserializeAws_json1_1ArtifactList(
-      output.outputArtifacts,
-      context
-    );
-  }
-  if (output.pipelineContext !== undefined && output.pipelineContext !== null) {
-    contents.pipelineContext = deserializeAws_json1_1PipelineContext(
-      output.pipelineContext,
-      context
-    );
-  }
-  return contents;
+    actionConfiguration:
+      output.actionConfiguration !== undefined &&
+      output.actionConfiguration !== null
+        ? deserializeAws_json1_1ActionConfiguration(
+            output.actionConfiguration,
+            context
+          )
+        : undefined,
+    actionTypeId:
+      output.actionTypeId !== undefined && output.actionTypeId !== null
+        ? deserializeAws_json1_1ActionTypeId(output.actionTypeId, context)
+        : undefined,
+    artifactCredentials:
+      output.artifactCredentials !== undefined &&
+      output.artifactCredentials !== null
+        ? deserializeAws_json1_1AWSSessionCredentials(
+            output.artifactCredentials,
+            context
+          )
+        : undefined,
+    continuationToken:
+      output.continuationToken !== undefined &&
+      output.continuationToken !== null
+        ? output.continuationToken
+        : undefined,
+    encryptionKey:
+      output.encryptionKey !== undefined && output.encryptionKey !== null
+        ? deserializeAws_json1_1EncryptionKey(output.encryptionKey, context)
+        : undefined,
+    inputArtifacts:
+      output.inputArtifacts !== undefined && output.inputArtifacts !== null
+        ? deserializeAws_json1_1ArtifactList(output.inputArtifacts, context)
+        : undefined,
+    outputArtifacts:
+      output.outputArtifacts !== undefined && output.outputArtifacts !== null
+        ? deserializeAws_json1_1ArtifactList(output.outputArtifacts, context)
+        : undefined,
+    pipelineContext:
+      output.pipelineContext !== undefined && output.pipelineContext !== null
+        ? deserializeAws_json1_1PipelineContext(output.pipelineContext, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1JobDetails = (
   output: any,
   context: __SerdeContext
 ): JobDetails => {
-  let contents: any = {
+  return {
     __type: "JobDetails",
-    accountId: undefined,
-    data: undefined,
-    id: undefined
-  };
-  if (output.accountId !== undefined && output.accountId !== null) {
-    contents.accountId = output.accountId;
-  }
-  if (output.data !== undefined && output.data !== null) {
-    contents.data = deserializeAws_json1_1JobData(output.data, context);
-  }
-  if (output.id !== undefined && output.id !== null) {
-    contents.id = output.id;
-  }
-  return contents;
+    accountId:
+      output.accountId !== undefined && output.accountId !== null
+        ? output.accountId
+        : undefined,
+    data:
+      output.data !== undefined && output.data !== null
+        ? deserializeAws_json1_1JobData(output.data, context)
+        : undefined,
+    id: output.id !== undefined && output.id !== null ? output.id : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1JobList = (
@@ -7276,212 +7103,182 @@ const deserializeAws_json1_1LimitExceededException = (
   output: any,
   context: __SerdeContext
 ): LimitExceededException => {
-  let contents: any = {
+  return {
     __type: "LimitExceededException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListActionExecutionsOutput = (
   output: any,
   context: __SerdeContext
 ): ListActionExecutionsOutput => {
-  let contents: any = {
+  return {
     __type: "ListActionExecutionsOutput",
-    actionExecutionDetails: undefined,
-    nextToken: undefined
-  };
-  if (
-    output.actionExecutionDetails !== undefined &&
-    output.actionExecutionDetails !== null
-  ) {
-    contents.actionExecutionDetails = deserializeAws_json1_1ActionExecutionDetailList(
-      output.actionExecutionDetails,
-      context
-    );
-  }
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  return contents;
+    actionExecutionDetails:
+      output.actionExecutionDetails !== undefined &&
+      output.actionExecutionDetails !== null
+        ? deserializeAws_json1_1ActionExecutionDetailList(
+            output.actionExecutionDetails,
+            context
+          )
+        : undefined,
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListActionTypesOutput = (
   output: any,
   context: __SerdeContext
 ): ListActionTypesOutput => {
-  let contents: any = {
+  return {
     __type: "ListActionTypesOutput",
-    actionTypes: undefined,
-    nextToken: undefined
-  };
-  if (output.actionTypes !== undefined && output.actionTypes !== null) {
-    contents.actionTypes = deserializeAws_json1_1ActionTypeList(
-      output.actionTypes,
-      context
-    );
-  }
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  return contents;
+    actionTypes:
+      output.actionTypes !== undefined && output.actionTypes !== null
+        ? deserializeAws_json1_1ActionTypeList(output.actionTypes, context)
+        : undefined,
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListPipelineExecutionsOutput = (
   output: any,
   context: __SerdeContext
 ): ListPipelineExecutionsOutput => {
-  let contents: any = {
+  return {
     __type: "ListPipelineExecutionsOutput",
-    nextToken: undefined,
-    pipelineExecutionSummaries: undefined
-  };
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  if (
-    output.pipelineExecutionSummaries !== undefined &&
-    output.pipelineExecutionSummaries !== null
-  ) {
-    contents.pipelineExecutionSummaries = deserializeAws_json1_1PipelineExecutionSummaryList(
-      output.pipelineExecutionSummaries,
-      context
-    );
-  }
-  return contents;
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined,
+    pipelineExecutionSummaries:
+      output.pipelineExecutionSummaries !== undefined &&
+      output.pipelineExecutionSummaries !== null
+        ? deserializeAws_json1_1PipelineExecutionSummaryList(
+            output.pipelineExecutionSummaries,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListPipelinesOutput = (
   output: any,
   context: __SerdeContext
 ): ListPipelinesOutput => {
-  let contents: any = {
+  return {
     __type: "ListPipelinesOutput",
-    nextToken: undefined,
-    pipelines: undefined
-  };
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  if (output.pipelines !== undefined && output.pipelines !== null) {
-    contents.pipelines = deserializeAws_json1_1PipelineList(
-      output.pipelines,
-      context
-    );
-  }
-  return contents;
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined,
+    pipelines:
+      output.pipelines !== undefined && output.pipelines !== null
+        ? deserializeAws_json1_1PipelineList(output.pipelines, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListTagsForResourceOutput = (
   output: any,
   context: __SerdeContext
 ): ListTagsForResourceOutput => {
-  let contents: any = {
+  return {
     __type: "ListTagsForResourceOutput",
-    nextToken: undefined,
-    tags: undefined
-  };
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  if (output.tags !== undefined && output.tags !== null) {
-    contents.tags = deserializeAws_json1_1TagList(output.tags, context);
-  }
-  return contents;
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_json1_1TagList(output.tags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListWebhookItem = (
   output: any,
   context: __SerdeContext
 ): ListWebhookItem => {
-  let contents: any = {
+  return {
     __type: "ListWebhookItem",
-    arn: undefined,
-    definition: undefined,
-    errorCode: undefined,
-    errorMessage: undefined,
-    lastTriggered: undefined,
-    tags: undefined,
-    url: undefined
-  };
-  if (output.arn !== undefined && output.arn !== null) {
-    contents.arn = output.arn;
-  }
-  if (output.definition !== undefined && output.definition !== null) {
-    contents.definition = deserializeAws_json1_1WebhookDefinition(
-      output.definition,
-      context
-    );
-  }
-  if (output.errorCode !== undefined && output.errorCode !== null) {
-    contents.errorCode = output.errorCode;
-  }
-  if (output.errorMessage !== undefined && output.errorMessage !== null) {
-    contents.errorMessage = output.errorMessage;
-  }
-  if (output.lastTriggered !== undefined && output.lastTriggered !== null) {
-    contents.lastTriggered = new Date(Math.round(output.lastTriggered * 1000));
-  }
-  if (output.tags !== undefined && output.tags !== null) {
-    contents.tags = deserializeAws_json1_1TagList(output.tags, context);
-  }
-  if (output.url !== undefined && output.url !== null) {
-    contents.url = output.url;
-  }
-  return contents;
+    arn:
+      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    definition:
+      output.definition !== undefined && output.definition !== null
+        ? deserializeAws_json1_1WebhookDefinition(output.definition, context)
+        : undefined,
+    errorCode:
+      output.errorCode !== undefined && output.errorCode !== null
+        ? output.errorCode
+        : undefined,
+    errorMessage:
+      output.errorMessage !== undefined && output.errorMessage !== null
+        ? output.errorMessage
+        : undefined,
+    lastTriggered:
+      output.lastTriggered !== undefined && output.lastTriggered !== null
+        ? new Date(Math.round(output.lastTriggered * 1000))
+        : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_json1_1TagList(output.tags, context)
+        : undefined,
+    url:
+      output.url !== undefined && output.url !== null ? output.url : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListWebhooksOutput = (
   output: any,
   context: __SerdeContext
 ): ListWebhooksOutput => {
-  let contents: any = {
+  return {
     __type: "ListWebhooksOutput",
-    NextToken: undefined,
-    webhooks: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.webhooks !== undefined && output.webhooks !== null) {
-    contents.webhooks = deserializeAws_json1_1WebhookList(
-      output.webhooks,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    webhooks:
+      output.webhooks !== undefined && output.webhooks !== null
+        ? deserializeAws_json1_1WebhookList(output.webhooks, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1NotLatestPipelineExecutionException = (
   output: any,
   context: __SerdeContext
 ): NotLatestPipelineExecutionException => {
-  let contents: any = {
+  return {
     __type: "NotLatestPipelineExecutionException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1OutputArtifact = (
   output: any,
   context: __SerdeContext
 ): OutputArtifact => {
-  let contents: any = {
+  return {
     __type: "OutputArtifact",
-    name: undefined
-  };
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  return contents;
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1OutputArtifactList = (
@@ -7497,162 +7294,140 @@ const deserializeAws_json1_1PipelineDeclaration = (
   output: any,
   context: __SerdeContext
 ): PipelineDeclaration => {
-  let contents: any = {
+  return {
     __type: "PipelineDeclaration",
-    artifactStore: undefined,
-    artifactStores: undefined,
-    name: undefined,
-    roleArn: undefined,
-    stages: undefined,
-    version: undefined
-  };
-  if (output.artifactStore !== undefined && output.artifactStore !== null) {
-    contents.artifactStore = deserializeAws_json1_1ArtifactStore(
-      output.artifactStore,
-      context
-    );
-  }
-  if (output.artifactStores !== undefined && output.artifactStores !== null) {
-    contents.artifactStores = deserializeAws_json1_1ArtifactStoreMap(
-      output.artifactStores,
-      context
-    );
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (output.roleArn !== undefined && output.roleArn !== null) {
-    contents.roleArn = output.roleArn;
-  }
-  if (output.stages !== undefined && output.stages !== null) {
-    contents.stages = deserializeAws_json1_1PipelineStageDeclarationList(
-      output.stages,
-      context
-    );
-  }
-  if (output.version !== undefined && output.version !== null) {
-    contents.version = output.version;
-  }
-  return contents;
+    artifactStore:
+      output.artifactStore !== undefined && output.artifactStore !== null
+        ? deserializeAws_json1_1ArtifactStore(output.artifactStore, context)
+        : undefined,
+    artifactStores:
+      output.artifactStores !== undefined && output.artifactStores !== null
+        ? deserializeAws_json1_1ArtifactStoreMap(output.artifactStores, context)
+        : undefined,
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    roleArn:
+      output.roleArn !== undefined && output.roleArn !== null
+        ? output.roleArn
+        : undefined,
+    stages:
+      output.stages !== undefined && output.stages !== null
+        ? deserializeAws_json1_1PipelineStageDeclarationList(
+            output.stages,
+            context
+          )
+        : undefined,
+    version:
+      output.version !== undefined && output.version !== null
+        ? output.version
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PipelineExecution = (
   output: any,
   context: __SerdeContext
 ): PipelineExecution => {
-  let contents: any = {
+  return {
     __type: "PipelineExecution",
-    artifactRevisions: undefined,
-    pipelineExecutionId: undefined,
-    pipelineName: undefined,
-    pipelineVersion: undefined,
-    status: undefined
-  };
-  if (
-    output.artifactRevisions !== undefined &&
-    output.artifactRevisions !== null
-  ) {
-    contents.artifactRevisions = deserializeAws_json1_1ArtifactRevisionList(
-      output.artifactRevisions,
-      context
-    );
-  }
-  if (
-    output.pipelineExecutionId !== undefined &&
-    output.pipelineExecutionId !== null
-  ) {
-    contents.pipelineExecutionId = output.pipelineExecutionId;
-  }
-  if (output.pipelineName !== undefined && output.pipelineName !== null) {
-    contents.pipelineName = output.pipelineName;
-  }
-  if (output.pipelineVersion !== undefined && output.pipelineVersion !== null) {
-    contents.pipelineVersion = output.pipelineVersion;
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  return contents;
+    artifactRevisions:
+      output.artifactRevisions !== undefined &&
+      output.artifactRevisions !== null
+        ? deserializeAws_json1_1ArtifactRevisionList(
+            output.artifactRevisions,
+            context
+          )
+        : undefined,
+    pipelineExecutionId:
+      output.pipelineExecutionId !== undefined &&
+      output.pipelineExecutionId !== null
+        ? output.pipelineExecutionId
+        : undefined,
+    pipelineName:
+      output.pipelineName !== undefined && output.pipelineName !== null
+        ? output.pipelineName
+        : undefined,
+    pipelineVersion:
+      output.pipelineVersion !== undefined && output.pipelineVersion !== null
+        ? output.pipelineVersion
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PipelineExecutionNotFoundException = (
   output: any,
   context: __SerdeContext
 ): PipelineExecutionNotFoundException => {
-  let contents: any = {
+  return {
     __type: "PipelineExecutionNotFoundException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PipelineExecutionNotStoppableException = (
   output: any,
   context: __SerdeContext
 ): PipelineExecutionNotStoppableException => {
-  let contents: any = {
+  return {
     __type: "PipelineExecutionNotStoppableException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PipelineExecutionSummary = (
   output: any,
   context: __SerdeContext
 ): PipelineExecutionSummary => {
-  let contents: any = {
+  return {
     __type: "PipelineExecutionSummary",
-    lastUpdateTime: undefined,
-    pipelineExecutionId: undefined,
-    sourceRevisions: undefined,
-    startTime: undefined,
-    status: undefined,
-    stopTrigger: undefined,
-    trigger: undefined
-  };
-  if (output.lastUpdateTime !== undefined && output.lastUpdateTime !== null) {
-    contents.lastUpdateTime = new Date(
-      Math.round(output.lastUpdateTime * 1000)
-    );
-  }
-  if (
-    output.pipelineExecutionId !== undefined &&
-    output.pipelineExecutionId !== null
-  ) {
-    contents.pipelineExecutionId = output.pipelineExecutionId;
-  }
-  if (output.sourceRevisions !== undefined && output.sourceRevisions !== null) {
-    contents.sourceRevisions = deserializeAws_json1_1SourceRevisionList(
-      output.sourceRevisions,
-      context
-    );
-  }
-  if (output.startTime !== undefined && output.startTime !== null) {
-    contents.startTime = new Date(Math.round(output.startTime * 1000));
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  if (output.stopTrigger !== undefined && output.stopTrigger !== null) {
-    contents.stopTrigger = deserializeAws_json1_1StopExecutionTrigger(
-      output.stopTrigger,
-      context
-    );
-  }
-  if (output.trigger !== undefined && output.trigger !== null) {
-    contents.trigger = deserializeAws_json1_1ExecutionTrigger(
-      output.trigger,
-      context
-    );
-  }
-  return contents;
+    lastUpdateTime:
+      output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
+        ? new Date(Math.round(output.lastUpdateTime * 1000))
+        : undefined,
+    pipelineExecutionId:
+      output.pipelineExecutionId !== undefined &&
+      output.pipelineExecutionId !== null
+        ? output.pipelineExecutionId
+        : undefined,
+    sourceRevisions:
+      output.sourceRevisions !== undefined && output.sourceRevisions !== null
+        ? deserializeAws_json1_1SourceRevisionList(
+            output.sourceRevisions,
+            context
+          )
+        : undefined,
+    startTime:
+      output.startTime !== undefined && output.startTime !== null
+        ? new Date(Math.round(output.startTime * 1000))
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined,
+    stopTrigger:
+      output.stopTrigger !== undefined && output.stopTrigger !== null
+        ? deserializeAws_json1_1StopExecutionTrigger(
+            output.stopTrigger,
+            context
+          )
+        : undefined,
+    trigger:
+      output.trigger !== undefined && output.trigger !== null
+        ? deserializeAws_json1_1ExecutionTrigger(output.trigger, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PipelineExecutionSummaryList = (
@@ -7677,50 +7452,47 @@ const deserializeAws_json1_1PipelineMetadata = (
   output: any,
   context: __SerdeContext
 ): PipelineMetadata => {
-  let contents: any = {
+  return {
     __type: "PipelineMetadata",
-    created: undefined,
-    pipelineArn: undefined,
-    updated: undefined
-  };
-  if (output.created !== undefined && output.created !== null) {
-    contents.created = new Date(Math.round(output.created * 1000));
-  }
-  if (output.pipelineArn !== undefined && output.pipelineArn !== null) {
-    contents.pipelineArn = output.pipelineArn;
-  }
-  if (output.updated !== undefined && output.updated !== null) {
-    contents.updated = new Date(Math.round(output.updated * 1000));
-  }
-  return contents;
+    created:
+      output.created !== undefined && output.created !== null
+        ? new Date(Math.round(output.created * 1000))
+        : undefined,
+    pipelineArn:
+      output.pipelineArn !== undefined && output.pipelineArn !== null
+        ? output.pipelineArn
+        : undefined,
+    updated:
+      output.updated !== undefined && output.updated !== null
+        ? new Date(Math.round(output.updated * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PipelineNameInUseException = (
   output: any,
   context: __SerdeContext
 ): PipelineNameInUseException => {
-  let contents: any = {
+  return {
     __type: "PipelineNameInUseException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PipelineNotFoundException = (
   output: any,
   context: __SerdeContext
 ): PipelineNotFoundException => {
-  let contents: any = {
+  return {
     __type: "PipelineNotFoundException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PipelineStageDeclarationList = (
@@ -7736,133 +7508,117 @@ const deserializeAws_json1_1PipelineSummary = (
   output: any,
   context: __SerdeContext
 ): PipelineSummary => {
-  let contents: any = {
+  return {
     __type: "PipelineSummary",
-    created: undefined,
-    name: undefined,
-    updated: undefined,
-    version: undefined
-  };
-  if (output.created !== undefined && output.created !== null) {
-    contents.created = new Date(Math.round(output.created * 1000));
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (output.updated !== undefined && output.updated !== null) {
-    contents.updated = new Date(Math.round(output.updated * 1000));
-  }
-  if (output.version !== undefined && output.version !== null) {
-    contents.version = output.version;
-  }
-  return contents;
+    created:
+      output.created !== undefined && output.created !== null
+        ? new Date(Math.round(output.created * 1000))
+        : undefined,
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    updated:
+      output.updated !== undefined && output.updated !== null
+        ? new Date(Math.round(output.updated * 1000))
+        : undefined,
+    version:
+      output.version !== undefined && output.version !== null
+        ? output.version
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PipelineVersionNotFoundException = (
   output: any,
   context: __SerdeContext
 ): PipelineVersionNotFoundException => {
-  let contents: any = {
+  return {
     __type: "PipelineVersionNotFoundException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PollForJobsOutput = (
   output: any,
   context: __SerdeContext
 ): PollForJobsOutput => {
-  let contents: any = {
+  return {
     __type: "PollForJobsOutput",
-    jobs: undefined
-  };
-  if (output.jobs !== undefined && output.jobs !== null) {
-    contents.jobs = deserializeAws_json1_1JobList(output.jobs, context);
-  }
-  return contents;
+    jobs:
+      output.jobs !== undefined && output.jobs !== null
+        ? deserializeAws_json1_1JobList(output.jobs, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PollForThirdPartyJobsOutput = (
   output: any,
   context: __SerdeContext
 ): PollForThirdPartyJobsOutput => {
-  let contents: any = {
+  return {
     __type: "PollForThirdPartyJobsOutput",
-    jobs: undefined
-  };
-  if (output.jobs !== undefined && output.jobs !== null) {
-    contents.jobs = deserializeAws_json1_1ThirdPartyJobList(
-      output.jobs,
-      context
-    );
-  }
-  return contents;
+    jobs:
+      output.jobs !== undefined && output.jobs !== null
+        ? deserializeAws_json1_1ThirdPartyJobList(output.jobs, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PutActionRevisionOutput = (
   output: any,
   context: __SerdeContext
 ): PutActionRevisionOutput => {
-  let contents: any = {
+  return {
     __type: "PutActionRevisionOutput",
-    newRevision: undefined,
-    pipelineExecutionId: undefined
-  };
-  if (output.newRevision !== undefined && output.newRevision !== null) {
-    contents.newRevision = output.newRevision;
-  }
-  if (
-    output.pipelineExecutionId !== undefined &&
-    output.pipelineExecutionId !== null
-  ) {
-    contents.pipelineExecutionId = output.pipelineExecutionId;
-  }
-  return contents;
+    newRevision:
+      output.newRevision !== undefined && output.newRevision !== null
+        ? output.newRevision
+        : undefined,
+    pipelineExecutionId:
+      output.pipelineExecutionId !== undefined &&
+      output.pipelineExecutionId !== null
+        ? output.pipelineExecutionId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PutApprovalResultOutput = (
   output: any,
   context: __SerdeContext
 ): PutApprovalResultOutput => {
-  let contents: any = {
+  return {
     __type: "PutApprovalResultOutput",
-    approvedAt: undefined
-  };
-  if (output.approvedAt !== undefined && output.approvedAt !== null) {
-    contents.approvedAt = new Date(Math.round(output.approvedAt * 1000));
-  }
-  return contents;
+    approvedAt:
+      output.approvedAt !== undefined && output.approvedAt !== null
+        ? new Date(Math.round(output.approvedAt * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PutWebhookOutput = (
   output: any,
   context: __SerdeContext
 ): PutWebhookOutput => {
-  let contents: any = {
+  return {
     __type: "PutWebhookOutput",
-    webhook: undefined
-  };
-  if (output.webhook !== undefined && output.webhook !== null) {
-    contents.webhook = deserializeAws_json1_1ListWebhookItem(
-      output.webhook,
-      context
-    );
-  }
-  return contents;
+    webhook:
+      output.webhook !== undefined && output.webhook !== null
+        ? deserializeAws_json1_1ListWebhookItem(output.webhook, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RegisterWebhookWithThirdPartyOutput = (
   output: any,
   context: __SerdeContext
 ): RegisterWebhookWithThirdPartyOutput => {
-  let contents: any = {
+  return {
     __type: "RegisterWebhookWithThirdPartyOutput"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1ResolvedActionConfigurationMap = (
@@ -7879,61 +7635,54 @@ const deserializeAws_json1_1RetryStageExecutionOutput = (
   output: any,
   context: __SerdeContext
 ): RetryStageExecutionOutput => {
-  let contents: any = {
+  return {
     __type: "RetryStageExecutionOutput",
-    pipelineExecutionId: undefined
-  };
-  if (
-    output.pipelineExecutionId !== undefined &&
-    output.pipelineExecutionId !== null
-  ) {
-    contents.pipelineExecutionId = output.pipelineExecutionId;
-  }
-  return contents;
+    pipelineExecutionId:
+      output.pipelineExecutionId !== undefined &&
+      output.pipelineExecutionId !== null
+        ? output.pipelineExecutionId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1S3Location = (
   output: any,
   context: __SerdeContext
 ): S3Location => {
-  let contents: any = {
+  return {
     __type: "S3Location",
-    bucket: undefined,
-    key: undefined
-  };
-  if (output.bucket !== undefined && output.bucket !== null) {
-    contents.bucket = output.bucket;
-  }
-  if (output.key !== undefined && output.key !== null) {
-    contents.key = output.key;
-  }
-  return contents;
+    bucket:
+      output.bucket !== undefined && output.bucket !== null
+        ? output.bucket
+        : undefined,
+    key:
+      output.key !== undefined && output.key !== null ? output.key : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SourceRevision = (
   output: any,
   context: __SerdeContext
 ): SourceRevision => {
-  let contents: any = {
+  return {
     __type: "SourceRevision",
-    actionName: undefined,
-    revisionId: undefined,
-    revisionSummary: undefined,
-    revisionUrl: undefined
-  };
-  if (output.actionName !== undefined && output.actionName !== null) {
-    contents.actionName = output.actionName;
-  }
-  if (output.revisionId !== undefined && output.revisionId !== null) {
-    contents.revisionId = output.revisionId;
-  }
-  if (output.revisionSummary !== undefined && output.revisionSummary !== null) {
-    contents.revisionSummary = output.revisionSummary;
-  }
-  if (output.revisionUrl !== undefined && output.revisionUrl !== null) {
-    contents.revisionUrl = output.revisionUrl;
-  }
-  return contents;
+    actionName:
+      output.actionName !== undefined && output.actionName !== null
+        ? output.actionName
+        : undefined,
+    revisionId:
+      output.revisionId !== undefined && output.revisionId !== null
+        ? output.revisionId
+        : undefined,
+    revisionSummary:
+      output.revisionSummary !== undefined && output.revisionSummary !== null
+        ? output.revisionSummary
+        : undefined,
+    revisionUrl:
+      output.revisionUrl !== undefined && output.revisionUrl !== null
+        ? output.revisionUrl
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SourceRevisionList = (
@@ -7967,115 +7716,100 @@ const deserializeAws_json1_1StageDeclaration = (
   output: any,
   context: __SerdeContext
 ): StageDeclaration => {
-  let contents: any = {
+  return {
     __type: "StageDeclaration",
-    actions: undefined,
-    blockers: undefined,
-    name: undefined
-  };
-  if (output.actions !== undefined && output.actions !== null) {
-    contents.actions = deserializeAws_json1_1StageActionDeclarationList(
-      output.actions,
-      context
-    );
-  }
-  if (output.blockers !== undefined && output.blockers !== null) {
-    contents.blockers = deserializeAws_json1_1StageBlockerDeclarationList(
-      output.blockers,
-      context
-    );
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  return contents;
+    actions:
+      output.actions !== undefined && output.actions !== null
+        ? deserializeAws_json1_1StageActionDeclarationList(
+            output.actions,
+            context
+          )
+        : undefined,
+    blockers:
+      output.blockers !== undefined && output.blockers !== null
+        ? deserializeAws_json1_1StageBlockerDeclarationList(
+            output.blockers,
+            context
+          )
+        : undefined,
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StageExecution = (
   output: any,
   context: __SerdeContext
 ): StageExecution => {
-  let contents: any = {
+  return {
     __type: "StageExecution",
-    pipelineExecutionId: undefined,
-    status: undefined
-  };
-  if (
-    output.pipelineExecutionId !== undefined &&
-    output.pipelineExecutionId !== null
-  ) {
-    contents.pipelineExecutionId = output.pipelineExecutionId;
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  return contents;
+    pipelineExecutionId:
+      output.pipelineExecutionId !== undefined &&
+      output.pipelineExecutionId !== null
+        ? output.pipelineExecutionId
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StageNotFoundException = (
   output: any,
   context: __SerdeContext
 ): StageNotFoundException => {
-  let contents: any = {
+  return {
     __type: "StageNotFoundException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StageNotRetryableException = (
   output: any,
   context: __SerdeContext
 ): StageNotRetryableException => {
-  let contents: any = {
+  return {
     __type: "StageNotRetryableException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StageState = (
   output: any,
   context: __SerdeContext
 ): StageState => {
-  let contents: any = {
+  return {
     __type: "StageState",
-    actionStates: undefined,
-    inboundTransitionState: undefined,
-    latestExecution: undefined,
-    stageName: undefined
-  };
-  if (output.actionStates !== undefined && output.actionStates !== null) {
-    contents.actionStates = deserializeAws_json1_1ActionStateList(
-      output.actionStates,
-      context
-    );
-  }
-  if (
-    output.inboundTransitionState !== undefined &&
-    output.inboundTransitionState !== null
-  ) {
-    contents.inboundTransitionState = deserializeAws_json1_1TransitionState(
-      output.inboundTransitionState,
-      context
-    );
-  }
-  if (output.latestExecution !== undefined && output.latestExecution !== null) {
-    contents.latestExecution = deserializeAws_json1_1StageExecution(
-      output.latestExecution,
-      context
-    );
-  }
-  if (output.stageName !== undefined && output.stageName !== null) {
-    contents.stageName = output.stageName;
-  }
-  return contents;
+    actionStates:
+      output.actionStates !== undefined && output.actionStates !== null
+        ? deserializeAws_json1_1ActionStateList(output.actionStates, context)
+        : undefined,
+    inboundTransitionState:
+      output.inboundTransitionState !== undefined &&
+      output.inboundTransitionState !== null
+        ? deserializeAws_json1_1TransitionState(
+            output.inboundTransitionState,
+            context
+          )
+        : undefined,
+    latestExecution:
+      output.latestExecution !== undefined && output.latestExecution !== null
+        ? deserializeAws_json1_1StageExecution(output.latestExecution, context)
+        : undefined,
+    stageName:
+      output.stageName !== undefined && output.stageName !== null
+        ? output.stageName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StageStateList = (
@@ -8091,66 +7825,56 @@ const deserializeAws_json1_1StartPipelineExecutionOutput = (
   output: any,
   context: __SerdeContext
 ): StartPipelineExecutionOutput => {
-  let contents: any = {
+  return {
     __type: "StartPipelineExecutionOutput",
-    pipelineExecutionId: undefined
-  };
-  if (
-    output.pipelineExecutionId !== undefined &&
-    output.pipelineExecutionId !== null
-  ) {
-    contents.pipelineExecutionId = output.pipelineExecutionId;
-  }
-  return contents;
+    pipelineExecutionId:
+      output.pipelineExecutionId !== undefined &&
+      output.pipelineExecutionId !== null
+        ? output.pipelineExecutionId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StopExecutionTrigger = (
   output: any,
   context: __SerdeContext
 ): StopExecutionTrigger => {
-  let contents: any = {
+  return {
     __type: "StopExecutionTrigger",
-    reason: undefined
-  };
-  if (output.reason !== undefined && output.reason !== null) {
-    contents.reason = output.reason;
-  }
-  return contents;
+    reason:
+      output.reason !== undefined && output.reason !== null
+        ? output.reason
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StopPipelineExecutionOutput = (
   output: any,
   context: __SerdeContext
 ): StopPipelineExecutionOutput => {
-  let contents: any = {
+  return {
     __type: "StopPipelineExecutionOutput",
-    pipelineExecutionId: undefined
-  };
-  if (
-    output.pipelineExecutionId !== undefined &&
-    output.pipelineExecutionId !== null
-  ) {
-    contents.pipelineExecutionId = output.pipelineExecutionId;
-  }
-  return contents;
+    pipelineExecutionId:
+      output.pipelineExecutionId !== undefined &&
+      output.pipelineExecutionId !== null
+        ? output.pipelineExecutionId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Tag = (
   output: any,
   context: __SerdeContext
 ): Tag => {
-  let contents: any = {
+  return {
     __type: "Tag",
-    key: undefined,
-    value: undefined
-  };
-  if (output.key !== undefined && output.key !== null) {
-    contents.key = output.key;
-  }
-  if (output.value !== undefined && output.value !== null) {
-    contents.value = output.value;
-  }
-  return contents;
+    key:
+      output.key !== undefined && output.key !== null ? output.key : undefined,
+    value:
+      output.value !== undefined && output.value !== null
+        ? output.value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TagList = (
@@ -8166,125 +7890,94 @@ const deserializeAws_json1_1TagResourceOutput = (
   output: any,
   context: __SerdeContext
 ): TagResourceOutput => {
-  let contents: any = {
+  return {
     __type: "TagResourceOutput"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1ThirdPartyJob = (
   output: any,
   context: __SerdeContext
 ): ThirdPartyJob => {
-  let contents: any = {
+  return {
     __type: "ThirdPartyJob",
-    clientId: undefined,
-    jobId: undefined
-  };
-  if (output.clientId !== undefined && output.clientId !== null) {
-    contents.clientId = output.clientId;
-  }
-  if (output.jobId !== undefined && output.jobId !== null) {
-    contents.jobId = output.jobId;
-  }
-  return contents;
+    clientId:
+      output.clientId !== undefined && output.clientId !== null
+        ? output.clientId
+        : undefined,
+    jobId:
+      output.jobId !== undefined && output.jobId !== null
+        ? output.jobId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ThirdPartyJobData = (
   output: any,
   context: __SerdeContext
 ): ThirdPartyJobData => {
-  let contents: any = {
+  return {
     __type: "ThirdPartyJobData",
-    actionConfiguration: undefined,
-    actionTypeId: undefined,
-    artifactCredentials: undefined,
-    continuationToken: undefined,
-    encryptionKey: undefined,
-    inputArtifacts: undefined,
-    outputArtifacts: undefined,
-    pipelineContext: undefined
-  };
-  if (
-    output.actionConfiguration !== undefined &&
-    output.actionConfiguration !== null
-  ) {
-    contents.actionConfiguration = deserializeAws_json1_1ActionConfiguration(
-      output.actionConfiguration,
-      context
-    );
-  }
-  if (output.actionTypeId !== undefined && output.actionTypeId !== null) {
-    contents.actionTypeId = deserializeAws_json1_1ActionTypeId(
-      output.actionTypeId,
-      context
-    );
-  }
-  if (
-    output.artifactCredentials !== undefined &&
-    output.artifactCredentials !== null
-  ) {
-    contents.artifactCredentials = deserializeAws_json1_1AWSSessionCredentials(
-      output.artifactCredentials,
-      context
-    );
-  }
-  if (
-    output.continuationToken !== undefined &&
-    output.continuationToken !== null
-  ) {
-    contents.continuationToken = output.continuationToken;
-  }
-  if (output.encryptionKey !== undefined && output.encryptionKey !== null) {
-    contents.encryptionKey = deserializeAws_json1_1EncryptionKey(
-      output.encryptionKey,
-      context
-    );
-  }
-  if (output.inputArtifacts !== undefined && output.inputArtifacts !== null) {
-    contents.inputArtifacts = deserializeAws_json1_1ArtifactList(
-      output.inputArtifacts,
-      context
-    );
-  }
-  if (output.outputArtifacts !== undefined && output.outputArtifacts !== null) {
-    contents.outputArtifacts = deserializeAws_json1_1ArtifactList(
-      output.outputArtifacts,
-      context
-    );
-  }
-  if (output.pipelineContext !== undefined && output.pipelineContext !== null) {
-    contents.pipelineContext = deserializeAws_json1_1PipelineContext(
-      output.pipelineContext,
-      context
-    );
-  }
-  return contents;
+    actionConfiguration:
+      output.actionConfiguration !== undefined &&
+      output.actionConfiguration !== null
+        ? deserializeAws_json1_1ActionConfiguration(
+            output.actionConfiguration,
+            context
+          )
+        : undefined,
+    actionTypeId:
+      output.actionTypeId !== undefined && output.actionTypeId !== null
+        ? deserializeAws_json1_1ActionTypeId(output.actionTypeId, context)
+        : undefined,
+    artifactCredentials:
+      output.artifactCredentials !== undefined &&
+      output.artifactCredentials !== null
+        ? deserializeAws_json1_1AWSSessionCredentials(
+            output.artifactCredentials,
+            context
+          )
+        : undefined,
+    continuationToken:
+      output.continuationToken !== undefined &&
+      output.continuationToken !== null
+        ? output.continuationToken
+        : undefined,
+    encryptionKey:
+      output.encryptionKey !== undefined && output.encryptionKey !== null
+        ? deserializeAws_json1_1EncryptionKey(output.encryptionKey, context)
+        : undefined,
+    inputArtifacts:
+      output.inputArtifacts !== undefined && output.inputArtifacts !== null
+        ? deserializeAws_json1_1ArtifactList(output.inputArtifacts, context)
+        : undefined,
+    outputArtifacts:
+      output.outputArtifacts !== undefined && output.outputArtifacts !== null
+        ? deserializeAws_json1_1ArtifactList(output.outputArtifacts, context)
+        : undefined,
+    pipelineContext:
+      output.pipelineContext !== undefined && output.pipelineContext !== null
+        ? deserializeAws_json1_1PipelineContext(output.pipelineContext, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ThirdPartyJobDetails = (
   output: any,
   context: __SerdeContext
 ): ThirdPartyJobDetails => {
-  let contents: any = {
+  return {
     __type: "ThirdPartyJobDetails",
-    data: undefined,
-    id: undefined,
-    nonce: undefined
-  };
-  if (output.data !== undefined && output.data !== null) {
-    contents.data = deserializeAws_json1_1ThirdPartyJobData(
-      output.data,
-      context
-    );
-  }
-  if (output.id !== undefined && output.id !== null) {
-    contents.id = output.id;
-  }
-  if (output.nonce !== undefined && output.nonce !== null) {
-    contents.nonce = output.nonce;
-  }
-  return contents;
+    data:
+      output.data !== undefined && output.data !== null
+        ? deserializeAws_json1_1ThirdPartyJobData(output.data, context)
+        : undefined,
+    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    nonce:
+      output.nonce !== undefined && output.nonce !== null
+        ? output.nonce
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ThirdPartyJobList = (
@@ -8300,146 +7993,131 @@ const deserializeAws_json1_1TooManyTagsException = (
   output: any,
   context: __SerdeContext
 ): TooManyTagsException => {
-  let contents: any = {
+  return {
     __type: "TooManyTagsException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TransitionState = (
   output: any,
   context: __SerdeContext
 ): TransitionState => {
-  let contents: any = {
+  return {
     __type: "TransitionState",
-    disabledReason: undefined,
-    enabled: undefined,
-    lastChangedAt: undefined,
-    lastChangedBy: undefined
-  };
-  if (output.disabledReason !== undefined && output.disabledReason !== null) {
-    contents.disabledReason = output.disabledReason;
-  }
-  if (output.enabled !== undefined && output.enabled !== null) {
-    contents.enabled = output.enabled;
-  }
-  if (output.lastChangedAt !== undefined && output.lastChangedAt !== null) {
-    contents.lastChangedAt = new Date(Math.round(output.lastChangedAt * 1000));
-  }
-  if (output.lastChangedBy !== undefined && output.lastChangedBy !== null) {
-    contents.lastChangedBy = output.lastChangedBy;
-  }
-  return contents;
+    disabledReason:
+      output.disabledReason !== undefined && output.disabledReason !== null
+        ? output.disabledReason
+        : undefined,
+    enabled:
+      output.enabled !== undefined && output.enabled !== null
+        ? output.enabled
+        : undefined,
+    lastChangedAt:
+      output.lastChangedAt !== undefined && output.lastChangedAt !== null
+        ? new Date(Math.round(output.lastChangedAt * 1000))
+        : undefined,
+    lastChangedBy:
+      output.lastChangedBy !== undefined && output.lastChangedBy !== null
+        ? output.lastChangedBy
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UntagResourceOutput = (
   output: any,
   context: __SerdeContext
 ): UntagResourceOutput => {
-  let contents: any = {
+  return {
     __type: "UntagResourceOutput"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1UpdatePipelineOutput = (
   output: any,
   context: __SerdeContext
 ): UpdatePipelineOutput => {
-  let contents: any = {
+  return {
     __type: "UpdatePipelineOutput",
-    pipeline: undefined
-  };
-  if (output.pipeline !== undefined && output.pipeline !== null) {
-    contents.pipeline = deserializeAws_json1_1PipelineDeclaration(
-      output.pipeline,
-      context
-    );
-  }
-  return contents;
+    pipeline:
+      output.pipeline !== undefined && output.pipeline !== null
+        ? deserializeAws_json1_1PipelineDeclaration(output.pipeline, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1WebhookAuthConfiguration = (
   output: any,
   context: __SerdeContext
 ): WebhookAuthConfiguration => {
-  let contents: any = {
+  return {
     __type: "WebhookAuthConfiguration",
-    AllowedIPRange: undefined,
-    SecretToken: undefined
-  };
-  if (output.AllowedIPRange !== undefined && output.AllowedIPRange !== null) {
-    contents.AllowedIPRange = output.AllowedIPRange;
-  }
-  if (output.SecretToken !== undefined && output.SecretToken !== null) {
-    contents.SecretToken = output.SecretToken;
-  }
-  return contents;
+    AllowedIPRange:
+      output.AllowedIPRange !== undefined && output.AllowedIPRange !== null
+        ? output.AllowedIPRange
+        : undefined,
+    SecretToken:
+      output.SecretToken !== undefined && output.SecretToken !== null
+        ? output.SecretToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1WebhookDefinition = (
   output: any,
   context: __SerdeContext
 ): WebhookDefinition => {
-  let contents: any = {
+  return {
     __type: "WebhookDefinition",
-    authentication: undefined,
-    authenticationConfiguration: undefined,
-    filters: undefined,
-    name: undefined,
-    targetAction: undefined,
-    targetPipeline: undefined
-  };
-  if (output.authentication !== undefined && output.authentication !== null) {
-    contents.authentication = output.authentication;
-  }
-  if (
-    output.authenticationConfiguration !== undefined &&
-    output.authenticationConfiguration !== null
-  ) {
-    contents.authenticationConfiguration = deserializeAws_json1_1WebhookAuthConfiguration(
-      output.authenticationConfiguration,
-      context
-    );
-  }
-  if (output.filters !== undefined && output.filters !== null) {
-    contents.filters = deserializeAws_json1_1WebhookFilters(
-      output.filters,
-      context
-    );
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (output.targetAction !== undefined && output.targetAction !== null) {
-    contents.targetAction = output.targetAction;
-  }
-  if (output.targetPipeline !== undefined && output.targetPipeline !== null) {
-    contents.targetPipeline = output.targetPipeline;
-  }
-  return contents;
+    authentication:
+      output.authentication !== undefined && output.authentication !== null
+        ? output.authentication
+        : undefined,
+    authenticationConfiguration:
+      output.authenticationConfiguration !== undefined &&
+      output.authenticationConfiguration !== null
+        ? deserializeAws_json1_1WebhookAuthConfiguration(
+            output.authenticationConfiguration,
+            context
+          )
+        : undefined,
+    filters:
+      output.filters !== undefined && output.filters !== null
+        ? deserializeAws_json1_1WebhookFilters(output.filters, context)
+        : undefined,
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    targetAction:
+      output.targetAction !== undefined && output.targetAction !== null
+        ? output.targetAction
+        : undefined,
+    targetPipeline:
+      output.targetPipeline !== undefined && output.targetPipeline !== null
+        ? output.targetPipeline
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1WebhookFilterRule = (
   output: any,
   context: __SerdeContext
 ): WebhookFilterRule => {
-  let contents: any = {
+  return {
     __type: "WebhookFilterRule",
-    jsonPath: undefined,
-    matchEquals: undefined
-  };
-  if (output.jsonPath !== undefined && output.jsonPath !== null) {
-    contents.jsonPath = output.jsonPath;
-  }
-  if (output.matchEquals !== undefined && output.matchEquals !== null) {
-    contents.matchEquals = output.matchEquals;
-  }
-  return contents;
+    jsonPath:
+      output.jsonPath !== undefined && output.jsonPath !== null
+        ? output.jsonPath
+        : undefined,
+    matchEquals:
+      output.matchEquals !== undefined && output.matchEquals !== null
+        ? output.matchEquals
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1WebhookFilters = (
@@ -8464,49 +8142,46 @@ const deserializeAws_json1_1WebhookNotFoundException = (
   output: any,
   context: __SerdeContext
 ): WebhookNotFoundException => {
-  let contents: any = {
+  return {
     __type: "WebhookNotFoundException"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1AWSSessionCredentials = (
   output: any,
   context: __SerdeContext
 ): AWSSessionCredentials => {
-  let contents: any = {
+  return {
     __type: "AWSSessionCredentials",
-    accessKeyId: undefined,
-    secretAccessKey: undefined,
-    sessionToken: undefined
-  };
-  if (output.accessKeyId !== undefined && output.accessKeyId !== null) {
-    contents.accessKeyId = output.accessKeyId;
-  }
-  if (output.secretAccessKey !== undefined && output.secretAccessKey !== null) {
-    contents.secretAccessKey = output.secretAccessKey;
-  }
-  if (output.sessionToken !== undefined && output.sessionToken !== null) {
-    contents.sessionToken = output.sessionToken;
-  }
-  return contents;
+    accessKeyId:
+      output.accessKeyId !== undefined && output.accessKeyId !== null
+        ? output.accessKeyId
+        : undefined,
+    secretAccessKey:
+      output.secretAccessKey !== undefined && output.secretAccessKey !== null
+        ? output.secretAccessKey
+        : undefined,
+    sessionToken:
+      output.sessionToken !== undefined && output.sessionToken !== null
+        ? output.sessionToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ActionConfiguration = (
   output: any,
   context: __SerdeContext
 ): ActionConfiguration => {
-  let contents: any = {
+  return {
     __type: "ActionConfiguration",
-    configuration: undefined
-  };
-  if (output.configuration !== undefined && output.configuration !== null) {
-    contents.configuration = deserializeAws_json1_1ActionConfigurationMap(
-      output.configuration,
-      context
-    );
-  }
-  return contents;
+    configuration:
+      output.configuration !== undefined && output.configuration !== null
+        ? deserializeAws_json1_1ActionConfigurationMap(
+            output.configuration,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ActionConfigurationMap = (
@@ -8523,86 +8198,77 @@ const deserializeAws_json1_1ActionContext = (
   output: any,
   context: __SerdeContext
 ): ActionContext => {
-  let contents: any = {
+  return {
     __type: "ActionContext",
-    actionExecutionId: undefined,
-    name: undefined
-  };
-  if (
-    output.actionExecutionId !== undefined &&
-    output.actionExecutionId !== null
-  ) {
-    contents.actionExecutionId = output.actionExecutionId;
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  return contents;
+    actionExecutionId:
+      output.actionExecutionId !== undefined &&
+      output.actionExecutionId !== null
+        ? output.actionExecutionId
+        : undefined,
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ActionTypeId = (
   output: any,
   context: __SerdeContext
 ): ActionTypeId => {
-  let contents: any = {
+  return {
     __type: "ActionTypeId",
-    category: undefined,
-    owner: undefined,
-    provider: undefined,
-    version: undefined
-  };
-  if (output.category !== undefined && output.category !== null) {
-    contents.category = output.category;
-  }
-  if (output.owner !== undefined && output.owner !== null) {
-    contents.owner = output.owner;
-  }
-  if (output.provider !== undefined && output.provider !== null) {
-    contents.provider = output.provider;
-  }
-  if (output.version !== undefined && output.version !== null) {
-    contents.version = output.version;
-  }
-  return contents;
+    category:
+      output.category !== undefined && output.category !== null
+        ? output.category
+        : undefined,
+    owner:
+      output.owner !== undefined && output.owner !== null
+        ? output.owner
+        : undefined,
+    provider:
+      output.provider !== undefined && output.provider !== null
+        ? output.provider
+        : undefined,
+    version:
+      output.version !== undefined && output.version !== null
+        ? output.version
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ActionTypeNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ActionTypeNotFoundException => {
-  let contents: any = {
+  return {
     __type: "ActionTypeNotFoundException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Artifact = (
   output: any,
   context: __SerdeContext
 ): Artifact => {
-  let contents: any = {
+  return {
     __type: "Artifact",
-    location: undefined,
-    name: undefined,
-    revision: undefined
-  };
-  if (output.location !== undefined && output.location !== null) {
-    contents.location = deserializeAws_json1_1ArtifactLocation(
-      output.location,
-      context
-    );
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (output.revision !== undefined && output.revision !== null) {
-    contents.revision = output.revision;
-  }
-  return contents;
+    location:
+      output.location !== undefined && output.location !== null
+        ? deserializeAws_json1_1ArtifactLocation(output.location, context)
+        : undefined,
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    revision:
+      output.revision !== undefined && output.revision !== null
+        ? output.revision
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ArtifactList = (
@@ -8618,81 +8284,70 @@ const deserializeAws_json1_1ArtifactLocation = (
   output: any,
   context: __SerdeContext
 ): ArtifactLocation => {
-  let contents: any = {
+  return {
     __type: "ArtifactLocation",
-    s3Location: undefined,
-    type: undefined
-  };
-  if (output.s3Location !== undefined && output.s3Location !== null) {
-    contents.s3Location = deserializeAws_json1_1S3ArtifactLocation(
-      output.s3Location,
-      context
-    );
-  }
-  if (output.type !== undefined && output.type !== null) {
-    contents.type = output.type;
-  }
-  return contents;
+    s3Location:
+      output.s3Location !== undefined && output.s3Location !== null
+        ? deserializeAws_json1_1S3ArtifactLocation(output.s3Location, context)
+        : undefined,
+    type:
+      output.type !== undefined && output.type !== null
+        ? output.type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EncryptionKey = (
   output: any,
   context: __SerdeContext
 ): EncryptionKey => {
-  let contents: any = {
+  return {
     __type: "EncryptionKey",
-    id: undefined,
-    type: undefined
-  };
-  if (output.id !== undefined && output.id !== null) {
-    contents.id = output.id;
-  }
-  if (output.type !== undefined && output.type !== null) {
-    contents.type = output.type;
-  }
-  return contents;
+    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    type:
+      output.type !== undefined && output.type !== null
+        ? output.type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidJobStateException = (
   output: any,
   context: __SerdeContext
 ): InvalidJobStateException => {
-  let contents: any = {
+  return {
     __type: "InvalidJobStateException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidNonceException = (
   output: any,
   context: __SerdeContext
 ): InvalidNonceException => {
-  let contents: any = {
+  return {
     __type: "InvalidNonceException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1JobNotFoundException = (
   output: any,
   context: __SerdeContext
 ): JobNotFoundException => {
-  let contents: any = {
+  return {
     __type: "JobNotFoundException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1OutputVariablesMap = (
@@ -8709,110 +8364,99 @@ const deserializeAws_json1_1OutputVariablesSizeExceededException = (
   output: any,
   context: __SerdeContext
 ): OutputVariablesSizeExceededException => {
-  let contents: any = {
+  return {
     __type: "OutputVariablesSizeExceededException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PipelineContext = (
   output: any,
   context: __SerdeContext
 ): PipelineContext => {
-  let contents: any = {
+  return {
     __type: "PipelineContext",
-    action: undefined,
-    pipelineArn: undefined,
-    pipelineExecutionId: undefined,
-    pipelineName: undefined,
-    stage: undefined
-  };
-  if (output.action !== undefined && output.action !== null) {
-    contents.action = deserializeAws_json1_1ActionContext(
-      output.action,
-      context
-    );
-  }
-  if (output.pipelineArn !== undefined && output.pipelineArn !== null) {
-    contents.pipelineArn = output.pipelineArn;
-  }
-  if (
-    output.pipelineExecutionId !== undefined &&
-    output.pipelineExecutionId !== null
-  ) {
-    contents.pipelineExecutionId = output.pipelineExecutionId;
-  }
-  if (output.pipelineName !== undefined && output.pipelineName !== null) {
-    contents.pipelineName = output.pipelineName;
-  }
-  if (output.stage !== undefined && output.stage !== null) {
-    contents.stage = deserializeAws_json1_1StageContext(output.stage, context);
-  }
-  return contents;
+    action:
+      output.action !== undefined && output.action !== null
+        ? deserializeAws_json1_1ActionContext(output.action, context)
+        : undefined,
+    pipelineArn:
+      output.pipelineArn !== undefined && output.pipelineArn !== null
+        ? output.pipelineArn
+        : undefined,
+    pipelineExecutionId:
+      output.pipelineExecutionId !== undefined &&
+      output.pipelineExecutionId !== null
+        ? output.pipelineExecutionId
+        : undefined,
+    pipelineName:
+      output.pipelineName !== undefined && output.pipelineName !== null
+        ? output.pipelineName
+        : undefined,
+    stage:
+      output.stage !== undefined && output.stage !== null
+        ? deserializeAws_json1_1StageContext(output.stage, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ResourceNotFoundException => {
-  let contents: any = {
+  return {
     __type: "ResourceNotFoundException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1S3ArtifactLocation = (
   output: any,
   context: __SerdeContext
 ): S3ArtifactLocation => {
-  let contents: any = {
+  return {
     __type: "S3ArtifactLocation",
-    bucketName: undefined,
-    objectKey: undefined
-  };
-  if (output.bucketName !== undefined && output.bucketName !== null) {
-    contents.bucketName = output.bucketName;
-  }
-  if (output.objectKey !== undefined && output.objectKey !== null) {
-    contents.objectKey = output.objectKey;
-  }
-  return contents;
+    bucketName:
+      output.bucketName !== undefined && output.bucketName !== null
+        ? output.bucketName
+        : undefined,
+    objectKey:
+      output.objectKey !== undefined && output.objectKey !== null
+        ? output.objectKey
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StageContext = (
   output: any,
   context: __SerdeContext
 ): StageContext => {
-  let contents: any = {
+  return {
     __type: "StageContext",
-    name: undefined
-  };
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  return contents;
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ValidationException = (
   output: any,
   context: __SerdeContext
 ): ValidationException => {
-  let contents: any = {
+  return {
     __type: "ValidationException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

@@ -2009,21 +2009,20 @@ const deserializeAws_restJson1_1EncryptionAlgorithmOptions = (
   output: any,
   context: __SerdeContext
 ): EncryptionAlgorithmOptions => {
-  let contents: any = {
+  return {
     __type: "EncryptionAlgorithmOptions",
-    allowedValues: undefined,
-    defaultValue: undefined
-  };
-  if (output.allowedValues !== undefined && output.allowedValues !== null) {
-    contents.allowedValues = deserializeAws_restJson1_1EncryptionAlgorithms(
-      output.allowedValues,
-      context
-    );
-  }
-  if (output.defaultValue !== undefined && output.defaultValue !== null) {
-    contents.defaultValue = output.defaultValue;
-  }
-  return contents;
+    allowedValues:
+      output.allowedValues !== undefined && output.allowedValues !== null
+        ? deserializeAws_restJson1_1EncryptionAlgorithms(
+            output.allowedValues,
+            context
+          )
+        : undefined,
+    defaultValue:
+      output.defaultValue !== undefined && output.defaultValue !== null
+        ? output.defaultValue
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1EncryptionAlgorithms = (
@@ -2037,21 +2036,20 @@ const deserializeAws_restJson1_1HashAlgorithmOptions = (
   output: any,
   context: __SerdeContext
 ): HashAlgorithmOptions => {
-  let contents: any = {
+  return {
     __type: "HashAlgorithmOptions",
-    allowedValues: undefined,
-    defaultValue: undefined
-  };
-  if (output.allowedValues !== undefined && output.allowedValues !== null) {
-    contents.allowedValues = deserializeAws_restJson1_1HashAlgorithms(
-      output.allowedValues,
-      context
-    );
-  }
-  if (output.defaultValue !== undefined && output.defaultValue !== null) {
-    contents.defaultValue = output.defaultValue;
-  }
-  return contents;
+    allowedValues:
+      output.allowedValues !== undefined && output.allowedValues !== null
+        ? deserializeAws_restJson1_1HashAlgorithms(
+            output.allowedValues,
+            context
+          )
+        : undefined,
+    defaultValue:
+      output.defaultValue !== undefined && output.defaultValue !== null
+        ? output.defaultValue
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1HashAlgorithms = (
@@ -2072,169 +2070,146 @@ const deserializeAws_restJson1_1S3SignedObject = (
   output: any,
   context: __SerdeContext
 ): S3SignedObject => {
-  let contents: any = {
+  return {
     __type: "S3SignedObject",
-    bucketName: undefined,
-    key: undefined
-  };
-  if (output.bucketName !== undefined && output.bucketName !== null) {
-    contents.bucketName = output.bucketName;
-  }
-  if (output.key !== undefined && output.key !== null) {
-    contents.key = output.key;
-  }
-  return contents;
+    bucketName:
+      output.bucketName !== undefined && output.bucketName !== null
+        ? output.bucketName
+        : undefined,
+    key:
+      output.key !== undefined && output.key !== null ? output.key : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1S3Source = (
   output: any,
   context: __SerdeContext
 ): S3Source => {
-  let contents: any = {
+  return {
     __type: "S3Source",
-    bucketName: undefined,
-    key: undefined,
-    version: undefined
-  };
-  if (output.bucketName !== undefined && output.bucketName !== null) {
-    contents.bucketName = output.bucketName;
-  }
-  if (output.key !== undefined && output.key !== null) {
-    contents.key = output.key;
-  }
-  if (output.version !== undefined && output.version !== null) {
-    contents.version = output.version;
-  }
-  return contents;
+    bucketName:
+      output.bucketName !== undefined && output.bucketName !== null
+        ? output.bucketName
+        : undefined,
+    key:
+      output.key !== undefined && output.key !== null ? output.key : undefined,
+    version:
+      output.version !== undefined && output.version !== null
+        ? output.version
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SignedObject = (
   output: any,
   context: __SerdeContext
 ): SignedObject => {
-  let contents: any = {
+  return {
     __type: "SignedObject",
-    s3: undefined
-  };
-  if (output.s3 !== undefined && output.s3 !== null) {
-    contents.s3 = deserializeAws_restJson1_1S3SignedObject(output.s3, context);
-  }
-  return contents;
+    s3:
+      output.s3 !== undefined && output.s3 !== null
+        ? deserializeAws_restJson1_1S3SignedObject(output.s3, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SigningConfiguration = (
   output: any,
   context: __SerdeContext
 ): SigningConfiguration => {
-  let contents: any = {
+  return {
     __type: "SigningConfiguration",
-    encryptionAlgorithmOptions: undefined,
-    hashAlgorithmOptions: undefined
-  };
-  if (
-    output.encryptionAlgorithmOptions !== undefined &&
-    output.encryptionAlgorithmOptions !== null
-  ) {
-    contents.encryptionAlgorithmOptions = deserializeAws_restJson1_1EncryptionAlgorithmOptions(
-      output.encryptionAlgorithmOptions,
-      context
-    );
-  }
-  if (
-    output.hashAlgorithmOptions !== undefined &&
-    output.hashAlgorithmOptions !== null
-  ) {
-    contents.hashAlgorithmOptions = deserializeAws_restJson1_1HashAlgorithmOptions(
-      output.hashAlgorithmOptions,
-      context
-    );
-  }
-  return contents;
+    encryptionAlgorithmOptions:
+      output.encryptionAlgorithmOptions !== undefined &&
+      output.encryptionAlgorithmOptions !== null
+        ? deserializeAws_restJson1_1EncryptionAlgorithmOptions(
+            output.encryptionAlgorithmOptions,
+            context
+          )
+        : undefined,
+    hashAlgorithmOptions:
+      output.hashAlgorithmOptions !== undefined &&
+      output.hashAlgorithmOptions !== null
+        ? deserializeAws_restJson1_1HashAlgorithmOptions(
+            output.hashAlgorithmOptions,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SigningConfigurationOverrides = (
   output: any,
   context: __SerdeContext
 ): SigningConfigurationOverrides => {
-  let contents: any = {
+  return {
     __type: "SigningConfigurationOverrides",
-    encryptionAlgorithm: undefined,
-    hashAlgorithm: undefined
-  };
-  if (
-    output.encryptionAlgorithm !== undefined &&
-    output.encryptionAlgorithm !== null
-  ) {
-    contents.encryptionAlgorithm = output.encryptionAlgorithm;
-  }
-  if (output.hashAlgorithm !== undefined && output.hashAlgorithm !== null) {
-    contents.hashAlgorithm = output.hashAlgorithm;
-  }
-  return contents;
+    encryptionAlgorithm:
+      output.encryptionAlgorithm !== undefined &&
+      output.encryptionAlgorithm !== null
+        ? output.encryptionAlgorithm
+        : undefined,
+    hashAlgorithm:
+      output.hashAlgorithm !== undefined && output.hashAlgorithm !== null
+        ? output.hashAlgorithm
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SigningImageFormat = (
   output: any,
   context: __SerdeContext
 ): SigningImageFormat => {
-  let contents: any = {
+  return {
     __type: "SigningImageFormat",
-    defaultFormat: undefined,
-    supportedFormats: undefined
-  };
-  if (output.defaultFormat !== undefined && output.defaultFormat !== null) {
-    contents.defaultFormat = output.defaultFormat;
-  }
-  if (
-    output.supportedFormats !== undefined &&
-    output.supportedFormats !== null
-  ) {
-    contents.supportedFormats = deserializeAws_restJson1_1ImageFormats(
-      output.supportedFormats,
-      context
-    );
-  }
-  return contents;
+    defaultFormat:
+      output.defaultFormat !== undefined && output.defaultFormat !== null
+        ? output.defaultFormat
+        : undefined,
+    supportedFormats:
+      output.supportedFormats !== undefined && output.supportedFormats !== null
+        ? deserializeAws_restJson1_1ImageFormats(
+            output.supportedFormats,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SigningJob = (
   output: any,
   context: __SerdeContext
 ): SigningJob => {
-  let contents: any = {
+  return {
     __type: "SigningJob",
-    createdAt: undefined,
-    jobId: undefined,
-    signedObject: undefined,
-    signingMaterial: undefined,
-    source: undefined,
-    status: undefined
-  };
-  if (output.createdAt !== undefined && output.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(output.createdAt * 1000));
-  }
-  if (output.jobId !== undefined && output.jobId !== null) {
-    contents.jobId = output.jobId;
-  }
-  if (output.signedObject !== undefined && output.signedObject !== null) {
-    contents.signedObject = deserializeAws_restJson1_1SignedObject(
-      output.signedObject,
-      context
-    );
-  }
-  if (output.signingMaterial !== undefined && output.signingMaterial !== null) {
-    contents.signingMaterial = deserializeAws_restJson1_1SigningMaterial(
-      output.signingMaterial,
-      context
-    );
-  }
-  if (output.source !== undefined && output.source !== null) {
-    contents.source = deserializeAws_restJson1_1Source(output.source, context);
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  return contents;
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
+    jobId:
+      output.jobId !== undefined && output.jobId !== null
+        ? output.jobId
+        : undefined,
+    signedObject:
+      output.signedObject !== undefined && output.signedObject !== null
+        ? deserializeAws_restJson1_1SignedObject(output.signedObject, context)
+        : undefined,
+    signingMaterial:
+      output.signingMaterial !== undefined && output.signingMaterial !== null
+        ? deserializeAws_restJson1_1SigningMaterial(
+            output.signingMaterial,
+            context
+          )
+        : undefined,
+    source:
+      output.source !== undefined && output.source !== null
+        ? deserializeAws_restJson1_1Source(output.source, context)
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SigningJobs = (
@@ -2250,14 +2225,13 @@ const deserializeAws_restJson1_1SigningMaterial = (
   output: any,
   context: __SerdeContext
 ): SigningMaterial => {
-  let contents: any = {
+  return {
     __type: "SigningMaterial",
-    certificateArn: undefined
-  };
-  if (output.certificateArn !== undefined && output.certificateArn !== null) {
-    contents.certificateArn = output.certificateArn;
-  }
-  return contents;
+    certificateArn:
+      output.certificateArn !== undefined && output.certificateArn !== null
+        ? output.certificateArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SigningParameters = (
@@ -2274,74 +2248,66 @@ const deserializeAws_restJson1_1SigningPlatform = (
   output: any,
   context: __SerdeContext
 ): SigningPlatform => {
-  let contents: any = {
+  return {
     __type: "SigningPlatform",
-    category: undefined,
-    displayName: undefined,
-    maxSizeInMB: undefined,
-    partner: undefined,
-    platformId: undefined,
-    signingConfiguration: undefined,
-    signingImageFormat: undefined,
-    target: undefined
-  };
-  if (output.category !== undefined && output.category !== null) {
-    contents.category = output.category;
-  }
-  if (output.displayName !== undefined && output.displayName !== null) {
-    contents.displayName = output.displayName;
-  }
-  if (output.maxSizeInMB !== undefined && output.maxSizeInMB !== null) {
-    contents.maxSizeInMB = output.maxSizeInMB;
-  }
-  if (output.partner !== undefined && output.partner !== null) {
-    contents.partner = output.partner;
-  }
-  if (output.platformId !== undefined && output.platformId !== null) {
-    contents.platformId = output.platformId;
-  }
-  if (
-    output.signingConfiguration !== undefined &&
-    output.signingConfiguration !== null
-  ) {
-    contents.signingConfiguration = deserializeAws_restJson1_1SigningConfiguration(
-      output.signingConfiguration,
-      context
-    );
-  }
-  if (
-    output.signingImageFormat !== undefined &&
-    output.signingImageFormat !== null
-  ) {
-    contents.signingImageFormat = deserializeAws_restJson1_1SigningImageFormat(
-      output.signingImageFormat,
-      context
-    );
-  }
-  if (output.target !== undefined && output.target !== null) {
-    contents.target = output.target;
-  }
-  return contents;
+    category:
+      output.category !== undefined && output.category !== null
+        ? output.category
+        : undefined,
+    displayName:
+      output.displayName !== undefined && output.displayName !== null
+        ? output.displayName
+        : undefined,
+    maxSizeInMB:
+      output.maxSizeInMB !== undefined && output.maxSizeInMB !== null
+        ? output.maxSizeInMB
+        : undefined,
+    partner:
+      output.partner !== undefined && output.partner !== null
+        ? output.partner
+        : undefined,
+    platformId:
+      output.platformId !== undefined && output.platformId !== null
+        ? output.platformId
+        : undefined,
+    signingConfiguration:
+      output.signingConfiguration !== undefined &&
+      output.signingConfiguration !== null
+        ? deserializeAws_restJson1_1SigningConfiguration(
+            output.signingConfiguration,
+            context
+          )
+        : undefined,
+    signingImageFormat:
+      output.signingImageFormat !== undefined &&
+      output.signingImageFormat !== null
+        ? deserializeAws_restJson1_1SigningImageFormat(
+            output.signingImageFormat,
+            context
+          )
+        : undefined,
+    target:
+      output.target !== undefined && output.target !== null
+        ? output.target
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SigningPlatformOverrides = (
   output: any,
   context: __SerdeContext
 ): SigningPlatformOverrides => {
-  let contents: any = {
+  return {
     __type: "SigningPlatformOverrides",
-    signingConfiguration: undefined
-  };
-  if (
-    output.signingConfiguration !== undefined &&
-    output.signingConfiguration !== null
-  ) {
-    contents.signingConfiguration = deserializeAws_restJson1_1SigningConfigurationOverrides(
-      output.signingConfiguration,
-      context
-    );
-  }
-  return contents;
+    signingConfiguration:
+      output.signingConfiguration !== undefined &&
+      output.signingConfiguration !== null
+        ? deserializeAws_restJson1_1SigningConfigurationOverrides(
+            output.signingConfiguration,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SigningPlatforms = (
@@ -2357,47 +2323,42 @@ const deserializeAws_restJson1_1SigningProfile = (
   output: any,
   context: __SerdeContext
 ): SigningProfile => {
-  let contents: any = {
+  return {
     __type: "SigningProfile",
-    arn: undefined,
-    platformId: undefined,
-    profileName: undefined,
-    signingMaterial: undefined,
-    signingParameters: undefined,
-    status: undefined,
-    tags: undefined
-  };
-  if (output.arn !== undefined && output.arn !== null) {
-    contents.arn = output.arn;
-  }
-  if (output.platformId !== undefined && output.platformId !== null) {
-    contents.platformId = output.platformId;
-  }
-  if (output.profileName !== undefined && output.profileName !== null) {
-    contents.profileName = output.profileName;
-  }
-  if (output.signingMaterial !== undefined && output.signingMaterial !== null) {
-    contents.signingMaterial = deserializeAws_restJson1_1SigningMaterial(
-      output.signingMaterial,
-      context
-    );
-  }
-  if (
-    output.signingParameters !== undefined &&
-    output.signingParameters !== null
-  ) {
-    contents.signingParameters = deserializeAws_restJson1_1SigningParameters(
-      output.signingParameters,
-      context
-    );
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  if (output.tags !== undefined && output.tags !== null) {
-    contents.tags = deserializeAws_restJson1_1TagMap(output.tags, context);
-  }
-  return contents;
+    arn:
+      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    platformId:
+      output.platformId !== undefined && output.platformId !== null
+        ? output.platformId
+        : undefined,
+    profileName:
+      output.profileName !== undefined && output.profileName !== null
+        ? output.profileName
+        : undefined,
+    signingMaterial:
+      output.signingMaterial !== undefined && output.signingMaterial !== null
+        ? deserializeAws_restJson1_1SigningMaterial(
+            output.signingMaterial,
+            context
+          )
+        : undefined,
+    signingParameters:
+      output.signingParameters !== undefined &&
+      output.signingParameters !== null
+        ? deserializeAws_restJson1_1SigningParameters(
+            output.signingParameters,
+            context
+          )
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1_1TagMap(output.tags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SigningProfiles = (
@@ -2413,14 +2374,13 @@ const deserializeAws_restJson1_1Source = (
   output: any,
   context: __SerdeContext
 ): Source => {
-  let contents: any = {
+  return {
     __type: "Source",
-    s3: undefined
-  };
-  if (output.s3 !== undefined && output.s3 !== null) {
-    contents.s3 = deserializeAws_restJson1_1S3Source(output.s3, context);
-  }
-  return contents;
+    s3:
+      output.s3 !== undefined && output.s3 !== null
+        ? deserializeAws_restJson1_1S3Source(output.s3, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1TagMap = (

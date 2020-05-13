@@ -2762,643 +2762,550 @@ const deserializeAws_json1_1CancelRotateSecretResponse = (
   output: any,
   context: __SerdeContext
 ): CancelRotateSecretResponse => {
-  let contents: any = {
+  return {
     __type: "CancelRotateSecretResponse",
-    ARN: undefined,
-    Name: undefined,
-    VersionId: undefined
-  };
-  if (output.ARN !== undefined && output.ARN !== null) {
-    contents.ARN = output.ARN;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.VersionId !== undefined && output.VersionId !== null) {
-    contents.VersionId = output.VersionId;
-  }
-  return contents;
+    ARN:
+      output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    VersionId:
+      output.VersionId !== undefined && output.VersionId !== null
+        ? output.VersionId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateSecretResponse = (
   output: any,
   context: __SerdeContext
 ): CreateSecretResponse => {
-  let contents: any = {
+  return {
     __type: "CreateSecretResponse",
-    ARN: undefined,
-    Name: undefined,
-    VersionId: undefined
-  };
-  if (output.ARN !== undefined && output.ARN !== null) {
-    contents.ARN = output.ARN;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.VersionId !== undefined && output.VersionId !== null) {
-    contents.VersionId = output.VersionId;
-  }
-  return contents;
+    ARN:
+      output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    VersionId:
+      output.VersionId !== undefined && output.VersionId !== null
+        ? output.VersionId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DecryptionFailure = (
   output: any,
   context: __SerdeContext
 ): DecryptionFailure => {
-  let contents: any = {
+  return {
     __type: "DecryptionFailure",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteResourcePolicyResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteResourcePolicyResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteResourcePolicyResponse",
-    ARN: undefined,
-    Name: undefined
-  };
-  if (output.ARN !== undefined && output.ARN !== null) {
-    contents.ARN = output.ARN;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    ARN:
+      output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteSecretResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteSecretResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteSecretResponse",
-    ARN: undefined,
-    DeletionDate: undefined,
-    Name: undefined
-  };
-  if (output.ARN !== undefined && output.ARN !== null) {
-    contents.ARN = output.ARN;
-  }
-  if (output.DeletionDate !== undefined && output.DeletionDate !== null) {
-    contents.DeletionDate = new Date(Math.round(output.DeletionDate * 1000));
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    ARN:
+      output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
+    DeletionDate:
+      output.DeletionDate !== undefined && output.DeletionDate !== null
+        ? new Date(Math.round(output.DeletionDate * 1000))
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeSecretResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeSecretResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeSecretResponse",
-    ARN: undefined,
-    DeletedDate: undefined,
-    Description: undefined,
-    KmsKeyId: undefined,
-    LastAccessedDate: undefined,
-    LastChangedDate: undefined,
-    LastRotatedDate: undefined,
-    Name: undefined,
-    OwningService: undefined,
-    RotationEnabled: undefined,
-    RotationLambdaARN: undefined,
-    RotationRules: undefined,
-    Tags: undefined,
-    VersionIdsToStages: undefined
-  };
-  if (output.ARN !== undefined && output.ARN !== null) {
-    contents.ARN = output.ARN;
-  }
-  if (output.DeletedDate !== undefined && output.DeletedDate !== null) {
-    contents.DeletedDate = new Date(Math.round(output.DeletedDate * 1000));
-  }
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (output.KmsKeyId !== undefined && output.KmsKeyId !== null) {
-    contents.KmsKeyId = output.KmsKeyId;
-  }
-  if (
-    output.LastAccessedDate !== undefined &&
-    output.LastAccessedDate !== null
-  ) {
-    contents.LastAccessedDate = new Date(
-      Math.round(output.LastAccessedDate * 1000)
-    );
-  }
-  if (output.LastChangedDate !== undefined && output.LastChangedDate !== null) {
-    contents.LastChangedDate = new Date(
-      Math.round(output.LastChangedDate * 1000)
-    );
-  }
-  if (output.LastRotatedDate !== undefined && output.LastRotatedDate !== null) {
-    contents.LastRotatedDate = new Date(
-      Math.round(output.LastRotatedDate * 1000)
-    );
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.OwningService !== undefined && output.OwningService !== null) {
-    contents.OwningService = output.OwningService;
-  }
-  if (output.RotationEnabled !== undefined && output.RotationEnabled !== null) {
-    contents.RotationEnabled = output.RotationEnabled;
-  }
-  if (
-    output.RotationLambdaARN !== undefined &&
-    output.RotationLambdaARN !== null
-  ) {
-    contents.RotationLambdaARN = output.RotationLambdaARN;
-  }
-  if (output.RotationRules !== undefined && output.RotationRules !== null) {
-    contents.RotationRules = deserializeAws_json1_1RotationRulesType(
-      output.RotationRules,
-      context
-    );
-  }
-  if (output.Tags !== undefined && output.Tags !== null) {
-    contents.Tags = deserializeAws_json1_1TagListType(output.Tags, context);
-  }
-  if (
-    output.VersionIdsToStages !== undefined &&
-    output.VersionIdsToStages !== null
-  ) {
-    contents.VersionIdsToStages = deserializeAws_json1_1SecretVersionsToStagesMapType(
-      output.VersionIdsToStages,
-      context
-    );
-  }
-  return contents;
+    ARN:
+      output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
+    DeletedDate:
+      output.DeletedDate !== undefined && output.DeletedDate !== null
+        ? new Date(Math.round(output.DeletedDate * 1000))
+        : undefined,
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    KmsKeyId:
+      output.KmsKeyId !== undefined && output.KmsKeyId !== null
+        ? output.KmsKeyId
+        : undefined,
+    LastAccessedDate:
+      output.LastAccessedDate !== undefined && output.LastAccessedDate !== null
+        ? new Date(Math.round(output.LastAccessedDate * 1000))
+        : undefined,
+    LastChangedDate:
+      output.LastChangedDate !== undefined && output.LastChangedDate !== null
+        ? new Date(Math.round(output.LastChangedDate * 1000))
+        : undefined,
+    LastRotatedDate:
+      output.LastRotatedDate !== undefined && output.LastRotatedDate !== null
+        ? new Date(Math.round(output.LastRotatedDate * 1000))
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    OwningService:
+      output.OwningService !== undefined && output.OwningService !== null
+        ? output.OwningService
+        : undefined,
+    RotationEnabled:
+      output.RotationEnabled !== undefined && output.RotationEnabled !== null
+        ? output.RotationEnabled
+        : undefined,
+    RotationLambdaARN:
+      output.RotationLambdaARN !== undefined &&
+      output.RotationLambdaARN !== null
+        ? output.RotationLambdaARN
+        : undefined,
+    RotationRules:
+      output.RotationRules !== undefined && output.RotationRules !== null
+        ? deserializeAws_json1_1RotationRulesType(output.RotationRules, context)
+        : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1TagListType(output.Tags, context)
+        : undefined,
+    VersionIdsToStages:
+      output.VersionIdsToStages !== undefined &&
+      output.VersionIdsToStages !== null
+        ? deserializeAws_json1_1SecretVersionsToStagesMapType(
+            output.VersionIdsToStages,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EncryptionFailure = (
   output: any,
   context: __SerdeContext
 ): EncryptionFailure => {
-  let contents: any = {
+  return {
     __type: "EncryptionFailure",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetRandomPasswordResponse = (
   output: any,
   context: __SerdeContext
 ): GetRandomPasswordResponse => {
-  let contents: any = {
+  return {
     __type: "GetRandomPasswordResponse",
-    RandomPassword: undefined
-  };
-  if (output.RandomPassword !== undefined && output.RandomPassword !== null) {
-    contents.RandomPassword = output.RandomPassword;
-  }
-  return contents;
+    RandomPassword:
+      output.RandomPassword !== undefined && output.RandomPassword !== null
+        ? output.RandomPassword
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetResourcePolicyResponse = (
   output: any,
   context: __SerdeContext
 ): GetResourcePolicyResponse => {
-  let contents: any = {
+  return {
     __type: "GetResourcePolicyResponse",
-    ARN: undefined,
-    Name: undefined,
-    ResourcePolicy: undefined
-  };
-  if (output.ARN !== undefined && output.ARN !== null) {
-    contents.ARN = output.ARN;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.ResourcePolicy !== undefined && output.ResourcePolicy !== null) {
-    contents.ResourcePolicy = output.ResourcePolicy;
-  }
-  return contents;
+    ARN:
+      output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    ResourcePolicy:
+      output.ResourcePolicy !== undefined && output.ResourcePolicy !== null
+        ? output.ResourcePolicy
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetSecretValueResponse = (
   output: any,
   context: __SerdeContext
 ): GetSecretValueResponse => {
-  let contents: any = {
+  return {
     __type: "GetSecretValueResponse",
-    ARN: undefined,
-    CreatedDate: undefined,
-    Name: undefined,
-    SecretBinary: undefined,
-    SecretString: undefined,
-    VersionId: undefined,
-    VersionStages: undefined
-  };
-  if (output.ARN !== undefined && output.ARN !== null) {
-    contents.ARN = output.ARN;
-  }
-  if (output.CreatedDate !== undefined && output.CreatedDate !== null) {
-    contents.CreatedDate = new Date(Math.round(output.CreatedDate * 1000));
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.SecretBinary !== undefined && output.SecretBinary !== null) {
-    contents.SecretBinary = context.base64Decoder(output.SecretBinary);
-  }
-  if (output.SecretString !== undefined && output.SecretString !== null) {
-    contents.SecretString = output.SecretString;
-  }
-  if (output.VersionId !== undefined && output.VersionId !== null) {
-    contents.VersionId = output.VersionId;
-  }
-  if (output.VersionStages !== undefined && output.VersionStages !== null) {
-    contents.VersionStages = deserializeAws_json1_1SecretVersionStagesType(
-      output.VersionStages,
-      context
-    );
-  }
-  return contents;
+    ARN:
+      output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
+    CreatedDate:
+      output.CreatedDate !== undefined && output.CreatedDate !== null
+        ? new Date(Math.round(output.CreatedDate * 1000))
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    SecretBinary:
+      output.SecretBinary !== undefined && output.SecretBinary !== null
+        ? context.base64Decoder(output.SecretBinary)
+        : undefined,
+    SecretString:
+      output.SecretString !== undefined && output.SecretString !== null
+        ? output.SecretString
+        : undefined,
+    VersionId:
+      output.VersionId !== undefined && output.VersionId !== null
+        ? output.VersionId
+        : undefined,
+    VersionStages:
+      output.VersionStages !== undefined && output.VersionStages !== null
+        ? deserializeAws_json1_1SecretVersionStagesType(
+            output.VersionStages,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InternalServiceError = (
   output: any,
   context: __SerdeContext
 ): InternalServiceError => {
-  let contents: any = {
+  return {
     __type: "InternalServiceError",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidNextTokenException = (
   output: any,
   context: __SerdeContext
 ): InvalidNextTokenException => {
-  let contents: any = {
+  return {
     __type: "InvalidNextTokenException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidParameterException = (
   output: any,
   context: __SerdeContext
 ): InvalidParameterException => {
-  let contents: any = {
+  return {
     __type: "InvalidParameterException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidRequestException = (
   output: any,
   context: __SerdeContext
 ): InvalidRequestException => {
-  let contents: any = {
+  return {
     __type: "InvalidRequestException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (
   output: any,
   context: __SerdeContext
 ): LimitExceededException => {
-  let contents: any = {
+  return {
     __type: "LimitExceededException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListSecretVersionIdsResponse = (
   output: any,
   context: __SerdeContext
 ): ListSecretVersionIdsResponse => {
-  let contents: any = {
+  return {
     __type: "ListSecretVersionIdsResponse",
-    ARN: undefined,
-    Name: undefined,
-    NextToken: undefined,
-    Versions: undefined
-  };
-  if (output.ARN !== undefined && output.ARN !== null) {
-    contents.ARN = output.ARN;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.Versions !== undefined && output.Versions !== null) {
-    contents.Versions = deserializeAws_json1_1SecretVersionsListType(
-      output.Versions,
-      context
-    );
-  }
-  return contents;
+    ARN:
+      output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Versions:
+      output.Versions !== undefined && output.Versions !== null
+        ? deserializeAws_json1_1SecretVersionsListType(output.Versions, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListSecretsResponse = (
   output: any,
   context: __SerdeContext
 ): ListSecretsResponse => {
-  let contents: any = {
+  return {
     __type: "ListSecretsResponse",
-    NextToken: undefined,
-    SecretList: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.SecretList !== undefined && output.SecretList !== null) {
-    contents.SecretList = deserializeAws_json1_1SecretListType(
-      output.SecretList,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    SecretList:
+      output.SecretList !== undefined && output.SecretList !== null
+        ? deserializeAws_json1_1SecretListType(output.SecretList, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1MalformedPolicyDocumentException = (
   output: any,
   context: __SerdeContext
 ): MalformedPolicyDocumentException => {
-  let contents: any = {
+  return {
     __type: "MalformedPolicyDocumentException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PreconditionNotMetException = (
   output: any,
   context: __SerdeContext
 ): PreconditionNotMetException => {
-  let contents: any = {
+  return {
     __type: "PreconditionNotMetException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PutResourcePolicyResponse = (
   output: any,
   context: __SerdeContext
 ): PutResourcePolicyResponse => {
-  let contents: any = {
+  return {
     __type: "PutResourcePolicyResponse",
-    ARN: undefined,
-    Name: undefined
-  };
-  if (output.ARN !== undefined && output.ARN !== null) {
-    contents.ARN = output.ARN;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    ARN:
+      output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PutSecretValueResponse = (
   output: any,
   context: __SerdeContext
 ): PutSecretValueResponse => {
-  let contents: any = {
+  return {
     __type: "PutSecretValueResponse",
-    ARN: undefined,
-    Name: undefined,
-    VersionId: undefined,
-    VersionStages: undefined
-  };
-  if (output.ARN !== undefined && output.ARN !== null) {
-    contents.ARN = output.ARN;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.VersionId !== undefined && output.VersionId !== null) {
-    contents.VersionId = output.VersionId;
-  }
-  if (output.VersionStages !== undefined && output.VersionStages !== null) {
-    contents.VersionStages = deserializeAws_json1_1SecretVersionStagesType(
-      output.VersionStages,
-      context
-    );
-  }
-  return contents;
+    ARN:
+      output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    VersionId:
+      output.VersionId !== undefined && output.VersionId !== null
+        ? output.VersionId
+        : undefined,
+    VersionStages:
+      output.VersionStages !== undefined && output.VersionStages !== null
+        ? deserializeAws_json1_1SecretVersionStagesType(
+            output.VersionStages,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceExistsException = (
   output: any,
   context: __SerdeContext
 ): ResourceExistsException => {
-  let contents: any = {
+  return {
     __type: "ResourceExistsException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ResourceNotFoundException => {
-  let contents: any = {
+  return {
     __type: "ResourceNotFoundException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RestoreSecretResponse = (
   output: any,
   context: __SerdeContext
 ): RestoreSecretResponse => {
-  let contents: any = {
+  return {
     __type: "RestoreSecretResponse",
-    ARN: undefined,
-    Name: undefined
-  };
-  if (output.ARN !== undefined && output.ARN !== null) {
-    contents.ARN = output.ARN;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    ARN:
+      output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RotateSecretResponse = (
   output: any,
   context: __SerdeContext
 ): RotateSecretResponse => {
-  let contents: any = {
+  return {
     __type: "RotateSecretResponse",
-    ARN: undefined,
-    Name: undefined,
-    VersionId: undefined
-  };
-  if (output.ARN !== undefined && output.ARN !== null) {
-    contents.ARN = output.ARN;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.VersionId !== undefined && output.VersionId !== null) {
-    contents.VersionId = output.VersionId;
-  }
-  return contents;
+    ARN:
+      output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    VersionId:
+      output.VersionId !== undefined && output.VersionId !== null
+        ? output.VersionId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RotationRulesType = (
   output: any,
   context: __SerdeContext
 ): RotationRulesType => {
-  let contents: any = {
+  return {
     __type: "RotationRulesType",
-    AutomaticallyAfterDays: undefined
-  };
-  if (
-    output.AutomaticallyAfterDays !== undefined &&
-    output.AutomaticallyAfterDays !== null
-  ) {
-    contents.AutomaticallyAfterDays = output.AutomaticallyAfterDays;
-  }
-  return contents;
+    AutomaticallyAfterDays:
+      output.AutomaticallyAfterDays !== undefined &&
+      output.AutomaticallyAfterDays !== null
+        ? output.AutomaticallyAfterDays
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SecretListEntry = (
   output: any,
   context: __SerdeContext
 ): SecretListEntry => {
-  let contents: any = {
+  return {
     __type: "SecretListEntry",
-    ARN: undefined,
-    DeletedDate: undefined,
-    Description: undefined,
-    KmsKeyId: undefined,
-    LastAccessedDate: undefined,
-    LastChangedDate: undefined,
-    LastRotatedDate: undefined,
-    Name: undefined,
-    OwningService: undefined,
-    RotationEnabled: undefined,
-    RotationLambdaARN: undefined,
-    RotationRules: undefined,
-    SecretVersionsToStages: undefined,
-    Tags: undefined
-  };
-  if (output.ARN !== undefined && output.ARN !== null) {
-    contents.ARN = output.ARN;
-  }
-  if (output.DeletedDate !== undefined && output.DeletedDate !== null) {
-    contents.DeletedDate = new Date(Math.round(output.DeletedDate * 1000));
-  }
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (output.KmsKeyId !== undefined && output.KmsKeyId !== null) {
-    contents.KmsKeyId = output.KmsKeyId;
-  }
-  if (
-    output.LastAccessedDate !== undefined &&
-    output.LastAccessedDate !== null
-  ) {
-    contents.LastAccessedDate = new Date(
-      Math.round(output.LastAccessedDate * 1000)
-    );
-  }
-  if (output.LastChangedDate !== undefined && output.LastChangedDate !== null) {
-    contents.LastChangedDate = new Date(
-      Math.round(output.LastChangedDate * 1000)
-    );
-  }
-  if (output.LastRotatedDate !== undefined && output.LastRotatedDate !== null) {
-    contents.LastRotatedDate = new Date(
-      Math.round(output.LastRotatedDate * 1000)
-    );
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.OwningService !== undefined && output.OwningService !== null) {
-    contents.OwningService = output.OwningService;
-  }
-  if (output.RotationEnabled !== undefined && output.RotationEnabled !== null) {
-    contents.RotationEnabled = output.RotationEnabled;
-  }
-  if (
-    output.RotationLambdaARN !== undefined &&
-    output.RotationLambdaARN !== null
-  ) {
-    contents.RotationLambdaARN = output.RotationLambdaARN;
-  }
-  if (output.RotationRules !== undefined && output.RotationRules !== null) {
-    contents.RotationRules = deserializeAws_json1_1RotationRulesType(
-      output.RotationRules,
-      context
-    );
-  }
-  if (
-    output.SecretVersionsToStages !== undefined &&
-    output.SecretVersionsToStages !== null
-  ) {
-    contents.SecretVersionsToStages = deserializeAws_json1_1SecretVersionsToStagesMapType(
-      output.SecretVersionsToStages,
-      context
-    );
-  }
-  if (output.Tags !== undefined && output.Tags !== null) {
-    contents.Tags = deserializeAws_json1_1TagListType(output.Tags, context);
-  }
-  return contents;
+    ARN:
+      output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
+    DeletedDate:
+      output.DeletedDate !== undefined && output.DeletedDate !== null
+        ? new Date(Math.round(output.DeletedDate * 1000))
+        : undefined,
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    KmsKeyId:
+      output.KmsKeyId !== undefined && output.KmsKeyId !== null
+        ? output.KmsKeyId
+        : undefined,
+    LastAccessedDate:
+      output.LastAccessedDate !== undefined && output.LastAccessedDate !== null
+        ? new Date(Math.round(output.LastAccessedDate * 1000))
+        : undefined,
+    LastChangedDate:
+      output.LastChangedDate !== undefined && output.LastChangedDate !== null
+        ? new Date(Math.round(output.LastChangedDate * 1000))
+        : undefined,
+    LastRotatedDate:
+      output.LastRotatedDate !== undefined && output.LastRotatedDate !== null
+        ? new Date(Math.round(output.LastRotatedDate * 1000))
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    OwningService:
+      output.OwningService !== undefined && output.OwningService !== null
+        ? output.OwningService
+        : undefined,
+    RotationEnabled:
+      output.RotationEnabled !== undefined && output.RotationEnabled !== null
+        ? output.RotationEnabled
+        : undefined,
+    RotationLambdaARN:
+      output.RotationLambdaARN !== undefined &&
+      output.RotationLambdaARN !== null
+        ? output.RotationLambdaARN
+        : undefined,
+    RotationRules:
+      output.RotationRules !== undefined && output.RotationRules !== null
+        ? deserializeAws_json1_1RotationRulesType(output.RotationRules, context)
+        : undefined,
+    SecretVersionsToStages:
+      output.SecretVersionsToStages !== undefined &&
+      output.SecretVersionsToStages !== null
+        ? deserializeAws_json1_1SecretVersionsToStagesMapType(
+            output.SecretVersionsToStages,
+            context
+          )
+        : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1TagListType(output.Tags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SecretListType = (
@@ -3421,34 +3328,28 @@ const deserializeAws_json1_1SecretVersionsListEntry = (
   output: any,
   context: __SerdeContext
 ): SecretVersionsListEntry => {
-  let contents: any = {
+  return {
     __type: "SecretVersionsListEntry",
-    CreatedDate: undefined,
-    LastAccessedDate: undefined,
-    VersionId: undefined,
-    VersionStages: undefined
-  };
-  if (output.CreatedDate !== undefined && output.CreatedDate !== null) {
-    contents.CreatedDate = new Date(Math.round(output.CreatedDate * 1000));
-  }
-  if (
-    output.LastAccessedDate !== undefined &&
-    output.LastAccessedDate !== null
-  ) {
-    contents.LastAccessedDate = new Date(
-      Math.round(output.LastAccessedDate * 1000)
-    );
-  }
-  if (output.VersionId !== undefined && output.VersionId !== null) {
-    contents.VersionId = output.VersionId;
-  }
-  if (output.VersionStages !== undefined && output.VersionStages !== null) {
-    contents.VersionStages = deserializeAws_json1_1SecretVersionStagesType(
-      output.VersionStages,
-      context
-    );
-  }
-  return contents;
+    CreatedDate:
+      output.CreatedDate !== undefined && output.CreatedDate !== null
+        ? new Date(Math.round(output.CreatedDate * 1000))
+        : undefined,
+    LastAccessedDate:
+      output.LastAccessedDate !== undefined && output.LastAccessedDate !== null
+        ? new Date(Math.round(output.LastAccessedDate * 1000))
+        : undefined,
+    VersionId:
+      output.VersionId !== undefined && output.VersionId !== null
+        ? output.VersionId
+        : undefined,
+    VersionStages:
+      output.VersionStages !== undefined && output.VersionStages !== null
+        ? deserializeAws_json1_1SecretVersionStagesType(
+            output.VersionStages,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SecretVersionsListType = (
@@ -3477,18 +3378,15 @@ const deserializeAws_json1_1Tag = (
   output: any,
   context: __SerdeContext
 ): Tag => {
-  let contents: any = {
+  return {
     __type: "Tag",
-    Key: undefined,
-    Value: undefined
-  };
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TagListType = (
@@ -3504,40 +3402,34 @@ const deserializeAws_json1_1UpdateSecretResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateSecretResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateSecretResponse",
-    ARN: undefined,
-    Name: undefined,
-    VersionId: undefined
-  };
-  if (output.ARN !== undefined && output.ARN !== null) {
-    contents.ARN = output.ARN;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.VersionId !== undefined && output.VersionId !== null) {
-    contents.VersionId = output.VersionId;
-  }
-  return contents;
+    ARN:
+      output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    VersionId:
+      output.VersionId !== undefined && output.VersionId !== null
+        ? output.VersionId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateSecretVersionStageResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateSecretVersionStageResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateSecretVersionStageResponse",
-    ARN: undefined,
-    Name: undefined
-  };
-  if (output.ARN !== undefined && output.ARN !== null) {
-    contents.ARN = output.ARN;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    ARN:
+      output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

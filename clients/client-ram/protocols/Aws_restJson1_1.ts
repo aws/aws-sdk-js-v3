@@ -4573,35 +4573,26 @@ const deserializeAws_restJson1_1Principal = (
   output: any,
   context: __SerdeContext
 ): Principal => {
-  let contents: any = {
+  return {
     __type: "Principal",
-    creationTime: undefined,
-    external: undefined,
-    id: undefined,
-    lastUpdatedTime: undefined,
-    resourceShareArn: undefined
-  };
-  if (output.creationTime !== undefined && output.creationTime !== null) {
-    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
-  }
-  if (output.external !== undefined && output.external !== null) {
-    contents.external = output.external;
-  }
-  if (output.id !== undefined && output.id !== null) {
-    contents.id = output.id;
-  }
-  if (output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null) {
-    contents.lastUpdatedTime = new Date(
-      Math.round(output.lastUpdatedTime * 1000)
-    );
-  }
-  if (
-    output.resourceShareArn !== undefined &&
-    output.resourceShareArn !== null
-  ) {
-    contents.resourceShareArn = output.resourceShareArn;
-  }
-  return contents;
+    creationTime:
+      output.creationTime !== undefined && output.creationTime !== null
+        ? new Date(Math.round(output.creationTime * 1000))
+        : undefined,
+    external:
+      output.external !== undefined && output.external !== null
+        ? output.external
+        : undefined,
+    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    lastUpdatedTime:
+      output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
+        ? new Date(Math.round(output.lastUpdatedTime * 1000))
+        : undefined,
+    resourceShareArn:
+      output.resourceShareArn !== undefined && output.resourceShareArn !== null
+        ? output.resourceShareArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1PrincipalList = (
@@ -4617,50 +4608,39 @@ const deserializeAws_restJson1_1Resource = (
   output: any,
   context: __SerdeContext
 ): Resource => {
-  let contents: any = {
+  return {
     __type: "Resource",
-    arn: undefined,
-    creationTime: undefined,
-    lastUpdatedTime: undefined,
-    resourceGroupArn: undefined,
-    resourceShareArn: undefined,
-    status: undefined,
-    statusMessage: undefined,
-    type: undefined
-  };
-  if (output.arn !== undefined && output.arn !== null) {
-    contents.arn = output.arn;
-  }
-  if (output.creationTime !== undefined && output.creationTime !== null) {
-    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
-  }
-  if (output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null) {
-    contents.lastUpdatedTime = new Date(
-      Math.round(output.lastUpdatedTime * 1000)
-    );
-  }
-  if (
-    output.resourceGroupArn !== undefined &&
-    output.resourceGroupArn !== null
-  ) {
-    contents.resourceGroupArn = output.resourceGroupArn;
-  }
-  if (
-    output.resourceShareArn !== undefined &&
-    output.resourceShareArn !== null
-  ) {
-    contents.resourceShareArn = output.resourceShareArn;
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  if (output.statusMessage !== undefined && output.statusMessage !== null) {
-    contents.statusMessage = output.statusMessage;
-  }
-  if (output.type !== undefined && output.type !== null) {
-    contents.type = output.type;
-  }
-  return contents;
+    arn:
+      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    creationTime:
+      output.creationTime !== undefined && output.creationTime !== null
+        ? new Date(Math.round(output.creationTime * 1000))
+        : undefined,
+    lastUpdatedTime:
+      output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
+        ? new Date(Math.round(output.lastUpdatedTime * 1000))
+        : undefined,
+    resourceGroupArn:
+      output.resourceGroupArn !== undefined && output.resourceGroupArn !== null
+        ? output.resourceGroupArn
+        : undefined,
+    resourceShareArn:
+      output.resourceShareArn !== undefined && output.resourceShareArn !== null
+        ? output.resourceShareArn
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined,
+    statusMessage:
+      output.statusMessage !== undefined && output.statusMessage !== null
+        ? output.statusMessage
+        : undefined,
+    type:
+      output.type !== undefined && output.type !== null
+        ? output.type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ResourceList = (
@@ -4676,115 +4656,96 @@ const deserializeAws_restJson1_1ResourceShare = (
   output: any,
   context: __SerdeContext
 ): ResourceShare => {
-  let contents: any = {
+  return {
     __type: "ResourceShare",
-    allowExternalPrincipals: undefined,
-    creationTime: undefined,
-    featureSet: undefined,
-    lastUpdatedTime: undefined,
-    name: undefined,
-    owningAccountId: undefined,
-    resourceShareArn: undefined,
-    status: undefined,
-    statusMessage: undefined,
-    tags: undefined
-  };
-  if (
-    output.allowExternalPrincipals !== undefined &&
-    output.allowExternalPrincipals !== null
-  ) {
-    contents.allowExternalPrincipals = output.allowExternalPrincipals;
-  }
-  if (output.creationTime !== undefined && output.creationTime !== null) {
-    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
-  }
-  if (output.featureSet !== undefined && output.featureSet !== null) {
-    contents.featureSet = output.featureSet;
-  }
-  if (output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null) {
-    contents.lastUpdatedTime = new Date(
-      Math.round(output.lastUpdatedTime * 1000)
-    );
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (output.owningAccountId !== undefined && output.owningAccountId !== null) {
-    contents.owningAccountId = output.owningAccountId;
-  }
-  if (
-    output.resourceShareArn !== undefined &&
-    output.resourceShareArn !== null
-  ) {
-    contents.resourceShareArn = output.resourceShareArn;
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  if (output.statusMessage !== undefined && output.statusMessage !== null) {
-    contents.statusMessage = output.statusMessage;
-  }
-  if (output.tags !== undefined && output.tags !== null) {
-    contents.tags = deserializeAws_restJson1_1TagList(output.tags, context);
-  }
-  return contents;
+    allowExternalPrincipals:
+      output.allowExternalPrincipals !== undefined &&
+      output.allowExternalPrincipals !== null
+        ? output.allowExternalPrincipals
+        : undefined,
+    creationTime:
+      output.creationTime !== undefined && output.creationTime !== null
+        ? new Date(Math.round(output.creationTime * 1000))
+        : undefined,
+    featureSet:
+      output.featureSet !== undefined && output.featureSet !== null
+        ? output.featureSet
+        : undefined,
+    lastUpdatedTime:
+      output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
+        ? new Date(Math.round(output.lastUpdatedTime * 1000))
+        : undefined,
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    owningAccountId:
+      output.owningAccountId !== undefined && output.owningAccountId !== null
+        ? output.owningAccountId
+        : undefined,
+    resourceShareArn:
+      output.resourceShareArn !== undefined && output.resourceShareArn !== null
+        ? output.resourceShareArn
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined,
+    statusMessage:
+      output.statusMessage !== undefined && output.statusMessage !== null
+        ? output.statusMessage
+        : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1_1TagList(output.tags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ResourceShareAssociation = (
   output: any,
   context: __SerdeContext
 ): ResourceShareAssociation => {
-  let contents: any = {
+  return {
     __type: "ResourceShareAssociation",
-    associatedEntity: undefined,
-    associationType: undefined,
-    creationTime: undefined,
-    external: undefined,
-    lastUpdatedTime: undefined,
-    resourceShareArn: undefined,
-    resourceShareName: undefined,
-    status: undefined,
-    statusMessage: undefined
-  };
-  if (
-    output.associatedEntity !== undefined &&
-    output.associatedEntity !== null
-  ) {
-    contents.associatedEntity = output.associatedEntity;
-  }
-  if (output.associationType !== undefined && output.associationType !== null) {
-    contents.associationType = output.associationType;
-  }
-  if (output.creationTime !== undefined && output.creationTime !== null) {
-    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
-  }
-  if (output.external !== undefined && output.external !== null) {
-    contents.external = output.external;
-  }
-  if (output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null) {
-    contents.lastUpdatedTime = new Date(
-      Math.round(output.lastUpdatedTime * 1000)
-    );
-  }
-  if (
-    output.resourceShareArn !== undefined &&
-    output.resourceShareArn !== null
-  ) {
-    contents.resourceShareArn = output.resourceShareArn;
-  }
-  if (
-    output.resourceShareName !== undefined &&
-    output.resourceShareName !== null
-  ) {
-    contents.resourceShareName = output.resourceShareName;
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  if (output.statusMessage !== undefined && output.statusMessage !== null) {
-    contents.statusMessage = output.statusMessage;
-  }
-  return contents;
+    associatedEntity:
+      output.associatedEntity !== undefined && output.associatedEntity !== null
+        ? output.associatedEntity
+        : undefined,
+    associationType:
+      output.associationType !== undefined && output.associationType !== null
+        ? output.associationType
+        : undefined,
+    creationTime:
+      output.creationTime !== undefined && output.creationTime !== null
+        ? new Date(Math.round(output.creationTime * 1000))
+        : undefined,
+    external:
+      output.external !== undefined && output.external !== null
+        ? output.external
+        : undefined,
+    lastUpdatedTime:
+      output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
+        ? new Date(Math.round(output.lastUpdatedTime * 1000))
+        : undefined,
+    resourceShareArn:
+      output.resourceShareArn !== undefined && output.resourceShareArn !== null
+        ? output.resourceShareArn
+        : undefined,
+    resourceShareName:
+      output.resourceShareName !== undefined &&
+      output.resourceShareName !== null
+        ? output.resourceShareName
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined,
+    statusMessage:
+      output.statusMessage !== undefined && output.statusMessage !== null
+        ? output.statusMessage
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ResourceShareAssociationList = (
@@ -4800,65 +4761,49 @@ const deserializeAws_restJson1_1ResourceShareInvitation = (
   output: any,
   context: __SerdeContext
 ): ResourceShareInvitation => {
-  let contents: any = {
+  return {
     __type: "ResourceShareInvitation",
-    invitationTimestamp: undefined,
-    receiverAccountId: undefined,
-    resourceShareArn: undefined,
-    resourceShareAssociations: undefined,
-    resourceShareInvitationArn: undefined,
-    resourceShareName: undefined,
-    senderAccountId: undefined,
-    status: undefined
-  };
-  if (
-    output.invitationTimestamp !== undefined &&
-    output.invitationTimestamp !== null
-  ) {
-    contents.invitationTimestamp = new Date(
-      Math.round(output.invitationTimestamp * 1000)
-    );
-  }
-  if (
-    output.receiverAccountId !== undefined &&
-    output.receiverAccountId !== null
-  ) {
-    contents.receiverAccountId = output.receiverAccountId;
-  }
-  if (
-    output.resourceShareArn !== undefined &&
-    output.resourceShareArn !== null
-  ) {
-    contents.resourceShareArn = output.resourceShareArn;
-  }
-  if (
-    output.resourceShareAssociations !== undefined &&
-    output.resourceShareAssociations !== null
-  ) {
-    contents.resourceShareAssociations = deserializeAws_restJson1_1ResourceShareAssociationList(
-      output.resourceShareAssociations,
-      context
-    );
-  }
-  if (
-    output.resourceShareInvitationArn !== undefined &&
-    output.resourceShareInvitationArn !== null
-  ) {
-    contents.resourceShareInvitationArn = output.resourceShareInvitationArn;
-  }
-  if (
-    output.resourceShareName !== undefined &&
-    output.resourceShareName !== null
-  ) {
-    contents.resourceShareName = output.resourceShareName;
-  }
-  if (output.senderAccountId !== undefined && output.senderAccountId !== null) {
-    contents.senderAccountId = output.senderAccountId;
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  return contents;
+    invitationTimestamp:
+      output.invitationTimestamp !== undefined &&
+      output.invitationTimestamp !== null
+        ? new Date(Math.round(output.invitationTimestamp * 1000))
+        : undefined,
+    receiverAccountId:
+      output.receiverAccountId !== undefined &&
+      output.receiverAccountId !== null
+        ? output.receiverAccountId
+        : undefined,
+    resourceShareArn:
+      output.resourceShareArn !== undefined && output.resourceShareArn !== null
+        ? output.resourceShareArn
+        : undefined,
+    resourceShareAssociations:
+      output.resourceShareAssociations !== undefined &&
+      output.resourceShareAssociations !== null
+        ? deserializeAws_restJson1_1ResourceShareAssociationList(
+            output.resourceShareAssociations,
+            context
+          )
+        : undefined,
+    resourceShareInvitationArn:
+      output.resourceShareInvitationArn !== undefined &&
+      output.resourceShareInvitationArn !== null
+        ? output.resourceShareInvitationArn
+        : undefined,
+    resourceShareName:
+      output.resourceShareName !== undefined &&
+      output.resourceShareName !== null
+        ? output.resourceShareName
+        : undefined,
+    senderAccountId:
+      output.senderAccountId !== undefined && output.senderAccountId !== null
+        ? output.senderAccountId
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ResourceShareInvitationList = (
@@ -4883,44 +4828,39 @@ const deserializeAws_restJson1_1ResourceSharePermissionDetail = (
   output: any,
   context: __SerdeContext
 ): ResourceSharePermissionDetail => {
-  let contents: any = {
+  return {
     __type: "ResourceSharePermissionDetail",
-    arn: undefined,
-    creationTime: undefined,
-    defaultVersion: undefined,
-    lastUpdatedTime: undefined,
-    name: undefined,
-    permission: undefined,
-    resourceType: undefined,
-    version: undefined
-  };
-  if (output.arn !== undefined && output.arn !== null) {
-    contents.arn = output.arn;
-  }
-  if (output.creationTime !== undefined && output.creationTime !== null) {
-    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
-  }
-  if (output.defaultVersion !== undefined && output.defaultVersion !== null) {
-    contents.defaultVersion = output.defaultVersion;
-  }
-  if (output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null) {
-    contents.lastUpdatedTime = new Date(
-      Math.round(output.lastUpdatedTime * 1000)
-    );
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (output.permission !== undefined && output.permission !== null) {
-    contents.permission = output.permission;
-  }
-  if (output.resourceType !== undefined && output.resourceType !== null) {
-    contents.resourceType = output.resourceType;
-  }
-  if (output.version !== undefined && output.version !== null) {
-    contents.version = output.version;
-  }
-  return contents;
+    arn:
+      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    creationTime:
+      output.creationTime !== undefined && output.creationTime !== null
+        ? new Date(Math.round(output.creationTime * 1000))
+        : undefined,
+    defaultVersion:
+      output.defaultVersion !== undefined && output.defaultVersion !== null
+        ? output.defaultVersion
+        : undefined,
+    lastUpdatedTime:
+      output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
+        ? new Date(Math.round(output.lastUpdatedTime * 1000))
+        : undefined,
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    permission:
+      output.permission !== undefined && output.permission !== null
+        ? output.permission
+        : undefined,
+    resourceType:
+      output.resourceType !== undefined && output.resourceType !== null
+        ? output.resourceType
+        : undefined,
+    version:
+      output.version !== undefined && output.version !== null
+        ? output.version
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ResourceSharePermissionList = (
@@ -4936,62 +4876,54 @@ const deserializeAws_restJson1_1ResourceSharePermissionSummary = (
   output: any,
   context: __SerdeContext
 ): ResourceSharePermissionSummary => {
-  let contents: any = {
+  return {
     __type: "ResourceSharePermissionSummary",
-    arn: undefined,
-    creationTime: undefined,
-    defaultVersion: undefined,
-    lastUpdatedTime: undefined,
-    name: undefined,
-    resourceType: undefined,
-    status: undefined,
-    version: undefined
-  };
-  if (output.arn !== undefined && output.arn !== null) {
-    contents.arn = output.arn;
-  }
-  if (output.creationTime !== undefined && output.creationTime !== null) {
-    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
-  }
-  if (output.defaultVersion !== undefined && output.defaultVersion !== null) {
-    contents.defaultVersion = output.defaultVersion;
-  }
-  if (output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null) {
-    contents.lastUpdatedTime = new Date(
-      Math.round(output.lastUpdatedTime * 1000)
-    );
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (output.resourceType !== undefined && output.resourceType !== null) {
-    contents.resourceType = output.resourceType;
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  if (output.version !== undefined && output.version !== null) {
-    contents.version = output.version;
-  }
-  return contents;
+    arn:
+      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    creationTime:
+      output.creationTime !== undefined && output.creationTime !== null
+        ? new Date(Math.round(output.creationTime * 1000))
+        : undefined,
+    defaultVersion:
+      output.defaultVersion !== undefined && output.defaultVersion !== null
+        ? output.defaultVersion
+        : undefined,
+    lastUpdatedTime:
+      output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
+        ? new Date(Math.round(output.lastUpdatedTime * 1000))
+        : undefined,
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    resourceType:
+      output.resourceType !== undefined && output.resourceType !== null
+        ? output.resourceType
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined,
+    version:
+      output.version !== undefined && output.version !== null
+        ? output.version
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Tag = (
   output: any,
   context: __SerdeContext
 ): Tag => {
-  let contents: any = {
+  return {
     __type: "Tag",
-    key: undefined,
-    value: undefined
-  };
-  if (output.key !== undefined && output.key !== null) {
-    contents.key = output.key;
-  }
-  if (output.value !== undefined && output.value !== null) {
-    contents.value = output.value;
-  }
-  return contents;
+    key:
+      output.key !== undefined && output.key !== null ? output.key : undefined,
+    value:
+      output.value !== undefined && output.value !== null
+        ? output.value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1TagList = (

@@ -6016,133 +6016,112 @@ const deserializeAws_restJson1_1App = (
   output: any,
   context: __SerdeContext
 ): App => {
-  let contents: any = {
+  return {
     __type: "App",
-    appArn: undefined,
-    appId: undefined,
-    autoBranchCreationConfig: undefined,
-    autoBranchCreationPatterns: undefined,
-    basicAuthCredentials: undefined,
-    buildSpec: undefined,
-    createTime: undefined,
-    customRules: undefined,
-    defaultDomain: undefined,
-    description: undefined,
-    enableAutoBranchCreation: undefined,
-    enableBasicAuth: undefined,
-    enableBranchAutoBuild: undefined,
-    environmentVariables: undefined,
-    iamServiceRoleArn: undefined,
-    name: undefined,
-    platform: undefined,
-    productionBranch: undefined,
-    repository: undefined,
-    tags: undefined,
-    updateTime: undefined
-  };
-  if (output.appArn !== undefined && output.appArn !== null) {
-    contents.appArn = output.appArn;
-  }
-  if (output.appId !== undefined && output.appId !== null) {
-    contents.appId = output.appId;
-  }
-  if (
-    output.autoBranchCreationConfig !== undefined &&
-    output.autoBranchCreationConfig !== null
-  ) {
-    contents.autoBranchCreationConfig = deserializeAws_restJson1_1AutoBranchCreationConfig(
-      output.autoBranchCreationConfig,
-      context
-    );
-  }
-  if (
-    output.autoBranchCreationPatterns !== undefined &&
-    output.autoBranchCreationPatterns !== null
-  ) {
-    contents.autoBranchCreationPatterns = deserializeAws_restJson1_1AutoBranchCreationPatterns(
-      output.autoBranchCreationPatterns,
-      context
-    );
-  }
-  if (
-    output.basicAuthCredentials !== undefined &&
-    output.basicAuthCredentials !== null
-  ) {
-    contents.basicAuthCredentials = output.basicAuthCredentials;
-  }
-  if (output.buildSpec !== undefined && output.buildSpec !== null) {
-    contents.buildSpec = output.buildSpec;
-  }
-  if (output.createTime !== undefined && output.createTime !== null) {
-    contents.createTime = new Date(Math.round(output.createTime * 1000));
-  }
-  if (output.customRules !== undefined && output.customRules !== null) {
-    contents.customRules = deserializeAws_restJson1_1CustomRules(
-      output.customRules,
-      context
-    );
-  }
-  if (output.defaultDomain !== undefined && output.defaultDomain !== null) {
-    contents.defaultDomain = output.defaultDomain;
-  }
-  if (output.description !== undefined && output.description !== null) {
-    contents.description = output.description;
-  }
-  if (
-    output.enableAutoBranchCreation !== undefined &&
-    output.enableAutoBranchCreation !== null
-  ) {
-    contents.enableAutoBranchCreation = output.enableAutoBranchCreation;
-  }
-  if (output.enableBasicAuth !== undefined && output.enableBasicAuth !== null) {
-    contents.enableBasicAuth = output.enableBasicAuth;
-  }
-  if (
-    output.enableBranchAutoBuild !== undefined &&
-    output.enableBranchAutoBuild !== null
-  ) {
-    contents.enableBranchAutoBuild = output.enableBranchAutoBuild;
-  }
-  if (
-    output.environmentVariables !== undefined &&
-    output.environmentVariables !== null
-  ) {
-    contents.environmentVariables = deserializeAws_restJson1_1EnvironmentVariables(
-      output.environmentVariables,
-      context
-    );
-  }
-  if (
-    output.iamServiceRoleArn !== undefined &&
-    output.iamServiceRoleArn !== null
-  ) {
-    contents.iamServiceRoleArn = output.iamServiceRoleArn;
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (output.platform !== undefined && output.platform !== null) {
-    contents.platform = output.platform;
-  }
-  if (
-    output.productionBranch !== undefined &&
-    output.productionBranch !== null
-  ) {
-    contents.productionBranch = deserializeAws_restJson1_1ProductionBranch(
-      output.productionBranch,
-      context
-    );
-  }
-  if (output.repository !== undefined && output.repository !== null) {
-    contents.repository = output.repository;
-  }
-  if (output.tags !== undefined && output.tags !== null) {
-    contents.tags = deserializeAws_restJson1_1TagMap(output.tags, context);
-  }
-  if (output.updateTime !== undefined && output.updateTime !== null) {
-    contents.updateTime = new Date(Math.round(output.updateTime * 1000));
-  }
-  return contents;
+    appArn:
+      output.appArn !== undefined && output.appArn !== null
+        ? output.appArn
+        : undefined,
+    appId:
+      output.appId !== undefined && output.appId !== null
+        ? output.appId
+        : undefined,
+    autoBranchCreationConfig:
+      output.autoBranchCreationConfig !== undefined &&
+      output.autoBranchCreationConfig !== null
+        ? deserializeAws_restJson1_1AutoBranchCreationConfig(
+            output.autoBranchCreationConfig,
+            context
+          )
+        : undefined,
+    autoBranchCreationPatterns:
+      output.autoBranchCreationPatterns !== undefined &&
+      output.autoBranchCreationPatterns !== null
+        ? deserializeAws_restJson1_1AutoBranchCreationPatterns(
+            output.autoBranchCreationPatterns,
+            context
+          )
+        : undefined,
+    basicAuthCredentials:
+      output.basicAuthCredentials !== undefined &&
+      output.basicAuthCredentials !== null
+        ? output.basicAuthCredentials
+        : undefined,
+    buildSpec:
+      output.buildSpec !== undefined && output.buildSpec !== null
+        ? output.buildSpec
+        : undefined,
+    createTime:
+      output.createTime !== undefined && output.createTime !== null
+        ? new Date(Math.round(output.createTime * 1000))
+        : undefined,
+    customRules:
+      output.customRules !== undefined && output.customRules !== null
+        ? deserializeAws_restJson1_1CustomRules(output.customRules, context)
+        : undefined,
+    defaultDomain:
+      output.defaultDomain !== undefined && output.defaultDomain !== null
+        ? output.defaultDomain
+        : undefined,
+    description:
+      output.description !== undefined && output.description !== null
+        ? output.description
+        : undefined,
+    enableAutoBranchCreation:
+      output.enableAutoBranchCreation !== undefined &&
+      output.enableAutoBranchCreation !== null
+        ? output.enableAutoBranchCreation
+        : undefined,
+    enableBasicAuth:
+      output.enableBasicAuth !== undefined && output.enableBasicAuth !== null
+        ? output.enableBasicAuth
+        : undefined,
+    enableBranchAutoBuild:
+      output.enableBranchAutoBuild !== undefined &&
+      output.enableBranchAutoBuild !== null
+        ? output.enableBranchAutoBuild
+        : undefined,
+    environmentVariables:
+      output.environmentVariables !== undefined &&
+      output.environmentVariables !== null
+        ? deserializeAws_restJson1_1EnvironmentVariables(
+            output.environmentVariables,
+            context
+          )
+        : undefined,
+    iamServiceRoleArn:
+      output.iamServiceRoleArn !== undefined &&
+      output.iamServiceRoleArn !== null
+        ? output.iamServiceRoleArn
+        : undefined,
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    platform:
+      output.platform !== undefined && output.platform !== null
+        ? output.platform
+        : undefined,
+    productionBranch:
+      output.productionBranch !== undefined && output.productionBranch !== null
+        ? deserializeAws_restJson1_1ProductionBranch(
+            output.productionBranch,
+            context
+          )
+        : undefined,
+    repository:
+      output.repository !== undefined && output.repository !== null
+        ? output.repository
+        : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1_1TagMap(output.tags, context)
+        : undefined,
+    updateTime:
+      output.updateTime !== undefined && output.updateTime !== null
+        ? new Date(Math.round(output.updateTime * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Apps = (
@@ -6158,21 +6137,17 @@ const deserializeAws_restJson1_1Artifact = (
   output: any,
   context: __SerdeContext
 ): Artifact => {
-  let contents: any = {
+  return {
     __type: "Artifact",
-    artifactFileName: undefined,
-    artifactId: undefined
-  };
-  if (
-    output.artifactFileName !== undefined &&
-    output.artifactFileName !== null
-  ) {
-    contents.artifactFileName = output.artifactFileName;
-  }
-  if (output.artifactId !== undefined && output.artifactId !== null) {
-    contents.artifactId = output.artifactId;
-  }
-  return contents;
+    artifactFileName:
+      output.artifactFileName !== undefined && output.artifactFileName !== null
+        ? output.artifactFileName
+        : undefined,
+    artifactId:
+      output.artifactId !== undefined && output.artifactId !== null
+        ? output.artifactId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Artifacts = (
@@ -6195,61 +6170,52 @@ const deserializeAws_restJson1_1AutoBranchCreationConfig = (
   output: any,
   context: __SerdeContext
 ): AutoBranchCreationConfig => {
-  let contents: any = {
+  return {
     __type: "AutoBranchCreationConfig",
-    basicAuthCredentials: undefined,
-    buildSpec: undefined,
-    enableAutoBuild: undefined,
-    enableBasicAuth: undefined,
-    enablePullRequestPreview: undefined,
-    environmentVariables: undefined,
-    framework: undefined,
-    pullRequestEnvironmentName: undefined,
-    stage: undefined
-  };
-  if (
-    output.basicAuthCredentials !== undefined &&
-    output.basicAuthCredentials !== null
-  ) {
-    contents.basicAuthCredentials = output.basicAuthCredentials;
-  }
-  if (output.buildSpec !== undefined && output.buildSpec !== null) {
-    contents.buildSpec = output.buildSpec;
-  }
-  if (output.enableAutoBuild !== undefined && output.enableAutoBuild !== null) {
-    contents.enableAutoBuild = output.enableAutoBuild;
-  }
-  if (output.enableBasicAuth !== undefined && output.enableBasicAuth !== null) {
-    contents.enableBasicAuth = output.enableBasicAuth;
-  }
-  if (
-    output.enablePullRequestPreview !== undefined &&
-    output.enablePullRequestPreview !== null
-  ) {
-    contents.enablePullRequestPreview = output.enablePullRequestPreview;
-  }
-  if (
-    output.environmentVariables !== undefined &&
-    output.environmentVariables !== null
-  ) {
-    contents.environmentVariables = deserializeAws_restJson1_1EnvironmentVariables(
-      output.environmentVariables,
-      context
-    );
-  }
-  if (output.framework !== undefined && output.framework !== null) {
-    contents.framework = output.framework;
-  }
-  if (
-    output.pullRequestEnvironmentName !== undefined &&
-    output.pullRequestEnvironmentName !== null
-  ) {
-    contents.pullRequestEnvironmentName = output.pullRequestEnvironmentName;
-  }
-  if (output.stage !== undefined && output.stage !== null) {
-    contents.stage = output.stage;
-  }
-  return contents;
+    basicAuthCredentials:
+      output.basicAuthCredentials !== undefined &&
+      output.basicAuthCredentials !== null
+        ? output.basicAuthCredentials
+        : undefined,
+    buildSpec:
+      output.buildSpec !== undefined && output.buildSpec !== null
+        ? output.buildSpec
+        : undefined,
+    enableAutoBuild:
+      output.enableAutoBuild !== undefined && output.enableAutoBuild !== null
+        ? output.enableAutoBuild
+        : undefined,
+    enableBasicAuth:
+      output.enableBasicAuth !== undefined && output.enableBasicAuth !== null
+        ? output.enableBasicAuth
+        : undefined,
+    enablePullRequestPreview:
+      output.enablePullRequestPreview !== undefined &&
+      output.enablePullRequestPreview !== null
+        ? output.enablePullRequestPreview
+        : undefined,
+    environmentVariables:
+      output.environmentVariables !== undefined &&
+      output.environmentVariables !== null
+        ? deserializeAws_restJson1_1EnvironmentVariables(
+            output.environmentVariables,
+            context
+          )
+        : undefined,
+    framework:
+      output.framework !== undefined && output.framework !== null
+        ? output.framework
+        : undefined,
+    pullRequestEnvironmentName:
+      output.pullRequestEnvironmentName !== undefined &&
+      output.pullRequestEnvironmentName !== null
+        ? output.pullRequestEnvironmentName
+        : undefined,
+    stage:
+      output.stage !== undefined && output.stage !== null
+        ? output.stage
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1AutoBranchCreationPatterns = (
@@ -6263,40 +6229,35 @@ const deserializeAws_restJson1_1BackendEnvironment = (
   output: any,
   context: __SerdeContext
 ): BackendEnvironment => {
-  let contents: any = {
+  return {
     __type: "BackendEnvironment",
-    backendEnvironmentArn: undefined,
-    createTime: undefined,
-    deploymentArtifacts: undefined,
-    environmentName: undefined,
-    stackName: undefined,
-    updateTime: undefined
-  };
-  if (
-    output.backendEnvironmentArn !== undefined &&
-    output.backendEnvironmentArn !== null
-  ) {
-    contents.backendEnvironmentArn = output.backendEnvironmentArn;
-  }
-  if (output.createTime !== undefined && output.createTime !== null) {
-    contents.createTime = new Date(Math.round(output.createTime * 1000));
-  }
-  if (
-    output.deploymentArtifacts !== undefined &&
-    output.deploymentArtifacts !== null
-  ) {
-    contents.deploymentArtifacts = output.deploymentArtifacts;
-  }
-  if (output.environmentName !== undefined && output.environmentName !== null) {
-    contents.environmentName = output.environmentName;
-  }
-  if (output.stackName !== undefined && output.stackName !== null) {
-    contents.stackName = output.stackName;
-  }
-  if (output.updateTime !== undefined && output.updateTime !== null) {
-    contents.updateTime = new Date(Math.round(output.updateTime * 1000));
-  }
-  return contents;
+    backendEnvironmentArn:
+      output.backendEnvironmentArn !== undefined &&
+      output.backendEnvironmentArn !== null
+        ? output.backendEnvironmentArn
+        : undefined,
+    createTime:
+      output.createTime !== undefined && output.createTime !== null
+        ? new Date(Math.round(output.createTime * 1000))
+        : undefined,
+    deploymentArtifacts:
+      output.deploymentArtifacts !== undefined &&
+      output.deploymentArtifacts !== null
+        ? output.deploymentArtifacts
+        : undefined,
+    environmentName:
+      output.environmentName !== undefined && output.environmentName !== null
+        ? output.environmentName
+        : undefined,
+    stackName:
+      output.stackName !== undefined && output.stackName !== null
+        ? output.stackName
+        : undefined,
+    updateTime:
+      output.updateTime !== undefined && output.updateTime !== null
+        ? new Date(Math.round(output.updateTime * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1BackendEnvironments = (
@@ -6312,150 +6273,126 @@ const deserializeAws_restJson1_1Branch = (
   output: any,
   context: __SerdeContext
 ): Branch => {
-  let contents: any = {
+  return {
     __type: "Branch",
-    activeJobId: undefined,
-    associatedResources: undefined,
-    backendEnvironmentArn: undefined,
-    basicAuthCredentials: undefined,
-    branchArn: undefined,
-    branchName: undefined,
-    buildSpec: undefined,
-    createTime: undefined,
-    customDomains: undefined,
-    description: undefined,
-    destinationBranch: undefined,
-    displayName: undefined,
-    enableAutoBuild: undefined,
-    enableBasicAuth: undefined,
-    enableNotification: undefined,
-    enablePullRequestPreview: undefined,
-    environmentVariables: undefined,
-    framework: undefined,
-    pullRequestEnvironmentName: undefined,
-    sourceBranch: undefined,
-    stage: undefined,
-    tags: undefined,
-    thumbnailUrl: undefined,
-    totalNumberOfJobs: undefined,
-    ttl: undefined,
-    updateTime: undefined
-  };
-  if (output.activeJobId !== undefined && output.activeJobId !== null) {
-    contents.activeJobId = output.activeJobId;
-  }
-  if (
-    output.associatedResources !== undefined &&
-    output.associatedResources !== null
-  ) {
-    contents.associatedResources = deserializeAws_restJson1_1AssociatedResources(
-      output.associatedResources,
-      context
-    );
-  }
-  if (
-    output.backendEnvironmentArn !== undefined &&
-    output.backendEnvironmentArn !== null
-  ) {
-    contents.backendEnvironmentArn = output.backendEnvironmentArn;
-  }
-  if (
-    output.basicAuthCredentials !== undefined &&
-    output.basicAuthCredentials !== null
-  ) {
-    contents.basicAuthCredentials = output.basicAuthCredentials;
-  }
-  if (output.branchArn !== undefined && output.branchArn !== null) {
-    contents.branchArn = output.branchArn;
-  }
-  if (output.branchName !== undefined && output.branchName !== null) {
-    contents.branchName = output.branchName;
-  }
-  if (output.buildSpec !== undefined && output.buildSpec !== null) {
-    contents.buildSpec = output.buildSpec;
-  }
-  if (output.createTime !== undefined && output.createTime !== null) {
-    contents.createTime = new Date(Math.round(output.createTime * 1000));
-  }
-  if (output.customDomains !== undefined && output.customDomains !== null) {
-    contents.customDomains = deserializeAws_restJson1_1CustomDomains(
-      output.customDomains,
-      context
-    );
-  }
-  if (output.description !== undefined && output.description !== null) {
-    contents.description = output.description;
-  }
-  if (
-    output.destinationBranch !== undefined &&
-    output.destinationBranch !== null
-  ) {
-    contents.destinationBranch = output.destinationBranch;
-  }
-  if (output.displayName !== undefined && output.displayName !== null) {
-    contents.displayName = output.displayName;
-  }
-  if (output.enableAutoBuild !== undefined && output.enableAutoBuild !== null) {
-    contents.enableAutoBuild = output.enableAutoBuild;
-  }
-  if (output.enableBasicAuth !== undefined && output.enableBasicAuth !== null) {
-    contents.enableBasicAuth = output.enableBasicAuth;
-  }
-  if (
-    output.enableNotification !== undefined &&
-    output.enableNotification !== null
-  ) {
-    contents.enableNotification = output.enableNotification;
-  }
-  if (
-    output.enablePullRequestPreview !== undefined &&
-    output.enablePullRequestPreview !== null
-  ) {
-    contents.enablePullRequestPreview = output.enablePullRequestPreview;
-  }
-  if (
-    output.environmentVariables !== undefined &&
-    output.environmentVariables !== null
-  ) {
-    contents.environmentVariables = deserializeAws_restJson1_1EnvironmentVariables(
-      output.environmentVariables,
-      context
-    );
-  }
-  if (output.framework !== undefined && output.framework !== null) {
-    contents.framework = output.framework;
-  }
-  if (
-    output.pullRequestEnvironmentName !== undefined &&
-    output.pullRequestEnvironmentName !== null
-  ) {
-    contents.pullRequestEnvironmentName = output.pullRequestEnvironmentName;
-  }
-  if (output.sourceBranch !== undefined && output.sourceBranch !== null) {
-    contents.sourceBranch = output.sourceBranch;
-  }
-  if (output.stage !== undefined && output.stage !== null) {
-    contents.stage = output.stage;
-  }
-  if (output.tags !== undefined && output.tags !== null) {
-    contents.tags = deserializeAws_restJson1_1TagMap(output.tags, context);
-  }
-  if (output.thumbnailUrl !== undefined && output.thumbnailUrl !== null) {
-    contents.thumbnailUrl = output.thumbnailUrl;
-  }
-  if (
-    output.totalNumberOfJobs !== undefined &&
-    output.totalNumberOfJobs !== null
-  ) {
-    contents.totalNumberOfJobs = output.totalNumberOfJobs;
-  }
-  if (output.ttl !== undefined && output.ttl !== null) {
-    contents.ttl = output.ttl;
-  }
-  if (output.updateTime !== undefined && output.updateTime !== null) {
-    contents.updateTime = new Date(Math.round(output.updateTime * 1000));
-  }
-  return contents;
+    activeJobId:
+      output.activeJobId !== undefined && output.activeJobId !== null
+        ? output.activeJobId
+        : undefined,
+    associatedResources:
+      output.associatedResources !== undefined &&
+      output.associatedResources !== null
+        ? deserializeAws_restJson1_1AssociatedResources(
+            output.associatedResources,
+            context
+          )
+        : undefined,
+    backendEnvironmentArn:
+      output.backendEnvironmentArn !== undefined &&
+      output.backendEnvironmentArn !== null
+        ? output.backendEnvironmentArn
+        : undefined,
+    basicAuthCredentials:
+      output.basicAuthCredentials !== undefined &&
+      output.basicAuthCredentials !== null
+        ? output.basicAuthCredentials
+        : undefined,
+    branchArn:
+      output.branchArn !== undefined && output.branchArn !== null
+        ? output.branchArn
+        : undefined,
+    branchName:
+      output.branchName !== undefined && output.branchName !== null
+        ? output.branchName
+        : undefined,
+    buildSpec:
+      output.buildSpec !== undefined && output.buildSpec !== null
+        ? output.buildSpec
+        : undefined,
+    createTime:
+      output.createTime !== undefined && output.createTime !== null
+        ? new Date(Math.round(output.createTime * 1000))
+        : undefined,
+    customDomains:
+      output.customDomains !== undefined && output.customDomains !== null
+        ? deserializeAws_restJson1_1CustomDomains(output.customDomains, context)
+        : undefined,
+    description:
+      output.description !== undefined && output.description !== null
+        ? output.description
+        : undefined,
+    destinationBranch:
+      output.destinationBranch !== undefined &&
+      output.destinationBranch !== null
+        ? output.destinationBranch
+        : undefined,
+    displayName:
+      output.displayName !== undefined && output.displayName !== null
+        ? output.displayName
+        : undefined,
+    enableAutoBuild:
+      output.enableAutoBuild !== undefined && output.enableAutoBuild !== null
+        ? output.enableAutoBuild
+        : undefined,
+    enableBasicAuth:
+      output.enableBasicAuth !== undefined && output.enableBasicAuth !== null
+        ? output.enableBasicAuth
+        : undefined,
+    enableNotification:
+      output.enableNotification !== undefined &&
+      output.enableNotification !== null
+        ? output.enableNotification
+        : undefined,
+    enablePullRequestPreview:
+      output.enablePullRequestPreview !== undefined &&
+      output.enablePullRequestPreview !== null
+        ? output.enablePullRequestPreview
+        : undefined,
+    environmentVariables:
+      output.environmentVariables !== undefined &&
+      output.environmentVariables !== null
+        ? deserializeAws_restJson1_1EnvironmentVariables(
+            output.environmentVariables,
+            context
+          )
+        : undefined,
+    framework:
+      output.framework !== undefined && output.framework !== null
+        ? output.framework
+        : undefined,
+    pullRequestEnvironmentName:
+      output.pullRequestEnvironmentName !== undefined &&
+      output.pullRequestEnvironmentName !== null
+        ? output.pullRequestEnvironmentName
+        : undefined,
+    sourceBranch:
+      output.sourceBranch !== undefined && output.sourceBranch !== null
+        ? output.sourceBranch
+        : undefined,
+    stage:
+      output.stage !== undefined && output.stage !== null
+        ? output.stage
+        : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1_1TagMap(output.tags, context)
+        : undefined,
+    thumbnailUrl:
+      output.thumbnailUrl !== undefined && output.thumbnailUrl !== null
+        ? output.thumbnailUrl
+        : undefined,
+    totalNumberOfJobs:
+      output.totalNumberOfJobs !== undefined &&
+      output.totalNumberOfJobs !== null
+        ? output.totalNumberOfJobs
+        : undefined,
+    ttl:
+      output.ttl !== undefined && output.ttl !== null ? output.ttl : undefined,
+    updateTime:
+      output.updateTime !== undefined && output.updateTime !== null
+        ? new Date(Math.round(output.updateTime * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Branches = (
@@ -6478,26 +6415,25 @@ const deserializeAws_restJson1_1CustomRule = (
   output: any,
   context: __SerdeContext
 ): CustomRule => {
-  let contents: any = {
+  return {
     __type: "CustomRule",
-    condition: undefined,
-    source: undefined,
-    status: undefined,
-    target: undefined
-  };
-  if (output.condition !== undefined && output.condition !== null) {
-    contents.condition = output.condition;
-  }
-  if (output.source !== undefined && output.source !== null) {
-    contents.source = output.source;
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  if (output.target !== undefined && output.target !== null) {
-    contents.target = output.target;
-  }
-  return contents;
+    condition:
+      output.condition !== undefined && output.condition !== null
+        ? output.condition
+        : undefined,
+    source:
+      output.source !== undefined && output.source !== null
+        ? output.source
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined,
+    target:
+      output.target !== undefined && output.target !== null
+        ? output.target
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1CustomRules = (
@@ -6513,51 +6449,40 @@ const deserializeAws_restJson1_1DomainAssociation = (
   output: any,
   context: __SerdeContext
 ): DomainAssociation => {
-  let contents: any = {
+  return {
     __type: "DomainAssociation",
-    certificateVerificationDNSRecord: undefined,
-    domainAssociationArn: undefined,
-    domainName: undefined,
-    domainStatus: undefined,
-    enableAutoSubDomain: undefined,
-    statusReason: undefined,
-    subDomains: undefined
-  };
-  if (
-    output.certificateVerificationDNSRecord !== undefined &&
-    output.certificateVerificationDNSRecord !== null
-  ) {
-    contents.certificateVerificationDNSRecord =
-      output.certificateVerificationDNSRecord;
-  }
-  if (
-    output.domainAssociationArn !== undefined &&
-    output.domainAssociationArn !== null
-  ) {
-    contents.domainAssociationArn = output.domainAssociationArn;
-  }
-  if (output.domainName !== undefined && output.domainName !== null) {
-    contents.domainName = output.domainName;
-  }
-  if (output.domainStatus !== undefined && output.domainStatus !== null) {
-    contents.domainStatus = output.domainStatus;
-  }
-  if (
-    output.enableAutoSubDomain !== undefined &&
-    output.enableAutoSubDomain !== null
-  ) {
-    contents.enableAutoSubDomain = output.enableAutoSubDomain;
-  }
-  if (output.statusReason !== undefined && output.statusReason !== null) {
-    contents.statusReason = output.statusReason;
-  }
-  if (output.subDomains !== undefined && output.subDomains !== null) {
-    contents.subDomains = deserializeAws_restJson1_1SubDomains(
-      output.subDomains,
-      context
-    );
-  }
-  return contents;
+    certificateVerificationDNSRecord:
+      output.certificateVerificationDNSRecord !== undefined &&
+      output.certificateVerificationDNSRecord !== null
+        ? output.certificateVerificationDNSRecord
+        : undefined,
+    domainAssociationArn:
+      output.domainAssociationArn !== undefined &&
+      output.domainAssociationArn !== null
+        ? output.domainAssociationArn
+        : undefined,
+    domainName:
+      output.domainName !== undefined && output.domainName !== null
+        ? output.domainName
+        : undefined,
+    domainStatus:
+      output.domainStatus !== undefined && output.domainStatus !== null
+        ? output.domainStatus
+        : undefined,
+    enableAutoSubDomain:
+      output.enableAutoSubDomain !== undefined &&
+      output.enableAutoSubDomain !== null
+        ? output.enableAutoSubDomain
+        : undefined,
+    statusReason:
+      output.statusReason !== undefined && output.statusReason !== null
+        ? output.statusReason
+        : undefined,
+    subDomains:
+      output.subDomains !== undefined && output.subDomains !== null
+        ? deserializeAws_restJson1_1SubDomains(output.subDomains, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DomainAssociations = (
@@ -6593,21 +6518,17 @@ const deserializeAws_restJson1_1Job = (
   output: any,
   context: __SerdeContext
 ): Job => {
-  let contents: any = {
+  return {
     __type: "Job",
-    steps: undefined,
-    summary: undefined
-  };
-  if (output.steps !== undefined && output.steps !== null) {
-    contents.steps = deserializeAws_restJson1_1Steps(output.steps, context);
-  }
-  if (output.summary !== undefined && output.summary !== null) {
-    contents.summary = deserializeAws_restJson1_1JobSummary(
-      output.summary,
-      context
-    );
-  }
-  return contents;
+    steps:
+      output.steps !== undefined && output.steps !== null
+        ? deserializeAws_restJson1_1Steps(output.steps, context)
+        : undefined,
+    summary:
+      output.summary !== undefined && output.summary !== null
+        ? deserializeAws_restJson1_1JobSummary(output.summary, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1JobSummaries = (
@@ -6623,74 +6544,70 @@ const deserializeAws_restJson1_1JobSummary = (
   output: any,
   context: __SerdeContext
 ): JobSummary => {
-  let contents: any = {
+  return {
     __type: "JobSummary",
-    commitId: undefined,
-    commitMessage: undefined,
-    commitTime: undefined,
-    endTime: undefined,
-    jobArn: undefined,
-    jobId: undefined,
-    jobType: undefined,
-    startTime: undefined,
-    status: undefined
-  };
-  if (output.commitId !== undefined && output.commitId !== null) {
-    contents.commitId = output.commitId;
-  }
-  if (output.commitMessage !== undefined && output.commitMessage !== null) {
-    contents.commitMessage = output.commitMessage;
-  }
-  if (output.commitTime !== undefined && output.commitTime !== null) {
-    contents.commitTime = new Date(Math.round(output.commitTime * 1000));
-  }
-  if (output.endTime !== undefined && output.endTime !== null) {
-    contents.endTime = new Date(Math.round(output.endTime * 1000));
-  }
-  if (output.jobArn !== undefined && output.jobArn !== null) {
-    contents.jobArn = output.jobArn;
-  }
-  if (output.jobId !== undefined && output.jobId !== null) {
-    contents.jobId = output.jobId;
-  }
-  if (output.jobType !== undefined && output.jobType !== null) {
-    contents.jobType = output.jobType;
-  }
-  if (output.startTime !== undefined && output.startTime !== null) {
-    contents.startTime = new Date(Math.round(output.startTime * 1000));
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  return contents;
+    commitId:
+      output.commitId !== undefined && output.commitId !== null
+        ? output.commitId
+        : undefined,
+    commitMessage:
+      output.commitMessage !== undefined && output.commitMessage !== null
+        ? output.commitMessage
+        : undefined,
+    commitTime:
+      output.commitTime !== undefined && output.commitTime !== null
+        ? new Date(Math.round(output.commitTime * 1000))
+        : undefined,
+    endTime:
+      output.endTime !== undefined && output.endTime !== null
+        ? new Date(Math.round(output.endTime * 1000))
+        : undefined,
+    jobArn:
+      output.jobArn !== undefined && output.jobArn !== null
+        ? output.jobArn
+        : undefined,
+    jobId:
+      output.jobId !== undefined && output.jobId !== null
+        ? output.jobId
+        : undefined,
+    jobType:
+      output.jobType !== undefined && output.jobType !== null
+        ? output.jobType
+        : undefined,
+    startTime:
+      output.startTime !== undefined && output.startTime !== null
+        ? new Date(Math.round(output.startTime * 1000))
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ProductionBranch = (
   output: any,
   context: __SerdeContext
 ): ProductionBranch => {
-  let contents: any = {
+  return {
     __type: "ProductionBranch",
-    branchName: undefined,
-    lastDeployTime: undefined,
-    status: undefined,
-    thumbnailUrl: undefined
-  };
-  if (output.branchName !== undefined && output.branchName !== null) {
-    contents.branchName = output.branchName;
-  }
-  if (output.lastDeployTime !== undefined && output.lastDeployTime !== null) {
-    contents.lastDeployTime = new Date(
-      Math.round(output.lastDeployTime * 1000)
-    );
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  if (output.thumbnailUrl !== undefined && output.thumbnailUrl !== null) {
-    contents.thumbnailUrl = output.thumbnailUrl;
-  }
-  return contents;
+    branchName:
+      output.branchName !== undefined && output.branchName !== null
+        ? output.branchName
+        : undefined,
+    lastDeployTime:
+      output.lastDeployTime !== undefined && output.lastDeployTime !== null
+        ? new Date(Math.round(output.lastDeployTime * 1000))
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined,
+    thumbnailUrl:
+      output.thumbnailUrl !== undefined && output.thumbnailUrl !== null
+        ? output.thumbnailUrl
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Screenshots = (
@@ -6707,60 +6624,53 @@ const deserializeAws_restJson1_1Step = (
   output: any,
   context: __SerdeContext
 ): Step => {
-  let contents: any = {
+  return {
     __type: "Step",
-    artifactsUrl: undefined,
-    context: undefined,
-    endTime: undefined,
-    logUrl: undefined,
-    screenshots: undefined,
-    startTime: undefined,
-    status: undefined,
-    statusReason: undefined,
-    stepName: undefined,
-    testArtifactsUrl: undefined,
-    testConfigUrl: undefined
-  };
-  if (output.artifactsUrl !== undefined && output.artifactsUrl !== null) {
-    contents.artifactsUrl = output.artifactsUrl;
-  }
-  if (output.context !== undefined && output.context !== null) {
-    contents.context = output.context;
-  }
-  if (output.endTime !== undefined && output.endTime !== null) {
-    contents.endTime = new Date(Math.round(output.endTime * 1000));
-  }
-  if (output.logUrl !== undefined && output.logUrl !== null) {
-    contents.logUrl = output.logUrl;
-  }
-  if (output.screenshots !== undefined && output.screenshots !== null) {
-    contents.screenshots = deserializeAws_restJson1_1Screenshots(
-      output.screenshots,
-      context
-    );
-  }
-  if (output.startTime !== undefined && output.startTime !== null) {
-    contents.startTime = new Date(Math.round(output.startTime * 1000));
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  if (output.statusReason !== undefined && output.statusReason !== null) {
-    contents.statusReason = output.statusReason;
-  }
-  if (output.stepName !== undefined && output.stepName !== null) {
-    contents.stepName = output.stepName;
-  }
-  if (
-    output.testArtifactsUrl !== undefined &&
-    output.testArtifactsUrl !== null
-  ) {
-    contents.testArtifactsUrl = output.testArtifactsUrl;
-  }
-  if (output.testConfigUrl !== undefined && output.testConfigUrl !== null) {
-    contents.testConfigUrl = output.testConfigUrl;
-  }
-  return contents;
+    artifactsUrl:
+      output.artifactsUrl !== undefined && output.artifactsUrl !== null
+        ? output.artifactsUrl
+        : undefined,
+    context:
+      output.context !== undefined && output.context !== null
+        ? output.context
+        : undefined,
+    endTime:
+      output.endTime !== undefined && output.endTime !== null
+        ? new Date(Math.round(output.endTime * 1000))
+        : undefined,
+    logUrl:
+      output.logUrl !== undefined && output.logUrl !== null
+        ? output.logUrl
+        : undefined,
+    screenshots:
+      output.screenshots !== undefined && output.screenshots !== null
+        ? deserializeAws_restJson1_1Screenshots(output.screenshots, context)
+        : undefined,
+    startTime:
+      output.startTime !== undefined && output.startTime !== null
+        ? new Date(Math.round(output.startTime * 1000))
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined,
+    statusReason:
+      output.statusReason !== undefined && output.statusReason !== null
+        ? output.statusReason
+        : undefined,
+    stepName:
+      output.stepName !== undefined && output.stepName !== null
+        ? output.stepName
+        : undefined,
+    testArtifactsUrl:
+      output.testArtifactsUrl !== undefined && output.testArtifactsUrl !== null
+        ? output.testArtifactsUrl
+        : undefined,
+    testConfigUrl:
+      output.testConfigUrl !== undefined && output.testConfigUrl !== null
+        ? output.testConfigUrl
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Steps = (
@@ -6776,46 +6686,41 @@ const deserializeAws_restJson1_1SubDomain = (
   output: any,
   context: __SerdeContext
 ): SubDomain => {
-  let contents: any = {
+  return {
     __type: "SubDomain",
-    dnsRecord: undefined,
-    subDomainSetting: undefined,
-    verified: undefined
-  };
-  if (output.dnsRecord !== undefined && output.dnsRecord !== null) {
-    contents.dnsRecord = output.dnsRecord;
-  }
-  if (
-    output.subDomainSetting !== undefined &&
-    output.subDomainSetting !== null
-  ) {
-    contents.subDomainSetting = deserializeAws_restJson1_1SubDomainSetting(
-      output.subDomainSetting,
-      context
-    );
-  }
-  if (output.verified !== undefined && output.verified !== null) {
-    contents.verified = output.verified;
-  }
-  return contents;
+    dnsRecord:
+      output.dnsRecord !== undefined && output.dnsRecord !== null
+        ? output.dnsRecord
+        : undefined,
+    subDomainSetting:
+      output.subDomainSetting !== undefined && output.subDomainSetting !== null
+        ? deserializeAws_restJson1_1SubDomainSetting(
+            output.subDomainSetting,
+            context
+          )
+        : undefined,
+    verified:
+      output.verified !== undefined && output.verified !== null
+        ? output.verified
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SubDomainSetting = (
   output: any,
   context: __SerdeContext
 ): SubDomainSetting => {
-  let contents: any = {
+  return {
     __type: "SubDomainSetting",
-    branchName: undefined,
-    prefix: undefined
-  };
-  if (output.branchName !== undefined && output.branchName !== null) {
-    contents.branchName = output.branchName;
-  }
-  if (output.prefix !== undefined && output.prefix !== null) {
-    contents.prefix = output.prefix;
-  }
-  return contents;
+    branchName:
+      output.branchName !== undefined && output.branchName !== null
+        ? output.branchName
+        : undefined,
+    prefix:
+      output.prefix !== undefined && output.prefix !== null
+        ? output.prefix
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SubDomains = (
@@ -6841,38 +6746,37 @@ const deserializeAws_restJson1_1Webhook = (
   output: any,
   context: __SerdeContext
 ): Webhook => {
-  let contents: any = {
+  return {
     __type: "Webhook",
-    branchName: undefined,
-    createTime: undefined,
-    description: undefined,
-    updateTime: undefined,
-    webhookArn: undefined,
-    webhookId: undefined,
-    webhookUrl: undefined
-  };
-  if (output.branchName !== undefined && output.branchName !== null) {
-    contents.branchName = output.branchName;
-  }
-  if (output.createTime !== undefined && output.createTime !== null) {
-    contents.createTime = new Date(Math.round(output.createTime * 1000));
-  }
-  if (output.description !== undefined && output.description !== null) {
-    contents.description = output.description;
-  }
-  if (output.updateTime !== undefined && output.updateTime !== null) {
-    contents.updateTime = new Date(Math.round(output.updateTime * 1000));
-  }
-  if (output.webhookArn !== undefined && output.webhookArn !== null) {
-    contents.webhookArn = output.webhookArn;
-  }
-  if (output.webhookId !== undefined && output.webhookId !== null) {
-    contents.webhookId = output.webhookId;
-  }
-  if (output.webhookUrl !== undefined && output.webhookUrl !== null) {
-    contents.webhookUrl = output.webhookUrl;
-  }
-  return contents;
+    branchName:
+      output.branchName !== undefined && output.branchName !== null
+        ? output.branchName
+        : undefined,
+    createTime:
+      output.createTime !== undefined && output.createTime !== null
+        ? new Date(Math.round(output.createTime * 1000))
+        : undefined,
+    description:
+      output.description !== undefined && output.description !== null
+        ? output.description
+        : undefined,
+    updateTime:
+      output.updateTime !== undefined && output.updateTime !== null
+        ? new Date(Math.round(output.updateTime * 1000))
+        : undefined,
+    webhookArn:
+      output.webhookArn !== undefined && output.webhookArn !== null
+        ? output.webhookArn
+        : undefined,
+    webhookId:
+      output.webhookId !== undefined && output.webhookId !== null
+        ? output.webhookId
+        : undefined,
+    webhookUrl:
+      output.webhookUrl !== undefined && output.webhookUrl !== null
+        ? output.webhookUrl
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Webhooks = (

@@ -3823,419 +3823,362 @@ const deserializeAws_restJson1_1AssetDestinationEntry = (
   output: any,
   context: __SerdeContext
 ): AssetDestinationEntry => {
-  let contents: any = {
+  return {
     __type: "AssetDestinationEntry",
-    AssetId: undefined,
-    Bucket: undefined,
-    Key: undefined
-  };
-  if (output.AssetId !== undefined && output.AssetId !== null) {
-    contents.AssetId = output.AssetId;
-  }
-  if (output.Bucket !== undefined && output.Bucket !== null) {
-    contents.Bucket = output.Bucket;
-  }
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  return contents;
+    AssetId:
+      output.AssetId !== undefined && output.AssetId !== null
+        ? output.AssetId
+        : undefined,
+    Bucket:
+      output.Bucket !== undefined && output.Bucket !== null
+        ? output.Bucket
+        : undefined,
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1AssetDetails = (
   output: any,
   context: __SerdeContext
 ): AssetDetails => {
-  let contents: any = {
+  return {
     __type: "AssetDetails",
-    S3SnapshotAsset: undefined
-  };
-  if (output.S3SnapshotAsset !== undefined && output.S3SnapshotAsset !== null) {
-    contents.S3SnapshotAsset = deserializeAws_restJson1_1S3SnapshotAsset(
-      output.S3SnapshotAsset,
-      context
-    );
-  }
-  return contents;
+    S3SnapshotAsset:
+      output.S3SnapshotAsset !== undefined && output.S3SnapshotAsset !== null
+        ? deserializeAws_restJson1_1S3SnapshotAsset(
+            output.S3SnapshotAsset,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1AssetEntry = (
   output: any,
   context: __SerdeContext
 ): AssetEntry => {
-  let contents: any = {
+  return {
     __type: "AssetEntry",
-    Arn: undefined,
-    AssetDetails: undefined,
-    AssetType: undefined,
-    CreatedAt: undefined,
-    DataSetId: undefined,
-    Id: undefined,
-    Name: undefined,
-    RevisionId: undefined,
-    SourceId: undefined,
-    UpdatedAt: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (output.AssetDetails !== undefined && output.AssetDetails !== null) {
-    contents.AssetDetails = deserializeAws_restJson1_1AssetDetails(
-      output.AssetDetails,
-      context
-    );
-  }
-  if (output.AssetType !== undefined && output.AssetType !== null) {
-    contents.AssetType = output.AssetType;
-  }
-  if (output.CreatedAt !== undefined && output.CreatedAt !== null) {
-    contents.CreatedAt = new Date(output.CreatedAt);
-  }
-  if (output.DataSetId !== undefined && output.DataSetId !== null) {
-    contents.DataSetId = output.DataSetId;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.RevisionId !== undefined && output.RevisionId !== null) {
-    contents.RevisionId = output.RevisionId;
-  }
-  if (output.SourceId !== undefined && output.SourceId !== null) {
-    contents.SourceId = output.SourceId;
-  }
-  if (output.UpdatedAt !== undefined && output.UpdatedAt !== null) {
-    contents.UpdatedAt = new Date(output.UpdatedAt);
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    AssetDetails:
+      output.AssetDetails !== undefined && output.AssetDetails !== null
+        ? deserializeAws_restJson1_1AssetDetails(output.AssetDetails, context)
+        : undefined,
+    AssetType:
+      output.AssetType !== undefined && output.AssetType !== null
+        ? output.AssetType
+        : undefined,
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? new Date(output.CreatedAt)
+        : undefined,
+    DataSetId:
+      output.DataSetId !== undefined && output.DataSetId !== null
+        ? output.DataSetId
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    RevisionId:
+      output.RevisionId !== undefined && output.RevisionId !== null
+        ? output.RevisionId
+        : undefined,
+    SourceId:
+      output.SourceId !== undefined && output.SourceId !== null
+        ? output.SourceId
+        : undefined,
+    UpdatedAt:
+      output.UpdatedAt !== undefined && output.UpdatedAt !== null
+        ? new Date(output.UpdatedAt)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1AssetSourceEntry = (
   output: any,
   context: __SerdeContext
 ): AssetSourceEntry => {
-  let contents: any = {
+  return {
     __type: "AssetSourceEntry",
-    Bucket: undefined,
-    Key: undefined
-  };
-  if (output.Bucket !== undefined && output.Bucket !== null) {
-    contents.Bucket = output.Bucket;
-  }
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  return contents;
+    Bucket:
+      output.Bucket !== undefined && output.Bucket !== null
+        ? output.Bucket
+        : undefined,
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DataSetEntry = (
   output: any,
   context: __SerdeContext
 ): DataSetEntry => {
-  let contents: any = {
+  return {
     __type: "DataSetEntry",
-    Arn: undefined,
-    AssetType: undefined,
-    CreatedAt: undefined,
-    Description: undefined,
-    Id: undefined,
-    Name: undefined,
-    Origin: undefined,
-    OriginDetails: undefined,
-    SourceId: undefined,
-    UpdatedAt: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (output.AssetType !== undefined && output.AssetType !== null) {
-    contents.AssetType = output.AssetType;
-  }
-  if (output.CreatedAt !== undefined && output.CreatedAt !== null) {
-    contents.CreatedAt = new Date(output.CreatedAt);
-  }
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Origin !== undefined && output.Origin !== null) {
-    contents.Origin = output.Origin;
-  }
-  if (output.OriginDetails !== undefined && output.OriginDetails !== null) {
-    contents.OriginDetails = deserializeAws_restJson1_1OriginDetails(
-      output.OriginDetails,
-      context
-    );
-  }
-  if (output.SourceId !== undefined && output.SourceId !== null) {
-    contents.SourceId = output.SourceId;
-  }
-  if (output.UpdatedAt !== undefined && output.UpdatedAt !== null) {
-    contents.UpdatedAt = new Date(output.UpdatedAt);
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    AssetType:
+      output.AssetType !== undefined && output.AssetType !== null
+        ? output.AssetType
+        : undefined,
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? new Date(output.CreatedAt)
+        : undefined,
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Origin:
+      output.Origin !== undefined && output.Origin !== null
+        ? output.Origin
+        : undefined,
+    OriginDetails:
+      output.OriginDetails !== undefined && output.OriginDetails !== null
+        ? deserializeAws_restJson1_1OriginDetails(output.OriginDetails, context)
+        : undefined,
+    SourceId:
+      output.SourceId !== undefined && output.SourceId !== null
+        ? output.SourceId
+        : undefined,
+    UpdatedAt:
+      output.UpdatedAt !== undefined && output.UpdatedAt !== null
+        ? new Date(output.UpdatedAt)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Details = (
   output: any,
   context: __SerdeContext
 ): Details => {
-  let contents: any = {
+  return {
     __type: "Details",
-    ImportAssetFromSignedUrlJobErrorDetails: undefined,
-    ImportAssetsFromS3JobErrorDetails: undefined
-  };
-  if (
-    output.ImportAssetFromSignedUrlJobErrorDetails !== undefined &&
-    output.ImportAssetFromSignedUrlJobErrorDetails !== null
-  ) {
-    contents.ImportAssetFromSignedUrlJobErrorDetails = deserializeAws_restJson1_1ImportAssetFromSignedUrlJobErrorDetails(
-      output.ImportAssetFromSignedUrlJobErrorDetails,
-      context
-    );
-  }
-  if (
-    output.ImportAssetsFromS3JobErrorDetails !== undefined &&
-    output.ImportAssetsFromS3JobErrorDetails !== null
-  ) {
-    contents.ImportAssetsFromS3JobErrorDetails = deserializeAws_restJson1_1ListOfAssetSourceEntry(
-      output.ImportAssetsFromS3JobErrorDetails,
-      context
-    );
-  }
-  return contents;
+    ImportAssetFromSignedUrlJobErrorDetails:
+      output.ImportAssetFromSignedUrlJobErrorDetails !== undefined &&
+      output.ImportAssetFromSignedUrlJobErrorDetails !== null
+        ? deserializeAws_restJson1_1ImportAssetFromSignedUrlJobErrorDetails(
+            output.ImportAssetFromSignedUrlJobErrorDetails,
+            context
+          )
+        : undefined,
+    ImportAssetsFromS3JobErrorDetails:
+      output.ImportAssetsFromS3JobErrorDetails !== undefined &&
+      output.ImportAssetsFromS3JobErrorDetails !== null
+        ? deserializeAws_restJson1_1ListOfAssetSourceEntry(
+            output.ImportAssetsFromS3JobErrorDetails,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ExportAssetToSignedUrlResponseDetails = (
   output: any,
   context: __SerdeContext
 ): ExportAssetToSignedUrlResponseDetails => {
-  let contents: any = {
+  return {
     __type: "ExportAssetToSignedUrlResponseDetails",
-    AssetId: undefined,
-    DataSetId: undefined,
-    RevisionId: undefined,
-    SignedUrl: undefined,
-    SignedUrlExpiresAt: undefined
-  };
-  if (output.AssetId !== undefined && output.AssetId !== null) {
-    contents.AssetId = output.AssetId;
-  }
-  if (output.DataSetId !== undefined && output.DataSetId !== null) {
-    contents.DataSetId = output.DataSetId;
-  }
-  if (output.RevisionId !== undefined && output.RevisionId !== null) {
-    contents.RevisionId = output.RevisionId;
-  }
-  if (output.SignedUrl !== undefined && output.SignedUrl !== null) {
-    contents.SignedUrl = output.SignedUrl;
-  }
-  if (
-    output.SignedUrlExpiresAt !== undefined &&
-    output.SignedUrlExpiresAt !== null
-  ) {
-    contents.SignedUrlExpiresAt = new Date(output.SignedUrlExpiresAt);
-  }
-  return contents;
+    AssetId:
+      output.AssetId !== undefined && output.AssetId !== null
+        ? output.AssetId
+        : undefined,
+    DataSetId:
+      output.DataSetId !== undefined && output.DataSetId !== null
+        ? output.DataSetId
+        : undefined,
+    RevisionId:
+      output.RevisionId !== undefined && output.RevisionId !== null
+        ? output.RevisionId
+        : undefined,
+    SignedUrl:
+      output.SignedUrl !== undefined && output.SignedUrl !== null
+        ? output.SignedUrl
+        : undefined,
+    SignedUrlExpiresAt:
+      output.SignedUrlExpiresAt !== undefined &&
+      output.SignedUrlExpiresAt !== null
+        ? new Date(output.SignedUrlExpiresAt)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ExportAssetsToS3ResponseDetails = (
   output: any,
   context: __SerdeContext
 ): ExportAssetsToS3ResponseDetails => {
-  let contents: any = {
+  return {
     __type: "ExportAssetsToS3ResponseDetails",
-    AssetDestinations: undefined,
-    DataSetId: undefined,
-    RevisionId: undefined
-  };
-  if (
-    output.AssetDestinations !== undefined &&
-    output.AssetDestinations !== null
-  ) {
-    contents.AssetDestinations = deserializeAws_restJson1_1ListOfAssetDestinationEntry(
-      output.AssetDestinations,
-      context
-    );
-  }
-  if (output.DataSetId !== undefined && output.DataSetId !== null) {
-    contents.DataSetId = output.DataSetId;
-  }
-  if (output.RevisionId !== undefined && output.RevisionId !== null) {
-    contents.RevisionId = output.RevisionId;
-  }
-  return contents;
+    AssetDestinations:
+      output.AssetDestinations !== undefined &&
+      output.AssetDestinations !== null
+        ? deserializeAws_restJson1_1ListOfAssetDestinationEntry(
+            output.AssetDestinations,
+            context
+          )
+        : undefined,
+    DataSetId:
+      output.DataSetId !== undefined && output.DataSetId !== null
+        ? output.DataSetId
+        : undefined,
+    RevisionId:
+      output.RevisionId !== undefined && output.RevisionId !== null
+        ? output.RevisionId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ImportAssetFromSignedUrlJobErrorDetails = (
   output: any,
   context: __SerdeContext
 ): ImportAssetFromSignedUrlJobErrorDetails => {
-  let contents: any = {
+  return {
     __type: "ImportAssetFromSignedUrlJobErrorDetails",
-    AssetName: undefined
-  };
-  if (output.AssetName !== undefined && output.AssetName !== null) {
-    contents.AssetName = output.AssetName;
-  }
-  return contents;
+    AssetName:
+      output.AssetName !== undefined && output.AssetName !== null
+        ? output.AssetName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ImportAssetFromSignedUrlResponseDetails = (
   output: any,
   context: __SerdeContext
 ): ImportAssetFromSignedUrlResponseDetails => {
-  let contents: any = {
+  return {
     __type: "ImportAssetFromSignedUrlResponseDetails",
-    AssetName: undefined,
-    DataSetId: undefined,
-    Md5Hash: undefined,
-    RevisionId: undefined,
-    SignedUrl: undefined,
-    SignedUrlExpiresAt: undefined
-  };
-  if (output.AssetName !== undefined && output.AssetName !== null) {
-    contents.AssetName = output.AssetName;
-  }
-  if (output.DataSetId !== undefined && output.DataSetId !== null) {
-    contents.DataSetId = output.DataSetId;
-  }
-  if (output.Md5Hash !== undefined && output.Md5Hash !== null) {
-    contents.Md5Hash = output.Md5Hash;
-  }
-  if (output.RevisionId !== undefined && output.RevisionId !== null) {
-    contents.RevisionId = output.RevisionId;
-  }
-  if (output.SignedUrl !== undefined && output.SignedUrl !== null) {
-    contents.SignedUrl = output.SignedUrl;
-  }
-  if (
-    output.SignedUrlExpiresAt !== undefined &&
-    output.SignedUrlExpiresAt !== null
-  ) {
-    contents.SignedUrlExpiresAt = new Date(output.SignedUrlExpiresAt);
-  }
-  return contents;
+    AssetName:
+      output.AssetName !== undefined && output.AssetName !== null
+        ? output.AssetName
+        : undefined,
+    DataSetId:
+      output.DataSetId !== undefined && output.DataSetId !== null
+        ? output.DataSetId
+        : undefined,
+    Md5Hash:
+      output.Md5Hash !== undefined && output.Md5Hash !== null
+        ? output.Md5Hash
+        : undefined,
+    RevisionId:
+      output.RevisionId !== undefined && output.RevisionId !== null
+        ? output.RevisionId
+        : undefined,
+    SignedUrl:
+      output.SignedUrl !== undefined && output.SignedUrl !== null
+        ? output.SignedUrl
+        : undefined,
+    SignedUrlExpiresAt:
+      output.SignedUrlExpiresAt !== undefined &&
+      output.SignedUrlExpiresAt !== null
+        ? new Date(output.SignedUrlExpiresAt)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ImportAssetsFromS3ResponseDetails = (
   output: any,
   context: __SerdeContext
 ): ImportAssetsFromS3ResponseDetails => {
-  let contents: any = {
+  return {
     __type: "ImportAssetsFromS3ResponseDetails",
-    AssetSources: undefined,
-    DataSetId: undefined,
-    RevisionId: undefined
-  };
-  if (output.AssetSources !== undefined && output.AssetSources !== null) {
-    contents.AssetSources = deserializeAws_restJson1_1ListOfAssetSourceEntry(
-      output.AssetSources,
-      context
-    );
-  }
-  if (output.DataSetId !== undefined && output.DataSetId !== null) {
-    contents.DataSetId = output.DataSetId;
-  }
-  if (output.RevisionId !== undefined && output.RevisionId !== null) {
-    contents.RevisionId = output.RevisionId;
-  }
-  return contents;
+    AssetSources:
+      output.AssetSources !== undefined && output.AssetSources !== null
+        ? deserializeAws_restJson1_1ListOfAssetSourceEntry(
+            output.AssetSources,
+            context
+          )
+        : undefined,
+    DataSetId:
+      output.DataSetId !== undefined && output.DataSetId !== null
+        ? output.DataSetId
+        : undefined,
+    RevisionId:
+      output.RevisionId !== undefined && output.RevisionId !== null
+        ? output.RevisionId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1JobEntry = (
   output: any,
   context: __SerdeContext
 ): JobEntry => {
-  let contents: any = {
+  return {
     __type: "JobEntry",
-    Arn: undefined,
-    CreatedAt: undefined,
-    Details: undefined,
-    Errors: undefined,
-    Id: undefined,
-    State: undefined,
-    Type: undefined,
-    UpdatedAt: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (output.CreatedAt !== undefined && output.CreatedAt !== null) {
-    contents.CreatedAt = new Date(output.CreatedAt);
-  }
-  if (output.Details !== undefined && output.Details !== null) {
-    contents.Details = deserializeAws_restJson1_1ResponseDetails(
-      output.Details,
-      context
-    );
-  }
-  if (output.Errors !== undefined && output.Errors !== null) {
-    contents.Errors = deserializeAws_restJson1_1ListOfJobError(
-      output.Errors,
-      context
-    );
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.State !== undefined && output.State !== null) {
-    contents.State = output.State;
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  if (output.UpdatedAt !== undefined && output.UpdatedAt !== null) {
-    contents.UpdatedAt = new Date(output.UpdatedAt);
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? new Date(output.CreatedAt)
+        : undefined,
+    Details:
+      output.Details !== undefined && output.Details !== null
+        ? deserializeAws_restJson1_1ResponseDetails(output.Details, context)
+        : undefined,
+    Errors:
+      output.Errors !== undefined && output.Errors !== null
+        ? deserializeAws_restJson1_1ListOfJobError(output.Errors, context)
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    State:
+      output.State !== undefined && output.State !== null
+        ? output.State
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined,
+    UpdatedAt:
+      output.UpdatedAt !== undefined && output.UpdatedAt !== null
+        ? new Date(output.UpdatedAt)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1JobError = (
   output: any,
   context: __SerdeContext
 ): JobError => {
-  let contents: any = {
+  return {
     __type: "JobError",
-    Code: undefined,
-    Details: undefined,
-    LimitName: undefined,
-    LimitValue: undefined,
-    Message: undefined,
-    ResourceId: undefined,
-    ResourceType: undefined
-  };
-  if (output.Code !== undefined && output.Code !== null) {
-    contents.Code = output.Code;
-  }
-  if (output.Details !== undefined && output.Details !== null) {
-    contents.Details = deserializeAws_restJson1_1Details(
-      output.Details,
-      context
-    );
-  }
-  if (output.LimitName !== undefined && output.LimitName !== null) {
-    contents.LimitName = output.LimitName;
-  }
-  if (output.LimitValue !== undefined && output.LimitValue !== null) {
-    contents.LimitValue = output.LimitValue;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.ResourceId !== undefined && output.ResourceId !== null) {
-    contents.ResourceId = output.ResourceId;
-  }
-  if (output.ResourceType !== undefined && output.ResourceType !== null) {
-    contents.ResourceType = output.ResourceType;
-  }
-  return contents;
+    Code:
+      output.Code !== undefined && output.Code !== null
+        ? output.Code
+        : undefined,
+    Details:
+      output.Details !== undefined && output.Details !== null
+        ? deserializeAws_restJson1_1Details(output.Details, context)
+        : undefined,
+    LimitName:
+      output.LimitName !== undefined && output.LimitName !== null
+        ? output.LimitName
+        : undefined,
+    LimitValue:
+      output.LimitValue !== undefined && output.LimitValue !== null
+        ? output.LimitValue
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    ResourceId:
+      output.ResourceId !== undefined && output.ResourceId !== null
+        ? output.ResourceId
+        : undefined,
+    ResourceType:
+      output.ResourceType !== undefined && output.ResourceType !== null
+        ? output.ResourceType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ListOfAssetDestinationEntry = (
@@ -4315,120 +4258,102 @@ const deserializeAws_restJson1_1OriginDetails = (
   output: any,
   context: __SerdeContext
 ): OriginDetails => {
-  let contents: any = {
+  return {
     __type: "OriginDetails",
-    ProductId: undefined
-  };
-  if (output.ProductId !== undefined && output.ProductId !== null) {
-    contents.ProductId = output.ProductId;
-  }
-  return contents;
+    ProductId:
+      output.ProductId !== undefined && output.ProductId !== null
+        ? output.ProductId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ResponseDetails = (
   output: any,
   context: __SerdeContext
 ): ResponseDetails => {
-  let contents: any = {
+  return {
     __type: "ResponseDetails",
-    ExportAssetToSignedUrl: undefined,
-    ExportAssetsToS3: undefined,
-    ImportAssetFromSignedUrl: undefined,
-    ImportAssetsFromS3: undefined
-  };
-  if (
-    output.ExportAssetToSignedUrl !== undefined &&
-    output.ExportAssetToSignedUrl !== null
-  ) {
-    contents.ExportAssetToSignedUrl = deserializeAws_restJson1_1ExportAssetToSignedUrlResponseDetails(
-      output.ExportAssetToSignedUrl,
-      context
-    );
-  }
-  if (
-    output.ExportAssetsToS3 !== undefined &&
-    output.ExportAssetsToS3 !== null
-  ) {
-    contents.ExportAssetsToS3 = deserializeAws_restJson1_1ExportAssetsToS3ResponseDetails(
-      output.ExportAssetsToS3,
-      context
-    );
-  }
-  if (
-    output.ImportAssetFromSignedUrl !== undefined &&
-    output.ImportAssetFromSignedUrl !== null
-  ) {
-    contents.ImportAssetFromSignedUrl = deserializeAws_restJson1_1ImportAssetFromSignedUrlResponseDetails(
-      output.ImportAssetFromSignedUrl,
-      context
-    );
-  }
-  if (
-    output.ImportAssetsFromS3 !== undefined &&
-    output.ImportAssetsFromS3 !== null
-  ) {
-    contents.ImportAssetsFromS3 = deserializeAws_restJson1_1ImportAssetsFromS3ResponseDetails(
-      output.ImportAssetsFromS3,
-      context
-    );
-  }
-  return contents;
+    ExportAssetToSignedUrl:
+      output.ExportAssetToSignedUrl !== undefined &&
+      output.ExportAssetToSignedUrl !== null
+        ? deserializeAws_restJson1_1ExportAssetToSignedUrlResponseDetails(
+            output.ExportAssetToSignedUrl,
+            context
+          )
+        : undefined,
+    ExportAssetsToS3:
+      output.ExportAssetsToS3 !== undefined && output.ExportAssetsToS3 !== null
+        ? deserializeAws_restJson1_1ExportAssetsToS3ResponseDetails(
+            output.ExportAssetsToS3,
+            context
+          )
+        : undefined,
+    ImportAssetFromSignedUrl:
+      output.ImportAssetFromSignedUrl !== undefined &&
+      output.ImportAssetFromSignedUrl !== null
+        ? deserializeAws_restJson1_1ImportAssetFromSignedUrlResponseDetails(
+            output.ImportAssetFromSignedUrl,
+            context
+          )
+        : undefined,
+    ImportAssetsFromS3:
+      output.ImportAssetsFromS3 !== undefined &&
+      output.ImportAssetsFromS3 !== null
+        ? deserializeAws_restJson1_1ImportAssetsFromS3ResponseDetails(
+            output.ImportAssetsFromS3,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1RevisionEntry = (
   output: any,
   context: __SerdeContext
 ): RevisionEntry => {
-  let contents: any = {
+  return {
     __type: "RevisionEntry",
-    Arn: undefined,
-    Comment: undefined,
-    CreatedAt: undefined,
-    DataSetId: undefined,
-    Finalized: undefined,
-    Id: undefined,
-    SourceId: undefined,
-    UpdatedAt: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (output.Comment !== undefined && output.Comment !== null) {
-    contents.Comment = output.Comment;
-  }
-  if (output.CreatedAt !== undefined && output.CreatedAt !== null) {
-    contents.CreatedAt = new Date(output.CreatedAt);
-  }
-  if (output.DataSetId !== undefined && output.DataSetId !== null) {
-    contents.DataSetId = output.DataSetId;
-  }
-  if (output.Finalized !== undefined && output.Finalized !== null) {
-    contents.Finalized = output.Finalized;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.SourceId !== undefined && output.SourceId !== null) {
-    contents.SourceId = output.SourceId;
-  }
-  if (output.UpdatedAt !== undefined && output.UpdatedAt !== null) {
-    contents.UpdatedAt = new Date(output.UpdatedAt);
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Comment:
+      output.Comment !== undefined && output.Comment !== null
+        ? output.Comment
+        : undefined,
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? new Date(output.CreatedAt)
+        : undefined,
+    DataSetId:
+      output.DataSetId !== undefined && output.DataSetId !== null
+        ? output.DataSetId
+        : undefined,
+    Finalized:
+      output.Finalized !== undefined && output.Finalized !== null
+        ? output.Finalized
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    SourceId:
+      output.SourceId !== undefined && output.SourceId !== null
+        ? output.SourceId
+        : undefined,
+    UpdatedAt:
+      output.UpdatedAt !== undefined && output.UpdatedAt !== null
+        ? new Date(output.UpdatedAt)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1S3SnapshotAsset = (
   output: any,
   context: __SerdeContext
 ): S3SnapshotAsset => {
-  let contents: any = {
+  return {
     __type: "S3SnapshotAsset",
-    Size: undefined
-  };
-  if (output.Size !== undefined && output.Size !== null) {
-    contents.Size = output.Size;
-  }
-  return contents;
+    Size:
+      output.Size !== undefined && output.Size !== null
+        ? output.Size
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

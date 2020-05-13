@@ -3012,74 +3012,66 @@ const deserializeAws_restJson1_1AnalyzedResource = (
   output: any,
   context: __SerdeContext
 ): AnalyzedResource => {
-  let contents: any = {
+  return {
     __type: "AnalyzedResource",
-    actions: undefined,
-    analyzedAt: undefined,
-    createdAt: undefined,
-    error: undefined,
-    isPublic: undefined,
-    resourceArn: undefined,
-    resourceType: undefined,
-    sharedVia: undefined,
-    status: undefined,
-    updatedAt: undefined
-  };
-  if (output.actions !== undefined && output.actions !== null) {
-    contents.actions = deserializeAws_restJson1_1ActionList(
-      output.actions,
-      context
-    );
-  }
-  if (output.analyzedAt !== undefined && output.analyzedAt !== null) {
-    contents.analyzedAt = new Date(output.analyzedAt);
-  }
-  if (output.createdAt !== undefined && output.createdAt !== null) {
-    contents.createdAt = new Date(output.createdAt);
-  }
-  if (output.error !== undefined && output.error !== null) {
-    contents.error = output.error;
-  }
-  if (output.isPublic !== undefined && output.isPublic !== null) {
-    contents.isPublic = output.isPublic;
-  }
-  if (output.resourceArn !== undefined && output.resourceArn !== null) {
-    contents.resourceArn = output.resourceArn;
-  }
-  if (output.resourceType !== undefined && output.resourceType !== null) {
-    contents.resourceType = output.resourceType;
-  }
-  if (output.sharedVia !== undefined && output.sharedVia !== null) {
-    contents.sharedVia = deserializeAws_restJson1_1SharedViaList(
-      output.sharedVia,
-      context
-    );
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  if (output.updatedAt !== undefined && output.updatedAt !== null) {
-    contents.updatedAt = new Date(output.updatedAt);
-  }
-  return contents;
+    actions:
+      output.actions !== undefined && output.actions !== null
+        ? deserializeAws_restJson1_1ActionList(output.actions, context)
+        : undefined,
+    analyzedAt:
+      output.analyzedAt !== undefined && output.analyzedAt !== null
+        ? new Date(output.analyzedAt)
+        : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(output.createdAt)
+        : undefined,
+    error:
+      output.error !== undefined && output.error !== null
+        ? output.error
+        : undefined,
+    isPublic:
+      output.isPublic !== undefined && output.isPublic !== null
+        ? output.isPublic
+        : undefined,
+    resourceArn:
+      output.resourceArn !== undefined && output.resourceArn !== null
+        ? output.resourceArn
+        : undefined,
+    resourceType:
+      output.resourceType !== undefined && output.resourceType !== null
+        ? output.resourceType
+        : undefined,
+    sharedVia:
+      output.sharedVia !== undefined && output.sharedVia !== null
+        ? deserializeAws_restJson1_1SharedViaList(output.sharedVia, context)
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined,
+    updatedAt:
+      output.updatedAt !== undefined && output.updatedAt !== null
+        ? new Date(output.updatedAt)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1AnalyzedResourceSummary = (
   output: any,
   context: __SerdeContext
 ): AnalyzedResourceSummary => {
-  let contents: any = {
+  return {
     __type: "AnalyzedResourceSummary",
-    resourceArn: undefined,
-    resourceType: undefined
-  };
-  if (output.resourceArn !== undefined && output.resourceArn !== null) {
-    contents.resourceArn = output.resourceArn;
-  }
-  if (output.resourceType !== undefined && output.resourceType !== null) {
-    contents.resourceType = output.resourceType;
-  }
-  return contents;
+    resourceArn:
+      output.resourceArn !== undefined && output.resourceArn !== null
+        ? output.resourceArn
+        : undefined,
+    resourceType:
+      output.resourceType !== undefined && output.resourceType !== null
+        ? output.resourceType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1AnalyzedResourcesList = (
@@ -3095,44 +3087,37 @@ const deserializeAws_restJson1_1AnalyzerSummary = (
   output: any,
   context: __SerdeContext
 ): AnalyzerSummary => {
-  let contents: any = {
+  return {
     __type: "AnalyzerSummary",
-    arn: undefined,
-    createdAt: undefined,
-    lastResourceAnalyzed: undefined,
-    lastResourceAnalyzedAt: undefined,
-    name: undefined,
-    tags: undefined,
-    type: undefined
-  };
-  if (output.arn !== undefined && output.arn !== null) {
-    contents.arn = output.arn;
-  }
-  if (output.createdAt !== undefined && output.createdAt !== null) {
-    contents.createdAt = new Date(output.createdAt);
-  }
-  if (
-    output.lastResourceAnalyzed !== undefined &&
-    output.lastResourceAnalyzed !== null
-  ) {
-    contents.lastResourceAnalyzed = output.lastResourceAnalyzed;
-  }
-  if (
-    output.lastResourceAnalyzedAt !== undefined &&
-    output.lastResourceAnalyzedAt !== null
-  ) {
-    contents.lastResourceAnalyzedAt = new Date(output.lastResourceAnalyzedAt);
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (output.tags !== undefined && output.tags !== null) {
-    contents.tags = deserializeAws_restJson1_1TagsMap(output.tags, context);
-  }
-  if (output.type !== undefined && output.type !== null) {
-    contents.type = output.type;
-  }
-  return contents;
+    arn:
+      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(output.createdAt)
+        : undefined,
+    lastResourceAnalyzed:
+      output.lastResourceAnalyzed !== undefined &&
+      output.lastResourceAnalyzed !== null
+        ? output.lastResourceAnalyzed
+        : undefined,
+    lastResourceAnalyzedAt:
+      output.lastResourceAnalyzedAt !== undefined &&
+      output.lastResourceAnalyzedAt !== null
+        ? new Date(output.lastResourceAnalyzedAt)
+        : undefined,
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1_1TagsMap(output.tags, context)
+        : undefined,
+    type:
+      output.type !== undefined && output.type !== null
+        ? output.type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1AnalyzersList = (
@@ -3148,29 +3133,25 @@ const deserializeAws_restJson1_1ArchiveRuleSummary = (
   output: any,
   context: __SerdeContext
 ): ArchiveRuleSummary => {
-  let contents: any = {
+  return {
     __type: "ArchiveRuleSummary",
-    createdAt: undefined,
-    filter: undefined,
-    ruleName: undefined,
-    updatedAt: undefined
-  };
-  if (output.createdAt !== undefined && output.createdAt !== null) {
-    contents.createdAt = new Date(output.createdAt);
-  }
-  if (output.filter !== undefined && output.filter !== null) {
-    contents.filter = deserializeAws_restJson1_1FilterCriteriaMap(
-      output.filter,
-      context
-    );
-  }
-  if (output.ruleName !== undefined && output.ruleName !== null) {
-    contents.ruleName = output.ruleName;
-  }
-  if (output.updatedAt !== undefined && output.updatedAt !== null) {
-    contents.updatedAt = new Date(output.updatedAt);
-  }
-  return contents;
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(output.createdAt)
+        : undefined,
+    filter:
+      output.filter !== undefined && output.filter !== null
+        ? deserializeAws_restJson1_1FilterCriteriaMap(output.filter, context)
+        : undefined,
+    ruleName:
+      output.ruleName !== undefined && output.ruleName !== null
+        ? output.ruleName
+        : undefined,
+    updatedAt:
+      output.updatedAt !== undefined && output.updatedAt !== null
+        ? new Date(output.updatedAt)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ArchiveRulesList = (
@@ -3196,29 +3177,25 @@ const deserializeAws_restJson1_1Criterion = (
   output: any,
   context: __SerdeContext
 ): Criterion => {
-  let contents: any = {
+  return {
     __type: "Criterion",
-    contains: undefined,
-    eq: undefined,
-    exists: undefined,
-    neq: undefined
-  };
-  if (output.contains !== undefined && output.contains !== null) {
-    contents.contains = deserializeAws_restJson1_1ValueList(
-      output.contains,
-      context
-    );
-  }
-  if (output.eq !== undefined && output.eq !== null) {
-    contents.eq = deserializeAws_restJson1_1ValueList(output.eq, context);
-  }
-  if (output.exists !== undefined && output.exists !== null) {
-    contents.exists = output.exists;
-  }
-  if (output.neq !== undefined && output.neq !== null) {
-    contents.neq = deserializeAws_restJson1_1ValueList(output.neq, context);
-  }
-  return contents;
+    contains:
+      output.contains !== undefined && output.contains !== null
+        ? deserializeAws_restJson1_1ValueList(output.contains, context)
+        : undefined,
+    eq:
+      output.eq !== undefined && output.eq !== null
+        ? deserializeAws_restJson1_1ValueList(output.eq, context)
+        : undefined,
+    exists:
+      output.exists !== undefined && output.exists !== null
+        ? output.exists
+        : undefined,
+    neq:
+      output.neq !== undefined && output.neq !== null
+        ? deserializeAws_restJson1_1ValueList(output.neq, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1FilterCriteriaMap = (
@@ -3235,134 +3212,108 @@ const deserializeAws_restJson1_1Finding = (
   output: any,
   context: __SerdeContext
 ): Finding => {
-  let contents: any = {
+  return {
     __type: "Finding",
-    action: undefined,
-    analyzedAt: undefined,
-    condition: undefined,
-    createdAt: undefined,
-    error: undefined,
-    id: undefined,
-    isPublic: undefined,
-    principal: undefined,
-    resource: undefined,
-    resourceType: undefined,
-    status: undefined,
-    updatedAt: undefined
-  };
-  if (output.action !== undefined && output.action !== null) {
-    contents.action = deserializeAws_restJson1_1ActionList(
-      output.action,
-      context
-    );
-  }
-  if (output.analyzedAt !== undefined && output.analyzedAt !== null) {
-    contents.analyzedAt = new Date(output.analyzedAt);
-  }
-  if (output.condition !== undefined && output.condition !== null) {
-    contents.condition = deserializeAws_restJson1_1ConditionKeyMap(
-      output.condition,
-      context
-    );
-  }
-  if (output.createdAt !== undefined && output.createdAt !== null) {
-    contents.createdAt = new Date(output.createdAt);
-  }
-  if (output.error !== undefined && output.error !== null) {
-    contents.error = output.error;
-  }
-  if (output.id !== undefined && output.id !== null) {
-    contents.id = output.id;
-  }
-  if (output.isPublic !== undefined && output.isPublic !== null) {
-    contents.isPublic = output.isPublic;
-  }
-  if (output.principal !== undefined && output.principal !== null) {
-    contents.principal = deserializeAws_restJson1_1PrincipalMap(
-      output.principal,
-      context
-    );
-  }
-  if (output.resource !== undefined && output.resource !== null) {
-    contents.resource = output.resource;
-  }
-  if (output.resourceType !== undefined && output.resourceType !== null) {
-    contents.resourceType = output.resourceType;
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  if (output.updatedAt !== undefined && output.updatedAt !== null) {
-    contents.updatedAt = new Date(output.updatedAt);
-  }
-  return contents;
+    action:
+      output.action !== undefined && output.action !== null
+        ? deserializeAws_restJson1_1ActionList(output.action, context)
+        : undefined,
+    analyzedAt:
+      output.analyzedAt !== undefined && output.analyzedAt !== null
+        ? new Date(output.analyzedAt)
+        : undefined,
+    condition:
+      output.condition !== undefined && output.condition !== null
+        ? deserializeAws_restJson1_1ConditionKeyMap(output.condition, context)
+        : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(output.createdAt)
+        : undefined,
+    error:
+      output.error !== undefined && output.error !== null
+        ? output.error
+        : undefined,
+    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    isPublic:
+      output.isPublic !== undefined && output.isPublic !== null
+        ? output.isPublic
+        : undefined,
+    principal:
+      output.principal !== undefined && output.principal !== null
+        ? deserializeAws_restJson1_1PrincipalMap(output.principal, context)
+        : undefined,
+    resource:
+      output.resource !== undefined && output.resource !== null
+        ? output.resource
+        : undefined,
+    resourceType:
+      output.resourceType !== undefined && output.resourceType !== null
+        ? output.resourceType
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined,
+    updatedAt:
+      output.updatedAt !== undefined && output.updatedAt !== null
+        ? new Date(output.updatedAt)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1FindingSummary = (
   output: any,
   context: __SerdeContext
 ): FindingSummary => {
-  let contents: any = {
+  return {
     __type: "FindingSummary",
-    action: undefined,
-    analyzedAt: undefined,
-    condition: undefined,
-    createdAt: undefined,
-    error: undefined,
-    id: undefined,
-    isPublic: undefined,
-    principal: undefined,
-    resource: undefined,
-    resourceType: undefined,
-    status: undefined,
-    updatedAt: undefined
-  };
-  if (output.action !== undefined && output.action !== null) {
-    contents.action = deserializeAws_restJson1_1ActionList(
-      output.action,
-      context
-    );
-  }
-  if (output.analyzedAt !== undefined && output.analyzedAt !== null) {
-    contents.analyzedAt = new Date(output.analyzedAt);
-  }
-  if (output.condition !== undefined && output.condition !== null) {
-    contents.condition = deserializeAws_restJson1_1ConditionKeyMap(
-      output.condition,
-      context
-    );
-  }
-  if (output.createdAt !== undefined && output.createdAt !== null) {
-    contents.createdAt = new Date(output.createdAt);
-  }
-  if (output.error !== undefined && output.error !== null) {
-    contents.error = output.error;
-  }
-  if (output.id !== undefined && output.id !== null) {
-    contents.id = output.id;
-  }
-  if (output.isPublic !== undefined && output.isPublic !== null) {
-    contents.isPublic = output.isPublic;
-  }
-  if (output.principal !== undefined && output.principal !== null) {
-    contents.principal = deserializeAws_restJson1_1PrincipalMap(
-      output.principal,
-      context
-    );
-  }
-  if (output.resource !== undefined && output.resource !== null) {
-    contents.resource = output.resource;
-  }
-  if (output.resourceType !== undefined && output.resourceType !== null) {
-    contents.resourceType = output.resourceType;
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  if (output.updatedAt !== undefined && output.updatedAt !== null) {
-    contents.updatedAt = new Date(output.updatedAt);
-  }
-  return contents;
+    action:
+      output.action !== undefined && output.action !== null
+        ? deserializeAws_restJson1_1ActionList(output.action, context)
+        : undefined,
+    analyzedAt:
+      output.analyzedAt !== undefined && output.analyzedAt !== null
+        ? new Date(output.analyzedAt)
+        : undefined,
+    condition:
+      output.condition !== undefined && output.condition !== null
+        ? deserializeAws_restJson1_1ConditionKeyMap(output.condition, context)
+        : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(output.createdAt)
+        : undefined,
+    error:
+      output.error !== undefined && output.error !== null
+        ? output.error
+        : undefined,
+    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    isPublic:
+      output.isPublic !== undefined && output.isPublic !== null
+        ? output.isPublic
+        : undefined,
+    principal:
+      output.principal !== undefined && output.principal !== null
+        ? deserializeAws_restJson1_1PrincipalMap(output.principal, context)
+        : undefined,
+    resource:
+      output.resource !== undefined && output.resource !== null
+        ? output.resource
+        : undefined,
+    resourceType:
+      output.resourceType !== undefined && output.resourceType !== null
+        ? output.resourceType
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined,
+    updatedAt:
+      output.updatedAt !== undefined && output.updatedAt !== null
+        ? new Date(output.updatedAt)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1FindingsList = (
@@ -3405,18 +3356,17 @@ const deserializeAws_restJson1_1ValidationExceptionField = (
   output: any,
   context: __SerdeContext
 ): ValidationExceptionField => {
-  let contents: any = {
+  return {
     __type: "ValidationExceptionField",
-    message: undefined,
-    name: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined,
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ValidationExceptionFieldList = (

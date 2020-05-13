@@ -863,73 +863,62 @@ const deserializeAws_restJson1_1HumanLoopActivationReason = (
   output: any,
   context: __SerdeContext
 ): HumanLoopActivationReason => {
-  let contents: any = {
+  return {
     __type: "HumanLoopActivationReason",
-    ConditionsMatched: undefined
-  };
-  if (
-    output.ConditionsMatched !== undefined &&
-    output.ConditionsMatched !== null
-  ) {
-    contents.ConditionsMatched = output.ConditionsMatched;
-  }
-  return contents;
+    ConditionsMatched:
+      output.ConditionsMatched !== undefined &&
+      output.ConditionsMatched !== null
+        ? output.ConditionsMatched
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1HumanLoopActivationResults = (
   output: any,
   context: __SerdeContext
 ): HumanLoopActivationResults => {
-  let contents: any = {
+  return {
     __type: "HumanLoopActivationResults",
-    HumanLoopActivationConditionsEvaluationResults: undefined,
-    HumanLoopActivationReason: undefined
-  };
-  if (
-    output.HumanLoopActivationConditionsEvaluationResults !== undefined &&
-    output.HumanLoopActivationConditionsEvaluationResults !== null
-  ) {
-    contents.HumanLoopActivationConditionsEvaluationResults =
-      output.HumanLoopActivationConditionsEvaluationResults;
-  }
-  if (
-    output.HumanLoopActivationReason !== undefined &&
-    output.HumanLoopActivationReason !== null
-  ) {
-    contents.HumanLoopActivationReason = deserializeAws_restJson1_1HumanLoopActivationReason(
-      output.HumanLoopActivationReason,
-      context
-    );
-  }
-  return contents;
+    HumanLoopActivationConditionsEvaluationResults:
+      output.HumanLoopActivationConditionsEvaluationResults !== undefined &&
+      output.HumanLoopActivationConditionsEvaluationResults !== null
+        ? output.HumanLoopActivationConditionsEvaluationResults
+        : undefined,
+    HumanLoopActivationReason:
+      output.HumanLoopActivationReason !== undefined &&
+      output.HumanLoopActivationReason !== null
+        ? deserializeAws_restJson1_1HumanLoopActivationReason(
+            output.HumanLoopActivationReason,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1HumanLoopInputContent = (
   output: any,
   context: __SerdeContext
 ): HumanLoopInputContent => {
-  let contents: any = {
+  return {
     __type: "HumanLoopInputContent",
-    InputContent: undefined
-  };
-  if (output.InputContent !== undefined && output.InputContent !== null) {
-    contents.InputContent = output.InputContent;
-  }
-  return contents;
+    InputContent:
+      output.InputContent !== undefined && output.InputContent !== null
+        ? output.InputContent
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1HumanLoopOutputContent = (
   output: any,
   context: __SerdeContext
 ): HumanLoopOutputContent => {
-  let contents: any = {
+  return {
     __type: "HumanLoopOutputContent",
-    OutputS3Uri: undefined
-  };
-  if (output.OutputS3Uri !== undefined && output.OutputS3Uri !== null) {
-    contents.OutputS3Uri = output.OutputS3Uri;
-  }
-  return contents;
+    OutputS3Uri:
+      output.OutputS3Uri !== undefined && output.OutputS3Uri !== null
+        ? output.OutputS3Uri
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1HumanLoopSummaries = (
@@ -945,33 +934,30 @@ const deserializeAws_restJson1_1HumanLoopSummary = (
   output: any,
   context: __SerdeContext
 ): HumanLoopSummary => {
-  let contents: any = {
+  return {
     __type: "HumanLoopSummary",
-    CreationTime: undefined,
-    FailureReason: undefined,
-    FlowDefinitionArn: undefined,
-    HumanLoopName: undefined,
-    HumanLoopStatus: undefined
-  };
-  if (output.CreationTime !== undefined && output.CreationTime !== null) {
-    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
-  }
-  if (output.FailureReason !== undefined && output.FailureReason !== null) {
-    contents.FailureReason = output.FailureReason;
-  }
-  if (
-    output.FlowDefinitionArn !== undefined &&
-    output.FlowDefinitionArn !== null
-  ) {
-    contents.FlowDefinitionArn = output.FlowDefinitionArn;
-  }
-  if (output.HumanLoopName !== undefined && output.HumanLoopName !== null) {
-    contents.HumanLoopName = output.HumanLoopName;
-  }
-  if (output.HumanLoopStatus !== undefined && output.HumanLoopStatus !== null) {
-    contents.HumanLoopStatus = output.HumanLoopStatus;
-  }
-  return contents;
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    FailureReason:
+      output.FailureReason !== undefined && output.FailureReason !== null
+        ? output.FailureReason
+        : undefined,
+    FlowDefinitionArn:
+      output.FlowDefinitionArn !== undefined &&
+      output.FlowDefinitionArn !== null
+        ? output.FlowDefinitionArn
+        : undefined,
+    HumanLoopName:
+      output.HumanLoopName !== undefined && output.HumanLoopName !== null
+        ? output.HumanLoopName
+        : undefined,
+    HumanLoopStatus:
+      output.HumanLoopStatus !== undefined && output.HumanLoopStatus !== null
+        ? output.HumanLoopStatus
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

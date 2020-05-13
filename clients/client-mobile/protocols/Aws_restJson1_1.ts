@@ -1581,40 +1581,37 @@ const deserializeAws_restJson1_1BundleDetails = (
   output: any,
   context: __SerdeContext
 ): BundleDetails => {
-  let contents: any = {
+  return {
     __type: "BundleDetails",
-    availablePlatforms: undefined,
-    bundleId: undefined,
-    description: undefined,
-    iconUrl: undefined,
-    title: undefined,
-    version: undefined
-  };
-  if (
-    output.availablePlatforms !== undefined &&
-    output.availablePlatforms !== null
-  ) {
-    contents.availablePlatforms = deserializeAws_restJson1_1Platforms(
-      output.availablePlatforms,
-      context
-    );
-  }
-  if (output.bundleId !== undefined && output.bundleId !== null) {
-    contents.bundleId = output.bundleId;
-  }
-  if (output.description !== undefined && output.description !== null) {
-    contents.description = output.description;
-  }
-  if (output.iconUrl !== undefined && output.iconUrl !== null) {
-    contents.iconUrl = output.iconUrl;
-  }
-  if (output.title !== undefined && output.title !== null) {
-    contents.title = output.title;
-  }
-  if (output.version !== undefined && output.version !== null) {
-    contents.version = output.version;
-  }
-  return contents;
+    availablePlatforms:
+      output.availablePlatforms !== undefined &&
+      output.availablePlatforms !== null
+        ? deserializeAws_restJson1_1Platforms(
+            output.availablePlatforms,
+            context
+          )
+        : undefined,
+    bundleId:
+      output.bundleId !== undefined && output.bundleId !== null
+        ? output.bundleId
+        : undefined,
+    description:
+      output.description !== undefined && output.description !== null
+        ? output.description
+        : undefined,
+    iconUrl:
+      output.iconUrl !== undefined && output.iconUrl !== null
+        ? output.iconUrl
+        : undefined,
+    title:
+      output.title !== undefined && output.title !== null
+        ? output.title
+        : undefined,
+    version:
+      output.version !== undefined && output.version !== null
+        ? output.version
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1BundleList = (
@@ -1637,47 +1634,41 @@ const deserializeAws_restJson1_1ProjectDetails = (
   output: any,
   context: __SerdeContext
 ): ProjectDetails => {
-  let contents: any = {
+  return {
     __type: "ProjectDetails",
-    consoleUrl: undefined,
-    createdDate: undefined,
-    lastUpdatedDate: undefined,
-    name: undefined,
-    projectId: undefined,
-    region: undefined,
-    resources: undefined,
-    state: undefined
-  };
-  if (output.consoleUrl !== undefined && output.consoleUrl !== null) {
-    contents.consoleUrl = output.consoleUrl;
-  }
-  if (output.createdDate !== undefined && output.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(output.createdDate * 1000));
-  }
-  if (output.lastUpdatedDate !== undefined && output.lastUpdatedDate !== null) {
-    contents.lastUpdatedDate = new Date(
-      Math.round(output.lastUpdatedDate * 1000)
-    );
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (output.projectId !== undefined && output.projectId !== null) {
-    contents.projectId = output.projectId;
-  }
-  if (output.region !== undefined && output.region !== null) {
-    contents.region = output.region;
-  }
-  if (output.resources !== undefined && output.resources !== null) {
-    contents.resources = deserializeAws_restJson1_1Resources(
-      output.resources,
-      context
-    );
-  }
-  if (output.state !== undefined && output.state !== null) {
-    contents.state = output.state;
-  }
-  return contents;
+    consoleUrl:
+      output.consoleUrl !== undefined && output.consoleUrl !== null
+        ? output.consoleUrl
+        : undefined,
+    createdDate:
+      output.createdDate !== undefined && output.createdDate !== null
+        ? new Date(Math.round(output.createdDate * 1000))
+        : undefined,
+    lastUpdatedDate:
+      output.lastUpdatedDate !== undefined && output.lastUpdatedDate !== null
+        ? new Date(Math.round(output.lastUpdatedDate * 1000))
+        : undefined,
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    projectId:
+      output.projectId !== undefined && output.projectId !== null
+        ? output.projectId
+        : undefined,
+    region:
+      output.region !== undefined && output.region !== null
+        ? output.region
+        : undefined,
+    resources:
+      output.resources !== undefined && output.resources !== null
+        ? deserializeAws_restJson1_1Resources(output.resources, context)
+        : undefined,
+    state:
+      output.state !== undefined && output.state !== null
+        ? output.state
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ProjectSummaries = (
@@ -1693,51 +1684,44 @@ const deserializeAws_restJson1_1ProjectSummary = (
   output: any,
   context: __SerdeContext
 ): ProjectSummary => {
-  let contents: any = {
+  return {
     __type: "ProjectSummary",
-    name: undefined,
-    projectId: undefined
-  };
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (output.projectId !== undefined && output.projectId !== null) {
-    contents.projectId = output.projectId;
-  }
-  return contents;
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    projectId:
+      output.projectId !== undefined && output.projectId !== null
+        ? output.projectId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Resource = (
   output: any,
   context: __SerdeContext
 ): Resource => {
-  let contents: any = {
+  return {
     __type: "Resource",
-    arn: undefined,
-    attributes: undefined,
-    feature: undefined,
-    name: undefined,
-    type: undefined
-  };
-  if (output.arn !== undefined && output.arn !== null) {
-    contents.arn = output.arn;
-  }
-  if (output.attributes !== undefined && output.attributes !== null) {
-    contents.attributes = deserializeAws_restJson1_1Attributes(
-      output.attributes,
-      context
-    );
-  }
-  if (output.feature !== undefined && output.feature !== null) {
-    contents.feature = output.feature;
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (output.type !== undefined && output.type !== null) {
-    contents.type = output.type;
-  }
-  return contents;
+    arn:
+      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    attributes:
+      output.attributes !== undefined && output.attributes !== null
+        ? deserializeAws_restJson1_1Attributes(output.attributes, context)
+        : undefined,
+    feature:
+      output.feature !== undefined && output.feature !== null
+        ? output.feature
+        : undefined,
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    type:
+      output.type !== undefined && output.type !== null
+        ? output.type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Resources = (

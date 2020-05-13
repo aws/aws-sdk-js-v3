@@ -782,158 +782,142 @@ const deserializeAws_json1_1CloseTunnelResponse = (
   output: any,
   context: __SerdeContext
 ): CloseTunnelResponse => {
-  let contents: any = {
+  return {
     __type: "CloseTunnelResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1ConnectionState = (
   output: any,
   context: __SerdeContext
 ): ConnectionState => {
-  let contents: any = {
+  return {
     __type: "ConnectionState",
-    lastUpdatedAt: undefined,
-    status: undefined
-  };
-  if (output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null) {
-    contents.lastUpdatedAt = new Date(Math.round(output.lastUpdatedAt * 1000));
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  return contents;
+    lastUpdatedAt:
+      output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
+        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeTunnelResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeTunnelResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeTunnelResponse",
-    tunnel: undefined
-  };
-  if (output.tunnel !== undefined && output.tunnel !== null) {
-    contents.tunnel = deserializeAws_json1_1Tunnel(output.tunnel, context);
-  }
-  return contents;
+    tunnel:
+      output.tunnel !== undefined && output.tunnel !== null
+        ? deserializeAws_json1_1Tunnel(output.tunnel, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DestinationConfig = (
   output: any,
   context: __SerdeContext
 ): DestinationConfig => {
-  let contents: any = {
+  return {
     __type: "DestinationConfig",
-    services: undefined,
-    thingName: undefined
-  };
-  if (output.services !== undefined && output.services !== null) {
-    contents.services = deserializeAws_json1_1ServiceList(
-      output.services,
-      context
-    );
-  }
-  if (output.thingName !== undefined && output.thingName !== null) {
-    contents.thingName = output.thingName;
-  }
-  return contents;
+    services:
+      output.services !== undefined && output.services !== null
+        ? deserializeAws_json1_1ServiceList(output.services, context)
+        : undefined,
+    thingName:
+      output.thingName !== undefined && output.thingName !== null
+        ? output.thingName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (
   output: any,
   context: __SerdeContext
 ): LimitExceededException => {
-  let contents: any = {
+  return {
     __type: "LimitExceededException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListTagsForResourceResponse = (
   output: any,
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
-  let contents: any = {
+  return {
     __type: "ListTagsForResourceResponse",
-    tags: undefined
-  };
-  if (output.tags !== undefined && output.tags !== null) {
-    contents.tags = deserializeAws_json1_1TagList(output.tags, context);
-  }
-  return contents;
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_json1_1TagList(output.tags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListTunnelsResponse = (
   output: any,
   context: __SerdeContext
 ): ListTunnelsResponse => {
-  let contents: any = {
+  return {
     __type: "ListTunnelsResponse",
-    nextToken: undefined,
-    tunnelSummaries: undefined
-  };
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  if (output.tunnelSummaries !== undefined && output.tunnelSummaries !== null) {
-    contents.tunnelSummaries = deserializeAws_json1_1TunnelSummaryList(
-      output.tunnelSummaries,
-      context
-    );
-  }
-  return contents;
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined,
+    tunnelSummaries:
+      output.tunnelSummaries !== undefined && output.tunnelSummaries !== null
+        ? deserializeAws_json1_1TunnelSummaryList(
+            output.tunnelSummaries,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1OpenTunnelResponse = (
   output: any,
   context: __SerdeContext
 ): OpenTunnelResponse => {
-  let contents: any = {
+  return {
     __type: "OpenTunnelResponse",
-    destinationAccessToken: undefined,
-    sourceAccessToken: undefined,
-    tunnelArn: undefined,
-    tunnelId: undefined
-  };
-  if (
-    output.destinationAccessToken !== undefined &&
-    output.destinationAccessToken !== null
-  ) {
-    contents.destinationAccessToken = output.destinationAccessToken;
-  }
-  if (
-    output.sourceAccessToken !== undefined &&
-    output.sourceAccessToken !== null
-  ) {
-    contents.sourceAccessToken = output.sourceAccessToken;
-  }
-  if (output.tunnelArn !== undefined && output.tunnelArn !== null) {
-    contents.tunnelArn = output.tunnelArn;
-  }
-  if (output.tunnelId !== undefined && output.tunnelId !== null) {
-    contents.tunnelId = output.tunnelId;
-  }
-  return contents;
+    destinationAccessToken:
+      output.destinationAccessToken !== undefined &&
+      output.destinationAccessToken !== null
+        ? output.destinationAccessToken
+        : undefined,
+    sourceAccessToken:
+      output.sourceAccessToken !== undefined &&
+      output.sourceAccessToken !== null
+        ? output.sourceAccessToken
+        : undefined,
+    tunnelArn:
+      output.tunnelArn !== undefined && output.tunnelArn !== null
+        ? output.tunnelArn
+        : undefined,
+    tunnelId:
+      output.tunnelId !== undefined && output.tunnelId !== null
+        ? output.tunnelId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ResourceNotFoundException => {
-  let contents: any = {
+  return {
     __type: "ResourceNotFoundException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ServiceList = (
@@ -947,18 +931,15 @@ const deserializeAws_json1_1Tag = (
   output: any,
   context: __SerdeContext
 ): Tag => {
-  let contents: any = {
+  return {
     __type: "Tag",
-    key: undefined,
-    value: undefined
-  };
-  if (output.key !== undefined && output.key !== null) {
-    contents.key = output.key;
-  }
-  if (output.value !== undefined && output.value !== null) {
-    contents.value = output.value;
-  }
-  return contents;
+    key:
+      output.key !== undefined && output.key !== null ? output.key : undefined,
+    value:
+      output.value !== undefined && output.value !== null
+        ? output.value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TagList = (
@@ -974,136 +955,121 @@ const deserializeAws_json1_1TagResourceResponse = (
   output: any,
   context: __SerdeContext
 ): TagResourceResponse => {
-  let contents: any = {
+  return {
     __type: "TagResourceResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1TimeoutConfig = (
   output: any,
   context: __SerdeContext
 ): TimeoutConfig => {
-  let contents: any = {
+  return {
     __type: "TimeoutConfig",
-    maxLifetimeTimeoutMinutes: undefined
-  };
-  if (
-    output.maxLifetimeTimeoutMinutes !== undefined &&
-    output.maxLifetimeTimeoutMinutes !== null
-  ) {
-    contents.maxLifetimeTimeoutMinutes = output.maxLifetimeTimeoutMinutes;
-  }
-  return contents;
+    maxLifetimeTimeoutMinutes:
+      output.maxLifetimeTimeoutMinutes !== undefined &&
+      output.maxLifetimeTimeoutMinutes !== null
+        ? output.maxLifetimeTimeoutMinutes
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Tunnel = (
   output: any,
   context: __SerdeContext
 ): Tunnel => {
-  let contents: any = {
+  return {
     __type: "Tunnel",
-    createdAt: undefined,
-    description: undefined,
-    destinationConfig: undefined,
-    destinationConnectionState: undefined,
-    lastUpdatedAt: undefined,
-    sourceConnectionState: undefined,
-    status: undefined,
-    tags: undefined,
-    timeoutConfig: undefined,
-    tunnelArn: undefined,
-    tunnelId: undefined
-  };
-  if (output.createdAt !== undefined && output.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(output.createdAt * 1000));
-  }
-  if (output.description !== undefined && output.description !== null) {
-    contents.description = output.description;
-  }
-  if (
-    output.destinationConfig !== undefined &&
-    output.destinationConfig !== null
-  ) {
-    contents.destinationConfig = deserializeAws_json1_1DestinationConfig(
-      output.destinationConfig,
-      context
-    );
-  }
-  if (
-    output.destinationConnectionState !== undefined &&
-    output.destinationConnectionState !== null
-  ) {
-    contents.destinationConnectionState = deserializeAws_json1_1ConnectionState(
-      output.destinationConnectionState,
-      context
-    );
-  }
-  if (output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null) {
-    contents.lastUpdatedAt = new Date(Math.round(output.lastUpdatedAt * 1000));
-  }
-  if (
-    output.sourceConnectionState !== undefined &&
-    output.sourceConnectionState !== null
-  ) {
-    contents.sourceConnectionState = deserializeAws_json1_1ConnectionState(
-      output.sourceConnectionState,
-      context
-    );
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  if (output.tags !== undefined && output.tags !== null) {
-    contents.tags = deserializeAws_json1_1TagList(output.tags, context);
-  }
-  if (output.timeoutConfig !== undefined && output.timeoutConfig !== null) {
-    contents.timeoutConfig = deserializeAws_json1_1TimeoutConfig(
-      output.timeoutConfig,
-      context
-    );
-  }
-  if (output.tunnelArn !== undefined && output.tunnelArn !== null) {
-    contents.tunnelArn = output.tunnelArn;
-  }
-  if (output.tunnelId !== undefined && output.tunnelId !== null) {
-    contents.tunnelId = output.tunnelId;
-  }
-  return contents;
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
+    description:
+      output.description !== undefined && output.description !== null
+        ? output.description
+        : undefined,
+    destinationConfig:
+      output.destinationConfig !== undefined &&
+      output.destinationConfig !== null
+        ? deserializeAws_json1_1DestinationConfig(
+            output.destinationConfig,
+            context
+          )
+        : undefined,
+    destinationConnectionState:
+      output.destinationConnectionState !== undefined &&
+      output.destinationConnectionState !== null
+        ? deserializeAws_json1_1ConnectionState(
+            output.destinationConnectionState,
+            context
+          )
+        : undefined,
+    lastUpdatedAt:
+      output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
+        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        : undefined,
+    sourceConnectionState:
+      output.sourceConnectionState !== undefined &&
+      output.sourceConnectionState !== null
+        ? deserializeAws_json1_1ConnectionState(
+            output.sourceConnectionState,
+            context
+          )
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_json1_1TagList(output.tags, context)
+        : undefined,
+    timeoutConfig:
+      output.timeoutConfig !== undefined && output.timeoutConfig !== null
+        ? deserializeAws_json1_1TimeoutConfig(output.timeoutConfig, context)
+        : undefined,
+    tunnelArn:
+      output.tunnelArn !== undefined && output.tunnelArn !== null
+        ? output.tunnelArn
+        : undefined,
+    tunnelId:
+      output.tunnelId !== undefined && output.tunnelId !== null
+        ? output.tunnelId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TunnelSummary = (
   output: any,
   context: __SerdeContext
 ): TunnelSummary => {
-  let contents: any = {
+  return {
     __type: "TunnelSummary",
-    createdAt: undefined,
-    description: undefined,
-    lastUpdatedAt: undefined,
-    status: undefined,
-    tunnelArn: undefined,
-    tunnelId: undefined
-  };
-  if (output.createdAt !== undefined && output.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(output.createdAt * 1000));
-  }
-  if (output.description !== undefined && output.description !== null) {
-    contents.description = output.description;
-  }
-  if (output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null) {
-    contents.lastUpdatedAt = new Date(Math.round(output.lastUpdatedAt * 1000));
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  if (output.tunnelArn !== undefined && output.tunnelArn !== null) {
-    contents.tunnelArn = output.tunnelArn;
-  }
-  if (output.tunnelId !== undefined && output.tunnelId !== null) {
-    contents.tunnelId = output.tunnelId;
-  }
-  return contents;
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
+    description:
+      output.description !== undefined && output.description !== null
+        ? output.description
+        : undefined,
+    lastUpdatedAt:
+      output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
+        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined,
+    tunnelArn:
+      output.tunnelArn !== undefined && output.tunnelArn !== null
+        ? output.tunnelArn
+        : undefined,
+    tunnelId:
+      output.tunnelId !== undefined && output.tunnelId !== null
+        ? output.tunnelId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TunnelSummaryList = (
@@ -1119,10 +1085,9 @@ const deserializeAws_json1_1UntagResourceResponse = (
   output: any,
   context: __SerdeContext
 ): UntagResourceResponse => {
-  let contents: any = {
+  return {
     __type: "UntagResourceResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

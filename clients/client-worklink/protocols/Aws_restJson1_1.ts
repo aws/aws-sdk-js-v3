@@ -4462,18 +4462,17 @@ const deserializeAws_restJson1_1DeviceSummary = (
   output: any,
   context: __SerdeContext
 ): DeviceSummary => {
-  let contents: any = {
+  return {
     __type: "DeviceSummary",
-    DeviceId: undefined,
-    DeviceStatus: undefined
-  };
-  if (output.DeviceId !== undefined && output.DeviceId !== null) {
-    contents.DeviceId = output.DeviceId;
-  }
-  if (output.DeviceStatus !== undefined && output.DeviceStatus !== null) {
-    contents.DeviceStatus = output.DeviceStatus;
-  }
-  return contents;
+    DeviceId:
+      output.DeviceId !== undefined && output.DeviceId !== null
+        ? output.DeviceId
+        : undefined,
+    DeviceStatus:
+      output.DeviceStatus !== undefined && output.DeviceStatus !== null
+        ? output.DeviceStatus
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DeviceSummaryList = (
@@ -4489,26 +4488,25 @@ const deserializeAws_restJson1_1DomainSummary = (
   output: any,
   context: __SerdeContext
 ): DomainSummary => {
-  let contents: any = {
+  return {
     __type: "DomainSummary",
-    CreatedTime: undefined,
-    DisplayName: undefined,
-    DomainName: undefined,
-    DomainStatus: undefined
-  };
-  if (output.CreatedTime !== undefined && output.CreatedTime !== null) {
-    contents.CreatedTime = new Date(Math.round(output.CreatedTime * 1000));
-  }
-  if (output.DisplayName !== undefined && output.DisplayName !== null) {
-    contents.DisplayName = output.DisplayName;
-  }
-  if (output.DomainName !== undefined && output.DomainName !== null) {
-    contents.DomainName = output.DomainName;
-  }
-  if (output.DomainStatus !== undefined && output.DomainStatus !== null) {
-    contents.DomainStatus = output.DomainStatus;
-  }
-  return contents;
+    CreatedTime:
+      output.CreatedTime !== undefined && output.CreatedTime !== null
+        ? new Date(Math.round(output.CreatedTime * 1000))
+        : undefined,
+    DisplayName:
+      output.DisplayName !== undefined && output.DisplayName !== null
+        ? output.DisplayName
+        : undefined,
+    DomainName:
+      output.DomainName !== undefined && output.DomainName !== null
+        ? output.DomainName
+        : undefined,
+    DomainStatus:
+      output.DomainStatus !== undefined && output.DomainStatus !== null
+        ? output.DomainStatus
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DomainSummaryList = (
@@ -4524,40 +4522,37 @@ const deserializeAws_restJson1_1FleetSummary = (
   output: any,
   context: __SerdeContext
 ): FleetSummary => {
-  let contents: any = {
+  return {
     __type: "FleetSummary",
-    CompanyCode: undefined,
-    CreatedTime: undefined,
-    DisplayName: undefined,
-    FleetArn: undefined,
-    FleetName: undefined,
-    FleetStatus: undefined,
-    LastUpdatedTime: undefined
-  };
-  if (output.CompanyCode !== undefined && output.CompanyCode !== null) {
-    contents.CompanyCode = output.CompanyCode;
-  }
-  if (output.CreatedTime !== undefined && output.CreatedTime !== null) {
-    contents.CreatedTime = new Date(Math.round(output.CreatedTime * 1000));
-  }
-  if (output.DisplayName !== undefined && output.DisplayName !== null) {
-    contents.DisplayName = output.DisplayName;
-  }
-  if (output.FleetArn !== undefined && output.FleetArn !== null) {
-    contents.FleetArn = output.FleetArn;
-  }
-  if (output.FleetName !== undefined && output.FleetName !== null) {
-    contents.FleetName = output.FleetName;
-  }
-  if (output.FleetStatus !== undefined && output.FleetStatus !== null) {
-    contents.FleetStatus = output.FleetStatus;
-  }
-  if (output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null) {
-    contents.LastUpdatedTime = new Date(
-      Math.round(output.LastUpdatedTime * 1000)
-    );
-  }
-  return contents;
+    CompanyCode:
+      output.CompanyCode !== undefined && output.CompanyCode !== null
+        ? output.CompanyCode
+        : undefined,
+    CreatedTime:
+      output.CreatedTime !== undefined && output.CreatedTime !== null
+        ? new Date(Math.round(output.CreatedTime * 1000))
+        : undefined,
+    DisplayName:
+      output.DisplayName !== undefined && output.DisplayName !== null
+        ? output.DisplayName
+        : undefined,
+    FleetArn:
+      output.FleetArn !== undefined && output.FleetArn !== null
+        ? output.FleetArn
+        : undefined,
+    FleetName:
+      output.FleetName !== undefined && output.FleetName !== null
+        ? output.FleetName
+        : undefined,
+    FleetStatus:
+      output.FleetStatus !== undefined && output.FleetStatus !== null
+        ? output.FleetStatus
+        : undefined,
+    LastUpdatedTime:
+      output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
+        ? new Date(Math.round(output.LastUpdatedTime * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1FleetSummaryList = (
@@ -4587,32 +4582,27 @@ const deserializeAws_restJson1_1WebsiteAuthorizationProviderSummary = (
   output: any,
   context: __SerdeContext
 ): WebsiteAuthorizationProviderSummary => {
-  let contents: any = {
+  return {
     __type: "WebsiteAuthorizationProviderSummary",
-    AuthorizationProviderId: undefined,
-    AuthorizationProviderType: undefined,
-    CreatedTime: undefined,
-    DomainName: undefined
-  };
-  if (
-    output.AuthorizationProviderId !== undefined &&
-    output.AuthorizationProviderId !== null
-  ) {
-    contents.AuthorizationProviderId = output.AuthorizationProviderId;
-  }
-  if (
-    output.AuthorizationProviderType !== undefined &&
-    output.AuthorizationProviderType !== null
-  ) {
-    contents.AuthorizationProviderType = output.AuthorizationProviderType;
-  }
-  if (output.CreatedTime !== undefined && output.CreatedTime !== null) {
-    contents.CreatedTime = new Date(Math.round(output.CreatedTime * 1000));
-  }
-  if (output.DomainName !== undefined && output.DomainName !== null) {
-    contents.DomainName = output.DomainName;
-  }
-  return contents;
+    AuthorizationProviderId:
+      output.AuthorizationProviderId !== undefined &&
+      output.AuthorizationProviderId !== null
+        ? output.AuthorizationProviderId
+        : undefined,
+    AuthorizationProviderType:
+      output.AuthorizationProviderType !== undefined &&
+      output.AuthorizationProviderType !== null
+        ? output.AuthorizationProviderType
+        : undefined,
+    CreatedTime:
+      output.CreatedTime !== undefined && output.CreatedTime !== null
+        ? new Date(Math.round(output.CreatedTime * 1000))
+        : undefined,
+    DomainName:
+      output.DomainName !== undefined && output.DomainName !== null
+        ? output.DomainName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1WebsiteAuthorizationProvidersSummaryList = (
@@ -4631,22 +4621,21 @@ const deserializeAws_restJson1_1WebsiteCaSummary = (
   output: any,
   context: __SerdeContext
 ): WebsiteCaSummary => {
-  let contents: any = {
+  return {
     __type: "WebsiteCaSummary",
-    CreatedTime: undefined,
-    DisplayName: undefined,
-    WebsiteCaId: undefined
-  };
-  if (output.CreatedTime !== undefined && output.CreatedTime !== null) {
-    contents.CreatedTime = new Date(Math.round(output.CreatedTime * 1000));
-  }
-  if (output.DisplayName !== undefined && output.DisplayName !== null) {
-    contents.DisplayName = output.DisplayName;
-  }
-  if (output.WebsiteCaId !== undefined && output.WebsiteCaId !== null) {
-    contents.WebsiteCaId = output.WebsiteCaId;
-  }
-  return contents;
+    CreatedTime:
+      output.CreatedTime !== undefined && output.CreatedTime !== null
+        ? new Date(Math.round(output.CreatedTime * 1000))
+        : undefined,
+    DisplayName:
+      output.DisplayName !== undefined && output.DisplayName !== null
+        ? output.DisplayName
+        : undefined,
+    WebsiteCaId:
+      output.WebsiteCaId !== undefined && output.WebsiteCaId !== null
+        ? output.WebsiteCaId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1WebsiteCaSummaryList = (

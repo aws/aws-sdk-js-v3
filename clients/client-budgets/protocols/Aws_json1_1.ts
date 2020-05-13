@@ -2529,164 +2529,124 @@ const deserializeAws_json1_1AccessDeniedException = (
   output: any,
   context: __SerdeContext
 ): AccessDeniedException => {
-  let contents: any = {
+  return {
     __type: "AccessDeniedException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Budget = (
   output: any,
   context: __SerdeContext
 ): Budget => {
-  let contents: any = {
+  return {
     __type: "Budget",
-    BudgetLimit: undefined,
-    BudgetName: undefined,
-    BudgetType: undefined,
-    CalculatedSpend: undefined,
-    CostFilters: undefined,
-    CostTypes: undefined,
-    LastUpdatedTime: undefined,
-    PlannedBudgetLimits: undefined,
-    TimePeriod: undefined,
-    TimeUnit: undefined
-  };
-  if (output.BudgetLimit !== undefined && output.BudgetLimit !== null) {
-    contents.BudgetLimit = deserializeAws_json1_1Spend(
-      output.BudgetLimit,
-      context
-    );
-  }
-  if (output.BudgetName !== undefined && output.BudgetName !== null) {
-    contents.BudgetName = output.BudgetName;
-  }
-  if (output.BudgetType !== undefined && output.BudgetType !== null) {
-    contents.BudgetType = output.BudgetType;
-  }
-  if (output.CalculatedSpend !== undefined && output.CalculatedSpend !== null) {
-    contents.CalculatedSpend = deserializeAws_json1_1CalculatedSpend(
-      output.CalculatedSpend,
-      context
-    );
-  }
-  if (output.CostFilters !== undefined && output.CostFilters !== null) {
-    contents.CostFilters = deserializeAws_json1_1CostFilters(
-      output.CostFilters,
-      context
-    );
-  }
-  if (output.CostTypes !== undefined && output.CostTypes !== null) {
-    contents.CostTypes = deserializeAws_json1_1CostTypes(
-      output.CostTypes,
-      context
-    );
-  }
-  if (output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null) {
-    contents.LastUpdatedTime = new Date(
-      Math.round(output.LastUpdatedTime * 1000)
-    );
-  }
-  if (
-    output.PlannedBudgetLimits !== undefined &&
-    output.PlannedBudgetLimits !== null
-  ) {
-    contents.PlannedBudgetLimits = deserializeAws_json1_1PlannedBudgetLimits(
-      output.PlannedBudgetLimits,
-      context
-    );
-  }
-  if (output.TimePeriod !== undefined && output.TimePeriod !== null) {
-    contents.TimePeriod = deserializeAws_json1_1TimePeriod(
-      output.TimePeriod,
-      context
-    );
-  }
-  if (output.TimeUnit !== undefined && output.TimeUnit !== null) {
-    contents.TimeUnit = output.TimeUnit;
-  }
-  return contents;
+    BudgetLimit:
+      output.BudgetLimit !== undefined && output.BudgetLimit !== null
+        ? deserializeAws_json1_1Spend(output.BudgetLimit, context)
+        : undefined,
+    BudgetName:
+      output.BudgetName !== undefined && output.BudgetName !== null
+        ? output.BudgetName
+        : undefined,
+    BudgetType:
+      output.BudgetType !== undefined && output.BudgetType !== null
+        ? output.BudgetType
+        : undefined,
+    CalculatedSpend:
+      output.CalculatedSpend !== undefined && output.CalculatedSpend !== null
+        ? deserializeAws_json1_1CalculatedSpend(output.CalculatedSpend, context)
+        : undefined,
+    CostFilters:
+      output.CostFilters !== undefined && output.CostFilters !== null
+        ? deserializeAws_json1_1CostFilters(output.CostFilters, context)
+        : undefined,
+    CostTypes:
+      output.CostTypes !== undefined && output.CostTypes !== null
+        ? deserializeAws_json1_1CostTypes(output.CostTypes, context)
+        : undefined,
+    LastUpdatedTime:
+      output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
+        ? new Date(Math.round(output.LastUpdatedTime * 1000))
+        : undefined,
+    PlannedBudgetLimits:
+      output.PlannedBudgetLimits !== undefined &&
+      output.PlannedBudgetLimits !== null
+        ? deserializeAws_json1_1PlannedBudgetLimits(
+            output.PlannedBudgetLimits,
+            context
+          )
+        : undefined,
+    TimePeriod:
+      output.TimePeriod !== undefined && output.TimePeriod !== null
+        ? deserializeAws_json1_1TimePeriod(output.TimePeriod, context)
+        : undefined,
+    TimeUnit:
+      output.TimeUnit !== undefined && output.TimeUnit !== null
+        ? output.TimeUnit
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1BudgetPerformanceHistory = (
   output: any,
   context: __SerdeContext
 ): BudgetPerformanceHistory => {
-  let contents: any = {
+  return {
     __type: "BudgetPerformanceHistory",
-    BudgetName: undefined,
-    BudgetType: undefined,
-    BudgetedAndActualAmountsList: undefined,
-    CostFilters: undefined,
-    CostTypes: undefined,
-    TimeUnit: undefined
-  };
-  if (output.BudgetName !== undefined && output.BudgetName !== null) {
-    contents.BudgetName = output.BudgetName;
-  }
-  if (output.BudgetType !== undefined && output.BudgetType !== null) {
-    contents.BudgetType = output.BudgetType;
-  }
-  if (
-    output.BudgetedAndActualAmountsList !== undefined &&
-    output.BudgetedAndActualAmountsList !== null
-  ) {
-    contents.BudgetedAndActualAmountsList = deserializeAws_json1_1BudgetedAndActualAmountsList(
-      output.BudgetedAndActualAmountsList,
-      context
-    );
-  }
-  if (output.CostFilters !== undefined && output.CostFilters !== null) {
-    contents.CostFilters = deserializeAws_json1_1CostFilters(
-      output.CostFilters,
-      context
-    );
-  }
-  if (output.CostTypes !== undefined && output.CostTypes !== null) {
-    contents.CostTypes = deserializeAws_json1_1CostTypes(
-      output.CostTypes,
-      context
-    );
-  }
-  if (output.TimeUnit !== undefined && output.TimeUnit !== null) {
-    contents.TimeUnit = output.TimeUnit;
-  }
-  return contents;
+    BudgetName:
+      output.BudgetName !== undefined && output.BudgetName !== null
+        ? output.BudgetName
+        : undefined,
+    BudgetType:
+      output.BudgetType !== undefined && output.BudgetType !== null
+        ? output.BudgetType
+        : undefined,
+    BudgetedAndActualAmountsList:
+      output.BudgetedAndActualAmountsList !== undefined &&
+      output.BudgetedAndActualAmountsList !== null
+        ? deserializeAws_json1_1BudgetedAndActualAmountsList(
+            output.BudgetedAndActualAmountsList,
+            context
+          )
+        : undefined,
+    CostFilters:
+      output.CostFilters !== undefined && output.CostFilters !== null
+        ? deserializeAws_json1_1CostFilters(output.CostFilters, context)
+        : undefined,
+    CostTypes:
+      output.CostTypes !== undefined && output.CostTypes !== null
+        ? deserializeAws_json1_1CostTypes(output.CostTypes, context)
+        : undefined,
+    TimeUnit:
+      output.TimeUnit !== undefined && output.TimeUnit !== null
+        ? output.TimeUnit
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1BudgetedAndActualAmounts = (
   output: any,
   context: __SerdeContext
 ): BudgetedAndActualAmounts => {
-  let contents: any = {
+  return {
     __type: "BudgetedAndActualAmounts",
-    ActualAmount: undefined,
-    BudgetedAmount: undefined,
-    TimePeriod: undefined
-  };
-  if (output.ActualAmount !== undefined && output.ActualAmount !== null) {
-    contents.ActualAmount = deserializeAws_json1_1Spend(
-      output.ActualAmount,
-      context
-    );
-  }
-  if (output.BudgetedAmount !== undefined && output.BudgetedAmount !== null) {
-    contents.BudgetedAmount = deserializeAws_json1_1Spend(
-      output.BudgetedAmount,
-      context
-    );
-  }
-  if (output.TimePeriod !== undefined && output.TimePeriod !== null) {
-    contents.TimePeriod = deserializeAws_json1_1TimePeriod(
-      output.TimePeriod,
-      context
-    );
-  }
-  return contents;
+    ActualAmount:
+      output.ActualAmount !== undefined && output.ActualAmount !== null
+        ? deserializeAws_json1_1Spend(output.ActualAmount, context)
+        : undefined,
+    BudgetedAmount:
+      output.BudgetedAmount !== undefined && output.BudgetedAmount !== null
+        ? deserializeAws_json1_1Spend(output.BudgetedAmount, context)
+        : undefined,
+    TimePeriod:
+      output.TimePeriod !== undefined && output.TimePeriod !== null
+        ? deserializeAws_json1_1TimePeriod(output.TimePeriod, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1BudgetedAndActualAmountsList = (
@@ -2711,24 +2671,17 @@ const deserializeAws_json1_1CalculatedSpend = (
   output: any,
   context: __SerdeContext
 ): CalculatedSpend => {
-  let contents: any = {
+  return {
     __type: "CalculatedSpend",
-    ActualSpend: undefined,
-    ForecastedSpend: undefined
-  };
-  if (output.ActualSpend !== undefined && output.ActualSpend !== null) {
-    contents.ActualSpend = deserializeAws_json1_1Spend(
-      output.ActualSpend,
-      context
-    );
-  }
-  if (output.ForecastedSpend !== undefined && output.ForecastedSpend !== null) {
-    contents.ForecastedSpend = deserializeAws_json1_1Spend(
-      output.ForecastedSpend,
-      context
-    );
-  }
-  return contents;
+    ActualSpend:
+      output.ActualSpend !== undefined && output.ActualSpend !== null
+        ? deserializeAws_json1_1Spend(output.ActualSpend, context)
+        : undefined,
+    ForecastedSpend:
+      output.ForecastedSpend !== undefined && output.ForecastedSpend !== null
+        ? deserializeAws_json1_1Spend(output.ForecastedSpend, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CostFilters = (
@@ -2745,235 +2698,207 @@ const deserializeAws_json1_1CostTypes = (
   output: any,
   context: __SerdeContext
 ): CostTypes => {
-  let contents: any = {
+  return {
     __type: "CostTypes",
-    IncludeCredit: undefined,
-    IncludeDiscount: undefined,
-    IncludeOtherSubscription: undefined,
-    IncludeRecurring: undefined,
-    IncludeRefund: undefined,
-    IncludeSubscription: undefined,
-    IncludeSupport: undefined,
-    IncludeTax: undefined,
-    IncludeUpfront: undefined,
-    UseAmortized: undefined,
-    UseBlended: undefined
-  };
-  if (output.IncludeCredit !== undefined && output.IncludeCredit !== null) {
-    contents.IncludeCredit = output.IncludeCredit;
-  }
-  if (output.IncludeDiscount !== undefined && output.IncludeDiscount !== null) {
-    contents.IncludeDiscount = output.IncludeDiscount;
-  }
-  if (
-    output.IncludeOtherSubscription !== undefined &&
-    output.IncludeOtherSubscription !== null
-  ) {
-    contents.IncludeOtherSubscription = output.IncludeOtherSubscription;
-  }
-  if (
-    output.IncludeRecurring !== undefined &&
-    output.IncludeRecurring !== null
-  ) {
-    contents.IncludeRecurring = output.IncludeRecurring;
-  }
-  if (output.IncludeRefund !== undefined && output.IncludeRefund !== null) {
-    contents.IncludeRefund = output.IncludeRefund;
-  }
-  if (
-    output.IncludeSubscription !== undefined &&
-    output.IncludeSubscription !== null
-  ) {
-    contents.IncludeSubscription = output.IncludeSubscription;
-  }
-  if (output.IncludeSupport !== undefined && output.IncludeSupport !== null) {
-    contents.IncludeSupport = output.IncludeSupport;
-  }
-  if (output.IncludeTax !== undefined && output.IncludeTax !== null) {
-    contents.IncludeTax = output.IncludeTax;
-  }
-  if (output.IncludeUpfront !== undefined && output.IncludeUpfront !== null) {
-    contents.IncludeUpfront = output.IncludeUpfront;
-  }
-  if (output.UseAmortized !== undefined && output.UseAmortized !== null) {
-    contents.UseAmortized = output.UseAmortized;
-  }
-  if (output.UseBlended !== undefined && output.UseBlended !== null) {
-    contents.UseBlended = output.UseBlended;
-  }
-  return contents;
+    IncludeCredit:
+      output.IncludeCredit !== undefined && output.IncludeCredit !== null
+        ? output.IncludeCredit
+        : undefined,
+    IncludeDiscount:
+      output.IncludeDiscount !== undefined && output.IncludeDiscount !== null
+        ? output.IncludeDiscount
+        : undefined,
+    IncludeOtherSubscription:
+      output.IncludeOtherSubscription !== undefined &&
+      output.IncludeOtherSubscription !== null
+        ? output.IncludeOtherSubscription
+        : undefined,
+    IncludeRecurring:
+      output.IncludeRecurring !== undefined && output.IncludeRecurring !== null
+        ? output.IncludeRecurring
+        : undefined,
+    IncludeRefund:
+      output.IncludeRefund !== undefined && output.IncludeRefund !== null
+        ? output.IncludeRefund
+        : undefined,
+    IncludeSubscription:
+      output.IncludeSubscription !== undefined &&
+      output.IncludeSubscription !== null
+        ? output.IncludeSubscription
+        : undefined,
+    IncludeSupport:
+      output.IncludeSupport !== undefined && output.IncludeSupport !== null
+        ? output.IncludeSupport
+        : undefined,
+    IncludeTax:
+      output.IncludeTax !== undefined && output.IncludeTax !== null
+        ? output.IncludeTax
+        : undefined,
+    IncludeUpfront:
+      output.IncludeUpfront !== undefined && output.IncludeUpfront !== null
+        ? output.IncludeUpfront
+        : undefined,
+    UseAmortized:
+      output.UseAmortized !== undefined && output.UseAmortized !== null
+        ? output.UseAmortized
+        : undefined,
+    UseBlended:
+      output.UseBlended !== undefined && output.UseBlended !== null
+        ? output.UseBlended
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateBudgetResponse = (
   output: any,
   context: __SerdeContext
 ): CreateBudgetResponse => {
-  let contents: any = {
+  return {
     __type: "CreateBudgetResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1CreateNotificationResponse = (
   output: any,
   context: __SerdeContext
 ): CreateNotificationResponse => {
-  let contents: any = {
+  return {
     __type: "CreateNotificationResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1CreateSubscriberResponse = (
   output: any,
   context: __SerdeContext
 ): CreateSubscriberResponse => {
-  let contents: any = {
+  return {
     __type: "CreateSubscriberResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1CreationLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): CreationLimitExceededException => {
-  let contents: any = {
+  return {
     __type: "CreationLimitExceededException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteBudgetResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteBudgetResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteBudgetResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteNotificationResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteNotificationResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteNotificationResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteSubscriberResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteSubscriberResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteSubscriberResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeBudgetPerformanceHistoryResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeBudgetPerformanceHistoryResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeBudgetPerformanceHistoryResponse",
-    BudgetPerformanceHistory: undefined,
-    NextToken: undefined
-  };
-  if (
-    output.BudgetPerformanceHistory !== undefined &&
-    output.BudgetPerformanceHistory !== null
-  ) {
-    contents.BudgetPerformanceHistory = deserializeAws_json1_1BudgetPerformanceHistory(
-      output.BudgetPerformanceHistory,
-      context
-    );
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  return contents;
+    BudgetPerformanceHistory:
+      output.BudgetPerformanceHistory !== undefined &&
+      output.BudgetPerformanceHistory !== null
+        ? deserializeAws_json1_1BudgetPerformanceHistory(
+            output.BudgetPerformanceHistory,
+            context
+          )
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeBudgetResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeBudgetResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeBudgetResponse",
-    Budget: undefined
-  };
-  if (output.Budget !== undefined && output.Budget !== null) {
-    contents.Budget = deserializeAws_json1_1Budget(output.Budget, context);
-  }
-  return contents;
+    Budget:
+      output.Budget !== undefined && output.Budget !== null
+        ? deserializeAws_json1_1Budget(output.Budget, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeBudgetsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeBudgetsResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeBudgetsResponse",
-    Budgets: undefined,
-    NextToken: undefined
-  };
-  if (output.Budgets !== undefined && output.Budgets !== null) {
-    contents.Budgets = deserializeAws_json1_1Budgets(output.Budgets, context);
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  return contents;
+    Budgets:
+      output.Budgets !== undefined && output.Budgets !== null
+        ? deserializeAws_json1_1Budgets(output.Budgets, context)
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeNotificationsForBudgetResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeNotificationsForBudgetResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeNotificationsForBudgetResponse",
-    NextToken: undefined,
-    Notifications: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.Notifications !== undefined && output.Notifications !== null) {
-    contents.Notifications = deserializeAws_json1_1Notifications(
-      output.Notifications,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Notifications:
+      output.Notifications !== undefined && output.Notifications !== null
+        ? deserializeAws_json1_1Notifications(output.Notifications, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeSubscribersForNotificationResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeSubscribersForNotificationResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeSubscribersForNotificationResponse",
-    NextToken: undefined,
-    Subscribers: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.Subscribers !== undefined && output.Subscribers !== null) {
-    contents.Subscribers = deserializeAws_json1_1Subscribers(
-      output.Subscribers,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Subscribers:
+      output.Subscribers !== undefined && output.Subscribers !== null
+        ? deserializeAws_json1_1Subscribers(output.Subscribers, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DimensionValues = (
@@ -2987,123 +2912,109 @@ const deserializeAws_json1_1DuplicateRecordException = (
   output: any,
   context: __SerdeContext
 ): DuplicateRecordException => {
-  let contents: any = {
+  return {
     __type: "DuplicateRecordException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ExpiredNextTokenException = (
   output: any,
   context: __SerdeContext
 ): ExpiredNextTokenException => {
-  let contents: any = {
+  return {
     __type: "ExpiredNextTokenException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InternalErrorException = (
   output: any,
   context: __SerdeContext
 ): InternalErrorException => {
-  let contents: any = {
+  return {
     __type: "InternalErrorException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidNextTokenException = (
   output: any,
   context: __SerdeContext
 ): InvalidNextTokenException => {
-  let contents: any = {
+  return {
     __type: "InvalidNextTokenException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidParameterException = (
   output: any,
   context: __SerdeContext
 ): InvalidParameterException => {
-  let contents: any = {
+  return {
     __type: "InvalidParameterException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1NotFoundException = (
   output: any,
   context: __SerdeContext
 ): NotFoundException => {
-  let contents: any = {
+  return {
     __type: "NotFoundException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Notification = (
   output: any,
   context: __SerdeContext
 ): Notification => {
-  let contents: any = {
+  return {
     __type: "Notification",
-    ComparisonOperator: undefined,
-    NotificationState: undefined,
-    NotificationType: undefined,
-    Threshold: undefined,
-    ThresholdType: undefined
-  };
-  if (
-    output.ComparisonOperator !== undefined &&
-    output.ComparisonOperator !== null
-  ) {
-    contents.ComparisonOperator = output.ComparisonOperator;
-  }
-  if (
-    output.NotificationState !== undefined &&
-    output.NotificationState !== null
-  ) {
-    contents.NotificationState = output.NotificationState;
-  }
-  if (
-    output.NotificationType !== undefined &&
-    output.NotificationType !== null
-  ) {
-    contents.NotificationType = output.NotificationType;
-  }
-  if (output.Threshold !== undefined && output.Threshold !== null) {
-    contents.Threshold = output.Threshold;
-  }
-  if (output.ThresholdType !== undefined && output.ThresholdType !== null) {
-    contents.ThresholdType = output.ThresholdType;
-  }
-  return contents;
+    ComparisonOperator:
+      output.ComparisonOperator !== undefined &&
+      output.ComparisonOperator !== null
+        ? output.ComparisonOperator
+        : undefined,
+    NotificationState:
+      output.NotificationState !== undefined &&
+      output.NotificationState !== null
+        ? output.NotificationState
+        : undefined,
+    NotificationType:
+      output.NotificationType !== undefined && output.NotificationType !== null
+        ? output.NotificationType
+        : undefined,
+    Threshold:
+      output.Threshold !== undefined && output.Threshold !== null
+        ? output.Threshold
+        : undefined,
+    ThresholdType:
+      output.ThresholdType !== undefined && output.ThresholdType !== null
+        ? output.ThresholdType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Notifications = (
@@ -3129,39 +3040,34 @@ const deserializeAws_json1_1Spend = (
   output: any,
   context: __SerdeContext
 ): Spend => {
-  let contents: any = {
+  return {
     __type: "Spend",
-    Amount: undefined,
-    Unit: undefined
-  };
-  if (output.Amount !== undefined && output.Amount !== null) {
-    contents.Amount = output.Amount;
-  }
-  if (output.Unit !== undefined && output.Unit !== null) {
-    contents.Unit = output.Unit;
-  }
-  return contents;
+    Amount:
+      output.Amount !== undefined && output.Amount !== null
+        ? output.Amount
+        : undefined,
+    Unit:
+      output.Unit !== undefined && output.Unit !== null
+        ? output.Unit
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Subscriber = (
   output: any,
   context: __SerdeContext
 ): Subscriber => {
-  let contents: any = {
+  return {
     __type: "Subscriber",
-    Address: undefined,
-    SubscriptionType: undefined
-  };
-  if (output.Address !== undefined && output.Address !== null) {
-    contents.Address = output.Address;
-  }
-  if (
-    output.SubscriptionType !== undefined &&
-    output.SubscriptionType !== null
-  ) {
-    contents.SubscriptionType = output.SubscriptionType;
-  }
-  return contents;
+    Address:
+      output.Address !== undefined && output.Address !== null
+        ? output.Address
+        : undefined,
+    SubscriptionType:
+      output.SubscriptionType !== undefined && output.SubscriptionType !== null
+        ? output.SubscriptionType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Subscribers = (
@@ -3177,48 +3083,44 @@ const deserializeAws_json1_1TimePeriod = (
   output: any,
   context: __SerdeContext
 ): TimePeriod => {
-  let contents: any = {
+  return {
     __type: "TimePeriod",
-    End: undefined,
-    Start: undefined
-  };
-  if (output.End !== undefined && output.End !== null) {
-    contents.End = new Date(Math.round(output.End * 1000));
-  }
-  if (output.Start !== undefined && output.Start !== null) {
-    contents.Start = new Date(Math.round(output.Start * 1000));
-  }
-  return contents;
+    End:
+      output.End !== undefined && output.End !== null
+        ? new Date(Math.round(output.End * 1000))
+        : undefined,
+    Start:
+      output.Start !== undefined && output.Start !== null
+        ? new Date(Math.round(output.Start * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateBudgetResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateBudgetResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateBudgetResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateNotificationResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateNotificationResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateNotificationResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateSubscriberResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateSubscriberResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateSubscriberResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

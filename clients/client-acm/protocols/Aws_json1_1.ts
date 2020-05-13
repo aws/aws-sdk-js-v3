@@ -2033,189 +2033,159 @@ const deserializeAws_json1_1CertificateDetail = (
   output: any,
   context: __SerdeContext
 ): CertificateDetail => {
-  let contents: any = {
+  return {
     __type: "CertificateDetail",
-    CertificateArn: undefined,
-    CertificateAuthorityArn: undefined,
-    CreatedAt: undefined,
-    DomainName: undefined,
-    DomainValidationOptions: undefined,
-    ExtendedKeyUsages: undefined,
-    FailureReason: undefined,
-    ImportedAt: undefined,
-    InUseBy: undefined,
-    IssuedAt: undefined,
-    Issuer: undefined,
-    KeyAlgorithm: undefined,
-    KeyUsages: undefined,
-    NotAfter: undefined,
-    NotBefore: undefined,
-    Options: undefined,
-    RenewalEligibility: undefined,
-    RenewalSummary: undefined,
-    RevocationReason: undefined,
-    RevokedAt: undefined,
-    Serial: undefined,
-    SignatureAlgorithm: undefined,
-    Status: undefined,
-    Subject: undefined,
-    SubjectAlternativeNames: undefined,
-    Type: undefined
-  };
-  if (output.CertificateArn !== undefined && output.CertificateArn !== null) {
-    contents.CertificateArn = output.CertificateArn;
-  }
-  if (
-    output.CertificateAuthorityArn !== undefined &&
-    output.CertificateAuthorityArn !== null
-  ) {
-    contents.CertificateAuthorityArn = output.CertificateAuthorityArn;
-  }
-  if (output.CreatedAt !== undefined && output.CreatedAt !== null) {
-    contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
-  }
-  if (output.DomainName !== undefined && output.DomainName !== null) {
-    contents.DomainName = output.DomainName;
-  }
-  if (
-    output.DomainValidationOptions !== undefined &&
-    output.DomainValidationOptions !== null
-  ) {
-    contents.DomainValidationOptions = deserializeAws_json1_1DomainValidationList(
-      output.DomainValidationOptions,
-      context
-    );
-  }
-  if (
-    output.ExtendedKeyUsages !== undefined &&
-    output.ExtendedKeyUsages !== null
-  ) {
-    contents.ExtendedKeyUsages = deserializeAws_json1_1ExtendedKeyUsageList(
-      output.ExtendedKeyUsages,
-      context
-    );
-  }
-  if (output.FailureReason !== undefined && output.FailureReason !== null) {
-    contents.FailureReason = output.FailureReason;
-  }
-  if (output.ImportedAt !== undefined && output.ImportedAt !== null) {
-    contents.ImportedAt = new Date(Math.round(output.ImportedAt * 1000));
-  }
-  if (output.InUseBy !== undefined && output.InUseBy !== null) {
-    contents.InUseBy = deserializeAws_json1_1InUseList(output.InUseBy, context);
-  }
-  if (output.IssuedAt !== undefined && output.IssuedAt !== null) {
-    contents.IssuedAt = new Date(Math.round(output.IssuedAt * 1000));
-  }
-  if (output.Issuer !== undefined && output.Issuer !== null) {
-    contents.Issuer = output.Issuer;
-  }
-  if (output.KeyAlgorithm !== undefined && output.KeyAlgorithm !== null) {
-    contents.KeyAlgorithm = output.KeyAlgorithm;
-  }
-  if (output.KeyUsages !== undefined && output.KeyUsages !== null) {
-    contents.KeyUsages = deserializeAws_json1_1KeyUsageList(
-      output.KeyUsages,
-      context
-    );
-  }
-  if (output.NotAfter !== undefined && output.NotAfter !== null) {
-    contents.NotAfter = new Date(Math.round(output.NotAfter * 1000));
-  }
-  if (output.NotBefore !== undefined && output.NotBefore !== null) {
-    contents.NotBefore = new Date(Math.round(output.NotBefore * 1000));
-  }
-  if (output.Options !== undefined && output.Options !== null) {
-    contents.Options = deserializeAws_json1_1CertificateOptions(
-      output.Options,
-      context
-    );
-  }
-  if (
-    output.RenewalEligibility !== undefined &&
-    output.RenewalEligibility !== null
-  ) {
-    contents.RenewalEligibility = output.RenewalEligibility;
-  }
-  if (output.RenewalSummary !== undefined && output.RenewalSummary !== null) {
-    contents.RenewalSummary = deserializeAws_json1_1RenewalSummary(
-      output.RenewalSummary,
-      context
-    );
-  }
-  if (
-    output.RevocationReason !== undefined &&
-    output.RevocationReason !== null
-  ) {
-    contents.RevocationReason = output.RevocationReason;
-  }
-  if (output.RevokedAt !== undefined && output.RevokedAt !== null) {
-    contents.RevokedAt = new Date(Math.round(output.RevokedAt * 1000));
-  }
-  if (output.Serial !== undefined && output.Serial !== null) {
-    contents.Serial = output.Serial;
-  }
-  if (
-    output.SignatureAlgorithm !== undefined &&
-    output.SignatureAlgorithm !== null
-  ) {
-    contents.SignatureAlgorithm = output.SignatureAlgorithm;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.Subject !== undefined && output.Subject !== null) {
-    contents.Subject = output.Subject;
-  }
-  if (
-    output.SubjectAlternativeNames !== undefined &&
-    output.SubjectAlternativeNames !== null
-  ) {
-    contents.SubjectAlternativeNames = deserializeAws_json1_1DomainList(
-      output.SubjectAlternativeNames,
-      context
-    );
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    CertificateArn:
+      output.CertificateArn !== undefined && output.CertificateArn !== null
+        ? output.CertificateArn
+        : undefined,
+    CertificateAuthorityArn:
+      output.CertificateAuthorityArn !== undefined &&
+      output.CertificateAuthorityArn !== null
+        ? output.CertificateAuthorityArn
+        : undefined,
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? new Date(Math.round(output.CreatedAt * 1000))
+        : undefined,
+    DomainName:
+      output.DomainName !== undefined && output.DomainName !== null
+        ? output.DomainName
+        : undefined,
+    DomainValidationOptions:
+      output.DomainValidationOptions !== undefined &&
+      output.DomainValidationOptions !== null
+        ? deserializeAws_json1_1DomainValidationList(
+            output.DomainValidationOptions,
+            context
+          )
+        : undefined,
+    ExtendedKeyUsages:
+      output.ExtendedKeyUsages !== undefined &&
+      output.ExtendedKeyUsages !== null
+        ? deserializeAws_json1_1ExtendedKeyUsageList(
+            output.ExtendedKeyUsages,
+            context
+          )
+        : undefined,
+    FailureReason:
+      output.FailureReason !== undefined && output.FailureReason !== null
+        ? output.FailureReason
+        : undefined,
+    ImportedAt:
+      output.ImportedAt !== undefined && output.ImportedAt !== null
+        ? new Date(Math.round(output.ImportedAt * 1000))
+        : undefined,
+    InUseBy:
+      output.InUseBy !== undefined && output.InUseBy !== null
+        ? deserializeAws_json1_1InUseList(output.InUseBy, context)
+        : undefined,
+    IssuedAt:
+      output.IssuedAt !== undefined && output.IssuedAt !== null
+        ? new Date(Math.round(output.IssuedAt * 1000))
+        : undefined,
+    Issuer:
+      output.Issuer !== undefined && output.Issuer !== null
+        ? output.Issuer
+        : undefined,
+    KeyAlgorithm:
+      output.KeyAlgorithm !== undefined && output.KeyAlgorithm !== null
+        ? output.KeyAlgorithm
+        : undefined,
+    KeyUsages:
+      output.KeyUsages !== undefined && output.KeyUsages !== null
+        ? deserializeAws_json1_1KeyUsageList(output.KeyUsages, context)
+        : undefined,
+    NotAfter:
+      output.NotAfter !== undefined && output.NotAfter !== null
+        ? new Date(Math.round(output.NotAfter * 1000))
+        : undefined,
+    NotBefore:
+      output.NotBefore !== undefined && output.NotBefore !== null
+        ? new Date(Math.round(output.NotBefore * 1000))
+        : undefined,
+    Options:
+      output.Options !== undefined && output.Options !== null
+        ? deserializeAws_json1_1CertificateOptions(output.Options, context)
+        : undefined,
+    RenewalEligibility:
+      output.RenewalEligibility !== undefined &&
+      output.RenewalEligibility !== null
+        ? output.RenewalEligibility
+        : undefined,
+    RenewalSummary:
+      output.RenewalSummary !== undefined && output.RenewalSummary !== null
+        ? deserializeAws_json1_1RenewalSummary(output.RenewalSummary, context)
+        : undefined,
+    RevocationReason:
+      output.RevocationReason !== undefined && output.RevocationReason !== null
+        ? output.RevocationReason
+        : undefined,
+    RevokedAt:
+      output.RevokedAt !== undefined && output.RevokedAt !== null
+        ? new Date(Math.round(output.RevokedAt * 1000))
+        : undefined,
+    Serial:
+      output.Serial !== undefined && output.Serial !== null
+        ? output.Serial
+        : undefined,
+    SignatureAlgorithm:
+      output.SignatureAlgorithm !== undefined &&
+      output.SignatureAlgorithm !== null
+        ? output.SignatureAlgorithm
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    Subject:
+      output.Subject !== undefined && output.Subject !== null
+        ? output.Subject
+        : undefined,
+    SubjectAlternativeNames:
+      output.SubjectAlternativeNames !== undefined &&
+      output.SubjectAlternativeNames !== null
+        ? deserializeAws_json1_1DomainList(
+            output.SubjectAlternativeNames,
+            context
+          )
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CertificateOptions = (
   output: any,
   context: __SerdeContext
 ): CertificateOptions => {
-  let contents: any = {
+  return {
     __type: "CertificateOptions",
-    CertificateTransparencyLoggingPreference: undefined
-  };
-  if (
-    output.CertificateTransparencyLoggingPreference !== undefined &&
-    output.CertificateTransparencyLoggingPreference !== null
-  ) {
-    contents.CertificateTransparencyLoggingPreference =
-      output.CertificateTransparencyLoggingPreference;
-  }
-  return contents;
+    CertificateTransparencyLoggingPreference:
+      output.CertificateTransparencyLoggingPreference !== undefined &&
+      output.CertificateTransparencyLoggingPreference !== null
+        ? output.CertificateTransparencyLoggingPreference
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CertificateSummary = (
   output: any,
   context: __SerdeContext
 ): CertificateSummary => {
-  let contents: any = {
+  return {
     __type: "CertificateSummary",
-    CertificateArn: undefined,
-    DomainName: undefined
-  };
-  if (output.CertificateArn !== undefined && output.CertificateArn !== null) {
-    contents.CertificateArn = output.CertificateArn;
-  }
-  if (output.DomainName !== undefined && output.DomainName !== null) {
-    contents.DomainName = output.DomainName;
-  }
-  return contents;
+    CertificateArn:
+      output.CertificateArn !== undefined && output.CertificateArn !== null
+        ? output.CertificateArn
+        : undefined,
+    DomainName:
+      output.DomainName !== undefined && output.DomainName !== null
+        ? output.DomainName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CertificateSummaryList = (
@@ -2231,17 +2201,13 @@ const deserializeAws_json1_1DescribeCertificateResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeCertificateResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeCertificateResponse",
-    Certificate: undefined
-  };
-  if (output.Certificate !== undefined && output.Certificate !== null) {
-    contents.Certificate = deserializeAws_json1_1CertificateDetail(
-      output.Certificate,
-      context
-    );
-  }
-  return contents;
+    Certificate:
+      output.Certificate !== undefined && output.Certificate !== null
+        ? deserializeAws_json1_1CertificateDetail(output.Certificate, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DomainList = (
@@ -2255,52 +2221,36 @@ const deserializeAws_json1_1DomainValidation = (
   output: any,
   context: __SerdeContext
 ): DomainValidation => {
-  let contents: any = {
+  return {
     __type: "DomainValidation",
-    DomainName: undefined,
-    ResourceRecord: undefined,
-    ValidationDomain: undefined,
-    ValidationEmails: undefined,
-    ValidationMethod: undefined,
-    ValidationStatus: undefined
-  };
-  if (output.DomainName !== undefined && output.DomainName !== null) {
-    contents.DomainName = output.DomainName;
-  }
-  if (output.ResourceRecord !== undefined && output.ResourceRecord !== null) {
-    contents.ResourceRecord = deserializeAws_json1_1ResourceRecord(
-      output.ResourceRecord,
-      context
-    );
-  }
-  if (
-    output.ValidationDomain !== undefined &&
-    output.ValidationDomain !== null
-  ) {
-    contents.ValidationDomain = output.ValidationDomain;
-  }
-  if (
-    output.ValidationEmails !== undefined &&
-    output.ValidationEmails !== null
-  ) {
-    contents.ValidationEmails = deserializeAws_json1_1ValidationEmailList(
-      output.ValidationEmails,
-      context
-    );
-  }
-  if (
-    output.ValidationMethod !== undefined &&
-    output.ValidationMethod !== null
-  ) {
-    contents.ValidationMethod = output.ValidationMethod;
-  }
-  if (
-    output.ValidationStatus !== undefined &&
-    output.ValidationStatus !== null
-  ) {
-    contents.ValidationStatus = output.ValidationStatus;
-  }
-  return contents;
+    DomainName:
+      output.DomainName !== undefined && output.DomainName !== null
+        ? output.DomainName
+        : undefined,
+    ResourceRecord:
+      output.ResourceRecord !== undefined && output.ResourceRecord !== null
+        ? deserializeAws_json1_1ResourceRecord(output.ResourceRecord, context)
+        : undefined,
+    ValidationDomain:
+      output.ValidationDomain !== undefined && output.ValidationDomain !== null
+        ? output.ValidationDomain
+        : undefined,
+    ValidationEmails:
+      output.ValidationEmails !== undefined && output.ValidationEmails !== null
+        ? deserializeAws_json1_1ValidationEmailList(
+            output.ValidationEmails,
+            context
+          )
+        : undefined,
+    ValidationMethod:
+      output.ValidationMethod !== undefined && output.ValidationMethod !== null
+        ? output.ValidationMethod
+        : undefined,
+    ValidationStatus:
+      output.ValidationStatus !== undefined && output.ValidationStatus !== null
+        ? output.ValidationStatus
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DomainValidationList = (
@@ -2316,43 +2266,36 @@ const deserializeAws_json1_1ExportCertificateResponse = (
   output: any,
   context: __SerdeContext
 ): ExportCertificateResponse => {
-  let contents: any = {
+  return {
     __type: "ExportCertificateResponse",
-    Certificate: undefined,
-    CertificateChain: undefined,
-    PrivateKey: undefined
-  };
-  if (output.Certificate !== undefined && output.Certificate !== null) {
-    contents.Certificate = output.Certificate;
-  }
-  if (
-    output.CertificateChain !== undefined &&
-    output.CertificateChain !== null
-  ) {
-    contents.CertificateChain = output.CertificateChain;
-  }
-  if (output.PrivateKey !== undefined && output.PrivateKey !== null) {
-    contents.PrivateKey = output.PrivateKey;
-  }
-  return contents;
+    Certificate:
+      output.Certificate !== undefined && output.Certificate !== null
+        ? output.Certificate
+        : undefined,
+    CertificateChain:
+      output.CertificateChain !== undefined && output.CertificateChain !== null
+        ? output.CertificateChain
+        : undefined,
+    PrivateKey:
+      output.PrivateKey !== undefined && output.PrivateKey !== null
+        ? output.PrivateKey
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ExtendedKeyUsage = (
   output: any,
   context: __SerdeContext
 ): ExtendedKeyUsage => {
-  let contents: any = {
+  return {
     __type: "ExtendedKeyUsage",
-    Name: undefined,
-    OID: undefined
-  };
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.OID !== undefined && output.OID !== null) {
-    contents.OID = output.OID;
-  }
-  return contents;
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    OID:
+      output.OID !== undefined && output.OID !== null ? output.OID : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ExtendedKeyUsageList = (
@@ -2368,35 +2311,30 @@ const deserializeAws_json1_1GetCertificateResponse = (
   output: any,
   context: __SerdeContext
 ): GetCertificateResponse => {
-  let contents: any = {
+  return {
     __type: "GetCertificateResponse",
-    Certificate: undefined,
-    CertificateChain: undefined
-  };
-  if (output.Certificate !== undefined && output.Certificate !== null) {
-    contents.Certificate = output.Certificate;
-  }
-  if (
-    output.CertificateChain !== undefined &&
-    output.CertificateChain !== null
-  ) {
-    contents.CertificateChain = output.CertificateChain;
-  }
-  return contents;
+    Certificate:
+      output.Certificate !== undefined && output.Certificate !== null
+        ? output.Certificate
+        : undefined,
+    CertificateChain:
+      output.CertificateChain !== undefined && output.CertificateChain !== null
+        ? output.CertificateChain
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ImportCertificateResponse = (
   output: any,
   context: __SerdeContext
 ): ImportCertificateResponse => {
-  let contents: any = {
+  return {
     __type: "ImportCertificateResponse",
-    CertificateArn: undefined
-  };
-  if (output.CertificateArn !== undefined && output.CertificateArn !== null) {
-    contents.CertificateArn = output.CertificateArn;
-  }
-  return contents;
+    CertificateArn:
+      output.CertificateArn !== undefined && output.CertificateArn !== null
+        ? output.CertificateArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InUseList = (
@@ -2410,98 +2348,91 @@ const deserializeAws_json1_1InvalidArgsException = (
   output: any,
   context: __SerdeContext
 ): InvalidArgsException => {
-  let contents: any = {
+  return {
     __type: "InvalidArgsException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidArnException = (
   output: any,
   context: __SerdeContext
 ): InvalidArnException => {
-  let contents: any = {
+  return {
     __type: "InvalidArnException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidDomainValidationOptionsException = (
   output: any,
   context: __SerdeContext
 ): InvalidDomainValidationOptionsException => {
-  let contents: any = {
+  return {
     __type: "InvalidDomainValidationOptionsException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidParameterException = (
   output: any,
   context: __SerdeContext
 ): InvalidParameterException => {
-  let contents: any = {
+  return {
     __type: "InvalidParameterException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidStateException = (
   output: any,
   context: __SerdeContext
 ): InvalidStateException => {
-  let contents: any = {
+  return {
     __type: "InvalidStateException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidTagException = (
   output: any,
   context: __SerdeContext
 ): InvalidTagException => {
-  let contents: any = {
+  return {
     __type: "InvalidTagException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1KeyUsage = (
   output: any,
   context: __SerdeContext
 ): KeyUsage => {
-  let contents: any = {
+  return {
     __type: "KeyUsage",
-    Name: undefined
-  };
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1KeyUsageList = (
@@ -2517,183 +2448,165 @@ const deserializeAws_json1_1LimitExceededException = (
   output: any,
   context: __SerdeContext
 ): LimitExceededException => {
-  let contents: any = {
+  return {
     __type: "LimitExceededException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListCertificatesResponse = (
   output: any,
   context: __SerdeContext
 ): ListCertificatesResponse => {
-  let contents: any = {
+  return {
     __type: "ListCertificatesResponse",
-    CertificateSummaryList: undefined,
-    NextToken: undefined
-  };
-  if (
-    output.CertificateSummaryList !== undefined &&
-    output.CertificateSummaryList !== null
-  ) {
-    contents.CertificateSummaryList = deserializeAws_json1_1CertificateSummaryList(
-      output.CertificateSummaryList,
-      context
-    );
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  return contents;
+    CertificateSummaryList:
+      output.CertificateSummaryList !== undefined &&
+      output.CertificateSummaryList !== null
+        ? deserializeAws_json1_1CertificateSummaryList(
+            output.CertificateSummaryList,
+            context
+          )
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListTagsForCertificateResponse = (
   output: any,
   context: __SerdeContext
 ): ListTagsForCertificateResponse => {
-  let contents: any = {
+  return {
     __type: "ListTagsForCertificateResponse",
-    Tags: undefined
-  };
-  if (output.Tags !== undefined && output.Tags !== null) {
-    contents.Tags = deserializeAws_json1_1TagList(output.Tags, context);
-  }
-  return contents;
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1TagList(output.Tags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RenewalSummary = (
   output: any,
   context: __SerdeContext
 ): RenewalSummary => {
-  let contents: any = {
+  return {
     __type: "RenewalSummary",
-    DomainValidationOptions: undefined,
-    RenewalStatus: undefined,
-    RenewalStatusReason: undefined,
-    UpdatedAt: undefined
-  };
-  if (
-    output.DomainValidationOptions !== undefined &&
-    output.DomainValidationOptions !== null
-  ) {
-    contents.DomainValidationOptions = deserializeAws_json1_1DomainValidationList(
-      output.DomainValidationOptions,
-      context
-    );
-  }
-  if (output.RenewalStatus !== undefined && output.RenewalStatus !== null) {
-    contents.RenewalStatus = output.RenewalStatus;
-  }
-  if (
-    output.RenewalStatusReason !== undefined &&
-    output.RenewalStatusReason !== null
-  ) {
-    contents.RenewalStatusReason = output.RenewalStatusReason;
-  }
-  if (output.UpdatedAt !== undefined && output.UpdatedAt !== null) {
-    contents.UpdatedAt = new Date(Math.round(output.UpdatedAt * 1000));
-  }
-  return contents;
+    DomainValidationOptions:
+      output.DomainValidationOptions !== undefined &&
+      output.DomainValidationOptions !== null
+        ? deserializeAws_json1_1DomainValidationList(
+            output.DomainValidationOptions,
+            context
+          )
+        : undefined,
+    RenewalStatus:
+      output.RenewalStatus !== undefined && output.RenewalStatus !== null
+        ? output.RenewalStatus
+        : undefined,
+    RenewalStatusReason:
+      output.RenewalStatusReason !== undefined &&
+      output.RenewalStatusReason !== null
+        ? output.RenewalStatusReason
+        : undefined,
+    UpdatedAt:
+      output.UpdatedAt !== undefined && output.UpdatedAt !== null
+        ? new Date(Math.round(output.UpdatedAt * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RequestCertificateResponse = (
   output: any,
   context: __SerdeContext
 ): RequestCertificateResponse => {
-  let contents: any = {
+  return {
     __type: "RequestCertificateResponse",
-    CertificateArn: undefined
-  };
-  if (output.CertificateArn !== undefined && output.CertificateArn !== null) {
-    contents.CertificateArn = output.CertificateArn;
-  }
-  return contents;
+    CertificateArn:
+      output.CertificateArn !== undefined && output.CertificateArn !== null
+        ? output.CertificateArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RequestInProgressException = (
   output: any,
   context: __SerdeContext
 ): RequestInProgressException => {
-  let contents: any = {
+  return {
     __type: "RequestInProgressException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceInUseException = (
   output: any,
   context: __SerdeContext
 ): ResourceInUseException => {
-  let contents: any = {
+  return {
     __type: "ResourceInUseException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ResourceNotFoundException => {
-  let contents: any = {
+  return {
     __type: "ResourceNotFoundException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceRecord = (
   output: any,
   context: __SerdeContext
 ): ResourceRecord => {
-  let contents: any = {
+  return {
     __type: "ResourceRecord",
-    Name: undefined,
-    Type: undefined,
-    Value: undefined
-  };
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Tag = (
   output: any,
   context: __SerdeContext
 ): Tag => {
-  let contents: any = {
+  return {
     __type: "Tag",
-    Key: undefined,
-    Value: undefined
-  };
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TagList = (
@@ -2709,28 +2622,26 @@ const deserializeAws_json1_1TagPolicyException = (
   output: any,
   context: __SerdeContext
 ): TagPolicyException => {
-  let contents: any = {
+  return {
     __type: "TagPolicyException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TooManyTagsException = (
   output: any,
   context: __SerdeContext
 ): TooManyTagsException => {
-  let contents: any = {
+  return {
     __type: "TooManyTagsException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ValidationEmailList = (

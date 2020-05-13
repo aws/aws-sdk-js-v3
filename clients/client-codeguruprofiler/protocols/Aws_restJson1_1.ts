@@ -1443,96 +1443,85 @@ const deserializeAws_restJson1_1AggregatedProfileTime = (
   output: any,
   context: __SerdeContext
 ): AggregatedProfileTime => {
-  let contents: any = {
+  return {
     __type: "AggregatedProfileTime",
-    period: undefined,
-    start: undefined
-  };
-  if (output.period !== undefined && output.period !== null) {
-    contents.period = output.period;
-  }
-  if (output.start !== undefined && output.start !== null) {
-    contents.start = new Date(output.start);
-  }
-  return contents;
+    period:
+      output.period !== undefined && output.period !== null
+        ? output.period
+        : undefined,
+    start:
+      output.start !== undefined && output.start !== null
+        ? new Date(output.start)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1AgentConfiguration = (
   output: any,
   context: __SerdeContext
 ): AgentConfiguration => {
-  let contents: any = {
+  return {
     __type: "AgentConfiguration",
-    periodInSeconds: undefined,
-    shouldProfile: undefined
-  };
-  if (output.periodInSeconds !== undefined && output.periodInSeconds !== null) {
-    contents.periodInSeconds = output.periodInSeconds;
-  }
-  if (output.shouldProfile !== undefined && output.shouldProfile !== null) {
-    contents.shouldProfile = output.shouldProfile;
-  }
-  return contents;
+    periodInSeconds:
+      output.periodInSeconds !== undefined && output.periodInSeconds !== null
+        ? output.periodInSeconds
+        : undefined,
+    shouldProfile:
+      output.shouldProfile !== undefined && output.shouldProfile !== null
+        ? output.shouldProfile
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1AgentOrchestrationConfig = (
   output: any,
   context: __SerdeContext
 ): AgentOrchestrationConfig => {
-  let contents: any = {
+  return {
     __type: "AgentOrchestrationConfig",
-    profilingEnabled: undefined
-  };
-  if (
-    output.profilingEnabled !== undefined &&
-    output.profilingEnabled !== null
-  ) {
-    contents.profilingEnabled = output.profilingEnabled;
-  }
-  return contents;
+    profilingEnabled:
+      output.profilingEnabled !== undefined && output.profilingEnabled !== null
+        ? output.profilingEnabled
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ProfilingGroupDescription = (
   output: any,
   context: __SerdeContext
 ): ProfilingGroupDescription => {
-  let contents: any = {
+  return {
     __type: "ProfilingGroupDescription",
-    agentOrchestrationConfig: undefined,
-    arn: undefined,
-    createdAt: undefined,
-    name: undefined,
-    profilingStatus: undefined,
-    updatedAt: undefined
-  };
-  if (
-    output.agentOrchestrationConfig !== undefined &&
-    output.agentOrchestrationConfig !== null
-  ) {
-    contents.agentOrchestrationConfig = deserializeAws_restJson1_1AgentOrchestrationConfig(
-      output.agentOrchestrationConfig,
-      context
-    );
-  }
-  if (output.arn !== undefined && output.arn !== null) {
-    contents.arn = output.arn;
-  }
-  if (output.createdAt !== undefined && output.createdAt !== null) {
-    contents.createdAt = new Date(output.createdAt);
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (output.profilingStatus !== undefined && output.profilingStatus !== null) {
-    contents.profilingStatus = deserializeAws_restJson1_1ProfilingStatus(
-      output.profilingStatus,
-      context
-    );
-  }
-  if (output.updatedAt !== undefined && output.updatedAt !== null) {
-    contents.updatedAt = new Date(output.updatedAt);
-  }
-  return contents;
+    agentOrchestrationConfig:
+      output.agentOrchestrationConfig !== undefined &&
+      output.agentOrchestrationConfig !== null
+        ? deserializeAws_restJson1_1AgentOrchestrationConfig(
+            output.agentOrchestrationConfig,
+            context
+          )
+        : undefined,
+    arn:
+      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(output.createdAt)
+        : undefined,
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    profilingStatus:
+      output.profilingStatus !== undefined && output.profilingStatus !== null
+        ? deserializeAws_restJson1_1ProfilingStatus(
+            output.profilingStatus,
+            context
+          )
+        : undefined,
+    updatedAt:
+      output.updatedAt !== undefined && output.updatedAt !== null
+        ? new Date(output.updatedAt)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ProfilingGroupDescriptions = (
@@ -1555,52 +1544,40 @@ const deserializeAws_restJson1_1ProfilingStatus = (
   output: any,
   context: __SerdeContext
 ): ProfilingStatus => {
-  let contents: any = {
+  return {
     __type: "ProfilingStatus",
-    latestAgentOrchestratedAt: undefined,
-    latestAgentProfileReportedAt: undefined,
-    latestAggregatedProfile: undefined
-  };
-  if (
-    output.latestAgentOrchestratedAt !== undefined &&
-    output.latestAgentOrchestratedAt !== null
-  ) {
-    contents.latestAgentOrchestratedAt = new Date(
-      output.latestAgentOrchestratedAt
-    );
-  }
-  if (
-    output.latestAgentProfileReportedAt !== undefined &&
-    output.latestAgentProfileReportedAt !== null
-  ) {
-    contents.latestAgentProfileReportedAt = new Date(
-      output.latestAgentProfileReportedAt
-    );
-  }
-  if (
-    output.latestAggregatedProfile !== undefined &&
-    output.latestAggregatedProfile !== null
-  ) {
-    contents.latestAggregatedProfile = deserializeAws_restJson1_1AggregatedProfileTime(
-      output.latestAggregatedProfile,
-      context
-    );
-  }
-  return contents;
+    latestAgentOrchestratedAt:
+      output.latestAgentOrchestratedAt !== undefined &&
+      output.latestAgentOrchestratedAt !== null
+        ? new Date(output.latestAgentOrchestratedAt)
+        : undefined,
+    latestAgentProfileReportedAt:
+      output.latestAgentProfileReportedAt !== undefined &&
+      output.latestAgentProfileReportedAt !== null
+        ? new Date(output.latestAgentProfileReportedAt)
+        : undefined,
+    latestAggregatedProfile:
+      output.latestAggregatedProfile !== undefined &&
+      output.latestAggregatedProfile !== null
+        ? deserializeAws_restJson1_1AggregatedProfileTime(
+            output.latestAggregatedProfile,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ProfileTime = (
   output: any,
   context: __SerdeContext
 ): ProfileTime => {
-  let contents: any = {
+  return {
     __type: "ProfileTime",
-    start: undefined
-  };
-  if (output.start !== undefined && output.start !== null) {
-    contents.start = new Date(output.start);
-  }
-  return contents;
+    start:
+      output.start !== undefined && output.start !== null
+        ? new Date(output.start)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ProfileTimes = (

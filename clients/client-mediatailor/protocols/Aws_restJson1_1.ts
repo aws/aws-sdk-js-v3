@@ -952,191 +952,148 @@ const deserializeAws_restJson1_1CdnConfiguration = (
   output: any,
   context: __SerdeContext
 ): CdnConfiguration => {
-  let contents: any = {
+  return {
     __type: "CdnConfiguration",
-    AdSegmentUrlPrefix: undefined,
-    ContentSegmentUrlPrefix: undefined
-  };
-  if (
-    output.AdSegmentUrlPrefix !== undefined &&
-    output.AdSegmentUrlPrefix !== null
-  ) {
-    contents.AdSegmentUrlPrefix = output.AdSegmentUrlPrefix;
-  }
-  if (
-    output.ContentSegmentUrlPrefix !== undefined &&
-    output.ContentSegmentUrlPrefix !== null
-  ) {
-    contents.ContentSegmentUrlPrefix = output.ContentSegmentUrlPrefix;
-  }
-  return contents;
+    AdSegmentUrlPrefix:
+      output.AdSegmentUrlPrefix !== undefined &&
+      output.AdSegmentUrlPrefix !== null
+        ? output.AdSegmentUrlPrefix
+        : undefined,
+    ContentSegmentUrlPrefix:
+      output.ContentSegmentUrlPrefix !== undefined &&
+      output.ContentSegmentUrlPrefix !== null
+        ? output.ContentSegmentUrlPrefix
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DashConfiguration = (
   output: any,
   context: __SerdeContext
 ): DashConfiguration => {
-  let contents: any = {
+  return {
     __type: "DashConfiguration",
-    ManifestEndpointPrefix: undefined,
-    MpdLocation: undefined,
-    OriginManifestType: undefined
-  };
-  if (
-    output.ManifestEndpointPrefix !== undefined &&
-    output.ManifestEndpointPrefix !== null
-  ) {
-    contents.ManifestEndpointPrefix = output.ManifestEndpointPrefix;
-  }
-  if (output.MpdLocation !== undefined && output.MpdLocation !== null) {
-    contents.MpdLocation = output.MpdLocation;
-  }
-  if (
-    output.OriginManifestType !== undefined &&
-    output.OriginManifestType !== null
-  ) {
-    contents.OriginManifestType = output.OriginManifestType;
-  }
-  return contents;
+    ManifestEndpointPrefix:
+      output.ManifestEndpointPrefix !== undefined &&
+      output.ManifestEndpointPrefix !== null
+        ? output.ManifestEndpointPrefix
+        : undefined,
+    MpdLocation:
+      output.MpdLocation !== undefined && output.MpdLocation !== null
+        ? output.MpdLocation
+        : undefined,
+    OriginManifestType:
+      output.OriginManifestType !== undefined &&
+      output.OriginManifestType !== null
+        ? output.OriginManifestType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1HlsConfiguration = (
   output: any,
   context: __SerdeContext
 ): HlsConfiguration => {
-  let contents: any = {
+  return {
     __type: "HlsConfiguration",
-    ManifestEndpointPrefix: undefined
-  };
-  if (
-    output.ManifestEndpointPrefix !== undefined &&
-    output.ManifestEndpointPrefix !== null
-  ) {
-    contents.ManifestEndpointPrefix = output.ManifestEndpointPrefix;
-  }
-  return contents;
+    ManifestEndpointPrefix:
+      output.ManifestEndpointPrefix !== undefined &&
+      output.ManifestEndpointPrefix !== null
+        ? output.ManifestEndpointPrefix
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1LivePreRollConfiguration = (
   output: any,
   context: __SerdeContext
 ): LivePreRollConfiguration => {
-  let contents: any = {
+  return {
     __type: "LivePreRollConfiguration",
-    AdDecisionServerUrl: undefined,
-    MaxDurationSeconds: undefined
-  };
-  if (
-    output.AdDecisionServerUrl !== undefined &&
-    output.AdDecisionServerUrl !== null
-  ) {
-    contents.AdDecisionServerUrl = output.AdDecisionServerUrl;
-  }
-  if (
-    output.MaxDurationSeconds !== undefined &&
-    output.MaxDurationSeconds !== null
-  ) {
-    contents.MaxDurationSeconds = output.MaxDurationSeconds;
-  }
-  return contents;
+    AdDecisionServerUrl:
+      output.AdDecisionServerUrl !== undefined &&
+      output.AdDecisionServerUrl !== null
+        ? output.AdDecisionServerUrl
+        : undefined,
+    MaxDurationSeconds:
+      output.MaxDurationSeconds !== undefined &&
+      output.MaxDurationSeconds !== null
+        ? output.MaxDurationSeconds
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1PlaybackConfiguration = (
   output: any,
   context: __SerdeContext
 ): PlaybackConfiguration => {
-  let contents: any = {
+  return {
     __type: "PlaybackConfiguration",
-    AdDecisionServerUrl: undefined,
-    CdnConfiguration: undefined,
-    DashConfiguration: undefined,
-    HlsConfiguration: undefined,
-    Name: undefined,
-    PlaybackConfigurationArn: undefined,
-    PlaybackEndpointPrefix: undefined,
-    SessionInitializationEndpointPrefix: undefined,
-    SlateAdUrl: undefined,
-    Tags: undefined,
-    TranscodeProfileName: undefined,
-    VideoContentSourceUrl: undefined
-  };
-  if (
-    output.AdDecisionServerUrl !== undefined &&
-    output.AdDecisionServerUrl !== null
-  ) {
-    contents.AdDecisionServerUrl = output.AdDecisionServerUrl;
-  }
-  if (
-    output.CdnConfiguration !== undefined &&
-    output.CdnConfiguration !== null
-  ) {
-    contents.CdnConfiguration = deserializeAws_restJson1_1CdnConfiguration(
-      output.CdnConfiguration,
-      context
-    );
-  }
-  if (
-    output.DashConfiguration !== undefined &&
-    output.DashConfiguration !== null
-  ) {
-    contents.DashConfiguration = deserializeAws_restJson1_1DashConfiguration(
-      output.DashConfiguration,
-      context
-    );
-  }
-  if (
-    output.HlsConfiguration !== undefined &&
-    output.HlsConfiguration !== null
-  ) {
-    contents.HlsConfiguration = deserializeAws_restJson1_1HlsConfiguration(
-      output.HlsConfiguration,
-      context
-    );
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (
-    output.PlaybackConfigurationArn !== undefined &&
-    output.PlaybackConfigurationArn !== null
-  ) {
-    contents.PlaybackConfigurationArn = output.PlaybackConfigurationArn;
-  }
-  if (
-    output.PlaybackEndpointPrefix !== undefined &&
-    output.PlaybackEndpointPrefix !== null
-  ) {
-    contents.PlaybackEndpointPrefix = output.PlaybackEndpointPrefix;
-  }
-  if (
-    output.SessionInitializationEndpointPrefix !== undefined &&
-    output.SessionInitializationEndpointPrefix !== null
-  ) {
-    contents.SessionInitializationEndpointPrefix =
-      output.SessionInitializationEndpointPrefix;
-  }
-  if (output.SlateAdUrl !== undefined && output.SlateAdUrl !== null) {
-    contents.SlateAdUrl = output.SlateAdUrl;
-  }
-  if (output.tags !== undefined && output.tags !== null) {
-    contents.Tags = deserializeAws_restJson1_1__mapOf__string(
-      output.tags,
-      context
-    );
-  }
-  if (
-    output.TranscodeProfileName !== undefined &&
-    output.TranscodeProfileName !== null
-  ) {
-    contents.TranscodeProfileName = output.TranscodeProfileName;
-  }
-  if (
-    output.VideoContentSourceUrl !== undefined &&
-    output.VideoContentSourceUrl !== null
-  ) {
-    contents.VideoContentSourceUrl = output.VideoContentSourceUrl;
-  }
-  return contents;
+    AdDecisionServerUrl:
+      output.AdDecisionServerUrl !== undefined &&
+      output.AdDecisionServerUrl !== null
+        ? output.AdDecisionServerUrl
+        : undefined,
+    CdnConfiguration:
+      output.CdnConfiguration !== undefined && output.CdnConfiguration !== null
+        ? deserializeAws_restJson1_1CdnConfiguration(
+            output.CdnConfiguration,
+            context
+          )
+        : undefined,
+    DashConfiguration:
+      output.DashConfiguration !== undefined &&
+      output.DashConfiguration !== null
+        ? deserializeAws_restJson1_1DashConfiguration(
+            output.DashConfiguration,
+            context
+          )
+        : undefined,
+    HlsConfiguration:
+      output.HlsConfiguration !== undefined && output.HlsConfiguration !== null
+        ? deserializeAws_restJson1_1HlsConfiguration(
+            output.HlsConfiguration,
+            context
+          )
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    PlaybackConfigurationArn:
+      output.PlaybackConfigurationArn !== undefined &&
+      output.PlaybackConfigurationArn !== null
+        ? output.PlaybackConfigurationArn
+        : undefined,
+    PlaybackEndpointPrefix:
+      output.PlaybackEndpointPrefix !== undefined &&
+      output.PlaybackEndpointPrefix !== null
+        ? output.PlaybackEndpointPrefix
+        : undefined,
+    SessionInitializationEndpointPrefix:
+      output.SessionInitializationEndpointPrefix !== undefined &&
+      output.SessionInitializationEndpointPrefix !== null
+        ? output.SessionInitializationEndpointPrefix
+        : undefined,
+    SlateAdUrl:
+      output.SlateAdUrl !== undefined && output.SlateAdUrl !== null
+        ? output.SlateAdUrl
+        : undefined,
+    Tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1_1__mapOf__string(output.tags, context)
+        : undefined,
+    TranscodeProfileName:
+      output.TranscodeProfileName !== undefined &&
+      output.TranscodeProfileName !== null
+        ? output.TranscodeProfileName
+        : undefined,
+    VideoContentSourceUrl:
+      output.VideoContentSourceUrl !== undefined &&
+      output.VideoContentSourceUrl !== null
+        ? output.VideoContentSourceUrl
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1__listOfPlaybackConfigurations = (

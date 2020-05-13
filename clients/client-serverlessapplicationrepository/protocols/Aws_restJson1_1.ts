@@ -2647,255 +2647,228 @@ const deserializeAws_restJson1_1ApplicationDependencySummary = (
   output: any,
   context: __SerdeContext
 ): ApplicationDependencySummary => {
-  let contents: any = {
+  return {
     __type: "ApplicationDependencySummary",
-    ApplicationId: undefined,
-    SemanticVersion: undefined
-  };
-  if (output.applicationId !== undefined && output.applicationId !== null) {
-    contents.ApplicationId = output.applicationId;
-  }
-  if (output.semanticVersion !== undefined && output.semanticVersion !== null) {
-    contents.SemanticVersion = output.semanticVersion;
-  }
-  return contents;
+    ApplicationId:
+      output.applicationId !== undefined && output.applicationId !== null
+        ? output.applicationId
+        : undefined,
+    SemanticVersion:
+      output.semanticVersion !== undefined && output.semanticVersion !== null
+        ? output.semanticVersion
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ApplicationPolicyStatement = (
   output: any,
   context: __SerdeContext
 ): ApplicationPolicyStatement => {
-  let contents: any = {
+  return {
     __type: "ApplicationPolicyStatement",
-    Actions: undefined,
-    Principals: undefined,
-    StatementId: undefined
-  };
-  if (output.actions !== undefined && output.actions !== null) {
-    contents.Actions = deserializeAws_restJson1_1__listOf__string(
-      output.actions,
-      context
-    );
-  }
-  if (output.principals !== undefined && output.principals !== null) {
-    contents.Principals = deserializeAws_restJson1_1__listOf__string(
-      output.principals,
-      context
-    );
-  }
-  if (output.statementId !== undefined && output.statementId !== null) {
-    contents.StatementId = output.statementId;
-  }
-  return contents;
+    Actions:
+      output.actions !== undefined && output.actions !== null
+        ? deserializeAws_restJson1_1__listOf__string(output.actions, context)
+        : undefined,
+    Principals:
+      output.principals !== undefined && output.principals !== null
+        ? deserializeAws_restJson1_1__listOf__string(output.principals, context)
+        : undefined,
+    StatementId:
+      output.statementId !== undefined && output.statementId !== null
+        ? output.statementId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ApplicationSummary = (
   output: any,
   context: __SerdeContext
 ): ApplicationSummary => {
-  let contents: any = {
+  return {
     __type: "ApplicationSummary",
-    ApplicationId: undefined,
-    Author: undefined,
-    CreationTime: undefined,
-    Description: undefined,
-    HomePageUrl: undefined,
-    Labels: undefined,
-    Name: undefined,
-    SpdxLicenseId: undefined
-  };
-  if (output.applicationId !== undefined && output.applicationId !== null) {
-    contents.ApplicationId = output.applicationId;
-  }
-  if (output.author !== undefined && output.author !== null) {
-    contents.Author = output.author;
-  }
-  if (output.creationTime !== undefined && output.creationTime !== null) {
-    contents.CreationTime = output.creationTime;
-  }
-  if (output.description !== undefined && output.description !== null) {
-    contents.Description = output.description;
-  }
-  if (output.homePageUrl !== undefined && output.homePageUrl !== null) {
-    contents.HomePageUrl = output.homePageUrl;
-  }
-  if (output.labels !== undefined && output.labels !== null) {
-    contents.Labels = deserializeAws_restJson1_1__listOf__string(
-      output.labels,
-      context
-    );
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.Name = output.name;
-  }
-  if (output.spdxLicenseId !== undefined && output.spdxLicenseId !== null) {
-    contents.SpdxLicenseId = output.spdxLicenseId;
-  }
-  return contents;
+    ApplicationId:
+      output.applicationId !== undefined && output.applicationId !== null
+        ? output.applicationId
+        : undefined,
+    Author:
+      output.author !== undefined && output.author !== null
+        ? output.author
+        : undefined,
+    CreationTime:
+      output.creationTime !== undefined && output.creationTime !== null
+        ? output.creationTime
+        : undefined,
+    Description:
+      output.description !== undefined && output.description !== null
+        ? output.description
+        : undefined,
+    HomePageUrl:
+      output.homePageUrl !== undefined && output.homePageUrl !== null
+        ? output.homePageUrl
+        : undefined,
+    Labels:
+      output.labels !== undefined && output.labels !== null
+        ? deserializeAws_restJson1_1__listOf__string(output.labels, context)
+        : undefined,
+    Name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    SpdxLicenseId:
+      output.spdxLicenseId !== undefined && output.spdxLicenseId !== null
+        ? output.spdxLicenseId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ParameterDefinition = (
   output: any,
   context: __SerdeContext
 ): ParameterDefinition => {
-  let contents: any = {
+  return {
     __type: "ParameterDefinition",
-    AllowedPattern: undefined,
-    AllowedValues: undefined,
-    ConstraintDescription: undefined,
-    DefaultValue: undefined,
-    Description: undefined,
-    MaxLength: undefined,
-    MaxValue: undefined,
-    MinLength: undefined,
-    MinValue: undefined,
-    Name: undefined,
-    NoEcho: undefined,
-    ReferencedByResources: undefined,
-    Type: undefined
-  };
-  if (output.allowedPattern !== undefined && output.allowedPattern !== null) {
-    contents.AllowedPattern = output.allowedPattern;
-  }
-  if (output.allowedValues !== undefined && output.allowedValues !== null) {
-    contents.AllowedValues = deserializeAws_restJson1_1__listOf__string(
-      output.allowedValues,
-      context
-    );
-  }
-  if (
-    output.constraintDescription !== undefined &&
-    output.constraintDescription !== null
-  ) {
-    contents.ConstraintDescription = output.constraintDescription;
-  }
-  if (output.defaultValue !== undefined && output.defaultValue !== null) {
-    contents.DefaultValue = output.defaultValue;
-  }
-  if (output.description !== undefined && output.description !== null) {
-    contents.Description = output.description;
-  }
-  if (output.maxLength !== undefined && output.maxLength !== null) {
-    contents.MaxLength = output.maxLength;
-  }
-  if (output.maxValue !== undefined && output.maxValue !== null) {
-    contents.MaxValue = output.maxValue;
-  }
-  if (output.minLength !== undefined && output.minLength !== null) {
-    contents.MinLength = output.minLength;
-  }
-  if (output.minValue !== undefined && output.minValue !== null) {
-    contents.MinValue = output.minValue;
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.Name = output.name;
-  }
-  if (output.noEcho !== undefined && output.noEcho !== null) {
-    contents.NoEcho = output.noEcho;
-  }
-  if (
-    output.referencedByResources !== undefined &&
-    output.referencedByResources !== null
-  ) {
-    contents.ReferencedByResources = deserializeAws_restJson1_1__listOf__string(
-      output.referencedByResources,
-      context
-    );
-  }
-  if (output.type !== undefined && output.type !== null) {
-    contents.Type = output.type;
-  }
-  return contents;
+    AllowedPattern:
+      output.allowedPattern !== undefined && output.allowedPattern !== null
+        ? output.allowedPattern
+        : undefined,
+    AllowedValues:
+      output.allowedValues !== undefined && output.allowedValues !== null
+        ? deserializeAws_restJson1_1__listOf__string(
+            output.allowedValues,
+            context
+          )
+        : undefined,
+    ConstraintDescription:
+      output.constraintDescription !== undefined &&
+      output.constraintDescription !== null
+        ? output.constraintDescription
+        : undefined,
+    DefaultValue:
+      output.defaultValue !== undefined && output.defaultValue !== null
+        ? output.defaultValue
+        : undefined,
+    Description:
+      output.description !== undefined && output.description !== null
+        ? output.description
+        : undefined,
+    MaxLength:
+      output.maxLength !== undefined && output.maxLength !== null
+        ? output.maxLength
+        : undefined,
+    MaxValue:
+      output.maxValue !== undefined && output.maxValue !== null
+        ? output.maxValue
+        : undefined,
+    MinLength:
+      output.minLength !== undefined && output.minLength !== null
+        ? output.minLength
+        : undefined,
+    MinValue:
+      output.minValue !== undefined && output.minValue !== null
+        ? output.minValue
+        : undefined,
+    Name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    NoEcho:
+      output.noEcho !== undefined && output.noEcho !== null
+        ? output.noEcho
+        : undefined,
+    ReferencedByResources:
+      output.referencedByResources !== undefined &&
+      output.referencedByResources !== null
+        ? deserializeAws_restJson1_1__listOf__string(
+            output.referencedByResources,
+            context
+          )
+        : undefined,
+    Type:
+      output.type !== undefined && output.type !== null
+        ? output.type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Version = (
   output: any,
   context: __SerdeContext
 ): Version => {
-  let contents: any = {
+  return {
     __type: "Version",
-    ApplicationId: undefined,
-    CreationTime: undefined,
-    ParameterDefinitions: undefined,
-    RequiredCapabilities: undefined,
-    ResourcesSupported: undefined,
-    SemanticVersion: undefined,
-    SourceCodeArchiveUrl: undefined,
-    SourceCodeUrl: undefined,
-    TemplateUrl: undefined
-  };
-  if (output.applicationId !== undefined && output.applicationId !== null) {
-    contents.ApplicationId = output.applicationId;
-  }
-  if (output.creationTime !== undefined && output.creationTime !== null) {
-    contents.CreationTime = output.creationTime;
-  }
-  if (
-    output.parameterDefinitions !== undefined &&
-    output.parameterDefinitions !== null
-  ) {
-    contents.ParameterDefinitions = deserializeAws_restJson1_1__listOfParameterDefinition(
-      output.parameterDefinitions,
-      context
-    );
-  }
-  if (
-    output.requiredCapabilities !== undefined &&
-    output.requiredCapabilities !== null
-  ) {
-    contents.RequiredCapabilities = deserializeAws_restJson1_1__listOfCapability(
-      output.requiredCapabilities,
-      context
-    );
-  }
-  if (
-    output.resourcesSupported !== undefined &&
-    output.resourcesSupported !== null
-  ) {
-    contents.ResourcesSupported = output.resourcesSupported;
-  }
-  if (output.semanticVersion !== undefined && output.semanticVersion !== null) {
-    contents.SemanticVersion = output.semanticVersion;
-  }
-  if (
-    output.sourceCodeArchiveUrl !== undefined &&
-    output.sourceCodeArchiveUrl !== null
-  ) {
-    contents.SourceCodeArchiveUrl = output.sourceCodeArchiveUrl;
-  }
-  if (output.sourceCodeUrl !== undefined && output.sourceCodeUrl !== null) {
-    contents.SourceCodeUrl = output.sourceCodeUrl;
-  }
-  if (output.templateUrl !== undefined && output.templateUrl !== null) {
-    contents.TemplateUrl = output.templateUrl;
-  }
-  return contents;
+    ApplicationId:
+      output.applicationId !== undefined && output.applicationId !== null
+        ? output.applicationId
+        : undefined,
+    CreationTime:
+      output.creationTime !== undefined && output.creationTime !== null
+        ? output.creationTime
+        : undefined,
+    ParameterDefinitions:
+      output.parameterDefinitions !== undefined &&
+      output.parameterDefinitions !== null
+        ? deserializeAws_restJson1_1__listOfParameterDefinition(
+            output.parameterDefinitions,
+            context
+          )
+        : undefined,
+    RequiredCapabilities:
+      output.requiredCapabilities !== undefined &&
+      output.requiredCapabilities !== null
+        ? deserializeAws_restJson1_1__listOfCapability(
+            output.requiredCapabilities,
+            context
+          )
+        : undefined,
+    ResourcesSupported:
+      output.resourcesSupported !== undefined &&
+      output.resourcesSupported !== null
+        ? output.resourcesSupported
+        : undefined,
+    SemanticVersion:
+      output.semanticVersion !== undefined && output.semanticVersion !== null
+        ? output.semanticVersion
+        : undefined,
+    SourceCodeArchiveUrl:
+      output.sourceCodeArchiveUrl !== undefined &&
+      output.sourceCodeArchiveUrl !== null
+        ? output.sourceCodeArchiveUrl
+        : undefined,
+    SourceCodeUrl:
+      output.sourceCodeUrl !== undefined && output.sourceCodeUrl !== null
+        ? output.sourceCodeUrl
+        : undefined,
+    TemplateUrl:
+      output.templateUrl !== undefined && output.templateUrl !== null
+        ? output.templateUrl
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1VersionSummary = (
   output: any,
   context: __SerdeContext
 ): VersionSummary => {
-  let contents: any = {
+  return {
     __type: "VersionSummary",
-    ApplicationId: undefined,
-    CreationTime: undefined,
-    SemanticVersion: undefined,
-    SourceCodeUrl: undefined
-  };
-  if (output.applicationId !== undefined && output.applicationId !== null) {
-    contents.ApplicationId = output.applicationId;
-  }
-  if (output.creationTime !== undefined && output.creationTime !== null) {
-    contents.CreationTime = output.creationTime;
-  }
-  if (output.semanticVersion !== undefined && output.semanticVersion !== null) {
-    contents.SemanticVersion = output.semanticVersion;
-  }
-  if (output.sourceCodeUrl !== undefined && output.sourceCodeUrl !== null) {
-    contents.SourceCodeUrl = output.sourceCodeUrl;
-  }
-  return contents;
+    ApplicationId:
+      output.applicationId !== undefined && output.applicationId !== null
+        ? output.applicationId
+        : undefined,
+    CreationTime:
+      output.creationTime !== undefined && output.creationTime !== null
+        ? output.creationTime
+        : undefined,
+    SemanticVersion:
+      output.semanticVersion !== undefined && output.semanticVersion !== null
+        ? output.semanticVersion
+        : undefined,
+    SourceCodeUrl:
+      output.sourceCodeUrl !== undefined && output.sourceCodeUrl !== null
+        ? output.sourceCodeUrl
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1__listOfApplicationDependencySummary = (

@@ -254,88 +254,82 @@ const deserializeAws_json1_1AuthException = (
   output: any,
   context: __SerdeContext
 ): AuthException => {
-  let contents: any = {
+  return {
     __type: "AuthException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EC2InstanceNotFoundException = (
   output: any,
   context: __SerdeContext
 ): EC2InstanceNotFoundException => {
-  let contents: any = {
+  return {
     __type: "EC2InstanceNotFoundException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidArgsException = (
   output: any,
   context: __SerdeContext
 ): InvalidArgsException => {
-  let contents: any = {
+  return {
     __type: "InvalidArgsException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SendSSHPublicKeyResponse = (
   output: any,
   context: __SerdeContext
 ): SendSSHPublicKeyResponse => {
-  let contents: any = {
+  return {
     __type: "SendSSHPublicKeyResponse",
-    RequestId: undefined,
-    Success: undefined
-  };
-  if (output.RequestId !== undefined && output.RequestId !== null) {
-    contents.RequestId = output.RequestId;
-  }
-  if (output.Success !== undefined && output.Success !== null) {
-    contents.Success = output.Success;
-  }
-  return contents;
+    RequestId:
+      output.RequestId !== undefined && output.RequestId !== null
+        ? output.RequestId
+        : undefined,
+    Success:
+      output.Success !== undefined && output.Success !== null
+        ? output.Success
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ServiceException = (
   output: any,
   context: __SerdeContext
 ): ServiceException => {
-  let contents: any = {
+  return {
     __type: "ServiceException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ThrottlingException = (
   output: any,
   context: __SerdeContext
 ): ThrottlingException => {
-  let contents: any = {
+  return {
     __type: "ThrottlingException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

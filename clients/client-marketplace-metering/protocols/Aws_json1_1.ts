@@ -985,327 +985,291 @@ const deserializeAws_json1_1BatchMeterUsageResult = (
   output: any,
   context: __SerdeContext
 ): BatchMeterUsageResult => {
-  let contents: any = {
+  return {
     __type: "BatchMeterUsageResult",
-    Results: undefined,
-    UnprocessedRecords: undefined
-  };
-  if (output.Results !== undefined && output.Results !== null) {
-    contents.Results = deserializeAws_json1_1UsageRecordResultList(
-      output.Results,
-      context
-    );
-  }
-  if (
-    output.UnprocessedRecords !== undefined &&
-    output.UnprocessedRecords !== null
-  ) {
-    contents.UnprocessedRecords = deserializeAws_json1_1UsageRecordList(
-      output.UnprocessedRecords,
-      context
-    );
-  }
-  return contents;
+    Results:
+      output.Results !== undefined && output.Results !== null
+        ? deserializeAws_json1_1UsageRecordResultList(output.Results, context)
+        : undefined,
+    UnprocessedRecords:
+      output.UnprocessedRecords !== undefined &&
+      output.UnprocessedRecords !== null
+        ? deserializeAws_json1_1UsageRecordList(
+            output.UnprocessedRecords,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CustomerNotEntitledException = (
   output: any,
   context: __SerdeContext
 ): CustomerNotEntitledException => {
-  let contents: any = {
+  return {
     __type: "CustomerNotEntitledException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DisabledApiException = (
   output: any,
   context: __SerdeContext
 ): DisabledApiException => {
-  let contents: any = {
+  return {
     __type: "DisabledApiException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DuplicateRequestException = (
   output: any,
   context: __SerdeContext
 ): DuplicateRequestException => {
-  let contents: any = {
+  return {
     __type: "DuplicateRequestException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ExpiredTokenException = (
   output: any,
   context: __SerdeContext
 ): ExpiredTokenException => {
-  let contents: any = {
+  return {
     __type: "ExpiredTokenException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InternalServiceErrorException = (
   output: any,
   context: __SerdeContext
 ): InternalServiceErrorException => {
-  let contents: any = {
+  return {
     __type: "InternalServiceErrorException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidCustomerIdentifierException = (
   output: any,
   context: __SerdeContext
 ): InvalidCustomerIdentifierException => {
-  let contents: any = {
+  return {
     __type: "InvalidCustomerIdentifierException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidEndpointRegionException = (
   output: any,
   context: __SerdeContext
 ): InvalidEndpointRegionException => {
-  let contents: any = {
+  return {
     __type: "InvalidEndpointRegionException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidProductCodeException = (
   output: any,
   context: __SerdeContext
 ): InvalidProductCodeException => {
-  let contents: any = {
+  return {
     __type: "InvalidProductCodeException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidPublicKeyVersionException = (
   output: any,
   context: __SerdeContext
 ): InvalidPublicKeyVersionException => {
-  let contents: any = {
+  return {
     __type: "InvalidPublicKeyVersionException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidRegionException = (
   output: any,
   context: __SerdeContext
 ): InvalidRegionException => {
-  let contents: any = {
+  return {
     __type: "InvalidRegionException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidTokenException = (
   output: any,
   context: __SerdeContext
 ): InvalidTokenException => {
-  let contents: any = {
+  return {
     __type: "InvalidTokenException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidUsageDimensionException = (
   output: any,
   context: __SerdeContext
 ): InvalidUsageDimensionException => {
-  let contents: any = {
+  return {
     __type: "InvalidUsageDimensionException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1MeterUsageResult = (
   output: any,
   context: __SerdeContext
 ): MeterUsageResult => {
-  let contents: any = {
+  return {
     __type: "MeterUsageResult",
-    MeteringRecordId: undefined
-  };
-  if (
-    output.MeteringRecordId !== undefined &&
-    output.MeteringRecordId !== null
-  ) {
-    contents.MeteringRecordId = output.MeteringRecordId;
-  }
-  return contents;
+    MeteringRecordId:
+      output.MeteringRecordId !== undefined && output.MeteringRecordId !== null
+        ? output.MeteringRecordId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PlatformNotSupportedException = (
   output: any,
   context: __SerdeContext
 ): PlatformNotSupportedException => {
-  let contents: any = {
+  return {
     __type: "PlatformNotSupportedException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RegisterUsageResult = (
   output: any,
   context: __SerdeContext
 ): RegisterUsageResult => {
-  let contents: any = {
+  return {
     __type: "RegisterUsageResult",
-    PublicKeyRotationTimestamp: undefined,
-    Signature: undefined
-  };
-  if (
-    output.PublicKeyRotationTimestamp !== undefined &&
-    output.PublicKeyRotationTimestamp !== null
-  ) {
-    contents.PublicKeyRotationTimestamp = new Date(
-      Math.round(output.PublicKeyRotationTimestamp * 1000)
-    );
-  }
-  if (output.Signature !== undefined && output.Signature !== null) {
-    contents.Signature = output.Signature;
-  }
-  return contents;
+    PublicKeyRotationTimestamp:
+      output.PublicKeyRotationTimestamp !== undefined &&
+      output.PublicKeyRotationTimestamp !== null
+        ? new Date(Math.round(output.PublicKeyRotationTimestamp * 1000))
+        : undefined,
+    Signature:
+      output.Signature !== undefined && output.Signature !== null
+        ? output.Signature
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResolveCustomerResult = (
   output: any,
   context: __SerdeContext
 ): ResolveCustomerResult => {
-  let contents: any = {
+  return {
     __type: "ResolveCustomerResult",
-    CustomerIdentifier: undefined,
-    ProductCode: undefined
-  };
-  if (
-    output.CustomerIdentifier !== undefined &&
-    output.CustomerIdentifier !== null
-  ) {
-    contents.CustomerIdentifier = output.CustomerIdentifier;
-  }
-  if (output.ProductCode !== undefined && output.ProductCode !== null) {
-    contents.ProductCode = output.ProductCode;
-  }
-  return contents;
+    CustomerIdentifier:
+      output.CustomerIdentifier !== undefined &&
+      output.CustomerIdentifier !== null
+        ? output.CustomerIdentifier
+        : undefined,
+    ProductCode:
+      output.ProductCode !== undefined && output.ProductCode !== null
+        ? output.ProductCode
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ThrottlingException = (
   output: any,
   context: __SerdeContext
 ): ThrottlingException => {
-  let contents: any = {
+  return {
     __type: "ThrottlingException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TimestampOutOfBoundsException = (
   output: any,
   context: __SerdeContext
 ): TimestampOutOfBoundsException => {
-  let contents: any = {
+  return {
     __type: "TimestampOutOfBoundsException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UsageRecord = (
   output: any,
   context: __SerdeContext
 ): UsageRecord => {
-  let contents: any = {
+  return {
     __type: "UsageRecord",
-    CustomerIdentifier: undefined,
-    Dimension: undefined,
-    Quantity: undefined,
-    Timestamp: undefined
-  };
-  if (
-    output.CustomerIdentifier !== undefined &&
-    output.CustomerIdentifier !== null
-  ) {
-    contents.CustomerIdentifier = output.CustomerIdentifier;
-  }
-  if (output.Dimension !== undefined && output.Dimension !== null) {
-    contents.Dimension = output.Dimension;
-  }
-  if (output.Quantity !== undefined && output.Quantity !== null) {
-    contents.Quantity = output.Quantity;
-  }
-  if (output.Timestamp !== undefined && output.Timestamp !== null) {
-    contents.Timestamp = new Date(Math.round(output.Timestamp * 1000));
-  }
-  return contents;
+    CustomerIdentifier:
+      output.CustomerIdentifier !== undefined &&
+      output.CustomerIdentifier !== null
+        ? output.CustomerIdentifier
+        : undefined,
+    Dimension:
+      output.Dimension !== undefined && output.Dimension !== null
+        ? output.Dimension
+        : undefined,
+    Quantity:
+      output.Quantity !== undefined && output.Quantity !== null
+        ? output.Quantity
+        : undefined,
+    Timestamp:
+      output.Timestamp !== undefined && output.Timestamp !== null
+        ? new Date(Math.round(output.Timestamp * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UsageRecordList = (
@@ -1321,28 +1285,21 @@ const deserializeAws_json1_1UsageRecordResult = (
   output: any,
   context: __SerdeContext
 ): UsageRecordResult => {
-  let contents: any = {
+  return {
     __type: "UsageRecordResult",
-    MeteringRecordId: undefined,
-    Status: undefined,
-    UsageRecord: undefined
-  };
-  if (
-    output.MeteringRecordId !== undefined &&
-    output.MeteringRecordId !== null
-  ) {
-    contents.MeteringRecordId = output.MeteringRecordId;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.UsageRecord !== undefined && output.UsageRecord !== null) {
-    contents.UsageRecord = deserializeAws_json1_1UsageRecord(
-      output.UsageRecord,
-      context
-    );
-  }
-  return contents;
+    MeteringRecordId:
+      output.MeteringRecordId !== undefined && output.MeteringRecordId !== null
+        ? output.MeteringRecordId
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    UsageRecord:
+      output.UsageRecord !== undefined && output.UsageRecord !== null
+        ? deserializeAws_json1_1UsageRecord(output.UsageRecord, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UsageRecordResultList = (

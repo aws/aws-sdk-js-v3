@@ -2338,22 +2338,21 @@ const deserializeAws_json1_1ComplianceViolator = (
   output: any,
   context: __SerdeContext
 ): ComplianceViolator => {
-  let contents: any = {
+  return {
     __type: "ComplianceViolator",
-    ResourceId: undefined,
-    ResourceType: undefined,
-    ViolationReason: undefined
-  };
-  if (output.ResourceId !== undefined && output.ResourceId !== null) {
-    contents.ResourceId = output.ResourceId;
-  }
-  if (output.ResourceType !== undefined && output.ResourceType !== null) {
-    contents.ResourceType = output.ResourceType;
-  }
-  if (output.ViolationReason !== undefined && output.ViolationReason !== null) {
-    contents.ViolationReason = output.ViolationReason;
-  }
-  return contents;
+    ResourceId:
+      output.ResourceId !== undefined && output.ResourceId !== null
+        ? output.ResourceId
+        : undefined,
+    ResourceType:
+      output.ResourceType !== undefined && output.ResourceType !== null
+        ? output.ResourceType
+        : undefined,
+    ViolationReason:
+      output.ViolationReason !== undefined && output.ViolationReason !== null
+        ? output.ViolationReason
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ComplianceViolators = (
@@ -2389,28 +2388,22 @@ const deserializeAws_json1_1EvaluationResult = (
   output: any,
   context: __SerdeContext
 ): EvaluationResult => {
-  let contents: any = {
+  return {
     __type: "EvaluationResult",
-    ComplianceStatus: undefined,
-    EvaluationLimitExceeded: undefined,
-    ViolatorCount: undefined
-  };
-  if (
-    output.ComplianceStatus !== undefined &&
-    output.ComplianceStatus !== null
-  ) {
-    contents.ComplianceStatus = output.ComplianceStatus;
-  }
-  if (
-    output.EvaluationLimitExceeded !== undefined &&
-    output.EvaluationLimitExceeded !== null
-  ) {
-    contents.EvaluationLimitExceeded = output.EvaluationLimitExceeded;
-  }
-  if (output.ViolatorCount !== undefined && output.ViolatorCount !== null) {
-    contents.ViolatorCount = output.ViolatorCount;
-  }
-  return contents;
+    ComplianceStatus:
+      output.ComplianceStatus !== undefined && output.ComplianceStatus !== null
+        ? output.ComplianceStatus
+        : undefined,
+    EvaluationLimitExceeded:
+      output.EvaluationLimitExceeded !== undefined &&
+      output.EvaluationLimitExceeded !== null
+        ? output.EvaluationLimitExceeded
+        : undefined,
+    ViolatorCount:
+      output.ViolatorCount !== undefined && output.ViolatorCount !== null
+        ? output.ViolatorCount
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EvaluationResults = (
@@ -2426,156 +2419,145 @@ const deserializeAws_json1_1GetAdminAccountResponse = (
   output: any,
   context: __SerdeContext
 ): GetAdminAccountResponse => {
-  let contents: any = {
+  return {
     __type: "GetAdminAccountResponse",
-    AdminAccount: undefined,
-    RoleStatus: undefined
-  };
-  if (output.AdminAccount !== undefined && output.AdminAccount !== null) {
-    contents.AdminAccount = output.AdminAccount;
-  }
-  if (output.RoleStatus !== undefined && output.RoleStatus !== null) {
-    contents.RoleStatus = output.RoleStatus;
-  }
-  return contents;
+    AdminAccount:
+      output.AdminAccount !== undefined && output.AdminAccount !== null
+        ? output.AdminAccount
+        : undefined,
+    RoleStatus:
+      output.RoleStatus !== undefined && output.RoleStatus !== null
+        ? output.RoleStatus
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetComplianceDetailResponse = (
   output: any,
   context: __SerdeContext
 ): GetComplianceDetailResponse => {
-  let contents: any = {
+  return {
     __type: "GetComplianceDetailResponse",
-    PolicyComplianceDetail: undefined
-  };
-  if (
-    output.PolicyComplianceDetail !== undefined &&
-    output.PolicyComplianceDetail !== null
-  ) {
-    contents.PolicyComplianceDetail = deserializeAws_json1_1PolicyComplianceDetail(
-      output.PolicyComplianceDetail,
-      context
-    );
-  }
-  return contents;
+    PolicyComplianceDetail:
+      output.PolicyComplianceDetail !== undefined &&
+      output.PolicyComplianceDetail !== null
+        ? deserializeAws_json1_1PolicyComplianceDetail(
+            output.PolicyComplianceDetail,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetNotificationChannelResponse = (
   output: any,
   context: __SerdeContext
 ): GetNotificationChannelResponse => {
-  let contents: any = {
+  return {
     __type: "GetNotificationChannelResponse",
-    SnsRoleName: undefined,
-    SnsTopicArn: undefined
-  };
-  if (output.SnsRoleName !== undefined && output.SnsRoleName !== null) {
-    contents.SnsRoleName = output.SnsRoleName;
-  }
-  if (output.SnsTopicArn !== undefined && output.SnsTopicArn !== null) {
-    contents.SnsTopicArn = output.SnsTopicArn;
-  }
-  return contents;
+    SnsRoleName:
+      output.SnsRoleName !== undefined && output.SnsRoleName !== null
+        ? output.SnsRoleName
+        : undefined,
+    SnsTopicArn:
+      output.SnsTopicArn !== undefined && output.SnsTopicArn !== null
+        ? output.SnsTopicArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetPolicyResponse = (
   output: any,
   context: __SerdeContext
 ): GetPolicyResponse => {
-  let contents: any = {
+  return {
     __type: "GetPolicyResponse",
-    Policy: undefined,
-    PolicyArn: undefined
-  };
-  if (output.Policy !== undefined && output.Policy !== null) {
-    contents.Policy = deserializeAws_json1_1Policy(output.Policy, context);
-  }
-  if (output.PolicyArn !== undefined && output.PolicyArn !== null) {
-    contents.PolicyArn = output.PolicyArn;
-  }
-  return contents;
+    Policy:
+      output.Policy !== undefined && output.Policy !== null
+        ? deserializeAws_json1_1Policy(output.Policy, context)
+        : undefined,
+    PolicyArn:
+      output.PolicyArn !== undefined && output.PolicyArn !== null
+        ? output.PolicyArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetProtectionStatusResponse = (
   output: any,
   context: __SerdeContext
 ): GetProtectionStatusResponse => {
-  let contents: any = {
+  return {
     __type: "GetProtectionStatusResponse",
-    AdminAccountId: undefined,
-    Data: undefined,
-    NextToken: undefined,
-    ServiceType: undefined
-  };
-  if (output.AdminAccountId !== undefined && output.AdminAccountId !== null) {
-    contents.AdminAccountId = output.AdminAccountId;
-  }
-  if (output.Data !== undefined && output.Data !== null) {
-    contents.Data = output.Data;
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.ServiceType !== undefined && output.ServiceType !== null) {
-    contents.ServiceType = output.ServiceType;
-  }
-  return contents;
+    AdminAccountId:
+      output.AdminAccountId !== undefined && output.AdminAccountId !== null
+        ? output.AdminAccountId
+        : undefined,
+    Data:
+      output.Data !== undefined && output.Data !== null
+        ? output.Data
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    ServiceType:
+      output.ServiceType !== undefined && output.ServiceType !== null
+        ? output.ServiceType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InternalErrorException = (
   output: any,
   context: __SerdeContext
 ): InternalErrorException => {
-  let contents: any = {
+  return {
     __type: "InternalErrorException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidInputException = (
   output: any,
   context: __SerdeContext
 ): InvalidInputException => {
-  let contents: any = {
+  return {
     __type: "InvalidInputException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidOperationException = (
   output: any,
   context: __SerdeContext
 ): InvalidOperationException => {
-  let contents: any = {
+  return {
     __type: "InvalidOperationException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidTypeException = (
   output: any,
   context: __SerdeContext
 ): InvalidTypeException => {
-  let contents: any = {
+  return {
     __type: "InvalidTypeException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1IssueInfoMap = (
@@ -2592,94 +2574,81 @@ const deserializeAws_json1_1LimitExceededException = (
   output: any,
   context: __SerdeContext
 ): LimitExceededException => {
-  let contents: any = {
+  return {
     __type: "LimitExceededException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListComplianceStatusResponse = (
   output: any,
   context: __SerdeContext
 ): ListComplianceStatusResponse => {
-  let contents: any = {
+  return {
     __type: "ListComplianceStatusResponse",
-    NextToken: undefined,
-    PolicyComplianceStatusList: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (
-    output.PolicyComplianceStatusList !== undefined &&
-    output.PolicyComplianceStatusList !== null
-  ) {
-    contents.PolicyComplianceStatusList = deserializeAws_json1_1PolicyComplianceStatusList(
-      output.PolicyComplianceStatusList,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    PolicyComplianceStatusList:
+      output.PolicyComplianceStatusList !== undefined &&
+      output.PolicyComplianceStatusList !== null
+        ? deserializeAws_json1_1PolicyComplianceStatusList(
+            output.PolicyComplianceStatusList,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListMemberAccountsResponse = (
   output: any,
   context: __SerdeContext
 ): ListMemberAccountsResponse => {
-  let contents: any = {
+  return {
     __type: "ListMemberAccountsResponse",
-    MemberAccounts: undefined,
-    NextToken: undefined
-  };
-  if (output.MemberAccounts !== undefined && output.MemberAccounts !== null) {
-    contents.MemberAccounts = deserializeAws_json1_1MemberAccounts(
-      output.MemberAccounts,
-      context
-    );
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  return contents;
+    MemberAccounts:
+      output.MemberAccounts !== undefined && output.MemberAccounts !== null
+        ? deserializeAws_json1_1MemberAccounts(output.MemberAccounts, context)
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListPoliciesResponse = (
   output: any,
   context: __SerdeContext
 ): ListPoliciesResponse => {
-  let contents: any = {
+  return {
     __type: "ListPoliciesResponse",
-    NextToken: undefined,
-    PolicyList: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.PolicyList !== undefined && output.PolicyList !== null) {
-    contents.PolicyList = deserializeAws_json1_1PolicySummaryList(
-      output.PolicyList,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    PolicyList:
+      output.PolicyList !== undefined && output.PolicyList !== null
+        ? deserializeAws_json1_1PolicySummaryList(output.PolicyList, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListTagsForResourceResponse = (
   output: any,
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
-  let contents: any = {
+  return {
     __type: "ListTagsForResourceResponse",
-    TagList: undefined
-  };
-  if (output.TagList !== undefined && output.TagList !== null) {
-    contents.TagList = deserializeAws_json1_1TagList(output.TagList, context);
-  }
-  return contents;
+    TagList:
+      output.TagList !== undefined && output.TagList !== null
+        ? deserializeAws_json1_1TagList(output.TagList, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1MemberAccounts = (
@@ -2693,178 +2662,148 @@ const deserializeAws_json1_1Policy = (
   output: any,
   context: __SerdeContext
 ): Policy => {
-  let contents: any = {
+  return {
     __type: "Policy",
-    ExcludeMap: undefined,
-    ExcludeResourceTags: undefined,
-    IncludeMap: undefined,
-    PolicyId: undefined,
-    PolicyName: undefined,
-    PolicyUpdateToken: undefined,
-    RemediationEnabled: undefined,
-    ResourceTags: undefined,
-    ResourceType: undefined,
-    ResourceTypeList: undefined,
-    SecurityServicePolicyData: undefined
-  };
-  if (output.ExcludeMap !== undefined && output.ExcludeMap !== null) {
-    contents.ExcludeMap = deserializeAws_json1_1CustomerPolicyScopeMap(
-      output.ExcludeMap,
-      context
-    );
-  }
-  if (
-    output.ExcludeResourceTags !== undefined &&
-    output.ExcludeResourceTags !== null
-  ) {
-    contents.ExcludeResourceTags = output.ExcludeResourceTags;
-  }
-  if (output.IncludeMap !== undefined && output.IncludeMap !== null) {
-    contents.IncludeMap = deserializeAws_json1_1CustomerPolicyScopeMap(
-      output.IncludeMap,
-      context
-    );
-  }
-  if (output.PolicyId !== undefined && output.PolicyId !== null) {
-    contents.PolicyId = output.PolicyId;
-  }
-  if (output.PolicyName !== undefined && output.PolicyName !== null) {
-    contents.PolicyName = output.PolicyName;
-  }
-  if (
-    output.PolicyUpdateToken !== undefined &&
-    output.PolicyUpdateToken !== null
-  ) {
-    contents.PolicyUpdateToken = output.PolicyUpdateToken;
-  }
-  if (
-    output.RemediationEnabled !== undefined &&
-    output.RemediationEnabled !== null
-  ) {
-    contents.RemediationEnabled = output.RemediationEnabled;
-  }
-  if (output.ResourceTags !== undefined && output.ResourceTags !== null) {
-    contents.ResourceTags = deserializeAws_json1_1ResourceTags(
-      output.ResourceTags,
-      context
-    );
-  }
-  if (output.ResourceType !== undefined && output.ResourceType !== null) {
-    contents.ResourceType = output.ResourceType;
-  }
-  if (
-    output.ResourceTypeList !== undefined &&
-    output.ResourceTypeList !== null
-  ) {
-    contents.ResourceTypeList = deserializeAws_json1_1ResourceTypeList(
-      output.ResourceTypeList,
-      context
-    );
-  }
-  if (
-    output.SecurityServicePolicyData !== undefined &&
-    output.SecurityServicePolicyData !== null
-  ) {
-    contents.SecurityServicePolicyData = deserializeAws_json1_1SecurityServicePolicyData(
-      output.SecurityServicePolicyData,
-      context
-    );
-  }
-  return contents;
+    ExcludeMap:
+      output.ExcludeMap !== undefined && output.ExcludeMap !== null
+        ? deserializeAws_json1_1CustomerPolicyScopeMap(
+            output.ExcludeMap,
+            context
+          )
+        : undefined,
+    ExcludeResourceTags:
+      output.ExcludeResourceTags !== undefined &&
+      output.ExcludeResourceTags !== null
+        ? output.ExcludeResourceTags
+        : undefined,
+    IncludeMap:
+      output.IncludeMap !== undefined && output.IncludeMap !== null
+        ? deserializeAws_json1_1CustomerPolicyScopeMap(
+            output.IncludeMap,
+            context
+          )
+        : undefined,
+    PolicyId:
+      output.PolicyId !== undefined && output.PolicyId !== null
+        ? output.PolicyId
+        : undefined,
+    PolicyName:
+      output.PolicyName !== undefined && output.PolicyName !== null
+        ? output.PolicyName
+        : undefined,
+    PolicyUpdateToken:
+      output.PolicyUpdateToken !== undefined &&
+      output.PolicyUpdateToken !== null
+        ? output.PolicyUpdateToken
+        : undefined,
+    RemediationEnabled:
+      output.RemediationEnabled !== undefined &&
+      output.RemediationEnabled !== null
+        ? output.RemediationEnabled
+        : undefined,
+    ResourceTags:
+      output.ResourceTags !== undefined && output.ResourceTags !== null
+        ? deserializeAws_json1_1ResourceTags(output.ResourceTags, context)
+        : undefined,
+    ResourceType:
+      output.ResourceType !== undefined && output.ResourceType !== null
+        ? output.ResourceType
+        : undefined,
+    ResourceTypeList:
+      output.ResourceTypeList !== undefined && output.ResourceTypeList !== null
+        ? deserializeAws_json1_1ResourceTypeList(
+            output.ResourceTypeList,
+            context
+          )
+        : undefined,
+    SecurityServicePolicyData:
+      output.SecurityServicePolicyData !== undefined &&
+      output.SecurityServicePolicyData !== null
+        ? deserializeAws_json1_1SecurityServicePolicyData(
+            output.SecurityServicePolicyData,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PolicyComplianceDetail = (
   output: any,
   context: __SerdeContext
 ): PolicyComplianceDetail => {
-  let contents: any = {
+  return {
     __type: "PolicyComplianceDetail",
-    EvaluationLimitExceeded: undefined,
-    ExpiredAt: undefined,
-    IssueInfoMap: undefined,
-    MemberAccount: undefined,
-    PolicyId: undefined,
-    PolicyOwner: undefined,
-    Violators: undefined
-  };
-  if (
-    output.EvaluationLimitExceeded !== undefined &&
-    output.EvaluationLimitExceeded !== null
-  ) {
-    contents.EvaluationLimitExceeded = output.EvaluationLimitExceeded;
-  }
-  if (output.ExpiredAt !== undefined && output.ExpiredAt !== null) {
-    contents.ExpiredAt = new Date(Math.round(output.ExpiredAt * 1000));
-  }
-  if (output.IssueInfoMap !== undefined && output.IssueInfoMap !== null) {
-    contents.IssueInfoMap = deserializeAws_json1_1IssueInfoMap(
-      output.IssueInfoMap,
-      context
-    );
-  }
-  if (output.MemberAccount !== undefined && output.MemberAccount !== null) {
-    contents.MemberAccount = output.MemberAccount;
-  }
-  if (output.PolicyId !== undefined && output.PolicyId !== null) {
-    contents.PolicyId = output.PolicyId;
-  }
-  if (output.PolicyOwner !== undefined && output.PolicyOwner !== null) {
-    contents.PolicyOwner = output.PolicyOwner;
-  }
-  if (output.Violators !== undefined && output.Violators !== null) {
-    contents.Violators = deserializeAws_json1_1ComplianceViolators(
-      output.Violators,
-      context
-    );
-  }
-  return contents;
+    EvaluationLimitExceeded:
+      output.EvaluationLimitExceeded !== undefined &&
+      output.EvaluationLimitExceeded !== null
+        ? output.EvaluationLimitExceeded
+        : undefined,
+    ExpiredAt:
+      output.ExpiredAt !== undefined && output.ExpiredAt !== null
+        ? new Date(Math.round(output.ExpiredAt * 1000))
+        : undefined,
+    IssueInfoMap:
+      output.IssueInfoMap !== undefined && output.IssueInfoMap !== null
+        ? deserializeAws_json1_1IssueInfoMap(output.IssueInfoMap, context)
+        : undefined,
+    MemberAccount:
+      output.MemberAccount !== undefined && output.MemberAccount !== null
+        ? output.MemberAccount
+        : undefined,
+    PolicyId:
+      output.PolicyId !== undefined && output.PolicyId !== null
+        ? output.PolicyId
+        : undefined,
+    PolicyOwner:
+      output.PolicyOwner !== undefined && output.PolicyOwner !== null
+        ? output.PolicyOwner
+        : undefined,
+    Violators:
+      output.Violators !== undefined && output.Violators !== null
+        ? deserializeAws_json1_1ComplianceViolators(output.Violators, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PolicyComplianceStatus = (
   output: any,
   context: __SerdeContext
 ): PolicyComplianceStatus => {
-  let contents: any = {
+  return {
     __type: "PolicyComplianceStatus",
-    EvaluationResults: undefined,
-    IssueInfoMap: undefined,
-    LastUpdated: undefined,
-    MemberAccount: undefined,
-    PolicyId: undefined,
-    PolicyName: undefined,
-    PolicyOwner: undefined
-  };
-  if (
-    output.EvaluationResults !== undefined &&
-    output.EvaluationResults !== null
-  ) {
-    contents.EvaluationResults = deserializeAws_json1_1EvaluationResults(
-      output.EvaluationResults,
-      context
-    );
-  }
-  if (output.IssueInfoMap !== undefined && output.IssueInfoMap !== null) {
-    contents.IssueInfoMap = deserializeAws_json1_1IssueInfoMap(
-      output.IssueInfoMap,
-      context
-    );
-  }
-  if (output.LastUpdated !== undefined && output.LastUpdated !== null) {
-    contents.LastUpdated = new Date(Math.round(output.LastUpdated * 1000));
-  }
-  if (output.MemberAccount !== undefined && output.MemberAccount !== null) {
-    contents.MemberAccount = output.MemberAccount;
-  }
-  if (output.PolicyId !== undefined && output.PolicyId !== null) {
-    contents.PolicyId = output.PolicyId;
-  }
-  if (output.PolicyName !== undefined && output.PolicyName !== null) {
-    contents.PolicyName = output.PolicyName;
-  }
-  if (output.PolicyOwner !== undefined && output.PolicyOwner !== null) {
-    contents.PolicyOwner = output.PolicyOwner;
-  }
-  return contents;
+    EvaluationResults:
+      output.EvaluationResults !== undefined &&
+      output.EvaluationResults !== null
+        ? deserializeAws_json1_1EvaluationResults(
+            output.EvaluationResults,
+            context
+          )
+        : undefined,
+    IssueInfoMap:
+      output.IssueInfoMap !== undefined && output.IssueInfoMap !== null
+        ? deserializeAws_json1_1IssueInfoMap(output.IssueInfoMap, context)
+        : undefined,
+    LastUpdated:
+      output.LastUpdated !== undefined && output.LastUpdated !== null
+        ? new Date(Math.round(output.LastUpdated * 1000))
+        : undefined,
+    MemberAccount:
+      output.MemberAccount !== undefined && output.MemberAccount !== null
+        ? output.MemberAccount
+        : undefined,
+    PolicyId:
+      output.PolicyId !== undefined && output.PolicyId !== null
+        ? output.PolicyId
+        : undefined,
+    PolicyName:
+      output.PolicyName !== undefined && output.PolicyName !== null
+        ? output.PolicyName
+        : undefined,
+    PolicyOwner:
+      output.PolicyOwner !== undefined && output.PolicyOwner !== null
+        ? output.PolicyOwner
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PolicyComplianceStatusList = (
@@ -2880,40 +2819,35 @@ const deserializeAws_json1_1PolicySummary = (
   output: any,
   context: __SerdeContext
 ): PolicySummary => {
-  let contents: any = {
+  return {
     __type: "PolicySummary",
-    PolicyArn: undefined,
-    PolicyId: undefined,
-    PolicyName: undefined,
-    RemediationEnabled: undefined,
-    ResourceType: undefined,
-    SecurityServiceType: undefined
-  };
-  if (output.PolicyArn !== undefined && output.PolicyArn !== null) {
-    contents.PolicyArn = output.PolicyArn;
-  }
-  if (output.PolicyId !== undefined && output.PolicyId !== null) {
-    contents.PolicyId = output.PolicyId;
-  }
-  if (output.PolicyName !== undefined && output.PolicyName !== null) {
-    contents.PolicyName = output.PolicyName;
-  }
-  if (
-    output.RemediationEnabled !== undefined &&
-    output.RemediationEnabled !== null
-  ) {
-    contents.RemediationEnabled = output.RemediationEnabled;
-  }
-  if (output.ResourceType !== undefined && output.ResourceType !== null) {
-    contents.ResourceType = output.ResourceType;
-  }
-  if (
-    output.SecurityServiceType !== undefined &&
-    output.SecurityServiceType !== null
-  ) {
-    contents.SecurityServiceType = output.SecurityServiceType;
-  }
-  return contents;
+    PolicyArn:
+      output.PolicyArn !== undefined && output.PolicyArn !== null
+        ? output.PolicyArn
+        : undefined,
+    PolicyId:
+      output.PolicyId !== undefined && output.PolicyId !== null
+        ? output.PolicyId
+        : undefined,
+    PolicyName:
+      output.PolicyName !== undefined && output.PolicyName !== null
+        ? output.PolicyName
+        : undefined,
+    RemediationEnabled:
+      output.RemediationEnabled !== undefined &&
+      output.RemediationEnabled !== null
+        ? output.RemediationEnabled
+        : undefined,
+    ResourceType:
+      output.ResourceType !== undefined && output.ResourceType !== null
+        ? output.ResourceType
+        : undefined,
+    SecurityServiceType:
+      output.SecurityServiceType !== undefined &&
+      output.SecurityServiceType !== null
+        ? output.SecurityServiceType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PolicySummaryList = (
@@ -2929,50 +2863,45 @@ const deserializeAws_json1_1PutPolicyResponse = (
   output: any,
   context: __SerdeContext
 ): PutPolicyResponse => {
-  let contents: any = {
+  return {
     __type: "PutPolicyResponse",
-    Policy: undefined,
-    PolicyArn: undefined
-  };
-  if (output.Policy !== undefined && output.Policy !== null) {
-    contents.Policy = deserializeAws_json1_1Policy(output.Policy, context);
-  }
-  if (output.PolicyArn !== undefined && output.PolicyArn !== null) {
-    contents.PolicyArn = output.PolicyArn;
-  }
-  return contents;
+    Policy:
+      output.Policy !== undefined && output.Policy !== null
+        ? deserializeAws_json1_1Policy(output.Policy, context)
+        : undefined,
+    PolicyArn:
+      output.PolicyArn !== undefined && output.PolicyArn !== null
+        ? output.PolicyArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ResourceNotFoundException => {
-  let contents: any = {
+  return {
     __type: "ResourceNotFoundException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceTag = (
   output: any,
   context: __SerdeContext
 ): ResourceTag => {
-  let contents: any = {
+  return {
     __type: "ResourceTag",
-    Key: undefined,
-    Value: undefined
-  };
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceTags = (
@@ -2995,39 +2924,33 @@ const deserializeAws_json1_1SecurityServicePolicyData = (
   output: any,
   context: __SerdeContext
 ): SecurityServicePolicyData => {
-  let contents: any = {
+  return {
     __type: "SecurityServicePolicyData",
-    ManagedServiceData: undefined,
-    Type: undefined
-  };
-  if (
-    output.ManagedServiceData !== undefined &&
-    output.ManagedServiceData !== null
-  ) {
-    contents.ManagedServiceData = output.ManagedServiceData;
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    ManagedServiceData:
+      output.ManagedServiceData !== undefined &&
+      output.ManagedServiceData !== null
+        ? output.ManagedServiceData
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Tag = (
   output: any,
   context: __SerdeContext
 ): Tag => {
-  let contents: any = {
+  return {
     __type: "Tag",
-    Key: undefined,
-    Value: undefined
-  };
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TagList = (
@@ -3043,20 +2966,18 @@ const deserializeAws_json1_1TagResourceResponse = (
   output: any,
   context: __SerdeContext
 ): TagResourceResponse => {
-  let contents: any = {
+  return {
     __type: "TagResourceResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (
   output: any,
   context: __SerdeContext
 ): UntagResourceResponse => {
-  let contents: any = {
+  return {
     __type: "UntagResourceResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

@@ -1427,18 +1427,17 @@ const deserializeAws_restJson1_1CloudWatchLogsDestination = (
   output: any,
   context: __SerdeContext
 ): CloudWatchLogsDestination => {
-  let contents: any = {
+  return {
     __type: "CloudWatchLogsDestination",
-    IamRoleArn: undefined,
-    LogGroupArn: undefined
-  };
-  if (output.IamRoleArn !== undefined && output.IamRoleArn !== null) {
-    contents.IamRoleArn = output.IamRoleArn;
-  }
-  if (output.LogGroupArn !== undefined && output.LogGroupArn !== null) {
-    contents.LogGroupArn = output.LogGroupArn;
-  }
-  return contents;
+    IamRoleArn:
+      output.IamRoleArn !== undefined && output.IamRoleArn !== null
+        ? output.IamRoleArn
+        : undefined,
+    LogGroupArn:
+      output.LogGroupArn !== undefined && output.LogGroupArn !== null
+        ? output.LogGroupArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ConfigurationSets = (
@@ -1452,55 +1451,48 @@ const deserializeAws_restJson1_1EventDestination = (
   output: any,
   context: __SerdeContext
 ): EventDestination => {
-  let contents: any = {
+  return {
     __type: "EventDestination",
-    CloudWatchLogsDestination: undefined,
-    Enabled: undefined,
-    KinesisFirehoseDestination: undefined,
-    MatchingEventTypes: undefined,
-    Name: undefined,
-    SnsDestination: undefined
-  };
-  if (
-    output.CloudWatchLogsDestination !== undefined &&
-    output.CloudWatchLogsDestination !== null
-  ) {
-    contents.CloudWatchLogsDestination = deserializeAws_restJson1_1CloudWatchLogsDestination(
-      output.CloudWatchLogsDestination,
-      context
-    );
-  }
-  if (output.Enabled !== undefined && output.Enabled !== null) {
-    contents.Enabled = output.Enabled;
-  }
-  if (
-    output.KinesisFirehoseDestination !== undefined &&
-    output.KinesisFirehoseDestination !== null
-  ) {
-    contents.KinesisFirehoseDestination = deserializeAws_restJson1_1KinesisFirehoseDestination(
-      output.KinesisFirehoseDestination,
-      context
-    );
-  }
-  if (
-    output.MatchingEventTypes !== undefined &&
-    output.MatchingEventTypes !== null
-  ) {
-    contents.MatchingEventTypes = deserializeAws_restJson1_1EventTypes(
-      output.MatchingEventTypes,
-      context
-    );
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.SnsDestination !== undefined && output.SnsDestination !== null) {
-    contents.SnsDestination = deserializeAws_restJson1_1SnsDestination(
-      output.SnsDestination,
-      context
-    );
-  }
-  return contents;
+    CloudWatchLogsDestination:
+      output.CloudWatchLogsDestination !== undefined &&
+      output.CloudWatchLogsDestination !== null
+        ? deserializeAws_restJson1_1CloudWatchLogsDestination(
+            output.CloudWatchLogsDestination,
+            context
+          )
+        : undefined,
+    Enabled:
+      output.Enabled !== undefined && output.Enabled !== null
+        ? output.Enabled
+        : undefined,
+    KinesisFirehoseDestination:
+      output.KinesisFirehoseDestination !== undefined &&
+      output.KinesisFirehoseDestination !== null
+        ? deserializeAws_restJson1_1KinesisFirehoseDestination(
+            output.KinesisFirehoseDestination,
+            context
+          )
+        : undefined,
+    MatchingEventTypes:
+      output.MatchingEventTypes !== undefined &&
+      output.MatchingEventTypes !== null
+        ? deserializeAws_restJson1_1EventTypes(
+            output.MatchingEventTypes,
+            context
+          )
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    SnsDestination:
+      output.SnsDestination !== undefined && output.SnsDestination !== null
+        ? deserializeAws_restJson1_1SnsDestination(
+            output.SnsDestination,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1EventDestinations = (
@@ -1523,35 +1515,31 @@ const deserializeAws_restJson1_1KinesisFirehoseDestination = (
   output: any,
   context: __SerdeContext
 ): KinesisFirehoseDestination => {
-  let contents: any = {
+  return {
     __type: "KinesisFirehoseDestination",
-    DeliveryStreamArn: undefined,
-    IamRoleArn: undefined
-  };
-  if (
-    output.DeliveryStreamArn !== undefined &&
-    output.DeliveryStreamArn !== null
-  ) {
-    contents.DeliveryStreamArn = output.DeliveryStreamArn;
-  }
-  if (output.IamRoleArn !== undefined && output.IamRoleArn !== null) {
-    contents.IamRoleArn = output.IamRoleArn;
-  }
-  return contents;
+    DeliveryStreamArn:
+      output.DeliveryStreamArn !== undefined &&
+      output.DeliveryStreamArn !== null
+        ? output.DeliveryStreamArn
+        : undefined,
+    IamRoleArn:
+      output.IamRoleArn !== undefined && output.IamRoleArn !== null
+        ? output.IamRoleArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SnsDestination = (
   output: any,
   context: __SerdeContext
 ): SnsDestination => {
-  let contents: any = {
+  return {
     __type: "SnsDestination",
-    TopicArn: undefined
-  };
-  if (output.TopicArn !== undefined && output.TopicArn !== null) {
-    contents.TopicArn = output.TopicArn;
-  }
-  return contents;
+    TopicArn:
+      output.TopicArn !== undefined && output.TopicArn !== null
+        ? output.TopicArn
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

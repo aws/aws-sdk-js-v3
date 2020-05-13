@@ -624,158 +624,140 @@ const deserializeAws_json1_1DeleteReportDefinitionResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteReportDefinitionResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteReportDefinitionResponse",
-    ResponseMessage: undefined
-  };
-  if (output.ResponseMessage !== undefined && output.ResponseMessage !== null) {
-    contents.ResponseMessage = output.ResponseMessage;
-  }
-  return contents;
+    ResponseMessage:
+      output.ResponseMessage !== undefined && output.ResponseMessage !== null
+        ? output.ResponseMessage
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeReportDefinitionsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeReportDefinitionsResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeReportDefinitionsResponse",
-    NextToken: undefined,
-    ReportDefinitions: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (
-    output.ReportDefinitions !== undefined &&
-    output.ReportDefinitions !== null
-  ) {
-    contents.ReportDefinitions = deserializeAws_json1_1ReportDefinitionList(
-      output.ReportDefinitions,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    ReportDefinitions:
+      output.ReportDefinitions !== undefined &&
+      output.ReportDefinitions !== null
+        ? deserializeAws_json1_1ReportDefinitionList(
+            output.ReportDefinitions,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DuplicateReportNameException = (
   output: any,
   context: __SerdeContext
 ): DuplicateReportNameException => {
-  let contents: any = {
+  return {
     __type: "DuplicateReportNameException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InternalErrorException = (
   output: any,
   context: __SerdeContext
 ): InternalErrorException => {
-  let contents: any = {
+  return {
     __type: "InternalErrorException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ModifyReportDefinitionResponse = (
   output: any,
   context: __SerdeContext
 ): ModifyReportDefinitionResponse => {
-  let contents: any = {
+  return {
     __type: "ModifyReportDefinitionResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1PutReportDefinitionResponse = (
   output: any,
   context: __SerdeContext
 ): PutReportDefinitionResponse => {
-  let contents: any = {
+  return {
     __type: "PutReportDefinitionResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1ReportDefinition = (
   output: any,
   context: __SerdeContext
 ): ReportDefinition => {
-  let contents: any = {
+  return {
     __type: "ReportDefinition",
-    AdditionalArtifacts: undefined,
-    AdditionalSchemaElements: undefined,
-    Compression: undefined,
-    Format: undefined,
-    RefreshClosedReports: undefined,
-    ReportName: undefined,
-    ReportVersioning: undefined,
-    S3Bucket: undefined,
-    S3Prefix: undefined,
-    S3Region: undefined,
-    TimeUnit: undefined
-  };
-  if (
-    output.AdditionalArtifacts !== undefined &&
-    output.AdditionalArtifacts !== null
-  ) {
-    contents.AdditionalArtifacts = deserializeAws_json1_1AdditionalArtifactList(
-      output.AdditionalArtifacts,
-      context
-    );
-  }
-  if (
-    output.AdditionalSchemaElements !== undefined &&
-    output.AdditionalSchemaElements !== null
-  ) {
-    contents.AdditionalSchemaElements = deserializeAws_json1_1SchemaElementList(
-      output.AdditionalSchemaElements,
-      context
-    );
-  }
-  if (output.Compression !== undefined && output.Compression !== null) {
-    contents.Compression = output.Compression;
-  }
-  if (output.Format !== undefined && output.Format !== null) {
-    contents.Format = output.Format;
-  }
-  if (
-    output.RefreshClosedReports !== undefined &&
-    output.RefreshClosedReports !== null
-  ) {
-    contents.RefreshClosedReports = output.RefreshClosedReports;
-  }
-  if (output.ReportName !== undefined && output.ReportName !== null) {
-    contents.ReportName = output.ReportName;
-  }
-  if (
-    output.ReportVersioning !== undefined &&
-    output.ReportVersioning !== null
-  ) {
-    contents.ReportVersioning = output.ReportVersioning;
-  }
-  if (output.S3Bucket !== undefined && output.S3Bucket !== null) {
-    contents.S3Bucket = output.S3Bucket;
-  }
-  if (output.S3Prefix !== undefined && output.S3Prefix !== null) {
-    contents.S3Prefix = output.S3Prefix;
-  }
-  if (output.S3Region !== undefined && output.S3Region !== null) {
-    contents.S3Region = output.S3Region;
-  }
-  if (output.TimeUnit !== undefined && output.TimeUnit !== null) {
-    contents.TimeUnit = output.TimeUnit;
-  }
-  return contents;
+    AdditionalArtifacts:
+      output.AdditionalArtifacts !== undefined &&
+      output.AdditionalArtifacts !== null
+        ? deserializeAws_json1_1AdditionalArtifactList(
+            output.AdditionalArtifacts,
+            context
+          )
+        : undefined,
+    AdditionalSchemaElements:
+      output.AdditionalSchemaElements !== undefined &&
+      output.AdditionalSchemaElements !== null
+        ? deserializeAws_json1_1SchemaElementList(
+            output.AdditionalSchemaElements,
+            context
+          )
+        : undefined,
+    Compression:
+      output.Compression !== undefined && output.Compression !== null
+        ? output.Compression
+        : undefined,
+    Format:
+      output.Format !== undefined && output.Format !== null
+        ? output.Format
+        : undefined,
+    RefreshClosedReports:
+      output.RefreshClosedReports !== undefined &&
+      output.RefreshClosedReports !== null
+        ? output.RefreshClosedReports
+        : undefined,
+    ReportName:
+      output.ReportName !== undefined && output.ReportName !== null
+        ? output.ReportName
+        : undefined,
+    ReportVersioning:
+      output.ReportVersioning !== undefined && output.ReportVersioning !== null
+        ? output.ReportVersioning
+        : undefined,
+    S3Bucket:
+      output.S3Bucket !== undefined && output.S3Bucket !== null
+        ? output.S3Bucket
+        : undefined,
+    S3Prefix:
+      output.S3Prefix !== undefined && output.S3Prefix !== null
+        ? output.S3Prefix
+        : undefined,
+    S3Region:
+      output.S3Region !== undefined && output.S3Region !== null
+        ? output.S3Region
+        : undefined,
+    TimeUnit:
+      output.TimeUnit !== undefined && output.TimeUnit !== null
+        ? output.TimeUnit
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ReportDefinitionList = (
@@ -791,14 +773,13 @@ const deserializeAws_json1_1ReportLimitReachedException = (
   output: any,
   context: __SerdeContext
 ): ReportLimitReachedException => {
-  let contents: any = {
+  return {
     __type: "ReportLimitReachedException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SchemaElementList = (
@@ -812,14 +793,13 @@ const deserializeAws_json1_1ValidationException = (
   output: any,
   context: __SerdeContext
 ): ValidationException => {
-  let contents: any = {
+  return {
     __type: "ValidationException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

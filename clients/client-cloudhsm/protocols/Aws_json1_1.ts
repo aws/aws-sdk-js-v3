@@ -2446,14 +2446,13 @@ const deserializeAws_json1_1AddTagsToResourceResponse = (
   output: any,
   context: __SerdeContext
 ): AddTagsToResourceResponse => {
-  let contents: any = {
+  return {
     __type: "AddTagsToResourceResponse",
-    Status: undefined
-  };
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  return contents;
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ClientList = (
@@ -2467,366 +2466,314 @@ const deserializeAws_json1_1CloudHsmInternalException = (
   output: any,
   context: __SerdeContext
 ): CloudHsmInternalException => {
-  let contents: any = {
+  return {
     __type: "CloudHsmInternalException",
-    message: undefined,
-    retryable: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  if (output.retryable !== undefined && output.retryable !== null) {
-    contents.retryable = output.retryable;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined,
+    retryable:
+      output.retryable !== undefined && output.retryable !== null
+        ? output.retryable
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CloudHsmServiceException = (
   output: any,
   context: __SerdeContext
 ): CloudHsmServiceException => {
-  let contents: any = {
+  return {
     __type: "CloudHsmServiceException",
-    message: undefined,
-    retryable: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  if (output.retryable !== undefined && output.retryable !== null) {
-    contents.retryable = output.retryable;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined,
+    retryable:
+      output.retryable !== undefined && output.retryable !== null
+        ? output.retryable
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateHapgResponse = (
   output: any,
   context: __SerdeContext
 ): CreateHapgResponse => {
-  let contents: any = {
+  return {
     __type: "CreateHapgResponse",
-    HapgArn: undefined
-  };
-  if (output.HapgArn !== undefined && output.HapgArn !== null) {
-    contents.HapgArn = output.HapgArn;
-  }
-  return contents;
+    HapgArn:
+      output.HapgArn !== undefined && output.HapgArn !== null
+        ? output.HapgArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateHsmResponse = (
   output: any,
   context: __SerdeContext
 ): CreateHsmResponse => {
-  let contents: any = {
+  return {
     __type: "CreateHsmResponse",
-    HsmArn: undefined
-  };
-  if (output.HsmArn !== undefined && output.HsmArn !== null) {
-    contents.HsmArn = output.HsmArn;
-  }
-  return contents;
+    HsmArn:
+      output.HsmArn !== undefined && output.HsmArn !== null
+        ? output.HsmArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateLunaClientResponse = (
   output: any,
   context: __SerdeContext
 ): CreateLunaClientResponse => {
-  let contents: any = {
+  return {
     __type: "CreateLunaClientResponse",
-    ClientArn: undefined
-  };
-  if (output.ClientArn !== undefined && output.ClientArn !== null) {
-    contents.ClientArn = output.ClientArn;
-  }
-  return contents;
+    ClientArn:
+      output.ClientArn !== undefined && output.ClientArn !== null
+        ? output.ClientArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteHapgResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteHapgResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteHapgResponse",
-    Status: undefined
-  };
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  return contents;
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteHsmResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteHsmResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteHsmResponse",
-    Status: undefined
-  };
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  return contents;
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteLunaClientResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteLunaClientResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteLunaClientResponse",
-    Status: undefined
-  };
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  return contents;
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeHapgResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeHapgResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeHapgResponse",
-    HapgArn: undefined,
-    HapgSerial: undefined,
-    HsmsLastActionFailed: undefined,
-    HsmsPendingDeletion: undefined,
-    HsmsPendingRegistration: undefined,
-    Label: undefined,
-    LastModifiedTimestamp: undefined,
-    PartitionSerialList: undefined,
-    State: undefined
-  };
-  if (output.HapgArn !== undefined && output.HapgArn !== null) {
-    contents.HapgArn = output.HapgArn;
-  }
-  if (output.HapgSerial !== undefined && output.HapgSerial !== null) {
-    contents.HapgSerial = output.HapgSerial;
-  }
-  if (
-    output.HsmsLastActionFailed !== undefined &&
-    output.HsmsLastActionFailed !== null
-  ) {
-    contents.HsmsLastActionFailed = deserializeAws_json1_1HsmList(
-      output.HsmsLastActionFailed,
-      context
-    );
-  }
-  if (
-    output.HsmsPendingDeletion !== undefined &&
-    output.HsmsPendingDeletion !== null
-  ) {
-    contents.HsmsPendingDeletion = deserializeAws_json1_1HsmList(
-      output.HsmsPendingDeletion,
-      context
-    );
-  }
-  if (
-    output.HsmsPendingRegistration !== undefined &&
-    output.HsmsPendingRegistration !== null
-  ) {
-    contents.HsmsPendingRegistration = deserializeAws_json1_1HsmList(
-      output.HsmsPendingRegistration,
-      context
-    );
-  }
-  if (output.Label !== undefined && output.Label !== null) {
-    contents.Label = output.Label;
-  }
-  if (
-    output.LastModifiedTimestamp !== undefined &&
-    output.LastModifiedTimestamp !== null
-  ) {
-    contents.LastModifiedTimestamp = output.LastModifiedTimestamp;
-  }
-  if (
-    output.PartitionSerialList !== undefined &&
-    output.PartitionSerialList !== null
-  ) {
-    contents.PartitionSerialList = deserializeAws_json1_1PartitionSerialList(
-      output.PartitionSerialList,
-      context
-    );
-  }
-  if (output.State !== undefined && output.State !== null) {
-    contents.State = output.State;
-  }
-  return contents;
+    HapgArn:
+      output.HapgArn !== undefined && output.HapgArn !== null
+        ? output.HapgArn
+        : undefined,
+    HapgSerial:
+      output.HapgSerial !== undefined && output.HapgSerial !== null
+        ? output.HapgSerial
+        : undefined,
+    HsmsLastActionFailed:
+      output.HsmsLastActionFailed !== undefined &&
+      output.HsmsLastActionFailed !== null
+        ? deserializeAws_json1_1HsmList(output.HsmsLastActionFailed, context)
+        : undefined,
+    HsmsPendingDeletion:
+      output.HsmsPendingDeletion !== undefined &&
+      output.HsmsPendingDeletion !== null
+        ? deserializeAws_json1_1HsmList(output.HsmsPendingDeletion, context)
+        : undefined,
+    HsmsPendingRegistration:
+      output.HsmsPendingRegistration !== undefined &&
+      output.HsmsPendingRegistration !== null
+        ? deserializeAws_json1_1HsmList(output.HsmsPendingRegistration, context)
+        : undefined,
+    Label:
+      output.Label !== undefined && output.Label !== null
+        ? output.Label
+        : undefined,
+    LastModifiedTimestamp:
+      output.LastModifiedTimestamp !== undefined &&
+      output.LastModifiedTimestamp !== null
+        ? output.LastModifiedTimestamp
+        : undefined,
+    PartitionSerialList:
+      output.PartitionSerialList !== undefined &&
+      output.PartitionSerialList !== null
+        ? deserializeAws_json1_1PartitionSerialList(
+            output.PartitionSerialList,
+            context
+          )
+        : undefined,
+    State:
+      output.State !== undefined && output.State !== null
+        ? output.State
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeHsmResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeHsmResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeHsmResponse",
-    AvailabilityZone: undefined,
-    EniId: undefined,
-    EniIp: undefined,
-    HsmArn: undefined,
-    HsmType: undefined,
-    IamRoleArn: undefined,
-    Partitions: undefined,
-    SerialNumber: undefined,
-    ServerCertLastUpdated: undefined,
-    ServerCertUri: undefined,
-    SoftwareVersion: undefined,
-    SshKeyLastUpdated: undefined,
-    SshPublicKey: undefined,
-    Status: undefined,
-    StatusDetails: undefined,
-    SubnetId: undefined,
-    SubscriptionEndDate: undefined,
-    SubscriptionStartDate: undefined,
-    SubscriptionType: undefined,
-    VendorName: undefined,
-    VpcId: undefined
-  };
-  if (
-    output.AvailabilityZone !== undefined &&
-    output.AvailabilityZone !== null
-  ) {
-    contents.AvailabilityZone = output.AvailabilityZone;
-  }
-  if (output.EniId !== undefined && output.EniId !== null) {
-    contents.EniId = output.EniId;
-  }
-  if (output.EniIp !== undefined && output.EniIp !== null) {
-    contents.EniIp = output.EniIp;
-  }
-  if (output.HsmArn !== undefined && output.HsmArn !== null) {
-    contents.HsmArn = output.HsmArn;
-  }
-  if (output.HsmType !== undefined && output.HsmType !== null) {
-    contents.HsmType = output.HsmType;
-  }
-  if (output.IamRoleArn !== undefined && output.IamRoleArn !== null) {
-    contents.IamRoleArn = output.IamRoleArn;
-  }
-  if (output.Partitions !== undefined && output.Partitions !== null) {
-    contents.Partitions = deserializeAws_json1_1PartitionList(
-      output.Partitions,
-      context
-    );
-  }
-  if (output.SerialNumber !== undefined && output.SerialNumber !== null) {
-    contents.SerialNumber = output.SerialNumber;
-  }
-  if (
-    output.ServerCertLastUpdated !== undefined &&
-    output.ServerCertLastUpdated !== null
-  ) {
-    contents.ServerCertLastUpdated = output.ServerCertLastUpdated;
-  }
-  if (output.ServerCertUri !== undefined && output.ServerCertUri !== null) {
-    contents.ServerCertUri = output.ServerCertUri;
-  }
-  if (output.SoftwareVersion !== undefined && output.SoftwareVersion !== null) {
-    contents.SoftwareVersion = output.SoftwareVersion;
-  }
-  if (
-    output.SshKeyLastUpdated !== undefined &&
-    output.SshKeyLastUpdated !== null
-  ) {
-    contents.SshKeyLastUpdated = output.SshKeyLastUpdated;
-  }
-  if (output.SshPublicKey !== undefined && output.SshPublicKey !== null) {
-    contents.SshPublicKey = output.SshPublicKey;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.StatusDetails !== undefined && output.StatusDetails !== null) {
-    contents.StatusDetails = output.StatusDetails;
-  }
-  if (output.SubnetId !== undefined && output.SubnetId !== null) {
-    contents.SubnetId = output.SubnetId;
-  }
-  if (
-    output.SubscriptionEndDate !== undefined &&
-    output.SubscriptionEndDate !== null
-  ) {
-    contents.SubscriptionEndDate = output.SubscriptionEndDate;
-  }
-  if (
-    output.SubscriptionStartDate !== undefined &&
-    output.SubscriptionStartDate !== null
-  ) {
-    contents.SubscriptionStartDate = output.SubscriptionStartDate;
-  }
-  if (
-    output.SubscriptionType !== undefined &&
-    output.SubscriptionType !== null
-  ) {
-    contents.SubscriptionType = output.SubscriptionType;
-  }
-  if (output.VendorName !== undefined && output.VendorName !== null) {
-    contents.VendorName = output.VendorName;
-  }
-  if (output.VpcId !== undefined && output.VpcId !== null) {
-    contents.VpcId = output.VpcId;
-  }
-  return contents;
+    AvailabilityZone:
+      output.AvailabilityZone !== undefined && output.AvailabilityZone !== null
+        ? output.AvailabilityZone
+        : undefined,
+    EniId:
+      output.EniId !== undefined && output.EniId !== null
+        ? output.EniId
+        : undefined,
+    EniIp:
+      output.EniIp !== undefined && output.EniIp !== null
+        ? output.EniIp
+        : undefined,
+    HsmArn:
+      output.HsmArn !== undefined && output.HsmArn !== null
+        ? output.HsmArn
+        : undefined,
+    HsmType:
+      output.HsmType !== undefined && output.HsmType !== null
+        ? output.HsmType
+        : undefined,
+    IamRoleArn:
+      output.IamRoleArn !== undefined && output.IamRoleArn !== null
+        ? output.IamRoleArn
+        : undefined,
+    Partitions:
+      output.Partitions !== undefined && output.Partitions !== null
+        ? deserializeAws_json1_1PartitionList(output.Partitions, context)
+        : undefined,
+    SerialNumber:
+      output.SerialNumber !== undefined && output.SerialNumber !== null
+        ? output.SerialNumber
+        : undefined,
+    ServerCertLastUpdated:
+      output.ServerCertLastUpdated !== undefined &&
+      output.ServerCertLastUpdated !== null
+        ? output.ServerCertLastUpdated
+        : undefined,
+    ServerCertUri:
+      output.ServerCertUri !== undefined && output.ServerCertUri !== null
+        ? output.ServerCertUri
+        : undefined,
+    SoftwareVersion:
+      output.SoftwareVersion !== undefined && output.SoftwareVersion !== null
+        ? output.SoftwareVersion
+        : undefined,
+    SshKeyLastUpdated:
+      output.SshKeyLastUpdated !== undefined &&
+      output.SshKeyLastUpdated !== null
+        ? output.SshKeyLastUpdated
+        : undefined,
+    SshPublicKey:
+      output.SshPublicKey !== undefined && output.SshPublicKey !== null
+        ? output.SshPublicKey
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    StatusDetails:
+      output.StatusDetails !== undefined && output.StatusDetails !== null
+        ? output.StatusDetails
+        : undefined,
+    SubnetId:
+      output.SubnetId !== undefined && output.SubnetId !== null
+        ? output.SubnetId
+        : undefined,
+    SubscriptionEndDate:
+      output.SubscriptionEndDate !== undefined &&
+      output.SubscriptionEndDate !== null
+        ? output.SubscriptionEndDate
+        : undefined,
+    SubscriptionStartDate:
+      output.SubscriptionStartDate !== undefined &&
+      output.SubscriptionStartDate !== null
+        ? output.SubscriptionStartDate
+        : undefined,
+    SubscriptionType:
+      output.SubscriptionType !== undefined && output.SubscriptionType !== null
+        ? output.SubscriptionType
+        : undefined,
+    VendorName:
+      output.VendorName !== undefined && output.VendorName !== null
+        ? output.VendorName
+        : undefined,
+    VpcId:
+      output.VpcId !== undefined && output.VpcId !== null
+        ? output.VpcId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeLunaClientResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeLunaClientResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeLunaClientResponse",
-    Certificate: undefined,
-    CertificateFingerprint: undefined,
-    ClientArn: undefined,
-    Label: undefined,
-    LastModifiedTimestamp: undefined
-  };
-  if (output.Certificate !== undefined && output.Certificate !== null) {
-    contents.Certificate = output.Certificate;
-  }
-  if (
-    output.CertificateFingerprint !== undefined &&
-    output.CertificateFingerprint !== null
-  ) {
-    contents.CertificateFingerprint = output.CertificateFingerprint;
-  }
-  if (output.ClientArn !== undefined && output.ClientArn !== null) {
-    contents.ClientArn = output.ClientArn;
-  }
-  if (output.Label !== undefined && output.Label !== null) {
-    contents.Label = output.Label;
-  }
-  if (
-    output.LastModifiedTimestamp !== undefined &&
-    output.LastModifiedTimestamp !== null
-  ) {
-    contents.LastModifiedTimestamp = output.LastModifiedTimestamp;
-  }
-  return contents;
+    Certificate:
+      output.Certificate !== undefined && output.Certificate !== null
+        ? output.Certificate
+        : undefined,
+    CertificateFingerprint:
+      output.CertificateFingerprint !== undefined &&
+      output.CertificateFingerprint !== null
+        ? output.CertificateFingerprint
+        : undefined,
+    ClientArn:
+      output.ClientArn !== undefined && output.ClientArn !== null
+        ? output.ClientArn
+        : undefined,
+    Label:
+      output.Label !== undefined && output.Label !== null
+        ? output.Label
+        : undefined,
+    LastModifiedTimestamp:
+      output.LastModifiedTimestamp !== undefined &&
+      output.LastModifiedTimestamp !== null
+        ? output.LastModifiedTimestamp
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetConfigResponse = (
   output: any,
   context: __SerdeContext
 ): GetConfigResponse => {
-  let contents: any = {
+  return {
     __type: "GetConfigResponse",
-    ConfigCred: undefined,
-    ConfigFile: undefined,
-    ConfigType: undefined
-  };
-  if (output.ConfigCred !== undefined && output.ConfigCred !== null) {
-    contents.ConfigCred = output.ConfigCred;
-  }
-  if (output.ConfigFile !== undefined && output.ConfigFile !== null) {
-    contents.ConfigFile = output.ConfigFile;
-  }
-  if (output.ConfigType !== undefined && output.ConfigType !== null) {
-    contents.ConfigType = output.ConfigType;
-  }
-  return contents;
+    ConfigCred:
+      output.ConfigCred !== undefined && output.ConfigCred !== null
+        ? output.ConfigCred
+        : undefined,
+    ConfigFile:
+      output.ConfigFile !== undefined && output.ConfigFile !== null
+        ? output.ConfigFile
+        : undefined,
+    ConfigType:
+      output.ConfigType !== undefined && output.ConfigType !== null
+        ? output.ConfigType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1HapgList = (
@@ -2847,148 +2794,133 @@ const deserializeAws_json1_1InvalidRequestException = (
   output: any,
   context: __SerdeContext
 ): InvalidRequestException => {
-  let contents: any = {
+  return {
     __type: "InvalidRequestException",
-    message: undefined,
-    retryable: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  if (output.retryable !== undefined && output.retryable !== null) {
-    contents.retryable = output.retryable;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined,
+    retryable:
+      output.retryable !== undefined && output.retryable !== null
+        ? output.retryable
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListAvailableZonesResponse = (
   output: any,
   context: __SerdeContext
 ): ListAvailableZonesResponse => {
-  let contents: any = {
+  return {
     __type: "ListAvailableZonesResponse",
-    AZList: undefined
-  };
-  if (output.AZList !== undefined && output.AZList !== null) {
-    contents.AZList = deserializeAws_json1_1AZList(output.AZList, context);
-  }
-  return contents;
+    AZList:
+      output.AZList !== undefined && output.AZList !== null
+        ? deserializeAws_json1_1AZList(output.AZList, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListHapgsResponse = (
   output: any,
   context: __SerdeContext
 ): ListHapgsResponse => {
-  let contents: any = {
+  return {
     __type: "ListHapgsResponse",
-    HapgList: undefined,
-    NextToken: undefined
-  };
-  if (output.HapgList !== undefined && output.HapgList !== null) {
-    contents.HapgList = deserializeAws_json1_1HapgList(
-      output.HapgList,
-      context
-    );
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  return contents;
+    HapgList:
+      output.HapgList !== undefined && output.HapgList !== null
+        ? deserializeAws_json1_1HapgList(output.HapgList, context)
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListHsmsResponse = (
   output: any,
   context: __SerdeContext
 ): ListHsmsResponse => {
-  let contents: any = {
+  return {
     __type: "ListHsmsResponse",
-    HsmList: undefined,
-    NextToken: undefined
-  };
-  if (output.HsmList !== undefined && output.HsmList !== null) {
-    contents.HsmList = deserializeAws_json1_1HsmList(output.HsmList, context);
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  return contents;
+    HsmList:
+      output.HsmList !== undefined && output.HsmList !== null
+        ? deserializeAws_json1_1HsmList(output.HsmList, context)
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListLunaClientsResponse = (
   output: any,
   context: __SerdeContext
 ): ListLunaClientsResponse => {
-  let contents: any = {
+  return {
     __type: "ListLunaClientsResponse",
-    ClientList: undefined,
-    NextToken: undefined
-  };
-  if (output.ClientList !== undefined && output.ClientList !== null) {
-    contents.ClientList = deserializeAws_json1_1ClientList(
-      output.ClientList,
-      context
-    );
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  return contents;
+    ClientList:
+      output.ClientList !== undefined && output.ClientList !== null
+        ? deserializeAws_json1_1ClientList(output.ClientList, context)
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListTagsForResourceResponse = (
   output: any,
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
-  let contents: any = {
+  return {
     __type: "ListTagsForResourceResponse",
-    TagList: undefined
-  };
-  if (output.TagList !== undefined && output.TagList !== null) {
-    contents.TagList = deserializeAws_json1_1TagList(output.TagList, context);
-  }
-  return contents;
+    TagList:
+      output.TagList !== undefined && output.TagList !== null
+        ? deserializeAws_json1_1TagList(output.TagList, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ModifyHapgResponse = (
   output: any,
   context: __SerdeContext
 ): ModifyHapgResponse => {
-  let contents: any = {
+  return {
     __type: "ModifyHapgResponse",
-    HapgArn: undefined
-  };
-  if (output.HapgArn !== undefined && output.HapgArn !== null) {
-    contents.HapgArn = output.HapgArn;
-  }
-  return contents;
+    HapgArn:
+      output.HapgArn !== undefined && output.HapgArn !== null
+        ? output.HapgArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ModifyHsmResponse = (
   output: any,
   context: __SerdeContext
 ): ModifyHsmResponse => {
-  let contents: any = {
+  return {
     __type: "ModifyHsmResponse",
-    HsmArn: undefined
-  };
-  if (output.HsmArn !== undefined && output.HsmArn !== null) {
-    contents.HsmArn = output.HsmArn;
-  }
-  return contents;
+    HsmArn:
+      output.HsmArn !== undefined && output.HsmArn !== null
+        ? output.HsmArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ModifyLunaClientResponse = (
   output: any,
   context: __SerdeContext
 ): ModifyLunaClientResponse => {
-  let contents: any = {
+  return {
     __type: "ModifyLunaClientResponse",
-    ClientArn: undefined
-  };
-  if (output.ClientArn !== undefined && output.ClientArn !== null) {
-    contents.ClientArn = output.ClientArn;
-  }
-  return contents;
+    ClientArn:
+      output.ClientArn !== undefined && output.ClientArn !== null
+        ? output.ClientArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PartitionList = (
@@ -3009,32 +2941,28 @@ const deserializeAws_json1_1RemoveTagsFromResourceResponse = (
   output: any,
   context: __SerdeContext
 ): RemoveTagsFromResourceResponse => {
-  let contents: any = {
+  return {
     __type: "RemoveTagsFromResourceResponse",
-    Status: undefined
-  };
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  return contents;
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Tag = (
   output: any,
   context: __SerdeContext
 ): Tag => {
-  let contents: any = {
+  return {
     __type: "Tag",
-    Key: undefined,
-    Value: undefined
-  };
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TagList = (

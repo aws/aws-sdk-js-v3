@@ -1467,73 +1467,70 @@ const deserializeAws_restJson1_1CreateRule = (
   output: any,
   context: __SerdeContext
 ): CreateRule => {
-  let contents: any = {
+  return {
     __type: "CreateRule",
-    Interval: undefined,
-    IntervalUnit: undefined,
-    Times: undefined
-  };
-  if (output.Interval !== undefined && output.Interval !== null) {
-    contents.Interval = output.Interval;
-  }
-  if (output.IntervalUnit !== undefined && output.IntervalUnit !== null) {
-    contents.IntervalUnit = output.IntervalUnit;
-  }
-  if (output.Times !== undefined && output.Times !== null) {
-    contents.Times = deserializeAws_restJson1_1TimesList(output.Times, context);
-  }
-  return contents;
+    Interval:
+      output.Interval !== undefined && output.Interval !== null
+        ? output.Interval
+        : undefined,
+    IntervalUnit:
+      output.IntervalUnit !== undefined && output.IntervalUnit !== null
+        ? output.IntervalUnit
+        : undefined,
+    Times:
+      output.Times !== undefined && output.Times !== null
+        ? deserializeAws_restJson1_1TimesList(output.Times, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1CrossRegionCopyRetainRule = (
   output: any,
   context: __SerdeContext
 ): CrossRegionCopyRetainRule => {
-  let contents: any = {
+  return {
     __type: "CrossRegionCopyRetainRule",
-    Interval: undefined,
-    IntervalUnit: undefined
-  };
-  if (output.Interval !== undefined && output.Interval !== null) {
-    contents.Interval = output.Interval;
-  }
-  if (output.IntervalUnit !== undefined && output.IntervalUnit !== null) {
-    contents.IntervalUnit = output.IntervalUnit;
-  }
-  return contents;
+    Interval:
+      output.Interval !== undefined && output.Interval !== null
+        ? output.Interval
+        : undefined,
+    IntervalUnit:
+      output.IntervalUnit !== undefined && output.IntervalUnit !== null
+        ? output.IntervalUnit
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1CrossRegionCopyRule = (
   output: any,
   context: __SerdeContext
 ): CrossRegionCopyRule => {
-  let contents: any = {
+  return {
     __type: "CrossRegionCopyRule",
-    CmkArn: undefined,
-    CopyTags: undefined,
-    Encrypted: undefined,
-    RetainRule: undefined,
-    TargetRegion: undefined
-  };
-  if (output.CmkArn !== undefined && output.CmkArn !== null) {
-    contents.CmkArn = output.CmkArn;
-  }
-  if (output.CopyTags !== undefined && output.CopyTags !== null) {
-    contents.CopyTags = output.CopyTags;
-  }
-  if (output.Encrypted !== undefined && output.Encrypted !== null) {
-    contents.Encrypted = output.Encrypted;
-  }
-  if (output.RetainRule !== undefined && output.RetainRule !== null) {
-    contents.RetainRule = deserializeAws_restJson1_1CrossRegionCopyRetainRule(
-      output.RetainRule,
-      context
-    );
-  }
-  if (output.TargetRegion !== undefined && output.TargetRegion !== null) {
-    contents.TargetRegion = output.TargetRegion;
-  }
-  return contents;
+    CmkArn:
+      output.CmkArn !== undefined && output.CmkArn !== null
+        ? output.CmkArn
+        : undefined,
+    CopyTags:
+      output.CopyTags !== undefined && output.CopyTags !== null
+        ? output.CopyTags
+        : undefined,
+    Encrypted:
+      output.Encrypted !== undefined && output.Encrypted !== null
+        ? output.Encrypted
+        : undefined,
+    RetainRule:
+      output.RetainRule !== undefined && output.RetainRule !== null
+        ? deserializeAws_restJson1_1CrossRegionCopyRetainRule(
+            output.RetainRule,
+            context
+          )
+        : undefined,
+    TargetRegion:
+      output.TargetRegion !== undefined && output.TargetRegion !== null
+        ? output.TargetRegion
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1CrossRegionCopyRules = (
@@ -1549,114 +1546,103 @@ const deserializeAws_restJson1_1FastRestoreRule = (
   output: any,
   context: __SerdeContext
 ): FastRestoreRule => {
-  let contents: any = {
+  return {
     __type: "FastRestoreRule",
-    AvailabilityZones: undefined,
-    Count: undefined,
-    Interval: undefined,
-    IntervalUnit: undefined
-  };
-  if (
-    output.AvailabilityZones !== undefined &&
-    output.AvailabilityZones !== null
-  ) {
-    contents.AvailabilityZones = deserializeAws_restJson1_1AvailabilityZoneList(
-      output.AvailabilityZones,
-      context
-    );
-  }
-  if (output.Count !== undefined && output.Count !== null) {
-    contents.Count = output.Count;
-  }
-  if (output.Interval !== undefined && output.Interval !== null) {
-    contents.Interval = output.Interval;
-  }
-  if (output.IntervalUnit !== undefined && output.IntervalUnit !== null) {
-    contents.IntervalUnit = output.IntervalUnit;
-  }
-  return contents;
+    AvailabilityZones:
+      output.AvailabilityZones !== undefined &&
+      output.AvailabilityZones !== null
+        ? deserializeAws_restJson1_1AvailabilityZoneList(
+            output.AvailabilityZones,
+            context
+          )
+        : undefined,
+    Count:
+      output.Count !== undefined && output.Count !== null
+        ? output.Count
+        : undefined,
+    Interval:
+      output.Interval !== undefined && output.Interval !== null
+        ? output.Interval
+        : undefined,
+    IntervalUnit:
+      output.IntervalUnit !== undefined && output.IntervalUnit !== null
+        ? output.IntervalUnit
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1LifecyclePolicy = (
   output: any,
   context: __SerdeContext
 ): LifecyclePolicy => {
-  let contents: any = {
+  return {
     __type: "LifecyclePolicy",
-    DateCreated: undefined,
-    DateModified: undefined,
-    Description: undefined,
-    ExecutionRoleArn: undefined,
-    PolicyArn: undefined,
-    PolicyDetails: undefined,
-    PolicyId: undefined,
-    State: undefined,
-    StatusMessage: undefined,
-    Tags: undefined
-  };
-  if (output.DateCreated !== undefined && output.DateCreated !== null) {
-    contents.DateCreated = new Date(output.DateCreated);
-  }
-  if (output.DateModified !== undefined && output.DateModified !== null) {
-    contents.DateModified = new Date(output.DateModified);
-  }
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (
-    output.ExecutionRoleArn !== undefined &&
-    output.ExecutionRoleArn !== null
-  ) {
-    contents.ExecutionRoleArn = output.ExecutionRoleArn;
-  }
-  if (output.PolicyArn !== undefined && output.PolicyArn !== null) {
-    contents.PolicyArn = output.PolicyArn;
-  }
-  if (output.PolicyDetails !== undefined && output.PolicyDetails !== null) {
-    contents.PolicyDetails = deserializeAws_restJson1_1PolicyDetails(
-      output.PolicyDetails,
-      context
-    );
-  }
-  if (output.PolicyId !== undefined && output.PolicyId !== null) {
-    contents.PolicyId = output.PolicyId;
-  }
-  if (output.State !== undefined && output.State !== null) {
-    contents.State = output.State;
-  }
-  if (output.StatusMessage !== undefined && output.StatusMessage !== null) {
-    contents.StatusMessage = output.StatusMessage;
-  }
-  if (output.Tags !== undefined && output.Tags !== null) {
-    contents.Tags = deserializeAws_restJson1_1TagMap(output.Tags, context);
-  }
-  return contents;
+    DateCreated:
+      output.DateCreated !== undefined && output.DateCreated !== null
+        ? new Date(output.DateCreated)
+        : undefined,
+    DateModified:
+      output.DateModified !== undefined && output.DateModified !== null
+        ? new Date(output.DateModified)
+        : undefined,
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    ExecutionRoleArn:
+      output.ExecutionRoleArn !== undefined && output.ExecutionRoleArn !== null
+        ? output.ExecutionRoleArn
+        : undefined,
+    PolicyArn:
+      output.PolicyArn !== undefined && output.PolicyArn !== null
+        ? output.PolicyArn
+        : undefined,
+    PolicyDetails:
+      output.PolicyDetails !== undefined && output.PolicyDetails !== null
+        ? deserializeAws_restJson1_1PolicyDetails(output.PolicyDetails, context)
+        : undefined,
+    PolicyId:
+      output.PolicyId !== undefined && output.PolicyId !== null
+        ? output.PolicyId
+        : undefined,
+    State:
+      output.State !== undefined && output.State !== null
+        ? output.State
+        : undefined,
+    StatusMessage:
+      output.StatusMessage !== undefined && output.StatusMessage !== null
+        ? output.StatusMessage
+        : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_restJson1_1TagMap(output.Tags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1LifecyclePolicySummary = (
   output: any,
   context: __SerdeContext
 ): LifecyclePolicySummary => {
-  let contents: any = {
+  return {
     __type: "LifecyclePolicySummary",
-    Description: undefined,
-    PolicyId: undefined,
-    State: undefined,
-    Tags: undefined
-  };
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (output.PolicyId !== undefined && output.PolicyId !== null) {
-    contents.PolicyId = output.PolicyId;
-  }
-  if (output.State !== undefined && output.State !== null) {
-    contents.State = output.State;
-  }
-  if (output.Tags !== undefined && output.Tags !== null) {
-    contents.Tags = deserializeAws_restJson1_1TagMap(output.Tags, context);
-  }
-  return contents;
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    PolicyId:
+      output.PolicyId !== undefined && output.PolicyId !== null
+        ? output.PolicyId
+        : undefined,
+    State:
+      output.State !== undefined && output.State !== null
+        ? output.State
+        : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_restJson1_1TagMap(output.Tags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1LifecyclePolicySummaryList = (
@@ -1679,59 +1665,46 @@ const deserializeAws_restJson1_1_Parameters = (
   output: any,
   context: __SerdeContext
 ): _Parameters => {
-  let contents: any = {
+  return {
     __type: "Parameters",
-    ExcludeBootVolume: undefined
-  };
-  if (
-    output.ExcludeBootVolume !== undefined &&
-    output.ExcludeBootVolume !== null
-  ) {
-    contents.ExcludeBootVolume = output.ExcludeBootVolume;
-  }
-  return contents;
+    ExcludeBootVolume:
+      output.ExcludeBootVolume !== undefined &&
+      output.ExcludeBootVolume !== null
+        ? output.ExcludeBootVolume
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1PolicyDetails = (
   output: any,
   context: __SerdeContext
 ): PolicyDetails => {
-  let contents: any = {
+  return {
     __type: "PolicyDetails",
-    Parameters: undefined,
-    PolicyType: undefined,
-    ResourceTypes: undefined,
-    Schedules: undefined,
-    TargetTags: undefined
-  };
-  if (output.Parameters !== undefined && output.Parameters !== null) {
-    contents.Parameters = deserializeAws_restJson1_1_Parameters(
-      output.Parameters,
-      context
-    );
-  }
-  if (output.PolicyType !== undefined && output.PolicyType !== null) {
-    contents.PolicyType = output.PolicyType;
-  }
-  if (output.ResourceTypes !== undefined && output.ResourceTypes !== null) {
-    contents.ResourceTypes = deserializeAws_restJson1_1ResourceTypeValuesList(
-      output.ResourceTypes,
-      context
-    );
-  }
-  if (output.Schedules !== undefined && output.Schedules !== null) {
-    contents.Schedules = deserializeAws_restJson1_1ScheduleList(
-      output.Schedules,
-      context
-    );
-  }
-  if (output.TargetTags !== undefined && output.TargetTags !== null) {
-    contents.TargetTags = deserializeAws_restJson1_1TargetTagList(
-      output.TargetTags,
-      context
-    );
-  }
-  return contents;
+    Parameters:
+      output.Parameters !== undefined && output.Parameters !== null
+        ? deserializeAws_restJson1_1_Parameters(output.Parameters, context)
+        : undefined,
+    PolicyType:
+      output.PolicyType !== undefined && output.PolicyType !== null
+        ? output.PolicyType
+        : undefined,
+    ResourceTypes:
+      output.ResourceTypes !== undefined && output.ResourceTypes !== null
+        ? deserializeAws_restJson1_1ResourceTypeValuesList(
+            output.ResourceTypes,
+            context
+          )
+        : undefined,
+    Schedules:
+      output.Schedules !== undefined && output.Schedules !== null
+        ? deserializeAws_restJson1_1ScheduleList(output.Schedules, context)
+        : undefined,
+    TargetTags:
+      output.TargetTags !== undefined && output.TargetTags !== null
+        ? deserializeAws_restJson1_1TargetTagList(output.TargetTags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1PolicyIdList = (
@@ -1752,85 +1725,72 @@ const deserializeAws_restJson1_1RetainRule = (
   output: any,
   context: __SerdeContext
 ): RetainRule => {
-  let contents: any = {
+  return {
     __type: "RetainRule",
-    Count: undefined,
-    Interval: undefined,
-    IntervalUnit: undefined
-  };
-  if (output.Count !== undefined && output.Count !== null) {
-    contents.Count = output.Count;
-  }
-  if (output.Interval !== undefined && output.Interval !== null) {
-    contents.Interval = output.Interval;
-  }
-  if (output.IntervalUnit !== undefined && output.IntervalUnit !== null) {
-    contents.IntervalUnit = output.IntervalUnit;
-  }
-  return contents;
+    Count:
+      output.Count !== undefined && output.Count !== null
+        ? output.Count
+        : undefined,
+    Interval:
+      output.Interval !== undefined && output.Interval !== null
+        ? output.Interval
+        : undefined,
+    IntervalUnit:
+      output.IntervalUnit !== undefined && output.IntervalUnit !== null
+        ? output.IntervalUnit
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Schedule = (
   output: any,
   context: __SerdeContext
 ): Schedule => {
-  let contents: any = {
+  return {
     __type: "Schedule",
-    CopyTags: undefined,
-    CreateRule: undefined,
-    CrossRegionCopyRules: undefined,
-    FastRestoreRule: undefined,
-    Name: undefined,
-    RetainRule: undefined,
-    TagsToAdd: undefined,
-    VariableTags: undefined
-  };
-  if (output.CopyTags !== undefined && output.CopyTags !== null) {
-    contents.CopyTags = output.CopyTags;
-  }
-  if (output.CreateRule !== undefined && output.CreateRule !== null) {
-    contents.CreateRule = deserializeAws_restJson1_1CreateRule(
-      output.CreateRule,
-      context
-    );
-  }
-  if (
-    output.CrossRegionCopyRules !== undefined &&
-    output.CrossRegionCopyRules !== null
-  ) {
-    contents.CrossRegionCopyRules = deserializeAws_restJson1_1CrossRegionCopyRules(
-      output.CrossRegionCopyRules,
-      context
-    );
-  }
-  if (output.FastRestoreRule !== undefined && output.FastRestoreRule !== null) {
-    contents.FastRestoreRule = deserializeAws_restJson1_1FastRestoreRule(
-      output.FastRestoreRule,
-      context
-    );
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.RetainRule !== undefined && output.RetainRule !== null) {
-    contents.RetainRule = deserializeAws_restJson1_1RetainRule(
-      output.RetainRule,
-      context
-    );
-  }
-  if (output.TagsToAdd !== undefined && output.TagsToAdd !== null) {
-    contents.TagsToAdd = deserializeAws_restJson1_1TagsToAddList(
-      output.TagsToAdd,
-      context
-    );
-  }
-  if (output.VariableTags !== undefined && output.VariableTags !== null) {
-    contents.VariableTags = deserializeAws_restJson1_1VariableTagsList(
-      output.VariableTags,
-      context
-    );
-  }
-  return contents;
+    CopyTags:
+      output.CopyTags !== undefined && output.CopyTags !== null
+        ? output.CopyTags
+        : undefined,
+    CreateRule:
+      output.CreateRule !== undefined && output.CreateRule !== null
+        ? deserializeAws_restJson1_1CreateRule(output.CreateRule, context)
+        : undefined,
+    CrossRegionCopyRules:
+      output.CrossRegionCopyRules !== undefined &&
+      output.CrossRegionCopyRules !== null
+        ? deserializeAws_restJson1_1CrossRegionCopyRules(
+            output.CrossRegionCopyRules,
+            context
+          )
+        : undefined,
+    FastRestoreRule:
+      output.FastRestoreRule !== undefined && output.FastRestoreRule !== null
+        ? deserializeAws_restJson1_1FastRestoreRule(
+            output.FastRestoreRule,
+            context
+          )
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    RetainRule:
+      output.RetainRule !== undefined && output.RetainRule !== null
+        ? deserializeAws_restJson1_1RetainRule(output.RetainRule, context)
+        : undefined,
+    TagsToAdd:
+      output.TagsToAdd !== undefined && output.TagsToAdd !== null
+        ? deserializeAws_restJson1_1TagsToAddList(output.TagsToAdd, context)
+        : undefined,
+    VariableTags:
+      output.VariableTags !== undefined && output.VariableTags !== null
+        ? deserializeAws_restJson1_1VariableTagsList(
+            output.VariableTags,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ScheduleList = (
@@ -1846,18 +1806,15 @@ const deserializeAws_restJson1_1Tag = (
   output: any,
   context: __SerdeContext
 ): Tag => {
-  let contents: any = {
+  return {
     __type: "Tag",
-    Key: undefined,
-    Value: undefined
-  };
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1TagMap = (

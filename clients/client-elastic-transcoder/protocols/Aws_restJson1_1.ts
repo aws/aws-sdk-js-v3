@@ -3599,41 +3599,37 @@ const deserializeAws_restJson1_1Artwork = (
   output: any,
   context: __SerdeContext
 ): Artwork => {
-  let contents: any = {
+  return {
     __type: "Artwork",
-    AlbumArtFormat: undefined,
-    Encryption: undefined,
-    InputKey: undefined,
-    MaxHeight: undefined,
-    MaxWidth: undefined,
-    PaddingPolicy: undefined,
-    SizingPolicy: undefined
-  };
-  if (output.AlbumArtFormat !== undefined && output.AlbumArtFormat !== null) {
-    contents.AlbumArtFormat = output.AlbumArtFormat;
-  }
-  if (output.Encryption !== undefined && output.Encryption !== null) {
-    contents.Encryption = deserializeAws_restJson1_1Encryption(
-      output.Encryption,
-      context
-    );
-  }
-  if (output.InputKey !== undefined && output.InputKey !== null) {
-    contents.InputKey = output.InputKey;
-  }
-  if (output.MaxHeight !== undefined && output.MaxHeight !== null) {
-    contents.MaxHeight = output.MaxHeight;
-  }
-  if (output.MaxWidth !== undefined && output.MaxWidth !== null) {
-    contents.MaxWidth = output.MaxWidth;
-  }
-  if (output.PaddingPolicy !== undefined && output.PaddingPolicy !== null) {
-    contents.PaddingPolicy = output.PaddingPolicy;
-  }
-  if (output.SizingPolicy !== undefined && output.SizingPolicy !== null) {
-    contents.SizingPolicy = output.SizingPolicy;
-  }
-  return contents;
+    AlbumArtFormat:
+      output.AlbumArtFormat !== undefined && output.AlbumArtFormat !== null
+        ? output.AlbumArtFormat
+        : undefined,
+    Encryption:
+      output.Encryption !== undefined && output.Encryption !== null
+        ? deserializeAws_restJson1_1Encryption(output.Encryption, context)
+        : undefined,
+    InputKey:
+      output.InputKey !== undefined && output.InputKey !== null
+        ? output.InputKey
+        : undefined,
+    MaxHeight:
+      output.MaxHeight !== undefined && output.MaxHeight !== null
+        ? output.MaxHeight
+        : undefined,
+    MaxWidth:
+      output.MaxWidth !== undefined && output.MaxWidth !== null
+        ? output.MaxWidth
+        : undefined,
+    PaddingPolicy:
+      output.PaddingPolicy !== undefined && output.PaddingPolicy !== null
+        ? output.PaddingPolicy
+        : undefined,
+    SizingPolicy:
+      output.SizingPolicy !== undefined && output.SizingPolicy !== null
+        ? output.SizingPolicy
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Artworks = (
@@ -3649,91 +3645,82 @@ const deserializeAws_restJson1_1AudioCodecOptions = (
   output: any,
   context: __SerdeContext
 ): AudioCodecOptions => {
-  let contents: any = {
+  return {
     __type: "AudioCodecOptions",
-    BitDepth: undefined,
-    BitOrder: undefined,
-    Profile: undefined,
-    Signed: undefined
-  };
-  if (output.BitDepth !== undefined && output.BitDepth !== null) {
-    contents.BitDepth = output.BitDepth;
-  }
-  if (output.BitOrder !== undefined && output.BitOrder !== null) {
-    contents.BitOrder = output.BitOrder;
-  }
-  if (output.Profile !== undefined && output.Profile !== null) {
-    contents.Profile = output.Profile;
-  }
-  if (output.Signed !== undefined && output.Signed !== null) {
-    contents.Signed = output.Signed;
-  }
-  return contents;
+    BitDepth:
+      output.BitDepth !== undefined && output.BitDepth !== null
+        ? output.BitDepth
+        : undefined,
+    BitOrder:
+      output.BitOrder !== undefined && output.BitOrder !== null
+        ? output.BitOrder
+        : undefined,
+    Profile:
+      output.Profile !== undefined && output.Profile !== null
+        ? output.Profile
+        : undefined,
+    Signed:
+      output.Signed !== undefined && output.Signed !== null
+        ? output.Signed
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1AudioParameters = (
   output: any,
   context: __SerdeContext
 ): AudioParameters => {
-  let contents: any = {
+  return {
     __type: "AudioParameters",
-    AudioPackingMode: undefined,
-    BitRate: undefined,
-    Channels: undefined,
-    Codec: undefined,
-    CodecOptions: undefined,
-    SampleRate: undefined
-  };
-  if (
-    output.AudioPackingMode !== undefined &&
-    output.AudioPackingMode !== null
-  ) {
-    contents.AudioPackingMode = output.AudioPackingMode;
-  }
-  if (output.BitRate !== undefined && output.BitRate !== null) {
-    contents.BitRate = output.BitRate;
-  }
-  if (output.Channels !== undefined && output.Channels !== null) {
-    contents.Channels = output.Channels;
-  }
-  if (output.Codec !== undefined && output.Codec !== null) {
-    contents.Codec = output.Codec;
-  }
-  if (output.CodecOptions !== undefined && output.CodecOptions !== null) {
-    contents.CodecOptions = deserializeAws_restJson1_1AudioCodecOptions(
-      output.CodecOptions,
-      context
-    );
-  }
-  if (output.SampleRate !== undefined && output.SampleRate !== null) {
-    contents.SampleRate = output.SampleRate;
-  }
-  return contents;
+    AudioPackingMode:
+      output.AudioPackingMode !== undefined && output.AudioPackingMode !== null
+        ? output.AudioPackingMode
+        : undefined,
+    BitRate:
+      output.BitRate !== undefined && output.BitRate !== null
+        ? output.BitRate
+        : undefined,
+    Channels:
+      output.Channels !== undefined && output.Channels !== null
+        ? output.Channels
+        : undefined,
+    Codec:
+      output.Codec !== undefined && output.Codec !== null
+        ? output.Codec
+        : undefined,
+    CodecOptions:
+      output.CodecOptions !== undefined && output.CodecOptions !== null
+        ? deserializeAws_restJson1_1AudioCodecOptions(
+            output.CodecOptions,
+            context
+          )
+        : undefined,
+    SampleRate:
+      output.SampleRate !== undefined && output.SampleRate !== null
+        ? output.SampleRate
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1CaptionFormat = (
   output: any,
   context: __SerdeContext
 ): CaptionFormat => {
-  let contents: any = {
+  return {
     __type: "CaptionFormat",
-    Encryption: undefined,
-    Format: undefined,
-    Pattern: undefined
-  };
-  if (output.Encryption !== undefined && output.Encryption !== null) {
-    contents.Encryption = deserializeAws_restJson1_1Encryption(
-      output.Encryption,
-      context
-    );
-  }
-  if (output.Format !== undefined && output.Format !== null) {
-    contents.Format = output.Format;
-  }
-  if (output.Pattern !== undefined && output.Pattern !== null) {
-    contents.Pattern = output.Pattern;
-  }
-  return contents;
+    Encryption:
+      output.Encryption !== undefined && output.Encryption !== null
+        ? deserializeAws_restJson1_1Encryption(output.Encryption, context)
+        : undefined,
+    Format:
+      output.Format !== undefined && output.Format !== null
+        ? output.Format
+        : undefined,
+    Pattern:
+      output.Pattern !== undefined && output.Pattern !== null
+        ? output.Pattern
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1CaptionFormats = (
@@ -3749,33 +3736,27 @@ const deserializeAws_restJson1_1CaptionSource = (
   output: any,
   context: __SerdeContext
 ): CaptionSource => {
-  let contents: any = {
+  return {
     __type: "CaptionSource",
-    Encryption: undefined,
-    Key: undefined,
-    Label: undefined,
-    Language: undefined,
-    TimeOffset: undefined
-  };
-  if (output.Encryption !== undefined && output.Encryption !== null) {
-    contents.Encryption = deserializeAws_restJson1_1Encryption(
-      output.Encryption,
-      context
-    );
-  }
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  if (output.Label !== undefined && output.Label !== null) {
-    contents.Label = output.Label;
-  }
-  if (output.Language !== undefined && output.Language !== null) {
-    contents.Language = output.Language;
-  }
-  if (output.TimeOffset !== undefined && output.TimeOffset !== null) {
-    contents.TimeOffset = output.TimeOffset;
-  }
-  return contents;
+    Encryption:
+      output.Encryption !== undefined && output.Encryption !== null
+        ? deserializeAws_restJson1_1Encryption(output.Encryption, context)
+        : undefined,
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Label:
+      output.Label !== undefined && output.Label !== null
+        ? output.Label
+        : undefined,
+    Language:
+      output.Language !== undefined && output.Language !== null
+        ? output.Language
+        : undefined,
+    TimeOffset:
+      output.TimeOffset !== undefined && output.TimeOffset !== null
+        ? output.TimeOffset
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1CaptionSources = (
@@ -3791,45 +3772,40 @@ const deserializeAws_restJson1_1Captions = (
   output: any,
   context: __SerdeContext
 ): Captions => {
-  let contents: any = {
+  return {
     __type: "Captions",
-    CaptionFormats: undefined,
-    CaptionSources: undefined,
-    MergePolicy: undefined
-  };
-  if (output.CaptionFormats !== undefined && output.CaptionFormats !== null) {
-    contents.CaptionFormats = deserializeAws_restJson1_1CaptionFormats(
-      output.CaptionFormats,
-      context
-    );
-  }
-  if (output.CaptionSources !== undefined && output.CaptionSources !== null) {
-    contents.CaptionSources = deserializeAws_restJson1_1CaptionSources(
-      output.CaptionSources,
-      context
-    );
-  }
-  if (output.MergePolicy !== undefined && output.MergePolicy !== null) {
-    contents.MergePolicy = output.MergePolicy;
-  }
-  return contents;
+    CaptionFormats:
+      output.CaptionFormats !== undefined && output.CaptionFormats !== null
+        ? deserializeAws_restJson1_1CaptionFormats(
+            output.CaptionFormats,
+            context
+          )
+        : undefined,
+    CaptionSources:
+      output.CaptionSources !== undefined && output.CaptionSources !== null
+        ? deserializeAws_restJson1_1CaptionSources(
+            output.CaptionSources,
+            context
+          )
+        : undefined,
+    MergePolicy:
+      output.MergePolicy !== undefined && output.MergePolicy !== null
+        ? output.MergePolicy
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Clip = (
   output: any,
   context: __SerdeContext
 ): Clip => {
-  let contents: any = {
+  return {
     __type: "Clip",
-    TimeSpan: undefined
-  };
-  if (output.TimeSpan !== undefined && output.TimeSpan !== null) {
-    contents.TimeSpan = deserializeAws_restJson1_1TimeSpan(
-      output.TimeSpan,
-      context
-    );
-  }
-  return contents;
+    TimeSpan:
+      output.TimeSpan !== undefined && output.TimeSpan !== null
+        ? deserializeAws_restJson1_1TimeSpan(output.TimeSpan, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1CodecOptions = (
@@ -3855,59 +3831,53 @@ const deserializeAws_restJson1_1DetectedProperties = (
   output: any,
   context: __SerdeContext
 ): DetectedProperties => {
-  let contents: any = {
+  return {
     __type: "DetectedProperties",
-    DurationMillis: undefined,
-    FileSize: undefined,
-    FrameRate: undefined,
-    Height: undefined,
-    Width: undefined
-  };
-  if (output.DurationMillis !== undefined && output.DurationMillis !== null) {
-    contents.DurationMillis = output.DurationMillis;
-  }
-  if (output.FileSize !== undefined && output.FileSize !== null) {
-    contents.FileSize = output.FileSize;
-  }
-  if (output.FrameRate !== undefined && output.FrameRate !== null) {
-    contents.FrameRate = output.FrameRate;
-  }
-  if (output.Height !== undefined && output.Height !== null) {
-    contents.Height = output.Height;
-  }
-  if (output.Width !== undefined && output.Width !== null) {
-    contents.Width = output.Width;
-  }
-  return contents;
+    DurationMillis:
+      output.DurationMillis !== undefined && output.DurationMillis !== null
+        ? output.DurationMillis
+        : undefined,
+    FileSize:
+      output.FileSize !== undefined && output.FileSize !== null
+        ? output.FileSize
+        : undefined,
+    FrameRate:
+      output.FrameRate !== undefined && output.FrameRate !== null
+        ? output.FrameRate
+        : undefined,
+    Height:
+      output.Height !== undefined && output.Height !== null
+        ? output.Height
+        : undefined,
+    Width:
+      output.Width !== undefined && output.Width !== null
+        ? output.Width
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Encryption = (
   output: any,
   context: __SerdeContext
 ): Encryption => {
-  let contents: any = {
+  return {
     __type: "Encryption",
-    InitializationVector: undefined,
-    Key: undefined,
-    KeyMd5: undefined,
-    Mode: undefined
-  };
-  if (
-    output.InitializationVector !== undefined &&
-    output.InitializationVector !== null
-  ) {
-    contents.InitializationVector = output.InitializationVector;
-  }
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  if (output.KeyMd5 !== undefined && output.KeyMd5 !== null) {
-    contents.KeyMd5 = output.KeyMd5;
-  }
-  if (output.Mode !== undefined && output.Mode !== null) {
-    contents.Mode = output.Mode;
-  }
-  return contents;
+    InitializationVector:
+      output.InitializationVector !== undefined &&
+      output.InitializationVector !== null
+        ? output.InitializationVector
+        : undefined,
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    KeyMd5:
+      output.KeyMd5 !== undefined && output.KeyMd5 !== null
+        ? output.KeyMd5
+        : undefined,
+    Mode:
+      output.Mode !== undefined && output.Mode !== null
+        ? output.Mode
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ExceptionMessages = (
@@ -3921,223 +3891,173 @@ const deserializeAws_restJson1_1HlsContentProtection = (
   output: any,
   context: __SerdeContext
 ): HlsContentProtection => {
-  let contents: any = {
+  return {
     __type: "HlsContentProtection",
-    InitializationVector: undefined,
-    Key: undefined,
-    KeyMd5: undefined,
-    KeyStoragePolicy: undefined,
-    LicenseAcquisitionUrl: undefined,
-    Method: undefined
-  };
-  if (
-    output.InitializationVector !== undefined &&
-    output.InitializationVector !== null
-  ) {
-    contents.InitializationVector = output.InitializationVector;
-  }
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  if (output.KeyMd5 !== undefined && output.KeyMd5 !== null) {
-    contents.KeyMd5 = output.KeyMd5;
-  }
-  if (
-    output.KeyStoragePolicy !== undefined &&
-    output.KeyStoragePolicy !== null
-  ) {
-    contents.KeyStoragePolicy = output.KeyStoragePolicy;
-  }
-  if (
-    output.LicenseAcquisitionUrl !== undefined &&
-    output.LicenseAcquisitionUrl !== null
-  ) {
-    contents.LicenseAcquisitionUrl = output.LicenseAcquisitionUrl;
-  }
-  if (output.Method !== undefined && output.Method !== null) {
-    contents.Method = output.Method;
-  }
-  return contents;
+    InitializationVector:
+      output.InitializationVector !== undefined &&
+      output.InitializationVector !== null
+        ? output.InitializationVector
+        : undefined,
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    KeyMd5:
+      output.KeyMd5 !== undefined && output.KeyMd5 !== null
+        ? output.KeyMd5
+        : undefined,
+    KeyStoragePolicy:
+      output.KeyStoragePolicy !== undefined && output.KeyStoragePolicy !== null
+        ? output.KeyStoragePolicy
+        : undefined,
+    LicenseAcquisitionUrl:
+      output.LicenseAcquisitionUrl !== undefined &&
+      output.LicenseAcquisitionUrl !== null
+        ? output.LicenseAcquisitionUrl
+        : undefined,
+    Method:
+      output.Method !== undefined && output.Method !== null
+        ? output.Method
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1InputCaptions = (
   output: any,
   context: __SerdeContext
 ): InputCaptions => {
-  let contents: any = {
+  return {
     __type: "InputCaptions",
-    CaptionSources: undefined,
-    MergePolicy: undefined
-  };
-  if (output.CaptionSources !== undefined && output.CaptionSources !== null) {
-    contents.CaptionSources = deserializeAws_restJson1_1CaptionSources(
-      output.CaptionSources,
-      context
-    );
-  }
-  if (output.MergePolicy !== undefined && output.MergePolicy !== null) {
-    contents.MergePolicy = output.MergePolicy;
-  }
-  return contents;
+    CaptionSources:
+      output.CaptionSources !== undefined && output.CaptionSources !== null
+        ? deserializeAws_restJson1_1CaptionSources(
+            output.CaptionSources,
+            context
+          )
+        : undefined,
+    MergePolicy:
+      output.MergePolicy !== undefined && output.MergePolicy !== null
+        ? output.MergePolicy
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Job = (
   output: any,
   context: __SerdeContext
 ): Job => {
-  let contents: any = {
+  return {
     __type: "Job",
-    Arn: undefined,
-    Id: undefined,
-    Input: undefined,
-    Inputs: undefined,
-    Output: undefined,
-    OutputKeyPrefix: undefined,
-    Outputs: undefined,
-    PipelineId: undefined,
-    Playlists: undefined,
-    Status: undefined,
-    Timing: undefined,
-    UserMetadata: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Input !== undefined && output.Input !== null) {
-    contents.Input = deserializeAws_restJson1_1JobInput(output.Input, context);
-  }
-  if (output.Inputs !== undefined && output.Inputs !== null) {
-    contents.Inputs = deserializeAws_restJson1_1JobInputs(
-      output.Inputs,
-      context
-    );
-  }
-  if (output.Output !== undefined && output.Output !== null) {
-    contents.Output = deserializeAws_restJson1_1JobOutput(
-      output.Output,
-      context
-    );
-  }
-  if (output.OutputKeyPrefix !== undefined && output.OutputKeyPrefix !== null) {
-    contents.OutputKeyPrefix = output.OutputKeyPrefix;
-  }
-  if (output.Outputs !== undefined && output.Outputs !== null) {
-    contents.Outputs = deserializeAws_restJson1_1JobOutputs(
-      output.Outputs,
-      context
-    );
-  }
-  if (output.PipelineId !== undefined && output.PipelineId !== null) {
-    contents.PipelineId = output.PipelineId;
-  }
-  if (output.Playlists !== undefined && output.Playlists !== null) {
-    contents.Playlists = deserializeAws_restJson1_1Playlists(
-      output.Playlists,
-      context
-    );
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.Timing !== undefined && output.Timing !== null) {
-    contents.Timing = deserializeAws_restJson1_1Timing(output.Timing, context);
-  }
-  if (output.UserMetadata !== undefined && output.UserMetadata !== null) {
-    contents.UserMetadata = deserializeAws_restJson1_1UserMetadata(
-      output.UserMetadata,
-      context
-    );
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Input:
+      output.Input !== undefined && output.Input !== null
+        ? deserializeAws_restJson1_1JobInput(output.Input, context)
+        : undefined,
+    Inputs:
+      output.Inputs !== undefined && output.Inputs !== null
+        ? deserializeAws_restJson1_1JobInputs(output.Inputs, context)
+        : undefined,
+    Output:
+      output.Output !== undefined && output.Output !== null
+        ? deserializeAws_restJson1_1JobOutput(output.Output, context)
+        : undefined,
+    OutputKeyPrefix:
+      output.OutputKeyPrefix !== undefined && output.OutputKeyPrefix !== null
+        ? output.OutputKeyPrefix
+        : undefined,
+    Outputs:
+      output.Outputs !== undefined && output.Outputs !== null
+        ? deserializeAws_restJson1_1JobOutputs(output.Outputs, context)
+        : undefined,
+    PipelineId:
+      output.PipelineId !== undefined && output.PipelineId !== null
+        ? output.PipelineId
+        : undefined,
+    Playlists:
+      output.Playlists !== undefined && output.Playlists !== null
+        ? deserializeAws_restJson1_1Playlists(output.Playlists, context)
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    Timing:
+      output.Timing !== undefined && output.Timing !== null
+        ? deserializeAws_restJson1_1Timing(output.Timing, context)
+        : undefined,
+    UserMetadata:
+      output.UserMetadata !== undefined && output.UserMetadata !== null
+        ? deserializeAws_restJson1_1UserMetadata(output.UserMetadata, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1JobAlbumArt = (
   output: any,
   context: __SerdeContext
 ): JobAlbumArt => {
-  let contents: any = {
+  return {
     __type: "JobAlbumArt",
-    Artwork: undefined,
-    MergePolicy: undefined
-  };
-  if (output.Artwork !== undefined && output.Artwork !== null) {
-    contents.Artwork = deserializeAws_restJson1_1Artworks(
-      output.Artwork,
-      context
-    );
-  }
-  if (output.MergePolicy !== undefined && output.MergePolicy !== null) {
-    contents.MergePolicy = output.MergePolicy;
-  }
-  return contents;
+    Artwork:
+      output.Artwork !== undefined && output.Artwork !== null
+        ? deserializeAws_restJson1_1Artworks(output.Artwork, context)
+        : undefined,
+    MergePolicy:
+      output.MergePolicy !== undefined && output.MergePolicy !== null
+        ? output.MergePolicy
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1JobInput = (
   output: any,
   context: __SerdeContext
 ): JobInput => {
-  let contents: any = {
+  return {
     __type: "JobInput",
-    AspectRatio: undefined,
-    Container: undefined,
-    DetectedProperties: undefined,
-    Encryption: undefined,
-    FrameRate: undefined,
-    InputCaptions: undefined,
-    Interlaced: undefined,
-    Key: undefined,
-    Resolution: undefined,
-    TimeSpan: undefined
-  };
-  if (output.AspectRatio !== undefined && output.AspectRatio !== null) {
-    contents.AspectRatio = output.AspectRatio;
-  }
-  if (output.Container !== undefined && output.Container !== null) {
-    contents.Container = output.Container;
-  }
-  if (
-    output.DetectedProperties !== undefined &&
-    output.DetectedProperties !== null
-  ) {
-    contents.DetectedProperties = deserializeAws_restJson1_1DetectedProperties(
-      output.DetectedProperties,
-      context
-    );
-  }
-  if (output.Encryption !== undefined && output.Encryption !== null) {
-    contents.Encryption = deserializeAws_restJson1_1Encryption(
-      output.Encryption,
-      context
-    );
-  }
-  if (output.FrameRate !== undefined && output.FrameRate !== null) {
-    contents.FrameRate = output.FrameRate;
-  }
-  if (output.InputCaptions !== undefined && output.InputCaptions !== null) {
-    contents.InputCaptions = deserializeAws_restJson1_1InputCaptions(
-      output.InputCaptions,
-      context
-    );
-  }
-  if (output.Interlaced !== undefined && output.Interlaced !== null) {
-    contents.Interlaced = output.Interlaced;
-  }
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  if (output.Resolution !== undefined && output.Resolution !== null) {
-    contents.Resolution = output.Resolution;
-  }
-  if (output.TimeSpan !== undefined && output.TimeSpan !== null) {
-    contents.TimeSpan = deserializeAws_restJson1_1TimeSpan(
-      output.TimeSpan,
-      context
-    );
-  }
-  return contents;
+    AspectRatio:
+      output.AspectRatio !== undefined && output.AspectRatio !== null
+        ? output.AspectRatio
+        : undefined,
+    Container:
+      output.Container !== undefined && output.Container !== null
+        ? output.Container
+        : undefined,
+    DetectedProperties:
+      output.DetectedProperties !== undefined &&
+      output.DetectedProperties !== null
+        ? deserializeAws_restJson1_1DetectedProperties(
+            output.DetectedProperties,
+            context
+          )
+        : undefined,
+    Encryption:
+      output.Encryption !== undefined && output.Encryption !== null
+        ? deserializeAws_restJson1_1Encryption(output.Encryption, context)
+        : undefined,
+    FrameRate:
+      output.FrameRate !== undefined && output.FrameRate !== null
+        ? output.FrameRate
+        : undefined,
+    InputCaptions:
+      output.InputCaptions !== undefined && output.InputCaptions !== null
+        ? deserializeAws_restJson1_1InputCaptions(output.InputCaptions, context)
+        : undefined,
+    Interlaced:
+      output.Interlaced !== undefined && output.Interlaced !== null
+        ? output.Interlaced
+        : undefined,
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Resolution:
+      output.Resolution !== undefined && output.Resolution !== null
+        ? output.Resolution
+        : undefined,
+    TimeSpan:
+      output.TimeSpan !== undefined && output.TimeSpan !== null
+        ? deserializeAws_restJson1_1TimeSpan(output.TimeSpan, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1JobInputs = (
@@ -4153,121 +4073,93 @@ const deserializeAws_restJson1_1JobOutput = (
   output: any,
   context: __SerdeContext
 ): JobOutput => {
-  let contents: any = {
+  return {
     __type: "JobOutput",
-    AlbumArt: undefined,
-    AppliedColorSpaceConversion: undefined,
-    Captions: undefined,
-    Composition: undefined,
-    Duration: undefined,
-    DurationMillis: undefined,
-    Encryption: undefined,
-    FileSize: undefined,
-    FrameRate: undefined,
-    Height: undefined,
-    Id: undefined,
-    Key: undefined,
-    PresetId: undefined,
-    Rotate: undefined,
-    SegmentDuration: undefined,
-    Status: undefined,
-    StatusDetail: undefined,
-    ThumbnailEncryption: undefined,
-    ThumbnailPattern: undefined,
-    Watermarks: undefined,
-    Width: undefined
-  };
-  if (output.AlbumArt !== undefined && output.AlbumArt !== null) {
-    contents.AlbumArt = deserializeAws_restJson1_1JobAlbumArt(
-      output.AlbumArt,
-      context
-    );
-  }
-  if (
-    output.AppliedColorSpaceConversion !== undefined &&
-    output.AppliedColorSpaceConversion !== null
-  ) {
-    contents.AppliedColorSpaceConversion = output.AppliedColorSpaceConversion;
-  }
-  if (output.Captions !== undefined && output.Captions !== null) {
-    contents.Captions = deserializeAws_restJson1_1Captions(
-      output.Captions,
-      context
-    );
-  }
-  if (output.Composition !== undefined && output.Composition !== null) {
-    contents.Composition = deserializeAws_restJson1_1Composition(
-      output.Composition,
-      context
-    );
-  }
-  if (output.Duration !== undefined && output.Duration !== null) {
-    contents.Duration = output.Duration;
-  }
-  if (output.DurationMillis !== undefined && output.DurationMillis !== null) {
-    contents.DurationMillis = output.DurationMillis;
-  }
-  if (output.Encryption !== undefined && output.Encryption !== null) {
-    contents.Encryption = deserializeAws_restJson1_1Encryption(
-      output.Encryption,
-      context
-    );
-  }
-  if (output.FileSize !== undefined && output.FileSize !== null) {
-    contents.FileSize = output.FileSize;
-  }
-  if (output.FrameRate !== undefined && output.FrameRate !== null) {
-    contents.FrameRate = output.FrameRate;
-  }
-  if (output.Height !== undefined && output.Height !== null) {
-    contents.Height = output.Height;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  if (output.PresetId !== undefined && output.PresetId !== null) {
-    contents.PresetId = output.PresetId;
-  }
-  if (output.Rotate !== undefined && output.Rotate !== null) {
-    contents.Rotate = output.Rotate;
-  }
-  if (output.SegmentDuration !== undefined && output.SegmentDuration !== null) {
-    contents.SegmentDuration = output.SegmentDuration;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.StatusDetail !== undefined && output.StatusDetail !== null) {
-    contents.StatusDetail = output.StatusDetail;
-  }
-  if (
-    output.ThumbnailEncryption !== undefined &&
-    output.ThumbnailEncryption !== null
-  ) {
-    contents.ThumbnailEncryption = deserializeAws_restJson1_1Encryption(
-      output.ThumbnailEncryption,
-      context
-    );
-  }
-  if (
-    output.ThumbnailPattern !== undefined &&
-    output.ThumbnailPattern !== null
-  ) {
-    contents.ThumbnailPattern = output.ThumbnailPattern;
-  }
-  if (output.Watermarks !== undefined && output.Watermarks !== null) {
-    contents.Watermarks = deserializeAws_restJson1_1JobWatermarks(
-      output.Watermarks,
-      context
-    );
-  }
-  if (output.Width !== undefined && output.Width !== null) {
-    contents.Width = output.Width;
-  }
-  return contents;
+    AlbumArt:
+      output.AlbumArt !== undefined && output.AlbumArt !== null
+        ? deserializeAws_restJson1_1JobAlbumArt(output.AlbumArt, context)
+        : undefined,
+    AppliedColorSpaceConversion:
+      output.AppliedColorSpaceConversion !== undefined &&
+      output.AppliedColorSpaceConversion !== null
+        ? output.AppliedColorSpaceConversion
+        : undefined,
+    Captions:
+      output.Captions !== undefined && output.Captions !== null
+        ? deserializeAws_restJson1_1Captions(output.Captions, context)
+        : undefined,
+    Composition:
+      output.Composition !== undefined && output.Composition !== null
+        ? deserializeAws_restJson1_1Composition(output.Composition, context)
+        : undefined,
+    Duration:
+      output.Duration !== undefined && output.Duration !== null
+        ? output.Duration
+        : undefined,
+    DurationMillis:
+      output.DurationMillis !== undefined && output.DurationMillis !== null
+        ? output.DurationMillis
+        : undefined,
+    Encryption:
+      output.Encryption !== undefined && output.Encryption !== null
+        ? deserializeAws_restJson1_1Encryption(output.Encryption, context)
+        : undefined,
+    FileSize:
+      output.FileSize !== undefined && output.FileSize !== null
+        ? output.FileSize
+        : undefined,
+    FrameRate:
+      output.FrameRate !== undefined && output.FrameRate !== null
+        ? output.FrameRate
+        : undefined,
+    Height:
+      output.Height !== undefined && output.Height !== null
+        ? output.Height
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    PresetId:
+      output.PresetId !== undefined && output.PresetId !== null
+        ? output.PresetId
+        : undefined,
+    Rotate:
+      output.Rotate !== undefined && output.Rotate !== null
+        ? output.Rotate
+        : undefined,
+    SegmentDuration:
+      output.SegmentDuration !== undefined && output.SegmentDuration !== null
+        ? output.SegmentDuration
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    StatusDetail:
+      output.StatusDetail !== undefined && output.StatusDetail !== null
+        ? output.StatusDetail
+        : undefined,
+    ThumbnailEncryption:
+      output.ThumbnailEncryption !== undefined &&
+      output.ThumbnailEncryption !== null
+        ? deserializeAws_restJson1_1Encryption(
+            output.ThumbnailEncryption,
+            context
+          )
+        : undefined,
+    ThumbnailPattern:
+      output.ThumbnailPattern !== undefined && output.ThumbnailPattern !== null
+        ? output.ThumbnailPattern
+        : undefined,
+    Watermarks:
+      output.Watermarks !== undefined && output.Watermarks !== null
+        ? deserializeAws_restJson1_1JobWatermarks(output.Watermarks, context)
+        : undefined,
+    Width:
+      output.Width !== undefined && output.Width !== null
+        ? output.Width
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1JobOutputs = (
@@ -4283,28 +4175,22 @@ const deserializeAws_restJson1_1JobWatermark = (
   output: any,
   context: __SerdeContext
 ): JobWatermark => {
-  let contents: any = {
+  return {
     __type: "JobWatermark",
-    Encryption: undefined,
-    InputKey: undefined,
-    PresetWatermarkId: undefined
-  };
-  if (output.Encryption !== undefined && output.Encryption !== null) {
-    contents.Encryption = deserializeAws_restJson1_1Encryption(
-      output.Encryption,
-      context
-    );
-  }
-  if (output.InputKey !== undefined && output.InputKey !== null) {
-    contents.InputKey = output.InputKey;
-  }
-  if (
-    output.PresetWatermarkId !== undefined &&
-    output.PresetWatermarkId !== null
-  ) {
-    contents.PresetWatermarkId = output.PresetWatermarkId;
-  }
-  return contents;
+    Encryption:
+      output.Encryption !== undefined && output.Encryption !== null
+        ? deserializeAws_restJson1_1Encryption(output.Encryption, context)
+        : undefined,
+    InputKey:
+      output.InputKey !== undefined && output.InputKey !== null
+        ? output.InputKey
+        : undefined,
+    PresetWatermarkId:
+      output.PresetWatermarkId !== undefined &&
+      output.PresetWatermarkId !== null
+        ? output.PresetWatermarkId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1JobWatermarks = (
@@ -4329,26 +4215,25 @@ const deserializeAws_restJson1_1Notifications = (
   output: any,
   context: __SerdeContext
 ): Notifications => {
-  let contents: any = {
+  return {
     __type: "Notifications",
-    Completed: undefined,
-    Error: undefined,
-    Progressing: undefined,
-    Warning: undefined
-  };
-  if (output.Completed !== undefined && output.Completed !== null) {
-    contents.Completed = output.Completed;
-  }
-  if (output.Error !== undefined && output.Error !== null) {
-    contents.Error = output.Error;
-  }
-  if (output.Progressing !== undefined && output.Progressing !== null) {
-    contents.Progressing = output.Progressing;
-  }
-  if (output.Warning !== undefined && output.Warning !== null) {
-    contents.Warning = output.Warning;
-  }
-  return contents;
+    Completed:
+      output.Completed !== undefined && output.Completed !== null
+        ? output.Completed
+        : undefined,
+    Error:
+      output.Error !== undefined && output.Error !== null
+        ? output.Error
+        : undefined,
+    Progressing:
+      output.Progressing !== undefined && output.Progressing !== null
+        ? output.Progressing
+        : undefined,
+    Warning:
+      output.Warning !== undefined && output.Warning !== null
+        ? output.Warning
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1OutputKeys = (
@@ -4362,25 +4247,21 @@ const deserializeAws_restJson1_1Permission = (
   output: any,
   context: __SerdeContext
 ): Permission => {
-  let contents: any = {
+  return {
     __type: "Permission",
-    Access: undefined,
-    Grantee: undefined,
-    GranteeType: undefined
-  };
-  if (output.Access !== undefined && output.Access !== null) {
-    contents.Access = deserializeAws_restJson1_1AccessControls(
-      output.Access,
-      context
-    );
-  }
-  if (output.Grantee !== undefined && output.Grantee !== null) {
-    contents.Grantee = output.Grantee;
-  }
-  if (output.GranteeType !== undefined && output.GranteeType !== null) {
-    contents.GranteeType = output.GranteeType;
-  }
-  return contents;
+    Access:
+      output.Access !== undefined && output.Access !== null
+        ? deserializeAws_restJson1_1AccessControls(output.Access, context)
+        : undefined,
+    Grantee:
+      output.Grantee !== undefined && output.Grantee !== null
+        ? output.Grantee
+        : undefined,
+    GranteeType:
+      output.GranteeType !== undefined && output.GranteeType !== null
+        ? output.GranteeType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Permissions = (
@@ -4396,88 +4277,75 @@ const deserializeAws_restJson1_1Pipeline = (
   output: any,
   context: __SerdeContext
 ): Pipeline => {
-  let contents: any = {
+  return {
     __type: "Pipeline",
-    Arn: undefined,
-    AwsKmsKeyArn: undefined,
-    ContentConfig: undefined,
-    Id: undefined,
-    InputBucket: undefined,
-    Name: undefined,
-    Notifications: undefined,
-    OutputBucket: undefined,
-    Role: undefined,
-    Status: undefined,
-    ThumbnailConfig: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (output.AwsKmsKeyArn !== undefined && output.AwsKmsKeyArn !== null) {
-    contents.AwsKmsKeyArn = output.AwsKmsKeyArn;
-  }
-  if (output.ContentConfig !== undefined && output.ContentConfig !== null) {
-    contents.ContentConfig = deserializeAws_restJson1_1PipelineOutputConfig(
-      output.ContentConfig,
-      context
-    );
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.InputBucket !== undefined && output.InputBucket !== null) {
-    contents.InputBucket = output.InputBucket;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Notifications !== undefined && output.Notifications !== null) {
-    contents.Notifications = deserializeAws_restJson1_1Notifications(
-      output.Notifications,
-      context
-    );
-  }
-  if (output.OutputBucket !== undefined && output.OutputBucket !== null) {
-    contents.OutputBucket = output.OutputBucket;
-  }
-  if (output.Role !== undefined && output.Role !== null) {
-    contents.Role = output.Role;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.ThumbnailConfig !== undefined && output.ThumbnailConfig !== null) {
-    contents.ThumbnailConfig = deserializeAws_restJson1_1PipelineOutputConfig(
-      output.ThumbnailConfig,
-      context
-    );
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    AwsKmsKeyArn:
+      output.AwsKmsKeyArn !== undefined && output.AwsKmsKeyArn !== null
+        ? output.AwsKmsKeyArn
+        : undefined,
+    ContentConfig:
+      output.ContentConfig !== undefined && output.ContentConfig !== null
+        ? deserializeAws_restJson1_1PipelineOutputConfig(
+            output.ContentConfig,
+            context
+          )
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    InputBucket:
+      output.InputBucket !== undefined && output.InputBucket !== null
+        ? output.InputBucket
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Notifications:
+      output.Notifications !== undefined && output.Notifications !== null
+        ? deserializeAws_restJson1_1Notifications(output.Notifications, context)
+        : undefined,
+    OutputBucket:
+      output.OutputBucket !== undefined && output.OutputBucket !== null
+        ? output.OutputBucket
+        : undefined,
+    Role:
+      output.Role !== undefined && output.Role !== null
+        ? output.Role
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    ThumbnailConfig:
+      output.ThumbnailConfig !== undefined && output.ThumbnailConfig !== null
+        ? deserializeAws_restJson1_1PipelineOutputConfig(
+            output.ThumbnailConfig,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1PipelineOutputConfig = (
   output: any,
   context: __SerdeContext
 ): PipelineOutputConfig => {
-  let contents: any = {
+  return {
     __type: "PipelineOutputConfig",
-    Bucket: undefined,
-    Permissions: undefined,
-    StorageClass: undefined
-  };
-  if (output.Bucket !== undefined && output.Bucket !== null) {
-    contents.Bucket = output.Bucket;
-  }
-  if (output.Permissions !== undefined && output.Permissions !== null) {
-    contents.Permissions = deserializeAws_restJson1_1Permissions(
-      output.Permissions,
-      context
-    );
-  }
-  if (output.StorageClass !== undefined && output.StorageClass !== null) {
-    contents.StorageClass = output.StorageClass;
-  }
-  return contents;
+    Bucket:
+      output.Bucket !== undefined && output.Bucket !== null
+        ? output.Bucket
+        : undefined,
+    Permissions:
+      output.Permissions !== undefined && output.Permissions !== null
+        ? deserializeAws_restJson1_1Permissions(output.Permissions, context)
+        : undefined,
+    StorageClass:
+      output.StorageClass !== undefined && output.StorageClass !== null
+        ? output.StorageClass
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Pipelines = (
@@ -4493,90 +4361,74 @@ const deserializeAws_restJson1_1PlayReadyDrm = (
   output: any,
   context: __SerdeContext
 ): PlayReadyDrm => {
-  let contents: any = {
+  return {
     __type: "PlayReadyDrm",
-    Format: undefined,
-    InitializationVector: undefined,
-    Key: undefined,
-    KeyId: undefined,
-    KeyMd5: undefined,
-    LicenseAcquisitionUrl: undefined
-  };
-  if (output.Format !== undefined && output.Format !== null) {
-    contents.Format = output.Format;
-  }
-  if (
-    output.InitializationVector !== undefined &&
-    output.InitializationVector !== null
-  ) {
-    contents.InitializationVector = output.InitializationVector;
-  }
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  if (output.KeyId !== undefined && output.KeyId !== null) {
-    contents.KeyId = output.KeyId;
-  }
-  if (output.KeyMd5 !== undefined && output.KeyMd5 !== null) {
-    contents.KeyMd5 = output.KeyMd5;
-  }
-  if (
-    output.LicenseAcquisitionUrl !== undefined &&
-    output.LicenseAcquisitionUrl !== null
-  ) {
-    contents.LicenseAcquisitionUrl = output.LicenseAcquisitionUrl;
-  }
-  return contents;
+    Format:
+      output.Format !== undefined && output.Format !== null
+        ? output.Format
+        : undefined,
+    InitializationVector:
+      output.InitializationVector !== undefined &&
+      output.InitializationVector !== null
+        ? output.InitializationVector
+        : undefined,
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    KeyId:
+      output.KeyId !== undefined && output.KeyId !== null
+        ? output.KeyId
+        : undefined,
+    KeyMd5:
+      output.KeyMd5 !== undefined && output.KeyMd5 !== null
+        ? output.KeyMd5
+        : undefined,
+    LicenseAcquisitionUrl:
+      output.LicenseAcquisitionUrl !== undefined &&
+      output.LicenseAcquisitionUrl !== null
+        ? output.LicenseAcquisitionUrl
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Playlist = (
   output: any,
   context: __SerdeContext
 ): Playlist => {
-  let contents: any = {
+  return {
     __type: "Playlist",
-    Format: undefined,
-    HlsContentProtection: undefined,
-    Name: undefined,
-    OutputKeys: undefined,
-    PlayReadyDrm: undefined,
-    Status: undefined,
-    StatusDetail: undefined
-  };
-  if (output.Format !== undefined && output.Format !== null) {
-    contents.Format = output.Format;
-  }
-  if (
-    output.HlsContentProtection !== undefined &&
-    output.HlsContentProtection !== null
-  ) {
-    contents.HlsContentProtection = deserializeAws_restJson1_1HlsContentProtection(
-      output.HlsContentProtection,
-      context
-    );
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.OutputKeys !== undefined && output.OutputKeys !== null) {
-    contents.OutputKeys = deserializeAws_restJson1_1OutputKeys(
-      output.OutputKeys,
-      context
-    );
-  }
-  if (output.PlayReadyDrm !== undefined && output.PlayReadyDrm !== null) {
-    contents.PlayReadyDrm = deserializeAws_restJson1_1PlayReadyDrm(
-      output.PlayReadyDrm,
-      context
-    );
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.StatusDetail !== undefined && output.StatusDetail !== null) {
-    contents.StatusDetail = output.StatusDetail;
-  }
-  return contents;
+    Format:
+      output.Format !== undefined && output.Format !== null
+        ? output.Format
+        : undefined,
+    HlsContentProtection:
+      output.HlsContentProtection !== undefined &&
+      output.HlsContentProtection !== null
+        ? deserializeAws_restJson1_1HlsContentProtection(
+            output.HlsContentProtection,
+            context
+          )
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    OutputKeys:
+      output.OutputKeys !== undefined && output.OutputKeys !== null
+        ? deserializeAws_restJson1_1OutputKeys(output.OutputKeys, context)
+        : undefined,
+    PlayReadyDrm:
+      output.PlayReadyDrm !== undefined && output.PlayReadyDrm !== null
+        ? deserializeAws_restJson1_1PlayReadyDrm(output.PlayReadyDrm, context)
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    StatusDetail:
+      output.StatusDetail !== undefined && output.StatusDetail !== null
+        ? output.StatusDetail
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Playlists = (
@@ -4592,108 +4444,86 @@ const deserializeAws_restJson1_1Preset = (
   output: any,
   context: __SerdeContext
 ): Preset => {
-  let contents: any = {
+  return {
     __type: "Preset",
-    Arn: undefined,
-    Audio: undefined,
-    Container: undefined,
-    Description: undefined,
-    Id: undefined,
-    Name: undefined,
-    Thumbnails: undefined,
-    Type: undefined,
-    Video: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (output.Audio !== undefined && output.Audio !== null) {
-    contents.Audio = deserializeAws_restJson1_1AudioParameters(
-      output.Audio,
-      context
-    );
-  }
-  if (output.Container !== undefined && output.Container !== null) {
-    contents.Container = output.Container;
-  }
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Thumbnails !== undefined && output.Thumbnails !== null) {
-    contents.Thumbnails = deserializeAws_restJson1_1Thumbnails(
-      output.Thumbnails,
-      context
-    );
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  if (output.Video !== undefined && output.Video !== null) {
-    contents.Video = deserializeAws_restJson1_1VideoParameters(
-      output.Video,
-      context
-    );
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Audio:
+      output.Audio !== undefined && output.Audio !== null
+        ? deserializeAws_restJson1_1AudioParameters(output.Audio, context)
+        : undefined,
+    Container:
+      output.Container !== undefined && output.Container !== null
+        ? output.Container
+        : undefined,
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Thumbnails:
+      output.Thumbnails !== undefined && output.Thumbnails !== null
+        ? deserializeAws_restJson1_1Thumbnails(output.Thumbnails, context)
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined,
+    Video:
+      output.Video !== undefined && output.Video !== null
+        ? deserializeAws_restJson1_1VideoParameters(output.Video, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1PresetWatermark = (
   output: any,
   context: __SerdeContext
 ): PresetWatermark => {
-  let contents: any = {
+  return {
     __type: "PresetWatermark",
-    HorizontalAlign: undefined,
-    HorizontalOffset: undefined,
-    Id: undefined,
-    MaxHeight: undefined,
-    MaxWidth: undefined,
-    Opacity: undefined,
-    SizingPolicy: undefined,
-    Target: undefined,
-    VerticalAlign: undefined,
-    VerticalOffset: undefined
-  };
-  if (output.HorizontalAlign !== undefined && output.HorizontalAlign !== null) {
-    contents.HorizontalAlign = output.HorizontalAlign;
-  }
-  if (
-    output.HorizontalOffset !== undefined &&
-    output.HorizontalOffset !== null
-  ) {
-    contents.HorizontalOffset = output.HorizontalOffset;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.MaxHeight !== undefined && output.MaxHeight !== null) {
-    contents.MaxHeight = output.MaxHeight;
-  }
-  if (output.MaxWidth !== undefined && output.MaxWidth !== null) {
-    contents.MaxWidth = output.MaxWidth;
-  }
-  if (output.Opacity !== undefined && output.Opacity !== null) {
-    contents.Opacity = output.Opacity;
-  }
-  if (output.SizingPolicy !== undefined && output.SizingPolicy !== null) {
-    contents.SizingPolicy = output.SizingPolicy;
-  }
-  if (output.Target !== undefined && output.Target !== null) {
-    contents.Target = output.Target;
-  }
-  if (output.VerticalAlign !== undefined && output.VerticalAlign !== null) {
-    contents.VerticalAlign = output.VerticalAlign;
-  }
-  if (output.VerticalOffset !== undefined && output.VerticalOffset !== null) {
-    contents.VerticalOffset = output.VerticalOffset;
-  }
-  return contents;
+    HorizontalAlign:
+      output.HorizontalAlign !== undefined && output.HorizontalAlign !== null
+        ? output.HorizontalAlign
+        : undefined,
+    HorizontalOffset:
+      output.HorizontalOffset !== undefined && output.HorizontalOffset !== null
+        ? output.HorizontalOffset
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    MaxHeight:
+      output.MaxHeight !== undefined && output.MaxHeight !== null
+        ? output.MaxHeight
+        : undefined,
+    MaxWidth:
+      output.MaxWidth !== undefined && output.MaxWidth !== null
+        ? output.MaxWidth
+        : undefined,
+    Opacity:
+      output.Opacity !== undefined && output.Opacity !== null
+        ? output.Opacity
+        : undefined,
+    SizingPolicy:
+      output.SizingPolicy !== undefined && output.SizingPolicy !== null
+        ? output.SizingPolicy
+        : undefined,
+    Target:
+      output.Target !== undefined && output.Target !== null
+        ? output.Target
+        : undefined,
+    VerticalAlign:
+      output.VerticalAlign !== undefined && output.VerticalAlign !== null
+        ? output.VerticalAlign
+        : undefined,
+    VerticalOffset:
+      output.VerticalOffset !== undefined && output.VerticalOffset !== null
+        ? output.VerticalOffset
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1PresetWatermarks = (
@@ -4718,88 +4548,79 @@ const deserializeAws_restJson1_1Thumbnails = (
   output: any,
   context: __SerdeContext
 ): Thumbnails => {
-  let contents: any = {
+  return {
     __type: "Thumbnails",
-    AspectRatio: undefined,
-    Format: undefined,
-    Interval: undefined,
-    MaxHeight: undefined,
-    MaxWidth: undefined,
-    PaddingPolicy: undefined,
-    Resolution: undefined,
-    SizingPolicy: undefined
-  };
-  if (output.AspectRatio !== undefined && output.AspectRatio !== null) {
-    contents.AspectRatio = output.AspectRatio;
-  }
-  if (output.Format !== undefined && output.Format !== null) {
-    contents.Format = output.Format;
-  }
-  if (output.Interval !== undefined && output.Interval !== null) {
-    contents.Interval = output.Interval;
-  }
-  if (output.MaxHeight !== undefined && output.MaxHeight !== null) {
-    contents.MaxHeight = output.MaxHeight;
-  }
-  if (output.MaxWidth !== undefined && output.MaxWidth !== null) {
-    contents.MaxWidth = output.MaxWidth;
-  }
-  if (output.PaddingPolicy !== undefined && output.PaddingPolicy !== null) {
-    contents.PaddingPolicy = output.PaddingPolicy;
-  }
-  if (output.Resolution !== undefined && output.Resolution !== null) {
-    contents.Resolution = output.Resolution;
-  }
-  if (output.SizingPolicy !== undefined && output.SizingPolicy !== null) {
-    contents.SizingPolicy = output.SizingPolicy;
-  }
-  return contents;
+    AspectRatio:
+      output.AspectRatio !== undefined && output.AspectRatio !== null
+        ? output.AspectRatio
+        : undefined,
+    Format:
+      output.Format !== undefined && output.Format !== null
+        ? output.Format
+        : undefined,
+    Interval:
+      output.Interval !== undefined && output.Interval !== null
+        ? output.Interval
+        : undefined,
+    MaxHeight:
+      output.MaxHeight !== undefined && output.MaxHeight !== null
+        ? output.MaxHeight
+        : undefined,
+    MaxWidth:
+      output.MaxWidth !== undefined && output.MaxWidth !== null
+        ? output.MaxWidth
+        : undefined,
+    PaddingPolicy:
+      output.PaddingPolicy !== undefined && output.PaddingPolicy !== null
+        ? output.PaddingPolicy
+        : undefined,
+    Resolution:
+      output.Resolution !== undefined && output.Resolution !== null
+        ? output.Resolution
+        : undefined,
+    SizingPolicy:
+      output.SizingPolicy !== undefined && output.SizingPolicy !== null
+        ? output.SizingPolicy
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1TimeSpan = (
   output: any,
   context: __SerdeContext
 ): TimeSpan => {
-  let contents: any = {
+  return {
     __type: "TimeSpan",
-    Duration: undefined,
-    StartTime: undefined
-  };
-  if (output.Duration !== undefined && output.Duration !== null) {
-    contents.Duration = output.Duration;
-  }
-  if (output.StartTime !== undefined && output.StartTime !== null) {
-    contents.StartTime = output.StartTime;
-  }
-  return contents;
+    Duration:
+      output.Duration !== undefined && output.Duration !== null
+        ? output.Duration
+        : undefined,
+    StartTime:
+      output.StartTime !== undefined && output.StartTime !== null
+        ? output.StartTime
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Timing = (
   output: any,
   context: __SerdeContext
 ): Timing => {
-  let contents: any = {
+  return {
     __type: "Timing",
-    FinishTimeMillis: undefined,
-    StartTimeMillis: undefined,
-    SubmitTimeMillis: undefined
-  };
-  if (
-    output.FinishTimeMillis !== undefined &&
-    output.FinishTimeMillis !== null
-  ) {
-    contents.FinishTimeMillis = output.FinishTimeMillis;
-  }
-  if (output.StartTimeMillis !== undefined && output.StartTimeMillis !== null) {
-    contents.StartTimeMillis = output.StartTimeMillis;
-  }
-  if (
-    output.SubmitTimeMillis !== undefined &&
-    output.SubmitTimeMillis !== null
-  ) {
-    contents.SubmitTimeMillis = output.SubmitTimeMillis;
-  }
-  return contents;
+    FinishTimeMillis:
+      output.FinishTimeMillis !== undefined && output.FinishTimeMillis !== null
+        ? output.FinishTimeMillis
+        : undefined,
+    StartTimeMillis:
+      output.StartTimeMillis !== undefined && output.StartTimeMillis !== null
+        ? output.StartTimeMillis
+        : undefined,
+    SubmitTimeMillis:
+      output.SubmitTimeMillis !== undefined && output.SubmitTimeMillis !== null
+        ? output.SubmitTimeMillis
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1UserMetadata = (
@@ -4816,100 +4637,87 @@ const deserializeAws_restJson1_1VideoParameters = (
   output: any,
   context: __SerdeContext
 ): VideoParameters => {
-  let contents: any = {
+  return {
     __type: "VideoParameters",
-    AspectRatio: undefined,
-    BitRate: undefined,
-    Codec: undefined,
-    CodecOptions: undefined,
-    DisplayAspectRatio: undefined,
-    FixedGOP: undefined,
-    FrameRate: undefined,
-    KeyframesMaxDist: undefined,
-    MaxFrameRate: undefined,
-    MaxHeight: undefined,
-    MaxWidth: undefined,
-    PaddingPolicy: undefined,
-    Resolution: undefined,
-    SizingPolicy: undefined,
-    Watermarks: undefined
-  };
-  if (output.AspectRatio !== undefined && output.AspectRatio !== null) {
-    contents.AspectRatio = output.AspectRatio;
-  }
-  if (output.BitRate !== undefined && output.BitRate !== null) {
-    contents.BitRate = output.BitRate;
-  }
-  if (output.Codec !== undefined && output.Codec !== null) {
-    contents.Codec = output.Codec;
-  }
-  if (output.CodecOptions !== undefined && output.CodecOptions !== null) {
-    contents.CodecOptions = deserializeAws_restJson1_1CodecOptions(
-      output.CodecOptions,
-      context
-    );
-  }
-  if (
-    output.DisplayAspectRatio !== undefined &&
-    output.DisplayAspectRatio !== null
-  ) {
-    contents.DisplayAspectRatio = output.DisplayAspectRatio;
-  }
-  if (output.FixedGOP !== undefined && output.FixedGOP !== null) {
-    contents.FixedGOP = output.FixedGOP;
-  }
-  if (output.FrameRate !== undefined && output.FrameRate !== null) {
-    contents.FrameRate = output.FrameRate;
-  }
-  if (
-    output.KeyframesMaxDist !== undefined &&
-    output.KeyframesMaxDist !== null
-  ) {
-    contents.KeyframesMaxDist = output.KeyframesMaxDist;
-  }
-  if (output.MaxFrameRate !== undefined && output.MaxFrameRate !== null) {
-    contents.MaxFrameRate = output.MaxFrameRate;
-  }
-  if (output.MaxHeight !== undefined && output.MaxHeight !== null) {
-    contents.MaxHeight = output.MaxHeight;
-  }
-  if (output.MaxWidth !== undefined && output.MaxWidth !== null) {
-    contents.MaxWidth = output.MaxWidth;
-  }
-  if (output.PaddingPolicy !== undefined && output.PaddingPolicy !== null) {
-    contents.PaddingPolicy = output.PaddingPolicy;
-  }
-  if (output.Resolution !== undefined && output.Resolution !== null) {
-    contents.Resolution = output.Resolution;
-  }
-  if (output.SizingPolicy !== undefined && output.SizingPolicy !== null) {
-    contents.SizingPolicy = output.SizingPolicy;
-  }
-  if (output.Watermarks !== undefined && output.Watermarks !== null) {
-    contents.Watermarks = deserializeAws_restJson1_1PresetWatermarks(
-      output.Watermarks,
-      context
-    );
-  }
-  return contents;
+    AspectRatio:
+      output.AspectRatio !== undefined && output.AspectRatio !== null
+        ? output.AspectRatio
+        : undefined,
+    BitRate:
+      output.BitRate !== undefined && output.BitRate !== null
+        ? output.BitRate
+        : undefined,
+    Codec:
+      output.Codec !== undefined && output.Codec !== null
+        ? output.Codec
+        : undefined,
+    CodecOptions:
+      output.CodecOptions !== undefined && output.CodecOptions !== null
+        ? deserializeAws_restJson1_1CodecOptions(output.CodecOptions, context)
+        : undefined,
+    DisplayAspectRatio:
+      output.DisplayAspectRatio !== undefined &&
+      output.DisplayAspectRatio !== null
+        ? output.DisplayAspectRatio
+        : undefined,
+    FixedGOP:
+      output.FixedGOP !== undefined && output.FixedGOP !== null
+        ? output.FixedGOP
+        : undefined,
+    FrameRate:
+      output.FrameRate !== undefined && output.FrameRate !== null
+        ? output.FrameRate
+        : undefined,
+    KeyframesMaxDist:
+      output.KeyframesMaxDist !== undefined && output.KeyframesMaxDist !== null
+        ? output.KeyframesMaxDist
+        : undefined,
+    MaxFrameRate:
+      output.MaxFrameRate !== undefined && output.MaxFrameRate !== null
+        ? output.MaxFrameRate
+        : undefined,
+    MaxHeight:
+      output.MaxHeight !== undefined && output.MaxHeight !== null
+        ? output.MaxHeight
+        : undefined,
+    MaxWidth:
+      output.MaxWidth !== undefined && output.MaxWidth !== null
+        ? output.MaxWidth
+        : undefined,
+    PaddingPolicy:
+      output.PaddingPolicy !== undefined && output.PaddingPolicy !== null
+        ? output.PaddingPolicy
+        : undefined,
+    Resolution:
+      output.Resolution !== undefined && output.Resolution !== null
+        ? output.Resolution
+        : undefined,
+    SizingPolicy:
+      output.SizingPolicy !== undefined && output.SizingPolicy !== null
+        ? output.SizingPolicy
+        : undefined,
+    Watermarks:
+      output.Watermarks !== undefined && output.Watermarks !== null
+        ? deserializeAws_restJson1_1PresetWatermarks(output.Watermarks, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Warning = (
   output: any,
   context: __SerdeContext
 ): Warning => {
-  let contents: any = {
+  return {
     __type: "Warning",
-    Code: undefined,
-    Message: undefined
-  };
-  if (output.Code !== undefined && output.Code !== null) {
-    contents.Code = output.Code;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Code:
+      output.Code !== undefined && output.Code !== null
+        ? output.Code
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Warnings = (

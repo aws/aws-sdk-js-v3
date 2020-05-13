@@ -2932,182 +2932,165 @@ const deserializeAws_json1_1CreateHttpNamespaceResponse = (
   output: any,
   context: __SerdeContext
 ): CreateHttpNamespaceResponse => {
-  let contents: any = {
+  return {
     __type: "CreateHttpNamespaceResponse",
-    OperationId: undefined
-  };
-  if (output.OperationId !== undefined && output.OperationId !== null) {
-    contents.OperationId = output.OperationId;
-  }
-  return contents;
+    OperationId:
+      output.OperationId !== undefined && output.OperationId !== null
+        ? output.OperationId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreatePrivateDnsNamespaceResponse = (
   output: any,
   context: __SerdeContext
 ): CreatePrivateDnsNamespaceResponse => {
-  let contents: any = {
+  return {
     __type: "CreatePrivateDnsNamespaceResponse",
-    OperationId: undefined
-  };
-  if (output.OperationId !== undefined && output.OperationId !== null) {
-    contents.OperationId = output.OperationId;
-  }
-  return contents;
+    OperationId:
+      output.OperationId !== undefined && output.OperationId !== null
+        ? output.OperationId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreatePublicDnsNamespaceResponse = (
   output: any,
   context: __SerdeContext
 ): CreatePublicDnsNamespaceResponse => {
-  let contents: any = {
+  return {
     __type: "CreatePublicDnsNamespaceResponse",
-    OperationId: undefined
-  };
-  if (output.OperationId !== undefined && output.OperationId !== null) {
-    contents.OperationId = output.OperationId;
-  }
-  return contents;
+    OperationId:
+      output.OperationId !== undefined && output.OperationId !== null
+        ? output.OperationId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateServiceResponse = (
   output: any,
   context: __SerdeContext
 ): CreateServiceResponse => {
-  let contents: any = {
+  return {
     __type: "CreateServiceResponse",
-    Service: undefined
-  };
-  if (output.Service !== undefined && output.Service !== null) {
-    contents.Service = deserializeAws_json1_1Service(output.Service, context);
-  }
-  return contents;
+    Service:
+      output.Service !== undefined && output.Service !== null
+        ? deserializeAws_json1_1Service(output.Service, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CustomHealthNotFound = (
   output: any,
   context: __SerdeContext
 ): CustomHealthNotFound => {
-  let contents: any = {
+  return {
     __type: "CustomHealthNotFound",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteNamespaceResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteNamespaceResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteNamespaceResponse",
-    OperationId: undefined
-  };
-  if (output.OperationId !== undefined && output.OperationId !== null) {
-    contents.OperationId = output.OperationId;
-  }
-  return contents;
+    OperationId:
+      output.OperationId !== undefined && output.OperationId !== null
+        ? output.OperationId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteServiceResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteServiceResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteServiceResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DeregisterInstanceResponse = (
   output: any,
   context: __SerdeContext
 ): DeregisterInstanceResponse => {
-  let contents: any = {
+  return {
     __type: "DeregisterInstanceResponse",
-    OperationId: undefined
-  };
-  if (output.OperationId !== undefined && output.OperationId !== null) {
-    contents.OperationId = output.OperationId;
-  }
-  return contents;
+    OperationId:
+      output.OperationId !== undefined && output.OperationId !== null
+        ? output.OperationId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DiscoverInstancesResponse = (
   output: any,
   context: __SerdeContext
 ): DiscoverInstancesResponse => {
-  let contents: any = {
+  return {
     __type: "DiscoverInstancesResponse",
-    Instances: undefined
-  };
-  if (output.Instances !== undefined && output.Instances !== null) {
-    contents.Instances = deserializeAws_json1_1HttpInstanceSummaryList(
-      output.Instances,
-      context
-    );
-  }
-  return contents;
+    Instances:
+      output.Instances !== undefined && output.Instances !== null
+        ? deserializeAws_json1_1HttpInstanceSummaryList(
+            output.Instances,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DnsConfig = (
   output: any,
   context: __SerdeContext
 ): DnsConfig => {
-  let contents: any = {
+  return {
     __type: "DnsConfig",
-    DnsRecords: undefined,
-    NamespaceId: undefined,
-    RoutingPolicy: undefined
-  };
-  if (output.DnsRecords !== undefined && output.DnsRecords !== null) {
-    contents.DnsRecords = deserializeAws_json1_1DnsRecordList(
-      output.DnsRecords,
-      context
-    );
-  }
-  if (output.NamespaceId !== undefined && output.NamespaceId !== null) {
-    contents.NamespaceId = output.NamespaceId;
-  }
-  if (output.RoutingPolicy !== undefined && output.RoutingPolicy !== null) {
-    contents.RoutingPolicy = output.RoutingPolicy;
-  }
-  return contents;
+    DnsRecords:
+      output.DnsRecords !== undefined && output.DnsRecords !== null
+        ? deserializeAws_json1_1DnsRecordList(output.DnsRecords, context)
+        : undefined,
+    NamespaceId:
+      output.NamespaceId !== undefined && output.NamespaceId !== null
+        ? output.NamespaceId
+        : undefined,
+    RoutingPolicy:
+      output.RoutingPolicy !== undefined && output.RoutingPolicy !== null
+        ? output.RoutingPolicy
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DnsProperties = (
   output: any,
   context: __SerdeContext
 ): DnsProperties => {
-  let contents: any = {
+  return {
     __type: "DnsProperties",
-    HostedZoneId: undefined
-  };
-  if (output.HostedZoneId !== undefined && output.HostedZoneId !== null) {
-    contents.HostedZoneId = output.HostedZoneId;
-  }
-  return contents;
+    HostedZoneId:
+      output.HostedZoneId !== undefined && output.HostedZoneId !== null
+        ? output.HostedZoneId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DnsRecord = (
   output: any,
   context: __SerdeContext
 ): DnsRecord => {
-  let contents: any = {
+  return {
     __type: "DnsRecord",
-    TTL: undefined,
-    Type: undefined
-  };
-  if (output.TTL !== undefined && output.TTL !== null) {
-    contents.TTL = output.TTL;
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    TTL:
+      output.TTL !== undefined && output.TTL !== null ? output.TTL : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DnsRecordList = (
@@ -3123,182 +3106,150 @@ const deserializeAws_json1_1DuplicateRequest = (
   output: any,
   context: __SerdeContext
 ): DuplicateRequest => {
-  let contents: any = {
+  return {
     __type: "DuplicateRequest",
-    DuplicateOperationId: undefined,
-    Message: undefined
-  };
-  if (
-    output.DuplicateOperationId !== undefined &&
-    output.DuplicateOperationId !== null
-  ) {
-    contents.DuplicateOperationId = output.DuplicateOperationId;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    DuplicateOperationId:
+      output.DuplicateOperationId !== undefined &&
+      output.DuplicateOperationId !== null
+        ? output.DuplicateOperationId
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetInstanceResponse = (
   output: any,
   context: __SerdeContext
 ): GetInstanceResponse => {
-  let contents: any = {
+  return {
     __type: "GetInstanceResponse",
-    Instance: undefined
-  };
-  if (output.Instance !== undefined && output.Instance !== null) {
-    contents.Instance = deserializeAws_json1_1Instance(
-      output.Instance,
-      context
-    );
-  }
-  return contents;
+    Instance:
+      output.Instance !== undefined && output.Instance !== null
+        ? deserializeAws_json1_1Instance(output.Instance, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetInstancesHealthStatusResponse = (
   output: any,
   context: __SerdeContext
 ): GetInstancesHealthStatusResponse => {
-  let contents: any = {
+  return {
     __type: "GetInstancesHealthStatusResponse",
-    NextToken: undefined,
-    Status: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = deserializeAws_json1_1InstanceHealthStatusMap(
-      output.Status,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? deserializeAws_json1_1InstanceHealthStatusMap(output.Status, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetNamespaceResponse = (
   output: any,
   context: __SerdeContext
 ): GetNamespaceResponse => {
-  let contents: any = {
+  return {
     __type: "GetNamespaceResponse",
-    Namespace: undefined
-  };
-  if (output.Namespace !== undefined && output.Namespace !== null) {
-    contents.Namespace = deserializeAws_json1_1Namespace(
-      output.Namespace,
-      context
-    );
-  }
-  return contents;
+    Namespace:
+      output.Namespace !== undefined && output.Namespace !== null
+        ? deserializeAws_json1_1Namespace(output.Namespace, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetOperationResponse = (
   output: any,
   context: __SerdeContext
 ): GetOperationResponse => {
-  let contents: any = {
+  return {
     __type: "GetOperationResponse",
-    Operation: undefined
-  };
-  if (output.Operation !== undefined && output.Operation !== null) {
-    contents.Operation = deserializeAws_json1_1Operation(
-      output.Operation,
-      context
-    );
-  }
-  return contents;
+    Operation:
+      output.Operation !== undefined && output.Operation !== null
+        ? deserializeAws_json1_1Operation(output.Operation, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetServiceResponse = (
   output: any,
   context: __SerdeContext
 ): GetServiceResponse => {
-  let contents: any = {
+  return {
     __type: "GetServiceResponse",
-    Service: undefined
-  };
-  if (output.Service !== undefined && output.Service !== null) {
-    contents.Service = deserializeAws_json1_1Service(output.Service, context);
-  }
-  return contents;
+    Service:
+      output.Service !== undefined && output.Service !== null
+        ? deserializeAws_json1_1Service(output.Service, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1HealthCheckConfig = (
   output: any,
   context: __SerdeContext
 ): HealthCheckConfig => {
-  let contents: any = {
+  return {
     __type: "HealthCheckConfig",
-    FailureThreshold: undefined,
-    ResourcePath: undefined,
-    Type: undefined
-  };
-  if (
-    output.FailureThreshold !== undefined &&
-    output.FailureThreshold !== null
-  ) {
-    contents.FailureThreshold = output.FailureThreshold;
-  }
-  if (output.ResourcePath !== undefined && output.ResourcePath !== null) {
-    contents.ResourcePath = output.ResourcePath;
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    FailureThreshold:
+      output.FailureThreshold !== undefined && output.FailureThreshold !== null
+        ? output.FailureThreshold
+        : undefined,
+    ResourcePath:
+      output.ResourcePath !== undefined && output.ResourcePath !== null
+        ? output.ResourcePath
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1HealthCheckCustomConfig = (
   output: any,
   context: __SerdeContext
 ): HealthCheckCustomConfig => {
-  let contents: any = {
+  return {
     __type: "HealthCheckCustomConfig",
-    FailureThreshold: undefined
-  };
-  if (
-    output.FailureThreshold !== undefined &&
-    output.FailureThreshold !== null
-  ) {
-    contents.FailureThreshold = output.FailureThreshold;
-  }
-  return contents;
+    FailureThreshold:
+      output.FailureThreshold !== undefined && output.FailureThreshold !== null
+        ? output.FailureThreshold
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1HttpInstanceSummary = (
   output: any,
   context: __SerdeContext
 ): HttpInstanceSummary => {
-  let contents: any = {
+  return {
     __type: "HttpInstanceSummary",
-    Attributes: undefined,
-    HealthStatus: undefined,
-    InstanceId: undefined,
-    NamespaceName: undefined,
-    ServiceName: undefined
-  };
-  if (output.Attributes !== undefined && output.Attributes !== null) {
-    contents.Attributes = deserializeAws_json1_1Attributes(
-      output.Attributes,
-      context
-    );
-  }
-  if (output.HealthStatus !== undefined && output.HealthStatus !== null) {
-    contents.HealthStatus = output.HealthStatus;
-  }
-  if (output.InstanceId !== undefined && output.InstanceId !== null) {
-    contents.InstanceId = output.InstanceId;
-  }
-  if (output.NamespaceName !== undefined && output.NamespaceName !== null) {
-    contents.NamespaceName = output.NamespaceName;
-  }
-  if (output.ServiceName !== undefined && output.ServiceName !== null) {
-    contents.ServiceName = output.ServiceName;
-  }
-  return contents;
+    Attributes:
+      output.Attributes !== undefined && output.Attributes !== null
+        ? deserializeAws_json1_1Attributes(output.Attributes, context)
+        : undefined,
+    HealthStatus:
+      output.HealthStatus !== undefined && output.HealthStatus !== null
+        ? output.HealthStatus
+        : undefined,
+    InstanceId:
+      output.InstanceId !== undefined && output.InstanceId !== null
+        ? output.InstanceId
+        : undefined,
+    NamespaceName:
+      output.NamespaceName !== undefined && output.NamespaceName !== null
+        ? output.NamespaceName
+        : undefined,
+    ServiceName:
+      output.ServiceName !== undefined && output.ServiceName !== null
+        ? output.ServiceName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1HttpInstanceSummaryList = (
@@ -3314,42 +3265,31 @@ const deserializeAws_json1_1HttpProperties = (
   output: any,
   context: __SerdeContext
 ): HttpProperties => {
-  let contents: any = {
+  return {
     __type: "HttpProperties",
-    HttpName: undefined
-  };
-  if (output.HttpName !== undefined && output.HttpName !== null) {
-    contents.HttpName = output.HttpName;
-  }
-  return contents;
+    HttpName:
+      output.HttpName !== undefined && output.HttpName !== null
+        ? output.HttpName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Instance = (
   output: any,
   context: __SerdeContext
 ): Instance => {
-  let contents: any = {
+  return {
     __type: "Instance",
-    Attributes: undefined,
-    CreatorRequestId: undefined,
-    Id: undefined
-  };
-  if (output.Attributes !== undefined && output.Attributes !== null) {
-    contents.Attributes = deserializeAws_json1_1Attributes(
-      output.Attributes,
-      context
-    );
-  }
-  if (
-    output.CreatorRequestId !== undefined &&
-    output.CreatorRequestId !== null
-  ) {
-    contents.CreatorRequestId = output.CreatorRequestId;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  return contents;
+    Attributes:
+      output.Attributes !== undefined && output.Attributes !== null
+        ? deserializeAws_json1_1Attributes(output.Attributes, context)
+        : undefined,
+    CreatorRequestId:
+      output.CreatorRequestId !== undefined && output.CreatorRequestId !== null
+        ? output.CreatorRequestId
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InstanceHealthStatusMap = (
@@ -3366,35 +3306,27 @@ const deserializeAws_json1_1InstanceNotFound = (
   output: any,
   context: __SerdeContext
 ): InstanceNotFound => {
-  let contents: any = {
+  return {
     __type: "InstanceNotFound",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InstanceSummary = (
   output: any,
   context: __SerdeContext
 ): InstanceSummary => {
-  let contents: any = {
+  return {
     __type: "InstanceSummary",
-    Attributes: undefined,
-    Id: undefined
-  };
-  if (output.Attributes !== undefined && output.Attributes !== null) {
-    contents.Attributes = deserializeAws_json1_1Attributes(
-      output.Attributes,
-      context
-    );
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  return contents;
+    Attributes:
+      output.Attributes !== undefined && output.Attributes !== null
+        ? deserializeAws_json1_1Attributes(output.Attributes, context)
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InstanceSummaryList = (
@@ -3410,213 +3342,175 @@ const deserializeAws_json1_1InvalidInput = (
   output: any,
   context: __SerdeContext
 ): InvalidInput => {
-  let contents: any = {
+  return {
     __type: "InvalidInput",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListInstancesResponse = (
   output: any,
   context: __SerdeContext
 ): ListInstancesResponse => {
-  let contents: any = {
+  return {
     __type: "ListInstancesResponse",
-    Instances: undefined,
-    NextToken: undefined
-  };
-  if (output.Instances !== undefined && output.Instances !== null) {
-    contents.Instances = deserializeAws_json1_1InstanceSummaryList(
-      output.Instances,
-      context
-    );
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  return contents;
+    Instances:
+      output.Instances !== undefined && output.Instances !== null
+        ? deserializeAws_json1_1InstanceSummaryList(output.Instances, context)
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListNamespacesResponse = (
   output: any,
   context: __SerdeContext
 ): ListNamespacesResponse => {
-  let contents: any = {
+  return {
     __type: "ListNamespacesResponse",
-    Namespaces: undefined,
-    NextToken: undefined
-  };
-  if (output.Namespaces !== undefined && output.Namespaces !== null) {
-    contents.Namespaces = deserializeAws_json1_1NamespaceSummariesList(
-      output.Namespaces,
-      context
-    );
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  return contents;
+    Namespaces:
+      output.Namespaces !== undefined && output.Namespaces !== null
+        ? deserializeAws_json1_1NamespaceSummariesList(
+            output.Namespaces,
+            context
+          )
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListOperationsResponse = (
   output: any,
   context: __SerdeContext
 ): ListOperationsResponse => {
-  let contents: any = {
+  return {
     __type: "ListOperationsResponse",
-    NextToken: undefined,
-    Operations: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.Operations !== undefined && output.Operations !== null) {
-    contents.Operations = deserializeAws_json1_1OperationSummaryList(
-      output.Operations,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Operations:
+      output.Operations !== undefined && output.Operations !== null
+        ? deserializeAws_json1_1OperationSummaryList(output.Operations, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListServicesResponse = (
   output: any,
   context: __SerdeContext
 ): ListServicesResponse => {
-  let contents: any = {
+  return {
     __type: "ListServicesResponse",
-    NextToken: undefined,
-    Services: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.Services !== undefined && output.Services !== null) {
-    contents.Services = deserializeAws_json1_1ServiceSummariesList(
-      output.Services,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Services:
+      output.Services !== undefined && output.Services !== null
+        ? deserializeAws_json1_1ServiceSummariesList(output.Services, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Namespace = (
   output: any,
   context: __SerdeContext
 ): Namespace => {
-  let contents: any = {
+  return {
     __type: "Namespace",
-    Arn: undefined,
-    CreateDate: undefined,
-    CreatorRequestId: undefined,
-    Description: undefined,
-    Id: undefined,
-    Name: undefined,
-    Properties: undefined,
-    ServiceCount: undefined,
-    Type: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (output.CreateDate !== undefined && output.CreateDate !== null) {
-    contents.CreateDate = new Date(Math.round(output.CreateDate * 1000));
-  }
-  if (
-    output.CreatorRequestId !== undefined &&
-    output.CreatorRequestId !== null
-  ) {
-    contents.CreatorRequestId = output.CreatorRequestId;
-  }
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Properties !== undefined && output.Properties !== null) {
-    contents.Properties = deserializeAws_json1_1NamespaceProperties(
-      output.Properties,
-      context
-    );
-  }
-  if (output.ServiceCount !== undefined && output.ServiceCount !== null) {
-    contents.ServiceCount = output.ServiceCount;
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    CreateDate:
+      output.CreateDate !== undefined && output.CreateDate !== null
+        ? new Date(Math.round(output.CreateDate * 1000))
+        : undefined,
+    CreatorRequestId:
+      output.CreatorRequestId !== undefined && output.CreatorRequestId !== null
+        ? output.CreatorRequestId
+        : undefined,
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Properties:
+      output.Properties !== undefined && output.Properties !== null
+        ? deserializeAws_json1_1NamespaceProperties(output.Properties, context)
+        : undefined,
+    ServiceCount:
+      output.ServiceCount !== undefined && output.ServiceCount !== null
+        ? output.ServiceCount
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1NamespaceAlreadyExists = (
   output: any,
   context: __SerdeContext
 ): NamespaceAlreadyExists => {
-  let contents: any = {
+  return {
     __type: "NamespaceAlreadyExists",
-    CreatorRequestId: undefined,
-    Message: undefined,
-    NamespaceId: undefined
-  };
-  if (
-    output.CreatorRequestId !== undefined &&
-    output.CreatorRequestId !== null
-  ) {
-    contents.CreatorRequestId = output.CreatorRequestId;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.NamespaceId !== undefined && output.NamespaceId !== null) {
-    contents.NamespaceId = output.NamespaceId;
-  }
-  return contents;
+    CreatorRequestId:
+      output.CreatorRequestId !== undefined && output.CreatorRequestId !== null
+        ? output.CreatorRequestId
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    NamespaceId:
+      output.NamespaceId !== undefined && output.NamespaceId !== null
+        ? output.NamespaceId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1NamespaceNotFound = (
   output: any,
   context: __SerdeContext
 ): NamespaceNotFound => {
-  let contents: any = {
+  return {
     __type: "NamespaceNotFound",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1NamespaceProperties = (
   output: any,
   context: __SerdeContext
 ): NamespaceProperties => {
-  let contents: any = {
+  return {
     __type: "NamespaceProperties",
-    DnsProperties: undefined,
-    HttpProperties: undefined
-  };
-  if (output.DnsProperties !== undefined && output.DnsProperties !== null) {
-    contents.DnsProperties = deserializeAws_json1_1DnsProperties(
-      output.DnsProperties,
-      context
-    );
-  }
-  if (output.HttpProperties !== undefined && output.HttpProperties !== null) {
-    contents.HttpProperties = deserializeAws_json1_1HttpProperties(
-      output.HttpProperties,
-      context
-    );
-  }
-  return contents;
+    DnsProperties:
+      output.DnsProperties !== undefined && output.DnsProperties !== null
+        ? deserializeAws_json1_1DnsProperties(output.DnsProperties, context)
+        : undefined,
+    HttpProperties:
+      output.HttpProperties !== undefined && output.HttpProperties !== null
+        ? deserializeAws_json1_1HttpProperties(output.HttpProperties, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1NamespaceSummariesList = (
@@ -3632,122 +3526,101 @@ const deserializeAws_json1_1NamespaceSummary = (
   output: any,
   context: __SerdeContext
 ): NamespaceSummary => {
-  let contents: any = {
+  return {
     __type: "NamespaceSummary",
-    Arn: undefined,
-    CreateDate: undefined,
-    Description: undefined,
-    Id: undefined,
-    Name: undefined,
-    Properties: undefined,
-    ServiceCount: undefined,
-    Type: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (output.CreateDate !== undefined && output.CreateDate !== null) {
-    contents.CreateDate = new Date(Math.round(output.CreateDate * 1000));
-  }
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Properties !== undefined && output.Properties !== null) {
-    contents.Properties = deserializeAws_json1_1NamespaceProperties(
-      output.Properties,
-      context
-    );
-  }
-  if (output.ServiceCount !== undefined && output.ServiceCount !== null) {
-    contents.ServiceCount = output.ServiceCount;
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    CreateDate:
+      output.CreateDate !== undefined && output.CreateDate !== null
+        ? new Date(Math.round(output.CreateDate * 1000))
+        : undefined,
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Properties:
+      output.Properties !== undefined && output.Properties !== null
+        ? deserializeAws_json1_1NamespaceProperties(output.Properties, context)
+        : undefined,
+    ServiceCount:
+      output.ServiceCount !== undefined && output.ServiceCount !== null
+        ? output.ServiceCount
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Operation = (
   output: any,
   context: __SerdeContext
 ): Operation => {
-  let contents: any = {
+  return {
     __type: "Operation",
-    CreateDate: undefined,
-    ErrorCode: undefined,
-    ErrorMessage: undefined,
-    Id: undefined,
-    Status: undefined,
-    Targets: undefined,
-    Type: undefined,
-    UpdateDate: undefined
-  };
-  if (output.CreateDate !== undefined && output.CreateDate !== null) {
-    contents.CreateDate = new Date(Math.round(output.CreateDate * 1000));
-  }
-  if (output.ErrorCode !== undefined && output.ErrorCode !== null) {
-    contents.ErrorCode = output.ErrorCode;
-  }
-  if (output.ErrorMessage !== undefined && output.ErrorMessage !== null) {
-    contents.ErrorMessage = output.ErrorMessage;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.Targets !== undefined && output.Targets !== null) {
-    contents.Targets = deserializeAws_json1_1OperationTargetsMap(
-      output.Targets,
-      context
-    );
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  if (output.UpdateDate !== undefined && output.UpdateDate !== null) {
-    contents.UpdateDate = new Date(Math.round(output.UpdateDate * 1000));
-  }
-  return contents;
+    CreateDate:
+      output.CreateDate !== undefined && output.CreateDate !== null
+        ? new Date(Math.round(output.CreateDate * 1000))
+        : undefined,
+    ErrorCode:
+      output.ErrorCode !== undefined && output.ErrorCode !== null
+        ? output.ErrorCode
+        : undefined,
+    ErrorMessage:
+      output.ErrorMessage !== undefined && output.ErrorMessage !== null
+        ? output.ErrorMessage
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    Targets:
+      output.Targets !== undefined && output.Targets !== null
+        ? deserializeAws_json1_1OperationTargetsMap(output.Targets, context)
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined,
+    UpdateDate:
+      output.UpdateDate !== undefined && output.UpdateDate !== null
+        ? new Date(Math.round(output.UpdateDate * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1OperationNotFound = (
   output: any,
   context: __SerdeContext
 ): OperationNotFound => {
-  let contents: any = {
+  return {
     __type: "OperationNotFound",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1OperationSummary = (
   output: any,
   context: __SerdeContext
 ): OperationSummary => {
-  let contents: any = {
+  return {
     __type: "OperationSummary",
-    Id: undefined,
-    Status: undefined
-  };
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  return contents;
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1OperationSummaryList = (
@@ -3773,153 +3646,129 @@ const deserializeAws_json1_1RegisterInstanceResponse = (
   output: any,
   context: __SerdeContext
 ): RegisterInstanceResponse => {
-  let contents: any = {
+  return {
     __type: "RegisterInstanceResponse",
-    OperationId: undefined
-  };
-  if (output.OperationId !== undefined && output.OperationId !== null) {
-    contents.OperationId = output.OperationId;
-  }
-  return contents;
+    OperationId:
+      output.OperationId !== undefined && output.OperationId !== null
+        ? output.OperationId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceInUse = (
   output: any,
   context: __SerdeContext
 ): ResourceInUse => {
-  let contents: any = {
+  return {
     __type: "ResourceInUse",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceLimitExceeded = (
   output: any,
   context: __SerdeContext
 ): ResourceLimitExceeded => {
-  let contents: any = {
+  return {
     __type: "ResourceLimitExceeded",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Service = (
   output: any,
   context: __SerdeContext
 ): Service => {
-  let contents: any = {
+  return {
     __type: "Service",
-    Arn: undefined,
-    CreateDate: undefined,
-    CreatorRequestId: undefined,
-    Description: undefined,
-    DnsConfig: undefined,
-    HealthCheckConfig: undefined,
-    HealthCheckCustomConfig: undefined,
-    Id: undefined,
-    InstanceCount: undefined,
-    Name: undefined,
-    NamespaceId: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (output.CreateDate !== undefined && output.CreateDate !== null) {
-    contents.CreateDate = new Date(Math.round(output.CreateDate * 1000));
-  }
-  if (
-    output.CreatorRequestId !== undefined &&
-    output.CreatorRequestId !== null
-  ) {
-    contents.CreatorRequestId = output.CreatorRequestId;
-  }
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (output.DnsConfig !== undefined && output.DnsConfig !== null) {
-    contents.DnsConfig = deserializeAws_json1_1DnsConfig(
-      output.DnsConfig,
-      context
-    );
-  }
-  if (
-    output.HealthCheckConfig !== undefined &&
-    output.HealthCheckConfig !== null
-  ) {
-    contents.HealthCheckConfig = deserializeAws_json1_1HealthCheckConfig(
-      output.HealthCheckConfig,
-      context
-    );
-  }
-  if (
-    output.HealthCheckCustomConfig !== undefined &&
-    output.HealthCheckCustomConfig !== null
-  ) {
-    contents.HealthCheckCustomConfig = deserializeAws_json1_1HealthCheckCustomConfig(
-      output.HealthCheckCustomConfig,
-      context
-    );
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.InstanceCount !== undefined && output.InstanceCount !== null) {
-    contents.InstanceCount = output.InstanceCount;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.NamespaceId !== undefined && output.NamespaceId !== null) {
-    contents.NamespaceId = output.NamespaceId;
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    CreateDate:
+      output.CreateDate !== undefined && output.CreateDate !== null
+        ? new Date(Math.round(output.CreateDate * 1000))
+        : undefined,
+    CreatorRequestId:
+      output.CreatorRequestId !== undefined && output.CreatorRequestId !== null
+        ? output.CreatorRequestId
+        : undefined,
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    DnsConfig:
+      output.DnsConfig !== undefined && output.DnsConfig !== null
+        ? deserializeAws_json1_1DnsConfig(output.DnsConfig, context)
+        : undefined,
+    HealthCheckConfig:
+      output.HealthCheckConfig !== undefined &&
+      output.HealthCheckConfig !== null
+        ? deserializeAws_json1_1HealthCheckConfig(
+            output.HealthCheckConfig,
+            context
+          )
+        : undefined,
+    HealthCheckCustomConfig:
+      output.HealthCheckCustomConfig !== undefined &&
+      output.HealthCheckCustomConfig !== null
+        ? deserializeAws_json1_1HealthCheckCustomConfig(
+            output.HealthCheckCustomConfig,
+            context
+          )
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    InstanceCount:
+      output.InstanceCount !== undefined && output.InstanceCount !== null
+        ? output.InstanceCount
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    NamespaceId:
+      output.NamespaceId !== undefined && output.NamespaceId !== null
+        ? output.NamespaceId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ServiceAlreadyExists = (
   output: any,
   context: __SerdeContext
 ): ServiceAlreadyExists => {
-  let contents: any = {
+  return {
     __type: "ServiceAlreadyExists",
-    CreatorRequestId: undefined,
-    Message: undefined,
-    ServiceId: undefined
-  };
-  if (
-    output.CreatorRequestId !== undefined &&
-    output.CreatorRequestId !== null
-  ) {
-    contents.CreatorRequestId = output.CreatorRequestId;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.ServiceId !== undefined && output.ServiceId !== null) {
-    contents.ServiceId = output.ServiceId;
-  }
-  return contents;
+    CreatorRequestId:
+      output.CreatorRequestId !== undefined && output.CreatorRequestId !== null
+        ? output.CreatorRequestId
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    ServiceId:
+      output.ServiceId !== undefined && output.ServiceId !== null
+        ? output.ServiceId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ServiceNotFound = (
   output: any,
   context: __SerdeContext
 ): ServiceNotFound => {
-  let contents: any = {
+  return {
     __type: "ServiceNotFound",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ServiceSummariesList = (
@@ -3935,75 +3784,61 @@ const deserializeAws_json1_1ServiceSummary = (
   output: any,
   context: __SerdeContext
 ): ServiceSummary => {
-  let contents: any = {
+  return {
     __type: "ServiceSummary",
-    Arn: undefined,
-    CreateDate: undefined,
-    Description: undefined,
-    DnsConfig: undefined,
-    HealthCheckConfig: undefined,
-    HealthCheckCustomConfig: undefined,
-    Id: undefined,
-    InstanceCount: undefined,
-    Name: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (output.CreateDate !== undefined && output.CreateDate !== null) {
-    contents.CreateDate = new Date(Math.round(output.CreateDate * 1000));
-  }
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (output.DnsConfig !== undefined && output.DnsConfig !== null) {
-    contents.DnsConfig = deserializeAws_json1_1DnsConfig(
-      output.DnsConfig,
-      context
-    );
-  }
-  if (
-    output.HealthCheckConfig !== undefined &&
-    output.HealthCheckConfig !== null
-  ) {
-    contents.HealthCheckConfig = deserializeAws_json1_1HealthCheckConfig(
-      output.HealthCheckConfig,
-      context
-    );
-  }
-  if (
-    output.HealthCheckCustomConfig !== undefined &&
-    output.HealthCheckCustomConfig !== null
-  ) {
-    contents.HealthCheckCustomConfig = deserializeAws_json1_1HealthCheckCustomConfig(
-      output.HealthCheckCustomConfig,
-      context
-    );
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.InstanceCount !== undefined && output.InstanceCount !== null) {
-    contents.InstanceCount = output.InstanceCount;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    CreateDate:
+      output.CreateDate !== undefined && output.CreateDate !== null
+        ? new Date(Math.round(output.CreateDate * 1000))
+        : undefined,
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    DnsConfig:
+      output.DnsConfig !== undefined && output.DnsConfig !== null
+        ? deserializeAws_json1_1DnsConfig(output.DnsConfig, context)
+        : undefined,
+    HealthCheckConfig:
+      output.HealthCheckConfig !== undefined &&
+      output.HealthCheckConfig !== null
+        ? deserializeAws_json1_1HealthCheckConfig(
+            output.HealthCheckConfig,
+            context
+          )
+        : undefined,
+    HealthCheckCustomConfig:
+      output.HealthCheckCustomConfig !== undefined &&
+      output.HealthCheckCustomConfig !== null
+        ? deserializeAws_json1_1HealthCheckCustomConfig(
+            output.HealthCheckCustomConfig,
+            context
+          )
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    InstanceCount:
+      output.InstanceCount !== undefined && output.InstanceCount !== null
+        ? output.InstanceCount
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateServiceResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateServiceResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateServiceResponse",
-    OperationId: undefined
-  };
-  if (output.OperationId !== undefined && output.OperationId !== null) {
-    contents.OperationId = output.OperationId;
-  }
-  return contents;
+    OperationId:
+      output.OperationId !== undefined && output.OperationId !== null
+        ? output.OperationId
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

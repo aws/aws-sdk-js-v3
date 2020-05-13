@@ -3306,69 +3306,62 @@ const deserializeAws_restJson1_1CognitoStreams = (
   output: any,
   context: __SerdeContext
 ): CognitoStreams => {
-  let contents: any = {
+  return {
     __type: "CognitoStreams",
-    DisabledReason: undefined,
-    RoleArn: undefined,
-    StreamName: undefined,
-    StreamingStatus: undefined
-  };
-  if (output.DisabledReason !== undefined && output.DisabledReason !== null) {
-    contents.DisabledReason = output.DisabledReason;
-  }
-  if (output.RoleArn !== undefined && output.RoleArn !== null) {
-    contents.RoleArn = output.RoleArn;
-  }
-  if (output.StreamName !== undefined && output.StreamName !== null) {
-    contents.StreamName = output.StreamName;
-  }
-  if (output.StreamingStatus !== undefined && output.StreamingStatus !== null) {
-    contents.StreamingStatus = output.StreamingStatus;
-  }
-  return contents;
+    DisabledReason:
+      output.DisabledReason !== undefined && output.DisabledReason !== null
+        ? output.DisabledReason
+        : undefined,
+    RoleArn:
+      output.RoleArn !== undefined && output.RoleArn !== null
+        ? output.RoleArn
+        : undefined,
+    StreamName:
+      output.StreamName !== undefined && output.StreamName !== null
+        ? output.StreamName
+        : undefined,
+    StreamingStatus:
+      output.StreamingStatus !== undefined && output.StreamingStatus !== null
+        ? output.StreamingStatus
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Dataset = (
   output: any,
   context: __SerdeContext
 ): Dataset => {
-  let contents: any = {
+  return {
     __type: "Dataset",
-    CreationDate: undefined,
-    DataStorage: undefined,
-    DatasetName: undefined,
-    IdentityId: undefined,
-    LastModifiedBy: undefined,
-    LastModifiedDate: undefined,
-    NumRecords: undefined
-  };
-  if (output.CreationDate !== undefined && output.CreationDate !== null) {
-    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
-  }
-  if (output.DataStorage !== undefined && output.DataStorage !== null) {
-    contents.DataStorage = output.DataStorage;
-  }
-  if (output.DatasetName !== undefined && output.DatasetName !== null) {
-    contents.DatasetName = output.DatasetName;
-  }
-  if (output.IdentityId !== undefined && output.IdentityId !== null) {
-    contents.IdentityId = output.IdentityId;
-  }
-  if (output.LastModifiedBy !== undefined && output.LastModifiedBy !== null) {
-    contents.LastModifiedBy = output.LastModifiedBy;
-  }
-  if (
-    output.LastModifiedDate !== undefined &&
-    output.LastModifiedDate !== null
-  ) {
-    contents.LastModifiedDate = new Date(
-      Math.round(output.LastModifiedDate * 1000)
-    );
-  }
-  if (output.NumRecords !== undefined && output.NumRecords !== null) {
-    contents.NumRecords = output.NumRecords;
-  }
-  return contents;
+    CreationDate:
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? new Date(Math.round(output.CreationDate * 1000))
+        : undefined,
+    DataStorage:
+      output.DataStorage !== undefined && output.DataStorage !== null
+        ? output.DataStorage
+        : undefined,
+    DatasetName:
+      output.DatasetName !== undefined && output.DatasetName !== null
+        ? output.DatasetName
+        : undefined,
+    IdentityId:
+      output.IdentityId !== undefined && output.IdentityId !== null
+        ? output.IdentityId
+        : undefined,
+    LastModifiedBy:
+      output.LastModifiedBy !== undefined && output.LastModifiedBy !== null
+        ? output.LastModifiedBy
+        : undefined,
+    LastModifiedDate:
+      output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
+        ? new Date(Math.round(output.LastModifiedDate * 1000))
+        : undefined,
+    NumRecords:
+      output.NumRecords !== undefined && output.NumRecords !== null
+        ? output.NumRecords
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DatasetList = (
@@ -3394,34 +3387,26 @@ const deserializeAws_restJson1_1IdentityPoolUsage = (
   output: any,
   context: __SerdeContext
 ): IdentityPoolUsage => {
-  let contents: any = {
+  return {
     __type: "IdentityPoolUsage",
-    DataStorage: undefined,
-    IdentityPoolId: undefined,
-    LastModifiedDate: undefined,
-    SyncSessionsCount: undefined
-  };
-  if (output.DataStorage !== undefined && output.DataStorage !== null) {
-    contents.DataStorage = output.DataStorage;
-  }
-  if (output.IdentityPoolId !== undefined && output.IdentityPoolId !== null) {
-    contents.IdentityPoolId = output.IdentityPoolId;
-  }
-  if (
-    output.LastModifiedDate !== undefined &&
-    output.LastModifiedDate !== null
-  ) {
-    contents.LastModifiedDate = new Date(
-      Math.round(output.LastModifiedDate * 1000)
-    );
-  }
-  if (
-    output.SyncSessionsCount !== undefined &&
-    output.SyncSessionsCount !== null
-  ) {
-    contents.SyncSessionsCount = output.SyncSessionsCount;
-  }
-  return contents;
+    DataStorage:
+      output.DataStorage !== undefined && output.DataStorage !== null
+        ? output.DataStorage
+        : undefined,
+    IdentityPoolId:
+      output.IdentityPoolId !== undefined && output.IdentityPoolId !== null
+        ? output.IdentityPoolId
+        : undefined,
+    LastModifiedDate:
+      output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
+        ? new Date(Math.round(output.LastModifiedDate * 1000))
+        : undefined,
+    SyncSessionsCount:
+      output.SyncSessionsCount !== undefined &&
+      output.SyncSessionsCount !== null
+        ? output.SyncSessionsCount
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1IdentityPoolUsageList = (
@@ -3437,35 +3422,29 @@ const deserializeAws_restJson1_1IdentityUsage = (
   output: any,
   context: __SerdeContext
 ): IdentityUsage => {
-  let contents: any = {
+  return {
     __type: "IdentityUsage",
-    DataStorage: undefined,
-    DatasetCount: undefined,
-    IdentityId: undefined,
-    IdentityPoolId: undefined,
-    LastModifiedDate: undefined
-  };
-  if (output.DataStorage !== undefined && output.DataStorage !== null) {
-    contents.DataStorage = output.DataStorage;
-  }
-  if (output.DatasetCount !== undefined && output.DatasetCount !== null) {
-    contents.DatasetCount = output.DatasetCount;
-  }
-  if (output.IdentityId !== undefined && output.IdentityId !== null) {
-    contents.IdentityId = output.IdentityId;
-  }
-  if (output.IdentityPoolId !== undefined && output.IdentityPoolId !== null) {
-    contents.IdentityPoolId = output.IdentityPoolId;
-  }
-  if (
-    output.LastModifiedDate !== undefined &&
-    output.LastModifiedDate !== null
-  ) {
-    contents.LastModifiedDate = new Date(
-      Math.round(output.LastModifiedDate * 1000)
-    );
-  }
-  return contents;
+    DataStorage:
+      output.DataStorage !== undefined && output.DataStorage !== null
+        ? output.DataStorage
+        : undefined,
+    DatasetCount:
+      output.DatasetCount !== undefined && output.DatasetCount !== null
+        ? output.DatasetCount
+        : undefined,
+    IdentityId:
+      output.IdentityId !== undefined && output.IdentityId !== null
+        ? output.IdentityId
+        : undefined,
+    IdentityPoolId:
+      output.IdentityPoolId !== undefined && output.IdentityPoolId !== null
+        ? output.IdentityPoolId
+        : undefined,
+    LastModifiedDate:
+      output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
+        ? new Date(Math.round(output.LastModifiedDate * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1MergedDatasetNameList = (
@@ -3479,65 +3458,52 @@ const deserializeAws_restJson1_1PushSync = (
   output: any,
   context: __SerdeContext
 ): PushSync => {
-  let contents: any = {
+  return {
     __type: "PushSync",
-    ApplicationArns: undefined,
-    RoleArn: undefined
-  };
-  if (output.ApplicationArns !== undefined && output.ApplicationArns !== null) {
-    contents.ApplicationArns = deserializeAws_restJson1_1ApplicationArnList(
-      output.ApplicationArns,
-      context
-    );
-  }
-  if (output.RoleArn !== undefined && output.RoleArn !== null) {
-    contents.RoleArn = output.RoleArn;
-  }
-  return contents;
+    ApplicationArns:
+      output.ApplicationArns !== undefined && output.ApplicationArns !== null
+        ? deserializeAws_restJson1_1ApplicationArnList(
+            output.ApplicationArns,
+            context
+          )
+        : undefined,
+    RoleArn:
+      output.RoleArn !== undefined && output.RoleArn !== null
+        ? output.RoleArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1_Record = (
   output: any,
   context: __SerdeContext
 ): _Record => {
-  let contents: any = {
+  return {
     __type: "Record",
-    DeviceLastModifiedDate: undefined,
-    Key: undefined,
-    LastModifiedBy: undefined,
-    LastModifiedDate: undefined,
-    SyncCount: undefined,
-    Value: undefined
-  };
-  if (
-    output.DeviceLastModifiedDate !== undefined &&
-    output.DeviceLastModifiedDate !== null
-  ) {
-    contents.DeviceLastModifiedDate = new Date(
-      Math.round(output.DeviceLastModifiedDate * 1000)
-    );
-  }
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  if (output.LastModifiedBy !== undefined && output.LastModifiedBy !== null) {
-    contents.LastModifiedBy = output.LastModifiedBy;
-  }
-  if (
-    output.LastModifiedDate !== undefined &&
-    output.LastModifiedDate !== null
-  ) {
-    contents.LastModifiedDate = new Date(
-      Math.round(output.LastModifiedDate * 1000)
-    );
-  }
-  if (output.SyncCount !== undefined && output.SyncCount !== null) {
-    contents.SyncCount = output.SyncCount;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    DeviceLastModifiedDate:
+      output.DeviceLastModifiedDate !== undefined &&
+      output.DeviceLastModifiedDate !== null
+        ? new Date(Math.round(output.DeviceLastModifiedDate * 1000))
+        : undefined,
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    LastModifiedBy:
+      output.LastModifiedBy !== undefined && output.LastModifiedBy !== null
+        ? output.LastModifiedBy
+        : undefined,
+    LastModifiedDate:
+      output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
+        ? new Date(Math.round(output.LastModifiedDate * 1000))
+        : undefined,
+    SyncCount:
+      output.SyncCount !== undefined && output.SyncCount !== null
+        ? output.SyncCount
+        : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1RecordList = (

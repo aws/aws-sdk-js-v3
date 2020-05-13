@@ -742,34 +742,33 @@ const deserializeAws_restJson1_1Item = (
   output: any,
   context: __SerdeContext
 ): Item => {
-  let contents: any = {
+  return {
     __type: "Item",
-    ContentLength: undefined,
-    ContentType: undefined,
-    ETag: undefined,
-    LastModified: undefined,
-    Name: undefined,
-    Type: undefined
-  };
-  if (output.ContentLength !== undefined && output.ContentLength !== null) {
-    contents.ContentLength = output.ContentLength;
-  }
-  if (output.ContentType !== undefined && output.ContentType !== null) {
-    contents.ContentType = output.ContentType;
-  }
-  if (output.ETag !== undefined && output.ETag !== null) {
-    contents.ETag = output.ETag;
-  }
-  if (output.LastModified !== undefined && output.LastModified !== null) {
-    contents.LastModified = new Date(Math.round(output.LastModified * 1000));
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    ContentLength:
+      output.ContentLength !== undefined && output.ContentLength !== null
+        ? output.ContentLength
+        : undefined,
+    ContentType:
+      output.ContentType !== undefined && output.ContentType !== null
+        ? output.ContentType
+        : undefined,
+    ETag:
+      output.ETag !== undefined && output.ETag !== null
+        ? output.ETag
+        : undefined,
+    LastModified:
+      output.LastModified !== undefined && output.LastModified !== null
+        ? new Date(Math.round(output.LastModified * 1000))
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ItemList = (

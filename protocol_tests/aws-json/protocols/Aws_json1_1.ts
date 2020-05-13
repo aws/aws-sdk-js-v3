@@ -534,242 +534,184 @@ const deserializeAws_json1_1EmptyStruct = (
   output: any,
   context: __SerdeContext
 ): EmptyStruct => {
-  let contents: any = {
+  return {
     __type: "EmptyStruct"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1ErrorWithMembers = (
   output: any,
   context: __SerdeContext
 ): ErrorWithMembers => {
-  let contents: any = {
+  return {
     __type: "ErrorWithMembers",
-    Code: undefined,
-    ComplexData: undefined,
-    IntegerField: undefined,
-    ListField: undefined,
-    MapField: undefined,
-    Message: undefined,
-    StringField: undefined
-  };
-  if (output.Code !== undefined && output.Code !== null) {
-    contents.Code = output.Code;
-  }
-  if (output.ComplexData !== undefined && output.ComplexData !== null) {
-    contents.ComplexData = deserializeAws_json1_1KitchenSink(
-      output.ComplexData,
-      context
-    );
-  }
-  if (output.IntegerField !== undefined && output.IntegerField !== null) {
-    contents.IntegerField = output.IntegerField;
-  }
-  if (output.ListField !== undefined && output.ListField !== null) {
-    contents.ListField = deserializeAws_json1_1ListOfStrings(
-      output.ListField,
-      context
-    );
-  }
-  if (output.MapField !== undefined && output.MapField !== null) {
-    contents.MapField = deserializeAws_json1_1MapOfStrings(
-      output.MapField,
-      context
-    );
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.StringField !== undefined && output.StringField !== null) {
-    contents.StringField = output.StringField;
-  }
-  return contents;
+    Code:
+      output.Code !== undefined && output.Code !== null
+        ? output.Code
+        : undefined,
+    ComplexData:
+      output.ComplexData !== undefined && output.ComplexData !== null
+        ? deserializeAws_json1_1KitchenSink(output.ComplexData, context)
+        : undefined,
+    IntegerField:
+      output.IntegerField !== undefined && output.IntegerField !== null
+        ? output.IntegerField
+        : undefined,
+    ListField:
+      output.ListField !== undefined && output.ListField !== null
+        ? deserializeAws_json1_1ListOfStrings(output.ListField, context)
+        : undefined,
+    MapField:
+      output.MapField !== undefined && output.MapField !== null
+        ? deserializeAws_json1_1MapOfStrings(output.MapField, context)
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    StringField:
+      output.StringField !== undefined && output.StringField !== null
+        ? output.StringField
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ErrorWithoutMembers = (
   output: any,
   context: __SerdeContext
 ): ErrorWithoutMembers => {
-  let contents: any = {
+  return {
     __type: "ErrorWithoutMembers"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1KitchenSink = (
   output: any,
   context: __SerdeContext
 ): KitchenSink => {
-  let contents: any = {
+  return {
     __type: "KitchenSink",
-    Blob: undefined,
-    Boolean: undefined,
-    Double: undefined,
-    EmptyStruct: undefined,
-    Float: undefined,
-    HttpdateTimestamp: undefined,
-    Integer: undefined,
-    Iso8601Timestamp: undefined,
-    JsonValue: undefined,
-    ListOfLists: undefined,
-    ListOfMapsOfStrings: undefined,
-    ListOfStrings: undefined,
-    ListOfStructs: undefined,
-    Long: undefined,
-    MapOfListsOfStrings: undefined,
-    MapOfMaps: undefined,
-    MapOfStrings: undefined,
-    MapOfStructs: undefined,
-    RecursiveList: undefined,
-    RecursiveMap: undefined,
-    RecursiveStruct: undefined,
-    SimpleStruct: undefined,
-    String: undefined,
-    StructWithLocationName: undefined,
-    Timestamp: undefined,
-    UnixTimestamp: undefined
-  };
-  if (output.Blob !== undefined && output.Blob !== null) {
-    contents.Blob = context.base64Decoder(output.Blob);
-  }
-  if (output.Boolean !== undefined && output.Boolean !== null) {
-    contents.Boolean = output.Boolean;
-  }
-  if (output.Double !== undefined && output.Double !== null) {
-    contents.Double = output.Double;
-  }
-  if (output.EmptyStruct !== undefined && output.EmptyStruct !== null) {
-    contents.EmptyStruct = deserializeAws_json1_1EmptyStruct(
-      output.EmptyStruct,
-      context
-    );
-  }
-  if (output.Float !== undefined && output.Float !== null) {
-    contents.Float = output.Float;
-  }
-  if (
-    output.HttpdateTimestamp !== undefined &&
-    output.HttpdateTimestamp !== null
-  ) {
-    contents.HttpdateTimestamp = new Date(
-      Math.round(output.HttpdateTimestamp * 1000)
-    );
-  }
-  if (output.Integer !== undefined && output.Integer !== null) {
-    contents.Integer = output.Integer;
-  }
-  if (
-    output.Iso8601Timestamp !== undefined &&
-    output.Iso8601Timestamp !== null
-  ) {
-    contents.Iso8601Timestamp = new Date(
-      Math.round(output.Iso8601Timestamp * 1000)
-    );
-  }
-  if (output.JsonValue !== undefined && output.JsonValue !== null) {
-    contents.JsonValue = new __LazyJsonString(output.JsonValue);
-  }
-  if (output.ListOfLists !== undefined && output.ListOfLists !== null) {
-    contents.ListOfLists = deserializeAws_json1_1ListOfListOfStrings(
-      output.ListOfLists,
-      context
-    );
-  }
-  if (
-    output.ListOfMapsOfStrings !== undefined &&
-    output.ListOfMapsOfStrings !== null
-  ) {
-    contents.ListOfMapsOfStrings = deserializeAws_json1_1ListOfMapsOfStrings(
-      output.ListOfMapsOfStrings,
-      context
-    );
-  }
-  if (output.ListOfStrings !== undefined && output.ListOfStrings !== null) {
-    contents.ListOfStrings = deserializeAws_json1_1ListOfStrings(
-      output.ListOfStrings,
-      context
-    );
-  }
-  if (output.ListOfStructs !== undefined && output.ListOfStructs !== null) {
-    contents.ListOfStructs = deserializeAws_json1_1ListOfStructs(
-      output.ListOfStructs,
-      context
-    );
-  }
-  if (output.Long !== undefined && output.Long !== null) {
-    contents.Long = output.Long;
-  }
-  if (
-    output.MapOfListsOfStrings !== undefined &&
-    output.MapOfListsOfStrings !== null
-  ) {
-    contents.MapOfListsOfStrings = deserializeAws_json1_1MapOfListsOfStrings(
-      output.MapOfListsOfStrings,
-      context
-    );
-  }
-  if (output.MapOfMaps !== undefined && output.MapOfMaps !== null) {
-    contents.MapOfMaps = deserializeAws_json1_1MapOfMapOfStrings(
-      output.MapOfMaps,
-      context
-    );
-  }
-  if (output.MapOfStrings !== undefined && output.MapOfStrings !== null) {
-    contents.MapOfStrings = deserializeAws_json1_1MapOfStrings(
-      output.MapOfStrings,
-      context
-    );
-  }
-  if (output.MapOfStructs !== undefined && output.MapOfStructs !== null) {
-    contents.MapOfStructs = deserializeAws_json1_1MapOfStructs(
-      output.MapOfStructs,
-      context
-    );
-  }
-  if (output.RecursiveList !== undefined && output.RecursiveList !== null) {
-    contents.RecursiveList = deserializeAws_json1_1ListOfKitchenSinks(
-      output.RecursiveList,
-      context
-    );
-  }
-  if (output.RecursiveMap !== undefined && output.RecursiveMap !== null) {
-    contents.RecursiveMap = deserializeAws_json1_1MapOfKitchenSinks(
-      output.RecursiveMap,
-      context
-    );
-  }
-  if (output.RecursiveStruct !== undefined && output.RecursiveStruct !== null) {
-    contents.RecursiveStruct = deserializeAws_json1_1KitchenSink(
-      output.RecursiveStruct,
-      context
-    );
-  }
-  if (output.SimpleStruct !== undefined && output.SimpleStruct !== null) {
-    contents.SimpleStruct = deserializeAws_json1_1SimpleStruct(
-      output.SimpleStruct,
-      context
-    );
-  }
-  if (output.String !== undefined && output.String !== null) {
-    contents.String = output.String;
-  }
-  if (
-    output.StructWithLocationName !== undefined &&
-    output.StructWithLocationName !== null
-  ) {
-    contents.StructWithLocationName = deserializeAws_json1_1StructWithLocationName(
-      output.StructWithLocationName,
-      context
-    );
-  }
-  if (output.Timestamp !== undefined && output.Timestamp !== null) {
-    contents.Timestamp = new Date(Math.round(output.Timestamp * 1000));
-  }
-  if (output.UnixTimestamp !== undefined && output.UnixTimestamp !== null) {
-    contents.UnixTimestamp = new Date(Math.round(output.UnixTimestamp * 1000));
-  }
-  return contents;
+    Blob:
+      output.Blob !== undefined && output.Blob !== null
+        ? context.base64Decoder(output.Blob)
+        : undefined,
+    Boolean:
+      output.Boolean !== undefined && output.Boolean !== null
+        ? output.Boolean
+        : undefined,
+    Double:
+      output.Double !== undefined && output.Double !== null
+        ? output.Double
+        : undefined,
+    EmptyStruct:
+      output.EmptyStruct !== undefined && output.EmptyStruct !== null
+        ? deserializeAws_json1_1EmptyStruct(output.EmptyStruct, context)
+        : undefined,
+    Float:
+      output.Float !== undefined && output.Float !== null
+        ? output.Float
+        : undefined,
+    HttpdateTimestamp:
+      output.HttpdateTimestamp !== undefined &&
+      output.HttpdateTimestamp !== null
+        ? new Date(Math.round(output.HttpdateTimestamp * 1000))
+        : undefined,
+    Integer:
+      output.Integer !== undefined && output.Integer !== null
+        ? output.Integer
+        : undefined,
+    Iso8601Timestamp:
+      output.Iso8601Timestamp !== undefined && output.Iso8601Timestamp !== null
+        ? new Date(Math.round(output.Iso8601Timestamp * 1000))
+        : undefined,
+    JsonValue:
+      output.JsonValue !== undefined && output.JsonValue !== null
+        ? new __LazyJsonString(output.JsonValue)
+        : undefined,
+    ListOfLists:
+      output.ListOfLists !== undefined && output.ListOfLists !== null
+        ? deserializeAws_json1_1ListOfListOfStrings(output.ListOfLists, context)
+        : undefined,
+    ListOfMapsOfStrings:
+      output.ListOfMapsOfStrings !== undefined &&
+      output.ListOfMapsOfStrings !== null
+        ? deserializeAws_json1_1ListOfMapsOfStrings(
+            output.ListOfMapsOfStrings,
+            context
+          )
+        : undefined,
+    ListOfStrings:
+      output.ListOfStrings !== undefined && output.ListOfStrings !== null
+        ? deserializeAws_json1_1ListOfStrings(output.ListOfStrings, context)
+        : undefined,
+    ListOfStructs:
+      output.ListOfStructs !== undefined && output.ListOfStructs !== null
+        ? deserializeAws_json1_1ListOfStructs(output.ListOfStructs, context)
+        : undefined,
+    Long:
+      output.Long !== undefined && output.Long !== null
+        ? output.Long
+        : undefined,
+    MapOfListsOfStrings:
+      output.MapOfListsOfStrings !== undefined &&
+      output.MapOfListsOfStrings !== null
+        ? deserializeAws_json1_1MapOfListsOfStrings(
+            output.MapOfListsOfStrings,
+            context
+          )
+        : undefined,
+    MapOfMaps:
+      output.MapOfMaps !== undefined && output.MapOfMaps !== null
+        ? deserializeAws_json1_1MapOfMapOfStrings(output.MapOfMaps, context)
+        : undefined,
+    MapOfStrings:
+      output.MapOfStrings !== undefined && output.MapOfStrings !== null
+        ? deserializeAws_json1_1MapOfStrings(output.MapOfStrings, context)
+        : undefined,
+    MapOfStructs:
+      output.MapOfStructs !== undefined && output.MapOfStructs !== null
+        ? deserializeAws_json1_1MapOfStructs(output.MapOfStructs, context)
+        : undefined,
+    RecursiveList:
+      output.RecursiveList !== undefined && output.RecursiveList !== null
+        ? deserializeAws_json1_1ListOfKitchenSinks(
+            output.RecursiveList,
+            context
+          )
+        : undefined,
+    RecursiveMap:
+      output.RecursiveMap !== undefined && output.RecursiveMap !== null
+        ? deserializeAws_json1_1MapOfKitchenSinks(output.RecursiveMap, context)
+        : undefined,
+    RecursiveStruct:
+      output.RecursiveStruct !== undefined && output.RecursiveStruct !== null
+        ? deserializeAws_json1_1KitchenSink(output.RecursiveStruct, context)
+        : undefined,
+    SimpleStruct:
+      output.SimpleStruct !== undefined && output.SimpleStruct !== null
+        ? deserializeAws_json1_1SimpleStruct(output.SimpleStruct, context)
+        : undefined,
+    String:
+      output.String !== undefined && output.String !== null
+        ? output.String
+        : undefined,
+    StructWithLocationName:
+      output.StructWithLocationName !== undefined &&
+      output.StructWithLocationName !== null
+        ? deserializeAws_json1_1StructWithLocationName(
+            output.StructWithLocationName,
+            context
+          )
+        : undefined,
+    Timestamp:
+      output.Timestamp !== undefined && output.Timestamp !== null
+        ? new Date(Math.round(output.Timestamp * 1000))
+        : undefined,
+    UnixTimestamp:
+      output.UnixTimestamp !== undefined && output.UnixTimestamp !== null
+        ? new Date(Math.round(output.UnixTimestamp * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListOfKitchenSinks = (
@@ -869,28 +811,26 @@ const deserializeAws_json1_1SimpleStruct = (
   output: any,
   context: __SerdeContext
 ): SimpleStruct => {
-  let contents: any = {
+  return {
     __type: "SimpleStruct",
-    Value: undefined
-  };
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StructWithLocationName = (
   output: any,
   context: __SerdeContext
 ): StructWithLocationName => {
-  let contents: any = {
+  return {
     __type: "StructWithLocationName",
-    Value: undefined
-  };
-  if (output.RenamedMember !== undefined && output.RenamedMember !== null) {
-    contents.Value = output.RenamedMember;
-  }
-  return contents;
+    Value:
+      output.RenamedMember !== undefined && output.RenamedMember !== null
+        ? output.RenamedMember
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

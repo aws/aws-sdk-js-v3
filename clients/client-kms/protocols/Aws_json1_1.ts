@@ -7960,238 +7960,216 @@ const deserializeAws_json1_1AliasListEntry = (
   output: any,
   context: __SerdeContext
 ): AliasListEntry => {
-  let contents: any = {
+  return {
     __type: "AliasListEntry",
-    AliasArn: undefined,
-    AliasName: undefined,
-    TargetKeyId: undefined
-  };
-  if (output.AliasArn !== undefined && output.AliasArn !== null) {
-    contents.AliasArn = output.AliasArn;
-  }
-  if (output.AliasName !== undefined && output.AliasName !== null) {
-    contents.AliasName = output.AliasName;
-  }
-  if (output.TargetKeyId !== undefined && output.TargetKeyId !== null) {
-    contents.TargetKeyId = output.TargetKeyId;
-  }
-  return contents;
+    AliasArn:
+      output.AliasArn !== undefined && output.AliasArn !== null
+        ? output.AliasArn
+        : undefined,
+    AliasName:
+      output.AliasName !== undefined && output.AliasName !== null
+        ? output.AliasName
+        : undefined,
+    TargetKeyId:
+      output.TargetKeyId !== undefined && output.TargetKeyId !== null
+        ? output.TargetKeyId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1AlreadyExistsException = (
   output: any,
   context: __SerdeContext
 ): AlreadyExistsException => {
-  let contents: any = {
+  return {
     __type: "AlreadyExistsException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CancelKeyDeletionResponse = (
   output: any,
   context: __SerdeContext
 ): CancelKeyDeletionResponse => {
-  let contents: any = {
+  return {
     __type: "CancelKeyDeletionResponse",
-    KeyId: undefined
-  };
-  if (output.KeyId !== undefined && output.KeyId !== null) {
-    contents.KeyId = output.KeyId;
-  }
-  return contents;
+    KeyId:
+      output.KeyId !== undefined && output.KeyId !== null
+        ? output.KeyId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CloudHsmClusterInUseException = (
   output: any,
   context: __SerdeContext
 ): CloudHsmClusterInUseException => {
-  let contents: any = {
+  return {
     __type: "CloudHsmClusterInUseException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CloudHsmClusterInvalidConfigurationException = (
   output: any,
   context: __SerdeContext
 ): CloudHsmClusterInvalidConfigurationException => {
-  let contents: any = {
+  return {
     __type: "CloudHsmClusterInvalidConfigurationException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CloudHsmClusterNotActiveException = (
   output: any,
   context: __SerdeContext
 ): CloudHsmClusterNotActiveException => {
-  let contents: any = {
+  return {
     __type: "CloudHsmClusterNotActiveException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CloudHsmClusterNotFoundException = (
   output: any,
   context: __SerdeContext
 ): CloudHsmClusterNotFoundException => {
-  let contents: any = {
+  return {
     __type: "CloudHsmClusterNotFoundException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CloudHsmClusterNotRelatedException = (
   output: any,
   context: __SerdeContext
 ): CloudHsmClusterNotRelatedException => {
-  let contents: any = {
+  return {
     __type: "CloudHsmClusterNotRelatedException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ConnectCustomKeyStoreResponse = (
   output: any,
   context: __SerdeContext
 ): ConnectCustomKeyStoreResponse => {
-  let contents: any = {
+  return {
     __type: "ConnectCustomKeyStoreResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1CreateCustomKeyStoreResponse = (
   output: any,
   context: __SerdeContext
 ): CreateCustomKeyStoreResponse => {
-  let contents: any = {
+  return {
     __type: "CreateCustomKeyStoreResponse",
-    CustomKeyStoreId: undefined
-  };
-  if (
-    output.CustomKeyStoreId !== undefined &&
-    output.CustomKeyStoreId !== null
-  ) {
-    contents.CustomKeyStoreId = output.CustomKeyStoreId;
-  }
-  return contents;
+    CustomKeyStoreId:
+      output.CustomKeyStoreId !== undefined && output.CustomKeyStoreId !== null
+        ? output.CustomKeyStoreId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateGrantResponse = (
   output: any,
   context: __SerdeContext
 ): CreateGrantResponse => {
-  let contents: any = {
+  return {
     __type: "CreateGrantResponse",
-    GrantId: undefined,
-    GrantToken: undefined
-  };
-  if (output.GrantId !== undefined && output.GrantId !== null) {
-    contents.GrantId = output.GrantId;
-  }
-  if (output.GrantToken !== undefined && output.GrantToken !== null) {
-    contents.GrantToken = output.GrantToken;
-  }
-  return contents;
+    GrantId:
+      output.GrantId !== undefined && output.GrantId !== null
+        ? output.GrantId
+        : undefined,
+    GrantToken:
+      output.GrantToken !== undefined && output.GrantToken !== null
+        ? output.GrantToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateKeyResponse = (
   output: any,
   context: __SerdeContext
 ): CreateKeyResponse => {
-  let contents: any = {
+  return {
     __type: "CreateKeyResponse",
-    KeyMetadata: undefined
-  };
-  if (output.KeyMetadata !== undefined && output.KeyMetadata !== null) {
-    contents.KeyMetadata = deserializeAws_json1_1KeyMetadata(
-      output.KeyMetadata,
-      context
-    );
-  }
-  return contents;
+    KeyMetadata:
+      output.KeyMetadata !== undefined && output.KeyMetadata !== null
+        ? deserializeAws_json1_1KeyMetadata(output.KeyMetadata, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CustomKeyStoreHasCMKsException = (
   output: any,
   context: __SerdeContext
 ): CustomKeyStoreHasCMKsException => {
-  let contents: any = {
+  return {
     __type: "CustomKeyStoreHasCMKsException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CustomKeyStoreInvalidStateException = (
   output: any,
   context: __SerdeContext
 ): CustomKeyStoreInvalidStateException => {
-  let contents: any = {
+  return {
     __type: "CustomKeyStoreInvalidStateException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CustomKeyStoreNameInUseException = (
   output: any,
   context: __SerdeContext
 ): CustomKeyStoreNameInUseException => {
-  let contents: any = {
+  return {
     __type: "CustomKeyStoreNameInUseException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CustomKeyStoreNotFoundException = (
   output: any,
   context: __SerdeContext
 ): CustomKeyStoreNotFoundException => {
-  let contents: any = {
+  return {
     __type: "CustomKeyStoreNotFoundException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CustomKeyStoresList = (
@@ -8207,193 +8185,166 @@ const deserializeAws_json1_1CustomKeyStoresListEntry = (
   output: any,
   context: __SerdeContext
 ): CustomKeyStoresListEntry => {
-  let contents: any = {
+  return {
     __type: "CustomKeyStoresListEntry",
-    CloudHsmClusterId: undefined,
-    ConnectionErrorCode: undefined,
-    ConnectionState: undefined,
-    CreationDate: undefined,
-    CustomKeyStoreId: undefined,
-    CustomKeyStoreName: undefined,
-    TrustAnchorCertificate: undefined
-  };
-  if (
-    output.CloudHsmClusterId !== undefined &&
-    output.CloudHsmClusterId !== null
-  ) {
-    contents.CloudHsmClusterId = output.CloudHsmClusterId;
-  }
-  if (
-    output.ConnectionErrorCode !== undefined &&
-    output.ConnectionErrorCode !== null
-  ) {
-    contents.ConnectionErrorCode = output.ConnectionErrorCode;
-  }
-  if (output.ConnectionState !== undefined && output.ConnectionState !== null) {
-    contents.ConnectionState = output.ConnectionState;
-  }
-  if (output.CreationDate !== undefined && output.CreationDate !== null) {
-    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
-  }
-  if (
-    output.CustomKeyStoreId !== undefined &&
-    output.CustomKeyStoreId !== null
-  ) {
-    contents.CustomKeyStoreId = output.CustomKeyStoreId;
-  }
-  if (
-    output.CustomKeyStoreName !== undefined &&
-    output.CustomKeyStoreName !== null
-  ) {
-    contents.CustomKeyStoreName = output.CustomKeyStoreName;
-  }
-  if (
-    output.TrustAnchorCertificate !== undefined &&
-    output.TrustAnchorCertificate !== null
-  ) {
-    contents.TrustAnchorCertificate = output.TrustAnchorCertificate;
-  }
-  return contents;
+    CloudHsmClusterId:
+      output.CloudHsmClusterId !== undefined &&
+      output.CloudHsmClusterId !== null
+        ? output.CloudHsmClusterId
+        : undefined,
+    ConnectionErrorCode:
+      output.ConnectionErrorCode !== undefined &&
+      output.ConnectionErrorCode !== null
+        ? output.ConnectionErrorCode
+        : undefined,
+    ConnectionState:
+      output.ConnectionState !== undefined && output.ConnectionState !== null
+        ? output.ConnectionState
+        : undefined,
+    CreationDate:
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? new Date(Math.round(output.CreationDate * 1000))
+        : undefined,
+    CustomKeyStoreId:
+      output.CustomKeyStoreId !== undefined && output.CustomKeyStoreId !== null
+        ? output.CustomKeyStoreId
+        : undefined,
+    CustomKeyStoreName:
+      output.CustomKeyStoreName !== undefined &&
+      output.CustomKeyStoreName !== null
+        ? output.CustomKeyStoreName
+        : undefined,
+    TrustAnchorCertificate:
+      output.TrustAnchorCertificate !== undefined &&
+      output.TrustAnchorCertificate !== null
+        ? output.TrustAnchorCertificate
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DecryptResponse = (
   output: any,
   context: __SerdeContext
 ): DecryptResponse => {
-  let contents: any = {
+  return {
     __type: "DecryptResponse",
-    EncryptionAlgorithm: undefined,
-    KeyId: undefined,
-    Plaintext: undefined
-  };
-  if (
-    output.EncryptionAlgorithm !== undefined &&
-    output.EncryptionAlgorithm !== null
-  ) {
-    contents.EncryptionAlgorithm = output.EncryptionAlgorithm;
-  }
-  if (output.KeyId !== undefined && output.KeyId !== null) {
-    contents.KeyId = output.KeyId;
-  }
-  if (output.Plaintext !== undefined && output.Plaintext !== null) {
-    contents.Plaintext = context.base64Decoder(output.Plaintext);
-  }
-  return contents;
+    EncryptionAlgorithm:
+      output.EncryptionAlgorithm !== undefined &&
+      output.EncryptionAlgorithm !== null
+        ? output.EncryptionAlgorithm
+        : undefined,
+    KeyId:
+      output.KeyId !== undefined && output.KeyId !== null
+        ? output.KeyId
+        : undefined,
+    Plaintext:
+      output.Plaintext !== undefined && output.Plaintext !== null
+        ? context.base64Decoder(output.Plaintext)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteCustomKeyStoreResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteCustomKeyStoreResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteCustomKeyStoreResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DependencyTimeoutException = (
   output: any,
   context: __SerdeContext
 ): DependencyTimeoutException => {
-  let contents: any = {
+  return {
     __type: "DependencyTimeoutException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeCustomKeyStoresResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeCustomKeyStoresResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeCustomKeyStoresResponse",
-    CustomKeyStores: undefined,
-    NextMarker: undefined,
-    Truncated: undefined
-  };
-  if (output.CustomKeyStores !== undefined && output.CustomKeyStores !== null) {
-    contents.CustomKeyStores = deserializeAws_json1_1CustomKeyStoresList(
-      output.CustomKeyStores,
-      context
-    );
-  }
-  if (output.NextMarker !== undefined && output.NextMarker !== null) {
-    contents.NextMarker = output.NextMarker;
-  }
-  if (output.Truncated !== undefined && output.Truncated !== null) {
-    contents.Truncated = output.Truncated;
-  }
-  return contents;
+    CustomKeyStores:
+      output.CustomKeyStores !== undefined && output.CustomKeyStores !== null
+        ? deserializeAws_json1_1CustomKeyStoresList(
+            output.CustomKeyStores,
+            context
+          )
+        : undefined,
+    NextMarker:
+      output.NextMarker !== undefined && output.NextMarker !== null
+        ? output.NextMarker
+        : undefined,
+    Truncated:
+      output.Truncated !== undefined && output.Truncated !== null
+        ? output.Truncated
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeKeyResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeKeyResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeKeyResponse",
-    KeyMetadata: undefined
-  };
-  if (output.KeyMetadata !== undefined && output.KeyMetadata !== null) {
-    contents.KeyMetadata = deserializeAws_json1_1KeyMetadata(
-      output.KeyMetadata,
-      context
-    );
-  }
-  return contents;
+    KeyMetadata:
+      output.KeyMetadata !== undefined && output.KeyMetadata !== null
+        ? deserializeAws_json1_1KeyMetadata(output.KeyMetadata, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DisabledException = (
   output: any,
   context: __SerdeContext
 ): DisabledException => {
-  let contents: any = {
+  return {
     __type: "DisabledException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DisconnectCustomKeyStoreResponse = (
   output: any,
   context: __SerdeContext
 ): DisconnectCustomKeyStoreResponse => {
-  let contents: any = {
+  return {
     __type: "DisconnectCustomKeyStoreResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1EncryptResponse = (
   output: any,
   context: __SerdeContext
 ): EncryptResponse => {
-  let contents: any = {
+  return {
     __type: "EncryptResponse",
-    CiphertextBlob: undefined,
-    EncryptionAlgorithm: undefined,
-    KeyId: undefined
-  };
-  if (output.CiphertextBlob !== undefined && output.CiphertextBlob !== null) {
-    contents.CiphertextBlob = context.base64Decoder(output.CiphertextBlob);
-  }
-  if (
-    output.EncryptionAlgorithm !== undefined &&
-    output.EncryptionAlgorithm !== null
-  ) {
-    contents.EncryptionAlgorithm = output.EncryptionAlgorithm;
-  }
-  if (output.KeyId !== undefined && output.KeyId !== null) {
-    contents.KeyId = output.KeyId;
-  }
-  return contents;
+    CiphertextBlob:
+      output.CiphertextBlob !== undefined && output.CiphertextBlob !== null
+        ? context.base64Decoder(output.CiphertextBlob)
+        : undefined,
+    EncryptionAlgorithm:
+      output.EncryptionAlgorithm !== undefined &&
+      output.EncryptionAlgorithm !== null
+        ? output.EncryptionAlgorithm
+        : undefined,
+    KeyId:
+      output.KeyId !== undefined && output.KeyId !== null
+        ? output.KeyId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EncryptionAlgorithmSpecList = (
@@ -8417,280 +8368,241 @@ const deserializeAws_json1_1ExpiredImportTokenException = (
   output: any,
   context: __SerdeContext
 ): ExpiredImportTokenException => {
-  let contents: any = {
+  return {
     __type: "ExpiredImportTokenException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GenerateDataKeyPairResponse = (
   output: any,
   context: __SerdeContext
 ): GenerateDataKeyPairResponse => {
-  let contents: any = {
+  return {
     __type: "GenerateDataKeyPairResponse",
-    KeyId: undefined,
-    KeyPairSpec: undefined,
-    PrivateKeyCiphertextBlob: undefined,
-    PrivateKeyPlaintext: undefined,
-    PublicKey: undefined
-  };
-  if (output.KeyId !== undefined && output.KeyId !== null) {
-    contents.KeyId = output.KeyId;
-  }
-  if (output.KeyPairSpec !== undefined && output.KeyPairSpec !== null) {
-    contents.KeyPairSpec = output.KeyPairSpec;
-  }
-  if (
-    output.PrivateKeyCiphertextBlob !== undefined &&
-    output.PrivateKeyCiphertextBlob !== null
-  ) {
-    contents.PrivateKeyCiphertextBlob = context.base64Decoder(
-      output.PrivateKeyCiphertextBlob
-    );
-  }
-  if (
-    output.PrivateKeyPlaintext !== undefined &&
-    output.PrivateKeyPlaintext !== null
-  ) {
-    contents.PrivateKeyPlaintext = context.base64Decoder(
-      output.PrivateKeyPlaintext
-    );
-  }
-  if (output.PublicKey !== undefined && output.PublicKey !== null) {
-    contents.PublicKey = context.base64Decoder(output.PublicKey);
-  }
-  return contents;
+    KeyId:
+      output.KeyId !== undefined && output.KeyId !== null
+        ? output.KeyId
+        : undefined,
+    KeyPairSpec:
+      output.KeyPairSpec !== undefined && output.KeyPairSpec !== null
+        ? output.KeyPairSpec
+        : undefined,
+    PrivateKeyCiphertextBlob:
+      output.PrivateKeyCiphertextBlob !== undefined &&
+      output.PrivateKeyCiphertextBlob !== null
+        ? context.base64Decoder(output.PrivateKeyCiphertextBlob)
+        : undefined,
+    PrivateKeyPlaintext:
+      output.PrivateKeyPlaintext !== undefined &&
+      output.PrivateKeyPlaintext !== null
+        ? context.base64Decoder(output.PrivateKeyPlaintext)
+        : undefined,
+    PublicKey:
+      output.PublicKey !== undefined && output.PublicKey !== null
+        ? context.base64Decoder(output.PublicKey)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GenerateDataKeyPairWithoutPlaintextResponse = (
   output: any,
   context: __SerdeContext
 ): GenerateDataKeyPairWithoutPlaintextResponse => {
-  let contents: any = {
+  return {
     __type: "GenerateDataKeyPairWithoutPlaintextResponse",
-    KeyId: undefined,
-    KeyPairSpec: undefined,
-    PrivateKeyCiphertextBlob: undefined,
-    PublicKey: undefined
-  };
-  if (output.KeyId !== undefined && output.KeyId !== null) {
-    contents.KeyId = output.KeyId;
-  }
-  if (output.KeyPairSpec !== undefined && output.KeyPairSpec !== null) {
-    contents.KeyPairSpec = output.KeyPairSpec;
-  }
-  if (
-    output.PrivateKeyCiphertextBlob !== undefined &&
-    output.PrivateKeyCiphertextBlob !== null
-  ) {
-    contents.PrivateKeyCiphertextBlob = context.base64Decoder(
-      output.PrivateKeyCiphertextBlob
-    );
-  }
-  if (output.PublicKey !== undefined && output.PublicKey !== null) {
-    contents.PublicKey = context.base64Decoder(output.PublicKey);
-  }
-  return contents;
+    KeyId:
+      output.KeyId !== undefined && output.KeyId !== null
+        ? output.KeyId
+        : undefined,
+    KeyPairSpec:
+      output.KeyPairSpec !== undefined && output.KeyPairSpec !== null
+        ? output.KeyPairSpec
+        : undefined,
+    PrivateKeyCiphertextBlob:
+      output.PrivateKeyCiphertextBlob !== undefined &&
+      output.PrivateKeyCiphertextBlob !== null
+        ? context.base64Decoder(output.PrivateKeyCiphertextBlob)
+        : undefined,
+    PublicKey:
+      output.PublicKey !== undefined && output.PublicKey !== null
+        ? context.base64Decoder(output.PublicKey)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GenerateDataKeyResponse = (
   output: any,
   context: __SerdeContext
 ): GenerateDataKeyResponse => {
-  let contents: any = {
+  return {
     __type: "GenerateDataKeyResponse",
-    CiphertextBlob: undefined,
-    KeyId: undefined,
-    Plaintext: undefined
-  };
-  if (output.CiphertextBlob !== undefined && output.CiphertextBlob !== null) {
-    contents.CiphertextBlob = context.base64Decoder(output.CiphertextBlob);
-  }
-  if (output.KeyId !== undefined && output.KeyId !== null) {
-    contents.KeyId = output.KeyId;
-  }
-  if (output.Plaintext !== undefined && output.Plaintext !== null) {
-    contents.Plaintext = context.base64Decoder(output.Plaintext);
-  }
-  return contents;
+    CiphertextBlob:
+      output.CiphertextBlob !== undefined && output.CiphertextBlob !== null
+        ? context.base64Decoder(output.CiphertextBlob)
+        : undefined,
+    KeyId:
+      output.KeyId !== undefined && output.KeyId !== null
+        ? output.KeyId
+        : undefined,
+    Plaintext:
+      output.Plaintext !== undefined && output.Plaintext !== null
+        ? context.base64Decoder(output.Plaintext)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GenerateDataKeyWithoutPlaintextResponse = (
   output: any,
   context: __SerdeContext
 ): GenerateDataKeyWithoutPlaintextResponse => {
-  let contents: any = {
+  return {
     __type: "GenerateDataKeyWithoutPlaintextResponse",
-    CiphertextBlob: undefined,
-    KeyId: undefined
-  };
-  if (output.CiphertextBlob !== undefined && output.CiphertextBlob !== null) {
-    contents.CiphertextBlob = context.base64Decoder(output.CiphertextBlob);
-  }
-  if (output.KeyId !== undefined && output.KeyId !== null) {
-    contents.KeyId = output.KeyId;
-  }
-  return contents;
+    CiphertextBlob:
+      output.CiphertextBlob !== undefined && output.CiphertextBlob !== null
+        ? context.base64Decoder(output.CiphertextBlob)
+        : undefined,
+    KeyId:
+      output.KeyId !== undefined && output.KeyId !== null
+        ? output.KeyId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GenerateRandomResponse = (
   output: any,
   context: __SerdeContext
 ): GenerateRandomResponse => {
-  let contents: any = {
+  return {
     __type: "GenerateRandomResponse",
-    Plaintext: undefined
-  };
-  if (output.Plaintext !== undefined && output.Plaintext !== null) {
-    contents.Plaintext = context.base64Decoder(output.Plaintext);
-  }
-  return contents;
+    Plaintext:
+      output.Plaintext !== undefined && output.Plaintext !== null
+        ? context.base64Decoder(output.Plaintext)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetKeyPolicyResponse = (
   output: any,
   context: __SerdeContext
 ): GetKeyPolicyResponse => {
-  let contents: any = {
+  return {
     __type: "GetKeyPolicyResponse",
-    Policy: undefined
-  };
-  if (output.Policy !== undefined && output.Policy !== null) {
-    contents.Policy = output.Policy;
-  }
-  return contents;
+    Policy:
+      output.Policy !== undefined && output.Policy !== null
+        ? output.Policy
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetKeyRotationStatusResponse = (
   output: any,
   context: __SerdeContext
 ): GetKeyRotationStatusResponse => {
-  let contents: any = {
+  return {
     __type: "GetKeyRotationStatusResponse",
-    KeyRotationEnabled: undefined
-  };
-  if (
-    output.KeyRotationEnabled !== undefined &&
-    output.KeyRotationEnabled !== null
-  ) {
-    contents.KeyRotationEnabled = output.KeyRotationEnabled;
-  }
-  return contents;
+    KeyRotationEnabled:
+      output.KeyRotationEnabled !== undefined &&
+      output.KeyRotationEnabled !== null
+        ? output.KeyRotationEnabled
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetParametersForImportResponse = (
   output: any,
   context: __SerdeContext
 ): GetParametersForImportResponse => {
-  let contents: any = {
+  return {
     __type: "GetParametersForImportResponse",
-    ImportToken: undefined,
-    KeyId: undefined,
-    ParametersValidTo: undefined,
-    PublicKey: undefined
-  };
-  if (output.ImportToken !== undefined && output.ImportToken !== null) {
-    contents.ImportToken = context.base64Decoder(output.ImportToken);
-  }
-  if (output.KeyId !== undefined && output.KeyId !== null) {
-    contents.KeyId = output.KeyId;
-  }
-  if (
-    output.ParametersValidTo !== undefined &&
-    output.ParametersValidTo !== null
-  ) {
-    contents.ParametersValidTo = new Date(
-      Math.round(output.ParametersValidTo * 1000)
-    );
-  }
-  if (output.PublicKey !== undefined && output.PublicKey !== null) {
-    contents.PublicKey = context.base64Decoder(output.PublicKey);
-  }
-  return contents;
+    ImportToken:
+      output.ImportToken !== undefined && output.ImportToken !== null
+        ? context.base64Decoder(output.ImportToken)
+        : undefined,
+    KeyId:
+      output.KeyId !== undefined && output.KeyId !== null
+        ? output.KeyId
+        : undefined,
+    ParametersValidTo:
+      output.ParametersValidTo !== undefined &&
+      output.ParametersValidTo !== null
+        ? new Date(Math.round(output.ParametersValidTo * 1000))
+        : undefined,
+    PublicKey:
+      output.PublicKey !== undefined && output.PublicKey !== null
+        ? context.base64Decoder(output.PublicKey)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetPublicKeyResponse = (
   output: any,
   context: __SerdeContext
 ): GetPublicKeyResponse => {
-  let contents: any = {
+  return {
     __type: "GetPublicKeyResponse",
-    CustomerMasterKeySpec: undefined,
-    EncryptionAlgorithms: undefined,
-    KeyId: undefined,
-    KeyUsage: undefined,
-    PublicKey: undefined,
-    SigningAlgorithms: undefined
-  };
-  if (
-    output.CustomerMasterKeySpec !== undefined &&
-    output.CustomerMasterKeySpec !== null
-  ) {
-    contents.CustomerMasterKeySpec = output.CustomerMasterKeySpec;
-  }
-  if (
-    output.EncryptionAlgorithms !== undefined &&
-    output.EncryptionAlgorithms !== null
-  ) {
-    contents.EncryptionAlgorithms = deserializeAws_json1_1EncryptionAlgorithmSpecList(
-      output.EncryptionAlgorithms,
-      context
-    );
-  }
-  if (output.KeyId !== undefined && output.KeyId !== null) {
-    contents.KeyId = output.KeyId;
-  }
-  if (output.KeyUsage !== undefined && output.KeyUsage !== null) {
-    contents.KeyUsage = output.KeyUsage;
-  }
-  if (output.PublicKey !== undefined && output.PublicKey !== null) {
-    contents.PublicKey = context.base64Decoder(output.PublicKey);
-  }
-  if (
-    output.SigningAlgorithms !== undefined &&
-    output.SigningAlgorithms !== null
-  ) {
-    contents.SigningAlgorithms = deserializeAws_json1_1SigningAlgorithmSpecList(
-      output.SigningAlgorithms,
-      context
-    );
-  }
-  return contents;
+    CustomerMasterKeySpec:
+      output.CustomerMasterKeySpec !== undefined &&
+      output.CustomerMasterKeySpec !== null
+        ? output.CustomerMasterKeySpec
+        : undefined,
+    EncryptionAlgorithms:
+      output.EncryptionAlgorithms !== undefined &&
+      output.EncryptionAlgorithms !== null
+        ? deserializeAws_json1_1EncryptionAlgorithmSpecList(
+            output.EncryptionAlgorithms,
+            context
+          )
+        : undefined,
+    KeyId:
+      output.KeyId !== undefined && output.KeyId !== null
+        ? output.KeyId
+        : undefined,
+    KeyUsage:
+      output.KeyUsage !== undefined && output.KeyUsage !== null
+        ? output.KeyUsage
+        : undefined,
+    PublicKey:
+      output.PublicKey !== undefined && output.PublicKey !== null
+        ? context.base64Decoder(output.PublicKey)
+        : undefined,
+    SigningAlgorithms:
+      output.SigningAlgorithms !== undefined &&
+      output.SigningAlgorithms !== null
+        ? deserializeAws_json1_1SigningAlgorithmSpecList(
+            output.SigningAlgorithms,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GrantConstraints = (
   output: any,
   context: __SerdeContext
 ): GrantConstraints => {
-  let contents: any = {
+  return {
     __type: "GrantConstraints",
-    EncryptionContextEquals: undefined,
-    EncryptionContextSubset: undefined
-  };
-  if (
-    output.EncryptionContextEquals !== undefined &&
-    output.EncryptionContextEquals !== null
-  ) {
-    contents.EncryptionContextEquals = deserializeAws_json1_1EncryptionContextType(
-      output.EncryptionContextEquals,
-      context
-    );
-  }
-  if (
-    output.EncryptionContextSubset !== undefined &&
-    output.EncryptionContextSubset !== null
-  ) {
-    contents.EncryptionContextSubset = deserializeAws_json1_1EncryptionContextType(
-      output.EncryptionContextSubset,
-      context
-    );
-  }
-  return contents;
+    EncryptionContextEquals:
+      output.EncryptionContextEquals !== undefined &&
+      output.EncryptionContextEquals !== null
+        ? deserializeAws_json1_1EncryptionContextType(
+            output.EncryptionContextEquals,
+            context
+          )
+        : undefined,
+    EncryptionContextSubset:
+      output.EncryptionContextSubset !== undefined &&
+      output.EncryptionContextSubset !== null
+        ? deserializeAws_json1_1EncryptionContextType(
+            output.EncryptionContextSubset,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GrantList = (
@@ -8706,58 +8618,46 @@ const deserializeAws_json1_1GrantListEntry = (
   output: any,
   context: __SerdeContext
 ): GrantListEntry => {
-  let contents: any = {
+  return {
     __type: "GrantListEntry",
-    Constraints: undefined,
-    CreationDate: undefined,
-    GrantId: undefined,
-    GranteePrincipal: undefined,
-    IssuingAccount: undefined,
-    KeyId: undefined,
-    Name: undefined,
-    Operations: undefined,
-    RetiringPrincipal: undefined
-  };
-  if (output.Constraints !== undefined && output.Constraints !== null) {
-    contents.Constraints = deserializeAws_json1_1GrantConstraints(
-      output.Constraints,
-      context
-    );
-  }
-  if (output.CreationDate !== undefined && output.CreationDate !== null) {
-    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
-  }
-  if (output.GrantId !== undefined && output.GrantId !== null) {
-    contents.GrantId = output.GrantId;
-  }
-  if (
-    output.GranteePrincipal !== undefined &&
-    output.GranteePrincipal !== null
-  ) {
-    contents.GranteePrincipal = output.GranteePrincipal;
-  }
-  if (output.IssuingAccount !== undefined && output.IssuingAccount !== null) {
-    contents.IssuingAccount = output.IssuingAccount;
-  }
-  if (output.KeyId !== undefined && output.KeyId !== null) {
-    contents.KeyId = output.KeyId;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Operations !== undefined && output.Operations !== null) {
-    contents.Operations = deserializeAws_json1_1GrantOperationList(
-      output.Operations,
-      context
-    );
-  }
-  if (
-    output.RetiringPrincipal !== undefined &&
-    output.RetiringPrincipal !== null
-  ) {
-    contents.RetiringPrincipal = output.RetiringPrincipal;
-  }
-  return contents;
+    Constraints:
+      output.Constraints !== undefined && output.Constraints !== null
+        ? deserializeAws_json1_1GrantConstraints(output.Constraints, context)
+        : undefined,
+    CreationDate:
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? new Date(Math.round(output.CreationDate * 1000))
+        : undefined,
+    GrantId:
+      output.GrantId !== undefined && output.GrantId !== null
+        ? output.GrantId
+        : undefined,
+    GranteePrincipal:
+      output.GranteePrincipal !== undefined && output.GranteePrincipal !== null
+        ? output.GranteePrincipal
+        : undefined,
+    IssuingAccount:
+      output.IssuingAccount !== undefined && output.IssuingAccount !== null
+        ? output.IssuingAccount
+        : undefined,
+    KeyId:
+      output.KeyId !== undefined && output.KeyId !== null
+        ? output.KeyId
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Operations:
+      output.Operations !== undefined && output.Operations !== null
+        ? deserializeAws_json1_1GrantOperationList(output.Operations, context)
+        : undefined,
+    RetiringPrincipal:
+      output.RetiringPrincipal !== undefined &&
+      output.RetiringPrincipal !== null
+        ? output.RetiringPrincipal
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GrantOperationList = (
@@ -8771,206 +8671,191 @@ const deserializeAws_json1_1ImportKeyMaterialResponse = (
   output: any,
   context: __SerdeContext
 ): ImportKeyMaterialResponse => {
-  let contents: any = {
+  return {
     __type: "ImportKeyMaterialResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1IncorrectKeyException = (
   output: any,
   context: __SerdeContext
 ): IncorrectKeyException => {
-  let contents: any = {
+  return {
     __type: "IncorrectKeyException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1IncorrectKeyMaterialException = (
   output: any,
   context: __SerdeContext
 ): IncorrectKeyMaterialException => {
-  let contents: any = {
+  return {
     __type: "IncorrectKeyMaterialException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1IncorrectTrustAnchorException = (
   output: any,
   context: __SerdeContext
 ): IncorrectTrustAnchorException => {
-  let contents: any = {
+  return {
     __type: "IncorrectTrustAnchorException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidAliasNameException = (
   output: any,
   context: __SerdeContext
 ): InvalidAliasNameException => {
-  let contents: any = {
+  return {
     __type: "InvalidAliasNameException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidArnException = (
   output: any,
   context: __SerdeContext
 ): InvalidArnException => {
-  let contents: any = {
+  return {
     __type: "InvalidArnException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidCiphertextException = (
   output: any,
   context: __SerdeContext
 ): InvalidCiphertextException => {
-  let contents: any = {
+  return {
     __type: "InvalidCiphertextException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidGrantIdException = (
   output: any,
   context: __SerdeContext
 ): InvalidGrantIdException => {
-  let contents: any = {
+  return {
     __type: "InvalidGrantIdException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidGrantTokenException = (
   output: any,
   context: __SerdeContext
 ): InvalidGrantTokenException => {
-  let contents: any = {
+  return {
     __type: "InvalidGrantTokenException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidImportTokenException = (
   output: any,
   context: __SerdeContext
 ): InvalidImportTokenException => {
-  let contents: any = {
+  return {
     __type: "InvalidImportTokenException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidKeyUsageException = (
   output: any,
   context: __SerdeContext
 ): InvalidKeyUsageException => {
-  let contents: any = {
+  return {
     __type: "InvalidKeyUsageException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidMarkerException = (
   output: any,
   context: __SerdeContext
 ): InvalidMarkerException => {
-  let contents: any = {
+  return {
     __type: "InvalidMarkerException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1KMSInternalException = (
   output: any,
   context: __SerdeContext
 ): KMSInternalException => {
-  let contents: any = {
+  return {
     __type: "KMSInternalException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1KMSInvalidSignatureException = (
   output: any,
   context: __SerdeContext
 ): KMSInvalidSignatureException => {
-  let contents: any = {
+  return {
     __type: "KMSInvalidSignatureException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1KMSInvalidStateException = (
   output: any,
   context: __SerdeContext
 ): KMSInvalidStateException => {
-  let contents: any = {
+  return {
     __type: "KMSInvalidStateException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1KeyList = (
@@ -8986,290 +8871,263 @@ const deserializeAws_json1_1KeyListEntry = (
   output: any,
   context: __SerdeContext
 ): KeyListEntry => {
-  let contents: any = {
+  return {
     __type: "KeyListEntry",
-    KeyArn: undefined,
-    KeyId: undefined
-  };
-  if (output.KeyArn !== undefined && output.KeyArn !== null) {
-    contents.KeyArn = output.KeyArn;
-  }
-  if (output.KeyId !== undefined && output.KeyId !== null) {
-    contents.KeyId = output.KeyId;
-  }
-  return contents;
+    KeyArn:
+      output.KeyArn !== undefined && output.KeyArn !== null
+        ? output.KeyArn
+        : undefined,
+    KeyId:
+      output.KeyId !== undefined && output.KeyId !== null
+        ? output.KeyId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1KeyMetadata = (
   output: any,
   context: __SerdeContext
 ): KeyMetadata => {
-  let contents: any = {
+  return {
     __type: "KeyMetadata",
-    AWSAccountId: undefined,
-    Arn: undefined,
-    CloudHsmClusterId: undefined,
-    CreationDate: undefined,
-    CustomKeyStoreId: undefined,
-    CustomerMasterKeySpec: undefined,
-    DeletionDate: undefined,
-    Description: undefined,
-    Enabled: undefined,
-    EncryptionAlgorithms: undefined,
-    ExpirationModel: undefined,
-    KeyId: undefined,
-    KeyManager: undefined,
-    KeyState: undefined,
-    KeyUsage: undefined,
-    Origin: undefined,
-    SigningAlgorithms: undefined,
-    ValidTo: undefined
-  };
-  if (output.AWSAccountId !== undefined && output.AWSAccountId !== null) {
-    contents.AWSAccountId = output.AWSAccountId;
-  }
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (
-    output.CloudHsmClusterId !== undefined &&
-    output.CloudHsmClusterId !== null
-  ) {
-    contents.CloudHsmClusterId = output.CloudHsmClusterId;
-  }
-  if (output.CreationDate !== undefined && output.CreationDate !== null) {
-    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
-  }
-  if (
-    output.CustomKeyStoreId !== undefined &&
-    output.CustomKeyStoreId !== null
-  ) {
-    contents.CustomKeyStoreId = output.CustomKeyStoreId;
-  }
-  if (
-    output.CustomerMasterKeySpec !== undefined &&
-    output.CustomerMasterKeySpec !== null
-  ) {
-    contents.CustomerMasterKeySpec = output.CustomerMasterKeySpec;
-  }
-  if (output.DeletionDate !== undefined && output.DeletionDate !== null) {
-    contents.DeletionDate = new Date(Math.round(output.DeletionDate * 1000));
-  }
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (output.Enabled !== undefined && output.Enabled !== null) {
-    contents.Enabled = output.Enabled;
-  }
-  if (
-    output.EncryptionAlgorithms !== undefined &&
-    output.EncryptionAlgorithms !== null
-  ) {
-    contents.EncryptionAlgorithms = deserializeAws_json1_1EncryptionAlgorithmSpecList(
-      output.EncryptionAlgorithms,
-      context
-    );
-  }
-  if (output.ExpirationModel !== undefined && output.ExpirationModel !== null) {
-    contents.ExpirationModel = output.ExpirationModel;
-  }
-  if (output.KeyId !== undefined && output.KeyId !== null) {
-    contents.KeyId = output.KeyId;
-  }
-  if (output.KeyManager !== undefined && output.KeyManager !== null) {
-    contents.KeyManager = output.KeyManager;
-  }
-  if (output.KeyState !== undefined && output.KeyState !== null) {
-    contents.KeyState = output.KeyState;
-  }
-  if (output.KeyUsage !== undefined && output.KeyUsage !== null) {
-    contents.KeyUsage = output.KeyUsage;
-  }
-  if (output.Origin !== undefined && output.Origin !== null) {
-    contents.Origin = output.Origin;
-  }
-  if (
-    output.SigningAlgorithms !== undefined &&
-    output.SigningAlgorithms !== null
-  ) {
-    contents.SigningAlgorithms = deserializeAws_json1_1SigningAlgorithmSpecList(
-      output.SigningAlgorithms,
-      context
-    );
-  }
-  if (output.ValidTo !== undefined && output.ValidTo !== null) {
-    contents.ValidTo = new Date(Math.round(output.ValidTo * 1000));
-  }
-  return contents;
+    AWSAccountId:
+      output.AWSAccountId !== undefined && output.AWSAccountId !== null
+        ? output.AWSAccountId
+        : undefined,
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    CloudHsmClusterId:
+      output.CloudHsmClusterId !== undefined &&
+      output.CloudHsmClusterId !== null
+        ? output.CloudHsmClusterId
+        : undefined,
+    CreationDate:
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? new Date(Math.round(output.CreationDate * 1000))
+        : undefined,
+    CustomKeyStoreId:
+      output.CustomKeyStoreId !== undefined && output.CustomKeyStoreId !== null
+        ? output.CustomKeyStoreId
+        : undefined,
+    CustomerMasterKeySpec:
+      output.CustomerMasterKeySpec !== undefined &&
+      output.CustomerMasterKeySpec !== null
+        ? output.CustomerMasterKeySpec
+        : undefined,
+    DeletionDate:
+      output.DeletionDate !== undefined && output.DeletionDate !== null
+        ? new Date(Math.round(output.DeletionDate * 1000))
+        : undefined,
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    Enabled:
+      output.Enabled !== undefined && output.Enabled !== null
+        ? output.Enabled
+        : undefined,
+    EncryptionAlgorithms:
+      output.EncryptionAlgorithms !== undefined &&
+      output.EncryptionAlgorithms !== null
+        ? deserializeAws_json1_1EncryptionAlgorithmSpecList(
+            output.EncryptionAlgorithms,
+            context
+          )
+        : undefined,
+    ExpirationModel:
+      output.ExpirationModel !== undefined && output.ExpirationModel !== null
+        ? output.ExpirationModel
+        : undefined,
+    KeyId:
+      output.KeyId !== undefined && output.KeyId !== null
+        ? output.KeyId
+        : undefined,
+    KeyManager:
+      output.KeyManager !== undefined && output.KeyManager !== null
+        ? output.KeyManager
+        : undefined,
+    KeyState:
+      output.KeyState !== undefined && output.KeyState !== null
+        ? output.KeyState
+        : undefined,
+    KeyUsage:
+      output.KeyUsage !== undefined && output.KeyUsage !== null
+        ? output.KeyUsage
+        : undefined,
+    Origin:
+      output.Origin !== undefined && output.Origin !== null
+        ? output.Origin
+        : undefined,
+    SigningAlgorithms:
+      output.SigningAlgorithms !== undefined &&
+      output.SigningAlgorithms !== null
+        ? deserializeAws_json1_1SigningAlgorithmSpecList(
+            output.SigningAlgorithms,
+            context
+          )
+        : undefined,
+    ValidTo:
+      output.ValidTo !== undefined && output.ValidTo !== null
+        ? new Date(Math.round(output.ValidTo * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1KeyUnavailableException = (
   output: any,
   context: __SerdeContext
 ): KeyUnavailableException => {
-  let contents: any = {
+  return {
     __type: "KeyUnavailableException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (
   output: any,
   context: __SerdeContext
 ): LimitExceededException => {
-  let contents: any = {
+  return {
     __type: "LimitExceededException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListAliasesResponse = (
   output: any,
   context: __SerdeContext
 ): ListAliasesResponse => {
-  let contents: any = {
+  return {
     __type: "ListAliasesResponse",
-    Aliases: undefined,
-    NextMarker: undefined,
-    Truncated: undefined
-  };
-  if (output.Aliases !== undefined && output.Aliases !== null) {
-    contents.Aliases = deserializeAws_json1_1AliasList(output.Aliases, context);
-  }
-  if (output.NextMarker !== undefined && output.NextMarker !== null) {
-    contents.NextMarker = output.NextMarker;
-  }
-  if (output.Truncated !== undefined && output.Truncated !== null) {
-    contents.Truncated = output.Truncated;
-  }
-  return contents;
+    Aliases:
+      output.Aliases !== undefined && output.Aliases !== null
+        ? deserializeAws_json1_1AliasList(output.Aliases, context)
+        : undefined,
+    NextMarker:
+      output.NextMarker !== undefined && output.NextMarker !== null
+        ? output.NextMarker
+        : undefined,
+    Truncated:
+      output.Truncated !== undefined && output.Truncated !== null
+        ? output.Truncated
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListGrantsResponse = (
   output: any,
   context: __SerdeContext
 ): ListGrantsResponse => {
-  let contents: any = {
+  return {
     __type: "ListGrantsResponse",
-    Grants: undefined,
-    NextMarker: undefined,
-    Truncated: undefined
-  };
-  if (output.Grants !== undefined && output.Grants !== null) {
-    contents.Grants = deserializeAws_json1_1GrantList(output.Grants, context);
-  }
-  if (output.NextMarker !== undefined && output.NextMarker !== null) {
-    contents.NextMarker = output.NextMarker;
-  }
-  if (output.Truncated !== undefined && output.Truncated !== null) {
-    contents.Truncated = output.Truncated;
-  }
-  return contents;
+    Grants:
+      output.Grants !== undefined && output.Grants !== null
+        ? deserializeAws_json1_1GrantList(output.Grants, context)
+        : undefined,
+    NextMarker:
+      output.NextMarker !== undefined && output.NextMarker !== null
+        ? output.NextMarker
+        : undefined,
+    Truncated:
+      output.Truncated !== undefined && output.Truncated !== null
+        ? output.Truncated
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListKeyPoliciesResponse = (
   output: any,
   context: __SerdeContext
 ): ListKeyPoliciesResponse => {
-  let contents: any = {
+  return {
     __type: "ListKeyPoliciesResponse",
-    NextMarker: undefined,
-    PolicyNames: undefined,
-    Truncated: undefined
-  };
-  if (output.NextMarker !== undefined && output.NextMarker !== null) {
-    contents.NextMarker = output.NextMarker;
-  }
-  if (output.PolicyNames !== undefined && output.PolicyNames !== null) {
-    contents.PolicyNames = deserializeAws_json1_1PolicyNameList(
-      output.PolicyNames,
-      context
-    );
-  }
-  if (output.Truncated !== undefined && output.Truncated !== null) {
-    contents.Truncated = output.Truncated;
-  }
-  return contents;
+    NextMarker:
+      output.NextMarker !== undefined && output.NextMarker !== null
+        ? output.NextMarker
+        : undefined,
+    PolicyNames:
+      output.PolicyNames !== undefined && output.PolicyNames !== null
+        ? deserializeAws_json1_1PolicyNameList(output.PolicyNames, context)
+        : undefined,
+    Truncated:
+      output.Truncated !== undefined && output.Truncated !== null
+        ? output.Truncated
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListKeysResponse = (
   output: any,
   context: __SerdeContext
 ): ListKeysResponse => {
-  let contents: any = {
+  return {
     __type: "ListKeysResponse",
-    Keys: undefined,
-    NextMarker: undefined,
-    Truncated: undefined
-  };
-  if (output.Keys !== undefined && output.Keys !== null) {
-    contents.Keys = deserializeAws_json1_1KeyList(output.Keys, context);
-  }
-  if (output.NextMarker !== undefined && output.NextMarker !== null) {
-    contents.NextMarker = output.NextMarker;
-  }
-  if (output.Truncated !== undefined && output.Truncated !== null) {
-    contents.Truncated = output.Truncated;
-  }
-  return contents;
+    Keys:
+      output.Keys !== undefined && output.Keys !== null
+        ? deserializeAws_json1_1KeyList(output.Keys, context)
+        : undefined,
+    NextMarker:
+      output.NextMarker !== undefined && output.NextMarker !== null
+        ? output.NextMarker
+        : undefined,
+    Truncated:
+      output.Truncated !== undefined && output.Truncated !== null
+        ? output.Truncated
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListResourceTagsResponse = (
   output: any,
   context: __SerdeContext
 ): ListResourceTagsResponse => {
-  let contents: any = {
+  return {
     __type: "ListResourceTagsResponse",
-    NextMarker: undefined,
-    Tags: undefined,
-    Truncated: undefined
-  };
-  if (output.NextMarker !== undefined && output.NextMarker !== null) {
-    contents.NextMarker = output.NextMarker;
-  }
-  if (output.Tags !== undefined && output.Tags !== null) {
-    contents.Tags = deserializeAws_json1_1TagList(output.Tags, context);
-  }
-  if (output.Truncated !== undefined && output.Truncated !== null) {
-    contents.Truncated = output.Truncated;
-  }
-  return contents;
+    NextMarker:
+      output.NextMarker !== undefined && output.NextMarker !== null
+        ? output.NextMarker
+        : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1TagList(output.Tags, context)
+        : undefined,
+    Truncated:
+      output.Truncated !== undefined && output.Truncated !== null
+        ? output.Truncated
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1MalformedPolicyDocumentException = (
   output: any,
   context: __SerdeContext
 ): MalformedPolicyDocumentException => {
-  let contents: any = {
+  return {
     __type: "MalformedPolicyDocumentException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1NotFoundException = (
   output: any,
   context: __SerdeContext
 ): NotFoundException => {
-  let contents: any = {
+  return {
     __type: "NotFoundException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PolicyNameList = (
@@ -9283,80 +9141,69 @@ const deserializeAws_json1_1ReEncryptResponse = (
   output: any,
   context: __SerdeContext
 ): ReEncryptResponse => {
-  let contents: any = {
+  return {
     __type: "ReEncryptResponse",
-    CiphertextBlob: undefined,
-    DestinationEncryptionAlgorithm: undefined,
-    KeyId: undefined,
-    SourceEncryptionAlgorithm: undefined,
-    SourceKeyId: undefined
-  };
-  if (output.CiphertextBlob !== undefined && output.CiphertextBlob !== null) {
-    contents.CiphertextBlob = context.base64Decoder(output.CiphertextBlob);
-  }
-  if (
-    output.DestinationEncryptionAlgorithm !== undefined &&
-    output.DestinationEncryptionAlgorithm !== null
-  ) {
-    contents.DestinationEncryptionAlgorithm =
-      output.DestinationEncryptionAlgorithm;
-  }
-  if (output.KeyId !== undefined && output.KeyId !== null) {
-    contents.KeyId = output.KeyId;
-  }
-  if (
-    output.SourceEncryptionAlgorithm !== undefined &&
-    output.SourceEncryptionAlgorithm !== null
-  ) {
-    contents.SourceEncryptionAlgorithm = output.SourceEncryptionAlgorithm;
-  }
-  if (output.SourceKeyId !== undefined && output.SourceKeyId !== null) {
-    contents.SourceKeyId = output.SourceKeyId;
-  }
-  return contents;
+    CiphertextBlob:
+      output.CiphertextBlob !== undefined && output.CiphertextBlob !== null
+        ? context.base64Decoder(output.CiphertextBlob)
+        : undefined,
+    DestinationEncryptionAlgorithm:
+      output.DestinationEncryptionAlgorithm !== undefined &&
+      output.DestinationEncryptionAlgorithm !== null
+        ? output.DestinationEncryptionAlgorithm
+        : undefined,
+    KeyId:
+      output.KeyId !== undefined && output.KeyId !== null
+        ? output.KeyId
+        : undefined,
+    SourceEncryptionAlgorithm:
+      output.SourceEncryptionAlgorithm !== undefined &&
+      output.SourceEncryptionAlgorithm !== null
+        ? output.SourceEncryptionAlgorithm
+        : undefined,
+    SourceKeyId:
+      output.SourceKeyId !== undefined && output.SourceKeyId !== null
+        ? output.SourceKeyId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ScheduleKeyDeletionResponse = (
   output: any,
   context: __SerdeContext
 ): ScheduleKeyDeletionResponse => {
-  let contents: any = {
+  return {
     __type: "ScheduleKeyDeletionResponse",
-    DeletionDate: undefined,
-    KeyId: undefined
-  };
-  if (output.DeletionDate !== undefined && output.DeletionDate !== null) {
-    contents.DeletionDate = new Date(Math.round(output.DeletionDate * 1000));
-  }
-  if (output.KeyId !== undefined && output.KeyId !== null) {
-    contents.KeyId = output.KeyId;
-  }
-  return contents;
+    DeletionDate:
+      output.DeletionDate !== undefined && output.DeletionDate !== null
+        ? new Date(Math.round(output.DeletionDate * 1000))
+        : undefined,
+    KeyId:
+      output.KeyId !== undefined && output.KeyId !== null
+        ? output.KeyId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SignResponse = (
   output: any,
   context: __SerdeContext
 ): SignResponse => {
-  let contents: any = {
+  return {
     __type: "SignResponse",
-    KeyId: undefined,
-    Signature: undefined,
-    SigningAlgorithm: undefined
-  };
-  if (output.KeyId !== undefined && output.KeyId !== null) {
-    contents.KeyId = output.KeyId;
-  }
-  if (output.Signature !== undefined && output.Signature !== null) {
-    contents.Signature = context.base64Decoder(output.Signature);
-  }
-  if (
-    output.SigningAlgorithm !== undefined &&
-    output.SigningAlgorithm !== null
-  ) {
-    contents.SigningAlgorithm = output.SigningAlgorithm;
-  }
-  return contents;
+    KeyId:
+      output.KeyId !== undefined && output.KeyId !== null
+        ? output.KeyId
+        : undefined,
+    Signature:
+      output.Signature !== undefined && output.Signature !== null
+        ? context.base64Decoder(output.Signature)
+        : undefined,
+    SigningAlgorithm:
+      output.SigningAlgorithm !== undefined && output.SigningAlgorithm !== null
+        ? output.SigningAlgorithm
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SigningAlgorithmSpecList = (
@@ -9370,32 +9217,30 @@ const deserializeAws_json1_1Tag = (
   output: any,
   context: __SerdeContext
 ): Tag => {
-  let contents: any = {
+  return {
     __type: "Tag",
-    TagKey: undefined,
-    TagValue: undefined
-  };
-  if (output.TagKey !== undefined && output.TagKey !== null) {
-    contents.TagKey = output.TagKey;
-  }
-  if (output.TagValue !== undefined && output.TagValue !== null) {
-    contents.TagValue = output.TagValue;
-  }
-  return contents;
+    TagKey:
+      output.TagKey !== undefined && output.TagKey !== null
+        ? output.TagKey
+        : undefined,
+    TagValue:
+      output.TagValue !== undefined && output.TagValue !== null
+        ? output.TagValue
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TagException = (
   output: any,
   context: __SerdeContext
 ): TagException => {
-  let contents: any = {
+  return {
     __type: "TagException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TagList = (
@@ -9411,49 +9256,43 @@ const deserializeAws_json1_1UnsupportedOperationException = (
   output: any,
   context: __SerdeContext
 ): UnsupportedOperationException => {
-  let contents: any = {
+  return {
     __type: "UnsupportedOperationException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateCustomKeyStoreResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateCustomKeyStoreResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateCustomKeyStoreResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1VerifyResponse = (
   output: any,
   context: __SerdeContext
 ): VerifyResponse => {
-  let contents: any = {
+  return {
     __type: "VerifyResponse",
-    KeyId: undefined,
-    SignatureValid: undefined,
-    SigningAlgorithm: undefined
-  };
-  if (output.KeyId !== undefined && output.KeyId !== null) {
-    contents.KeyId = output.KeyId;
-  }
-  if (output.SignatureValid !== undefined && output.SignatureValid !== null) {
-    contents.SignatureValid = output.SignatureValid;
-  }
-  if (
-    output.SigningAlgorithm !== undefined &&
-    output.SigningAlgorithm !== null
-  ) {
-    contents.SigningAlgorithm = output.SigningAlgorithm;
-  }
-  return contents;
+    KeyId:
+      output.KeyId !== undefined && output.KeyId !== null
+        ? output.KeyId
+        : undefined,
+    SignatureValid:
+      output.SignatureValid !== undefined && output.SignatureValid !== null
+        ? output.SignatureValid
+        : undefined,
+    SigningAlgorithm:
+      output.SigningAlgorithm !== undefined && output.SigningAlgorithm !== null
+        ? output.SigningAlgorithm
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

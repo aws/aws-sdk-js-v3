@@ -2098,38 +2098,36 @@ const deserializeAws_json1_1BatchGrantPermissionsResponse = (
   output: any,
   context: __SerdeContext
 ): BatchGrantPermissionsResponse => {
-  let contents: any = {
+  return {
     __type: "BatchGrantPermissionsResponse",
-    Failures: undefined
-  };
-  if (output.Failures !== undefined && output.Failures !== null) {
-    contents.Failures = deserializeAws_json1_1BatchPermissionsFailureList(
-      output.Failures,
-      context
-    );
-  }
-  return contents;
+    Failures:
+      output.Failures !== undefined && output.Failures !== null
+        ? deserializeAws_json1_1BatchPermissionsFailureList(
+            output.Failures,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1BatchPermissionsFailureEntry = (
   output: any,
   context: __SerdeContext
 ): BatchPermissionsFailureEntry => {
-  let contents: any = {
+  return {
     __type: "BatchPermissionsFailureEntry",
-    Error: undefined,
-    RequestEntry: undefined
-  };
-  if (output.Error !== undefined && output.Error !== null) {
-    contents.Error = deserializeAws_json1_1ErrorDetail(output.Error, context);
-  }
-  if (output.RequestEntry !== undefined && output.RequestEntry !== null) {
-    contents.RequestEntry = deserializeAws_json1_1BatchPermissionsRequestEntry(
-      output.RequestEntry,
-      context
-    );
-  }
-  return contents;
+    Error:
+      output.Error !== undefined && output.Error !== null
+        ? deserializeAws_json1_1ErrorDetail(output.Error, context)
+        : undefined,
+    RequestEntry:
+      output.RequestEntry !== undefined && output.RequestEntry !== null
+        ? deserializeAws_json1_1BatchPermissionsRequestEntry(
+            output.RequestEntry,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1BatchPermissionsFailureList = (
@@ -2145,72 +2143,55 @@ const deserializeAws_json1_1BatchPermissionsRequestEntry = (
   output: any,
   context: __SerdeContext
 ): BatchPermissionsRequestEntry => {
-  let contents: any = {
+  return {
     __type: "BatchPermissionsRequestEntry",
-    Id: undefined,
-    Permissions: undefined,
-    PermissionsWithGrantOption: undefined,
-    Principal: undefined,
-    Resource: undefined
-  };
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Permissions !== undefined && output.Permissions !== null) {
-    contents.Permissions = deserializeAws_json1_1PermissionList(
-      output.Permissions,
-      context
-    );
-  }
-  if (
-    output.PermissionsWithGrantOption !== undefined &&
-    output.PermissionsWithGrantOption !== null
-  ) {
-    contents.PermissionsWithGrantOption = deserializeAws_json1_1PermissionList(
-      output.PermissionsWithGrantOption,
-      context
-    );
-  }
-  if (output.Principal !== undefined && output.Principal !== null) {
-    contents.Principal = deserializeAws_json1_1DataLakePrincipal(
-      output.Principal,
-      context
-    );
-  }
-  if (output.Resource !== undefined && output.Resource !== null) {
-    contents.Resource = deserializeAws_json1_1Resource(
-      output.Resource,
-      context
-    );
-  }
-  return contents;
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Permissions:
+      output.Permissions !== undefined && output.Permissions !== null
+        ? deserializeAws_json1_1PermissionList(output.Permissions, context)
+        : undefined,
+    PermissionsWithGrantOption:
+      output.PermissionsWithGrantOption !== undefined &&
+      output.PermissionsWithGrantOption !== null
+        ? deserializeAws_json1_1PermissionList(
+            output.PermissionsWithGrantOption,
+            context
+          )
+        : undefined,
+    Principal:
+      output.Principal !== undefined && output.Principal !== null
+        ? deserializeAws_json1_1DataLakePrincipal(output.Principal, context)
+        : undefined,
+    Resource:
+      output.Resource !== undefined && output.Resource !== null
+        ? deserializeAws_json1_1Resource(output.Resource, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1BatchRevokePermissionsResponse = (
   output: any,
   context: __SerdeContext
 ): BatchRevokePermissionsResponse => {
-  let contents: any = {
+  return {
     __type: "BatchRevokePermissionsResponse",
-    Failures: undefined
-  };
-  if (output.Failures !== undefined && output.Failures !== null) {
-    contents.Failures = deserializeAws_json1_1BatchPermissionsFailureList(
-      output.Failures,
-      context
-    );
-  }
-  return contents;
+    Failures:
+      output.Failures !== undefined && output.Failures !== null
+        ? deserializeAws_json1_1BatchPermissionsFailureList(
+            output.Failures,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CatalogResource = (
   output: any,
   context: __SerdeContext
 ): CatalogResource => {
-  let contents: any = {
+  return {
     __type: "CatalogResource"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1ColumnNames = (
@@ -2224,37 +2205,28 @@ const deserializeAws_json1_1ColumnWildcard = (
   output: any,
   context: __SerdeContext
 ): ColumnWildcard => {
-  let contents: any = {
+  return {
     __type: "ColumnWildcard",
-    ExcludedColumnNames: undefined
-  };
-  if (
-    output.ExcludedColumnNames !== undefined &&
-    output.ExcludedColumnNames !== null
-  ) {
-    contents.ExcludedColumnNames = deserializeAws_json1_1ColumnNames(
-      output.ExcludedColumnNames,
-      context
-    );
-  }
-  return contents;
+    ExcludedColumnNames:
+      output.ExcludedColumnNames !== undefined &&
+      output.ExcludedColumnNames !== null
+        ? deserializeAws_json1_1ColumnNames(output.ExcludedColumnNames, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DataLakePrincipal = (
   output: any,
   context: __SerdeContext
 ): DataLakePrincipal => {
-  let contents: any = {
+  return {
     __type: "DataLakePrincipal",
-    DataLakePrincipalIdentifier: undefined
-  };
-  if (
-    output.DataLakePrincipalIdentifier !== undefined &&
-    output.DataLakePrincipalIdentifier !== null
-  ) {
-    contents.DataLakePrincipalIdentifier = output.DataLakePrincipalIdentifier;
-  }
-  return contents;
+    DataLakePrincipalIdentifier:
+      output.DataLakePrincipalIdentifier !== undefined &&
+      output.DataLakePrincipalIdentifier !== null
+        ? output.DataLakePrincipalIdentifier
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DataLakePrincipalList = (
@@ -2270,191 +2242,166 @@ const deserializeAws_json1_1DataLakeSettings = (
   output: any,
   context: __SerdeContext
 ): DataLakeSettings => {
-  let contents: any = {
+  return {
     __type: "DataLakeSettings",
-    CreateDatabaseDefaultPermissions: undefined,
-    CreateTableDefaultPermissions: undefined,
-    DataLakeAdmins: undefined
-  };
-  if (
-    output.CreateDatabaseDefaultPermissions !== undefined &&
-    output.CreateDatabaseDefaultPermissions !== null
-  ) {
-    contents.CreateDatabaseDefaultPermissions = deserializeAws_json1_1PrincipalPermissionsList(
-      output.CreateDatabaseDefaultPermissions,
-      context
-    );
-  }
-  if (
-    output.CreateTableDefaultPermissions !== undefined &&
-    output.CreateTableDefaultPermissions !== null
-  ) {
-    contents.CreateTableDefaultPermissions = deserializeAws_json1_1PrincipalPermissionsList(
-      output.CreateTableDefaultPermissions,
-      context
-    );
-  }
-  if (output.DataLakeAdmins !== undefined && output.DataLakeAdmins !== null) {
-    contents.DataLakeAdmins = deserializeAws_json1_1DataLakePrincipalList(
-      output.DataLakeAdmins,
-      context
-    );
-  }
-  return contents;
+    CreateDatabaseDefaultPermissions:
+      output.CreateDatabaseDefaultPermissions !== undefined &&
+      output.CreateDatabaseDefaultPermissions !== null
+        ? deserializeAws_json1_1PrincipalPermissionsList(
+            output.CreateDatabaseDefaultPermissions,
+            context
+          )
+        : undefined,
+    CreateTableDefaultPermissions:
+      output.CreateTableDefaultPermissions !== undefined &&
+      output.CreateTableDefaultPermissions !== null
+        ? deserializeAws_json1_1PrincipalPermissionsList(
+            output.CreateTableDefaultPermissions,
+            context
+          )
+        : undefined,
+    DataLakeAdmins:
+      output.DataLakeAdmins !== undefined && output.DataLakeAdmins !== null
+        ? deserializeAws_json1_1DataLakePrincipalList(
+            output.DataLakeAdmins,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DataLocationResource = (
   output: any,
   context: __SerdeContext
 ): DataLocationResource => {
-  let contents: any = {
+  return {
     __type: "DataLocationResource",
-    ResourceArn: undefined
-  };
-  if (output.ResourceArn !== undefined && output.ResourceArn !== null) {
-    contents.ResourceArn = output.ResourceArn;
-  }
-  return contents;
+    ResourceArn:
+      output.ResourceArn !== undefined && output.ResourceArn !== null
+        ? output.ResourceArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DatabaseResource = (
   output: any,
   context: __SerdeContext
 ): DatabaseResource => {
-  let contents: any = {
+  return {
     __type: "DatabaseResource",
-    Name: undefined
-  };
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeregisterResourceResponse = (
   output: any,
   context: __SerdeContext
 ): DeregisterResourceResponse => {
-  let contents: any = {
+  return {
     __type: "DeregisterResourceResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeResourceResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeResourceResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeResourceResponse",
-    ResourceInfo: undefined
-  };
-  if (output.ResourceInfo !== undefined && output.ResourceInfo !== null) {
-    contents.ResourceInfo = deserializeAws_json1_1ResourceInfo(
-      output.ResourceInfo,
-      context
-    );
-  }
-  return contents;
+    ResourceInfo:
+      output.ResourceInfo !== undefined && output.ResourceInfo !== null
+        ? deserializeAws_json1_1ResourceInfo(output.ResourceInfo, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetDataLakeSettingsResponse = (
   output: any,
   context: __SerdeContext
 ): GetDataLakeSettingsResponse => {
-  let contents: any = {
+  return {
     __type: "GetDataLakeSettingsResponse",
-    DataLakeSettings: undefined
-  };
-  if (
-    output.DataLakeSettings !== undefined &&
-    output.DataLakeSettings !== null
-  ) {
-    contents.DataLakeSettings = deserializeAws_json1_1DataLakeSettings(
-      output.DataLakeSettings,
-      context
-    );
-  }
-  return contents;
+    DataLakeSettings:
+      output.DataLakeSettings !== undefined && output.DataLakeSettings !== null
+        ? deserializeAws_json1_1DataLakeSettings(
+            output.DataLakeSettings,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetEffectivePermissionsForPathResponse = (
   output: any,
   context: __SerdeContext
 ): GetEffectivePermissionsForPathResponse => {
-  let contents: any = {
+  return {
     __type: "GetEffectivePermissionsForPathResponse",
-    NextToken: undefined,
-    Permissions: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.Permissions !== undefined && output.Permissions !== null) {
-    contents.Permissions = deserializeAws_json1_1PrincipalResourcePermissionsList(
-      output.Permissions,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Permissions:
+      output.Permissions !== undefined && output.Permissions !== null
+        ? deserializeAws_json1_1PrincipalResourcePermissionsList(
+            output.Permissions,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GrantPermissionsResponse = (
   output: any,
   context: __SerdeContext
 ): GrantPermissionsResponse => {
-  let contents: any = {
+  return {
     __type: "GrantPermissionsResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1ListPermissionsResponse = (
   output: any,
   context: __SerdeContext
 ): ListPermissionsResponse => {
-  let contents: any = {
+  return {
     __type: "ListPermissionsResponse",
-    NextToken: undefined,
-    PrincipalResourcePermissions: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (
-    output.PrincipalResourcePermissions !== undefined &&
-    output.PrincipalResourcePermissions !== null
-  ) {
-    contents.PrincipalResourcePermissions = deserializeAws_json1_1PrincipalResourcePermissionsList(
-      output.PrincipalResourcePermissions,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    PrincipalResourcePermissions:
+      output.PrincipalResourcePermissions !== undefined &&
+      output.PrincipalResourcePermissions !== null
+        ? deserializeAws_json1_1PrincipalResourcePermissionsList(
+            output.PrincipalResourcePermissions,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListResourcesResponse = (
   output: any,
   context: __SerdeContext
 ): ListResourcesResponse => {
-  let contents: any = {
+  return {
     __type: "ListResourcesResponse",
-    NextToken: undefined,
-    ResourceInfoList: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (
-    output.ResourceInfoList !== undefined &&
-    output.ResourceInfoList !== null
-  ) {
-    contents.ResourceInfoList = deserializeAws_json1_1ResourceInfoList(
-      output.ResourceInfoList,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    ResourceInfoList:
+      output.ResourceInfoList !== undefined && output.ResourceInfoList !== null
+        ? deserializeAws_json1_1ResourceInfoList(
+            output.ResourceInfoList,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PermissionList = (
@@ -2468,24 +2415,17 @@ const deserializeAws_json1_1PrincipalPermissions = (
   output: any,
   context: __SerdeContext
 ): PrincipalPermissions => {
-  let contents: any = {
+  return {
     __type: "PrincipalPermissions",
-    Permissions: undefined,
-    Principal: undefined
-  };
-  if (output.Permissions !== undefined && output.Permissions !== null) {
-    contents.Permissions = deserializeAws_json1_1PermissionList(
-      output.Permissions,
-      context
-    );
-  }
-  if (output.Principal !== undefined && output.Principal !== null) {
-    contents.Principal = deserializeAws_json1_1DataLakePrincipal(
-      output.Principal,
-      context
-    );
-  }
-  return contents;
+    Permissions:
+      output.Permissions !== undefined && output.Permissions !== null
+        ? deserializeAws_json1_1PermissionList(output.Permissions, context)
+        : undefined,
+    Principal:
+      output.Principal !== undefined && output.Principal !== null
+        ? deserializeAws_json1_1DataLakePrincipal(output.Principal, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PrincipalPermissionsList = (
@@ -2501,41 +2441,29 @@ const deserializeAws_json1_1PrincipalResourcePermissions = (
   output: any,
   context: __SerdeContext
 ): PrincipalResourcePermissions => {
-  let contents: any = {
+  return {
     __type: "PrincipalResourcePermissions",
-    Permissions: undefined,
-    PermissionsWithGrantOption: undefined,
-    Principal: undefined,
-    Resource: undefined
-  };
-  if (output.Permissions !== undefined && output.Permissions !== null) {
-    contents.Permissions = deserializeAws_json1_1PermissionList(
-      output.Permissions,
-      context
-    );
-  }
-  if (
-    output.PermissionsWithGrantOption !== undefined &&
-    output.PermissionsWithGrantOption !== null
-  ) {
-    contents.PermissionsWithGrantOption = deserializeAws_json1_1PermissionList(
-      output.PermissionsWithGrantOption,
-      context
-    );
-  }
-  if (output.Principal !== undefined && output.Principal !== null) {
-    contents.Principal = deserializeAws_json1_1DataLakePrincipal(
-      output.Principal,
-      context
-    );
-  }
-  if (output.Resource !== undefined && output.Resource !== null) {
-    contents.Resource = deserializeAws_json1_1Resource(
-      output.Resource,
-      context
-    );
-  }
-  return contents;
+    Permissions:
+      output.Permissions !== undefined && output.Permissions !== null
+        ? deserializeAws_json1_1PermissionList(output.Permissions, context)
+        : undefined,
+    PermissionsWithGrantOption:
+      output.PermissionsWithGrantOption !== undefined &&
+      output.PermissionsWithGrantOption !== null
+        ? deserializeAws_json1_1PermissionList(
+            output.PermissionsWithGrantOption,
+            context
+          )
+        : undefined,
+    Principal:
+      output.Principal !== undefined && output.Principal !== null
+        ? deserializeAws_json1_1DataLakePrincipal(output.Principal, context)
+        : undefined,
+    Resource:
+      output.Resource !== undefined && output.Resource !== null
+        ? deserializeAws_json1_1Resource(output.Resource, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PrincipalResourcePermissionsList = (
@@ -2551,259 +2479,229 @@ const deserializeAws_json1_1PutDataLakeSettingsResponse = (
   output: any,
   context: __SerdeContext
 ): PutDataLakeSettingsResponse => {
-  let contents: any = {
+  return {
     __type: "PutDataLakeSettingsResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1RegisterResourceResponse = (
   output: any,
   context: __SerdeContext
 ): RegisterResourceResponse => {
-  let contents: any = {
+  return {
     __type: "RegisterResourceResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1Resource = (
   output: any,
   context: __SerdeContext
 ): Resource => {
-  let contents: any = {
+  return {
     __type: "Resource",
-    Catalog: undefined,
-    DataLocation: undefined,
-    Database: undefined,
-    Table: undefined,
-    TableWithColumns: undefined
-  };
-  if (output.Catalog !== undefined && output.Catalog !== null) {
-    contents.Catalog = deserializeAws_json1_1CatalogResource(
-      output.Catalog,
-      context
-    );
-  }
-  if (output.DataLocation !== undefined && output.DataLocation !== null) {
-    contents.DataLocation = deserializeAws_json1_1DataLocationResource(
-      output.DataLocation,
-      context
-    );
-  }
-  if (output.Database !== undefined && output.Database !== null) {
-    contents.Database = deserializeAws_json1_1DatabaseResource(
-      output.Database,
-      context
-    );
-  }
-  if (output.Table !== undefined && output.Table !== null) {
-    contents.Table = deserializeAws_json1_1TableResource(output.Table, context);
-  }
-  if (
-    output.TableWithColumns !== undefined &&
-    output.TableWithColumns !== null
-  ) {
-    contents.TableWithColumns = deserializeAws_json1_1TableWithColumnsResource(
-      output.TableWithColumns,
-      context
-    );
-  }
-  return contents;
+    Catalog:
+      output.Catalog !== undefined && output.Catalog !== null
+        ? deserializeAws_json1_1CatalogResource(output.Catalog, context)
+        : undefined,
+    DataLocation:
+      output.DataLocation !== undefined && output.DataLocation !== null
+        ? deserializeAws_json1_1DataLocationResource(
+            output.DataLocation,
+            context
+          )
+        : undefined,
+    Database:
+      output.Database !== undefined && output.Database !== null
+        ? deserializeAws_json1_1DatabaseResource(output.Database, context)
+        : undefined,
+    Table:
+      output.Table !== undefined && output.Table !== null
+        ? deserializeAws_json1_1TableResource(output.Table, context)
+        : undefined,
+    TableWithColumns:
+      output.TableWithColumns !== undefined && output.TableWithColumns !== null
+        ? deserializeAws_json1_1TableWithColumnsResource(
+            output.TableWithColumns,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RevokePermissionsResponse = (
   output: any,
   context: __SerdeContext
 ): RevokePermissionsResponse => {
-  let contents: any = {
+  return {
     __type: "RevokePermissionsResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1TableResource = (
   output: any,
   context: __SerdeContext
 ): TableResource => {
-  let contents: any = {
+  return {
     __type: "TableResource",
-    DatabaseName: undefined,
-    Name: undefined
-  };
-  if (output.DatabaseName !== undefined && output.DatabaseName !== null) {
-    contents.DatabaseName = output.DatabaseName;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    DatabaseName:
+      output.DatabaseName !== undefined && output.DatabaseName !== null
+        ? output.DatabaseName
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TableWithColumnsResource = (
   output: any,
   context: __SerdeContext
 ): TableWithColumnsResource => {
-  let contents: any = {
+  return {
     __type: "TableWithColumnsResource",
-    ColumnNames: undefined,
-    ColumnWildcard: undefined,
-    DatabaseName: undefined,
-    Name: undefined
-  };
-  if (output.ColumnNames !== undefined && output.ColumnNames !== null) {
-    contents.ColumnNames = deserializeAws_json1_1ColumnNames(
-      output.ColumnNames,
-      context
-    );
-  }
-  if (output.ColumnWildcard !== undefined && output.ColumnWildcard !== null) {
-    contents.ColumnWildcard = deserializeAws_json1_1ColumnWildcard(
-      output.ColumnWildcard,
-      context
-    );
-  }
-  if (output.DatabaseName !== undefined && output.DatabaseName !== null) {
-    contents.DatabaseName = output.DatabaseName;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    ColumnNames:
+      output.ColumnNames !== undefined && output.ColumnNames !== null
+        ? deserializeAws_json1_1ColumnNames(output.ColumnNames, context)
+        : undefined,
+    ColumnWildcard:
+      output.ColumnWildcard !== undefined && output.ColumnWildcard !== null
+        ? deserializeAws_json1_1ColumnWildcard(output.ColumnWildcard, context)
+        : undefined,
+    DatabaseName:
+      output.DatabaseName !== undefined && output.DatabaseName !== null
+        ? output.DatabaseName
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateResourceResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateResourceResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateResourceResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1AlreadyExistsException = (
   output: any,
   context: __SerdeContext
 ): AlreadyExistsException => {
-  let contents: any = {
+  return {
     __type: "AlreadyExistsException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ConcurrentModificationException = (
   output: any,
   context: __SerdeContext
 ): ConcurrentModificationException => {
-  let contents: any = {
+  return {
     __type: "ConcurrentModificationException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EntityNotFoundException = (
   output: any,
   context: __SerdeContext
 ): EntityNotFoundException => {
-  let contents: any = {
+  return {
     __type: "EntityNotFoundException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ErrorDetail = (
   output: any,
   context: __SerdeContext
 ): ErrorDetail => {
-  let contents: any = {
+  return {
     __type: "ErrorDetail",
-    ErrorCode: undefined,
-    ErrorMessage: undefined
-  };
-  if (output.ErrorCode !== undefined && output.ErrorCode !== null) {
-    contents.ErrorCode = output.ErrorCode;
-  }
-  if (output.ErrorMessage !== undefined && output.ErrorMessage !== null) {
-    contents.ErrorMessage = output.ErrorMessage;
-  }
-  return contents;
+    ErrorCode:
+      output.ErrorCode !== undefined && output.ErrorCode !== null
+        ? output.ErrorCode
+        : undefined,
+    ErrorMessage:
+      output.ErrorMessage !== undefined && output.ErrorMessage !== null
+        ? output.ErrorMessage
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InternalServiceException = (
   output: any,
   context: __SerdeContext
 ): InternalServiceException => {
-  let contents: any = {
+  return {
     __type: "InternalServiceException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidInputException = (
   output: any,
   context: __SerdeContext
 ): InvalidInputException => {
-  let contents: any = {
+  return {
     __type: "InvalidInputException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1OperationTimeoutException = (
   output: any,
   context: __SerdeContext
 ): OperationTimeoutException => {
-  let contents: any = {
+  return {
     __type: "OperationTimeoutException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceInfo = (
   output: any,
   context: __SerdeContext
 ): ResourceInfo => {
-  let contents: any = {
+  return {
     __type: "ResourceInfo",
-    LastModified: undefined,
-    ResourceArn: undefined,
-    RoleArn: undefined
-  };
-  if (output.LastModified !== undefined && output.LastModified !== null) {
-    contents.LastModified = new Date(Math.round(output.LastModified * 1000));
-  }
-  if (output.ResourceArn !== undefined && output.ResourceArn !== null) {
-    contents.ResourceArn = output.ResourceArn;
-  }
-  if (output.RoleArn !== undefined && output.RoleArn !== null) {
-    contents.RoleArn = output.RoleArn;
-  }
-  return contents;
+    LastModified:
+      output.LastModified !== undefined && output.LastModified !== null
+        ? new Date(Math.round(output.LastModified * 1000))
+        : undefined,
+    ResourceArn:
+      output.ResourceArn !== undefined && output.ResourceArn !== null
+        ? output.ResourceArn
+        : undefined,
+    RoleArn:
+      output.RoleArn !== undefined && output.RoleArn !== null
+        ? output.RoleArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceInfoList = (

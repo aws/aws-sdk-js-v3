@@ -4612,18 +4612,15 @@ const deserializeAws_json1_1Attribute = (
   output: any,
   context: __SerdeContext
 ): Attribute => {
-  let contents: any = {
+  return {
     __type: "Attribute",
-    key: undefined,
-    value: undefined
-  };
-  if (output.key !== undefined && output.key !== null) {
-    contents.key = output.key;
-  }
-  if (output.value !== undefined && output.value !== null) {
-    contents.value = output.value;
-  }
-  return contents;
+    key:
+      output.key !== undefined && output.key !== null ? output.key : undefined,
+    value:
+      output.value !== undefined && output.value !== null
+        ? output.value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1AttributeList = (
@@ -4639,25 +4636,22 @@ const deserializeAws_json1_1AuthorizationData = (
   output: any,
   context: __SerdeContext
 ): AuthorizationData => {
-  let contents: any = {
+  return {
     __type: "AuthorizationData",
-    authorizationToken: undefined,
-    expiresAt: undefined,
-    proxyEndpoint: undefined
-  };
-  if (
-    output.authorizationToken !== undefined &&
-    output.authorizationToken !== null
-  ) {
-    contents.authorizationToken = output.authorizationToken;
-  }
-  if (output.expiresAt !== undefined && output.expiresAt !== null) {
-    contents.expiresAt = new Date(Math.round(output.expiresAt * 1000));
-  }
-  if (output.proxyEndpoint !== undefined && output.proxyEndpoint !== null) {
-    contents.proxyEndpoint = output.proxyEndpoint;
-  }
-  return contents;
+    authorizationToken:
+      output.authorizationToken !== undefined &&
+      output.authorizationToken !== null
+        ? output.authorizationToken
+        : undefined,
+    expiresAt:
+      output.expiresAt !== undefined && output.expiresAt !== null
+        ? new Date(Math.round(output.expiresAt * 1000))
+        : undefined,
+    proxyEndpoint:
+      output.proxyEndpoint !== undefined && output.proxyEndpoint !== null
+        ? output.proxyEndpoint
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1AuthorizationDataList = (
@@ -4673,281 +4667,233 @@ const deserializeAws_json1_1BatchCheckLayerAvailabilityResponse = (
   output: any,
   context: __SerdeContext
 ): BatchCheckLayerAvailabilityResponse => {
-  let contents: any = {
+  return {
     __type: "BatchCheckLayerAvailabilityResponse",
-    failures: undefined,
-    layers: undefined
-  };
-  if (output.failures !== undefined && output.failures !== null) {
-    contents.failures = deserializeAws_json1_1LayerFailureList(
-      output.failures,
-      context
-    );
-  }
-  if (output.layers !== undefined && output.layers !== null) {
-    contents.layers = deserializeAws_json1_1LayerList(output.layers, context);
-  }
-  return contents;
+    failures:
+      output.failures !== undefined && output.failures !== null
+        ? deserializeAws_json1_1LayerFailureList(output.failures, context)
+        : undefined,
+    layers:
+      output.layers !== undefined && output.layers !== null
+        ? deserializeAws_json1_1LayerList(output.layers, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1BatchDeleteImageResponse = (
   output: any,
   context: __SerdeContext
 ): BatchDeleteImageResponse => {
-  let contents: any = {
+  return {
     __type: "BatchDeleteImageResponse",
-    failures: undefined,
-    imageIds: undefined
-  };
-  if (output.failures !== undefined && output.failures !== null) {
-    contents.failures = deserializeAws_json1_1ImageFailureList(
-      output.failures,
-      context
-    );
-  }
-  if (output.imageIds !== undefined && output.imageIds !== null) {
-    contents.imageIds = deserializeAws_json1_1ImageIdentifierList(
-      output.imageIds,
-      context
-    );
-  }
-  return contents;
+    failures:
+      output.failures !== undefined && output.failures !== null
+        ? deserializeAws_json1_1ImageFailureList(output.failures, context)
+        : undefined,
+    imageIds:
+      output.imageIds !== undefined && output.imageIds !== null
+        ? deserializeAws_json1_1ImageIdentifierList(output.imageIds, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1BatchGetImageResponse = (
   output: any,
   context: __SerdeContext
 ): BatchGetImageResponse => {
-  let contents: any = {
+  return {
     __type: "BatchGetImageResponse",
-    failures: undefined,
-    images: undefined
-  };
-  if (output.failures !== undefined && output.failures !== null) {
-    contents.failures = deserializeAws_json1_1ImageFailureList(
-      output.failures,
-      context
-    );
-  }
-  if (output.images !== undefined && output.images !== null) {
-    contents.images = deserializeAws_json1_1ImageList(output.images, context);
-  }
-  return contents;
+    failures:
+      output.failures !== undefined && output.failures !== null
+        ? deserializeAws_json1_1ImageFailureList(output.failures, context)
+        : undefined,
+    images:
+      output.images !== undefined && output.images !== null
+        ? deserializeAws_json1_1ImageList(output.images, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CompleteLayerUploadResponse = (
   output: any,
   context: __SerdeContext
 ): CompleteLayerUploadResponse => {
-  let contents: any = {
+  return {
     __type: "CompleteLayerUploadResponse",
-    layerDigest: undefined,
-    registryId: undefined,
-    repositoryName: undefined,
-    uploadId: undefined
-  };
-  if (output.layerDigest !== undefined && output.layerDigest !== null) {
-    contents.layerDigest = output.layerDigest;
-  }
-  if (output.registryId !== undefined && output.registryId !== null) {
-    contents.registryId = output.registryId;
-  }
-  if (output.repositoryName !== undefined && output.repositoryName !== null) {
-    contents.repositoryName = output.repositoryName;
-  }
-  if (output.uploadId !== undefined && output.uploadId !== null) {
-    contents.uploadId = output.uploadId;
-  }
-  return contents;
+    layerDigest:
+      output.layerDigest !== undefined && output.layerDigest !== null
+        ? output.layerDigest
+        : undefined,
+    registryId:
+      output.registryId !== undefined && output.registryId !== null
+        ? output.registryId
+        : undefined,
+    repositoryName:
+      output.repositoryName !== undefined && output.repositoryName !== null
+        ? output.repositoryName
+        : undefined,
+    uploadId:
+      output.uploadId !== undefined && output.uploadId !== null
+        ? output.uploadId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateRepositoryResponse = (
   output: any,
   context: __SerdeContext
 ): CreateRepositoryResponse => {
-  let contents: any = {
+  return {
     __type: "CreateRepositoryResponse",
-    repository: undefined
-  };
-  if (output.repository !== undefined && output.repository !== null) {
-    contents.repository = deserializeAws_json1_1Repository(
-      output.repository,
-      context
-    );
-  }
-  return contents;
+    repository:
+      output.repository !== undefined && output.repository !== null
+        ? deserializeAws_json1_1Repository(output.repository, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteLifecyclePolicyResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteLifecyclePolicyResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteLifecyclePolicyResponse",
-    lastEvaluatedAt: undefined,
-    lifecyclePolicyText: undefined,
-    registryId: undefined,
-    repositoryName: undefined
-  };
-  if (output.lastEvaluatedAt !== undefined && output.lastEvaluatedAt !== null) {
-    contents.lastEvaluatedAt = new Date(
-      Math.round(output.lastEvaluatedAt * 1000)
-    );
-  }
-  if (
-    output.lifecyclePolicyText !== undefined &&
-    output.lifecyclePolicyText !== null
-  ) {
-    contents.lifecyclePolicyText = output.lifecyclePolicyText;
-  }
-  if (output.registryId !== undefined && output.registryId !== null) {
-    contents.registryId = output.registryId;
-  }
-  if (output.repositoryName !== undefined && output.repositoryName !== null) {
-    contents.repositoryName = output.repositoryName;
-  }
-  return contents;
+    lastEvaluatedAt:
+      output.lastEvaluatedAt !== undefined && output.lastEvaluatedAt !== null
+        ? new Date(Math.round(output.lastEvaluatedAt * 1000))
+        : undefined,
+    lifecyclePolicyText:
+      output.lifecyclePolicyText !== undefined &&
+      output.lifecyclePolicyText !== null
+        ? output.lifecyclePolicyText
+        : undefined,
+    registryId:
+      output.registryId !== undefined && output.registryId !== null
+        ? output.registryId
+        : undefined,
+    repositoryName:
+      output.repositoryName !== undefined && output.repositoryName !== null
+        ? output.repositoryName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteRepositoryPolicyResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteRepositoryPolicyResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteRepositoryPolicyResponse",
-    policyText: undefined,
-    registryId: undefined,
-    repositoryName: undefined
-  };
-  if (output.policyText !== undefined && output.policyText !== null) {
-    contents.policyText = output.policyText;
-  }
-  if (output.registryId !== undefined && output.registryId !== null) {
-    contents.registryId = output.registryId;
-  }
-  if (output.repositoryName !== undefined && output.repositoryName !== null) {
-    contents.repositoryName = output.repositoryName;
-  }
-  return contents;
+    policyText:
+      output.policyText !== undefined && output.policyText !== null
+        ? output.policyText
+        : undefined,
+    registryId:
+      output.registryId !== undefined && output.registryId !== null
+        ? output.registryId
+        : undefined,
+    repositoryName:
+      output.repositoryName !== undefined && output.repositoryName !== null
+        ? output.repositoryName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteRepositoryResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteRepositoryResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteRepositoryResponse",
-    repository: undefined
-  };
-  if (output.repository !== undefined && output.repository !== null) {
-    contents.repository = deserializeAws_json1_1Repository(
-      output.repository,
-      context
-    );
-  }
-  return contents;
+    repository:
+      output.repository !== undefined && output.repository !== null
+        ? deserializeAws_json1_1Repository(output.repository, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeImageScanFindingsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeImageScanFindingsResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeImageScanFindingsResponse",
-    imageId: undefined,
-    imageScanFindings: undefined,
-    imageScanStatus: undefined,
-    nextToken: undefined,
-    registryId: undefined,
-    repositoryName: undefined
-  };
-  if (output.imageId !== undefined && output.imageId !== null) {
-    contents.imageId = deserializeAws_json1_1ImageIdentifier(
-      output.imageId,
-      context
-    );
-  }
-  if (
-    output.imageScanFindings !== undefined &&
-    output.imageScanFindings !== null
-  ) {
-    contents.imageScanFindings = deserializeAws_json1_1ImageScanFindings(
-      output.imageScanFindings,
-      context
-    );
-  }
-  if (output.imageScanStatus !== undefined && output.imageScanStatus !== null) {
-    contents.imageScanStatus = deserializeAws_json1_1ImageScanStatus(
-      output.imageScanStatus,
-      context
-    );
-  }
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  if (output.registryId !== undefined && output.registryId !== null) {
-    contents.registryId = output.registryId;
-  }
-  if (output.repositoryName !== undefined && output.repositoryName !== null) {
-    contents.repositoryName = output.repositoryName;
-  }
-  return contents;
+    imageId:
+      output.imageId !== undefined && output.imageId !== null
+        ? deserializeAws_json1_1ImageIdentifier(output.imageId, context)
+        : undefined,
+    imageScanFindings:
+      output.imageScanFindings !== undefined &&
+      output.imageScanFindings !== null
+        ? deserializeAws_json1_1ImageScanFindings(
+            output.imageScanFindings,
+            context
+          )
+        : undefined,
+    imageScanStatus:
+      output.imageScanStatus !== undefined && output.imageScanStatus !== null
+        ? deserializeAws_json1_1ImageScanStatus(output.imageScanStatus, context)
+        : undefined,
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined,
+    registryId:
+      output.registryId !== undefined && output.registryId !== null
+        ? output.registryId
+        : undefined,
+    repositoryName:
+      output.repositoryName !== undefined && output.repositoryName !== null
+        ? output.repositoryName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeImagesResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeImagesResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeImagesResponse",
-    imageDetails: undefined,
-    nextToken: undefined
-  };
-  if (output.imageDetails !== undefined && output.imageDetails !== null) {
-    contents.imageDetails = deserializeAws_json1_1ImageDetailList(
-      output.imageDetails,
-      context
-    );
-  }
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  return contents;
+    imageDetails:
+      output.imageDetails !== undefined && output.imageDetails !== null
+        ? deserializeAws_json1_1ImageDetailList(output.imageDetails, context)
+        : undefined,
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeRepositoriesResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeRepositoriesResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeRepositoriesResponse",
-    nextToken: undefined,
-    repositories: undefined
-  };
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  if (output.repositories !== undefined && output.repositories !== null) {
-    contents.repositories = deserializeAws_json1_1RepositoryList(
-      output.repositories,
-      context
-    );
-  }
-  return contents;
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined,
+    repositories:
+      output.repositories !== undefined && output.repositories !== null
+        ? deserializeAws_json1_1RepositoryList(output.repositories, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EmptyUploadException = (
   output: any,
   context: __SerdeContext
 ): EmptyUploadException => {
-  let contents: any = {
+  return {
     __type: "EmptyUploadException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1FindingSeverityCounts = (
@@ -4964,238 +4910,208 @@ const deserializeAws_json1_1GetAuthorizationTokenResponse = (
   output: any,
   context: __SerdeContext
 ): GetAuthorizationTokenResponse => {
-  let contents: any = {
+  return {
     __type: "GetAuthorizationTokenResponse",
-    authorizationData: undefined
-  };
-  if (
-    output.authorizationData !== undefined &&
-    output.authorizationData !== null
-  ) {
-    contents.authorizationData = deserializeAws_json1_1AuthorizationDataList(
-      output.authorizationData,
-      context
-    );
-  }
-  return contents;
+    authorizationData:
+      output.authorizationData !== undefined &&
+      output.authorizationData !== null
+        ? deserializeAws_json1_1AuthorizationDataList(
+            output.authorizationData,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetDownloadUrlForLayerResponse = (
   output: any,
   context: __SerdeContext
 ): GetDownloadUrlForLayerResponse => {
-  let contents: any = {
+  return {
     __type: "GetDownloadUrlForLayerResponse",
-    downloadUrl: undefined,
-    layerDigest: undefined
-  };
-  if (output.downloadUrl !== undefined && output.downloadUrl !== null) {
-    contents.downloadUrl = output.downloadUrl;
-  }
-  if (output.layerDigest !== undefined && output.layerDigest !== null) {
-    contents.layerDigest = output.layerDigest;
-  }
-  return contents;
+    downloadUrl:
+      output.downloadUrl !== undefined && output.downloadUrl !== null
+        ? output.downloadUrl
+        : undefined,
+    layerDigest:
+      output.layerDigest !== undefined && output.layerDigest !== null
+        ? output.layerDigest
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetLifecyclePolicyPreviewResponse = (
   output: any,
   context: __SerdeContext
 ): GetLifecyclePolicyPreviewResponse => {
-  let contents: any = {
+  return {
     __type: "GetLifecyclePolicyPreviewResponse",
-    lifecyclePolicyText: undefined,
-    nextToken: undefined,
-    previewResults: undefined,
-    registryId: undefined,
-    repositoryName: undefined,
-    status: undefined,
-    summary: undefined
-  };
-  if (
-    output.lifecyclePolicyText !== undefined &&
-    output.lifecyclePolicyText !== null
-  ) {
-    contents.lifecyclePolicyText = output.lifecyclePolicyText;
-  }
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  if (output.previewResults !== undefined && output.previewResults !== null) {
-    contents.previewResults = deserializeAws_json1_1LifecyclePolicyPreviewResultList(
-      output.previewResults,
-      context
-    );
-  }
-  if (output.registryId !== undefined && output.registryId !== null) {
-    contents.registryId = output.registryId;
-  }
-  if (output.repositoryName !== undefined && output.repositoryName !== null) {
-    contents.repositoryName = output.repositoryName;
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  if (output.summary !== undefined && output.summary !== null) {
-    contents.summary = deserializeAws_json1_1LifecyclePolicyPreviewSummary(
-      output.summary,
-      context
-    );
-  }
-  return contents;
+    lifecyclePolicyText:
+      output.lifecyclePolicyText !== undefined &&
+      output.lifecyclePolicyText !== null
+        ? output.lifecyclePolicyText
+        : undefined,
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined,
+    previewResults:
+      output.previewResults !== undefined && output.previewResults !== null
+        ? deserializeAws_json1_1LifecyclePolicyPreviewResultList(
+            output.previewResults,
+            context
+          )
+        : undefined,
+    registryId:
+      output.registryId !== undefined && output.registryId !== null
+        ? output.registryId
+        : undefined,
+    repositoryName:
+      output.repositoryName !== undefined && output.repositoryName !== null
+        ? output.repositoryName
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined,
+    summary:
+      output.summary !== undefined && output.summary !== null
+        ? deserializeAws_json1_1LifecyclePolicyPreviewSummary(
+            output.summary,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetLifecyclePolicyResponse = (
   output: any,
   context: __SerdeContext
 ): GetLifecyclePolicyResponse => {
-  let contents: any = {
+  return {
     __type: "GetLifecyclePolicyResponse",
-    lastEvaluatedAt: undefined,
-    lifecyclePolicyText: undefined,
-    registryId: undefined,
-    repositoryName: undefined
-  };
-  if (output.lastEvaluatedAt !== undefined && output.lastEvaluatedAt !== null) {
-    contents.lastEvaluatedAt = new Date(
-      Math.round(output.lastEvaluatedAt * 1000)
-    );
-  }
-  if (
-    output.lifecyclePolicyText !== undefined &&
-    output.lifecyclePolicyText !== null
-  ) {
-    contents.lifecyclePolicyText = output.lifecyclePolicyText;
-  }
-  if (output.registryId !== undefined && output.registryId !== null) {
-    contents.registryId = output.registryId;
-  }
-  if (output.repositoryName !== undefined && output.repositoryName !== null) {
-    contents.repositoryName = output.repositoryName;
-  }
-  return contents;
+    lastEvaluatedAt:
+      output.lastEvaluatedAt !== undefined && output.lastEvaluatedAt !== null
+        ? new Date(Math.round(output.lastEvaluatedAt * 1000))
+        : undefined,
+    lifecyclePolicyText:
+      output.lifecyclePolicyText !== undefined &&
+      output.lifecyclePolicyText !== null
+        ? output.lifecyclePolicyText
+        : undefined,
+    registryId:
+      output.registryId !== undefined && output.registryId !== null
+        ? output.registryId
+        : undefined,
+    repositoryName:
+      output.repositoryName !== undefined && output.repositoryName !== null
+        ? output.repositoryName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetRepositoryPolicyResponse = (
   output: any,
   context: __SerdeContext
 ): GetRepositoryPolicyResponse => {
-  let contents: any = {
+  return {
     __type: "GetRepositoryPolicyResponse",
-    policyText: undefined,
-    registryId: undefined,
-    repositoryName: undefined
-  };
-  if (output.policyText !== undefined && output.policyText !== null) {
-    contents.policyText = output.policyText;
-  }
-  if (output.registryId !== undefined && output.registryId !== null) {
-    contents.registryId = output.registryId;
-  }
-  if (output.repositoryName !== undefined && output.repositoryName !== null) {
-    contents.repositoryName = output.repositoryName;
-  }
-  return contents;
+    policyText:
+      output.policyText !== undefined && output.policyText !== null
+        ? output.policyText
+        : undefined,
+    registryId:
+      output.registryId !== undefined && output.registryId !== null
+        ? output.registryId
+        : undefined,
+    repositoryName:
+      output.repositoryName !== undefined && output.repositoryName !== null
+        ? output.repositoryName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Image = (
   output: any,
   context: __SerdeContext
 ): Image => {
-  let contents: any = {
+  return {
     __type: "Image",
-    imageId: undefined,
-    imageManifest: undefined,
-    registryId: undefined,
-    repositoryName: undefined
-  };
-  if (output.imageId !== undefined && output.imageId !== null) {
-    contents.imageId = deserializeAws_json1_1ImageIdentifier(
-      output.imageId,
-      context
-    );
-  }
-  if (output.imageManifest !== undefined && output.imageManifest !== null) {
-    contents.imageManifest = output.imageManifest;
-  }
-  if (output.registryId !== undefined && output.registryId !== null) {
-    contents.registryId = output.registryId;
-  }
-  if (output.repositoryName !== undefined && output.repositoryName !== null) {
-    contents.repositoryName = output.repositoryName;
-  }
-  return contents;
+    imageId:
+      output.imageId !== undefined && output.imageId !== null
+        ? deserializeAws_json1_1ImageIdentifier(output.imageId, context)
+        : undefined,
+    imageManifest:
+      output.imageManifest !== undefined && output.imageManifest !== null
+        ? output.imageManifest
+        : undefined,
+    registryId:
+      output.registryId !== undefined && output.registryId !== null
+        ? output.registryId
+        : undefined,
+    repositoryName:
+      output.repositoryName !== undefined && output.repositoryName !== null
+        ? output.repositoryName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ImageAlreadyExistsException = (
   output: any,
   context: __SerdeContext
 ): ImageAlreadyExistsException => {
-  let contents: any = {
+  return {
     __type: "ImageAlreadyExistsException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ImageDetail = (
   output: any,
   context: __SerdeContext
 ): ImageDetail => {
-  let contents: any = {
+  return {
     __type: "ImageDetail",
-    imageDigest: undefined,
-    imagePushedAt: undefined,
-    imageScanFindingsSummary: undefined,
-    imageScanStatus: undefined,
-    imageSizeInBytes: undefined,
-    imageTags: undefined,
-    registryId: undefined,
-    repositoryName: undefined
-  };
-  if (output.imageDigest !== undefined && output.imageDigest !== null) {
-    contents.imageDigest = output.imageDigest;
-  }
-  if (output.imagePushedAt !== undefined && output.imagePushedAt !== null) {
-    contents.imagePushedAt = new Date(Math.round(output.imagePushedAt * 1000));
-  }
-  if (
-    output.imageScanFindingsSummary !== undefined &&
-    output.imageScanFindingsSummary !== null
-  ) {
-    contents.imageScanFindingsSummary = deserializeAws_json1_1ImageScanFindingsSummary(
-      output.imageScanFindingsSummary,
-      context
-    );
-  }
-  if (output.imageScanStatus !== undefined && output.imageScanStatus !== null) {
-    contents.imageScanStatus = deserializeAws_json1_1ImageScanStatus(
-      output.imageScanStatus,
-      context
-    );
-  }
-  if (
-    output.imageSizeInBytes !== undefined &&
-    output.imageSizeInBytes !== null
-  ) {
-    contents.imageSizeInBytes = output.imageSizeInBytes;
-  }
-  if (output.imageTags !== undefined && output.imageTags !== null) {
-    contents.imageTags = deserializeAws_json1_1ImageTagList(
-      output.imageTags,
-      context
-    );
-  }
-  if (output.registryId !== undefined && output.registryId !== null) {
-    contents.registryId = output.registryId;
-  }
-  if (output.repositoryName !== undefined && output.repositoryName !== null) {
-    contents.repositoryName = output.repositoryName;
-  }
-  return contents;
+    imageDigest:
+      output.imageDigest !== undefined && output.imageDigest !== null
+        ? output.imageDigest
+        : undefined,
+    imagePushedAt:
+      output.imagePushedAt !== undefined && output.imagePushedAt !== null
+        ? new Date(Math.round(output.imagePushedAt * 1000))
+        : undefined,
+    imageScanFindingsSummary:
+      output.imageScanFindingsSummary !== undefined &&
+      output.imageScanFindingsSummary !== null
+        ? deserializeAws_json1_1ImageScanFindingsSummary(
+            output.imageScanFindingsSummary,
+            context
+          )
+        : undefined,
+    imageScanStatus:
+      output.imageScanStatus !== undefined && output.imageScanStatus !== null
+        ? deserializeAws_json1_1ImageScanStatus(output.imageScanStatus, context)
+        : undefined,
+    imageSizeInBytes:
+      output.imageSizeInBytes !== undefined && output.imageSizeInBytes !== null
+        ? output.imageSizeInBytes
+        : undefined,
+    imageTags:
+      output.imageTags !== undefined && output.imageTags !== null
+        ? deserializeAws_json1_1ImageTagList(output.imageTags, context)
+        : undefined,
+    registryId:
+      output.registryId !== undefined && output.registryId !== null
+        ? output.registryId
+        : undefined,
+    repositoryName:
+      output.repositoryName !== undefined && output.repositoryName !== null
+        ? output.repositoryName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ImageDetailList = (
@@ -5211,25 +5127,21 @@ const deserializeAws_json1_1ImageFailure = (
   output: any,
   context: __SerdeContext
 ): ImageFailure => {
-  let contents: any = {
+  return {
     __type: "ImageFailure",
-    failureCode: undefined,
-    failureReason: undefined,
-    imageId: undefined
-  };
-  if (output.failureCode !== undefined && output.failureCode !== null) {
-    contents.failureCode = output.failureCode;
-  }
-  if (output.failureReason !== undefined && output.failureReason !== null) {
-    contents.failureReason = output.failureReason;
-  }
-  if (output.imageId !== undefined && output.imageId !== null) {
-    contents.imageId = deserializeAws_json1_1ImageIdentifier(
-      output.imageId,
-      context
-    );
-  }
-  return contents;
+    failureCode:
+      output.failureCode !== undefined && output.failureCode !== null
+        ? output.failureCode
+        : undefined,
+    failureReason:
+      output.failureReason !== undefined && output.failureReason !== null
+        ? output.failureReason
+        : undefined,
+    imageId:
+      output.imageId !== undefined && output.imageId !== null
+        ? deserializeAws_json1_1ImageIdentifier(output.imageId, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ImageFailureList = (
@@ -5245,18 +5157,17 @@ const deserializeAws_json1_1ImageIdentifier = (
   output: any,
   context: __SerdeContext
 ): ImageIdentifier => {
-  let contents: any = {
+  return {
     __type: "ImageIdentifier",
-    imageDigest: undefined,
-    imageTag: undefined
-  };
-  if (output.imageDigest !== undefined && output.imageDigest !== null) {
-    contents.imageDigest = output.imageDigest;
-  }
-  if (output.imageTag !== undefined && output.imageTag !== null) {
-    contents.imageTag = output.imageTag;
-  }
-  return contents;
+    imageDigest:
+      output.imageDigest !== undefined && output.imageDigest !== null
+        ? output.imageDigest
+        : undefined,
+    imageTag:
+      output.imageTag !== undefined && output.imageTag !== null
+        ? output.imageTag
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ImageIdentifierList = (
@@ -5281,47 +5192,40 @@ const deserializeAws_json1_1ImageNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ImageNotFoundException => {
-  let contents: any = {
+  return {
     __type: "ImageNotFoundException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ImageScanFinding = (
   output: any,
   context: __SerdeContext
 ): ImageScanFinding => {
-  let contents: any = {
+  return {
     __type: "ImageScanFinding",
-    attributes: undefined,
-    description: undefined,
-    name: undefined,
-    severity: undefined,
-    uri: undefined
-  };
-  if (output.attributes !== undefined && output.attributes !== null) {
-    contents.attributes = deserializeAws_json1_1AttributeList(
-      output.attributes,
-      context
-    );
-  }
-  if (output.description !== undefined && output.description !== null) {
-    contents.description = output.description;
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (output.severity !== undefined && output.severity !== null) {
-    contents.severity = output.severity;
-  }
-  if (output.uri !== undefined && output.uri !== null) {
-    contents.uri = output.uri;
-  }
-  return contents;
+    attributes:
+      output.attributes !== undefined && output.attributes !== null
+        ? deserializeAws_json1_1AttributeList(output.attributes, context)
+        : undefined,
+    description:
+      output.description !== undefined && output.description !== null
+        ? output.description
+        : undefined,
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    severity:
+      output.severity !== undefined && output.severity !== null
+        ? output.severity
+        : undefined,
+    uri:
+      output.uri !== undefined && output.uri !== null ? output.uri : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ImageScanFindingList = (
@@ -5337,129 +5241,101 @@ const deserializeAws_json1_1ImageScanFindings = (
   output: any,
   context: __SerdeContext
 ): ImageScanFindings => {
-  let contents: any = {
+  return {
     __type: "ImageScanFindings",
-    findingSeverityCounts: undefined,
-    findings: undefined,
-    imageScanCompletedAt: undefined,
-    vulnerabilitySourceUpdatedAt: undefined
-  };
-  if (
-    output.findingSeverityCounts !== undefined &&
-    output.findingSeverityCounts !== null
-  ) {
-    contents.findingSeverityCounts = deserializeAws_json1_1FindingSeverityCounts(
-      output.findingSeverityCounts,
-      context
-    );
-  }
-  if (output.findings !== undefined && output.findings !== null) {
-    contents.findings = deserializeAws_json1_1ImageScanFindingList(
-      output.findings,
-      context
-    );
-  }
-  if (
-    output.imageScanCompletedAt !== undefined &&
-    output.imageScanCompletedAt !== null
-  ) {
-    contents.imageScanCompletedAt = new Date(
-      Math.round(output.imageScanCompletedAt * 1000)
-    );
-  }
-  if (
-    output.vulnerabilitySourceUpdatedAt !== undefined &&
-    output.vulnerabilitySourceUpdatedAt !== null
-  ) {
-    contents.vulnerabilitySourceUpdatedAt = new Date(
-      Math.round(output.vulnerabilitySourceUpdatedAt * 1000)
-    );
-  }
-  return contents;
+    findingSeverityCounts:
+      output.findingSeverityCounts !== undefined &&
+      output.findingSeverityCounts !== null
+        ? deserializeAws_json1_1FindingSeverityCounts(
+            output.findingSeverityCounts,
+            context
+          )
+        : undefined,
+    findings:
+      output.findings !== undefined && output.findings !== null
+        ? deserializeAws_json1_1ImageScanFindingList(output.findings, context)
+        : undefined,
+    imageScanCompletedAt:
+      output.imageScanCompletedAt !== undefined &&
+      output.imageScanCompletedAt !== null
+        ? new Date(Math.round(output.imageScanCompletedAt * 1000))
+        : undefined,
+    vulnerabilitySourceUpdatedAt:
+      output.vulnerabilitySourceUpdatedAt !== undefined &&
+      output.vulnerabilitySourceUpdatedAt !== null
+        ? new Date(Math.round(output.vulnerabilitySourceUpdatedAt * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ImageScanFindingsSummary = (
   output: any,
   context: __SerdeContext
 ): ImageScanFindingsSummary => {
-  let contents: any = {
+  return {
     __type: "ImageScanFindingsSummary",
-    findingSeverityCounts: undefined,
-    imageScanCompletedAt: undefined,
-    vulnerabilitySourceUpdatedAt: undefined
-  };
-  if (
-    output.findingSeverityCounts !== undefined &&
-    output.findingSeverityCounts !== null
-  ) {
-    contents.findingSeverityCounts = deserializeAws_json1_1FindingSeverityCounts(
-      output.findingSeverityCounts,
-      context
-    );
-  }
-  if (
-    output.imageScanCompletedAt !== undefined &&
-    output.imageScanCompletedAt !== null
-  ) {
-    contents.imageScanCompletedAt = new Date(
-      Math.round(output.imageScanCompletedAt * 1000)
-    );
-  }
-  if (
-    output.vulnerabilitySourceUpdatedAt !== undefined &&
-    output.vulnerabilitySourceUpdatedAt !== null
-  ) {
-    contents.vulnerabilitySourceUpdatedAt = new Date(
-      Math.round(output.vulnerabilitySourceUpdatedAt * 1000)
-    );
-  }
-  return contents;
+    findingSeverityCounts:
+      output.findingSeverityCounts !== undefined &&
+      output.findingSeverityCounts !== null
+        ? deserializeAws_json1_1FindingSeverityCounts(
+            output.findingSeverityCounts,
+            context
+          )
+        : undefined,
+    imageScanCompletedAt:
+      output.imageScanCompletedAt !== undefined &&
+      output.imageScanCompletedAt !== null
+        ? new Date(Math.round(output.imageScanCompletedAt * 1000))
+        : undefined,
+    vulnerabilitySourceUpdatedAt:
+      output.vulnerabilitySourceUpdatedAt !== undefined &&
+      output.vulnerabilitySourceUpdatedAt !== null
+        ? new Date(Math.round(output.vulnerabilitySourceUpdatedAt * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ImageScanStatus = (
   output: any,
   context: __SerdeContext
 ): ImageScanStatus => {
-  let contents: any = {
+  return {
     __type: "ImageScanStatus",
-    description: undefined,
-    status: undefined
-  };
-  if (output.description !== undefined && output.description !== null) {
-    contents.description = output.description;
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  return contents;
+    description:
+      output.description !== undefined && output.description !== null
+        ? output.description
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ImageScanningConfiguration = (
   output: any,
   context: __SerdeContext
 ): ImageScanningConfiguration => {
-  let contents: any = {
+  return {
     __type: "ImageScanningConfiguration",
-    scanOnPush: undefined
-  };
-  if (output.scanOnPush !== undefined && output.scanOnPush !== null) {
-    contents.scanOnPush = output.scanOnPush;
-  }
-  return contents;
+    scanOnPush:
+      output.scanOnPush !== undefined && output.scanOnPush !== null
+        ? output.scanOnPush
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ImageTagAlreadyExistsException = (
   output: any,
   context: __SerdeContext
 ): ImageTagAlreadyExistsException => {
-  let contents: any = {
+  return {
     __type: "ImageTagAlreadyExistsException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ImageTagList = (
@@ -5473,158 +5349,146 @@ const deserializeAws_json1_1InitiateLayerUploadResponse = (
   output: any,
   context: __SerdeContext
 ): InitiateLayerUploadResponse => {
-  let contents: any = {
+  return {
     __type: "InitiateLayerUploadResponse",
-    partSize: undefined,
-    uploadId: undefined
-  };
-  if (output.partSize !== undefined && output.partSize !== null) {
-    contents.partSize = output.partSize;
-  }
-  if (output.uploadId !== undefined && output.uploadId !== null) {
-    contents.uploadId = output.uploadId;
-  }
-  return contents;
+    partSize:
+      output.partSize !== undefined && output.partSize !== null
+        ? output.partSize
+        : undefined,
+    uploadId:
+      output.uploadId !== undefined && output.uploadId !== null
+        ? output.uploadId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidLayerException = (
   output: any,
   context: __SerdeContext
 ): InvalidLayerException => {
-  let contents: any = {
+  return {
     __type: "InvalidLayerException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidLayerPartException = (
   output: any,
   context: __SerdeContext
 ): InvalidLayerPartException => {
-  let contents: any = {
+  return {
     __type: "InvalidLayerPartException",
-    lastValidByteReceived: undefined,
-    message: undefined,
-    registryId: undefined,
-    repositoryName: undefined,
-    uploadId: undefined
-  };
-  if (
-    output.lastValidByteReceived !== undefined &&
-    output.lastValidByteReceived !== null
-  ) {
-    contents.lastValidByteReceived = output.lastValidByteReceived;
-  }
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  if (output.registryId !== undefined && output.registryId !== null) {
-    contents.registryId = output.registryId;
-  }
-  if (output.repositoryName !== undefined && output.repositoryName !== null) {
-    contents.repositoryName = output.repositoryName;
-  }
-  if (output.uploadId !== undefined && output.uploadId !== null) {
-    contents.uploadId = output.uploadId;
-  }
-  return contents;
+    lastValidByteReceived:
+      output.lastValidByteReceived !== undefined &&
+      output.lastValidByteReceived !== null
+        ? output.lastValidByteReceived
+        : undefined,
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined,
+    registryId:
+      output.registryId !== undefined && output.registryId !== null
+        ? output.registryId
+        : undefined,
+    repositoryName:
+      output.repositoryName !== undefined && output.repositoryName !== null
+        ? output.repositoryName
+        : undefined,
+    uploadId:
+      output.uploadId !== undefined && output.uploadId !== null
+        ? output.uploadId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidParameterException = (
   output: any,
   context: __SerdeContext
 ): InvalidParameterException => {
-  let contents: any = {
+  return {
     __type: "InvalidParameterException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidTagParameterException = (
   output: any,
   context: __SerdeContext
 ): InvalidTagParameterException => {
-  let contents: any = {
+  return {
     __type: "InvalidTagParameterException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Layer = (
   output: any,
   context: __SerdeContext
 ): Layer => {
-  let contents: any = {
+  return {
     __type: "Layer",
-    layerAvailability: undefined,
-    layerDigest: undefined,
-    layerSize: undefined,
-    mediaType: undefined
-  };
-  if (
-    output.layerAvailability !== undefined &&
-    output.layerAvailability !== null
-  ) {
-    contents.layerAvailability = output.layerAvailability;
-  }
-  if (output.layerDigest !== undefined && output.layerDigest !== null) {
-    contents.layerDigest = output.layerDigest;
-  }
-  if (output.layerSize !== undefined && output.layerSize !== null) {
-    contents.layerSize = output.layerSize;
-  }
-  if (output.mediaType !== undefined && output.mediaType !== null) {
-    contents.mediaType = output.mediaType;
-  }
-  return contents;
+    layerAvailability:
+      output.layerAvailability !== undefined &&
+      output.layerAvailability !== null
+        ? output.layerAvailability
+        : undefined,
+    layerDigest:
+      output.layerDigest !== undefined && output.layerDigest !== null
+        ? output.layerDigest
+        : undefined,
+    layerSize:
+      output.layerSize !== undefined && output.layerSize !== null
+        ? output.layerSize
+        : undefined,
+    mediaType:
+      output.mediaType !== undefined && output.mediaType !== null
+        ? output.mediaType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LayerAlreadyExistsException = (
   output: any,
   context: __SerdeContext
 ): LayerAlreadyExistsException => {
-  let contents: any = {
+  return {
     __type: "LayerAlreadyExistsException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LayerFailure = (
   output: any,
   context: __SerdeContext
 ): LayerFailure => {
-  let contents: any = {
+  return {
     __type: "LayerFailure",
-    failureCode: undefined,
-    failureReason: undefined,
-    layerDigest: undefined
-  };
-  if (output.failureCode !== undefined && output.failureCode !== null) {
-    contents.failureCode = output.failureCode;
-  }
-  if (output.failureReason !== undefined && output.failureReason !== null) {
-    contents.failureReason = output.failureReason;
-  }
-  if (output.layerDigest !== undefined && output.layerDigest !== null) {
-    contents.layerDigest = output.layerDigest;
-  }
-  return contents;
+    failureCode:
+      output.failureCode !== undefined && output.failureCode !== null
+        ? output.failureCode
+        : undefined,
+    failureReason:
+      output.failureReason !== undefined && output.failureReason !== null
+        ? output.failureReason
+        : undefined,
+    layerDigest:
+      output.layerDigest !== undefined && output.layerDigest !== null
+        ? output.layerDigest
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LayerFailureList = (
@@ -5640,14 +5504,13 @@ const deserializeAws_json1_1LayerInaccessibleException = (
   output: any,
   context: __SerdeContext
 ): LayerInaccessibleException => {
-  let contents: any = {
+  return {
     __type: "LayerInaccessibleException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LayerList = (
@@ -5663,109 +5526,98 @@ const deserializeAws_json1_1LayerPartTooSmallException = (
   output: any,
   context: __SerdeContext
 ): LayerPartTooSmallException => {
-  let contents: any = {
+  return {
     __type: "LayerPartTooSmallException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LayersNotFoundException = (
   output: any,
   context: __SerdeContext
 ): LayersNotFoundException => {
-  let contents: any = {
+  return {
     __type: "LayersNotFoundException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LifecyclePolicyNotFoundException = (
   output: any,
   context: __SerdeContext
 ): LifecyclePolicyNotFoundException => {
-  let contents: any = {
+  return {
     __type: "LifecyclePolicyNotFoundException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LifecyclePolicyPreviewInProgressException = (
   output: any,
   context: __SerdeContext
 ): LifecyclePolicyPreviewInProgressException => {
-  let contents: any = {
+  return {
     __type: "LifecyclePolicyPreviewInProgressException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LifecyclePolicyPreviewNotFoundException = (
   output: any,
   context: __SerdeContext
 ): LifecyclePolicyPreviewNotFoundException => {
-  let contents: any = {
+  return {
     __type: "LifecyclePolicyPreviewNotFoundException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LifecyclePolicyPreviewResult = (
   output: any,
   context: __SerdeContext
 ): LifecyclePolicyPreviewResult => {
-  let contents: any = {
+  return {
     __type: "LifecyclePolicyPreviewResult",
-    action: undefined,
-    appliedRulePriority: undefined,
-    imageDigest: undefined,
-    imagePushedAt: undefined,
-    imageTags: undefined
-  };
-  if (output.action !== undefined && output.action !== null) {
-    contents.action = deserializeAws_json1_1LifecyclePolicyRuleAction(
-      output.action,
-      context
-    );
-  }
-  if (
-    output.appliedRulePriority !== undefined &&
-    output.appliedRulePriority !== null
-  ) {
-    contents.appliedRulePriority = output.appliedRulePriority;
-  }
-  if (output.imageDigest !== undefined && output.imageDigest !== null) {
-    contents.imageDigest = output.imageDigest;
-  }
-  if (output.imagePushedAt !== undefined && output.imagePushedAt !== null) {
-    contents.imagePushedAt = new Date(Math.round(output.imagePushedAt * 1000));
-  }
-  if (output.imageTags !== undefined && output.imageTags !== null) {
-    contents.imageTags = deserializeAws_json1_1ImageTagList(
-      output.imageTags,
-      context
-    );
-  }
-  return contents;
+    action:
+      output.action !== undefined && output.action !== null
+        ? deserializeAws_json1_1LifecyclePolicyRuleAction(
+            output.action,
+            context
+          )
+        : undefined,
+    appliedRulePriority:
+      output.appliedRulePriority !== undefined &&
+      output.appliedRulePriority !== null
+        ? output.appliedRulePriority
+        : undefined,
+    imageDigest:
+      output.imageDigest !== undefined && output.imageDigest !== null
+        ? output.imageDigest
+        : undefined,
+    imagePushedAt:
+      output.imagePushedAt !== undefined && output.imagePushedAt !== null
+        ? new Date(Math.round(output.imagePushedAt * 1000))
+        : undefined,
+    imageTags:
+      output.imageTags !== undefined && output.imageTags !== null
+        ? deserializeAws_json1_1ImageTagList(output.imageTags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LifecyclePolicyPreviewResultList = (
@@ -5781,233 +5633,207 @@ const deserializeAws_json1_1LifecyclePolicyPreviewSummary = (
   output: any,
   context: __SerdeContext
 ): LifecyclePolicyPreviewSummary => {
-  let contents: any = {
+  return {
     __type: "LifecyclePolicyPreviewSummary",
-    expiringImageTotalCount: undefined
-  };
-  if (
-    output.expiringImageTotalCount !== undefined &&
-    output.expiringImageTotalCount !== null
-  ) {
-    contents.expiringImageTotalCount = output.expiringImageTotalCount;
-  }
-  return contents;
+    expiringImageTotalCount:
+      output.expiringImageTotalCount !== undefined &&
+      output.expiringImageTotalCount !== null
+        ? output.expiringImageTotalCount
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LifecyclePolicyRuleAction = (
   output: any,
   context: __SerdeContext
 ): LifecyclePolicyRuleAction => {
-  let contents: any = {
+  return {
     __type: "LifecyclePolicyRuleAction",
-    type: undefined
-  };
-  if (output.type !== undefined && output.type !== null) {
-    contents.type = output.type;
-  }
-  return contents;
+    type:
+      output.type !== undefined && output.type !== null
+        ? output.type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (
   output: any,
   context: __SerdeContext
 ): LimitExceededException => {
-  let contents: any = {
+  return {
     __type: "LimitExceededException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListImagesResponse = (
   output: any,
   context: __SerdeContext
 ): ListImagesResponse => {
-  let contents: any = {
+  return {
     __type: "ListImagesResponse",
-    imageIds: undefined,
-    nextToken: undefined
-  };
-  if (output.imageIds !== undefined && output.imageIds !== null) {
-    contents.imageIds = deserializeAws_json1_1ImageIdentifierList(
-      output.imageIds,
-      context
-    );
-  }
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  return contents;
+    imageIds:
+      output.imageIds !== undefined && output.imageIds !== null
+        ? deserializeAws_json1_1ImageIdentifierList(output.imageIds, context)
+        : undefined,
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListTagsForResourceResponse = (
   output: any,
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
-  let contents: any = {
+  return {
     __type: "ListTagsForResourceResponse",
-    tags: undefined
-  };
-  if (output.tags !== undefined && output.tags !== null) {
-    contents.tags = deserializeAws_json1_1TagList(output.tags, context);
-  }
-  return contents;
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_json1_1TagList(output.tags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PutImageResponse = (
   output: any,
   context: __SerdeContext
 ): PutImageResponse => {
-  let contents: any = {
+  return {
     __type: "PutImageResponse",
-    image: undefined
-  };
-  if (output.image !== undefined && output.image !== null) {
-    contents.image = deserializeAws_json1_1Image(output.image, context);
-  }
-  return contents;
+    image:
+      output.image !== undefined && output.image !== null
+        ? deserializeAws_json1_1Image(output.image, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PutImageScanningConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): PutImageScanningConfigurationResponse => {
-  let contents: any = {
+  return {
     __type: "PutImageScanningConfigurationResponse",
-    imageScanningConfiguration: undefined,
-    registryId: undefined,
-    repositoryName: undefined
-  };
-  if (
-    output.imageScanningConfiguration !== undefined &&
-    output.imageScanningConfiguration !== null
-  ) {
-    contents.imageScanningConfiguration = deserializeAws_json1_1ImageScanningConfiguration(
-      output.imageScanningConfiguration,
-      context
-    );
-  }
-  if (output.registryId !== undefined && output.registryId !== null) {
-    contents.registryId = output.registryId;
-  }
-  if (output.repositoryName !== undefined && output.repositoryName !== null) {
-    contents.repositoryName = output.repositoryName;
-  }
-  return contents;
+    imageScanningConfiguration:
+      output.imageScanningConfiguration !== undefined &&
+      output.imageScanningConfiguration !== null
+        ? deserializeAws_json1_1ImageScanningConfiguration(
+            output.imageScanningConfiguration,
+            context
+          )
+        : undefined,
+    registryId:
+      output.registryId !== undefined && output.registryId !== null
+        ? output.registryId
+        : undefined,
+    repositoryName:
+      output.repositoryName !== undefined && output.repositoryName !== null
+        ? output.repositoryName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PutImageTagMutabilityResponse = (
   output: any,
   context: __SerdeContext
 ): PutImageTagMutabilityResponse => {
-  let contents: any = {
+  return {
     __type: "PutImageTagMutabilityResponse",
-    imageTagMutability: undefined,
-    registryId: undefined,
-    repositoryName: undefined
-  };
-  if (
-    output.imageTagMutability !== undefined &&
-    output.imageTagMutability !== null
-  ) {
-    contents.imageTagMutability = output.imageTagMutability;
-  }
-  if (output.registryId !== undefined && output.registryId !== null) {
-    contents.registryId = output.registryId;
-  }
-  if (output.repositoryName !== undefined && output.repositoryName !== null) {
-    contents.repositoryName = output.repositoryName;
-  }
-  return contents;
+    imageTagMutability:
+      output.imageTagMutability !== undefined &&
+      output.imageTagMutability !== null
+        ? output.imageTagMutability
+        : undefined,
+    registryId:
+      output.registryId !== undefined && output.registryId !== null
+        ? output.registryId
+        : undefined,
+    repositoryName:
+      output.repositoryName !== undefined && output.repositoryName !== null
+        ? output.repositoryName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PutLifecyclePolicyResponse = (
   output: any,
   context: __SerdeContext
 ): PutLifecyclePolicyResponse => {
-  let contents: any = {
+  return {
     __type: "PutLifecyclePolicyResponse",
-    lifecyclePolicyText: undefined,
-    registryId: undefined,
-    repositoryName: undefined
-  };
-  if (
-    output.lifecyclePolicyText !== undefined &&
-    output.lifecyclePolicyText !== null
-  ) {
-    contents.lifecyclePolicyText = output.lifecyclePolicyText;
-  }
-  if (output.registryId !== undefined && output.registryId !== null) {
-    contents.registryId = output.registryId;
-  }
-  if (output.repositoryName !== undefined && output.repositoryName !== null) {
-    contents.repositoryName = output.repositoryName;
-  }
-  return contents;
+    lifecyclePolicyText:
+      output.lifecyclePolicyText !== undefined &&
+      output.lifecyclePolicyText !== null
+        ? output.lifecyclePolicyText
+        : undefined,
+    registryId:
+      output.registryId !== undefined && output.registryId !== null
+        ? output.registryId
+        : undefined,
+    repositoryName:
+      output.repositoryName !== undefined && output.repositoryName !== null
+        ? output.repositoryName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Repository = (
   output: any,
   context: __SerdeContext
 ): Repository => {
-  let contents: any = {
+  return {
     __type: "Repository",
-    createdAt: undefined,
-    imageScanningConfiguration: undefined,
-    imageTagMutability: undefined,
-    registryId: undefined,
-    repositoryArn: undefined,
-    repositoryName: undefined,
-    repositoryUri: undefined
-  };
-  if (output.createdAt !== undefined && output.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(output.createdAt * 1000));
-  }
-  if (
-    output.imageScanningConfiguration !== undefined &&
-    output.imageScanningConfiguration !== null
-  ) {
-    contents.imageScanningConfiguration = deserializeAws_json1_1ImageScanningConfiguration(
-      output.imageScanningConfiguration,
-      context
-    );
-  }
-  if (
-    output.imageTagMutability !== undefined &&
-    output.imageTagMutability !== null
-  ) {
-    contents.imageTagMutability = output.imageTagMutability;
-  }
-  if (output.registryId !== undefined && output.registryId !== null) {
-    contents.registryId = output.registryId;
-  }
-  if (output.repositoryArn !== undefined && output.repositoryArn !== null) {
-    contents.repositoryArn = output.repositoryArn;
-  }
-  if (output.repositoryName !== undefined && output.repositoryName !== null) {
-    contents.repositoryName = output.repositoryName;
-  }
-  if (output.repositoryUri !== undefined && output.repositoryUri !== null) {
-    contents.repositoryUri = output.repositoryUri;
-  }
-  return contents;
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
+    imageScanningConfiguration:
+      output.imageScanningConfiguration !== undefined &&
+      output.imageScanningConfiguration !== null
+        ? deserializeAws_json1_1ImageScanningConfiguration(
+            output.imageScanningConfiguration,
+            context
+          )
+        : undefined,
+    imageTagMutability:
+      output.imageTagMutability !== undefined &&
+      output.imageTagMutability !== null
+        ? output.imageTagMutability
+        : undefined,
+    registryId:
+      output.registryId !== undefined && output.registryId !== null
+        ? output.registryId
+        : undefined,
+    repositoryArn:
+      output.repositoryArn !== undefined && output.repositoryArn !== null
+        ? output.repositoryArn
+        : undefined,
+    repositoryName:
+      output.repositoryName !== undefined && output.repositoryName !== null
+        ? output.repositoryName
+        : undefined,
+    repositoryUri:
+      output.repositoryUri !== undefined && output.repositoryUri !== null
+        ? output.repositoryUri
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RepositoryAlreadyExistsException = (
   output: any,
   context: __SerdeContext
 ): RepositoryAlreadyExistsException => {
-  let contents: any = {
+  return {
     __type: "RepositoryAlreadyExistsException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RepositoryList = (
@@ -6023,171 +5849,152 @@ const deserializeAws_json1_1RepositoryNotEmptyException = (
   output: any,
   context: __SerdeContext
 ): RepositoryNotEmptyException => {
-  let contents: any = {
+  return {
     __type: "RepositoryNotEmptyException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RepositoryNotFoundException = (
   output: any,
   context: __SerdeContext
 ): RepositoryNotFoundException => {
-  let contents: any = {
+  return {
     __type: "RepositoryNotFoundException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RepositoryPolicyNotFoundException = (
   output: any,
   context: __SerdeContext
 ): RepositoryPolicyNotFoundException => {
-  let contents: any = {
+  return {
     __type: "RepositoryPolicyNotFoundException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ScanNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ScanNotFoundException => {
-  let contents: any = {
+  return {
     __type: "ScanNotFoundException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ServerException = (
   output: any,
   context: __SerdeContext
 ): ServerException => {
-  let contents: any = {
+  return {
     __type: "ServerException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SetRepositoryPolicyResponse = (
   output: any,
   context: __SerdeContext
 ): SetRepositoryPolicyResponse => {
-  let contents: any = {
+  return {
     __type: "SetRepositoryPolicyResponse",
-    policyText: undefined,
-    registryId: undefined,
-    repositoryName: undefined
-  };
-  if (output.policyText !== undefined && output.policyText !== null) {
-    contents.policyText = output.policyText;
-  }
-  if (output.registryId !== undefined && output.registryId !== null) {
-    contents.registryId = output.registryId;
-  }
-  if (output.repositoryName !== undefined && output.repositoryName !== null) {
-    contents.repositoryName = output.repositoryName;
-  }
-  return contents;
+    policyText:
+      output.policyText !== undefined && output.policyText !== null
+        ? output.policyText
+        : undefined,
+    registryId:
+      output.registryId !== undefined && output.registryId !== null
+        ? output.registryId
+        : undefined,
+    repositoryName:
+      output.repositoryName !== undefined && output.repositoryName !== null
+        ? output.repositoryName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StartImageScanResponse = (
   output: any,
   context: __SerdeContext
 ): StartImageScanResponse => {
-  let contents: any = {
+  return {
     __type: "StartImageScanResponse",
-    imageId: undefined,
-    imageScanStatus: undefined,
-    registryId: undefined,
-    repositoryName: undefined
-  };
-  if (output.imageId !== undefined && output.imageId !== null) {
-    contents.imageId = deserializeAws_json1_1ImageIdentifier(
-      output.imageId,
-      context
-    );
-  }
-  if (output.imageScanStatus !== undefined && output.imageScanStatus !== null) {
-    contents.imageScanStatus = deserializeAws_json1_1ImageScanStatus(
-      output.imageScanStatus,
-      context
-    );
-  }
-  if (output.registryId !== undefined && output.registryId !== null) {
-    contents.registryId = output.registryId;
-  }
-  if (output.repositoryName !== undefined && output.repositoryName !== null) {
-    contents.repositoryName = output.repositoryName;
-  }
-  return contents;
+    imageId:
+      output.imageId !== undefined && output.imageId !== null
+        ? deserializeAws_json1_1ImageIdentifier(output.imageId, context)
+        : undefined,
+    imageScanStatus:
+      output.imageScanStatus !== undefined && output.imageScanStatus !== null
+        ? deserializeAws_json1_1ImageScanStatus(output.imageScanStatus, context)
+        : undefined,
+    registryId:
+      output.registryId !== undefined && output.registryId !== null
+        ? output.registryId
+        : undefined,
+    repositoryName:
+      output.repositoryName !== undefined && output.repositoryName !== null
+        ? output.repositoryName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StartLifecyclePolicyPreviewResponse = (
   output: any,
   context: __SerdeContext
 ): StartLifecyclePolicyPreviewResponse => {
-  let contents: any = {
+  return {
     __type: "StartLifecyclePolicyPreviewResponse",
-    lifecyclePolicyText: undefined,
-    registryId: undefined,
-    repositoryName: undefined,
-    status: undefined
-  };
-  if (
-    output.lifecyclePolicyText !== undefined &&
-    output.lifecyclePolicyText !== null
-  ) {
-    contents.lifecyclePolicyText = output.lifecyclePolicyText;
-  }
-  if (output.registryId !== undefined && output.registryId !== null) {
-    contents.registryId = output.registryId;
-  }
-  if (output.repositoryName !== undefined && output.repositoryName !== null) {
-    contents.repositoryName = output.repositoryName;
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  return contents;
+    lifecyclePolicyText:
+      output.lifecyclePolicyText !== undefined &&
+      output.lifecyclePolicyText !== null
+        ? output.lifecyclePolicyText
+        : undefined,
+    registryId:
+      output.registryId !== undefined && output.registryId !== null
+        ? output.registryId
+        : undefined,
+    repositoryName:
+      output.repositoryName !== undefined && output.repositoryName !== null
+        ? output.repositoryName
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Tag = (
   output: any,
   context: __SerdeContext
 ): Tag => {
-  let contents: any = {
+  return {
     __type: "Tag",
-    Key: undefined,
-    Value: undefined
-  };
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TagList = (
@@ -6203,77 +6010,69 @@ const deserializeAws_json1_1TagResourceResponse = (
   output: any,
   context: __SerdeContext
 ): TagResourceResponse => {
-  let contents: any = {
+  return {
     __type: "TagResourceResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1TooManyTagsException = (
   output: any,
   context: __SerdeContext
 ): TooManyTagsException => {
-  let contents: any = {
+  return {
     __type: "TooManyTagsException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (
   output: any,
   context: __SerdeContext
 ): UntagResourceResponse => {
-  let contents: any = {
+  return {
     __type: "UntagResourceResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1UploadLayerPartResponse = (
   output: any,
   context: __SerdeContext
 ): UploadLayerPartResponse => {
-  let contents: any = {
+  return {
     __type: "UploadLayerPartResponse",
-    lastByteReceived: undefined,
-    registryId: undefined,
-    repositoryName: undefined,
-    uploadId: undefined
-  };
-  if (
-    output.lastByteReceived !== undefined &&
-    output.lastByteReceived !== null
-  ) {
-    contents.lastByteReceived = output.lastByteReceived;
-  }
-  if (output.registryId !== undefined && output.registryId !== null) {
-    contents.registryId = output.registryId;
-  }
-  if (output.repositoryName !== undefined && output.repositoryName !== null) {
-    contents.repositoryName = output.repositoryName;
-  }
-  if (output.uploadId !== undefined && output.uploadId !== null) {
-    contents.uploadId = output.uploadId;
-  }
-  return contents;
+    lastByteReceived:
+      output.lastByteReceived !== undefined && output.lastByteReceived !== null
+        ? output.lastByteReceived
+        : undefined,
+    registryId:
+      output.registryId !== undefined && output.registryId !== null
+        ? output.registryId
+        : undefined,
+    repositoryName:
+      output.repositoryName !== undefined && output.repositoryName !== null
+        ? output.repositoryName
+        : undefined,
+    uploadId:
+      output.uploadId !== undefined && output.uploadId !== null
+        ? output.uploadId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UploadNotFoundException = (
   output: any,
   context: __SerdeContext
 ): UploadNotFoundException => {
-  let contents: any = {
+  return {
     __type: "UploadNotFoundException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

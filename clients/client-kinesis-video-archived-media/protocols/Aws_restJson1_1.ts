@@ -953,43 +953,32 @@ const deserializeAws_restJson1_1Fragment = (
   output: any,
   context: __SerdeContext
 ): Fragment => {
-  let contents: any = {
+  return {
     __type: "Fragment",
-    FragmentLengthInMilliseconds: undefined,
-    FragmentNumber: undefined,
-    FragmentSizeInBytes: undefined,
-    ProducerTimestamp: undefined,
-    ServerTimestamp: undefined
-  };
-  if (
-    output.FragmentLengthInMilliseconds !== undefined &&
-    output.FragmentLengthInMilliseconds !== null
-  ) {
-    contents.FragmentLengthInMilliseconds = output.FragmentLengthInMilliseconds;
-  }
-  if (output.FragmentNumber !== undefined && output.FragmentNumber !== null) {
-    contents.FragmentNumber = output.FragmentNumber;
-  }
-  if (
-    output.FragmentSizeInBytes !== undefined &&
-    output.FragmentSizeInBytes !== null
-  ) {
-    contents.FragmentSizeInBytes = output.FragmentSizeInBytes;
-  }
-  if (
-    output.ProducerTimestamp !== undefined &&
-    output.ProducerTimestamp !== null
-  ) {
-    contents.ProducerTimestamp = new Date(
-      Math.round(output.ProducerTimestamp * 1000)
-    );
-  }
-  if (output.ServerTimestamp !== undefined && output.ServerTimestamp !== null) {
-    contents.ServerTimestamp = new Date(
-      Math.round(output.ServerTimestamp * 1000)
-    );
-  }
-  return contents;
+    FragmentLengthInMilliseconds:
+      output.FragmentLengthInMilliseconds !== undefined &&
+      output.FragmentLengthInMilliseconds !== null
+        ? output.FragmentLengthInMilliseconds
+        : undefined,
+    FragmentNumber:
+      output.FragmentNumber !== undefined && output.FragmentNumber !== null
+        ? output.FragmentNumber
+        : undefined,
+    FragmentSizeInBytes:
+      output.FragmentSizeInBytes !== undefined &&
+      output.FragmentSizeInBytes !== null
+        ? output.FragmentSizeInBytes
+        : undefined,
+    ProducerTimestamp:
+      output.ProducerTimestamp !== undefined &&
+      output.ProducerTimestamp !== null
+        ? new Date(Math.round(output.ProducerTimestamp * 1000))
+        : undefined,
+    ServerTimestamp:
+      output.ServerTimestamp !== undefined && output.ServerTimestamp !== null
+        ? new Date(Math.round(output.ServerTimestamp * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1FragmentList = (

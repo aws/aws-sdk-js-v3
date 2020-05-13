@@ -3095,77 +3095,55 @@ const deserializeAws_restJson1_1Action = (
   output: any,
   context: __SerdeContext
 ): Action => {
-  let contents: any = {
+  return {
     __type: "Action",
-    clearTimer: undefined,
-    firehose: undefined,
-    iotEvents: undefined,
-    iotTopicPublish: undefined,
-    lambda: undefined,
-    resetTimer: undefined,
-    setTimer: undefined,
-    setVariable: undefined,
-    sns: undefined,
-    sqs: undefined
-  };
-  if (output.clearTimer !== undefined && output.clearTimer !== null) {
-    contents.clearTimer = deserializeAws_restJson1_1ClearTimerAction(
-      output.clearTimer,
-      context
-    );
-  }
-  if (output.firehose !== undefined && output.firehose !== null) {
-    contents.firehose = deserializeAws_restJson1_1FirehoseAction(
-      output.firehose,
-      context
-    );
-  }
-  if (output.iotEvents !== undefined && output.iotEvents !== null) {
-    contents.iotEvents = deserializeAws_restJson1_1IotEventsAction(
-      output.iotEvents,
-      context
-    );
-  }
-  if (output.iotTopicPublish !== undefined && output.iotTopicPublish !== null) {
-    contents.iotTopicPublish = deserializeAws_restJson1_1IotTopicPublishAction(
-      output.iotTopicPublish,
-      context
-    );
-  }
-  if (output.lambda !== undefined && output.lambda !== null) {
-    contents.lambda = deserializeAws_restJson1_1LambdaAction(
-      output.lambda,
-      context
-    );
-  }
-  if (output.resetTimer !== undefined && output.resetTimer !== null) {
-    contents.resetTimer = deserializeAws_restJson1_1ResetTimerAction(
-      output.resetTimer,
-      context
-    );
-  }
-  if (output.setTimer !== undefined && output.setTimer !== null) {
-    contents.setTimer = deserializeAws_restJson1_1SetTimerAction(
-      output.setTimer,
-      context
-    );
-  }
-  if (output.setVariable !== undefined && output.setVariable !== null) {
-    contents.setVariable = deserializeAws_restJson1_1SetVariableAction(
-      output.setVariable,
-      context
-    );
-  }
-  if (output.sns !== undefined && output.sns !== null) {
-    contents.sns = deserializeAws_restJson1_1SNSTopicPublishAction(
-      output.sns,
-      context
-    );
-  }
-  if (output.sqs !== undefined && output.sqs !== null) {
-    contents.sqs = deserializeAws_restJson1_1SqsAction(output.sqs, context);
-  }
-  return contents;
+    clearTimer:
+      output.clearTimer !== undefined && output.clearTimer !== null
+        ? deserializeAws_restJson1_1ClearTimerAction(output.clearTimer, context)
+        : undefined,
+    firehose:
+      output.firehose !== undefined && output.firehose !== null
+        ? deserializeAws_restJson1_1FirehoseAction(output.firehose, context)
+        : undefined,
+    iotEvents:
+      output.iotEvents !== undefined && output.iotEvents !== null
+        ? deserializeAws_restJson1_1IotEventsAction(output.iotEvents, context)
+        : undefined,
+    iotTopicPublish:
+      output.iotTopicPublish !== undefined && output.iotTopicPublish !== null
+        ? deserializeAws_restJson1_1IotTopicPublishAction(
+            output.iotTopicPublish,
+            context
+          )
+        : undefined,
+    lambda:
+      output.lambda !== undefined && output.lambda !== null
+        ? deserializeAws_restJson1_1LambdaAction(output.lambda, context)
+        : undefined,
+    resetTimer:
+      output.resetTimer !== undefined && output.resetTimer !== null
+        ? deserializeAws_restJson1_1ResetTimerAction(output.resetTimer, context)
+        : undefined,
+    setTimer:
+      output.setTimer !== undefined && output.setTimer !== null
+        ? deserializeAws_restJson1_1SetTimerAction(output.setTimer, context)
+        : undefined,
+    setVariable:
+      output.setVariable !== undefined && output.setVariable !== null
+        ? deserializeAws_restJson1_1SetVariableAction(
+            output.setVariable,
+            context
+          )
+        : undefined,
+    sns:
+      output.sns !== undefined && output.sns !== null
+        ? deserializeAws_restJson1_1SNSTopicPublishAction(output.sns, context)
+        : undefined,
+    sqs:
+      output.sqs !== undefined && output.sqs !== null
+        ? deserializeAws_restJson1_1SqsAction(output.sqs, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Actions = (
@@ -3181,14 +3159,13 @@ const deserializeAws_restJson1_1Attribute = (
   output: any,
   context: __SerdeContext
 ): Attribute => {
-  let contents: any = {
+  return {
     __type: "Attribute",
-    jsonPath: undefined
-  };
-  if (output.jsonPath !== undefined && output.jsonPath !== null) {
-    contents.jsonPath = output.jsonPath;
-  }
-  return contents;
+    jsonPath:
+      output.jsonPath !== undefined && output.jsonPath !== null
+        ? output.jsonPath
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Attributes = (
@@ -3204,35 +3181,31 @@ const deserializeAws_restJson1_1ClearTimerAction = (
   output: any,
   context: __SerdeContext
 ): ClearTimerAction => {
-  let contents: any = {
+  return {
     __type: "ClearTimerAction",
-    timerName: undefined
-  };
-  if (output.timerName !== undefined && output.timerName !== null) {
-    contents.timerName = output.timerName;
-  }
-  return contents;
+    timerName:
+      output.timerName !== undefined && output.timerName !== null
+        ? output.timerName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DetectorDebugOption = (
   output: any,
   context: __SerdeContext
 ): DetectorDebugOption => {
-  let contents: any = {
+  return {
     __type: "DetectorDebugOption",
-    detectorModelName: undefined,
-    keyValue: undefined
-  };
-  if (
-    output.detectorModelName !== undefined &&
-    output.detectorModelName !== null
-  ) {
-    contents.detectorModelName = output.detectorModelName;
-  }
-  if (output.keyValue !== undefined && output.keyValue !== null) {
-    contents.keyValue = output.keyValue;
-  }
-  return contents;
+    detectorModelName:
+      output.detectorModelName !== undefined &&
+      output.detectorModelName !== null
+        ? output.detectorModelName
+        : undefined,
+    keyValue:
+      output.keyValue !== undefined && output.keyValue !== null
+        ? output.keyValue
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DetectorDebugOptions = (
@@ -3248,118 +3221,92 @@ const deserializeAws_restJson1_1DetectorModel = (
   output: any,
   context: __SerdeContext
 ): DetectorModel => {
-  let contents: any = {
+  return {
     __type: "DetectorModel",
-    detectorModelConfiguration: undefined,
-    detectorModelDefinition: undefined
-  };
-  if (
-    output.detectorModelConfiguration !== undefined &&
-    output.detectorModelConfiguration !== null
-  ) {
-    contents.detectorModelConfiguration = deserializeAws_restJson1_1DetectorModelConfiguration(
-      output.detectorModelConfiguration,
-      context
-    );
-  }
-  if (
-    output.detectorModelDefinition !== undefined &&
-    output.detectorModelDefinition !== null
-  ) {
-    contents.detectorModelDefinition = deserializeAws_restJson1_1DetectorModelDefinition(
-      output.detectorModelDefinition,
-      context
-    );
-  }
-  return contents;
+    detectorModelConfiguration:
+      output.detectorModelConfiguration !== undefined &&
+      output.detectorModelConfiguration !== null
+        ? deserializeAws_restJson1_1DetectorModelConfiguration(
+            output.detectorModelConfiguration,
+            context
+          )
+        : undefined,
+    detectorModelDefinition:
+      output.detectorModelDefinition !== undefined &&
+      output.detectorModelDefinition !== null
+        ? deserializeAws_restJson1_1DetectorModelDefinition(
+            output.detectorModelDefinition,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DetectorModelConfiguration = (
   output: any,
   context: __SerdeContext
 ): DetectorModelConfiguration => {
-  let contents: any = {
+  return {
     __type: "DetectorModelConfiguration",
-    creationTime: undefined,
-    detectorModelArn: undefined,
-    detectorModelDescription: undefined,
-    detectorModelName: undefined,
-    detectorModelVersion: undefined,
-    evaluationMethod: undefined,
-    key: undefined,
-    lastUpdateTime: undefined,
-    roleArn: undefined,
-    status: undefined
-  };
-  if (output.creationTime !== undefined && output.creationTime !== null) {
-    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
-  }
-  if (
-    output.detectorModelArn !== undefined &&
-    output.detectorModelArn !== null
-  ) {
-    contents.detectorModelArn = output.detectorModelArn;
-  }
-  if (
-    output.detectorModelDescription !== undefined &&
-    output.detectorModelDescription !== null
-  ) {
-    contents.detectorModelDescription = output.detectorModelDescription;
-  }
-  if (
-    output.detectorModelName !== undefined &&
-    output.detectorModelName !== null
-  ) {
-    contents.detectorModelName = output.detectorModelName;
-  }
-  if (
-    output.detectorModelVersion !== undefined &&
-    output.detectorModelVersion !== null
-  ) {
-    contents.detectorModelVersion = output.detectorModelVersion;
-  }
-  if (
-    output.evaluationMethod !== undefined &&
-    output.evaluationMethod !== null
-  ) {
-    contents.evaluationMethod = output.evaluationMethod;
-  }
-  if (output.key !== undefined && output.key !== null) {
-    contents.key = output.key;
-  }
-  if (output.lastUpdateTime !== undefined && output.lastUpdateTime !== null) {
-    contents.lastUpdateTime = new Date(
-      Math.round(output.lastUpdateTime * 1000)
-    );
-  }
-  if (output.roleArn !== undefined && output.roleArn !== null) {
-    contents.roleArn = output.roleArn;
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  return contents;
+    creationTime:
+      output.creationTime !== undefined && output.creationTime !== null
+        ? new Date(Math.round(output.creationTime * 1000))
+        : undefined,
+    detectorModelArn:
+      output.detectorModelArn !== undefined && output.detectorModelArn !== null
+        ? output.detectorModelArn
+        : undefined,
+    detectorModelDescription:
+      output.detectorModelDescription !== undefined &&
+      output.detectorModelDescription !== null
+        ? output.detectorModelDescription
+        : undefined,
+    detectorModelName:
+      output.detectorModelName !== undefined &&
+      output.detectorModelName !== null
+        ? output.detectorModelName
+        : undefined,
+    detectorModelVersion:
+      output.detectorModelVersion !== undefined &&
+      output.detectorModelVersion !== null
+        ? output.detectorModelVersion
+        : undefined,
+    evaluationMethod:
+      output.evaluationMethod !== undefined && output.evaluationMethod !== null
+        ? output.evaluationMethod
+        : undefined,
+    key:
+      output.key !== undefined && output.key !== null ? output.key : undefined,
+    lastUpdateTime:
+      output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
+        ? new Date(Math.round(output.lastUpdateTime * 1000))
+        : undefined,
+    roleArn:
+      output.roleArn !== undefined && output.roleArn !== null
+        ? output.roleArn
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DetectorModelDefinition = (
   output: any,
   context: __SerdeContext
 ): DetectorModelDefinition => {
-  let contents: any = {
+  return {
     __type: "DetectorModelDefinition",
-    initialStateName: undefined,
-    states: undefined
-  };
-  if (
-    output.initialStateName !== undefined &&
-    output.initialStateName !== null
-  ) {
-    contents.initialStateName = output.initialStateName;
-  }
-  if (output.states !== undefined && output.states !== null) {
-    contents.states = deserializeAws_restJson1_1States(output.states, context);
-  }
-  return contents;
+    initialStateName:
+      output.initialStateName !== undefined && output.initialStateName !== null
+        ? output.initialStateName
+        : undefined,
+    states:
+      output.states !== undefined && output.states !== null
+        ? deserializeAws_restJson1_1States(output.states, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DetectorModelSummaries = (
@@ -3375,28 +3322,23 @@ const deserializeAws_restJson1_1DetectorModelSummary = (
   output: any,
   context: __SerdeContext
 ): DetectorModelSummary => {
-  let contents: any = {
+  return {
     __type: "DetectorModelSummary",
-    creationTime: undefined,
-    detectorModelDescription: undefined,
-    detectorModelName: undefined
-  };
-  if (output.creationTime !== undefined && output.creationTime !== null) {
-    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
-  }
-  if (
-    output.detectorModelDescription !== undefined &&
-    output.detectorModelDescription !== null
-  ) {
-    contents.detectorModelDescription = output.detectorModelDescription;
-  }
-  if (
-    output.detectorModelName !== undefined &&
-    output.detectorModelName !== null
-  ) {
-    contents.detectorModelName = output.detectorModelName;
-  }
-  return contents;
+    creationTime:
+      output.creationTime !== undefined && output.creationTime !== null
+        ? new Date(Math.round(output.creationTime * 1000))
+        : undefined,
+    detectorModelDescription:
+      output.detectorModelDescription !== undefined &&
+      output.detectorModelDescription !== null
+        ? output.detectorModelDescription
+        : undefined,
+    detectorModelName:
+      output.detectorModelName !== undefined &&
+      output.detectorModelName !== null
+        ? output.detectorModelName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DetectorModelVersionSummaries = (
@@ -3412,81 +3354,64 @@ const deserializeAws_restJson1_1DetectorModelVersionSummary = (
   output: any,
   context: __SerdeContext
 ): DetectorModelVersionSummary => {
-  let contents: any = {
+  return {
     __type: "DetectorModelVersionSummary",
-    creationTime: undefined,
-    detectorModelArn: undefined,
-    detectorModelName: undefined,
-    detectorModelVersion: undefined,
-    evaluationMethod: undefined,
-    lastUpdateTime: undefined,
-    roleArn: undefined,
-    status: undefined
-  };
-  if (output.creationTime !== undefined && output.creationTime !== null) {
-    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
-  }
-  if (
-    output.detectorModelArn !== undefined &&
-    output.detectorModelArn !== null
-  ) {
-    contents.detectorModelArn = output.detectorModelArn;
-  }
-  if (
-    output.detectorModelName !== undefined &&
-    output.detectorModelName !== null
-  ) {
-    contents.detectorModelName = output.detectorModelName;
-  }
-  if (
-    output.detectorModelVersion !== undefined &&
-    output.detectorModelVersion !== null
-  ) {
-    contents.detectorModelVersion = output.detectorModelVersion;
-  }
-  if (
-    output.evaluationMethod !== undefined &&
-    output.evaluationMethod !== null
-  ) {
-    contents.evaluationMethod = output.evaluationMethod;
-  }
-  if (output.lastUpdateTime !== undefined && output.lastUpdateTime !== null) {
-    contents.lastUpdateTime = new Date(
-      Math.round(output.lastUpdateTime * 1000)
-    );
-  }
-  if (output.roleArn !== undefined && output.roleArn !== null) {
-    contents.roleArn = output.roleArn;
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  return contents;
+    creationTime:
+      output.creationTime !== undefined && output.creationTime !== null
+        ? new Date(Math.round(output.creationTime * 1000))
+        : undefined,
+    detectorModelArn:
+      output.detectorModelArn !== undefined && output.detectorModelArn !== null
+        ? output.detectorModelArn
+        : undefined,
+    detectorModelName:
+      output.detectorModelName !== undefined &&
+      output.detectorModelName !== null
+        ? output.detectorModelName
+        : undefined,
+    detectorModelVersion:
+      output.detectorModelVersion !== undefined &&
+      output.detectorModelVersion !== null
+        ? output.detectorModelVersion
+        : undefined,
+    evaluationMethod:
+      output.evaluationMethod !== undefined && output.evaluationMethod !== null
+        ? output.evaluationMethod
+        : undefined,
+    lastUpdateTime:
+      output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
+        ? new Date(Math.round(output.lastUpdateTime * 1000))
+        : undefined,
+    roleArn:
+      output.roleArn !== undefined && output.roleArn !== null
+        ? output.roleArn
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Event = (
   output: any,
   context: __SerdeContext
 ): Event => {
-  let contents: any = {
+  return {
     __type: "Event",
-    actions: undefined,
-    condition: undefined,
-    eventName: undefined
-  };
-  if (output.actions !== undefined && output.actions !== null) {
-    contents.actions = deserializeAws_restJson1_1Actions(
-      output.actions,
-      context
-    );
-  }
-  if (output.condition !== undefined && output.condition !== null) {
-    contents.condition = output.condition;
-  }
-  if (output.eventName !== undefined && output.eventName !== null) {
-    contents.eventName = output.eventName;
-  }
-  return contents;
+    actions:
+      output.actions !== undefined && output.actions !== null
+        ? deserializeAws_restJson1_1Actions(output.actions, context)
+        : undefined,
+    condition:
+      output.condition !== undefined && output.condition !== null
+        ? output.condition
+        : undefined,
+    eventName:
+      output.eventName !== undefined && output.eventName !== null
+        ? output.eventName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Events = (
@@ -3502,104 +3427,88 @@ const deserializeAws_restJson1_1FirehoseAction = (
   output: any,
   context: __SerdeContext
 ): FirehoseAction => {
-  let contents: any = {
+  return {
     __type: "FirehoseAction",
-    deliveryStreamName: undefined,
-    separator: undefined
-  };
-  if (
-    output.deliveryStreamName !== undefined &&
-    output.deliveryStreamName !== null
-  ) {
-    contents.deliveryStreamName = output.deliveryStreamName;
-  }
-  if (output.separator !== undefined && output.separator !== null) {
-    contents.separator = output.separator;
-  }
-  return contents;
+    deliveryStreamName:
+      output.deliveryStreamName !== undefined &&
+      output.deliveryStreamName !== null
+        ? output.deliveryStreamName
+        : undefined,
+    separator:
+      output.separator !== undefined && output.separator !== null
+        ? output.separator
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Input = (
   output: any,
   context: __SerdeContext
 ): Input => {
-  let contents: any = {
+  return {
     __type: "Input",
-    inputConfiguration: undefined,
-    inputDefinition: undefined
-  };
-  if (
-    output.inputConfiguration !== undefined &&
-    output.inputConfiguration !== null
-  ) {
-    contents.inputConfiguration = deserializeAws_restJson1_1InputConfiguration(
-      output.inputConfiguration,
-      context
-    );
-  }
-  if (output.inputDefinition !== undefined && output.inputDefinition !== null) {
-    contents.inputDefinition = deserializeAws_restJson1_1InputDefinition(
-      output.inputDefinition,
-      context
-    );
-  }
-  return contents;
+    inputConfiguration:
+      output.inputConfiguration !== undefined &&
+      output.inputConfiguration !== null
+        ? deserializeAws_restJson1_1InputConfiguration(
+            output.inputConfiguration,
+            context
+          )
+        : undefined,
+    inputDefinition:
+      output.inputDefinition !== undefined && output.inputDefinition !== null
+        ? deserializeAws_restJson1_1InputDefinition(
+            output.inputDefinition,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1InputConfiguration = (
   output: any,
   context: __SerdeContext
 ): InputConfiguration => {
-  let contents: any = {
+  return {
     __type: "InputConfiguration",
-    creationTime: undefined,
-    inputArn: undefined,
-    inputDescription: undefined,
-    inputName: undefined,
-    lastUpdateTime: undefined,
-    status: undefined
-  };
-  if (output.creationTime !== undefined && output.creationTime !== null) {
-    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
-  }
-  if (output.inputArn !== undefined && output.inputArn !== null) {
-    contents.inputArn = output.inputArn;
-  }
-  if (
-    output.inputDescription !== undefined &&
-    output.inputDescription !== null
-  ) {
-    contents.inputDescription = output.inputDescription;
-  }
-  if (output.inputName !== undefined && output.inputName !== null) {
-    contents.inputName = output.inputName;
-  }
-  if (output.lastUpdateTime !== undefined && output.lastUpdateTime !== null) {
-    contents.lastUpdateTime = new Date(
-      Math.round(output.lastUpdateTime * 1000)
-    );
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  return contents;
+    creationTime:
+      output.creationTime !== undefined && output.creationTime !== null
+        ? new Date(Math.round(output.creationTime * 1000))
+        : undefined,
+    inputArn:
+      output.inputArn !== undefined && output.inputArn !== null
+        ? output.inputArn
+        : undefined,
+    inputDescription:
+      output.inputDescription !== undefined && output.inputDescription !== null
+        ? output.inputDescription
+        : undefined,
+    inputName:
+      output.inputName !== undefined && output.inputName !== null
+        ? output.inputName
+        : undefined,
+    lastUpdateTime:
+      output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
+        ? new Date(Math.round(output.lastUpdateTime * 1000))
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1InputDefinition = (
   output: any,
   context: __SerdeContext
 ): InputDefinition => {
-  let contents: any = {
+  return {
     __type: "InputDefinition",
-    attributes: undefined
-  };
-  if (output.attributes !== undefined && output.attributes !== null) {
-    contents.attributes = deserializeAws_restJson1_1Attributes(
-      output.attributes,
-      context
-    );
-  }
-  return contents;
+    attributes:
+      output.attributes !== undefined && output.attributes !== null
+        ? deserializeAws_restJson1_1Attributes(output.attributes, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1InputSummaries = (
@@ -3615,282 +3524,249 @@ const deserializeAws_restJson1_1InputSummary = (
   output: any,
   context: __SerdeContext
 ): InputSummary => {
-  let contents: any = {
+  return {
     __type: "InputSummary",
-    creationTime: undefined,
-    inputArn: undefined,
-    inputDescription: undefined,
-    inputName: undefined,
-    lastUpdateTime: undefined,
-    status: undefined
-  };
-  if (output.creationTime !== undefined && output.creationTime !== null) {
-    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
-  }
-  if (output.inputArn !== undefined && output.inputArn !== null) {
-    contents.inputArn = output.inputArn;
-  }
-  if (
-    output.inputDescription !== undefined &&
-    output.inputDescription !== null
-  ) {
-    contents.inputDescription = output.inputDescription;
-  }
-  if (output.inputName !== undefined && output.inputName !== null) {
-    contents.inputName = output.inputName;
-  }
-  if (output.lastUpdateTime !== undefined && output.lastUpdateTime !== null) {
-    contents.lastUpdateTime = new Date(
-      Math.round(output.lastUpdateTime * 1000)
-    );
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  return contents;
+    creationTime:
+      output.creationTime !== undefined && output.creationTime !== null
+        ? new Date(Math.round(output.creationTime * 1000))
+        : undefined,
+    inputArn:
+      output.inputArn !== undefined && output.inputArn !== null
+        ? output.inputArn
+        : undefined,
+    inputDescription:
+      output.inputDescription !== undefined && output.inputDescription !== null
+        ? output.inputDescription
+        : undefined,
+    inputName:
+      output.inputName !== undefined && output.inputName !== null
+        ? output.inputName
+        : undefined,
+    lastUpdateTime:
+      output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
+        ? new Date(Math.round(output.lastUpdateTime * 1000))
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1IotEventsAction = (
   output: any,
   context: __SerdeContext
 ): IotEventsAction => {
-  let contents: any = {
+  return {
     __type: "IotEventsAction",
-    inputName: undefined
-  };
-  if (output.inputName !== undefined && output.inputName !== null) {
-    contents.inputName = output.inputName;
-  }
-  return contents;
+    inputName:
+      output.inputName !== undefined && output.inputName !== null
+        ? output.inputName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1IotTopicPublishAction = (
   output: any,
   context: __SerdeContext
 ): IotTopicPublishAction => {
-  let contents: any = {
+  return {
     __type: "IotTopicPublishAction",
-    mqttTopic: undefined
-  };
-  if (output.mqttTopic !== undefined && output.mqttTopic !== null) {
-    contents.mqttTopic = output.mqttTopic;
-  }
-  return contents;
+    mqttTopic:
+      output.mqttTopic !== undefined && output.mqttTopic !== null
+        ? output.mqttTopic
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1LambdaAction = (
   output: any,
   context: __SerdeContext
 ): LambdaAction => {
-  let contents: any = {
+  return {
     __type: "LambdaAction",
-    functionArn: undefined
-  };
-  if (output.functionArn !== undefined && output.functionArn !== null) {
-    contents.functionArn = output.functionArn;
-  }
-  return contents;
+    functionArn:
+      output.functionArn !== undefined && output.functionArn !== null
+        ? output.functionArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1LoggingOptions = (
   output: any,
   context: __SerdeContext
 ): LoggingOptions => {
-  let contents: any = {
+  return {
     __type: "LoggingOptions",
-    detectorDebugOptions: undefined,
-    enabled: undefined,
-    level: undefined,
-    roleArn: undefined
-  };
-  if (
-    output.detectorDebugOptions !== undefined &&
-    output.detectorDebugOptions !== null
-  ) {
-    contents.detectorDebugOptions = deserializeAws_restJson1_1DetectorDebugOptions(
-      output.detectorDebugOptions,
-      context
-    );
-  }
-  if (output.enabled !== undefined && output.enabled !== null) {
-    contents.enabled = output.enabled;
-  }
-  if (output.level !== undefined && output.level !== null) {
-    contents.level = output.level;
-  }
-  if (output.roleArn !== undefined && output.roleArn !== null) {
-    contents.roleArn = output.roleArn;
-  }
-  return contents;
+    detectorDebugOptions:
+      output.detectorDebugOptions !== undefined &&
+      output.detectorDebugOptions !== null
+        ? deserializeAws_restJson1_1DetectorDebugOptions(
+            output.detectorDebugOptions,
+            context
+          )
+        : undefined,
+    enabled:
+      output.enabled !== undefined && output.enabled !== null
+        ? output.enabled
+        : undefined,
+    level:
+      output.level !== undefined && output.level !== null
+        ? output.level
+        : undefined,
+    roleArn:
+      output.roleArn !== undefined && output.roleArn !== null
+        ? output.roleArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1OnEnterLifecycle = (
   output: any,
   context: __SerdeContext
 ): OnEnterLifecycle => {
-  let contents: any = {
+  return {
     __type: "OnEnterLifecycle",
-    events: undefined
-  };
-  if (output.events !== undefined && output.events !== null) {
-    contents.events = deserializeAws_restJson1_1Events(output.events, context);
-  }
-  return contents;
+    events:
+      output.events !== undefined && output.events !== null
+        ? deserializeAws_restJson1_1Events(output.events, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1OnExitLifecycle = (
   output: any,
   context: __SerdeContext
 ): OnExitLifecycle => {
-  let contents: any = {
+  return {
     __type: "OnExitLifecycle",
-    events: undefined
-  };
-  if (output.events !== undefined && output.events !== null) {
-    contents.events = deserializeAws_restJson1_1Events(output.events, context);
-  }
-  return contents;
+    events:
+      output.events !== undefined && output.events !== null
+        ? deserializeAws_restJson1_1Events(output.events, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1OnInputLifecycle = (
   output: any,
   context: __SerdeContext
 ): OnInputLifecycle => {
-  let contents: any = {
+  return {
     __type: "OnInputLifecycle",
-    events: undefined,
-    transitionEvents: undefined
-  };
-  if (output.events !== undefined && output.events !== null) {
-    contents.events = deserializeAws_restJson1_1Events(output.events, context);
-  }
-  if (
-    output.transitionEvents !== undefined &&
-    output.transitionEvents !== null
-  ) {
-    contents.transitionEvents = deserializeAws_restJson1_1TransitionEvents(
-      output.transitionEvents,
-      context
-    );
-  }
-  return contents;
+    events:
+      output.events !== undefined && output.events !== null
+        ? deserializeAws_restJson1_1Events(output.events, context)
+        : undefined,
+    transitionEvents:
+      output.transitionEvents !== undefined && output.transitionEvents !== null
+        ? deserializeAws_restJson1_1TransitionEvents(
+            output.transitionEvents,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ResetTimerAction = (
   output: any,
   context: __SerdeContext
 ): ResetTimerAction => {
-  let contents: any = {
+  return {
     __type: "ResetTimerAction",
-    timerName: undefined
-  };
-  if (output.timerName !== undefined && output.timerName !== null) {
-    contents.timerName = output.timerName;
-  }
-  return contents;
+    timerName:
+      output.timerName !== undefined && output.timerName !== null
+        ? output.timerName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SNSTopicPublishAction = (
   output: any,
   context: __SerdeContext
 ): SNSTopicPublishAction => {
-  let contents: any = {
+  return {
     __type: "SNSTopicPublishAction",
-    targetArn: undefined
-  };
-  if (output.targetArn !== undefined && output.targetArn !== null) {
-    contents.targetArn = output.targetArn;
-  }
-  return contents;
+    targetArn:
+      output.targetArn !== undefined && output.targetArn !== null
+        ? output.targetArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SetTimerAction = (
   output: any,
   context: __SerdeContext
 ): SetTimerAction => {
-  let contents: any = {
+  return {
     __type: "SetTimerAction",
-    seconds: undefined,
-    timerName: undefined
-  };
-  if (output.seconds !== undefined && output.seconds !== null) {
-    contents.seconds = output.seconds;
-  }
-  if (output.timerName !== undefined && output.timerName !== null) {
-    contents.timerName = output.timerName;
-  }
-  return contents;
+    seconds:
+      output.seconds !== undefined && output.seconds !== null
+        ? output.seconds
+        : undefined,
+    timerName:
+      output.timerName !== undefined && output.timerName !== null
+        ? output.timerName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SetVariableAction = (
   output: any,
   context: __SerdeContext
 ): SetVariableAction => {
-  let contents: any = {
+  return {
     __type: "SetVariableAction",
-    value: undefined,
-    variableName: undefined
-  };
-  if (output.value !== undefined && output.value !== null) {
-    contents.value = output.value;
-  }
-  if (output.variableName !== undefined && output.variableName !== null) {
-    contents.variableName = output.variableName;
-  }
-  return contents;
+    value:
+      output.value !== undefined && output.value !== null
+        ? output.value
+        : undefined,
+    variableName:
+      output.variableName !== undefined && output.variableName !== null
+        ? output.variableName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SqsAction = (
   output: any,
   context: __SerdeContext
 ): SqsAction => {
-  let contents: any = {
+  return {
     __type: "SqsAction",
-    queueUrl: undefined,
-    useBase64: undefined
-  };
-  if (output.queueUrl !== undefined && output.queueUrl !== null) {
-    contents.queueUrl = output.queueUrl;
-  }
-  if (output.useBase64 !== undefined && output.useBase64 !== null) {
-    contents.useBase64 = output.useBase64;
-  }
-  return contents;
+    queueUrl:
+      output.queueUrl !== undefined && output.queueUrl !== null
+        ? output.queueUrl
+        : undefined,
+    useBase64:
+      output.useBase64 !== undefined && output.useBase64 !== null
+        ? output.useBase64
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1State = (
   output: any,
   context: __SerdeContext
 ): State => {
-  let contents: any = {
+  return {
     __type: "State",
-    onEnter: undefined,
-    onExit: undefined,
-    onInput: undefined,
-    stateName: undefined
-  };
-  if (output.onEnter !== undefined && output.onEnter !== null) {
-    contents.onEnter = deserializeAws_restJson1_1OnEnterLifecycle(
-      output.onEnter,
-      context
-    );
-  }
-  if (output.onExit !== undefined && output.onExit !== null) {
-    contents.onExit = deserializeAws_restJson1_1OnExitLifecycle(
-      output.onExit,
-      context
-    );
-  }
-  if (output.onInput !== undefined && output.onInput !== null) {
-    contents.onInput = deserializeAws_restJson1_1OnInputLifecycle(
-      output.onInput,
-      context
-    );
-  }
-  if (output.stateName !== undefined && output.stateName !== null) {
-    contents.stateName = output.stateName;
-  }
-  return contents;
+    onEnter:
+      output.onEnter !== undefined && output.onEnter !== null
+        ? deserializeAws_restJson1_1OnEnterLifecycle(output.onEnter, context)
+        : undefined,
+    onExit:
+      output.onExit !== undefined && output.onExit !== null
+        ? deserializeAws_restJson1_1OnExitLifecycle(output.onExit, context)
+        : undefined,
+    onInput:
+      output.onInput !== undefined && output.onInput !== null
+        ? deserializeAws_restJson1_1OnInputLifecycle(output.onInput, context)
+        : undefined,
+    stateName:
+      output.stateName !== undefined && output.stateName !== null
+        ? output.stateName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1States = (
@@ -3906,18 +3782,15 @@ const deserializeAws_restJson1_1Tag = (
   output: any,
   context: __SerdeContext
 ): Tag => {
-  let contents: any = {
+  return {
     __type: "Tag",
-    key: undefined,
-    value: undefined
-  };
-  if (output.key !== undefined && output.key !== null) {
-    contents.key = output.key;
-  }
-  if (output.value !== undefined && output.value !== null) {
-    contents.value = output.value;
-  }
-  return contents;
+    key:
+      output.key !== undefined && output.key !== null ? output.key : undefined,
+    value:
+      output.value !== undefined && output.value !== null
+        ? output.value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Tags = (
@@ -3933,29 +3806,25 @@ const deserializeAws_restJson1_1TransitionEvent = (
   output: any,
   context: __SerdeContext
 ): TransitionEvent => {
-  let contents: any = {
+  return {
     __type: "TransitionEvent",
-    actions: undefined,
-    condition: undefined,
-    eventName: undefined,
-    nextState: undefined
-  };
-  if (output.actions !== undefined && output.actions !== null) {
-    contents.actions = deserializeAws_restJson1_1Actions(
-      output.actions,
-      context
-    );
-  }
-  if (output.condition !== undefined && output.condition !== null) {
-    contents.condition = output.condition;
-  }
-  if (output.eventName !== undefined && output.eventName !== null) {
-    contents.eventName = output.eventName;
-  }
-  if (output.nextState !== undefined && output.nextState !== null) {
-    contents.nextState = output.nextState;
-  }
-  return contents;
+    actions:
+      output.actions !== undefined && output.actions !== null
+        ? deserializeAws_restJson1_1Actions(output.actions, context)
+        : undefined,
+    condition:
+      output.condition !== undefined && output.condition !== null
+        ? output.condition
+        : undefined,
+    eventName:
+      output.eventName !== undefined && output.eventName !== null
+        ? output.eventName
+        : undefined,
+    nextState:
+      output.nextState !== undefined && output.nextState !== null
+        ? output.nextState
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1TransitionEvents = (

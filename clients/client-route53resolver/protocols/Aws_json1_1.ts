@@ -3675,357 +3675,300 @@ const deserializeAws_json1_1AssociateResolverEndpointIpAddressResponse = (
   output: any,
   context: __SerdeContext
 ): AssociateResolverEndpointIpAddressResponse => {
-  let contents: any = {
+  return {
     __type: "AssociateResolverEndpointIpAddressResponse",
-    ResolverEndpoint: undefined
-  };
-  if (
-    output.ResolverEndpoint !== undefined &&
-    output.ResolverEndpoint !== null
-  ) {
-    contents.ResolverEndpoint = deserializeAws_json1_1ResolverEndpoint(
-      output.ResolverEndpoint,
-      context
-    );
-  }
-  return contents;
+    ResolverEndpoint:
+      output.ResolverEndpoint !== undefined && output.ResolverEndpoint !== null
+        ? deserializeAws_json1_1ResolverEndpoint(
+            output.ResolverEndpoint,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1AssociateResolverRuleResponse = (
   output: any,
   context: __SerdeContext
 ): AssociateResolverRuleResponse => {
-  let contents: any = {
+  return {
     __type: "AssociateResolverRuleResponse",
-    ResolverRuleAssociation: undefined
-  };
-  if (
-    output.ResolverRuleAssociation !== undefined &&
-    output.ResolverRuleAssociation !== null
-  ) {
-    contents.ResolverRuleAssociation = deserializeAws_json1_1ResolverRuleAssociation(
-      output.ResolverRuleAssociation,
-      context
-    );
-  }
-  return contents;
+    ResolverRuleAssociation:
+      output.ResolverRuleAssociation !== undefined &&
+      output.ResolverRuleAssociation !== null
+        ? deserializeAws_json1_1ResolverRuleAssociation(
+            output.ResolverRuleAssociation,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateResolverEndpointResponse = (
   output: any,
   context: __SerdeContext
 ): CreateResolverEndpointResponse => {
-  let contents: any = {
+  return {
     __type: "CreateResolverEndpointResponse",
-    ResolverEndpoint: undefined
-  };
-  if (
-    output.ResolverEndpoint !== undefined &&
-    output.ResolverEndpoint !== null
-  ) {
-    contents.ResolverEndpoint = deserializeAws_json1_1ResolverEndpoint(
-      output.ResolverEndpoint,
-      context
-    );
-  }
-  return contents;
+    ResolverEndpoint:
+      output.ResolverEndpoint !== undefined && output.ResolverEndpoint !== null
+        ? deserializeAws_json1_1ResolverEndpoint(
+            output.ResolverEndpoint,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateResolverRuleResponse = (
   output: any,
   context: __SerdeContext
 ): CreateResolverRuleResponse => {
-  let contents: any = {
+  return {
     __type: "CreateResolverRuleResponse",
-    ResolverRule: undefined
-  };
-  if (output.ResolverRule !== undefined && output.ResolverRule !== null) {
-    contents.ResolverRule = deserializeAws_json1_1ResolverRule(
-      output.ResolverRule,
-      context
-    );
-  }
-  return contents;
+    ResolverRule:
+      output.ResolverRule !== undefined && output.ResolverRule !== null
+        ? deserializeAws_json1_1ResolverRule(output.ResolverRule, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteResolverEndpointResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteResolverEndpointResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteResolverEndpointResponse",
-    ResolverEndpoint: undefined
-  };
-  if (
-    output.ResolverEndpoint !== undefined &&
-    output.ResolverEndpoint !== null
-  ) {
-    contents.ResolverEndpoint = deserializeAws_json1_1ResolverEndpoint(
-      output.ResolverEndpoint,
-      context
-    );
-  }
-  return contents;
+    ResolverEndpoint:
+      output.ResolverEndpoint !== undefined && output.ResolverEndpoint !== null
+        ? deserializeAws_json1_1ResolverEndpoint(
+            output.ResolverEndpoint,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteResolverRuleResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteResolverRuleResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteResolverRuleResponse",
-    ResolverRule: undefined
-  };
-  if (output.ResolverRule !== undefined && output.ResolverRule !== null) {
-    contents.ResolverRule = deserializeAws_json1_1ResolverRule(
-      output.ResolverRule,
-      context
-    );
-  }
-  return contents;
+    ResolverRule:
+      output.ResolverRule !== undefined && output.ResolverRule !== null
+        ? deserializeAws_json1_1ResolverRule(output.ResolverRule, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DisassociateResolverEndpointIpAddressResponse = (
   output: any,
   context: __SerdeContext
 ): DisassociateResolverEndpointIpAddressResponse => {
-  let contents: any = {
+  return {
     __type: "DisassociateResolverEndpointIpAddressResponse",
-    ResolverEndpoint: undefined
-  };
-  if (
-    output.ResolverEndpoint !== undefined &&
-    output.ResolverEndpoint !== null
-  ) {
-    contents.ResolverEndpoint = deserializeAws_json1_1ResolverEndpoint(
-      output.ResolverEndpoint,
-      context
-    );
-  }
-  return contents;
+    ResolverEndpoint:
+      output.ResolverEndpoint !== undefined && output.ResolverEndpoint !== null
+        ? deserializeAws_json1_1ResolverEndpoint(
+            output.ResolverEndpoint,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DisassociateResolverRuleResponse = (
   output: any,
   context: __SerdeContext
 ): DisassociateResolverRuleResponse => {
-  let contents: any = {
+  return {
     __type: "DisassociateResolverRuleResponse",
-    ResolverRuleAssociation: undefined
-  };
-  if (
-    output.ResolverRuleAssociation !== undefined &&
-    output.ResolverRuleAssociation !== null
-  ) {
-    contents.ResolverRuleAssociation = deserializeAws_json1_1ResolverRuleAssociation(
-      output.ResolverRuleAssociation,
-      context
-    );
-  }
-  return contents;
+    ResolverRuleAssociation:
+      output.ResolverRuleAssociation !== undefined &&
+      output.ResolverRuleAssociation !== null
+        ? deserializeAws_json1_1ResolverRuleAssociation(
+            output.ResolverRuleAssociation,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetResolverEndpointResponse = (
   output: any,
   context: __SerdeContext
 ): GetResolverEndpointResponse => {
-  let contents: any = {
+  return {
     __type: "GetResolverEndpointResponse",
-    ResolverEndpoint: undefined
-  };
-  if (
-    output.ResolverEndpoint !== undefined &&
-    output.ResolverEndpoint !== null
-  ) {
-    contents.ResolverEndpoint = deserializeAws_json1_1ResolverEndpoint(
-      output.ResolverEndpoint,
-      context
-    );
-  }
-  return contents;
+    ResolverEndpoint:
+      output.ResolverEndpoint !== undefined && output.ResolverEndpoint !== null
+        ? deserializeAws_json1_1ResolverEndpoint(
+            output.ResolverEndpoint,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetResolverRuleAssociationResponse = (
   output: any,
   context: __SerdeContext
 ): GetResolverRuleAssociationResponse => {
-  let contents: any = {
+  return {
     __type: "GetResolverRuleAssociationResponse",
-    ResolverRuleAssociation: undefined
-  };
-  if (
-    output.ResolverRuleAssociation !== undefined &&
-    output.ResolverRuleAssociation !== null
-  ) {
-    contents.ResolverRuleAssociation = deserializeAws_json1_1ResolverRuleAssociation(
-      output.ResolverRuleAssociation,
-      context
-    );
-  }
-  return contents;
+    ResolverRuleAssociation:
+      output.ResolverRuleAssociation !== undefined &&
+      output.ResolverRuleAssociation !== null
+        ? deserializeAws_json1_1ResolverRuleAssociation(
+            output.ResolverRuleAssociation,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetResolverRulePolicyResponse = (
   output: any,
   context: __SerdeContext
 ): GetResolverRulePolicyResponse => {
-  let contents: any = {
+  return {
     __type: "GetResolverRulePolicyResponse",
-    ResolverRulePolicy: undefined
-  };
-  if (
-    output.ResolverRulePolicy !== undefined &&
-    output.ResolverRulePolicy !== null
-  ) {
-    contents.ResolverRulePolicy = output.ResolverRulePolicy;
-  }
-  return contents;
+    ResolverRulePolicy:
+      output.ResolverRulePolicy !== undefined &&
+      output.ResolverRulePolicy !== null
+        ? output.ResolverRulePolicy
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetResolverRuleResponse = (
   output: any,
   context: __SerdeContext
 ): GetResolverRuleResponse => {
-  let contents: any = {
+  return {
     __type: "GetResolverRuleResponse",
-    ResolverRule: undefined
-  };
-  if (output.ResolverRule !== undefined && output.ResolverRule !== null) {
-    contents.ResolverRule = deserializeAws_json1_1ResolverRule(
-      output.ResolverRule,
-      context
-    );
-  }
-  return contents;
+    ResolverRule:
+      output.ResolverRule !== undefined && output.ResolverRule !== null
+        ? deserializeAws_json1_1ResolverRule(output.ResolverRule, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InternalServiceErrorException = (
   output: any,
   context: __SerdeContext
 ): InternalServiceErrorException => {
-  let contents: any = {
+  return {
     __type: "InternalServiceErrorException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidNextTokenException = (
   output: any,
   context: __SerdeContext
 ): InvalidNextTokenException => {
-  let contents: any = {
+  return {
     __type: "InvalidNextTokenException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidParameterException = (
   output: any,
   context: __SerdeContext
 ): InvalidParameterException => {
-  let contents: any = {
+  return {
     __type: "InvalidParameterException",
-    FieldName: undefined,
-    Message: undefined
-  };
-  if (output.FieldName !== undefined && output.FieldName !== null) {
-    contents.FieldName = output.FieldName;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    FieldName:
+      output.FieldName !== undefined && output.FieldName !== null
+        ? output.FieldName
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidPolicyDocument = (
   output: any,
   context: __SerdeContext
 ): InvalidPolicyDocument => {
-  let contents: any = {
+  return {
     __type: "InvalidPolicyDocument",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidRequestException = (
   output: any,
   context: __SerdeContext
 ): InvalidRequestException => {
-  let contents: any = {
+  return {
     __type: "InvalidRequestException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidTagException = (
   output: any,
   context: __SerdeContext
 ): InvalidTagException => {
-  let contents: any = {
+  return {
     __type: "InvalidTagException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1IpAddressResponse = (
   output: any,
   context: __SerdeContext
 ): IpAddressResponse => {
-  let contents: any = {
+  return {
     __type: "IpAddressResponse",
-    CreationTime: undefined,
-    Ip: undefined,
-    IpId: undefined,
-    ModificationTime: undefined,
-    Status: undefined,
-    StatusMessage: undefined,
-    SubnetId: undefined
-  };
-  if (output.CreationTime !== undefined && output.CreationTime !== null) {
-    contents.CreationTime = output.CreationTime;
-  }
-  if (output.Ip !== undefined && output.Ip !== null) {
-    contents.Ip = output.Ip;
-  }
-  if (output.IpId !== undefined && output.IpId !== null) {
-    contents.IpId = output.IpId;
-  }
-  if (
-    output.ModificationTime !== undefined &&
-    output.ModificationTime !== null
-  ) {
-    contents.ModificationTime = output.ModificationTime;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.StatusMessage !== undefined && output.StatusMessage !== null) {
-    contents.StatusMessage = output.StatusMessage;
-  }
-  if (output.SubnetId !== undefined && output.SubnetId !== null) {
-    contents.SubnetId = output.SubnetId;
-  }
-  return contents;
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? output.CreationTime
+        : undefined,
+    Ip: output.Ip !== undefined && output.Ip !== null ? output.Ip : undefined,
+    IpId:
+      output.IpId !== undefined && output.IpId !== null
+        ? output.IpId
+        : undefined,
+    ModificationTime:
+      output.ModificationTime !== undefined && output.ModificationTime !== null
+        ? output.ModificationTime
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    StatusMessage:
+      output.StatusMessage !== undefined && output.StatusMessage !== null
+        ? output.StatusMessage
+        : undefined,
+    SubnetId:
+      output.SubnetId !== undefined && output.SubnetId !== null
+        ? output.SubnetId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1IpAddressesResponse = (
@@ -4041,226 +3984,194 @@ const deserializeAws_json1_1LimitExceededException = (
   output: any,
   context: __SerdeContext
 ): LimitExceededException => {
-  let contents: any = {
+  return {
     __type: "LimitExceededException",
-    Message: undefined,
-    ResourceType: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.ResourceType !== undefined && output.ResourceType !== null) {
-    contents.ResourceType = output.ResourceType;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    ResourceType:
+      output.ResourceType !== undefined && output.ResourceType !== null
+        ? output.ResourceType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListResolverEndpointIpAddressesResponse = (
   output: any,
   context: __SerdeContext
 ): ListResolverEndpointIpAddressesResponse => {
-  let contents: any = {
+  return {
     __type: "ListResolverEndpointIpAddressesResponse",
-    IpAddresses: undefined,
-    MaxResults: undefined,
-    NextToken: undefined
-  };
-  if (output.IpAddresses !== undefined && output.IpAddresses !== null) {
-    contents.IpAddresses = deserializeAws_json1_1IpAddressesResponse(
-      output.IpAddresses,
-      context
-    );
-  }
-  if (output.MaxResults !== undefined && output.MaxResults !== null) {
-    contents.MaxResults = output.MaxResults;
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  return contents;
+    IpAddresses:
+      output.IpAddresses !== undefined && output.IpAddresses !== null
+        ? deserializeAws_json1_1IpAddressesResponse(output.IpAddresses, context)
+        : undefined,
+    MaxResults:
+      output.MaxResults !== undefined && output.MaxResults !== null
+        ? output.MaxResults
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListResolverEndpointsResponse = (
   output: any,
   context: __SerdeContext
 ): ListResolverEndpointsResponse => {
-  let contents: any = {
+  return {
     __type: "ListResolverEndpointsResponse",
-    MaxResults: undefined,
-    NextToken: undefined,
-    ResolverEndpoints: undefined
-  };
-  if (output.MaxResults !== undefined && output.MaxResults !== null) {
-    contents.MaxResults = output.MaxResults;
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (
-    output.ResolverEndpoints !== undefined &&
-    output.ResolverEndpoints !== null
-  ) {
-    contents.ResolverEndpoints = deserializeAws_json1_1ResolverEndpoints(
-      output.ResolverEndpoints,
-      context
-    );
-  }
-  return contents;
+    MaxResults:
+      output.MaxResults !== undefined && output.MaxResults !== null
+        ? output.MaxResults
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    ResolverEndpoints:
+      output.ResolverEndpoints !== undefined &&
+      output.ResolverEndpoints !== null
+        ? deserializeAws_json1_1ResolverEndpoints(
+            output.ResolverEndpoints,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListResolverRuleAssociationsResponse = (
   output: any,
   context: __SerdeContext
 ): ListResolverRuleAssociationsResponse => {
-  let contents: any = {
+  return {
     __type: "ListResolverRuleAssociationsResponse",
-    MaxResults: undefined,
-    NextToken: undefined,
-    ResolverRuleAssociations: undefined
-  };
-  if (output.MaxResults !== undefined && output.MaxResults !== null) {
-    contents.MaxResults = output.MaxResults;
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (
-    output.ResolverRuleAssociations !== undefined &&
-    output.ResolverRuleAssociations !== null
-  ) {
-    contents.ResolverRuleAssociations = deserializeAws_json1_1ResolverRuleAssociations(
-      output.ResolverRuleAssociations,
-      context
-    );
-  }
-  return contents;
+    MaxResults:
+      output.MaxResults !== undefined && output.MaxResults !== null
+        ? output.MaxResults
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    ResolverRuleAssociations:
+      output.ResolverRuleAssociations !== undefined &&
+      output.ResolverRuleAssociations !== null
+        ? deserializeAws_json1_1ResolverRuleAssociations(
+            output.ResolverRuleAssociations,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListResolverRulesResponse = (
   output: any,
   context: __SerdeContext
 ): ListResolverRulesResponse => {
-  let contents: any = {
+  return {
     __type: "ListResolverRulesResponse",
-    MaxResults: undefined,
-    NextToken: undefined,
-    ResolverRules: undefined
-  };
-  if (output.MaxResults !== undefined && output.MaxResults !== null) {
-    contents.MaxResults = output.MaxResults;
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.ResolverRules !== undefined && output.ResolverRules !== null) {
-    contents.ResolverRules = deserializeAws_json1_1ResolverRules(
-      output.ResolverRules,
-      context
-    );
-  }
-  return contents;
+    MaxResults:
+      output.MaxResults !== undefined && output.MaxResults !== null
+        ? output.MaxResults
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    ResolverRules:
+      output.ResolverRules !== undefined && output.ResolverRules !== null
+        ? deserializeAws_json1_1ResolverRules(output.ResolverRules, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListTagsForResourceResponse = (
   output: any,
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
-  let contents: any = {
+  return {
     __type: "ListTagsForResourceResponse",
-    NextToken: undefined,
-    Tags: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.Tags !== undefined && output.Tags !== null) {
-    contents.Tags = deserializeAws_json1_1TagList(output.Tags, context);
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1TagList(output.Tags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PutResolverRulePolicyResponse = (
   output: any,
   context: __SerdeContext
 ): PutResolverRulePolicyResponse => {
-  let contents: any = {
+  return {
     __type: "PutResolverRulePolicyResponse",
-    ReturnValue: undefined
-  };
-  if (output.ReturnValue !== undefined && output.ReturnValue !== null) {
-    contents.ReturnValue = output.ReturnValue;
-  }
-  return contents;
+    ReturnValue:
+      output.ReturnValue !== undefined && output.ReturnValue !== null
+        ? output.ReturnValue
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResolverEndpoint = (
   output: any,
   context: __SerdeContext
 ): ResolverEndpoint => {
-  let contents: any = {
+  return {
     __type: "ResolverEndpoint",
-    Arn: undefined,
-    CreationTime: undefined,
-    CreatorRequestId: undefined,
-    Direction: undefined,
-    HostVPCId: undefined,
-    Id: undefined,
-    IpAddressCount: undefined,
-    ModificationTime: undefined,
-    Name: undefined,
-    SecurityGroupIds: undefined,
-    Status: undefined,
-    StatusMessage: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (output.CreationTime !== undefined && output.CreationTime !== null) {
-    contents.CreationTime = output.CreationTime;
-  }
-  if (
-    output.CreatorRequestId !== undefined &&
-    output.CreatorRequestId !== null
-  ) {
-    contents.CreatorRequestId = output.CreatorRequestId;
-  }
-  if (output.Direction !== undefined && output.Direction !== null) {
-    contents.Direction = output.Direction;
-  }
-  if (output.HostVPCId !== undefined && output.HostVPCId !== null) {
-    contents.HostVPCId = output.HostVPCId;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.IpAddressCount !== undefined && output.IpAddressCount !== null) {
-    contents.IpAddressCount = output.IpAddressCount;
-  }
-  if (
-    output.ModificationTime !== undefined &&
-    output.ModificationTime !== null
-  ) {
-    contents.ModificationTime = output.ModificationTime;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (
-    output.SecurityGroupIds !== undefined &&
-    output.SecurityGroupIds !== null
-  ) {
-    contents.SecurityGroupIds = deserializeAws_json1_1SecurityGroupIds(
-      output.SecurityGroupIds,
-      context
-    );
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.StatusMessage !== undefined && output.StatusMessage !== null) {
-    contents.StatusMessage = output.StatusMessage;
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? output.CreationTime
+        : undefined,
+    CreatorRequestId:
+      output.CreatorRequestId !== undefined && output.CreatorRequestId !== null
+        ? output.CreatorRequestId
+        : undefined,
+    Direction:
+      output.Direction !== undefined && output.Direction !== null
+        ? output.Direction
+        : undefined,
+    HostVPCId:
+      output.HostVPCId !== undefined && output.HostVPCId !== null
+        ? output.HostVPCId
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    IpAddressCount:
+      output.IpAddressCount !== undefined && output.IpAddressCount !== null
+        ? output.IpAddressCount
+        : undefined,
+    ModificationTime:
+      output.ModificationTime !== undefined && output.ModificationTime !== null
+        ? output.ModificationTime
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    SecurityGroupIds:
+      output.SecurityGroupIds !== undefined && output.SecurityGroupIds !== null
+        ? deserializeAws_json1_1SecurityGroupIds(
+            output.SecurityGroupIds,
+            context
+          )
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    StatusMessage:
+      output.StatusMessage !== undefined && output.StatusMessage !== null
+        ? output.StatusMessage
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResolverEndpoints = (
@@ -4276,101 +4187,83 @@ const deserializeAws_json1_1ResolverRule = (
   output: any,
   context: __SerdeContext
 ): ResolverRule => {
-  let contents: any = {
+  return {
     __type: "ResolverRule",
-    Arn: undefined,
-    CreatorRequestId: undefined,
-    DomainName: undefined,
-    Id: undefined,
-    Name: undefined,
-    OwnerId: undefined,
-    ResolverEndpointId: undefined,
-    RuleType: undefined,
-    ShareStatus: undefined,
-    Status: undefined,
-    StatusMessage: undefined,
-    TargetIps: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (
-    output.CreatorRequestId !== undefined &&
-    output.CreatorRequestId !== null
-  ) {
-    contents.CreatorRequestId = output.CreatorRequestId;
-  }
-  if (output.DomainName !== undefined && output.DomainName !== null) {
-    contents.DomainName = output.DomainName;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.OwnerId !== undefined && output.OwnerId !== null) {
-    contents.OwnerId = output.OwnerId;
-  }
-  if (
-    output.ResolverEndpointId !== undefined &&
-    output.ResolverEndpointId !== null
-  ) {
-    contents.ResolverEndpointId = output.ResolverEndpointId;
-  }
-  if (output.RuleType !== undefined && output.RuleType !== null) {
-    contents.RuleType = output.RuleType;
-  }
-  if (output.ShareStatus !== undefined && output.ShareStatus !== null) {
-    contents.ShareStatus = output.ShareStatus;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.StatusMessage !== undefined && output.StatusMessage !== null) {
-    contents.StatusMessage = output.StatusMessage;
-  }
-  if (output.TargetIps !== undefined && output.TargetIps !== null) {
-    contents.TargetIps = deserializeAws_json1_1TargetList(
-      output.TargetIps,
-      context
-    );
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    CreatorRequestId:
+      output.CreatorRequestId !== undefined && output.CreatorRequestId !== null
+        ? output.CreatorRequestId
+        : undefined,
+    DomainName:
+      output.DomainName !== undefined && output.DomainName !== null
+        ? output.DomainName
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    OwnerId:
+      output.OwnerId !== undefined && output.OwnerId !== null
+        ? output.OwnerId
+        : undefined,
+    ResolverEndpointId:
+      output.ResolverEndpointId !== undefined &&
+      output.ResolverEndpointId !== null
+        ? output.ResolverEndpointId
+        : undefined,
+    RuleType:
+      output.RuleType !== undefined && output.RuleType !== null
+        ? output.RuleType
+        : undefined,
+    ShareStatus:
+      output.ShareStatus !== undefined && output.ShareStatus !== null
+        ? output.ShareStatus
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    StatusMessage:
+      output.StatusMessage !== undefined && output.StatusMessage !== null
+        ? output.StatusMessage
+        : undefined,
+    TargetIps:
+      output.TargetIps !== undefined && output.TargetIps !== null
+        ? deserializeAws_json1_1TargetList(output.TargetIps, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResolverRuleAssociation = (
   output: any,
   context: __SerdeContext
 ): ResolverRuleAssociation => {
-  let contents: any = {
+  return {
     __type: "ResolverRuleAssociation",
-    Id: undefined,
-    Name: undefined,
-    ResolverRuleId: undefined,
-    Status: undefined,
-    StatusMessage: undefined,
-    VPCId: undefined
-  };
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.ResolverRuleId !== undefined && output.ResolverRuleId !== null) {
-    contents.ResolverRuleId = output.ResolverRuleId;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.StatusMessage !== undefined && output.StatusMessage !== null) {
-    contents.StatusMessage = output.StatusMessage;
-  }
-  if (output.VPCId !== undefined && output.VPCId !== null) {
-    contents.VPCId = output.VPCId;
-  }
-  return contents;
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    ResolverRuleId:
+      output.ResolverRuleId !== undefined && output.ResolverRuleId !== null
+        ? output.ResolverRuleId
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    StatusMessage:
+      output.StatusMessage !== undefined && output.StatusMessage !== null
+        ? output.StatusMessage
+        : undefined,
+    VPCId:
+      output.VPCId !== undefined && output.VPCId !== null
+        ? output.VPCId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResolverRuleAssociations = (
@@ -4395,72 +4288,68 @@ const deserializeAws_json1_1ResourceExistsException = (
   output: any,
   context: __SerdeContext
 ): ResourceExistsException => {
-  let contents: any = {
+  return {
     __type: "ResourceExistsException",
-    Message: undefined,
-    ResourceType: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.ResourceType !== undefined && output.ResourceType !== null) {
-    contents.ResourceType = output.ResourceType;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    ResourceType:
+      output.ResourceType !== undefined && output.ResourceType !== null
+        ? output.ResourceType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceInUseException = (
   output: any,
   context: __SerdeContext
 ): ResourceInUseException => {
-  let contents: any = {
+  return {
     __type: "ResourceInUseException",
-    Message: undefined,
-    ResourceType: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.ResourceType !== undefined && output.ResourceType !== null) {
-    contents.ResourceType = output.ResourceType;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    ResourceType:
+      output.ResourceType !== undefined && output.ResourceType !== null
+        ? output.ResourceType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ResourceNotFoundException => {
-  let contents: any = {
+  return {
     __type: "ResourceNotFoundException",
-    Message: undefined,
-    ResourceType: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.ResourceType !== undefined && output.ResourceType !== null) {
-    contents.ResourceType = output.ResourceType;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    ResourceType:
+      output.ResourceType !== undefined && output.ResourceType !== null
+        ? output.ResourceType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceUnavailableException = (
   output: any,
   context: __SerdeContext
 ): ResourceUnavailableException => {
-  let contents: any = {
+  return {
     __type: "ResourceUnavailableException",
-    Message: undefined,
-    ResourceType: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.ResourceType !== undefined && output.ResourceType !== null) {
-    contents.ResourceType = output.ResourceType;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    ResourceType:
+      output.ResourceType !== undefined && output.ResourceType !== null
+        ? output.ResourceType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SecurityGroupIds = (
@@ -4474,18 +4363,15 @@ const deserializeAws_json1_1Tag = (
   output: any,
   context: __SerdeContext
 ): Tag => {
-  let contents: any = {
+  return {
     __type: "Tag",
-    Key: undefined,
-    Value: undefined
-  };
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TagList = (
@@ -4501,28 +4387,23 @@ const deserializeAws_json1_1TagResourceResponse = (
   output: any,
   context: __SerdeContext
 ): TagResourceResponse => {
-  let contents: any = {
+  return {
     __type: "TagResourceResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1TargetAddress = (
   output: any,
   context: __SerdeContext
 ): TargetAddress => {
-  let contents: any = {
+  return {
     __type: "TargetAddress",
-    Ip: undefined,
-    Port: undefined
-  };
-  if (output.Ip !== undefined && output.Ip !== null) {
-    contents.Ip = output.Ip;
-  }
-  if (output.Port !== undefined && output.Port !== null) {
-    contents.Port = output.Port;
-  }
-  return contents;
+    Ip: output.Ip !== undefined && output.Ip !== null ? output.Ip : undefined,
+    Port:
+      output.Port !== undefined && output.Port !== null
+        ? output.Port
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TargetList = (
@@ -4538,75 +4419,64 @@ const deserializeAws_json1_1ThrottlingException = (
   output: any,
   context: __SerdeContext
 ): ThrottlingException => {
-  let contents: any = {
+  return {
     __type: "ThrottlingException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UnknownResourceException = (
   output: any,
   context: __SerdeContext
 ): UnknownResourceException => {
-  let contents: any = {
+  return {
     __type: "UnknownResourceException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (
   output: any,
   context: __SerdeContext
 ): UntagResourceResponse => {
-  let contents: any = {
+  return {
     __type: "UntagResourceResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateResolverEndpointResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateResolverEndpointResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateResolverEndpointResponse",
-    ResolverEndpoint: undefined
-  };
-  if (
-    output.ResolverEndpoint !== undefined &&
-    output.ResolverEndpoint !== null
-  ) {
-    contents.ResolverEndpoint = deserializeAws_json1_1ResolverEndpoint(
-      output.ResolverEndpoint,
-      context
-    );
-  }
-  return contents;
+    ResolverEndpoint:
+      output.ResolverEndpoint !== undefined && output.ResolverEndpoint !== null
+        ? deserializeAws_json1_1ResolverEndpoint(
+            output.ResolverEndpoint,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateResolverRuleResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateResolverRuleResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateResolverRuleResponse",
-    ResolverRule: undefined
-  };
-  if (output.ResolverRule !== undefined && output.ResolverRule !== null) {
-    contents.ResolverRule = deserializeAws_json1_1ResolverRule(
-      output.ResolverRule,
-      context
-    );
-  }
-  return contents;
+    ResolverRule:
+      output.ResolverRule !== undefined && output.ResolverRule !== null
+        ? deserializeAws_json1_1ResolverRule(output.ResolverRule, context)
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

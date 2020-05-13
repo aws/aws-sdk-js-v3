@@ -3852,75 +3852,64 @@ const deserializeAws_restJson1_1AntennaDownlinkConfig = (
   output: any,
   context: __SerdeContext
 ): AntennaDownlinkConfig => {
-  let contents: any = {
+  return {
     __type: "AntennaDownlinkConfig",
-    spectrumConfig: undefined
-  };
-  if (output.spectrumConfig !== undefined && output.spectrumConfig !== null) {
-    contents.spectrumConfig = deserializeAws_restJson1_1SpectrumConfig(
-      output.spectrumConfig,
-      context
-    );
-  }
-  return contents;
+    spectrumConfig:
+      output.spectrumConfig !== undefined && output.spectrumConfig !== null
+        ? deserializeAws_restJson1_1SpectrumConfig(
+            output.spectrumConfig,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1AntennaDownlinkDemodDecodeConfig = (
   output: any,
   context: __SerdeContext
 ): AntennaDownlinkDemodDecodeConfig => {
-  let contents: any = {
+  return {
     __type: "AntennaDownlinkDemodDecodeConfig",
-    decodeConfig: undefined,
-    demodulationConfig: undefined,
-    spectrumConfig: undefined
-  };
-  if (output.decodeConfig !== undefined && output.decodeConfig !== null) {
-    contents.decodeConfig = deserializeAws_restJson1_1DecodeConfig(
-      output.decodeConfig,
-      context
-    );
-  }
-  if (
-    output.demodulationConfig !== undefined &&
-    output.demodulationConfig !== null
-  ) {
-    contents.demodulationConfig = deserializeAws_restJson1_1DemodulationConfig(
-      output.demodulationConfig,
-      context
-    );
-  }
-  if (output.spectrumConfig !== undefined && output.spectrumConfig !== null) {
-    contents.spectrumConfig = deserializeAws_restJson1_1SpectrumConfig(
-      output.spectrumConfig,
-      context
-    );
-  }
-  return contents;
+    decodeConfig:
+      output.decodeConfig !== undefined && output.decodeConfig !== null
+        ? deserializeAws_restJson1_1DecodeConfig(output.decodeConfig, context)
+        : undefined,
+    demodulationConfig:
+      output.demodulationConfig !== undefined &&
+      output.demodulationConfig !== null
+        ? deserializeAws_restJson1_1DemodulationConfig(
+            output.demodulationConfig,
+            context
+          )
+        : undefined,
+    spectrumConfig:
+      output.spectrumConfig !== undefined && output.spectrumConfig !== null
+        ? deserializeAws_restJson1_1SpectrumConfig(
+            output.spectrumConfig,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1AntennaUplinkConfig = (
   output: any,
   context: __SerdeContext
 ): AntennaUplinkConfig => {
-  let contents: any = {
+  return {
     __type: "AntennaUplinkConfig",
-    spectrumConfig: undefined,
-    targetEirp: undefined
-  };
-  if (output.spectrumConfig !== undefined && output.spectrumConfig !== null) {
-    contents.spectrumConfig = deserializeAws_restJson1_1UplinkSpectrumConfig(
-      output.spectrumConfig,
-      context
-    );
-  }
-  if (output.targetEirp !== undefined && output.targetEirp !== null) {
-    contents.targetEirp = deserializeAws_restJson1_1Eirp(
-      output.targetEirp,
-      context
-    );
-  }
-  return contents;
+    spectrumConfig:
+      output.spectrumConfig !== undefined && output.spectrumConfig !== null
+        ? deserializeAws_restJson1_1UplinkSpectrumConfig(
+            output.spectrumConfig,
+            context
+          )
+        : undefined,
+    targetEirp:
+      output.targetEirp !== undefined && output.targetEirp !== null
+        ? deserializeAws_restJson1_1Eirp(output.targetEirp, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ConfigList = (
@@ -3936,26 +3925,25 @@ const deserializeAws_restJson1_1ConfigListItem = (
   output: any,
   context: __SerdeContext
 ): ConfigListItem => {
-  let contents: any = {
+  return {
     __type: "ConfigListItem",
-    configArn: undefined,
-    configId: undefined,
-    configType: undefined,
-    name: undefined
-  };
-  if (output.configArn !== undefined && output.configArn !== null) {
-    contents.configArn = output.configArn;
-  }
-  if (output.configId !== undefined && output.configId !== null) {
-    contents.configId = output.configId;
-  }
-  if (output.configType !== undefined && output.configType !== null) {
-    contents.configType = output.configType;
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  return contents;
+    configArn:
+      output.configArn !== undefined && output.configArn !== null
+        ? output.configArn
+        : undefined,
+    configId:
+      output.configId !== undefined && output.configId !== null
+        ? output.configId
+        : undefined,
+    configType:
+      output.configType !== undefined && output.configType !== null
+        ? output.configType
+        : undefined,
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ConfigTypeData = (
@@ -4033,74 +4021,58 @@ const deserializeAws_restJson1_1ContactData = (
   output: any,
   context: __SerdeContext
 ): ContactData => {
-  let contents: any = {
+  return {
     __type: "ContactData",
-    contactId: undefined,
-    contactStatus: undefined,
-    endTime: undefined,
-    errorMessage: undefined,
-    groundStation: undefined,
-    maximumElevation: undefined,
-    missionProfileArn: undefined,
-    postPassEndTime: undefined,
-    prePassStartTime: undefined,
-    satelliteArn: undefined,
-    startTime: undefined,
-    tags: undefined
-  };
-  if (output.contactId !== undefined && output.contactId !== null) {
-    contents.contactId = output.contactId;
-  }
-  if (output.contactStatus !== undefined && output.contactStatus !== null) {
-    contents.contactStatus = output.contactStatus;
-  }
-  if (output.endTime !== undefined && output.endTime !== null) {
-    contents.endTime = new Date(Math.round(output.endTime * 1000));
-  }
-  if (output.errorMessage !== undefined && output.errorMessage !== null) {
-    contents.errorMessage = output.errorMessage;
-  }
-  if (output.groundStation !== undefined && output.groundStation !== null) {
-    contents.groundStation = output.groundStation;
-  }
-  if (
-    output.maximumElevation !== undefined &&
-    output.maximumElevation !== null
-  ) {
-    contents.maximumElevation = deserializeAws_restJson1_1Elevation(
-      output.maximumElevation,
-      context
-    );
-  }
-  if (
-    output.missionProfileArn !== undefined &&
-    output.missionProfileArn !== null
-  ) {
-    contents.missionProfileArn = output.missionProfileArn;
-  }
-  if (output.postPassEndTime !== undefined && output.postPassEndTime !== null) {
-    contents.postPassEndTime = new Date(
-      Math.round(output.postPassEndTime * 1000)
-    );
-  }
-  if (
-    output.prePassStartTime !== undefined &&
-    output.prePassStartTime !== null
-  ) {
-    contents.prePassStartTime = new Date(
-      Math.round(output.prePassStartTime * 1000)
-    );
-  }
-  if (output.satelliteArn !== undefined && output.satelliteArn !== null) {
-    contents.satelliteArn = output.satelliteArn;
-  }
-  if (output.startTime !== undefined && output.startTime !== null) {
-    contents.startTime = new Date(Math.round(output.startTime * 1000));
-  }
-  if (output.tags !== undefined && output.tags !== null) {
-    contents.tags = deserializeAws_restJson1_1TagsMap(output.tags, context);
-  }
-  return contents;
+    contactId:
+      output.contactId !== undefined && output.contactId !== null
+        ? output.contactId
+        : undefined,
+    contactStatus:
+      output.contactStatus !== undefined && output.contactStatus !== null
+        ? output.contactStatus
+        : undefined,
+    endTime:
+      output.endTime !== undefined && output.endTime !== null
+        ? new Date(Math.round(output.endTime * 1000))
+        : undefined,
+    errorMessage:
+      output.errorMessage !== undefined && output.errorMessage !== null
+        ? output.errorMessage
+        : undefined,
+    groundStation:
+      output.groundStation !== undefined && output.groundStation !== null
+        ? output.groundStation
+        : undefined,
+    maximumElevation:
+      output.maximumElevation !== undefined && output.maximumElevation !== null
+        ? deserializeAws_restJson1_1Elevation(output.maximumElevation, context)
+        : undefined,
+    missionProfileArn:
+      output.missionProfileArn !== undefined &&
+      output.missionProfileArn !== null
+        ? output.missionProfileArn
+        : undefined,
+    postPassEndTime:
+      output.postPassEndTime !== undefined && output.postPassEndTime !== null
+        ? new Date(Math.round(output.postPassEndTime * 1000))
+        : undefined,
+    prePassStartTime:
+      output.prePassStartTime !== undefined && output.prePassStartTime !== null
+        ? new Date(Math.round(output.prePassStartTime * 1000))
+        : undefined,
+    satelliteArn:
+      output.satelliteArn !== undefined && output.satelliteArn !== null
+        ? output.satelliteArn
+        : undefined,
+    startTime:
+      output.startTime !== undefined && output.startTime !== null
+        ? new Date(Math.round(output.startTime * 1000))
+        : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1_1TagsMap(output.tags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ContactList = (
@@ -4132,42 +4104,35 @@ const deserializeAws_restJson1_1DataflowEndpoint = (
   output: any,
   context: __SerdeContext
 ): DataflowEndpoint => {
-  let contents: any = {
+  return {
     __type: "DataflowEndpoint",
-    address: undefined,
-    name: undefined,
-    status: undefined
-  };
-  if (output.address !== undefined && output.address !== null) {
-    contents.address = deserializeAws_restJson1_1SocketAddress(
-      output.address,
-      context
-    );
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  return contents;
+    address:
+      output.address !== undefined && output.address !== null
+        ? deserializeAws_restJson1_1SocketAddress(output.address, context)
+        : undefined,
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DataflowEndpointConfig = (
   output: any,
   context: __SerdeContext
 ): DataflowEndpointConfig => {
-  let contents: any = {
+  return {
     __type: "DataflowEndpointConfig",
-    dataflowEndpointName: undefined
-  };
-  if (
-    output.dataflowEndpointName !== undefined &&
-    output.dataflowEndpointName !== null
-  ) {
-    contents.dataflowEndpointName = output.dataflowEndpointName;
-  }
-  return contents;
+    dataflowEndpointName:
+      output.dataflowEndpointName !== undefined &&
+      output.dataflowEndpointName !== null
+        ? output.dataflowEndpointName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DataflowEndpointGroupList = (
@@ -4183,76 +4148,65 @@ const deserializeAws_restJson1_1DataflowEndpointListItem = (
   output: any,
   context: __SerdeContext
 ): DataflowEndpointListItem => {
-  let contents: any = {
+  return {
     __type: "DataflowEndpointListItem",
-    dataflowEndpointGroupArn: undefined,
-    dataflowEndpointGroupId: undefined
-  };
-  if (
-    output.dataflowEndpointGroupArn !== undefined &&
-    output.dataflowEndpointGroupArn !== null
-  ) {
-    contents.dataflowEndpointGroupArn = output.dataflowEndpointGroupArn;
-  }
-  if (
-    output.dataflowEndpointGroupId !== undefined &&
-    output.dataflowEndpointGroupId !== null
-  ) {
-    contents.dataflowEndpointGroupId = output.dataflowEndpointGroupId;
-  }
-  return contents;
+    dataflowEndpointGroupArn:
+      output.dataflowEndpointGroupArn !== undefined &&
+      output.dataflowEndpointGroupArn !== null
+        ? output.dataflowEndpointGroupArn
+        : undefined,
+    dataflowEndpointGroupId:
+      output.dataflowEndpointGroupId !== undefined &&
+      output.dataflowEndpointGroupId !== null
+        ? output.dataflowEndpointGroupId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DecodeConfig = (
   output: any,
   context: __SerdeContext
 ): DecodeConfig => {
-  let contents: any = {
+  return {
     __type: "DecodeConfig",
-    unvalidatedJSON: undefined
-  };
-  if (output.unvalidatedJSON !== undefined && output.unvalidatedJSON !== null) {
-    contents.unvalidatedJSON = output.unvalidatedJSON;
-  }
-  return contents;
+    unvalidatedJSON:
+      output.unvalidatedJSON !== undefined && output.unvalidatedJSON !== null
+        ? output.unvalidatedJSON
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DemodulationConfig = (
   output: any,
   context: __SerdeContext
 ): DemodulationConfig => {
-  let contents: any = {
+  return {
     __type: "DemodulationConfig",
-    unvalidatedJSON: undefined
-  };
-  if (output.unvalidatedJSON !== undefined && output.unvalidatedJSON !== null) {
-    contents.unvalidatedJSON = output.unvalidatedJSON;
-  }
-  return contents;
+    unvalidatedJSON:
+      output.unvalidatedJSON !== undefined && output.unvalidatedJSON !== null
+        ? output.unvalidatedJSON
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1EndpointDetails = (
   output: any,
   context: __SerdeContext
 ): EndpointDetails => {
-  let contents: any = {
+  return {
     __type: "EndpointDetails",
-    endpoint: undefined,
-    securityDetails: undefined
-  };
-  if (output.endpoint !== undefined && output.endpoint !== null) {
-    contents.endpoint = deserializeAws_restJson1_1DataflowEndpoint(
-      output.endpoint,
-      context
-    );
-  }
-  if (output.securityDetails !== undefined && output.securityDetails !== null) {
-    contents.securityDetails = deserializeAws_restJson1_1SecurityDetails(
-      output.securityDetails,
-      context
-    );
-  }
-  return contents;
+    endpoint:
+      output.endpoint !== undefined && output.endpoint !== null
+        ? deserializeAws_restJson1_1DataflowEndpoint(output.endpoint, context)
+        : undefined,
+    securityDetails:
+      output.securityDetails !== undefined && output.securityDetails !== null
+        ? deserializeAws_restJson1_1SecurityDetails(
+            output.securityDetails,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1EndpointDetailsList = (
@@ -4277,164 +4231,147 @@ const deserializeAws_restJson1_1MissionProfileListItem = (
   output: any,
   context: __SerdeContext
 ): MissionProfileListItem => {
-  let contents: any = {
+  return {
     __type: "MissionProfileListItem",
-    missionProfileArn: undefined,
-    missionProfileId: undefined,
-    name: undefined,
-    region: undefined
-  };
-  if (
-    output.missionProfileArn !== undefined &&
-    output.missionProfileArn !== null
-  ) {
-    contents.missionProfileArn = output.missionProfileArn;
-  }
-  if (
-    output.missionProfileId !== undefined &&
-    output.missionProfileId !== null
-  ) {
-    contents.missionProfileId = output.missionProfileId;
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (output.region !== undefined && output.region !== null) {
-    contents.region = output.region;
-  }
-  return contents;
+    missionProfileArn:
+      output.missionProfileArn !== undefined &&
+      output.missionProfileArn !== null
+        ? output.missionProfileArn
+        : undefined,
+    missionProfileId:
+      output.missionProfileId !== undefined && output.missionProfileId !== null
+        ? output.missionProfileId
+        : undefined,
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    region:
+      output.region !== undefined && output.region !== null
+        ? output.region
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1TrackingConfig = (
   output: any,
   context: __SerdeContext
 ): TrackingConfig => {
-  let contents: any = {
+  return {
     __type: "TrackingConfig",
-    autotrack: undefined
-  };
-  if (output.autotrack !== undefined && output.autotrack !== null) {
-    contents.autotrack = output.autotrack;
-  }
-  return contents;
+    autotrack:
+      output.autotrack !== undefined && output.autotrack !== null
+        ? output.autotrack
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1UplinkEchoConfig = (
   output: any,
   context: __SerdeContext
 ): UplinkEchoConfig => {
-  let contents: any = {
+  return {
     __type: "UplinkEchoConfig",
-    antennaUplinkConfigArn: undefined,
-    enabled: undefined
-  };
-  if (
-    output.antennaUplinkConfigArn !== undefined &&
-    output.antennaUplinkConfigArn !== null
-  ) {
-    contents.antennaUplinkConfigArn = output.antennaUplinkConfigArn;
-  }
-  if (output.enabled !== undefined && output.enabled !== null) {
-    contents.enabled = output.enabled;
-  }
-  return contents;
+    antennaUplinkConfigArn:
+      output.antennaUplinkConfigArn !== undefined &&
+      output.antennaUplinkConfigArn !== null
+        ? output.antennaUplinkConfigArn
+        : undefined,
+    enabled:
+      output.enabled !== undefined && output.enabled !== null
+        ? output.enabled
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Eirp = (
   output: any,
   context: __SerdeContext
 ): Eirp => {
-  let contents: any = {
+  return {
     __type: "Eirp",
-    units: undefined,
-    value: undefined
-  };
-  if (output.units !== undefined && output.units !== null) {
-    contents.units = output.units;
-  }
-  if (output.value !== undefined && output.value !== null) {
-    contents.value = output.value;
-  }
-  return contents;
+    units:
+      output.units !== undefined && output.units !== null
+        ? output.units
+        : undefined,
+    value:
+      output.value !== undefined && output.value !== null
+        ? output.value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Elevation = (
   output: any,
   context: __SerdeContext
 ): Elevation => {
-  let contents: any = {
+  return {
     __type: "Elevation",
-    unit: undefined,
-    value: undefined
-  };
-  if (output.unit !== undefined && output.unit !== null) {
-    contents.unit = output.unit;
-  }
-  if (output.value !== undefined && output.value !== null) {
-    contents.value = output.value;
-  }
-  return contents;
+    unit:
+      output.unit !== undefined && output.unit !== null
+        ? output.unit
+        : undefined,
+    value:
+      output.value !== undefined && output.value !== null
+        ? output.value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Frequency = (
   output: any,
   context: __SerdeContext
 ): Frequency => {
-  let contents: any = {
+  return {
     __type: "Frequency",
-    units: undefined,
-    value: undefined
-  };
-  if (output.units !== undefined && output.units !== null) {
-    contents.units = output.units;
-  }
-  if (output.value !== undefined && output.value !== null) {
-    contents.value = output.value;
-  }
-  return contents;
+    units:
+      output.units !== undefined && output.units !== null
+        ? output.units
+        : undefined,
+    value:
+      output.value !== undefined && output.value !== null
+        ? output.value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1FrequencyBandwidth = (
   output: any,
   context: __SerdeContext
 ): FrequencyBandwidth => {
-  let contents: any = {
+  return {
     __type: "FrequencyBandwidth",
-    units: undefined,
-    value: undefined
-  };
-  if (output.units !== undefined && output.units !== null) {
-    contents.units = output.units;
-  }
-  if (output.value !== undefined && output.value !== null) {
-    contents.value = output.value;
-  }
-  return contents;
+    units:
+      output.units !== undefined && output.units !== null
+        ? output.units
+        : undefined,
+    value:
+      output.value !== undefined && output.value !== null
+        ? output.value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1GroundStationData = (
   output: any,
   context: __SerdeContext
 ): GroundStationData => {
-  let contents: any = {
+  return {
     __type: "GroundStationData",
-    groundStationId: undefined,
-    groundStationName: undefined,
-    region: undefined
-  };
-  if (output.groundStationId !== undefined && output.groundStationId !== null) {
-    contents.groundStationId = output.groundStationId;
-  }
-  if (
-    output.groundStationName !== undefined &&
-    output.groundStationName !== null
-  ) {
-    contents.groundStationName = output.groundStationName;
-  }
-  if (output.region !== undefined && output.region !== null) {
-    contents.region = output.region;
-  }
-  return contents;
+    groundStationId:
+      output.groundStationId !== undefined && output.groundStationId !== null
+        ? output.groundStationId
+        : undefined,
+    groundStationName:
+      output.groundStationName !== undefined &&
+      output.groundStationName !== null
+        ? output.groundStationName
+        : undefined,
+    region:
+      output.region !== undefined && output.region !== null
+        ? output.region
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1GroundStationList = (
@@ -4459,56 +4396,45 @@ const deserializeAws_restJson1_1SatelliteListItem = (
   output: any,
   context: __SerdeContext
 ): SatelliteListItem => {
-  let contents: any = {
+  return {
     __type: "SatelliteListItem",
-    noradSatelliteID: undefined,
-    satelliteArn: undefined,
-    satelliteId: undefined
-  };
-  if (
-    output.noradSatelliteID !== undefined &&
-    output.noradSatelliteID !== null
-  ) {
-    contents.noradSatelliteID = output.noradSatelliteID;
-  }
-  if (output.satelliteArn !== undefined && output.satelliteArn !== null) {
-    contents.satelliteArn = output.satelliteArn;
-  }
-  if (output.satelliteId !== undefined && output.satelliteId !== null) {
-    contents.satelliteId = output.satelliteId;
-  }
-  return contents;
+    noradSatelliteID:
+      output.noradSatelliteID !== undefined && output.noradSatelliteID !== null
+        ? output.noradSatelliteID
+        : undefined,
+    satelliteArn:
+      output.satelliteArn !== undefined && output.satelliteArn !== null
+        ? output.satelliteArn
+        : undefined,
+    satelliteId:
+      output.satelliteId !== undefined && output.satelliteId !== null
+        ? output.satelliteId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SecurityDetails = (
   output: any,
   context: __SerdeContext
 ): SecurityDetails => {
-  let contents: any = {
+  return {
     __type: "SecurityDetails",
-    roleArn: undefined,
-    securityGroupIds: undefined,
-    subnetIds: undefined
-  };
-  if (output.roleArn !== undefined && output.roleArn !== null) {
-    contents.roleArn = output.roleArn;
-  }
-  if (
-    output.securityGroupIds !== undefined &&
-    output.securityGroupIds !== null
-  ) {
-    contents.securityGroupIds = deserializeAws_restJson1_1SecurityGroupIdList(
-      output.securityGroupIds,
-      context
-    );
-  }
-  if (output.subnetIds !== undefined && output.subnetIds !== null) {
-    contents.subnetIds = deserializeAws_restJson1_1SubnetList(
-      output.subnetIds,
-      context
-    );
-  }
-  return contents;
+    roleArn:
+      output.roleArn !== undefined && output.roleArn !== null
+        ? output.roleArn
+        : undefined,
+    securityGroupIds:
+      output.securityGroupIds !== undefined && output.securityGroupIds !== null
+        ? deserializeAws_restJson1_1SecurityGroupIdList(
+            output.securityGroupIds,
+            context
+          )
+        : undefined,
+    subnetIds:
+      output.subnetIds !== undefined && output.subnetIds !== null
+        ? deserializeAws_restJson1_1SubnetList(output.subnetIds, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SecurityGroupIdList = (
@@ -4522,46 +4448,41 @@ const deserializeAws_restJson1_1SocketAddress = (
   output: any,
   context: __SerdeContext
 ): SocketAddress => {
-  let contents: any = {
+  return {
     __type: "SocketAddress",
-    name: undefined,
-    port: undefined
-  };
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (output.port !== undefined && output.port !== null) {
-    contents.port = output.port;
-  }
-  return contents;
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    port:
+      output.port !== undefined && output.port !== null
+        ? output.port
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SpectrumConfig = (
   output: any,
   context: __SerdeContext
 ): SpectrumConfig => {
-  let contents: any = {
+  return {
     __type: "SpectrumConfig",
-    bandwidth: undefined,
-    centerFrequency: undefined,
-    polarization: undefined
-  };
-  if (output.bandwidth !== undefined && output.bandwidth !== null) {
-    contents.bandwidth = deserializeAws_restJson1_1FrequencyBandwidth(
-      output.bandwidth,
-      context
-    );
-  }
-  if (output.centerFrequency !== undefined && output.centerFrequency !== null) {
-    contents.centerFrequency = deserializeAws_restJson1_1Frequency(
-      output.centerFrequency,
-      context
-    );
-  }
-  if (output.polarization !== undefined && output.polarization !== null) {
-    contents.polarization = output.polarization;
-  }
-  return contents;
+    bandwidth:
+      output.bandwidth !== undefined && output.bandwidth !== null
+        ? deserializeAws_restJson1_1FrequencyBandwidth(
+            output.bandwidth,
+            context
+          )
+        : undefined,
+    centerFrequency:
+      output.centerFrequency !== undefined && output.centerFrequency !== null
+        ? deserializeAws_restJson1_1Frequency(output.centerFrequency, context)
+        : undefined,
+    polarization:
+      output.polarization !== undefined && output.polarization !== null
+        ? output.polarization
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SubnetList = (
@@ -4585,21 +4506,17 @@ const deserializeAws_restJson1_1UplinkSpectrumConfig = (
   output: any,
   context: __SerdeContext
 ): UplinkSpectrumConfig => {
-  let contents: any = {
+  return {
     __type: "UplinkSpectrumConfig",
-    centerFrequency: undefined,
-    polarization: undefined
-  };
-  if (output.centerFrequency !== undefined && output.centerFrequency !== null) {
-    contents.centerFrequency = deserializeAws_restJson1_1Frequency(
-      output.centerFrequency,
-      context
-    );
-  }
-  if (output.polarization !== undefined && output.polarization !== null) {
-    contents.polarization = output.polarization;
-  }
-  return contents;
+    centerFrequency:
+      output.centerFrequency !== undefined && output.centerFrequency !== null
+        ? deserializeAws_restJson1_1Frequency(output.centerFrequency, context)
+        : undefined,
+    polarization:
+      output.polarization !== undefined && output.polarization !== null
+        ? output.polarization
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

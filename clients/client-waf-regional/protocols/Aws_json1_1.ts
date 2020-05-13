@@ -12237,94 +12237,80 @@ const deserializeAws_json1_1AssociateWebACLResponse = (
   output: any,
   context: __SerdeContext
 ): AssociateWebACLResponse => {
-  let contents: any = {
+  return {
     __type: "AssociateWebACLResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DisassociateWebACLResponse = (
   output: any,
   context: __SerdeContext
 ): DisassociateWebACLResponse => {
-  let contents: any = {
+  return {
     __type: "DisassociateWebACLResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1GetWebACLForResourceResponse = (
   output: any,
   context: __SerdeContext
 ): GetWebACLForResourceResponse => {
-  let contents: any = {
+  return {
     __type: "GetWebACLForResourceResponse",
-    WebACLSummary: undefined
-  };
-  if (output.WebACLSummary !== undefined && output.WebACLSummary !== null) {
-    contents.WebACLSummary = deserializeAws_json1_1WebACLSummary(
-      output.WebACLSummary,
-      context
-    );
-  }
-  return contents;
+    WebACLSummary:
+      output.WebACLSummary !== undefined && output.WebACLSummary !== null
+        ? deserializeAws_json1_1WebACLSummary(output.WebACLSummary, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListResourcesForWebACLResponse = (
   output: any,
   context: __SerdeContext
 ): ListResourcesForWebACLResponse => {
-  let contents: any = {
+  return {
     __type: "ListResourcesForWebACLResponse",
-    ResourceArns: undefined
-  };
-  if (output.ResourceArns !== undefined && output.ResourceArns !== null) {
-    contents.ResourceArns = deserializeAws_json1_1ResourceArns(
-      output.ResourceArns,
-      context
-    );
-  }
-  return contents;
+    ResourceArns:
+      output.ResourceArns !== undefined && output.ResourceArns !== null
+        ? deserializeAws_json1_1ResourceArns(output.ResourceArns, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ActivatedRule = (
   output: any,
   context: __SerdeContext
 ): ActivatedRule => {
-  let contents: any = {
+  return {
     __type: "ActivatedRule",
-    Action: undefined,
-    ExcludedRules: undefined,
-    OverrideAction: undefined,
-    Priority: undefined,
-    RuleId: undefined,
-    Type: undefined
-  };
-  if (output.Action !== undefined && output.Action !== null) {
-    contents.Action = deserializeAws_json1_1WafAction(output.Action, context);
-  }
-  if (output.ExcludedRules !== undefined && output.ExcludedRules !== null) {
-    contents.ExcludedRules = deserializeAws_json1_1ExcludedRules(
-      output.ExcludedRules,
-      context
-    );
-  }
-  if (output.OverrideAction !== undefined && output.OverrideAction !== null) {
-    contents.OverrideAction = deserializeAws_json1_1WafOverrideAction(
-      output.OverrideAction,
-      context
-    );
-  }
-  if (output.Priority !== undefined && output.Priority !== null) {
-    contents.Priority = output.Priority;
-  }
-  if (output.RuleId !== undefined && output.RuleId !== null) {
-    contents.RuleId = output.RuleId;
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    Action:
+      output.Action !== undefined && output.Action !== null
+        ? deserializeAws_json1_1WafAction(output.Action, context)
+        : undefined,
+    ExcludedRules:
+      output.ExcludedRules !== undefined && output.ExcludedRules !== null
+        ? deserializeAws_json1_1ExcludedRules(output.ExcludedRules, context)
+        : undefined,
+    OverrideAction:
+      output.OverrideAction !== undefined && output.OverrideAction !== null
+        ? deserializeAws_json1_1WafOverrideAction(
+            output.OverrideAction,
+            context
+          )
+        : undefined,
+    Priority:
+      output.Priority !== undefined && output.Priority !== null
+        ? output.Priority
+        : undefined,
+    RuleId:
+      output.RuleId !== undefined && output.RuleId !== null
+        ? output.RuleId
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ActivatedRules = (
@@ -12340,25 +12326,21 @@ const deserializeAws_json1_1ByteMatchSet = (
   output: any,
   context: __SerdeContext
 ): ByteMatchSet => {
-  let contents: any = {
+  return {
     __type: "ByteMatchSet",
-    ByteMatchSetId: undefined,
-    ByteMatchTuples: undefined,
-    Name: undefined
-  };
-  if (output.ByteMatchSetId !== undefined && output.ByteMatchSetId !== null) {
-    contents.ByteMatchSetId = output.ByteMatchSetId;
-  }
-  if (output.ByteMatchTuples !== undefined && output.ByteMatchTuples !== null) {
-    contents.ByteMatchTuples = deserializeAws_json1_1ByteMatchTuples(
-      output.ByteMatchTuples,
-      context
-    );
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    ByteMatchSetId:
+      output.ByteMatchSetId !== undefined && output.ByteMatchSetId !== null
+        ? output.ByteMatchSetId
+        : undefined,
+    ByteMatchTuples:
+      output.ByteMatchTuples !== undefined && output.ByteMatchTuples !== null
+        ? deserializeAws_json1_1ByteMatchTuples(output.ByteMatchTuples, context)
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ByteMatchSetSummaries = (
@@ -12374,53 +12356,44 @@ const deserializeAws_json1_1ByteMatchSetSummary = (
   output: any,
   context: __SerdeContext
 ): ByteMatchSetSummary => {
-  let contents: any = {
+  return {
     __type: "ByteMatchSetSummary",
-    ByteMatchSetId: undefined,
-    Name: undefined
-  };
-  if (output.ByteMatchSetId !== undefined && output.ByteMatchSetId !== null) {
-    contents.ByteMatchSetId = output.ByteMatchSetId;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    ByteMatchSetId:
+      output.ByteMatchSetId !== undefined && output.ByteMatchSetId !== null
+        ? output.ByteMatchSetId
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ByteMatchTuple = (
   output: any,
   context: __SerdeContext
 ): ByteMatchTuple => {
-  let contents: any = {
+  return {
     __type: "ByteMatchTuple",
-    FieldToMatch: undefined,
-    PositionalConstraint: undefined,
-    TargetString: undefined,
-    TextTransformation: undefined
-  };
-  if (output.FieldToMatch !== undefined && output.FieldToMatch !== null) {
-    contents.FieldToMatch = deserializeAws_json1_1FieldToMatch(
-      output.FieldToMatch,
-      context
-    );
-  }
-  if (
-    output.PositionalConstraint !== undefined &&
-    output.PositionalConstraint !== null
-  ) {
-    contents.PositionalConstraint = output.PositionalConstraint;
-  }
-  if (output.TargetString !== undefined && output.TargetString !== null) {
-    contents.TargetString = context.base64Decoder(output.TargetString);
-  }
-  if (
-    output.TextTransformation !== undefined &&
-    output.TextTransformation !== null
-  ) {
-    contents.TextTransformation = output.TextTransformation;
-  }
-  return contents;
+    FieldToMatch:
+      output.FieldToMatch !== undefined && output.FieldToMatch !== null
+        ? deserializeAws_json1_1FieldToMatch(output.FieldToMatch, context)
+        : undefined,
+    PositionalConstraint:
+      output.PositionalConstraint !== undefined &&
+      output.PositionalConstraint !== null
+        ? output.PositionalConstraint
+        : undefined,
+    TargetString:
+      output.TargetString !== undefined && output.TargetString !== null
+        ? context.base64Decoder(output.TargetString)
+        : undefined,
+    TextTransformation:
+      output.TextTransformation !== undefined &&
+      output.TextTransformation !== null
+        ? output.TextTransformation
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ByteMatchTuples = (
@@ -12436,448 +12409,399 @@ const deserializeAws_json1_1CreateByteMatchSetResponse = (
   output: any,
   context: __SerdeContext
 ): CreateByteMatchSetResponse => {
-  let contents: any = {
+  return {
     __type: "CreateByteMatchSetResponse",
-    ByteMatchSet: undefined,
-    ChangeToken: undefined
-  };
-  if (output.ByteMatchSet !== undefined && output.ByteMatchSet !== null) {
-    contents.ByteMatchSet = deserializeAws_json1_1ByteMatchSet(
-      output.ByteMatchSet,
-      context
-    );
-  }
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  return contents;
+    ByteMatchSet:
+      output.ByteMatchSet !== undefined && output.ByteMatchSet !== null
+        ? deserializeAws_json1_1ByteMatchSet(output.ByteMatchSet, context)
+        : undefined,
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateGeoMatchSetResponse = (
   output: any,
   context: __SerdeContext
 ): CreateGeoMatchSetResponse => {
-  let contents: any = {
+  return {
     __type: "CreateGeoMatchSetResponse",
-    ChangeToken: undefined,
-    GeoMatchSet: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  if (output.GeoMatchSet !== undefined && output.GeoMatchSet !== null) {
-    contents.GeoMatchSet = deserializeAws_json1_1GeoMatchSet(
-      output.GeoMatchSet,
-      context
-    );
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined,
+    GeoMatchSet:
+      output.GeoMatchSet !== undefined && output.GeoMatchSet !== null
+        ? deserializeAws_json1_1GeoMatchSet(output.GeoMatchSet, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateIPSetResponse = (
   output: any,
   context: __SerdeContext
 ): CreateIPSetResponse => {
-  let contents: any = {
+  return {
     __type: "CreateIPSetResponse",
-    ChangeToken: undefined,
-    IPSet: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  if (output.IPSet !== undefined && output.IPSet !== null) {
-    contents.IPSet = deserializeAws_json1_1IPSet(output.IPSet, context);
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined,
+    IPSet:
+      output.IPSet !== undefined && output.IPSet !== null
+        ? deserializeAws_json1_1IPSet(output.IPSet, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateRateBasedRuleResponse = (
   output: any,
   context: __SerdeContext
 ): CreateRateBasedRuleResponse => {
-  let contents: any = {
+  return {
     __type: "CreateRateBasedRuleResponse",
-    ChangeToken: undefined,
-    Rule: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  if (output.Rule !== undefined && output.Rule !== null) {
-    contents.Rule = deserializeAws_json1_1RateBasedRule(output.Rule, context);
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined,
+    Rule:
+      output.Rule !== undefined && output.Rule !== null
+        ? deserializeAws_json1_1RateBasedRule(output.Rule, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateRegexMatchSetResponse = (
   output: any,
   context: __SerdeContext
 ): CreateRegexMatchSetResponse => {
-  let contents: any = {
+  return {
     __type: "CreateRegexMatchSetResponse",
-    ChangeToken: undefined,
-    RegexMatchSet: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  if (output.RegexMatchSet !== undefined && output.RegexMatchSet !== null) {
-    contents.RegexMatchSet = deserializeAws_json1_1RegexMatchSet(
-      output.RegexMatchSet,
-      context
-    );
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined,
+    RegexMatchSet:
+      output.RegexMatchSet !== undefined && output.RegexMatchSet !== null
+        ? deserializeAws_json1_1RegexMatchSet(output.RegexMatchSet, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateRegexPatternSetResponse = (
   output: any,
   context: __SerdeContext
 ): CreateRegexPatternSetResponse => {
-  let contents: any = {
+  return {
     __type: "CreateRegexPatternSetResponse",
-    ChangeToken: undefined,
-    RegexPatternSet: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  if (output.RegexPatternSet !== undefined && output.RegexPatternSet !== null) {
-    contents.RegexPatternSet = deserializeAws_json1_1RegexPatternSet(
-      output.RegexPatternSet,
-      context
-    );
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined,
+    RegexPatternSet:
+      output.RegexPatternSet !== undefined && output.RegexPatternSet !== null
+        ? deserializeAws_json1_1RegexPatternSet(output.RegexPatternSet, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateRuleGroupResponse = (
   output: any,
   context: __SerdeContext
 ): CreateRuleGroupResponse => {
-  let contents: any = {
+  return {
     __type: "CreateRuleGroupResponse",
-    ChangeToken: undefined,
-    RuleGroup: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  if (output.RuleGroup !== undefined && output.RuleGroup !== null) {
-    contents.RuleGroup = deserializeAws_json1_1RuleGroup(
-      output.RuleGroup,
-      context
-    );
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined,
+    RuleGroup:
+      output.RuleGroup !== undefined && output.RuleGroup !== null
+        ? deserializeAws_json1_1RuleGroup(output.RuleGroup, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateRuleResponse = (
   output: any,
   context: __SerdeContext
 ): CreateRuleResponse => {
-  let contents: any = {
+  return {
     __type: "CreateRuleResponse",
-    ChangeToken: undefined,
-    Rule: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  if (output.Rule !== undefined && output.Rule !== null) {
-    contents.Rule = deserializeAws_json1_1Rule(output.Rule, context);
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined,
+    Rule:
+      output.Rule !== undefined && output.Rule !== null
+        ? deserializeAws_json1_1Rule(output.Rule, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateSizeConstraintSetResponse = (
   output: any,
   context: __SerdeContext
 ): CreateSizeConstraintSetResponse => {
-  let contents: any = {
+  return {
     __type: "CreateSizeConstraintSetResponse",
-    ChangeToken: undefined,
-    SizeConstraintSet: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  if (
-    output.SizeConstraintSet !== undefined &&
-    output.SizeConstraintSet !== null
-  ) {
-    contents.SizeConstraintSet = deserializeAws_json1_1SizeConstraintSet(
-      output.SizeConstraintSet,
-      context
-    );
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined,
+    SizeConstraintSet:
+      output.SizeConstraintSet !== undefined &&
+      output.SizeConstraintSet !== null
+        ? deserializeAws_json1_1SizeConstraintSet(
+            output.SizeConstraintSet,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateSqlInjectionMatchSetResponse = (
   output: any,
   context: __SerdeContext
 ): CreateSqlInjectionMatchSetResponse => {
-  let contents: any = {
+  return {
     __type: "CreateSqlInjectionMatchSetResponse",
-    ChangeToken: undefined,
-    SqlInjectionMatchSet: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  if (
-    output.SqlInjectionMatchSet !== undefined &&
-    output.SqlInjectionMatchSet !== null
-  ) {
-    contents.SqlInjectionMatchSet = deserializeAws_json1_1SqlInjectionMatchSet(
-      output.SqlInjectionMatchSet,
-      context
-    );
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined,
+    SqlInjectionMatchSet:
+      output.SqlInjectionMatchSet !== undefined &&
+      output.SqlInjectionMatchSet !== null
+        ? deserializeAws_json1_1SqlInjectionMatchSet(
+            output.SqlInjectionMatchSet,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateWebACLResponse = (
   output: any,
   context: __SerdeContext
 ): CreateWebACLResponse => {
-  let contents: any = {
+  return {
     __type: "CreateWebACLResponse",
-    ChangeToken: undefined,
-    WebACL: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  if (output.WebACL !== undefined && output.WebACL !== null) {
-    contents.WebACL = deserializeAws_json1_1WebACL(output.WebACL, context);
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined,
+    WebACL:
+      output.WebACL !== undefined && output.WebACL !== null
+        ? deserializeAws_json1_1WebACL(output.WebACL, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateXssMatchSetResponse = (
   output: any,
   context: __SerdeContext
 ): CreateXssMatchSetResponse => {
-  let contents: any = {
+  return {
     __type: "CreateXssMatchSetResponse",
-    ChangeToken: undefined,
-    XssMatchSet: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  if (output.XssMatchSet !== undefined && output.XssMatchSet !== null) {
-    contents.XssMatchSet = deserializeAws_json1_1XssMatchSet(
-      output.XssMatchSet,
-      context
-    );
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined,
+    XssMatchSet:
+      output.XssMatchSet !== undefined && output.XssMatchSet !== null
+        ? deserializeAws_json1_1XssMatchSet(output.XssMatchSet, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteByteMatchSetResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteByteMatchSetResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteByteMatchSetResponse",
-    ChangeToken: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteGeoMatchSetResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteGeoMatchSetResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteGeoMatchSetResponse",
-    ChangeToken: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteIPSetResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteIPSetResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteIPSetResponse",
-    ChangeToken: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteLoggingConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteLoggingConfigurationResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteLoggingConfigurationResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DeletePermissionPolicyResponse = (
   output: any,
   context: __SerdeContext
 ): DeletePermissionPolicyResponse => {
-  let contents: any = {
+  return {
     __type: "DeletePermissionPolicyResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteRateBasedRuleResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteRateBasedRuleResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteRateBasedRuleResponse",
-    ChangeToken: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteRegexMatchSetResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteRegexMatchSetResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteRegexMatchSetResponse",
-    ChangeToken: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteRegexPatternSetResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteRegexPatternSetResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteRegexPatternSetResponse",
-    ChangeToken: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteRuleGroupResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteRuleGroupResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteRuleGroupResponse",
-    ChangeToken: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteRuleResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteRuleResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteRuleResponse",
-    ChangeToken: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteSizeConstraintSetResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteSizeConstraintSetResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteSizeConstraintSetResponse",
-    ChangeToken: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteSqlInjectionMatchSetResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteSqlInjectionMatchSetResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteSqlInjectionMatchSetResponse",
-    ChangeToken: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteWebACLResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteWebACLResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteWebACLResponse",
-    ChangeToken: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteXssMatchSetResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteXssMatchSetResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteXssMatchSetResponse",
-    ChangeToken: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ExcludedRule = (
   output: any,
   context: __SerdeContext
 ): ExcludedRule => {
-  let contents: any = {
+  return {
     __type: "ExcludedRule",
-    RuleId: undefined
-  };
-  if (output.RuleId !== undefined && output.RuleId !== null) {
-    contents.RuleId = output.RuleId;
-  }
-  return contents;
+    RuleId:
+      output.RuleId !== undefined && output.RuleId !== null
+        ? output.RuleId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ExcludedRules = (
@@ -12893,36 +12817,34 @@ const deserializeAws_json1_1FieldToMatch = (
   output: any,
   context: __SerdeContext
 ): FieldToMatch => {
-  let contents: any = {
+  return {
     __type: "FieldToMatch",
-    Data: undefined,
-    Type: undefined
-  };
-  if (output.Data !== undefined && output.Data !== null) {
-    contents.Data = output.Data;
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    Data:
+      output.Data !== undefined && output.Data !== null
+        ? output.Data
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GeoMatchConstraint = (
   output: any,
   context: __SerdeContext
 ): GeoMatchConstraint => {
-  let contents: any = {
+  return {
     __type: "GeoMatchConstraint",
-    Type: undefined,
-    Value: undefined
-  };
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GeoMatchConstraints = (
@@ -12938,28 +12860,25 @@ const deserializeAws_json1_1GeoMatchSet = (
   output: any,
   context: __SerdeContext
 ): GeoMatchSet => {
-  let contents: any = {
+  return {
     __type: "GeoMatchSet",
-    GeoMatchConstraints: undefined,
-    GeoMatchSetId: undefined,
-    Name: undefined
-  };
-  if (
-    output.GeoMatchConstraints !== undefined &&
-    output.GeoMatchConstraints !== null
-  ) {
-    contents.GeoMatchConstraints = deserializeAws_json1_1GeoMatchConstraints(
-      output.GeoMatchConstraints,
-      context
-    );
-  }
-  if (output.GeoMatchSetId !== undefined && output.GeoMatchSetId !== null) {
-    contents.GeoMatchSetId = output.GeoMatchSetId;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    GeoMatchConstraints:
+      output.GeoMatchConstraints !== undefined &&
+      output.GeoMatchConstraints !== null
+        ? deserializeAws_json1_1GeoMatchConstraints(
+            output.GeoMatchConstraints,
+            context
+          )
+        : undefined,
+    GeoMatchSetId:
+      output.GeoMatchSetId !== undefined && output.GeoMatchSetId !== null
+        ? output.GeoMatchSetId
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GeoMatchSetSummaries = (
@@ -12975,348 +12894,296 @@ const deserializeAws_json1_1GeoMatchSetSummary = (
   output: any,
   context: __SerdeContext
 ): GeoMatchSetSummary => {
-  let contents: any = {
+  return {
     __type: "GeoMatchSetSummary",
-    GeoMatchSetId: undefined,
-    Name: undefined
-  };
-  if (output.GeoMatchSetId !== undefined && output.GeoMatchSetId !== null) {
-    contents.GeoMatchSetId = output.GeoMatchSetId;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    GeoMatchSetId:
+      output.GeoMatchSetId !== undefined && output.GeoMatchSetId !== null
+        ? output.GeoMatchSetId
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetByteMatchSetResponse = (
   output: any,
   context: __SerdeContext
 ): GetByteMatchSetResponse => {
-  let contents: any = {
+  return {
     __type: "GetByteMatchSetResponse",
-    ByteMatchSet: undefined
-  };
-  if (output.ByteMatchSet !== undefined && output.ByteMatchSet !== null) {
-    contents.ByteMatchSet = deserializeAws_json1_1ByteMatchSet(
-      output.ByteMatchSet,
-      context
-    );
-  }
-  return contents;
+    ByteMatchSet:
+      output.ByteMatchSet !== undefined && output.ByteMatchSet !== null
+        ? deserializeAws_json1_1ByteMatchSet(output.ByteMatchSet, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetChangeTokenResponse = (
   output: any,
   context: __SerdeContext
 ): GetChangeTokenResponse => {
-  let contents: any = {
+  return {
     __type: "GetChangeTokenResponse",
-    ChangeToken: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetChangeTokenStatusResponse = (
   output: any,
   context: __SerdeContext
 ): GetChangeTokenStatusResponse => {
-  let contents: any = {
+  return {
     __type: "GetChangeTokenStatusResponse",
-    ChangeTokenStatus: undefined
-  };
-  if (
-    output.ChangeTokenStatus !== undefined &&
-    output.ChangeTokenStatus !== null
-  ) {
-    contents.ChangeTokenStatus = output.ChangeTokenStatus;
-  }
-  return contents;
+    ChangeTokenStatus:
+      output.ChangeTokenStatus !== undefined &&
+      output.ChangeTokenStatus !== null
+        ? output.ChangeTokenStatus
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetGeoMatchSetResponse = (
   output: any,
   context: __SerdeContext
 ): GetGeoMatchSetResponse => {
-  let contents: any = {
+  return {
     __type: "GetGeoMatchSetResponse",
-    GeoMatchSet: undefined
-  };
-  if (output.GeoMatchSet !== undefined && output.GeoMatchSet !== null) {
-    contents.GeoMatchSet = deserializeAws_json1_1GeoMatchSet(
-      output.GeoMatchSet,
-      context
-    );
-  }
-  return contents;
+    GeoMatchSet:
+      output.GeoMatchSet !== undefined && output.GeoMatchSet !== null
+        ? deserializeAws_json1_1GeoMatchSet(output.GeoMatchSet, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetIPSetResponse = (
   output: any,
   context: __SerdeContext
 ): GetIPSetResponse => {
-  let contents: any = {
+  return {
     __type: "GetIPSetResponse",
-    IPSet: undefined
-  };
-  if (output.IPSet !== undefined && output.IPSet !== null) {
-    contents.IPSet = deserializeAws_json1_1IPSet(output.IPSet, context);
-  }
-  return contents;
+    IPSet:
+      output.IPSet !== undefined && output.IPSet !== null
+        ? deserializeAws_json1_1IPSet(output.IPSet, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetLoggingConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): GetLoggingConfigurationResponse => {
-  let contents: any = {
+  return {
     __type: "GetLoggingConfigurationResponse",
-    LoggingConfiguration: undefined
-  };
-  if (
-    output.LoggingConfiguration !== undefined &&
-    output.LoggingConfiguration !== null
-  ) {
-    contents.LoggingConfiguration = deserializeAws_json1_1LoggingConfiguration(
-      output.LoggingConfiguration,
-      context
-    );
-  }
-  return contents;
+    LoggingConfiguration:
+      output.LoggingConfiguration !== undefined &&
+      output.LoggingConfiguration !== null
+        ? deserializeAws_json1_1LoggingConfiguration(
+            output.LoggingConfiguration,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetPermissionPolicyResponse = (
   output: any,
   context: __SerdeContext
 ): GetPermissionPolicyResponse => {
-  let contents: any = {
+  return {
     __type: "GetPermissionPolicyResponse",
-    Policy: undefined
-  };
-  if (output.Policy !== undefined && output.Policy !== null) {
-    contents.Policy = output.Policy;
-  }
-  return contents;
+    Policy:
+      output.Policy !== undefined && output.Policy !== null
+        ? output.Policy
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetRateBasedRuleManagedKeysResponse = (
   output: any,
   context: __SerdeContext
 ): GetRateBasedRuleManagedKeysResponse => {
-  let contents: any = {
+  return {
     __type: "GetRateBasedRuleManagedKeysResponse",
-    ManagedKeys: undefined,
-    NextMarker: undefined
-  };
-  if (output.ManagedKeys !== undefined && output.ManagedKeys !== null) {
-    contents.ManagedKeys = deserializeAws_json1_1ManagedKeys(
-      output.ManagedKeys,
-      context
-    );
-  }
-  if (output.NextMarker !== undefined && output.NextMarker !== null) {
-    contents.NextMarker = output.NextMarker;
-  }
-  return contents;
+    ManagedKeys:
+      output.ManagedKeys !== undefined && output.ManagedKeys !== null
+        ? deserializeAws_json1_1ManagedKeys(output.ManagedKeys, context)
+        : undefined,
+    NextMarker:
+      output.NextMarker !== undefined && output.NextMarker !== null
+        ? output.NextMarker
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetRateBasedRuleResponse = (
   output: any,
   context: __SerdeContext
 ): GetRateBasedRuleResponse => {
-  let contents: any = {
+  return {
     __type: "GetRateBasedRuleResponse",
-    Rule: undefined
-  };
-  if (output.Rule !== undefined && output.Rule !== null) {
-    contents.Rule = deserializeAws_json1_1RateBasedRule(output.Rule, context);
-  }
-  return contents;
+    Rule:
+      output.Rule !== undefined && output.Rule !== null
+        ? deserializeAws_json1_1RateBasedRule(output.Rule, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetRegexMatchSetResponse = (
   output: any,
   context: __SerdeContext
 ): GetRegexMatchSetResponse => {
-  let contents: any = {
+  return {
     __type: "GetRegexMatchSetResponse",
-    RegexMatchSet: undefined
-  };
-  if (output.RegexMatchSet !== undefined && output.RegexMatchSet !== null) {
-    contents.RegexMatchSet = deserializeAws_json1_1RegexMatchSet(
-      output.RegexMatchSet,
-      context
-    );
-  }
-  return contents;
+    RegexMatchSet:
+      output.RegexMatchSet !== undefined && output.RegexMatchSet !== null
+        ? deserializeAws_json1_1RegexMatchSet(output.RegexMatchSet, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetRegexPatternSetResponse = (
   output: any,
   context: __SerdeContext
 ): GetRegexPatternSetResponse => {
-  let contents: any = {
+  return {
     __type: "GetRegexPatternSetResponse",
-    RegexPatternSet: undefined
-  };
-  if (output.RegexPatternSet !== undefined && output.RegexPatternSet !== null) {
-    contents.RegexPatternSet = deserializeAws_json1_1RegexPatternSet(
-      output.RegexPatternSet,
-      context
-    );
-  }
-  return contents;
+    RegexPatternSet:
+      output.RegexPatternSet !== undefined && output.RegexPatternSet !== null
+        ? deserializeAws_json1_1RegexPatternSet(output.RegexPatternSet, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetRuleGroupResponse = (
   output: any,
   context: __SerdeContext
 ): GetRuleGroupResponse => {
-  let contents: any = {
+  return {
     __type: "GetRuleGroupResponse",
-    RuleGroup: undefined
-  };
-  if (output.RuleGroup !== undefined && output.RuleGroup !== null) {
-    contents.RuleGroup = deserializeAws_json1_1RuleGroup(
-      output.RuleGroup,
-      context
-    );
-  }
-  return contents;
+    RuleGroup:
+      output.RuleGroup !== undefined && output.RuleGroup !== null
+        ? deserializeAws_json1_1RuleGroup(output.RuleGroup, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetRuleResponse = (
   output: any,
   context: __SerdeContext
 ): GetRuleResponse => {
-  let contents: any = {
+  return {
     __type: "GetRuleResponse",
-    Rule: undefined
-  };
-  if (output.Rule !== undefined && output.Rule !== null) {
-    contents.Rule = deserializeAws_json1_1Rule(output.Rule, context);
-  }
-  return contents;
+    Rule:
+      output.Rule !== undefined && output.Rule !== null
+        ? deserializeAws_json1_1Rule(output.Rule, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetSampledRequestsResponse = (
   output: any,
   context: __SerdeContext
 ): GetSampledRequestsResponse => {
-  let contents: any = {
+  return {
     __type: "GetSampledRequestsResponse",
-    PopulationSize: undefined,
-    SampledRequests: undefined,
-    TimeWindow: undefined
-  };
-  if (output.PopulationSize !== undefined && output.PopulationSize !== null) {
-    contents.PopulationSize = output.PopulationSize;
-  }
-  if (output.SampledRequests !== undefined && output.SampledRequests !== null) {
-    contents.SampledRequests = deserializeAws_json1_1SampledHTTPRequests(
-      output.SampledRequests,
-      context
-    );
-  }
-  if (output.TimeWindow !== undefined && output.TimeWindow !== null) {
-    contents.TimeWindow = deserializeAws_json1_1TimeWindow(
-      output.TimeWindow,
-      context
-    );
-  }
-  return contents;
+    PopulationSize:
+      output.PopulationSize !== undefined && output.PopulationSize !== null
+        ? output.PopulationSize
+        : undefined,
+    SampledRequests:
+      output.SampledRequests !== undefined && output.SampledRequests !== null
+        ? deserializeAws_json1_1SampledHTTPRequests(
+            output.SampledRequests,
+            context
+          )
+        : undefined,
+    TimeWindow:
+      output.TimeWindow !== undefined && output.TimeWindow !== null
+        ? deserializeAws_json1_1TimeWindow(output.TimeWindow, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetSizeConstraintSetResponse = (
   output: any,
   context: __SerdeContext
 ): GetSizeConstraintSetResponse => {
-  let contents: any = {
+  return {
     __type: "GetSizeConstraintSetResponse",
-    SizeConstraintSet: undefined
-  };
-  if (
-    output.SizeConstraintSet !== undefined &&
-    output.SizeConstraintSet !== null
-  ) {
-    contents.SizeConstraintSet = deserializeAws_json1_1SizeConstraintSet(
-      output.SizeConstraintSet,
-      context
-    );
-  }
-  return contents;
+    SizeConstraintSet:
+      output.SizeConstraintSet !== undefined &&
+      output.SizeConstraintSet !== null
+        ? deserializeAws_json1_1SizeConstraintSet(
+            output.SizeConstraintSet,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetSqlInjectionMatchSetResponse = (
   output: any,
   context: __SerdeContext
 ): GetSqlInjectionMatchSetResponse => {
-  let contents: any = {
+  return {
     __type: "GetSqlInjectionMatchSetResponse",
-    SqlInjectionMatchSet: undefined
-  };
-  if (
-    output.SqlInjectionMatchSet !== undefined &&
-    output.SqlInjectionMatchSet !== null
-  ) {
-    contents.SqlInjectionMatchSet = deserializeAws_json1_1SqlInjectionMatchSet(
-      output.SqlInjectionMatchSet,
-      context
-    );
-  }
-  return contents;
+    SqlInjectionMatchSet:
+      output.SqlInjectionMatchSet !== undefined &&
+      output.SqlInjectionMatchSet !== null
+        ? deserializeAws_json1_1SqlInjectionMatchSet(
+            output.SqlInjectionMatchSet,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetWebACLResponse = (
   output: any,
   context: __SerdeContext
 ): GetWebACLResponse => {
-  let contents: any = {
+  return {
     __type: "GetWebACLResponse",
-    WebACL: undefined
-  };
-  if (output.WebACL !== undefined && output.WebACL !== null) {
-    contents.WebACL = deserializeAws_json1_1WebACL(output.WebACL, context);
-  }
-  return contents;
+    WebACL:
+      output.WebACL !== undefined && output.WebACL !== null
+        ? deserializeAws_json1_1WebACL(output.WebACL, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetXssMatchSetResponse = (
   output: any,
   context: __SerdeContext
 ): GetXssMatchSetResponse => {
-  let contents: any = {
+  return {
     __type: "GetXssMatchSetResponse",
-    XssMatchSet: undefined
-  };
-  if (output.XssMatchSet !== undefined && output.XssMatchSet !== null) {
-    contents.XssMatchSet = deserializeAws_json1_1XssMatchSet(
-      output.XssMatchSet,
-      context
-    );
-  }
-  return contents;
+    XssMatchSet:
+      output.XssMatchSet !== undefined && output.XssMatchSet !== null
+        ? deserializeAws_json1_1XssMatchSet(output.XssMatchSet, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1HTTPHeader = (
   output: any,
   context: __SerdeContext
 ): HTTPHeader => {
-  let contents: any = {
+  return {
     __type: "HTTPHeader",
-    Name: undefined,
-    Value: undefined
-  };
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1HTTPHeaders = (
@@ -13332,83 +13199,72 @@ const deserializeAws_json1_1HTTPRequest = (
   output: any,
   context: __SerdeContext
 ): HTTPRequest => {
-  let contents: any = {
+  return {
     __type: "HTTPRequest",
-    ClientIP: undefined,
-    Country: undefined,
-    HTTPVersion: undefined,
-    Headers: undefined,
-    Method: undefined,
-    URI: undefined
-  };
-  if (output.ClientIP !== undefined && output.ClientIP !== null) {
-    contents.ClientIP = output.ClientIP;
-  }
-  if (output.Country !== undefined && output.Country !== null) {
-    contents.Country = output.Country;
-  }
-  if (output.HTTPVersion !== undefined && output.HTTPVersion !== null) {
-    contents.HTTPVersion = output.HTTPVersion;
-  }
-  if (output.Headers !== undefined && output.Headers !== null) {
-    contents.Headers = deserializeAws_json1_1HTTPHeaders(
-      output.Headers,
-      context
-    );
-  }
-  if (output.Method !== undefined && output.Method !== null) {
-    contents.Method = output.Method;
-  }
-  if (output.URI !== undefined && output.URI !== null) {
-    contents.URI = output.URI;
-  }
-  return contents;
+    ClientIP:
+      output.ClientIP !== undefined && output.ClientIP !== null
+        ? output.ClientIP
+        : undefined,
+    Country:
+      output.Country !== undefined && output.Country !== null
+        ? output.Country
+        : undefined,
+    HTTPVersion:
+      output.HTTPVersion !== undefined && output.HTTPVersion !== null
+        ? output.HTTPVersion
+        : undefined,
+    Headers:
+      output.Headers !== undefined && output.Headers !== null
+        ? deserializeAws_json1_1HTTPHeaders(output.Headers, context)
+        : undefined,
+    Method:
+      output.Method !== undefined && output.Method !== null
+        ? output.Method
+        : undefined,
+    URI:
+      output.URI !== undefined && output.URI !== null ? output.URI : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1IPSet = (
   output: any,
   context: __SerdeContext
 ): IPSet => {
-  let contents: any = {
+  return {
     __type: "IPSet",
-    IPSetDescriptors: undefined,
-    IPSetId: undefined,
-    Name: undefined
-  };
-  if (
-    output.IPSetDescriptors !== undefined &&
-    output.IPSetDescriptors !== null
-  ) {
-    contents.IPSetDescriptors = deserializeAws_json1_1IPSetDescriptors(
-      output.IPSetDescriptors,
-      context
-    );
-  }
-  if (output.IPSetId !== undefined && output.IPSetId !== null) {
-    contents.IPSetId = output.IPSetId;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    IPSetDescriptors:
+      output.IPSetDescriptors !== undefined && output.IPSetDescriptors !== null
+        ? deserializeAws_json1_1IPSetDescriptors(
+            output.IPSetDescriptors,
+            context
+          )
+        : undefined,
+    IPSetId:
+      output.IPSetId !== undefined && output.IPSetId !== null
+        ? output.IPSetId
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1IPSetDescriptor = (
   output: any,
   context: __SerdeContext
 ): IPSetDescriptor => {
-  let contents: any = {
+  return {
     __type: "IPSetDescriptor",
-    Type: undefined,
-    Value: undefined
-  };
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1IPSetDescriptors = (
@@ -13433,363 +13289,323 @@ const deserializeAws_json1_1IPSetSummary = (
   output: any,
   context: __SerdeContext
 ): IPSetSummary => {
-  let contents: any = {
+  return {
     __type: "IPSetSummary",
-    IPSetId: undefined,
-    Name: undefined
-  };
-  if (output.IPSetId !== undefined && output.IPSetId !== null) {
-    contents.IPSetId = output.IPSetId;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    IPSetId:
+      output.IPSetId !== undefined && output.IPSetId !== null
+        ? output.IPSetId
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListActivatedRulesInRuleGroupResponse = (
   output: any,
   context: __SerdeContext
 ): ListActivatedRulesInRuleGroupResponse => {
-  let contents: any = {
+  return {
     __type: "ListActivatedRulesInRuleGroupResponse",
-    ActivatedRules: undefined,
-    NextMarker: undefined
-  };
-  if (output.ActivatedRules !== undefined && output.ActivatedRules !== null) {
-    contents.ActivatedRules = deserializeAws_json1_1ActivatedRules(
-      output.ActivatedRules,
-      context
-    );
-  }
-  if (output.NextMarker !== undefined && output.NextMarker !== null) {
-    contents.NextMarker = output.NextMarker;
-  }
-  return contents;
+    ActivatedRules:
+      output.ActivatedRules !== undefined && output.ActivatedRules !== null
+        ? deserializeAws_json1_1ActivatedRules(output.ActivatedRules, context)
+        : undefined,
+    NextMarker:
+      output.NextMarker !== undefined && output.NextMarker !== null
+        ? output.NextMarker
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListByteMatchSetsResponse = (
   output: any,
   context: __SerdeContext
 ): ListByteMatchSetsResponse => {
-  let contents: any = {
+  return {
     __type: "ListByteMatchSetsResponse",
-    ByteMatchSets: undefined,
-    NextMarker: undefined
-  };
-  if (output.ByteMatchSets !== undefined && output.ByteMatchSets !== null) {
-    contents.ByteMatchSets = deserializeAws_json1_1ByteMatchSetSummaries(
-      output.ByteMatchSets,
-      context
-    );
-  }
-  if (output.NextMarker !== undefined && output.NextMarker !== null) {
-    contents.NextMarker = output.NextMarker;
-  }
-  return contents;
+    ByteMatchSets:
+      output.ByteMatchSets !== undefined && output.ByteMatchSets !== null
+        ? deserializeAws_json1_1ByteMatchSetSummaries(
+            output.ByteMatchSets,
+            context
+          )
+        : undefined,
+    NextMarker:
+      output.NextMarker !== undefined && output.NextMarker !== null
+        ? output.NextMarker
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListGeoMatchSetsResponse = (
   output: any,
   context: __SerdeContext
 ): ListGeoMatchSetsResponse => {
-  let contents: any = {
+  return {
     __type: "ListGeoMatchSetsResponse",
-    GeoMatchSets: undefined,
-    NextMarker: undefined
-  };
-  if (output.GeoMatchSets !== undefined && output.GeoMatchSets !== null) {
-    contents.GeoMatchSets = deserializeAws_json1_1GeoMatchSetSummaries(
-      output.GeoMatchSets,
-      context
-    );
-  }
-  if (output.NextMarker !== undefined && output.NextMarker !== null) {
-    contents.NextMarker = output.NextMarker;
-  }
-  return contents;
+    GeoMatchSets:
+      output.GeoMatchSets !== undefined && output.GeoMatchSets !== null
+        ? deserializeAws_json1_1GeoMatchSetSummaries(
+            output.GeoMatchSets,
+            context
+          )
+        : undefined,
+    NextMarker:
+      output.NextMarker !== undefined && output.NextMarker !== null
+        ? output.NextMarker
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListIPSetsResponse = (
   output: any,
   context: __SerdeContext
 ): ListIPSetsResponse => {
-  let contents: any = {
+  return {
     __type: "ListIPSetsResponse",
-    IPSets: undefined,
-    NextMarker: undefined
-  };
-  if (output.IPSets !== undefined && output.IPSets !== null) {
-    contents.IPSets = deserializeAws_json1_1IPSetSummaries(
-      output.IPSets,
-      context
-    );
-  }
-  if (output.NextMarker !== undefined && output.NextMarker !== null) {
-    contents.NextMarker = output.NextMarker;
-  }
-  return contents;
+    IPSets:
+      output.IPSets !== undefined && output.IPSets !== null
+        ? deserializeAws_json1_1IPSetSummaries(output.IPSets, context)
+        : undefined,
+    NextMarker:
+      output.NextMarker !== undefined && output.NextMarker !== null
+        ? output.NextMarker
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListLoggingConfigurationsResponse = (
   output: any,
   context: __SerdeContext
 ): ListLoggingConfigurationsResponse => {
-  let contents: any = {
+  return {
     __type: "ListLoggingConfigurationsResponse",
-    LoggingConfigurations: undefined,
-    NextMarker: undefined
-  };
-  if (
-    output.LoggingConfigurations !== undefined &&
-    output.LoggingConfigurations !== null
-  ) {
-    contents.LoggingConfigurations = deserializeAws_json1_1LoggingConfigurations(
-      output.LoggingConfigurations,
-      context
-    );
-  }
-  if (output.NextMarker !== undefined && output.NextMarker !== null) {
-    contents.NextMarker = output.NextMarker;
-  }
-  return contents;
+    LoggingConfigurations:
+      output.LoggingConfigurations !== undefined &&
+      output.LoggingConfigurations !== null
+        ? deserializeAws_json1_1LoggingConfigurations(
+            output.LoggingConfigurations,
+            context
+          )
+        : undefined,
+    NextMarker:
+      output.NextMarker !== undefined && output.NextMarker !== null
+        ? output.NextMarker
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListRateBasedRulesResponse = (
   output: any,
   context: __SerdeContext
 ): ListRateBasedRulesResponse => {
-  let contents: any = {
+  return {
     __type: "ListRateBasedRulesResponse",
-    NextMarker: undefined,
-    Rules: undefined
-  };
-  if (output.NextMarker !== undefined && output.NextMarker !== null) {
-    contents.NextMarker = output.NextMarker;
-  }
-  if (output.Rules !== undefined && output.Rules !== null) {
-    contents.Rules = deserializeAws_json1_1RuleSummaries(output.Rules, context);
-  }
-  return contents;
+    NextMarker:
+      output.NextMarker !== undefined && output.NextMarker !== null
+        ? output.NextMarker
+        : undefined,
+    Rules:
+      output.Rules !== undefined && output.Rules !== null
+        ? deserializeAws_json1_1RuleSummaries(output.Rules, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListRegexMatchSetsResponse = (
   output: any,
   context: __SerdeContext
 ): ListRegexMatchSetsResponse => {
-  let contents: any = {
+  return {
     __type: "ListRegexMatchSetsResponse",
-    NextMarker: undefined,
-    RegexMatchSets: undefined
-  };
-  if (output.NextMarker !== undefined && output.NextMarker !== null) {
-    contents.NextMarker = output.NextMarker;
-  }
-  if (output.RegexMatchSets !== undefined && output.RegexMatchSets !== null) {
-    contents.RegexMatchSets = deserializeAws_json1_1RegexMatchSetSummaries(
-      output.RegexMatchSets,
-      context
-    );
-  }
-  return contents;
+    NextMarker:
+      output.NextMarker !== undefined && output.NextMarker !== null
+        ? output.NextMarker
+        : undefined,
+    RegexMatchSets:
+      output.RegexMatchSets !== undefined && output.RegexMatchSets !== null
+        ? deserializeAws_json1_1RegexMatchSetSummaries(
+            output.RegexMatchSets,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListRegexPatternSetsResponse = (
   output: any,
   context: __SerdeContext
 ): ListRegexPatternSetsResponse => {
-  let contents: any = {
+  return {
     __type: "ListRegexPatternSetsResponse",
-    NextMarker: undefined,
-    RegexPatternSets: undefined
-  };
-  if (output.NextMarker !== undefined && output.NextMarker !== null) {
-    contents.NextMarker = output.NextMarker;
-  }
-  if (
-    output.RegexPatternSets !== undefined &&
-    output.RegexPatternSets !== null
-  ) {
-    contents.RegexPatternSets = deserializeAws_json1_1RegexPatternSetSummaries(
-      output.RegexPatternSets,
-      context
-    );
-  }
-  return contents;
+    NextMarker:
+      output.NextMarker !== undefined && output.NextMarker !== null
+        ? output.NextMarker
+        : undefined,
+    RegexPatternSets:
+      output.RegexPatternSets !== undefined && output.RegexPatternSets !== null
+        ? deserializeAws_json1_1RegexPatternSetSummaries(
+            output.RegexPatternSets,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListRuleGroupsResponse = (
   output: any,
   context: __SerdeContext
 ): ListRuleGroupsResponse => {
-  let contents: any = {
+  return {
     __type: "ListRuleGroupsResponse",
-    NextMarker: undefined,
-    RuleGroups: undefined
-  };
-  if (output.NextMarker !== undefined && output.NextMarker !== null) {
-    contents.NextMarker = output.NextMarker;
-  }
-  if (output.RuleGroups !== undefined && output.RuleGroups !== null) {
-    contents.RuleGroups = deserializeAws_json1_1RuleGroupSummaries(
-      output.RuleGroups,
-      context
-    );
-  }
-  return contents;
+    NextMarker:
+      output.NextMarker !== undefined && output.NextMarker !== null
+        ? output.NextMarker
+        : undefined,
+    RuleGroups:
+      output.RuleGroups !== undefined && output.RuleGroups !== null
+        ? deserializeAws_json1_1RuleGroupSummaries(output.RuleGroups, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListRulesResponse = (
   output: any,
   context: __SerdeContext
 ): ListRulesResponse => {
-  let contents: any = {
+  return {
     __type: "ListRulesResponse",
-    NextMarker: undefined,
-    Rules: undefined
-  };
-  if (output.NextMarker !== undefined && output.NextMarker !== null) {
-    contents.NextMarker = output.NextMarker;
-  }
-  if (output.Rules !== undefined && output.Rules !== null) {
-    contents.Rules = deserializeAws_json1_1RuleSummaries(output.Rules, context);
-  }
-  return contents;
+    NextMarker:
+      output.NextMarker !== undefined && output.NextMarker !== null
+        ? output.NextMarker
+        : undefined,
+    Rules:
+      output.Rules !== undefined && output.Rules !== null
+        ? deserializeAws_json1_1RuleSummaries(output.Rules, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListSizeConstraintSetsResponse = (
   output: any,
   context: __SerdeContext
 ): ListSizeConstraintSetsResponse => {
-  let contents: any = {
+  return {
     __type: "ListSizeConstraintSetsResponse",
-    NextMarker: undefined,
-    SizeConstraintSets: undefined
-  };
-  if (output.NextMarker !== undefined && output.NextMarker !== null) {
-    contents.NextMarker = output.NextMarker;
-  }
-  if (
-    output.SizeConstraintSets !== undefined &&
-    output.SizeConstraintSets !== null
-  ) {
-    contents.SizeConstraintSets = deserializeAws_json1_1SizeConstraintSetSummaries(
-      output.SizeConstraintSets,
-      context
-    );
-  }
-  return contents;
+    NextMarker:
+      output.NextMarker !== undefined && output.NextMarker !== null
+        ? output.NextMarker
+        : undefined,
+    SizeConstraintSets:
+      output.SizeConstraintSets !== undefined &&
+      output.SizeConstraintSets !== null
+        ? deserializeAws_json1_1SizeConstraintSetSummaries(
+            output.SizeConstraintSets,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListSqlInjectionMatchSetsResponse = (
   output: any,
   context: __SerdeContext
 ): ListSqlInjectionMatchSetsResponse => {
-  let contents: any = {
+  return {
     __type: "ListSqlInjectionMatchSetsResponse",
-    NextMarker: undefined,
-    SqlInjectionMatchSets: undefined
-  };
-  if (output.NextMarker !== undefined && output.NextMarker !== null) {
-    contents.NextMarker = output.NextMarker;
-  }
-  if (
-    output.SqlInjectionMatchSets !== undefined &&
-    output.SqlInjectionMatchSets !== null
-  ) {
-    contents.SqlInjectionMatchSets = deserializeAws_json1_1SqlInjectionMatchSetSummaries(
-      output.SqlInjectionMatchSets,
-      context
-    );
-  }
-  return contents;
+    NextMarker:
+      output.NextMarker !== undefined && output.NextMarker !== null
+        ? output.NextMarker
+        : undefined,
+    SqlInjectionMatchSets:
+      output.SqlInjectionMatchSets !== undefined &&
+      output.SqlInjectionMatchSets !== null
+        ? deserializeAws_json1_1SqlInjectionMatchSetSummaries(
+            output.SqlInjectionMatchSets,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListSubscribedRuleGroupsResponse = (
   output: any,
   context: __SerdeContext
 ): ListSubscribedRuleGroupsResponse => {
-  let contents: any = {
+  return {
     __type: "ListSubscribedRuleGroupsResponse",
-    NextMarker: undefined,
-    RuleGroups: undefined
-  };
-  if (output.NextMarker !== undefined && output.NextMarker !== null) {
-    contents.NextMarker = output.NextMarker;
-  }
-  if (output.RuleGroups !== undefined && output.RuleGroups !== null) {
-    contents.RuleGroups = deserializeAws_json1_1SubscribedRuleGroupSummaries(
-      output.RuleGroups,
-      context
-    );
-  }
-  return contents;
+    NextMarker:
+      output.NextMarker !== undefined && output.NextMarker !== null
+        ? output.NextMarker
+        : undefined,
+    RuleGroups:
+      output.RuleGroups !== undefined && output.RuleGroups !== null
+        ? deserializeAws_json1_1SubscribedRuleGroupSummaries(
+            output.RuleGroups,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListTagsForResourceResponse = (
   output: any,
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
-  let contents: any = {
+  return {
     __type: "ListTagsForResourceResponse",
-    NextMarker: undefined,
-    TagInfoForResource: undefined
-  };
-  if (output.NextMarker !== undefined && output.NextMarker !== null) {
-    contents.NextMarker = output.NextMarker;
-  }
-  if (
-    output.TagInfoForResource !== undefined &&
-    output.TagInfoForResource !== null
-  ) {
-    contents.TagInfoForResource = deserializeAws_json1_1TagInfoForResource(
-      output.TagInfoForResource,
-      context
-    );
-  }
-  return contents;
+    NextMarker:
+      output.NextMarker !== undefined && output.NextMarker !== null
+        ? output.NextMarker
+        : undefined,
+    TagInfoForResource:
+      output.TagInfoForResource !== undefined &&
+      output.TagInfoForResource !== null
+        ? deserializeAws_json1_1TagInfoForResource(
+            output.TagInfoForResource,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListWebACLsResponse = (
   output: any,
   context: __SerdeContext
 ): ListWebACLsResponse => {
-  let contents: any = {
+  return {
     __type: "ListWebACLsResponse",
-    NextMarker: undefined,
-    WebACLs: undefined
-  };
-  if (output.NextMarker !== undefined && output.NextMarker !== null) {
-    contents.NextMarker = output.NextMarker;
-  }
-  if (output.WebACLs !== undefined && output.WebACLs !== null) {
-    contents.WebACLs = deserializeAws_json1_1WebACLSummaries(
-      output.WebACLs,
-      context
-    );
-  }
-  return contents;
+    NextMarker:
+      output.NextMarker !== undefined && output.NextMarker !== null
+        ? output.NextMarker
+        : undefined,
+    WebACLs:
+      output.WebACLs !== undefined && output.WebACLs !== null
+        ? deserializeAws_json1_1WebACLSummaries(output.WebACLs, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListXssMatchSetsResponse = (
   output: any,
   context: __SerdeContext
 ): ListXssMatchSetsResponse => {
-  let contents: any = {
+  return {
     __type: "ListXssMatchSetsResponse",
-    NextMarker: undefined,
-    XssMatchSets: undefined
-  };
-  if (output.NextMarker !== undefined && output.NextMarker !== null) {
-    contents.NextMarker = output.NextMarker;
-  }
-  if (output.XssMatchSets !== undefined && output.XssMatchSets !== null) {
-    contents.XssMatchSets = deserializeAws_json1_1XssMatchSetSummaries(
-      output.XssMatchSets,
-      context
-    );
-  }
-  return contents;
+    NextMarker:
+      output.NextMarker !== undefined && output.NextMarker !== null
+        ? output.NextMarker
+        : undefined,
+    XssMatchSets:
+      output.XssMatchSets !== undefined && output.XssMatchSets !== null
+        ? deserializeAws_json1_1XssMatchSetSummaries(
+            output.XssMatchSets,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LogDestinationConfigs = (
@@ -13803,31 +13619,25 @@ const deserializeAws_json1_1LoggingConfiguration = (
   output: any,
   context: __SerdeContext
 ): LoggingConfiguration => {
-  let contents: any = {
+  return {
     __type: "LoggingConfiguration",
-    LogDestinationConfigs: undefined,
-    RedactedFields: undefined,
-    ResourceArn: undefined
-  };
-  if (
-    output.LogDestinationConfigs !== undefined &&
-    output.LogDestinationConfigs !== null
-  ) {
-    contents.LogDestinationConfigs = deserializeAws_json1_1LogDestinationConfigs(
-      output.LogDestinationConfigs,
-      context
-    );
-  }
-  if (output.RedactedFields !== undefined && output.RedactedFields !== null) {
-    contents.RedactedFields = deserializeAws_json1_1RedactedFields(
-      output.RedactedFields,
-      context
-    );
-  }
-  if (output.ResourceArn !== undefined && output.ResourceArn !== null) {
-    contents.ResourceArn = output.ResourceArn;
-  }
-  return contents;
+    LogDestinationConfigs:
+      output.LogDestinationConfigs !== undefined &&
+      output.LogDestinationConfigs !== null
+        ? deserializeAws_json1_1LogDestinationConfigs(
+            output.LogDestinationConfigs,
+            context
+          )
+        : undefined,
+    RedactedFields:
+      output.RedactedFields !== undefined && output.RedactedFields !== null
+        ? deserializeAws_json1_1RedactedFields(output.RedactedFields, context)
+        : undefined,
+    ResourceArn:
+      output.ResourceArn !== undefined && output.ResourceArn !== null
+        ? output.ResourceArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LoggingConfigurations = (
@@ -13850,22 +13660,21 @@ const deserializeAws_json1_1Predicate = (
   output: any,
   context: __SerdeContext
 ): Predicate => {
-  let contents: any = {
+  return {
     __type: "Predicate",
-    DataId: undefined,
-    Negated: undefined,
-    Type: undefined
-  };
-  if (output.DataId !== undefined && output.DataId !== null) {
-    contents.DataId = output.DataId;
-  }
-  if (output.Negated !== undefined && output.Negated !== null) {
-    contents.Negated = output.Negated;
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    DataId:
+      output.DataId !== undefined && output.DataId !== null
+        ? output.DataId
+        : undefined,
+    Negated:
+      output.Negated !== undefined && output.Negated !== null
+        ? output.Negated
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Predicates = (
@@ -13881,67 +13690,59 @@ const deserializeAws_json1_1PutLoggingConfigurationResponse = (
   output: any,
   context: __SerdeContext
 ): PutLoggingConfigurationResponse => {
-  let contents: any = {
+  return {
     __type: "PutLoggingConfigurationResponse",
-    LoggingConfiguration: undefined
-  };
-  if (
-    output.LoggingConfiguration !== undefined &&
-    output.LoggingConfiguration !== null
-  ) {
-    contents.LoggingConfiguration = deserializeAws_json1_1LoggingConfiguration(
-      output.LoggingConfiguration,
-      context
-    );
-  }
-  return contents;
+    LoggingConfiguration:
+      output.LoggingConfiguration !== undefined &&
+      output.LoggingConfiguration !== null
+        ? deserializeAws_json1_1LoggingConfiguration(
+            output.LoggingConfiguration,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PutPermissionPolicyResponse = (
   output: any,
   context: __SerdeContext
 ): PutPermissionPolicyResponse => {
-  let contents: any = {
+  return {
     __type: "PutPermissionPolicyResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1RateBasedRule = (
   output: any,
   context: __SerdeContext
 ): RateBasedRule => {
-  let contents: any = {
+  return {
     __type: "RateBasedRule",
-    MatchPredicates: undefined,
-    MetricName: undefined,
-    Name: undefined,
-    RateKey: undefined,
-    RateLimit: undefined,
-    RuleId: undefined
-  };
-  if (output.MatchPredicates !== undefined && output.MatchPredicates !== null) {
-    contents.MatchPredicates = deserializeAws_json1_1Predicates(
-      output.MatchPredicates,
-      context
-    );
-  }
-  if (output.MetricName !== undefined && output.MetricName !== null) {
-    contents.MetricName = output.MetricName;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.RateKey !== undefined && output.RateKey !== null) {
-    contents.RateKey = output.RateKey;
-  }
-  if (output.RateLimit !== undefined && output.RateLimit !== null) {
-    contents.RateLimit = output.RateLimit;
-  }
-  if (output.RuleId !== undefined && output.RuleId !== null) {
-    contents.RuleId = output.RuleId;
-  }
-  return contents;
+    MatchPredicates:
+      output.MatchPredicates !== undefined && output.MatchPredicates !== null
+        ? deserializeAws_json1_1Predicates(output.MatchPredicates, context)
+        : undefined,
+    MetricName:
+      output.MetricName !== undefined && output.MetricName !== null
+        ? output.MetricName
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    RateKey:
+      output.RateKey !== undefined && output.RateKey !== null
+        ? output.RateKey
+        : undefined,
+    RateLimit:
+      output.RateLimit !== undefined && output.RateLimit !== null
+        ? output.RateLimit
+        : undefined,
+    RuleId:
+      output.RuleId !== undefined && output.RuleId !== null
+        ? output.RuleId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RedactedFields = (
@@ -13957,28 +13758,24 @@ const deserializeAws_json1_1RegexMatchSet = (
   output: any,
   context: __SerdeContext
 ): RegexMatchSet => {
-  let contents: any = {
+  return {
     __type: "RegexMatchSet",
-    Name: undefined,
-    RegexMatchSetId: undefined,
-    RegexMatchTuples: undefined
-  };
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.RegexMatchSetId !== undefined && output.RegexMatchSetId !== null) {
-    contents.RegexMatchSetId = output.RegexMatchSetId;
-  }
-  if (
-    output.RegexMatchTuples !== undefined &&
-    output.RegexMatchTuples !== null
-  ) {
-    contents.RegexMatchTuples = deserializeAws_json1_1RegexMatchTuples(
-      output.RegexMatchTuples,
-      context
-    );
-  }
-  return contents;
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    RegexMatchSetId:
+      output.RegexMatchSetId !== undefined && output.RegexMatchSetId !== null
+        ? output.RegexMatchSetId
+        : undefined,
+    RegexMatchTuples:
+      output.RegexMatchTuples !== undefined && output.RegexMatchTuples !== null
+        ? deserializeAws_json1_1RegexMatchTuples(
+            output.RegexMatchTuples,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RegexMatchSetSummaries = (
@@ -13994,49 +13791,40 @@ const deserializeAws_json1_1RegexMatchSetSummary = (
   output: any,
   context: __SerdeContext
 ): RegexMatchSetSummary => {
-  let contents: any = {
+  return {
     __type: "RegexMatchSetSummary",
-    Name: undefined,
-    RegexMatchSetId: undefined
-  };
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.RegexMatchSetId !== undefined && output.RegexMatchSetId !== null) {
-    contents.RegexMatchSetId = output.RegexMatchSetId;
-  }
-  return contents;
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    RegexMatchSetId:
+      output.RegexMatchSetId !== undefined && output.RegexMatchSetId !== null
+        ? output.RegexMatchSetId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RegexMatchTuple = (
   output: any,
   context: __SerdeContext
 ): RegexMatchTuple => {
-  let contents: any = {
+  return {
     __type: "RegexMatchTuple",
-    FieldToMatch: undefined,
-    RegexPatternSetId: undefined,
-    TextTransformation: undefined
-  };
-  if (output.FieldToMatch !== undefined && output.FieldToMatch !== null) {
-    contents.FieldToMatch = deserializeAws_json1_1FieldToMatch(
-      output.FieldToMatch,
-      context
-    );
-  }
-  if (
-    output.RegexPatternSetId !== undefined &&
-    output.RegexPatternSetId !== null
-  ) {
-    contents.RegexPatternSetId = output.RegexPatternSetId;
-  }
-  if (
-    output.TextTransformation !== undefined &&
-    output.TextTransformation !== null
-  ) {
-    contents.TextTransformation = output.TextTransformation;
-  }
-  return contents;
+    FieldToMatch:
+      output.FieldToMatch !== undefined && output.FieldToMatch !== null
+        ? deserializeAws_json1_1FieldToMatch(output.FieldToMatch, context)
+        : undefined,
+    RegexPatternSetId:
+      output.RegexPatternSetId !== undefined &&
+      output.RegexPatternSetId !== null
+        ? output.RegexPatternSetId
+        : undefined,
+    TextTransformation:
+      output.TextTransformation !== undefined &&
+      output.TextTransformation !== null
+        ? output.TextTransformation
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RegexMatchTuples = (
@@ -14052,31 +13840,26 @@ const deserializeAws_json1_1RegexPatternSet = (
   output: any,
   context: __SerdeContext
 ): RegexPatternSet => {
-  let contents: any = {
+  return {
     __type: "RegexPatternSet",
-    Name: undefined,
-    RegexPatternSetId: undefined,
-    RegexPatternStrings: undefined
-  };
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (
-    output.RegexPatternSetId !== undefined &&
-    output.RegexPatternSetId !== null
-  ) {
-    contents.RegexPatternSetId = output.RegexPatternSetId;
-  }
-  if (
-    output.RegexPatternStrings !== undefined &&
-    output.RegexPatternStrings !== null
-  ) {
-    contents.RegexPatternStrings = deserializeAws_json1_1RegexPatternStrings(
-      output.RegexPatternStrings,
-      context
-    );
-  }
-  return contents;
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    RegexPatternSetId:
+      output.RegexPatternSetId !== undefined &&
+      output.RegexPatternSetId !== null
+        ? output.RegexPatternSetId
+        : undefined,
+    RegexPatternStrings:
+      output.RegexPatternStrings !== undefined &&
+      output.RegexPatternStrings !== null
+        ? deserializeAws_json1_1RegexPatternStrings(
+            output.RegexPatternStrings,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RegexPatternSetSummaries = (
@@ -14092,21 +13875,18 @@ const deserializeAws_json1_1RegexPatternSetSummary = (
   output: any,
   context: __SerdeContext
 ): RegexPatternSetSummary => {
-  let contents: any = {
+  return {
     __type: "RegexPatternSetSummary",
-    Name: undefined,
-    RegexPatternSetId: undefined
-  };
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (
-    output.RegexPatternSetId !== undefined &&
-    output.RegexPatternSetId !== null
-  ) {
-    contents.RegexPatternSetId = output.RegexPatternSetId;
-  }
-  return contents;
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    RegexPatternSetId:
+      output.RegexPatternSetId !== undefined &&
+      output.RegexPatternSetId !== null
+        ? output.RegexPatternSetId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RegexPatternStrings = (
@@ -14127,51 +13907,46 @@ const deserializeAws_json1_1Rule = (
   output: any,
   context: __SerdeContext
 ): Rule => {
-  let contents: any = {
+  return {
     __type: "Rule",
-    MetricName: undefined,
-    Name: undefined,
-    Predicates: undefined,
-    RuleId: undefined
-  };
-  if (output.MetricName !== undefined && output.MetricName !== null) {
-    contents.MetricName = output.MetricName;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Predicates !== undefined && output.Predicates !== null) {
-    contents.Predicates = deserializeAws_json1_1Predicates(
-      output.Predicates,
-      context
-    );
-  }
-  if (output.RuleId !== undefined && output.RuleId !== null) {
-    contents.RuleId = output.RuleId;
-  }
-  return contents;
+    MetricName:
+      output.MetricName !== undefined && output.MetricName !== null
+        ? output.MetricName
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Predicates:
+      output.Predicates !== undefined && output.Predicates !== null
+        ? deserializeAws_json1_1Predicates(output.Predicates, context)
+        : undefined,
+    RuleId:
+      output.RuleId !== undefined && output.RuleId !== null
+        ? output.RuleId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RuleGroup = (
   output: any,
   context: __SerdeContext
 ): RuleGroup => {
-  let contents: any = {
+  return {
     __type: "RuleGroup",
-    MetricName: undefined,
-    Name: undefined,
-    RuleGroupId: undefined
-  };
-  if (output.MetricName !== undefined && output.MetricName !== null) {
-    contents.MetricName = output.MetricName;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.RuleGroupId !== undefined && output.RuleGroupId !== null) {
-    contents.RuleGroupId = output.RuleGroupId;
-  }
-  return contents;
+    MetricName:
+      output.MetricName !== undefined && output.MetricName !== null
+        ? output.MetricName
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    RuleGroupId:
+      output.RuleGroupId !== undefined && output.RuleGroupId !== null
+        ? output.RuleGroupId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RuleGroupSummaries = (
@@ -14187,18 +13962,17 @@ const deserializeAws_json1_1RuleGroupSummary = (
   output: any,
   context: __SerdeContext
 ): RuleGroupSummary => {
-  let contents: any = {
+  return {
     __type: "RuleGroupSummary",
-    Name: undefined,
-    RuleGroupId: undefined
-  };
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.RuleGroupId !== undefined && output.RuleGroupId !== null) {
-    contents.RuleGroupId = output.RuleGroupId;
-  }
-  return contents;
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    RuleGroupId:
+      output.RuleGroupId !== undefined && output.RuleGroupId !== null
+        ? output.RuleGroupId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RuleSummaries = (
@@ -14214,54 +13988,47 @@ const deserializeAws_json1_1RuleSummary = (
   output: any,
   context: __SerdeContext
 ): RuleSummary => {
-  let contents: any = {
+  return {
     __type: "RuleSummary",
-    Name: undefined,
-    RuleId: undefined
-  };
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.RuleId !== undefined && output.RuleId !== null) {
-    contents.RuleId = output.RuleId;
-  }
-  return contents;
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    RuleId:
+      output.RuleId !== undefined && output.RuleId !== null
+        ? output.RuleId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SampledHTTPRequest = (
   output: any,
   context: __SerdeContext
 ): SampledHTTPRequest => {
-  let contents: any = {
+  return {
     __type: "SampledHTTPRequest",
-    Action: undefined,
-    Request: undefined,
-    RuleWithinRuleGroup: undefined,
-    Timestamp: undefined,
-    Weight: undefined
-  };
-  if (output.Action !== undefined && output.Action !== null) {
-    contents.Action = output.Action;
-  }
-  if (output.Request !== undefined && output.Request !== null) {
-    contents.Request = deserializeAws_json1_1HTTPRequest(
-      output.Request,
-      context
-    );
-  }
-  if (
-    output.RuleWithinRuleGroup !== undefined &&
-    output.RuleWithinRuleGroup !== null
-  ) {
-    contents.RuleWithinRuleGroup = output.RuleWithinRuleGroup;
-  }
-  if (output.Timestamp !== undefined && output.Timestamp !== null) {
-    contents.Timestamp = new Date(Math.round(output.Timestamp * 1000));
-  }
-  if (output.Weight !== undefined && output.Weight !== null) {
-    contents.Weight = output.Weight;
-  }
-  return contents;
+    Action:
+      output.Action !== undefined && output.Action !== null
+        ? output.Action
+        : undefined,
+    Request:
+      output.Request !== undefined && output.Request !== null
+        ? deserializeAws_json1_1HTTPRequest(output.Request, context)
+        : undefined,
+    RuleWithinRuleGroup:
+      output.RuleWithinRuleGroup !== undefined &&
+      output.RuleWithinRuleGroup !== null
+        ? output.RuleWithinRuleGroup
+        : undefined,
+    Timestamp:
+      output.Timestamp !== undefined && output.Timestamp !== null
+        ? new Date(Math.round(output.Timestamp * 1000))
+        : undefined,
+    Weight:
+      output.Weight !== undefined && output.Weight !== null
+        ? output.Weight
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SampledHTTPRequests = (
@@ -14277,63 +14044,49 @@ const deserializeAws_json1_1SizeConstraint = (
   output: any,
   context: __SerdeContext
 ): SizeConstraint => {
-  let contents: any = {
+  return {
     __type: "SizeConstraint",
-    ComparisonOperator: undefined,
-    FieldToMatch: undefined,
-    Size: undefined,
-    TextTransformation: undefined
-  };
-  if (
-    output.ComparisonOperator !== undefined &&
-    output.ComparisonOperator !== null
-  ) {
-    contents.ComparisonOperator = output.ComparisonOperator;
-  }
-  if (output.FieldToMatch !== undefined && output.FieldToMatch !== null) {
-    contents.FieldToMatch = deserializeAws_json1_1FieldToMatch(
-      output.FieldToMatch,
-      context
-    );
-  }
-  if (output.Size !== undefined && output.Size !== null) {
-    contents.Size = output.Size;
-  }
-  if (
-    output.TextTransformation !== undefined &&
-    output.TextTransformation !== null
-  ) {
-    contents.TextTransformation = output.TextTransformation;
-  }
-  return contents;
+    ComparisonOperator:
+      output.ComparisonOperator !== undefined &&
+      output.ComparisonOperator !== null
+        ? output.ComparisonOperator
+        : undefined,
+    FieldToMatch:
+      output.FieldToMatch !== undefined && output.FieldToMatch !== null
+        ? deserializeAws_json1_1FieldToMatch(output.FieldToMatch, context)
+        : undefined,
+    Size:
+      output.Size !== undefined && output.Size !== null
+        ? output.Size
+        : undefined,
+    TextTransformation:
+      output.TextTransformation !== undefined &&
+      output.TextTransformation !== null
+        ? output.TextTransformation
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SizeConstraintSet = (
   output: any,
   context: __SerdeContext
 ): SizeConstraintSet => {
-  let contents: any = {
+  return {
     __type: "SizeConstraintSet",
-    Name: undefined,
-    SizeConstraintSetId: undefined,
-    SizeConstraints: undefined
-  };
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (
-    output.SizeConstraintSetId !== undefined &&
-    output.SizeConstraintSetId !== null
-  ) {
-    contents.SizeConstraintSetId = output.SizeConstraintSetId;
-  }
-  if (output.SizeConstraints !== undefined && output.SizeConstraints !== null) {
-    contents.SizeConstraints = deserializeAws_json1_1SizeConstraints(
-      output.SizeConstraints,
-      context
-    );
-  }
-  return contents;
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    SizeConstraintSetId:
+      output.SizeConstraintSetId !== undefined &&
+      output.SizeConstraintSetId !== null
+        ? output.SizeConstraintSetId
+        : undefined,
+    SizeConstraints:
+      output.SizeConstraints !== undefined && output.SizeConstraints !== null
+        ? deserializeAws_json1_1SizeConstraints(output.SizeConstraints, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SizeConstraintSetSummaries = (
@@ -14349,21 +14102,18 @@ const deserializeAws_json1_1SizeConstraintSetSummary = (
   output: any,
   context: __SerdeContext
 ): SizeConstraintSetSummary => {
-  let contents: any = {
+  return {
     __type: "SizeConstraintSetSummary",
-    Name: undefined,
-    SizeConstraintSetId: undefined
-  };
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (
-    output.SizeConstraintSetId !== undefined &&
-    output.SizeConstraintSetId !== null
-  ) {
-    contents.SizeConstraintSetId = output.SizeConstraintSetId;
-  }
-  return contents;
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    SizeConstraintSetId:
+      output.SizeConstraintSetId !== undefined &&
+      output.SizeConstraintSetId !== null
+        ? output.SizeConstraintSetId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SizeConstraints = (
@@ -14379,31 +14129,26 @@ const deserializeAws_json1_1SqlInjectionMatchSet = (
   output: any,
   context: __SerdeContext
 ): SqlInjectionMatchSet => {
-  let contents: any = {
+  return {
     __type: "SqlInjectionMatchSet",
-    Name: undefined,
-    SqlInjectionMatchSetId: undefined,
-    SqlInjectionMatchTuples: undefined
-  };
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (
-    output.SqlInjectionMatchSetId !== undefined &&
-    output.SqlInjectionMatchSetId !== null
-  ) {
-    contents.SqlInjectionMatchSetId = output.SqlInjectionMatchSetId;
-  }
-  if (
-    output.SqlInjectionMatchTuples !== undefined &&
-    output.SqlInjectionMatchTuples !== null
-  ) {
-    contents.SqlInjectionMatchTuples = deserializeAws_json1_1SqlInjectionMatchTuples(
-      output.SqlInjectionMatchTuples,
-      context
-    );
-  }
-  return contents;
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    SqlInjectionMatchSetId:
+      output.SqlInjectionMatchSetId !== undefined &&
+      output.SqlInjectionMatchSetId !== null
+        ? output.SqlInjectionMatchSetId
+        : undefined,
+    SqlInjectionMatchTuples:
+      output.SqlInjectionMatchTuples !== undefined &&
+      output.SqlInjectionMatchTuples !== null
+        ? deserializeAws_json1_1SqlInjectionMatchTuples(
+            output.SqlInjectionMatchTuples,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SqlInjectionMatchSetSummaries = (
@@ -14419,45 +14164,36 @@ const deserializeAws_json1_1SqlInjectionMatchSetSummary = (
   output: any,
   context: __SerdeContext
 ): SqlInjectionMatchSetSummary => {
-  let contents: any = {
+  return {
     __type: "SqlInjectionMatchSetSummary",
-    Name: undefined,
-    SqlInjectionMatchSetId: undefined
-  };
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (
-    output.SqlInjectionMatchSetId !== undefined &&
-    output.SqlInjectionMatchSetId !== null
-  ) {
-    contents.SqlInjectionMatchSetId = output.SqlInjectionMatchSetId;
-  }
-  return contents;
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    SqlInjectionMatchSetId:
+      output.SqlInjectionMatchSetId !== undefined &&
+      output.SqlInjectionMatchSetId !== null
+        ? output.SqlInjectionMatchSetId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SqlInjectionMatchTuple = (
   output: any,
   context: __SerdeContext
 ): SqlInjectionMatchTuple => {
-  let contents: any = {
+  return {
     __type: "SqlInjectionMatchTuple",
-    FieldToMatch: undefined,
-    TextTransformation: undefined
-  };
-  if (output.FieldToMatch !== undefined && output.FieldToMatch !== null) {
-    contents.FieldToMatch = deserializeAws_json1_1FieldToMatch(
-      output.FieldToMatch,
-      context
-    );
-  }
-  if (
-    output.TextTransformation !== undefined &&
-    output.TextTransformation !== null
-  ) {
-    contents.TextTransformation = output.TextTransformation;
-  }
-  return contents;
+    FieldToMatch:
+      output.FieldToMatch !== undefined && output.FieldToMatch !== null
+        ? deserializeAws_json1_1FieldToMatch(output.FieldToMatch, context)
+        : undefined,
+    TextTransformation:
+      output.TextTransformation !== undefined &&
+      output.TextTransformation !== null
+        ? output.TextTransformation
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SqlInjectionMatchTuples = (
@@ -14482,58 +14218,53 @@ const deserializeAws_json1_1SubscribedRuleGroupSummary = (
   output: any,
   context: __SerdeContext
 ): SubscribedRuleGroupSummary => {
-  let contents: any = {
+  return {
     __type: "SubscribedRuleGroupSummary",
-    MetricName: undefined,
-    Name: undefined,
-    RuleGroupId: undefined
-  };
-  if (output.MetricName !== undefined && output.MetricName !== null) {
-    contents.MetricName = output.MetricName;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.RuleGroupId !== undefined && output.RuleGroupId !== null) {
-    contents.RuleGroupId = output.RuleGroupId;
-  }
-  return contents;
+    MetricName:
+      output.MetricName !== undefined && output.MetricName !== null
+        ? output.MetricName
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    RuleGroupId:
+      output.RuleGroupId !== undefined && output.RuleGroupId !== null
+        ? output.RuleGroupId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Tag = (
   output: any,
   context: __SerdeContext
 ): Tag => {
-  let contents: any = {
+  return {
     __type: "Tag",
-    Key: undefined,
-    Value: undefined
-  };
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TagInfoForResource = (
   output: any,
   context: __SerdeContext
 ): TagInfoForResource => {
-  let contents: any = {
+  return {
     __type: "TagInfoForResource",
-    ResourceARN: undefined,
-    TagList: undefined
-  };
-  if (output.ResourceARN !== undefined && output.ResourceARN !== null) {
-    contents.ResourceARN = output.ResourceARN;
-  }
-  if (output.TagList !== undefined && output.TagList !== null) {
-    contents.TagList = deserializeAws_json1_1TagList(output.TagList, context);
-  }
-  return contents;
+    ResourceARN:
+      output.ResourceARN !== undefined && output.ResourceARN !== null
+        ? output.ResourceARN
+        : undefined,
+    TagList:
+      output.TagList !== undefined && output.TagList !== null
+        ? deserializeAws_json1_1TagList(output.TagList, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TagList = (
@@ -14549,544 +14280,501 @@ const deserializeAws_json1_1TagResourceResponse = (
   output: any,
   context: __SerdeContext
 ): TagResourceResponse => {
-  let contents: any = {
+  return {
     __type: "TagResourceResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1TimeWindow = (
   output: any,
   context: __SerdeContext
 ): TimeWindow => {
-  let contents: any = {
+  return {
     __type: "TimeWindow",
-    EndTime: undefined,
-    StartTime: undefined
-  };
-  if (output.EndTime !== undefined && output.EndTime !== null) {
-    contents.EndTime = new Date(Math.round(output.EndTime * 1000));
-  }
-  if (output.StartTime !== undefined && output.StartTime !== null) {
-    contents.StartTime = new Date(Math.round(output.StartTime * 1000));
-  }
-  return contents;
+    EndTime:
+      output.EndTime !== undefined && output.EndTime !== null
+        ? new Date(Math.round(output.EndTime * 1000))
+        : undefined,
+    StartTime:
+      output.StartTime !== undefined && output.StartTime !== null
+        ? new Date(Math.round(output.StartTime * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (
   output: any,
   context: __SerdeContext
 ): UntagResourceResponse => {
-  let contents: any = {
+  return {
     __type: "UntagResourceResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateByteMatchSetResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateByteMatchSetResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateByteMatchSetResponse",
-    ChangeToken: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateGeoMatchSetResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateGeoMatchSetResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateGeoMatchSetResponse",
-    ChangeToken: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateIPSetResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateIPSetResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateIPSetResponse",
-    ChangeToken: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateRateBasedRuleResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateRateBasedRuleResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateRateBasedRuleResponse",
-    ChangeToken: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateRegexMatchSetResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateRegexMatchSetResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateRegexMatchSetResponse",
-    ChangeToken: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateRegexPatternSetResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateRegexPatternSetResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateRegexPatternSetResponse",
-    ChangeToken: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateRuleGroupResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateRuleGroupResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateRuleGroupResponse",
-    ChangeToken: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateRuleResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateRuleResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateRuleResponse",
-    ChangeToken: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateSizeConstraintSetResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateSizeConstraintSetResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateSizeConstraintSetResponse",
-    ChangeToken: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateSqlInjectionMatchSetResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateSqlInjectionMatchSetResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateSqlInjectionMatchSetResponse",
-    ChangeToken: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateWebACLResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateWebACLResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateWebACLResponse",
-    ChangeToken: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateXssMatchSetResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateXssMatchSetResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateXssMatchSetResponse",
-    ChangeToken: undefined
-  };
-  if (output.ChangeToken !== undefined && output.ChangeToken !== null) {
-    contents.ChangeToken = output.ChangeToken;
-  }
-  return contents;
+    ChangeToken:
+      output.ChangeToken !== undefined && output.ChangeToken !== null
+        ? output.ChangeToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1WAFBadRequestException = (
   output: any,
   context: __SerdeContext
 ): WAFBadRequestException => {
-  let contents: any = {
+  return {
     __type: "WAFBadRequestException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1WAFDisallowedNameException = (
   output: any,
   context: __SerdeContext
 ): WAFDisallowedNameException => {
-  let contents: any = {
+  return {
     __type: "WAFDisallowedNameException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1WAFInternalErrorException = (
   output: any,
   context: __SerdeContext
 ): WAFInternalErrorException => {
-  let contents: any = {
+  return {
     __type: "WAFInternalErrorException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1WAFInvalidAccountException = (
   output: any,
   context: __SerdeContext
 ): WAFInvalidAccountException => {
-  let contents: any = {
+  return {
     __type: "WAFInvalidAccountException"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1WAFInvalidOperationException = (
   output: any,
   context: __SerdeContext
 ): WAFInvalidOperationException => {
-  let contents: any = {
+  return {
     __type: "WAFInvalidOperationException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1WAFInvalidParameterException = (
   output: any,
   context: __SerdeContext
 ): WAFInvalidParameterException => {
-  let contents: any = {
+  return {
     __type: "WAFInvalidParameterException",
-    field: undefined,
-    parameter: undefined,
-    reason: undefined
-  };
-  if (output.field !== undefined && output.field !== null) {
-    contents.field = output.field;
-  }
-  if (output.parameter !== undefined && output.parameter !== null) {
-    contents.parameter = output.parameter;
-  }
-  if (output.reason !== undefined && output.reason !== null) {
-    contents.reason = output.reason;
-  }
-  return contents;
+    field:
+      output.field !== undefined && output.field !== null
+        ? output.field
+        : undefined,
+    parameter:
+      output.parameter !== undefined && output.parameter !== null
+        ? output.parameter
+        : undefined,
+    reason:
+      output.reason !== undefined && output.reason !== null
+        ? output.reason
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1WAFInvalidPermissionPolicyException = (
   output: any,
   context: __SerdeContext
 ): WAFInvalidPermissionPolicyException => {
-  let contents: any = {
+  return {
     __type: "WAFInvalidPermissionPolicyException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1WAFInvalidRegexPatternException = (
   output: any,
   context: __SerdeContext
 ): WAFInvalidRegexPatternException => {
-  let contents: any = {
+  return {
     __type: "WAFInvalidRegexPatternException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1WAFLimitsExceededException = (
   output: any,
   context: __SerdeContext
 ): WAFLimitsExceededException => {
-  let contents: any = {
+  return {
     __type: "WAFLimitsExceededException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1WAFNonEmptyEntityException = (
   output: any,
   context: __SerdeContext
 ): WAFNonEmptyEntityException => {
-  let contents: any = {
+  return {
     __type: "WAFNonEmptyEntityException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1WAFNonexistentContainerException = (
   output: any,
   context: __SerdeContext
 ): WAFNonexistentContainerException => {
-  let contents: any = {
+  return {
     __type: "WAFNonexistentContainerException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1WAFNonexistentItemException = (
   output: any,
   context: __SerdeContext
 ): WAFNonexistentItemException => {
-  let contents: any = {
+  return {
     __type: "WAFNonexistentItemException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1WAFReferencedItemException = (
   output: any,
   context: __SerdeContext
 ): WAFReferencedItemException => {
-  let contents: any = {
+  return {
     __type: "WAFReferencedItemException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1WAFServiceLinkedRoleErrorException = (
   output: any,
   context: __SerdeContext
 ): WAFServiceLinkedRoleErrorException => {
-  let contents: any = {
+  return {
     __type: "WAFServiceLinkedRoleErrorException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1WAFStaleDataException = (
   output: any,
   context: __SerdeContext
 ): WAFStaleDataException => {
-  let contents: any = {
+  return {
     __type: "WAFStaleDataException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1WAFSubscriptionNotFoundException = (
   output: any,
   context: __SerdeContext
 ): WAFSubscriptionNotFoundException => {
-  let contents: any = {
+  return {
     __type: "WAFSubscriptionNotFoundException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1WAFTagOperationException = (
   output: any,
   context: __SerdeContext
 ): WAFTagOperationException => {
-  let contents: any = {
+  return {
     __type: "WAFTagOperationException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1WAFTagOperationInternalErrorException = (
   output: any,
   context: __SerdeContext
 ): WAFTagOperationInternalErrorException => {
-  let contents: any = {
+  return {
     __type: "WAFTagOperationInternalErrorException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1WAFUnavailableEntityException = (
   output: any,
   context: __SerdeContext
 ): WAFUnavailableEntityException => {
-  let contents: any = {
+  return {
     __type: "WAFUnavailableEntityException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1WafAction = (
   output: any,
   context: __SerdeContext
 ): WafAction => {
-  let contents: any = {
+  return {
     __type: "WafAction",
-    Type: undefined
-  };
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1WafOverrideAction = (
   output: any,
   context: __SerdeContext
 ): WafOverrideAction => {
-  let contents: any = {
+  return {
     __type: "WafOverrideAction",
-    Type: undefined
-  };
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1WebACL = (
   output: any,
   context: __SerdeContext
 ): WebACL => {
-  let contents: any = {
+  return {
     __type: "WebACL",
-    DefaultAction: undefined,
-    MetricName: undefined,
-    Name: undefined,
-    Rules: undefined,
-    WebACLArn: undefined,
-    WebACLId: undefined
-  };
-  if (output.DefaultAction !== undefined && output.DefaultAction !== null) {
-    contents.DefaultAction = deserializeAws_json1_1WafAction(
-      output.DefaultAction,
-      context
-    );
-  }
-  if (output.MetricName !== undefined && output.MetricName !== null) {
-    contents.MetricName = output.MetricName;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Rules !== undefined && output.Rules !== null) {
-    contents.Rules = deserializeAws_json1_1ActivatedRules(
-      output.Rules,
-      context
-    );
-  }
-  if (output.WebACLArn !== undefined && output.WebACLArn !== null) {
-    contents.WebACLArn = output.WebACLArn;
-  }
-  if (output.WebACLId !== undefined && output.WebACLId !== null) {
-    contents.WebACLId = output.WebACLId;
-  }
-  return contents;
+    DefaultAction:
+      output.DefaultAction !== undefined && output.DefaultAction !== null
+        ? deserializeAws_json1_1WafAction(output.DefaultAction, context)
+        : undefined,
+    MetricName:
+      output.MetricName !== undefined && output.MetricName !== null
+        ? output.MetricName
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Rules:
+      output.Rules !== undefined && output.Rules !== null
+        ? deserializeAws_json1_1ActivatedRules(output.Rules, context)
+        : undefined,
+    WebACLArn:
+      output.WebACLArn !== undefined && output.WebACLArn !== null
+        ? output.WebACLArn
+        : undefined,
+    WebACLId:
+      output.WebACLId !== undefined && output.WebACLId !== null
+        ? output.WebACLId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1WebACLSummaries = (
@@ -15102,43 +14790,38 @@ const deserializeAws_json1_1WebACLSummary = (
   output: any,
   context: __SerdeContext
 ): WebACLSummary => {
-  let contents: any = {
+  return {
     __type: "WebACLSummary",
-    Name: undefined,
-    WebACLId: undefined
-  };
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.WebACLId !== undefined && output.WebACLId !== null) {
-    contents.WebACLId = output.WebACLId;
-  }
-  return contents;
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    WebACLId:
+      output.WebACLId !== undefined && output.WebACLId !== null
+        ? output.WebACLId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1XssMatchSet = (
   output: any,
   context: __SerdeContext
 ): XssMatchSet => {
-  let contents: any = {
+  return {
     __type: "XssMatchSet",
-    Name: undefined,
-    XssMatchSetId: undefined,
-    XssMatchTuples: undefined
-  };
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.XssMatchSetId !== undefined && output.XssMatchSetId !== null) {
-    contents.XssMatchSetId = output.XssMatchSetId;
-  }
-  if (output.XssMatchTuples !== undefined && output.XssMatchTuples !== null) {
-    contents.XssMatchTuples = deserializeAws_json1_1XssMatchTuples(
-      output.XssMatchTuples,
-      context
-    );
-  }
-  return contents;
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    XssMatchSetId:
+      output.XssMatchSetId !== undefined && output.XssMatchSetId !== null
+        ? output.XssMatchSetId
+        : undefined,
+    XssMatchTuples:
+      output.XssMatchTuples !== undefined && output.XssMatchTuples !== null
+        ? deserializeAws_json1_1XssMatchTuples(output.XssMatchTuples, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1XssMatchSetSummaries = (
@@ -15154,42 +14837,35 @@ const deserializeAws_json1_1XssMatchSetSummary = (
   output: any,
   context: __SerdeContext
 ): XssMatchSetSummary => {
-  let contents: any = {
+  return {
     __type: "XssMatchSetSummary",
-    Name: undefined,
-    XssMatchSetId: undefined
-  };
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.XssMatchSetId !== undefined && output.XssMatchSetId !== null) {
-    contents.XssMatchSetId = output.XssMatchSetId;
-  }
-  return contents;
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    XssMatchSetId:
+      output.XssMatchSetId !== undefined && output.XssMatchSetId !== null
+        ? output.XssMatchSetId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1XssMatchTuple = (
   output: any,
   context: __SerdeContext
 ): XssMatchTuple => {
-  let contents: any = {
+  return {
     __type: "XssMatchTuple",
-    FieldToMatch: undefined,
-    TextTransformation: undefined
-  };
-  if (output.FieldToMatch !== undefined && output.FieldToMatch !== null) {
-    contents.FieldToMatch = deserializeAws_json1_1FieldToMatch(
-      output.FieldToMatch,
-      context
-    );
-  }
-  if (
-    output.TextTransformation !== undefined &&
-    output.TextTransformation !== null
-  ) {
-    contents.TextTransformation = output.TextTransformation;
-  }
-  return contents;
+    FieldToMatch:
+      output.FieldToMatch !== undefined && output.FieldToMatch !== null
+        ? deserializeAws_json1_1FieldToMatch(output.FieldToMatch, context)
+        : undefined,
+    TextTransformation:
+      output.TextTransformation !== undefined &&
+      output.TextTransformation !== null
+        ? output.TextTransformation
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1XssMatchTuples = (

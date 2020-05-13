@@ -219,38 +219,30 @@ const deserializeAws_json1_1Entitlement = (
   output: any,
   context: __SerdeContext
 ): Entitlement => {
-  let contents: any = {
+  return {
     __type: "Entitlement",
-    CustomerIdentifier: undefined,
-    Dimension: undefined,
-    ExpirationDate: undefined,
-    ProductCode: undefined,
-    Value: undefined
-  };
-  if (
-    output.CustomerIdentifier !== undefined &&
-    output.CustomerIdentifier !== null
-  ) {
-    contents.CustomerIdentifier = output.CustomerIdentifier;
-  }
-  if (output.Dimension !== undefined && output.Dimension !== null) {
-    contents.Dimension = output.Dimension;
-  }
-  if (output.ExpirationDate !== undefined && output.ExpirationDate !== null) {
-    contents.ExpirationDate = new Date(
-      Math.round(output.ExpirationDate * 1000)
-    );
-  }
-  if (output.ProductCode !== undefined && output.ProductCode !== null) {
-    contents.ProductCode = output.ProductCode;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = deserializeAws_json1_1EntitlementValue(
-      output.Value,
-      context
-    );
-  }
-  return contents;
+    CustomerIdentifier:
+      output.CustomerIdentifier !== undefined &&
+      output.CustomerIdentifier !== null
+        ? output.CustomerIdentifier
+        : undefined,
+    Dimension:
+      output.Dimension !== undefined && output.Dimension !== null
+        ? output.Dimension
+        : undefined,
+    ExpirationDate:
+      output.ExpirationDate !== undefined && output.ExpirationDate !== null
+        ? new Date(Math.round(output.ExpirationDate * 1000))
+        : undefined,
+    ProductCode:
+      output.ProductCode !== undefined && output.ProductCode !== null
+        ? output.ProductCode
+        : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? deserializeAws_json1_1EntitlementValue(output.Value, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EntitlementList = (
@@ -266,89 +258,81 @@ const deserializeAws_json1_1EntitlementValue = (
   output: any,
   context: __SerdeContext
 ): EntitlementValue => {
-  let contents: any = {
+  return {
     __type: "EntitlementValue",
-    BooleanValue: undefined,
-    DoubleValue: undefined,
-    IntegerValue: undefined,
-    StringValue: undefined
-  };
-  if (output.BooleanValue !== undefined && output.BooleanValue !== null) {
-    contents.BooleanValue = output.BooleanValue;
-  }
-  if (output.DoubleValue !== undefined && output.DoubleValue !== null) {
-    contents.DoubleValue = output.DoubleValue;
-  }
-  if (output.IntegerValue !== undefined && output.IntegerValue !== null) {
-    contents.IntegerValue = output.IntegerValue;
-  }
-  if (output.StringValue !== undefined && output.StringValue !== null) {
-    contents.StringValue = output.StringValue;
-  }
-  return contents;
+    BooleanValue:
+      output.BooleanValue !== undefined && output.BooleanValue !== null
+        ? output.BooleanValue
+        : undefined,
+    DoubleValue:
+      output.DoubleValue !== undefined && output.DoubleValue !== null
+        ? output.DoubleValue
+        : undefined,
+    IntegerValue:
+      output.IntegerValue !== undefined && output.IntegerValue !== null
+        ? output.IntegerValue
+        : undefined,
+    StringValue:
+      output.StringValue !== undefined && output.StringValue !== null
+        ? output.StringValue
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetEntitlementsResult = (
   output: any,
   context: __SerdeContext
 ): GetEntitlementsResult => {
-  let contents: any = {
+  return {
     __type: "GetEntitlementsResult",
-    Entitlements: undefined,
-    NextToken: undefined
-  };
-  if (output.Entitlements !== undefined && output.Entitlements !== null) {
-    contents.Entitlements = deserializeAws_json1_1EntitlementList(
-      output.Entitlements,
-      context
-    );
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  return contents;
+    Entitlements:
+      output.Entitlements !== undefined && output.Entitlements !== null
+        ? deserializeAws_json1_1EntitlementList(output.Entitlements, context)
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InternalServiceErrorException = (
   output: any,
   context: __SerdeContext
 ): InternalServiceErrorException => {
-  let contents: any = {
+  return {
     __type: "InternalServiceErrorException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidParameterException = (
   output: any,
   context: __SerdeContext
 ): InvalidParameterException => {
-  let contents: any = {
+  return {
     __type: "InvalidParameterException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ThrottlingException = (
   output: any,
   context: __SerdeContext
 ): ThrottlingException => {
-  let contents: any = {
+  return {
     __type: "ThrottlingException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

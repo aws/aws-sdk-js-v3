@@ -1833,26 +1833,25 @@ const deserializeAws_restJson1_1EventTypeSummary = (
   output: any,
   context: __SerdeContext
 ): EventTypeSummary => {
-  let contents: any = {
+  return {
     __type: "EventTypeSummary",
-    EventTypeId: undefined,
-    EventTypeName: undefined,
-    ResourceType: undefined,
-    ServiceName: undefined
-  };
-  if (output.EventTypeId !== undefined && output.EventTypeId !== null) {
-    contents.EventTypeId = output.EventTypeId;
-  }
-  if (output.EventTypeName !== undefined && output.EventTypeName !== null) {
-    contents.EventTypeName = output.EventTypeName;
-  }
-  if (output.ResourceType !== undefined && output.ResourceType !== null) {
-    contents.ResourceType = output.ResourceType;
-  }
-  if (output.ServiceName !== undefined && output.ServiceName !== null) {
-    contents.ServiceName = output.ServiceName;
-  }
-  return contents;
+    EventTypeId:
+      output.EventTypeId !== undefined && output.EventTypeId !== null
+        ? output.EventTypeId
+        : undefined,
+    EventTypeName:
+      output.EventTypeName !== undefined && output.EventTypeName !== null
+        ? output.EventTypeName
+        : undefined,
+    ResourceType:
+      output.ResourceType !== undefined && output.ResourceType !== null
+        ? output.ResourceType
+        : undefined,
+    ServiceName:
+      output.ServiceName !== undefined && output.ServiceName !== null
+        ? output.ServiceName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1NotificationRuleBatch = (
@@ -1868,18 +1867,12 @@ const deserializeAws_restJson1_1NotificationRuleSummary = (
   output: any,
   context: __SerdeContext
 ): NotificationRuleSummary => {
-  let contents: any = {
+  return {
     __type: "NotificationRuleSummary",
-    Arn: undefined,
-    Id: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Tags = (
@@ -1896,22 +1889,21 @@ const deserializeAws_restJson1_1TargetSummary = (
   output: any,
   context: __SerdeContext
 ): TargetSummary => {
-  let contents: any = {
+  return {
     __type: "TargetSummary",
-    TargetAddress: undefined,
-    TargetStatus: undefined,
-    TargetType: undefined
-  };
-  if (output.TargetAddress !== undefined && output.TargetAddress !== null) {
-    contents.TargetAddress = output.TargetAddress;
-  }
-  if (output.TargetStatus !== undefined && output.TargetStatus !== null) {
-    contents.TargetStatus = output.TargetStatus;
-  }
-  if (output.TargetType !== undefined && output.TargetType !== null) {
-    contents.TargetType = output.TargetType;
-  }
-  return contents;
+    TargetAddress:
+      output.TargetAddress !== undefined && output.TargetAddress !== null
+        ? output.TargetAddress
+        : undefined,
+    TargetStatus:
+      output.TargetStatus !== undefined && output.TargetStatus !== null
+        ? output.TargetStatus
+        : undefined,
+    TargetType:
+      output.TargetType !== undefined && output.TargetType !== null
+        ? output.TargetType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1TargetsBatch = (

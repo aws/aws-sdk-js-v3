@@ -859,120 +859,108 @@ const deserializeAws_restJson1_1JobExecution = (
   output: any,
   context: __SerdeContext
 ): JobExecution => {
-  let contents: any = {
+  return {
     __type: "JobExecution",
-    approximateSecondsBeforeTimedOut: undefined,
-    executionNumber: undefined,
-    jobDocument: undefined,
-    jobId: undefined,
-    lastUpdatedAt: undefined,
-    queuedAt: undefined,
-    startedAt: undefined,
-    status: undefined,
-    statusDetails: undefined,
-    thingName: undefined,
-    versionNumber: undefined
-  };
-  if (
-    output.approximateSecondsBeforeTimedOut !== undefined &&
-    output.approximateSecondsBeforeTimedOut !== null
-  ) {
-    contents.approximateSecondsBeforeTimedOut =
-      output.approximateSecondsBeforeTimedOut;
-  }
-  if (output.executionNumber !== undefined && output.executionNumber !== null) {
-    contents.executionNumber = output.executionNumber;
-  }
-  if (output.jobDocument !== undefined && output.jobDocument !== null) {
-    contents.jobDocument = output.jobDocument;
-  }
-  if (output.jobId !== undefined && output.jobId !== null) {
-    contents.jobId = output.jobId;
-  }
-  if (output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null) {
-    contents.lastUpdatedAt = output.lastUpdatedAt;
-  }
-  if (output.queuedAt !== undefined && output.queuedAt !== null) {
-    contents.queuedAt = output.queuedAt;
-  }
-  if (output.startedAt !== undefined && output.startedAt !== null) {
-    contents.startedAt = output.startedAt;
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  if (output.statusDetails !== undefined && output.statusDetails !== null) {
-    contents.statusDetails = deserializeAws_restJson1_1DetailsMap(
-      output.statusDetails,
-      context
-    );
-  }
-  if (output.thingName !== undefined && output.thingName !== null) {
-    contents.thingName = output.thingName;
-  }
-  if (output.versionNumber !== undefined && output.versionNumber !== null) {
-    contents.versionNumber = output.versionNumber;
-  }
-  return contents;
+    approximateSecondsBeforeTimedOut:
+      output.approximateSecondsBeforeTimedOut !== undefined &&
+      output.approximateSecondsBeforeTimedOut !== null
+        ? output.approximateSecondsBeforeTimedOut
+        : undefined,
+    executionNumber:
+      output.executionNumber !== undefined && output.executionNumber !== null
+        ? output.executionNumber
+        : undefined,
+    jobDocument:
+      output.jobDocument !== undefined && output.jobDocument !== null
+        ? output.jobDocument
+        : undefined,
+    jobId:
+      output.jobId !== undefined && output.jobId !== null
+        ? output.jobId
+        : undefined,
+    lastUpdatedAt:
+      output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
+        ? output.lastUpdatedAt
+        : undefined,
+    queuedAt:
+      output.queuedAt !== undefined && output.queuedAt !== null
+        ? output.queuedAt
+        : undefined,
+    startedAt:
+      output.startedAt !== undefined && output.startedAt !== null
+        ? output.startedAt
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined,
+    statusDetails:
+      output.statusDetails !== undefined && output.statusDetails !== null
+        ? deserializeAws_restJson1_1DetailsMap(output.statusDetails, context)
+        : undefined,
+    thingName:
+      output.thingName !== undefined && output.thingName !== null
+        ? output.thingName
+        : undefined,
+    versionNumber:
+      output.versionNumber !== undefined && output.versionNumber !== null
+        ? output.versionNumber
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1JobExecutionState = (
   output: any,
   context: __SerdeContext
 ): JobExecutionState => {
-  let contents: any = {
+  return {
     __type: "JobExecutionState",
-    status: undefined,
-    statusDetails: undefined,
-    versionNumber: undefined
-  };
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  if (output.statusDetails !== undefined && output.statusDetails !== null) {
-    contents.statusDetails = deserializeAws_restJson1_1DetailsMap(
-      output.statusDetails,
-      context
-    );
-  }
-  if (output.versionNumber !== undefined && output.versionNumber !== null) {
-    contents.versionNumber = output.versionNumber;
-  }
-  return contents;
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined,
+    statusDetails:
+      output.statusDetails !== undefined && output.statusDetails !== null
+        ? deserializeAws_restJson1_1DetailsMap(output.statusDetails, context)
+        : undefined,
+    versionNumber:
+      output.versionNumber !== undefined && output.versionNumber !== null
+        ? output.versionNumber
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1JobExecutionSummary = (
   output: any,
   context: __SerdeContext
 ): JobExecutionSummary => {
-  let contents: any = {
+  return {
     __type: "JobExecutionSummary",
-    executionNumber: undefined,
-    jobId: undefined,
-    lastUpdatedAt: undefined,
-    queuedAt: undefined,
-    startedAt: undefined,
-    versionNumber: undefined
-  };
-  if (output.executionNumber !== undefined && output.executionNumber !== null) {
-    contents.executionNumber = output.executionNumber;
-  }
-  if (output.jobId !== undefined && output.jobId !== null) {
-    contents.jobId = output.jobId;
-  }
-  if (output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null) {
-    contents.lastUpdatedAt = output.lastUpdatedAt;
-  }
-  if (output.queuedAt !== undefined && output.queuedAt !== null) {
-    contents.queuedAt = output.queuedAt;
-  }
-  if (output.startedAt !== undefined && output.startedAt !== null) {
-    contents.startedAt = output.startedAt;
-  }
-  if (output.versionNumber !== undefined && output.versionNumber !== null) {
-    contents.versionNumber = output.versionNumber;
-  }
-  return contents;
+    executionNumber:
+      output.executionNumber !== undefined && output.executionNumber !== null
+        ? output.executionNumber
+        : undefined,
+    jobId:
+      output.jobId !== undefined && output.jobId !== null
+        ? output.jobId
+        : undefined,
+    lastUpdatedAt:
+      output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
+        ? output.lastUpdatedAt
+        : undefined,
+    queuedAt:
+      output.queuedAt !== undefined && output.queuedAt !== null
+        ? output.queuedAt
+        : undefined,
+    startedAt:
+      output.startedAt !== undefined && output.startedAt !== null
+        ? output.startedAt
+        : undefined,
+    versionNumber:
+      output.versionNumber !== undefined && output.versionNumber !== null
+        ? output.versionNumber
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1JobExecutionSummaryList = (

@@ -1030,101 +1030,89 @@ const deserializeAws_json1_1AccessDeniedException = (
   output: any,
   context: __SerdeContext
 ): AccessDeniedException => {
-  let contents: any = {
+  return {
     __type: "AccessDeniedException",
-    message: undefined,
-    resourceType: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  if (output.resourceType !== undefined && output.resourceType !== null) {
-    contents.resourceType = output.resourceType;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined,
+    resourceType:
+      output.resourceType !== undefined && output.resourceType !== null
+        ? output.resourceType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1AssociateS3ResourcesResult = (
   output: any,
   context: __SerdeContext
 ): AssociateS3ResourcesResult => {
-  let contents: any = {
+  return {
     __type: "AssociateS3ResourcesResult",
-    failedS3Resources: undefined
-  };
-  if (
-    output.failedS3Resources !== undefined &&
-    output.failedS3Resources !== null
-  ) {
-    contents.failedS3Resources = deserializeAws_json1_1FailedS3Resources(
-      output.failedS3Resources,
-      context
-    );
-  }
-  return contents;
+    failedS3Resources:
+      output.failedS3Resources !== undefined &&
+      output.failedS3Resources !== null
+        ? deserializeAws_json1_1FailedS3Resources(
+            output.failedS3Resources,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ClassificationType = (
   output: any,
   context: __SerdeContext
 ): ClassificationType => {
-  let contents: any = {
+  return {
     __type: "ClassificationType",
-    continuous: undefined,
-    oneTime: undefined
-  };
-  if (output.continuous !== undefined && output.continuous !== null) {
-    contents.continuous = output.continuous;
-  }
-  if (output.oneTime !== undefined && output.oneTime !== null) {
-    contents.oneTime = output.oneTime;
-  }
-  return contents;
+    continuous:
+      output.continuous !== undefined && output.continuous !== null
+        ? output.continuous
+        : undefined,
+    oneTime:
+      output.oneTime !== undefined && output.oneTime !== null
+        ? output.oneTime
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DisassociateS3ResourcesResult = (
   output: any,
   context: __SerdeContext
 ): DisassociateS3ResourcesResult => {
-  let contents: any = {
+  return {
     __type: "DisassociateS3ResourcesResult",
-    failedS3Resources: undefined
-  };
-  if (
-    output.failedS3Resources !== undefined &&
-    output.failedS3Resources !== null
-  ) {
-    contents.failedS3Resources = deserializeAws_json1_1FailedS3Resources(
-      output.failedS3Resources,
-      context
-    );
-  }
-  return contents;
+    failedS3Resources:
+      output.failedS3Resources !== undefined &&
+      output.failedS3Resources !== null
+        ? deserializeAws_json1_1FailedS3Resources(
+            output.failedS3Resources,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1FailedS3Resource = (
   output: any,
   context: __SerdeContext
 ): FailedS3Resource => {
-  let contents: any = {
+  return {
     __type: "FailedS3Resource",
-    errorCode: undefined,
-    errorMessage: undefined,
-    failedItem: undefined
-  };
-  if (output.errorCode !== undefined && output.errorCode !== null) {
-    contents.errorCode = output.errorCode;
-  }
-  if (output.errorMessage !== undefined && output.errorMessage !== null) {
-    contents.errorMessage = output.errorMessage;
-  }
-  if (output.failedItem !== undefined && output.failedItem !== null) {
-    contents.failedItem = deserializeAws_json1_1S3Resource(
-      output.failedItem,
-      context
-    );
-  }
-  return contents;
+    errorCode:
+      output.errorCode !== undefined && output.errorCode !== null
+        ? output.errorCode
+        : undefined,
+    errorMessage:
+      output.errorMessage !== undefined && output.errorMessage !== null
+        ? output.errorMessage
+        : undefined,
+    failedItem:
+      output.failedItem !== undefined && output.failedItem !== null
+        ? deserializeAws_json1_1S3Resource(output.failedItem, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1FailedS3Resources = (
@@ -1140,118 +1128,109 @@ const deserializeAws_json1_1InternalException = (
   output: any,
   context: __SerdeContext
 ): InternalException => {
-  let contents: any = {
+  return {
     __type: "InternalException",
-    errorCode: undefined,
-    message: undefined
-  };
-  if (output.errorCode !== undefined && output.errorCode !== null) {
-    contents.errorCode = output.errorCode;
-  }
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    errorCode:
+      output.errorCode !== undefined && output.errorCode !== null
+        ? output.errorCode
+        : undefined,
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidInputException = (
   output: any,
   context: __SerdeContext
 ): InvalidInputException => {
-  let contents: any = {
+  return {
     __type: "InvalidInputException",
-    errorCode: undefined,
-    fieldName: undefined,
-    message: undefined
-  };
-  if (output.errorCode !== undefined && output.errorCode !== null) {
-    contents.errorCode = output.errorCode;
-  }
-  if (output.fieldName !== undefined && output.fieldName !== null) {
-    contents.fieldName = output.fieldName;
-  }
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    errorCode:
+      output.errorCode !== undefined && output.errorCode !== null
+        ? output.errorCode
+        : undefined,
+    fieldName:
+      output.fieldName !== undefined && output.fieldName !== null
+        ? output.fieldName
+        : undefined,
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (
   output: any,
   context: __SerdeContext
 ): LimitExceededException => {
-  let contents: any = {
+  return {
     __type: "LimitExceededException",
-    errorCode: undefined,
-    message: undefined,
-    resourceType: undefined
-  };
-  if (output.errorCode !== undefined && output.errorCode !== null) {
-    contents.errorCode = output.errorCode;
-  }
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  if (output.resourceType !== undefined && output.resourceType !== null) {
-    contents.resourceType = output.resourceType;
-  }
-  return contents;
+    errorCode:
+      output.errorCode !== undefined && output.errorCode !== null
+        ? output.errorCode
+        : undefined,
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined,
+    resourceType:
+      output.resourceType !== undefined && output.resourceType !== null
+        ? output.resourceType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListMemberAccountsResult = (
   output: any,
   context: __SerdeContext
 ): ListMemberAccountsResult => {
-  let contents: any = {
+  return {
     __type: "ListMemberAccountsResult",
-    memberAccounts: undefined,
-    nextToken: undefined
-  };
-  if (output.memberAccounts !== undefined && output.memberAccounts !== null) {
-    contents.memberAccounts = deserializeAws_json1_1MemberAccounts(
-      output.memberAccounts,
-      context
-    );
-  }
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  return contents;
+    memberAccounts:
+      output.memberAccounts !== undefined && output.memberAccounts !== null
+        ? deserializeAws_json1_1MemberAccounts(output.memberAccounts, context)
+        : undefined,
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListS3ResourcesResult = (
   output: any,
   context: __SerdeContext
 ): ListS3ResourcesResult => {
-  let contents: any = {
+  return {
     __type: "ListS3ResourcesResult",
-    nextToken: undefined,
-    s3Resources: undefined
-  };
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  if (output.s3Resources !== undefined && output.s3Resources !== null) {
-    contents.s3Resources = deserializeAws_json1_1S3ResourcesClassification(
-      output.s3Resources,
-      context
-    );
-  }
-  return contents;
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined,
+    s3Resources:
+      output.s3Resources !== undefined && output.s3Resources !== null
+        ? deserializeAws_json1_1S3ResourcesClassification(
+            output.s3Resources,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1MemberAccount = (
   output: any,
   context: __SerdeContext
 ): MemberAccount => {
-  let contents: any = {
+  return {
     __type: "MemberAccount",
-    accountId: undefined
-  };
-  if (output.accountId !== undefined && output.accountId !== null) {
-    contents.accountId = output.accountId;
-  }
-  return contents;
+    accountId:
+      output.accountId !== undefined && output.accountId !== null
+        ? output.accountId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1MemberAccounts = (
@@ -1267,46 +1246,42 @@ const deserializeAws_json1_1S3Resource = (
   output: any,
   context: __SerdeContext
 ): S3Resource => {
-  let contents: any = {
+  return {
     __type: "S3Resource",
-    bucketName: undefined,
-    prefix: undefined
-  };
-  if (output.bucketName !== undefined && output.bucketName !== null) {
-    contents.bucketName = output.bucketName;
-  }
-  if (output.prefix !== undefined && output.prefix !== null) {
-    contents.prefix = output.prefix;
-  }
-  return contents;
+    bucketName:
+      output.bucketName !== undefined && output.bucketName !== null
+        ? output.bucketName
+        : undefined,
+    prefix:
+      output.prefix !== undefined && output.prefix !== null
+        ? output.prefix
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1S3ResourceClassification = (
   output: any,
   context: __SerdeContext
 ): S3ResourceClassification => {
-  let contents: any = {
+  return {
     __type: "S3ResourceClassification",
-    bucketName: undefined,
-    classificationType: undefined,
-    prefix: undefined
-  };
-  if (output.bucketName !== undefined && output.bucketName !== null) {
-    contents.bucketName = output.bucketName;
-  }
-  if (
-    output.classificationType !== undefined &&
-    output.classificationType !== null
-  ) {
-    contents.classificationType = deserializeAws_json1_1ClassificationType(
-      output.classificationType,
-      context
-    );
-  }
-  if (output.prefix !== undefined && output.prefix !== null) {
-    contents.prefix = output.prefix;
-  }
-  return contents;
+    bucketName:
+      output.bucketName !== undefined && output.bucketName !== null
+        ? output.bucketName
+        : undefined,
+    classificationType:
+      output.classificationType !== undefined &&
+      output.classificationType !== null
+        ? deserializeAws_json1_1ClassificationType(
+            output.classificationType,
+            context
+          )
+        : undefined,
+    prefix:
+      output.prefix !== undefined && output.prefix !== null
+        ? output.prefix
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1S3ResourcesClassification = (
@@ -1322,20 +1297,17 @@ const deserializeAws_json1_1UpdateS3ResourcesResult = (
   output: any,
   context: __SerdeContext
 ): UpdateS3ResourcesResult => {
-  let contents: any = {
+  return {
     __type: "UpdateS3ResourcesResult",
-    failedS3Resources: undefined
-  };
-  if (
-    output.failedS3Resources !== undefined &&
-    output.failedS3Resources !== null
-  ) {
-    contents.failedS3Resources = deserializeAws_json1_1FailedS3Resources(
-      output.failedS3Resources,
-      context
-    );
-  }
-  return contents;
+    failedS3Resources:
+      output.failedS3Resources !== undefined &&
+      output.failedS3Resources !== null
+        ? deserializeAws_json1_1FailedS3Resources(
+            output.failedS3Resources,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

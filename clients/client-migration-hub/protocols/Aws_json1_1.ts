@@ -3214,41 +3214,35 @@ const deserializeAws_json1_1AccessDeniedException = (
   output: any,
   context: __SerdeContext
 ): AccessDeniedException => {
-  let contents: any = {
+  return {
     __type: "AccessDeniedException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ApplicationState = (
   output: any,
   context: __SerdeContext
 ): ApplicationState => {
-  let contents: any = {
+  return {
     __type: "ApplicationState",
-    ApplicationId: undefined,
-    ApplicationStatus: undefined,
-    LastUpdatedTime: undefined
-  };
-  if (output.ApplicationId !== undefined && output.ApplicationId !== null) {
-    contents.ApplicationId = output.ApplicationId;
-  }
-  if (
-    output.ApplicationStatus !== undefined &&
-    output.ApplicationStatus !== null
-  ) {
-    contents.ApplicationStatus = output.ApplicationStatus;
-  }
-  if (output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null) {
-    contents.LastUpdatedTime = new Date(
-      Math.round(output.LastUpdatedTime * 1000)
-    );
-  }
-  return contents;
+    ApplicationId:
+      output.ApplicationId !== undefined && output.ApplicationId !== null
+        ? output.ApplicationId
+        : undefined,
+    ApplicationStatus:
+      output.ApplicationStatus !== undefined &&
+      output.ApplicationStatus !== null
+        ? output.ApplicationStatus
+        : undefined,
+    LastUpdatedTime:
+      output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
+        ? new Date(Math.round(output.LastUpdatedTime * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ApplicationStateList = (
@@ -3264,48 +3258,44 @@ const deserializeAws_json1_1AssociateCreatedArtifactResult = (
   output: any,
   context: __SerdeContext
 ): AssociateCreatedArtifactResult => {
-  let contents: any = {
+  return {
     __type: "AssociateCreatedArtifactResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1AssociateDiscoveredResourceResult = (
   output: any,
   context: __SerdeContext
 ): AssociateDiscoveredResourceResult => {
-  let contents: any = {
+  return {
     __type: "AssociateDiscoveredResourceResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1CreateProgressUpdateStreamResult = (
   output: any,
   context: __SerdeContext
 ): CreateProgressUpdateStreamResult => {
-  let contents: any = {
+  return {
     __type: "CreateProgressUpdateStreamResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1CreatedArtifact = (
   output: any,
   context: __SerdeContext
 ): CreatedArtifact => {
-  let contents: any = {
+  return {
     __type: "CreatedArtifact",
-    Description: undefined,
-    Name: undefined
-  };
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreatedArtifactList = (
@@ -3321,88 +3311,75 @@ const deserializeAws_json1_1DeleteProgressUpdateStreamResult = (
   output: any,
   context: __SerdeContext
 ): DeleteProgressUpdateStreamResult => {
-  let contents: any = {
+  return {
     __type: "DeleteProgressUpdateStreamResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeApplicationStateResult = (
   output: any,
   context: __SerdeContext
 ): DescribeApplicationStateResult => {
-  let contents: any = {
+  return {
     __type: "DescribeApplicationStateResult",
-    ApplicationStatus: undefined,
-    LastUpdatedTime: undefined
-  };
-  if (
-    output.ApplicationStatus !== undefined &&
-    output.ApplicationStatus !== null
-  ) {
-    contents.ApplicationStatus = output.ApplicationStatus;
-  }
-  if (output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null) {
-    contents.LastUpdatedTime = new Date(
-      Math.round(output.LastUpdatedTime * 1000)
-    );
-  }
-  return contents;
+    ApplicationStatus:
+      output.ApplicationStatus !== undefined &&
+      output.ApplicationStatus !== null
+        ? output.ApplicationStatus
+        : undefined,
+    LastUpdatedTime:
+      output.LastUpdatedTime !== undefined && output.LastUpdatedTime !== null
+        ? new Date(Math.round(output.LastUpdatedTime * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeMigrationTaskResult = (
   output: any,
   context: __SerdeContext
 ): DescribeMigrationTaskResult => {
-  let contents: any = {
+  return {
     __type: "DescribeMigrationTaskResult",
-    MigrationTask: undefined
-  };
-  if (output.MigrationTask !== undefined && output.MigrationTask !== null) {
-    contents.MigrationTask = deserializeAws_json1_1MigrationTask(
-      output.MigrationTask,
-      context
-    );
-  }
-  return contents;
+    MigrationTask:
+      output.MigrationTask !== undefined && output.MigrationTask !== null
+        ? deserializeAws_json1_1MigrationTask(output.MigrationTask, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DisassociateCreatedArtifactResult = (
   output: any,
   context: __SerdeContext
 ): DisassociateCreatedArtifactResult => {
-  let contents: any = {
+  return {
     __type: "DisassociateCreatedArtifactResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DisassociateDiscoveredResourceResult = (
   output: any,
   context: __SerdeContext
 ): DisassociateDiscoveredResourceResult => {
-  let contents: any = {
+  return {
     __type: "DisassociateDiscoveredResourceResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DiscoveredResource = (
   output: any,
   context: __SerdeContext
 ): DiscoveredResource => {
-  let contents: any = {
+  return {
     __type: "DiscoveredResource",
-    ConfigurationId: undefined,
-    Description: undefined
-  };
-  if (output.ConfigurationId !== undefined && output.ConfigurationId !== null) {
-    contents.ConfigurationId = output.ConfigurationId;
-  }
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  return contents;
+    ConfigurationId:
+      output.ConfigurationId !== undefined && output.ConfigurationId !== null
+        ? output.ConfigurationId
+        : undefined,
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DiscoveredResourceList = (
@@ -3418,66 +3395,61 @@ const deserializeAws_json1_1DryRunOperation = (
   output: any,
   context: __SerdeContext
 ): DryRunOperation => {
-  let contents: any = {
+  return {
     __type: "DryRunOperation",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1HomeRegionNotSetException = (
   output: any,
   context: __SerdeContext
 ): HomeRegionNotSetException => {
-  let contents: any = {
+  return {
     __type: "HomeRegionNotSetException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ImportMigrationTaskResult = (
   output: any,
   context: __SerdeContext
 ): ImportMigrationTaskResult => {
-  let contents: any = {
+  return {
     __type: "ImportMigrationTaskResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1InternalServerError = (
   output: any,
   context: __SerdeContext
 ): InternalServerError => {
-  let contents: any = {
+  return {
     __type: "InternalServerError",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidInputException = (
   output: any,
   context: __SerdeContext
 ): InvalidInputException => {
-  let contents: any = {
+  return {
     __type: "InvalidInputException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LatestResourceAttributeList = (
@@ -3493,206 +3465,175 @@ const deserializeAws_json1_1ListApplicationStatesResult = (
   output: any,
   context: __SerdeContext
 ): ListApplicationStatesResult => {
-  let contents: any = {
+  return {
     __type: "ListApplicationStatesResult",
-    ApplicationStateList: undefined,
-    NextToken: undefined
-  };
-  if (
-    output.ApplicationStateList !== undefined &&
-    output.ApplicationStateList !== null
-  ) {
-    contents.ApplicationStateList = deserializeAws_json1_1ApplicationStateList(
-      output.ApplicationStateList,
-      context
-    );
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  return contents;
+    ApplicationStateList:
+      output.ApplicationStateList !== undefined &&
+      output.ApplicationStateList !== null
+        ? deserializeAws_json1_1ApplicationStateList(
+            output.ApplicationStateList,
+            context
+          )
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListCreatedArtifactsResult = (
   output: any,
   context: __SerdeContext
 ): ListCreatedArtifactsResult => {
-  let contents: any = {
+  return {
     __type: "ListCreatedArtifactsResult",
-    CreatedArtifactList: undefined,
-    NextToken: undefined
-  };
-  if (
-    output.CreatedArtifactList !== undefined &&
-    output.CreatedArtifactList !== null
-  ) {
-    contents.CreatedArtifactList = deserializeAws_json1_1CreatedArtifactList(
-      output.CreatedArtifactList,
-      context
-    );
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  return contents;
+    CreatedArtifactList:
+      output.CreatedArtifactList !== undefined &&
+      output.CreatedArtifactList !== null
+        ? deserializeAws_json1_1CreatedArtifactList(
+            output.CreatedArtifactList,
+            context
+          )
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListDiscoveredResourcesResult = (
   output: any,
   context: __SerdeContext
 ): ListDiscoveredResourcesResult => {
-  let contents: any = {
+  return {
     __type: "ListDiscoveredResourcesResult",
-    DiscoveredResourceList: undefined,
-    NextToken: undefined
-  };
-  if (
-    output.DiscoveredResourceList !== undefined &&
-    output.DiscoveredResourceList !== null
-  ) {
-    contents.DiscoveredResourceList = deserializeAws_json1_1DiscoveredResourceList(
-      output.DiscoveredResourceList,
-      context
-    );
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  return contents;
+    DiscoveredResourceList:
+      output.DiscoveredResourceList !== undefined &&
+      output.DiscoveredResourceList !== null
+        ? deserializeAws_json1_1DiscoveredResourceList(
+            output.DiscoveredResourceList,
+            context
+          )
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListMigrationTasksResult = (
   output: any,
   context: __SerdeContext
 ): ListMigrationTasksResult => {
-  let contents: any = {
+  return {
     __type: "ListMigrationTasksResult",
-    MigrationTaskSummaryList: undefined,
-    NextToken: undefined
-  };
-  if (
-    output.MigrationTaskSummaryList !== undefined &&
-    output.MigrationTaskSummaryList !== null
-  ) {
-    contents.MigrationTaskSummaryList = deserializeAws_json1_1MigrationTaskSummaryList(
-      output.MigrationTaskSummaryList,
-      context
-    );
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  return contents;
+    MigrationTaskSummaryList:
+      output.MigrationTaskSummaryList !== undefined &&
+      output.MigrationTaskSummaryList !== null
+        ? deserializeAws_json1_1MigrationTaskSummaryList(
+            output.MigrationTaskSummaryList,
+            context
+          )
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListProgressUpdateStreamsResult = (
   output: any,
   context: __SerdeContext
 ): ListProgressUpdateStreamsResult => {
-  let contents: any = {
+  return {
     __type: "ListProgressUpdateStreamsResult",
-    NextToken: undefined,
-    ProgressUpdateStreamSummaryList: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (
-    output.ProgressUpdateStreamSummaryList !== undefined &&
-    output.ProgressUpdateStreamSummaryList !== null
-  ) {
-    contents.ProgressUpdateStreamSummaryList = deserializeAws_json1_1ProgressUpdateStreamSummaryList(
-      output.ProgressUpdateStreamSummaryList,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    ProgressUpdateStreamSummaryList:
+      output.ProgressUpdateStreamSummaryList !== undefined &&
+      output.ProgressUpdateStreamSummaryList !== null
+        ? deserializeAws_json1_1ProgressUpdateStreamSummaryList(
+            output.ProgressUpdateStreamSummaryList,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1MigrationTask = (
   output: any,
   context: __SerdeContext
 ): MigrationTask => {
-  let contents: any = {
+  return {
     __type: "MigrationTask",
-    MigrationTaskName: undefined,
-    ProgressUpdateStream: undefined,
-    ResourceAttributeList: undefined,
-    Task: undefined,
-    UpdateDateTime: undefined
-  };
-  if (
-    output.MigrationTaskName !== undefined &&
-    output.MigrationTaskName !== null
-  ) {
-    contents.MigrationTaskName = output.MigrationTaskName;
-  }
-  if (
-    output.ProgressUpdateStream !== undefined &&
-    output.ProgressUpdateStream !== null
-  ) {
-    contents.ProgressUpdateStream = output.ProgressUpdateStream;
-  }
-  if (
-    output.ResourceAttributeList !== undefined &&
-    output.ResourceAttributeList !== null
-  ) {
-    contents.ResourceAttributeList = deserializeAws_json1_1LatestResourceAttributeList(
-      output.ResourceAttributeList,
-      context
-    );
-  }
-  if (output.Task !== undefined && output.Task !== null) {
-    contents.Task = deserializeAws_json1_1Task(output.Task, context);
-  }
-  if (output.UpdateDateTime !== undefined && output.UpdateDateTime !== null) {
-    contents.UpdateDateTime = new Date(
-      Math.round(output.UpdateDateTime * 1000)
-    );
-  }
-  return contents;
+    MigrationTaskName:
+      output.MigrationTaskName !== undefined &&
+      output.MigrationTaskName !== null
+        ? output.MigrationTaskName
+        : undefined,
+    ProgressUpdateStream:
+      output.ProgressUpdateStream !== undefined &&
+      output.ProgressUpdateStream !== null
+        ? output.ProgressUpdateStream
+        : undefined,
+    ResourceAttributeList:
+      output.ResourceAttributeList !== undefined &&
+      output.ResourceAttributeList !== null
+        ? deserializeAws_json1_1LatestResourceAttributeList(
+            output.ResourceAttributeList,
+            context
+          )
+        : undefined,
+    Task:
+      output.Task !== undefined && output.Task !== null
+        ? deserializeAws_json1_1Task(output.Task, context)
+        : undefined,
+    UpdateDateTime:
+      output.UpdateDateTime !== undefined && output.UpdateDateTime !== null
+        ? new Date(Math.round(output.UpdateDateTime * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1MigrationTaskSummary = (
   output: any,
   context: __SerdeContext
 ): MigrationTaskSummary => {
-  let contents: any = {
+  return {
     __type: "MigrationTaskSummary",
-    MigrationTaskName: undefined,
-    ProgressPercent: undefined,
-    ProgressUpdateStream: undefined,
-    Status: undefined,
-    StatusDetail: undefined,
-    UpdateDateTime: undefined
-  };
-  if (
-    output.MigrationTaskName !== undefined &&
-    output.MigrationTaskName !== null
-  ) {
-    contents.MigrationTaskName = output.MigrationTaskName;
-  }
-  if (output.ProgressPercent !== undefined && output.ProgressPercent !== null) {
-    contents.ProgressPercent = output.ProgressPercent;
-  }
-  if (
-    output.ProgressUpdateStream !== undefined &&
-    output.ProgressUpdateStream !== null
-  ) {
-    contents.ProgressUpdateStream = output.ProgressUpdateStream;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.StatusDetail !== undefined && output.StatusDetail !== null) {
-    contents.StatusDetail = output.StatusDetail;
-  }
-  if (output.UpdateDateTime !== undefined && output.UpdateDateTime !== null) {
-    contents.UpdateDateTime = new Date(
-      Math.round(output.UpdateDateTime * 1000)
-    );
-  }
-  return contents;
+    MigrationTaskName:
+      output.MigrationTaskName !== undefined &&
+      output.MigrationTaskName !== null
+        ? output.MigrationTaskName
+        : undefined,
+    ProgressPercent:
+      output.ProgressPercent !== undefined && output.ProgressPercent !== null
+        ? output.ProgressPercent
+        : undefined,
+    ProgressUpdateStream:
+      output.ProgressUpdateStream !== undefined &&
+      output.ProgressUpdateStream !== null
+        ? output.ProgressUpdateStream
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    StatusDetail:
+      output.StatusDetail !== undefined && output.StatusDetail !== null
+        ? output.StatusDetail
+        : undefined,
+    UpdateDateTime:
+      output.UpdateDateTime !== undefined && output.UpdateDateTime !== null
+        ? new Date(Math.round(output.UpdateDateTime * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1MigrationTaskSummaryList = (
@@ -3708,51 +3649,45 @@ const deserializeAws_json1_1NotifyApplicationStateResult = (
   output: any,
   context: __SerdeContext
 ): NotifyApplicationStateResult => {
-  let contents: any = {
+  return {
     __type: "NotifyApplicationStateResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1NotifyMigrationTaskStateResult = (
   output: any,
   context: __SerdeContext
 ): NotifyMigrationTaskStateResult => {
-  let contents: any = {
+  return {
     __type: "NotifyMigrationTaskStateResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1PolicyErrorException = (
   output: any,
   context: __SerdeContext
 ): PolicyErrorException => {
-  let contents: any = {
+  return {
     __type: "PolicyErrorException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ProgressUpdateStreamSummary = (
   output: any,
   context: __SerdeContext
 ): ProgressUpdateStreamSummary => {
-  let contents: any = {
+  return {
     __type: "ProgressUpdateStreamSummary",
-    ProgressUpdateStreamName: undefined
-  };
-  if (
-    output.ProgressUpdateStreamName !== undefined &&
-    output.ProgressUpdateStreamName !== null
-  ) {
-    contents.ProgressUpdateStreamName = output.ProgressUpdateStreamName;
-  }
-  return contents;
+    ProgressUpdateStreamName:
+      output.ProgressUpdateStreamName !== undefined &&
+      output.ProgressUpdateStreamName !== null
+        ? output.ProgressUpdateStreamName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ProgressUpdateStreamSummaryList = (
@@ -3768,92 +3703,86 @@ const deserializeAws_json1_1PutResourceAttributesResult = (
   output: any,
   context: __SerdeContext
 ): PutResourceAttributesResult => {
-  let contents: any = {
+  return {
     __type: "PutResourceAttributesResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceAttribute = (
   output: any,
   context: __SerdeContext
 ): ResourceAttribute => {
-  let contents: any = {
+  return {
     __type: "ResourceAttribute",
-    Type: undefined,
-    Value: undefined
-  };
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ResourceNotFoundException => {
-  let contents: any = {
+  return {
     __type: "ResourceNotFoundException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ServiceUnavailableException = (
   output: any,
   context: __SerdeContext
 ): ServiceUnavailableException => {
-  let contents: any = {
+  return {
     __type: "ServiceUnavailableException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Task = (
   output: any,
   context: __SerdeContext
 ): Task => {
-  let contents: any = {
+  return {
     __type: "Task",
-    ProgressPercent: undefined,
-    Status: undefined,
-    StatusDetail: undefined
-  };
-  if (output.ProgressPercent !== undefined && output.ProgressPercent !== null) {
-    contents.ProgressPercent = output.ProgressPercent;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.StatusDetail !== undefined && output.StatusDetail !== null) {
-    contents.StatusDetail = output.StatusDetail;
-  }
-  return contents;
+    ProgressPercent:
+      output.ProgressPercent !== undefined && output.ProgressPercent !== null
+        ? output.ProgressPercent
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    StatusDetail:
+      output.StatusDetail !== undefined && output.StatusDetail !== null
+        ? output.StatusDetail
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UnauthorizedOperation = (
   output: any,
   context: __SerdeContext
 ): UnauthorizedOperation => {
-  let contents: any = {
+  return {
     __type: "UnauthorizedOperation",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

@@ -4418,106 +4418,92 @@ const deserializeAws_json1_1AddInstanceFleetOutput = (
   output: any,
   context: __SerdeContext
 ): AddInstanceFleetOutput => {
-  let contents: any = {
+  return {
     __type: "AddInstanceFleetOutput",
-    ClusterArn: undefined,
-    ClusterId: undefined,
-    InstanceFleetId: undefined
-  };
-  if (output.ClusterArn !== undefined && output.ClusterArn !== null) {
-    contents.ClusterArn = output.ClusterArn;
-  }
-  if (output.ClusterId !== undefined && output.ClusterId !== null) {
-    contents.ClusterId = output.ClusterId;
-  }
-  if (output.InstanceFleetId !== undefined && output.InstanceFleetId !== null) {
-    contents.InstanceFleetId = output.InstanceFleetId;
-  }
-  return contents;
+    ClusterArn:
+      output.ClusterArn !== undefined && output.ClusterArn !== null
+        ? output.ClusterArn
+        : undefined,
+    ClusterId:
+      output.ClusterId !== undefined && output.ClusterId !== null
+        ? output.ClusterId
+        : undefined,
+    InstanceFleetId:
+      output.InstanceFleetId !== undefined && output.InstanceFleetId !== null
+        ? output.InstanceFleetId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1AddInstanceGroupsOutput = (
   output: any,
   context: __SerdeContext
 ): AddInstanceGroupsOutput => {
-  let contents: any = {
+  return {
     __type: "AddInstanceGroupsOutput",
-    ClusterArn: undefined,
-    InstanceGroupIds: undefined,
-    JobFlowId: undefined
-  };
-  if (output.ClusterArn !== undefined && output.ClusterArn !== null) {
-    contents.ClusterArn = output.ClusterArn;
-  }
-  if (
-    output.InstanceGroupIds !== undefined &&
-    output.InstanceGroupIds !== null
-  ) {
-    contents.InstanceGroupIds = deserializeAws_json1_1InstanceGroupIdsList(
-      output.InstanceGroupIds,
-      context
-    );
-  }
-  if (output.JobFlowId !== undefined && output.JobFlowId !== null) {
-    contents.JobFlowId = output.JobFlowId;
-  }
-  return contents;
+    ClusterArn:
+      output.ClusterArn !== undefined && output.ClusterArn !== null
+        ? output.ClusterArn
+        : undefined,
+    InstanceGroupIds:
+      output.InstanceGroupIds !== undefined && output.InstanceGroupIds !== null
+        ? deserializeAws_json1_1InstanceGroupIdsList(
+            output.InstanceGroupIds,
+            context
+          )
+        : undefined,
+    JobFlowId:
+      output.JobFlowId !== undefined && output.JobFlowId !== null
+        ? output.JobFlowId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1AddJobFlowStepsOutput = (
   output: any,
   context: __SerdeContext
 ): AddJobFlowStepsOutput => {
-  let contents: any = {
+  return {
     __type: "AddJobFlowStepsOutput",
-    StepIds: undefined
-  };
-  if (output.StepIds !== undefined && output.StepIds !== null) {
-    contents.StepIds = deserializeAws_json1_1StepIdsList(
-      output.StepIds,
-      context
-    );
-  }
-  return contents;
+    StepIds:
+      output.StepIds !== undefined && output.StepIds !== null
+        ? deserializeAws_json1_1StepIdsList(output.StepIds, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1AddTagsOutput = (
   output: any,
   context: __SerdeContext
 ): AddTagsOutput => {
-  let contents: any = {
+  return {
     __type: "AddTagsOutput"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1Application = (
   output: any,
   context: __SerdeContext
 ): Application => {
-  let contents: any = {
+  return {
     __type: "Application",
-    AdditionalInfo: undefined,
-    Args: undefined,
-    Name: undefined,
-    Version: undefined
-  };
-  if (output.AdditionalInfo !== undefined && output.AdditionalInfo !== null) {
-    contents.AdditionalInfo = deserializeAws_json1_1StringMap(
-      output.AdditionalInfo,
-      context
-    );
-  }
-  if (output.Args !== undefined && output.Args !== null) {
-    contents.Args = deserializeAws_json1_1StringList(output.Args, context);
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Version !== undefined && output.Version !== null) {
-    contents.Version = output.Version;
-  }
-  return contents;
+    AdditionalInfo:
+      output.AdditionalInfo !== undefined && output.AdditionalInfo !== null
+        ? deserializeAws_json1_1StringMap(output.AdditionalInfo, context)
+        : undefined,
+    Args:
+      output.Args !== undefined && output.Args !== null
+        ? deserializeAws_json1_1StringList(output.Args, context)
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Version:
+      output.Version !== undefined && output.Version !== null
+        ? output.Version
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ApplicationList = (
@@ -4533,186 +4519,151 @@ const deserializeAws_json1_1AutoScalingPolicyDescription = (
   output: any,
   context: __SerdeContext
 ): AutoScalingPolicyDescription => {
-  let contents: any = {
+  return {
     __type: "AutoScalingPolicyDescription",
-    Constraints: undefined,
-    Rules: undefined,
-    Status: undefined
-  };
-  if (output.Constraints !== undefined && output.Constraints !== null) {
-    contents.Constraints = deserializeAws_json1_1ScalingConstraints(
-      output.Constraints,
-      context
-    );
-  }
-  if (output.Rules !== undefined && output.Rules !== null) {
-    contents.Rules = deserializeAws_json1_1ScalingRuleList(
-      output.Rules,
-      context
-    );
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = deserializeAws_json1_1AutoScalingPolicyStatus(
-      output.Status,
-      context
-    );
-  }
-  return contents;
+    Constraints:
+      output.Constraints !== undefined && output.Constraints !== null
+        ? deserializeAws_json1_1ScalingConstraints(output.Constraints, context)
+        : undefined,
+    Rules:
+      output.Rules !== undefined && output.Rules !== null
+        ? deserializeAws_json1_1ScalingRuleList(output.Rules, context)
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? deserializeAws_json1_1AutoScalingPolicyStatus(output.Status, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1AutoScalingPolicyStateChangeReason = (
   output: any,
   context: __SerdeContext
 ): AutoScalingPolicyStateChangeReason => {
-  let contents: any = {
+  return {
     __type: "AutoScalingPolicyStateChangeReason",
-    Code: undefined,
-    Message: undefined
-  };
-  if (output.Code !== undefined && output.Code !== null) {
-    contents.Code = output.Code;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Code:
+      output.Code !== undefined && output.Code !== null
+        ? output.Code
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1AutoScalingPolicyStatus = (
   output: any,
   context: __SerdeContext
 ): AutoScalingPolicyStatus => {
-  let contents: any = {
+  return {
     __type: "AutoScalingPolicyStatus",
-    State: undefined,
-    StateChangeReason: undefined
-  };
-  if (output.State !== undefined && output.State !== null) {
-    contents.State = output.State;
-  }
-  if (
-    output.StateChangeReason !== undefined &&
-    output.StateChangeReason !== null
-  ) {
-    contents.StateChangeReason = deserializeAws_json1_1AutoScalingPolicyStateChangeReason(
-      output.StateChangeReason,
-      context
-    );
-  }
-  return contents;
+    State:
+      output.State !== undefined && output.State !== null
+        ? output.State
+        : undefined,
+    StateChangeReason:
+      output.StateChangeReason !== undefined &&
+      output.StateChangeReason !== null
+        ? deserializeAws_json1_1AutoScalingPolicyStateChangeReason(
+            output.StateChangeReason,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1BlockPublicAccessConfiguration = (
   output: any,
   context: __SerdeContext
 ): BlockPublicAccessConfiguration => {
-  let contents: any = {
+  return {
     __type: "BlockPublicAccessConfiguration",
-    BlockPublicSecurityGroupRules: undefined,
-    Classification: undefined,
-    Configurations: undefined,
-    PermittedPublicSecurityGroupRuleRanges: undefined,
-    Properties: undefined
-  };
-  if (
-    output.BlockPublicSecurityGroupRules !== undefined &&
-    output.BlockPublicSecurityGroupRules !== null
-  ) {
-    contents.BlockPublicSecurityGroupRules =
-      output.BlockPublicSecurityGroupRules;
-  }
-  if (output.Classification !== undefined && output.Classification !== null) {
-    contents.Classification = output.Classification;
-  }
-  if (output.Configurations !== undefined && output.Configurations !== null) {
-    contents.Configurations = deserializeAws_json1_1ConfigurationList(
-      output.Configurations,
-      context
-    );
-  }
-  if (
-    output.PermittedPublicSecurityGroupRuleRanges !== undefined &&
-    output.PermittedPublicSecurityGroupRuleRanges !== null
-  ) {
-    contents.PermittedPublicSecurityGroupRuleRanges = deserializeAws_json1_1PortRanges(
-      output.PermittedPublicSecurityGroupRuleRanges,
-      context
-    );
-  }
-  if (output.Properties !== undefined && output.Properties !== null) {
-    contents.Properties = deserializeAws_json1_1StringMap(
-      output.Properties,
-      context
-    );
-  }
-  return contents;
+    BlockPublicSecurityGroupRules:
+      output.BlockPublicSecurityGroupRules !== undefined &&
+      output.BlockPublicSecurityGroupRules !== null
+        ? output.BlockPublicSecurityGroupRules
+        : undefined,
+    Classification:
+      output.Classification !== undefined && output.Classification !== null
+        ? output.Classification
+        : undefined,
+    Configurations:
+      output.Configurations !== undefined && output.Configurations !== null
+        ? deserializeAws_json1_1ConfigurationList(
+            output.Configurations,
+            context
+          )
+        : undefined,
+    PermittedPublicSecurityGroupRuleRanges:
+      output.PermittedPublicSecurityGroupRuleRanges !== undefined &&
+      output.PermittedPublicSecurityGroupRuleRanges !== null
+        ? deserializeAws_json1_1PortRanges(
+            output.PermittedPublicSecurityGroupRuleRanges,
+            context
+          )
+        : undefined,
+    Properties:
+      output.Properties !== undefined && output.Properties !== null
+        ? deserializeAws_json1_1StringMap(output.Properties, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1BlockPublicAccessConfigurationMetadata = (
   output: any,
   context: __SerdeContext
 ): BlockPublicAccessConfigurationMetadata => {
-  let contents: any = {
+  return {
     __type: "BlockPublicAccessConfigurationMetadata",
-    CreatedByArn: undefined,
-    CreationDateTime: undefined
-  };
-  if (output.CreatedByArn !== undefined && output.CreatedByArn !== null) {
-    contents.CreatedByArn = output.CreatedByArn;
-  }
-  if (
-    output.CreationDateTime !== undefined &&
-    output.CreationDateTime !== null
-  ) {
-    contents.CreationDateTime = new Date(
-      Math.round(output.CreationDateTime * 1000)
-    );
-  }
-  return contents;
+    CreatedByArn:
+      output.CreatedByArn !== undefined && output.CreatedByArn !== null
+        ? output.CreatedByArn
+        : undefined,
+    CreationDateTime:
+      output.CreationDateTime !== undefined && output.CreationDateTime !== null
+        ? new Date(Math.round(output.CreationDateTime * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1BootstrapActionConfig = (
   output: any,
   context: __SerdeContext
 ): BootstrapActionConfig => {
-  let contents: any = {
+  return {
     __type: "BootstrapActionConfig",
-    Name: undefined,
-    ScriptBootstrapAction: undefined
-  };
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (
-    output.ScriptBootstrapAction !== undefined &&
-    output.ScriptBootstrapAction !== null
-  ) {
-    contents.ScriptBootstrapAction = deserializeAws_json1_1ScriptBootstrapActionConfig(
-      output.ScriptBootstrapAction,
-      context
-    );
-  }
-  return contents;
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    ScriptBootstrapAction:
+      output.ScriptBootstrapAction !== undefined &&
+      output.ScriptBootstrapAction !== null
+        ? deserializeAws_json1_1ScriptBootstrapActionConfig(
+            output.ScriptBootstrapAction,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1BootstrapActionDetail = (
   output: any,
   context: __SerdeContext
 ): BootstrapActionDetail => {
-  let contents: any = {
+  return {
     __type: "BootstrapActionDetail",
-    BootstrapActionConfig: undefined
-  };
-  if (
-    output.BootstrapActionConfig !== undefined &&
-    output.BootstrapActionConfig !== null
-  ) {
-    contents.BootstrapActionConfig = deserializeAws_json1_1BootstrapActionConfig(
-      output.BootstrapActionConfig,
-      context
-    );
-  }
-  return contents;
+    BootstrapActionConfig:
+      output.BootstrapActionConfig !== undefined &&
+      output.BootstrapActionConfig !== null
+        ? deserializeAws_json1_1BootstrapActionConfig(
+            output.BootstrapActionConfig,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1BootstrapActionDetailList = (
@@ -4728,22 +4679,21 @@ const deserializeAws_json1_1CancelStepsInfo = (
   output: any,
   context: __SerdeContext
 ): CancelStepsInfo => {
-  let contents: any = {
+  return {
     __type: "CancelStepsInfo",
-    Reason: undefined,
-    Status: undefined,
-    StepId: undefined
-  };
-  if (output.Reason !== undefined && output.Reason !== null) {
-    contents.Reason = output.Reason;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.StepId !== undefined && output.StepId !== null) {
-    contents.StepId = output.StepId;
-  }
-  return contents;
+    Reason:
+      output.Reason !== undefined && output.Reason !== null
+        ? output.Reason
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    StepId:
+      output.StepId !== undefined && output.StepId !== null
+        ? output.StepId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CancelStepsInfoList = (
@@ -4759,343 +4709,278 @@ const deserializeAws_json1_1CancelStepsOutput = (
   output: any,
   context: __SerdeContext
 ): CancelStepsOutput => {
-  let contents: any = {
+  return {
     __type: "CancelStepsOutput",
-    CancelStepsInfoList: undefined
-  };
-  if (
-    output.CancelStepsInfoList !== undefined &&
-    output.CancelStepsInfoList !== null
-  ) {
-    contents.CancelStepsInfoList = deserializeAws_json1_1CancelStepsInfoList(
-      output.CancelStepsInfoList,
-      context
-    );
-  }
-  return contents;
+    CancelStepsInfoList:
+      output.CancelStepsInfoList !== undefined &&
+      output.CancelStepsInfoList !== null
+        ? deserializeAws_json1_1CancelStepsInfoList(
+            output.CancelStepsInfoList,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CloudWatchAlarmDefinition = (
   output: any,
   context: __SerdeContext
 ): CloudWatchAlarmDefinition => {
-  let contents: any = {
+  return {
     __type: "CloudWatchAlarmDefinition",
-    ComparisonOperator: undefined,
-    Dimensions: undefined,
-    EvaluationPeriods: undefined,
-    MetricName: undefined,
-    Namespace: undefined,
-    Period: undefined,
-    Statistic: undefined,
-    Threshold: undefined,
-    Unit: undefined
-  };
-  if (
-    output.ComparisonOperator !== undefined &&
-    output.ComparisonOperator !== null
-  ) {
-    contents.ComparisonOperator = output.ComparisonOperator;
-  }
-  if (output.Dimensions !== undefined && output.Dimensions !== null) {
-    contents.Dimensions = deserializeAws_json1_1MetricDimensionList(
-      output.Dimensions,
-      context
-    );
-  }
-  if (
-    output.EvaluationPeriods !== undefined &&
-    output.EvaluationPeriods !== null
-  ) {
-    contents.EvaluationPeriods = output.EvaluationPeriods;
-  }
-  if (output.MetricName !== undefined && output.MetricName !== null) {
-    contents.MetricName = output.MetricName;
-  }
-  if (output.Namespace !== undefined && output.Namespace !== null) {
-    contents.Namespace = output.Namespace;
-  }
-  if (output.Period !== undefined && output.Period !== null) {
-    contents.Period = output.Period;
-  }
-  if (output.Statistic !== undefined && output.Statistic !== null) {
-    contents.Statistic = output.Statistic;
-  }
-  if (output.Threshold !== undefined && output.Threshold !== null) {
-    contents.Threshold = output.Threshold;
-  }
-  if (output.Unit !== undefined && output.Unit !== null) {
-    contents.Unit = output.Unit;
-  }
-  return contents;
+    ComparisonOperator:
+      output.ComparisonOperator !== undefined &&
+      output.ComparisonOperator !== null
+        ? output.ComparisonOperator
+        : undefined,
+    Dimensions:
+      output.Dimensions !== undefined && output.Dimensions !== null
+        ? deserializeAws_json1_1MetricDimensionList(output.Dimensions, context)
+        : undefined,
+    EvaluationPeriods:
+      output.EvaluationPeriods !== undefined &&
+      output.EvaluationPeriods !== null
+        ? output.EvaluationPeriods
+        : undefined,
+    MetricName:
+      output.MetricName !== undefined && output.MetricName !== null
+        ? output.MetricName
+        : undefined,
+    Namespace:
+      output.Namespace !== undefined && output.Namespace !== null
+        ? output.Namespace
+        : undefined,
+    Period:
+      output.Period !== undefined && output.Period !== null
+        ? output.Period
+        : undefined,
+    Statistic:
+      output.Statistic !== undefined && output.Statistic !== null
+        ? output.Statistic
+        : undefined,
+    Threshold:
+      output.Threshold !== undefined && output.Threshold !== null
+        ? output.Threshold
+        : undefined,
+    Unit:
+      output.Unit !== undefined && output.Unit !== null
+        ? output.Unit
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Cluster = (
   output: any,
   context: __SerdeContext
 ): Cluster => {
-  let contents: any = {
+  return {
     __type: "Cluster",
-    Applications: undefined,
-    AutoScalingRole: undefined,
-    AutoTerminate: undefined,
-    ClusterArn: undefined,
-    Configurations: undefined,
-    CustomAmiId: undefined,
-    EbsRootVolumeSize: undefined,
-    Ec2InstanceAttributes: undefined,
-    Id: undefined,
-    InstanceCollectionType: undefined,
-    KerberosAttributes: undefined,
-    LogUri: undefined,
-    MasterPublicDnsName: undefined,
-    Name: undefined,
-    NormalizedInstanceHours: undefined,
-    OutpostArn: undefined,
-    ReleaseLabel: undefined,
-    RepoUpgradeOnBoot: undefined,
-    RequestedAmiVersion: undefined,
-    RunningAmiVersion: undefined,
-    ScaleDownBehavior: undefined,
-    SecurityConfiguration: undefined,
-    ServiceRole: undefined,
-    Status: undefined,
-    StepConcurrencyLevel: undefined,
-    Tags: undefined,
-    TerminationProtected: undefined,
-    VisibleToAllUsers: undefined
-  };
-  if (output.Applications !== undefined && output.Applications !== null) {
-    contents.Applications = deserializeAws_json1_1ApplicationList(
-      output.Applications,
-      context
-    );
-  }
-  if (output.AutoScalingRole !== undefined && output.AutoScalingRole !== null) {
-    contents.AutoScalingRole = output.AutoScalingRole;
-  }
-  if (output.AutoTerminate !== undefined && output.AutoTerminate !== null) {
-    contents.AutoTerminate = output.AutoTerminate;
-  }
-  if (output.ClusterArn !== undefined && output.ClusterArn !== null) {
-    contents.ClusterArn = output.ClusterArn;
-  }
-  if (output.Configurations !== undefined && output.Configurations !== null) {
-    contents.Configurations = deserializeAws_json1_1ConfigurationList(
-      output.Configurations,
-      context
-    );
-  }
-  if (output.CustomAmiId !== undefined && output.CustomAmiId !== null) {
-    contents.CustomAmiId = output.CustomAmiId;
-  }
-  if (
-    output.EbsRootVolumeSize !== undefined &&
-    output.EbsRootVolumeSize !== null
-  ) {
-    contents.EbsRootVolumeSize = output.EbsRootVolumeSize;
-  }
-  if (
-    output.Ec2InstanceAttributes !== undefined &&
-    output.Ec2InstanceAttributes !== null
-  ) {
-    contents.Ec2InstanceAttributes = deserializeAws_json1_1Ec2InstanceAttributes(
-      output.Ec2InstanceAttributes,
-      context
-    );
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (
-    output.InstanceCollectionType !== undefined &&
-    output.InstanceCollectionType !== null
-  ) {
-    contents.InstanceCollectionType = output.InstanceCollectionType;
-  }
-  if (
-    output.KerberosAttributes !== undefined &&
-    output.KerberosAttributes !== null
-  ) {
-    contents.KerberosAttributes = deserializeAws_json1_1KerberosAttributes(
-      output.KerberosAttributes,
-      context
-    );
-  }
-  if (output.LogUri !== undefined && output.LogUri !== null) {
-    contents.LogUri = output.LogUri;
-  }
-  if (
-    output.MasterPublicDnsName !== undefined &&
-    output.MasterPublicDnsName !== null
-  ) {
-    contents.MasterPublicDnsName = output.MasterPublicDnsName;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (
-    output.NormalizedInstanceHours !== undefined &&
-    output.NormalizedInstanceHours !== null
-  ) {
-    contents.NormalizedInstanceHours = output.NormalizedInstanceHours;
-  }
-  if (output.OutpostArn !== undefined && output.OutpostArn !== null) {
-    contents.OutpostArn = output.OutpostArn;
-  }
-  if (output.ReleaseLabel !== undefined && output.ReleaseLabel !== null) {
-    contents.ReleaseLabel = output.ReleaseLabel;
-  }
-  if (
-    output.RepoUpgradeOnBoot !== undefined &&
-    output.RepoUpgradeOnBoot !== null
-  ) {
-    contents.RepoUpgradeOnBoot = output.RepoUpgradeOnBoot;
-  }
-  if (
-    output.RequestedAmiVersion !== undefined &&
-    output.RequestedAmiVersion !== null
-  ) {
-    contents.RequestedAmiVersion = output.RequestedAmiVersion;
-  }
-  if (
-    output.RunningAmiVersion !== undefined &&
-    output.RunningAmiVersion !== null
-  ) {
-    contents.RunningAmiVersion = output.RunningAmiVersion;
-  }
-  if (
-    output.ScaleDownBehavior !== undefined &&
-    output.ScaleDownBehavior !== null
-  ) {
-    contents.ScaleDownBehavior = output.ScaleDownBehavior;
-  }
-  if (
-    output.SecurityConfiguration !== undefined &&
-    output.SecurityConfiguration !== null
-  ) {
-    contents.SecurityConfiguration = output.SecurityConfiguration;
-  }
-  if (output.ServiceRole !== undefined && output.ServiceRole !== null) {
-    contents.ServiceRole = output.ServiceRole;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = deserializeAws_json1_1ClusterStatus(
-      output.Status,
-      context
-    );
-  }
-  if (
-    output.StepConcurrencyLevel !== undefined &&
-    output.StepConcurrencyLevel !== null
-  ) {
-    contents.StepConcurrencyLevel = output.StepConcurrencyLevel;
-  }
-  if (output.Tags !== undefined && output.Tags !== null) {
-    contents.Tags = deserializeAws_json1_1TagList(output.Tags, context);
-  }
-  if (
-    output.TerminationProtected !== undefined &&
-    output.TerminationProtected !== null
-  ) {
-    contents.TerminationProtected = output.TerminationProtected;
-  }
-  if (
-    output.VisibleToAllUsers !== undefined &&
-    output.VisibleToAllUsers !== null
-  ) {
-    contents.VisibleToAllUsers = output.VisibleToAllUsers;
-  }
-  return contents;
+    Applications:
+      output.Applications !== undefined && output.Applications !== null
+        ? deserializeAws_json1_1ApplicationList(output.Applications, context)
+        : undefined,
+    AutoScalingRole:
+      output.AutoScalingRole !== undefined && output.AutoScalingRole !== null
+        ? output.AutoScalingRole
+        : undefined,
+    AutoTerminate:
+      output.AutoTerminate !== undefined && output.AutoTerminate !== null
+        ? output.AutoTerminate
+        : undefined,
+    ClusterArn:
+      output.ClusterArn !== undefined && output.ClusterArn !== null
+        ? output.ClusterArn
+        : undefined,
+    Configurations:
+      output.Configurations !== undefined && output.Configurations !== null
+        ? deserializeAws_json1_1ConfigurationList(
+            output.Configurations,
+            context
+          )
+        : undefined,
+    CustomAmiId:
+      output.CustomAmiId !== undefined && output.CustomAmiId !== null
+        ? output.CustomAmiId
+        : undefined,
+    EbsRootVolumeSize:
+      output.EbsRootVolumeSize !== undefined &&
+      output.EbsRootVolumeSize !== null
+        ? output.EbsRootVolumeSize
+        : undefined,
+    Ec2InstanceAttributes:
+      output.Ec2InstanceAttributes !== undefined &&
+      output.Ec2InstanceAttributes !== null
+        ? deserializeAws_json1_1Ec2InstanceAttributes(
+            output.Ec2InstanceAttributes,
+            context
+          )
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    InstanceCollectionType:
+      output.InstanceCollectionType !== undefined &&
+      output.InstanceCollectionType !== null
+        ? output.InstanceCollectionType
+        : undefined,
+    KerberosAttributes:
+      output.KerberosAttributes !== undefined &&
+      output.KerberosAttributes !== null
+        ? deserializeAws_json1_1KerberosAttributes(
+            output.KerberosAttributes,
+            context
+          )
+        : undefined,
+    LogUri:
+      output.LogUri !== undefined && output.LogUri !== null
+        ? output.LogUri
+        : undefined,
+    MasterPublicDnsName:
+      output.MasterPublicDnsName !== undefined &&
+      output.MasterPublicDnsName !== null
+        ? output.MasterPublicDnsName
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    NormalizedInstanceHours:
+      output.NormalizedInstanceHours !== undefined &&
+      output.NormalizedInstanceHours !== null
+        ? output.NormalizedInstanceHours
+        : undefined,
+    OutpostArn:
+      output.OutpostArn !== undefined && output.OutpostArn !== null
+        ? output.OutpostArn
+        : undefined,
+    ReleaseLabel:
+      output.ReleaseLabel !== undefined && output.ReleaseLabel !== null
+        ? output.ReleaseLabel
+        : undefined,
+    RepoUpgradeOnBoot:
+      output.RepoUpgradeOnBoot !== undefined &&
+      output.RepoUpgradeOnBoot !== null
+        ? output.RepoUpgradeOnBoot
+        : undefined,
+    RequestedAmiVersion:
+      output.RequestedAmiVersion !== undefined &&
+      output.RequestedAmiVersion !== null
+        ? output.RequestedAmiVersion
+        : undefined,
+    RunningAmiVersion:
+      output.RunningAmiVersion !== undefined &&
+      output.RunningAmiVersion !== null
+        ? output.RunningAmiVersion
+        : undefined,
+    ScaleDownBehavior:
+      output.ScaleDownBehavior !== undefined &&
+      output.ScaleDownBehavior !== null
+        ? output.ScaleDownBehavior
+        : undefined,
+    SecurityConfiguration:
+      output.SecurityConfiguration !== undefined &&
+      output.SecurityConfiguration !== null
+        ? output.SecurityConfiguration
+        : undefined,
+    ServiceRole:
+      output.ServiceRole !== undefined && output.ServiceRole !== null
+        ? output.ServiceRole
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? deserializeAws_json1_1ClusterStatus(output.Status, context)
+        : undefined,
+    StepConcurrencyLevel:
+      output.StepConcurrencyLevel !== undefined &&
+      output.StepConcurrencyLevel !== null
+        ? output.StepConcurrencyLevel
+        : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1TagList(output.Tags, context)
+        : undefined,
+    TerminationProtected:
+      output.TerminationProtected !== undefined &&
+      output.TerminationProtected !== null
+        ? output.TerminationProtected
+        : undefined,
+    VisibleToAllUsers:
+      output.VisibleToAllUsers !== undefined &&
+      output.VisibleToAllUsers !== null
+        ? output.VisibleToAllUsers
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ClusterStateChangeReason = (
   output: any,
   context: __SerdeContext
 ): ClusterStateChangeReason => {
-  let contents: any = {
+  return {
     __type: "ClusterStateChangeReason",
-    Code: undefined,
-    Message: undefined
-  };
-  if (output.Code !== undefined && output.Code !== null) {
-    contents.Code = output.Code;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Code:
+      output.Code !== undefined && output.Code !== null
+        ? output.Code
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ClusterStatus = (
   output: any,
   context: __SerdeContext
 ): ClusterStatus => {
-  let contents: any = {
+  return {
     __type: "ClusterStatus",
-    State: undefined,
-    StateChangeReason: undefined,
-    Timeline: undefined
-  };
-  if (output.State !== undefined && output.State !== null) {
-    contents.State = output.State;
-  }
-  if (
-    output.StateChangeReason !== undefined &&
-    output.StateChangeReason !== null
-  ) {
-    contents.StateChangeReason = deserializeAws_json1_1ClusterStateChangeReason(
-      output.StateChangeReason,
-      context
-    );
-  }
-  if (output.Timeline !== undefined && output.Timeline !== null) {
-    contents.Timeline = deserializeAws_json1_1ClusterTimeline(
-      output.Timeline,
-      context
-    );
-  }
-  return contents;
+    State:
+      output.State !== undefined && output.State !== null
+        ? output.State
+        : undefined,
+    StateChangeReason:
+      output.StateChangeReason !== undefined &&
+      output.StateChangeReason !== null
+        ? deserializeAws_json1_1ClusterStateChangeReason(
+            output.StateChangeReason,
+            context
+          )
+        : undefined,
+    Timeline:
+      output.Timeline !== undefined && output.Timeline !== null
+        ? deserializeAws_json1_1ClusterTimeline(output.Timeline, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ClusterSummary = (
   output: any,
   context: __SerdeContext
 ): ClusterSummary => {
-  let contents: any = {
+  return {
     __type: "ClusterSummary",
-    ClusterArn: undefined,
-    Id: undefined,
-    Name: undefined,
-    NormalizedInstanceHours: undefined,
-    OutpostArn: undefined,
-    Status: undefined
-  };
-  if (output.ClusterArn !== undefined && output.ClusterArn !== null) {
-    contents.ClusterArn = output.ClusterArn;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (
-    output.NormalizedInstanceHours !== undefined &&
-    output.NormalizedInstanceHours !== null
-  ) {
-    contents.NormalizedInstanceHours = output.NormalizedInstanceHours;
-  }
-  if (output.OutpostArn !== undefined && output.OutpostArn !== null) {
-    contents.OutpostArn = output.OutpostArn;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = deserializeAws_json1_1ClusterStatus(
-      output.Status,
-      context
-    );
-  }
-  return contents;
+    ClusterArn:
+      output.ClusterArn !== undefined && output.ClusterArn !== null
+        ? output.ClusterArn
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    NormalizedInstanceHours:
+      output.NormalizedInstanceHours !== undefined &&
+      output.NormalizedInstanceHours !== null
+        ? output.NormalizedInstanceHours
+        : undefined,
+    OutpostArn:
+      output.OutpostArn !== undefined && output.OutpostArn !== null
+        ? output.OutpostArn
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? deserializeAws_json1_1ClusterStatus(output.Status, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ClusterSummaryList = (
@@ -5111,49 +4996,42 @@ const deserializeAws_json1_1ClusterTimeline = (
   output: any,
   context: __SerdeContext
 ): ClusterTimeline => {
-  let contents: any = {
+  return {
     __type: "ClusterTimeline",
-    CreationDateTime: undefined,
-    EndDateTime: undefined,
-    ReadyDateTime: undefined
-  };
-  if (
-    output.CreationDateTime !== undefined &&
-    output.CreationDateTime !== null
-  ) {
-    contents.CreationDateTime = new Date(
-      Math.round(output.CreationDateTime * 1000)
-    );
-  }
-  if (output.EndDateTime !== undefined && output.EndDateTime !== null) {
-    contents.EndDateTime = new Date(Math.round(output.EndDateTime * 1000));
-  }
-  if (output.ReadyDateTime !== undefined && output.ReadyDateTime !== null) {
-    contents.ReadyDateTime = new Date(Math.round(output.ReadyDateTime * 1000));
-  }
-  return contents;
+    CreationDateTime:
+      output.CreationDateTime !== undefined && output.CreationDateTime !== null
+        ? new Date(Math.round(output.CreationDateTime * 1000))
+        : undefined,
+    EndDateTime:
+      output.EndDateTime !== undefined && output.EndDateTime !== null
+        ? new Date(Math.round(output.EndDateTime * 1000))
+        : undefined,
+    ReadyDateTime:
+      output.ReadyDateTime !== undefined && output.ReadyDateTime !== null
+        ? new Date(Math.round(output.ReadyDateTime * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Command = (
   output: any,
   context: __SerdeContext
 ): Command => {
-  let contents: any = {
+  return {
     __type: "Command",
-    Args: undefined,
-    Name: undefined,
-    ScriptPath: undefined
-  };
-  if (output.Args !== undefined && output.Args !== null) {
-    contents.Args = deserializeAws_json1_1StringList(output.Args, context);
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.ScriptPath !== undefined && output.ScriptPath !== null) {
-    contents.ScriptPath = output.ScriptPath;
-  }
-  return contents;
+    Args:
+      output.Args !== undefined && output.Args !== null
+        ? deserializeAws_json1_1StringList(output.Args, context)
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    ScriptPath:
+      output.ScriptPath !== undefined && output.ScriptPath !== null
+        ? output.ScriptPath
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CommandList = (
@@ -5169,28 +5047,24 @@ const deserializeAws_json1_1Configuration = (
   output: any,
   context: __SerdeContext
 ): Configuration => {
-  let contents: any = {
+  return {
     __type: "Configuration",
-    Classification: undefined,
-    Configurations: undefined,
-    Properties: undefined
-  };
-  if (output.Classification !== undefined && output.Classification !== null) {
-    contents.Classification = output.Classification;
-  }
-  if (output.Configurations !== undefined && output.Configurations !== null) {
-    contents.Configurations = deserializeAws_json1_1ConfigurationList(
-      output.Configurations,
-      context
-    );
-  }
-  if (output.Properties !== undefined && output.Properties !== null) {
-    contents.Properties = deserializeAws_json1_1StringMap(
-      output.Properties,
-      context
-    );
-  }
-  return contents;
+    Classification:
+      output.Classification !== undefined && output.Classification !== null
+        ? output.Classification
+        : undefined,
+    Configurations:
+      output.Configurations !== undefined && output.Configurations !== null
+        ? deserializeAws_json1_1ConfigurationList(
+            output.Configurations,
+            context
+          )
+        : undefined,
+    Properties:
+      output.Properties !== undefined && output.Properties !== null
+        ? deserializeAws_json1_1StringMap(output.Properties, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ConfigurationList = (
@@ -5206,108 +5080,87 @@ const deserializeAws_json1_1CreateSecurityConfigurationOutput = (
   output: any,
   context: __SerdeContext
 ): CreateSecurityConfigurationOutput => {
-  let contents: any = {
+  return {
     __type: "CreateSecurityConfigurationOutput",
-    CreationDateTime: undefined,
-    Name: undefined
-  };
-  if (
-    output.CreationDateTime !== undefined &&
-    output.CreationDateTime !== null
-  ) {
-    contents.CreationDateTime = new Date(
-      Math.round(output.CreationDateTime * 1000)
-    );
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    CreationDateTime:
+      output.CreationDateTime !== undefined && output.CreationDateTime !== null
+        ? new Date(Math.round(output.CreationDateTime * 1000))
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteSecurityConfigurationOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteSecurityConfigurationOutput => {
-  let contents: any = {
+  return {
     __type: "DeleteSecurityConfigurationOutput"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeClusterOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeClusterOutput => {
-  let contents: any = {
+  return {
     __type: "DescribeClusterOutput",
-    Cluster: undefined
-  };
-  if (output.Cluster !== undefined && output.Cluster !== null) {
-    contents.Cluster = deserializeAws_json1_1Cluster(output.Cluster, context);
-  }
-  return contents;
+    Cluster:
+      output.Cluster !== undefined && output.Cluster !== null
+        ? deserializeAws_json1_1Cluster(output.Cluster, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeJobFlowsOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeJobFlowsOutput => {
-  let contents: any = {
+  return {
     __type: "DescribeJobFlowsOutput",
-    JobFlows: undefined
-  };
-  if (output.JobFlows !== undefined && output.JobFlows !== null) {
-    contents.JobFlows = deserializeAws_json1_1JobFlowDetailList(
-      output.JobFlows,
-      context
-    );
-  }
-  return contents;
+    JobFlows:
+      output.JobFlows !== undefined && output.JobFlows !== null
+        ? deserializeAws_json1_1JobFlowDetailList(output.JobFlows, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeSecurityConfigurationOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeSecurityConfigurationOutput => {
-  let contents: any = {
+  return {
     __type: "DescribeSecurityConfigurationOutput",
-    CreationDateTime: undefined,
-    Name: undefined,
-    SecurityConfiguration: undefined
-  };
-  if (
-    output.CreationDateTime !== undefined &&
-    output.CreationDateTime !== null
-  ) {
-    contents.CreationDateTime = new Date(
-      Math.round(output.CreationDateTime * 1000)
-    );
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (
-    output.SecurityConfiguration !== undefined &&
-    output.SecurityConfiguration !== null
-  ) {
-    contents.SecurityConfiguration = output.SecurityConfiguration;
-  }
-  return contents;
+    CreationDateTime:
+      output.CreationDateTime !== undefined && output.CreationDateTime !== null
+        ? new Date(Math.round(output.CreationDateTime * 1000))
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    SecurityConfiguration:
+      output.SecurityConfiguration !== undefined &&
+      output.SecurityConfiguration !== null
+        ? output.SecurityConfiguration
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeStepOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeStepOutput => {
-  let contents: any = {
+  return {
     __type: "DescribeStepOutput",
-    Step: undefined
-  };
-  if (output.Step !== undefined && output.Step !== null) {
-    contents.Step = deserializeAws_json1_1Step(output.Step, context);
-  }
-  return contents;
+    Step:
+      output.Step !== undefined && output.Step !== null
+        ? deserializeAws_json1_1Step(output.Step, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EC2InstanceIdsList = (
@@ -5321,24 +5174,21 @@ const deserializeAws_json1_1EbsBlockDevice = (
   output: any,
   context: __SerdeContext
 ): EbsBlockDevice => {
-  let contents: any = {
+  return {
     __type: "EbsBlockDevice",
-    Device: undefined,
-    VolumeSpecification: undefined
-  };
-  if (output.Device !== undefined && output.Device !== null) {
-    contents.Device = output.Device;
-  }
-  if (
-    output.VolumeSpecification !== undefined &&
-    output.VolumeSpecification !== null
-  ) {
-    contents.VolumeSpecification = deserializeAws_json1_1VolumeSpecification(
-      output.VolumeSpecification,
-      context
-    );
-  }
-  return contents;
+    Device:
+      output.Device !== undefined && output.Device !== null
+        ? output.Device
+        : undefined,
+    VolumeSpecification:
+      output.VolumeSpecification !== undefined &&
+      output.VolumeSpecification !== null
+        ? deserializeAws_json1_1VolumeSpecification(
+            output.VolumeSpecification,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EbsBlockDeviceList = (
@@ -5354,18 +5204,17 @@ const deserializeAws_json1_1EbsVolume = (
   output: any,
   context: __SerdeContext
 ): EbsVolume => {
-  let contents: any = {
+  return {
     __type: "EbsVolume",
-    Device: undefined,
-    VolumeId: undefined
-  };
-  if (output.Device !== undefined && output.Device !== null) {
-    contents.Device = output.Device;
-  }
-  if (output.VolumeId !== undefined && output.VolumeId !== null) {
-    contents.VolumeId = output.VolumeId;
-  }
-  return contents;
+    Device:
+      output.Device !== undefined && output.Device !== null
+        ? output.Device
+        : undefined,
+    VolumeId:
+      output.VolumeId !== undefined && output.VolumeId !== null
+        ? output.VolumeId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EbsVolumeList = (
@@ -5381,351 +5230,279 @@ const deserializeAws_json1_1Ec2InstanceAttributes = (
   output: any,
   context: __SerdeContext
 ): Ec2InstanceAttributes => {
-  let contents: any = {
+  return {
     __type: "Ec2InstanceAttributes",
-    AdditionalMasterSecurityGroups: undefined,
-    AdditionalSlaveSecurityGroups: undefined,
-    Ec2AvailabilityZone: undefined,
-    Ec2KeyName: undefined,
-    Ec2SubnetId: undefined,
-    EmrManagedMasterSecurityGroup: undefined,
-    EmrManagedSlaveSecurityGroup: undefined,
-    IamInstanceProfile: undefined,
-    RequestedEc2AvailabilityZones: undefined,
-    RequestedEc2SubnetIds: undefined,
-    ServiceAccessSecurityGroup: undefined
-  };
-  if (
-    output.AdditionalMasterSecurityGroups !== undefined &&
-    output.AdditionalMasterSecurityGroups !== null
-  ) {
-    contents.AdditionalMasterSecurityGroups = deserializeAws_json1_1StringList(
-      output.AdditionalMasterSecurityGroups,
-      context
-    );
-  }
-  if (
-    output.AdditionalSlaveSecurityGroups !== undefined &&
-    output.AdditionalSlaveSecurityGroups !== null
-  ) {
-    contents.AdditionalSlaveSecurityGroups = deserializeAws_json1_1StringList(
-      output.AdditionalSlaveSecurityGroups,
-      context
-    );
-  }
-  if (
-    output.Ec2AvailabilityZone !== undefined &&
-    output.Ec2AvailabilityZone !== null
-  ) {
-    contents.Ec2AvailabilityZone = output.Ec2AvailabilityZone;
-  }
-  if (output.Ec2KeyName !== undefined && output.Ec2KeyName !== null) {
-    contents.Ec2KeyName = output.Ec2KeyName;
-  }
-  if (output.Ec2SubnetId !== undefined && output.Ec2SubnetId !== null) {
-    contents.Ec2SubnetId = output.Ec2SubnetId;
-  }
-  if (
-    output.EmrManagedMasterSecurityGroup !== undefined &&
-    output.EmrManagedMasterSecurityGroup !== null
-  ) {
-    contents.EmrManagedMasterSecurityGroup =
-      output.EmrManagedMasterSecurityGroup;
-  }
-  if (
-    output.EmrManagedSlaveSecurityGroup !== undefined &&
-    output.EmrManagedSlaveSecurityGroup !== null
-  ) {
-    contents.EmrManagedSlaveSecurityGroup = output.EmrManagedSlaveSecurityGroup;
-  }
-  if (
-    output.IamInstanceProfile !== undefined &&
-    output.IamInstanceProfile !== null
-  ) {
-    contents.IamInstanceProfile = output.IamInstanceProfile;
-  }
-  if (
-    output.RequestedEc2AvailabilityZones !== undefined &&
-    output.RequestedEc2AvailabilityZones !== null
-  ) {
-    contents.RequestedEc2AvailabilityZones = deserializeAws_json1_1XmlStringMaxLen256List(
-      output.RequestedEc2AvailabilityZones,
-      context
-    );
-  }
-  if (
-    output.RequestedEc2SubnetIds !== undefined &&
-    output.RequestedEc2SubnetIds !== null
-  ) {
-    contents.RequestedEc2SubnetIds = deserializeAws_json1_1XmlStringMaxLen256List(
-      output.RequestedEc2SubnetIds,
-      context
-    );
-  }
-  if (
-    output.ServiceAccessSecurityGroup !== undefined &&
-    output.ServiceAccessSecurityGroup !== null
-  ) {
-    contents.ServiceAccessSecurityGroup = output.ServiceAccessSecurityGroup;
-  }
-  return contents;
+    AdditionalMasterSecurityGroups:
+      output.AdditionalMasterSecurityGroups !== undefined &&
+      output.AdditionalMasterSecurityGroups !== null
+        ? deserializeAws_json1_1StringList(
+            output.AdditionalMasterSecurityGroups,
+            context
+          )
+        : undefined,
+    AdditionalSlaveSecurityGroups:
+      output.AdditionalSlaveSecurityGroups !== undefined &&
+      output.AdditionalSlaveSecurityGroups !== null
+        ? deserializeAws_json1_1StringList(
+            output.AdditionalSlaveSecurityGroups,
+            context
+          )
+        : undefined,
+    Ec2AvailabilityZone:
+      output.Ec2AvailabilityZone !== undefined &&
+      output.Ec2AvailabilityZone !== null
+        ? output.Ec2AvailabilityZone
+        : undefined,
+    Ec2KeyName:
+      output.Ec2KeyName !== undefined && output.Ec2KeyName !== null
+        ? output.Ec2KeyName
+        : undefined,
+    Ec2SubnetId:
+      output.Ec2SubnetId !== undefined && output.Ec2SubnetId !== null
+        ? output.Ec2SubnetId
+        : undefined,
+    EmrManagedMasterSecurityGroup:
+      output.EmrManagedMasterSecurityGroup !== undefined &&
+      output.EmrManagedMasterSecurityGroup !== null
+        ? output.EmrManagedMasterSecurityGroup
+        : undefined,
+    EmrManagedSlaveSecurityGroup:
+      output.EmrManagedSlaveSecurityGroup !== undefined &&
+      output.EmrManagedSlaveSecurityGroup !== null
+        ? output.EmrManagedSlaveSecurityGroup
+        : undefined,
+    IamInstanceProfile:
+      output.IamInstanceProfile !== undefined &&
+      output.IamInstanceProfile !== null
+        ? output.IamInstanceProfile
+        : undefined,
+    RequestedEc2AvailabilityZones:
+      output.RequestedEc2AvailabilityZones !== undefined &&
+      output.RequestedEc2AvailabilityZones !== null
+        ? deserializeAws_json1_1XmlStringMaxLen256List(
+            output.RequestedEc2AvailabilityZones,
+            context
+          )
+        : undefined,
+    RequestedEc2SubnetIds:
+      output.RequestedEc2SubnetIds !== undefined &&
+      output.RequestedEc2SubnetIds !== null
+        ? deserializeAws_json1_1XmlStringMaxLen256List(
+            output.RequestedEc2SubnetIds,
+            context
+          )
+        : undefined,
+    ServiceAccessSecurityGroup:
+      output.ServiceAccessSecurityGroup !== undefined &&
+      output.ServiceAccessSecurityGroup !== null
+        ? output.ServiceAccessSecurityGroup
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1FailureDetails = (
   output: any,
   context: __SerdeContext
 ): FailureDetails => {
-  let contents: any = {
+  return {
     __type: "FailureDetails",
-    LogFile: undefined,
-    Message: undefined,
-    Reason: undefined
-  };
-  if (output.LogFile !== undefined && output.LogFile !== null) {
-    contents.LogFile = output.LogFile;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.Reason !== undefined && output.Reason !== null) {
-    contents.Reason = output.Reason;
-  }
-  return contents;
+    LogFile:
+      output.LogFile !== undefined && output.LogFile !== null
+        ? output.LogFile
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    Reason:
+      output.Reason !== undefined && output.Reason !== null
+        ? output.Reason
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetBlockPublicAccessConfigurationOutput = (
   output: any,
   context: __SerdeContext
 ): GetBlockPublicAccessConfigurationOutput => {
-  let contents: any = {
+  return {
     __type: "GetBlockPublicAccessConfigurationOutput",
-    BlockPublicAccessConfiguration: undefined,
-    BlockPublicAccessConfigurationMetadata: undefined
-  };
-  if (
-    output.BlockPublicAccessConfiguration !== undefined &&
-    output.BlockPublicAccessConfiguration !== null
-  ) {
-    contents.BlockPublicAccessConfiguration = deserializeAws_json1_1BlockPublicAccessConfiguration(
-      output.BlockPublicAccessConfiguration,
-      context
-    );
-  }
-  if (
-    output.BlockPublicAccessConfigurationMetadata !== undefined &&
-    output.BlockPublicAccessConfigurationMetadata !== null
-  ) {
-    contents.BlockPublicAccessConfigurationMetadata = deserializeAws_json1_1BlockPublicAccessConfigurationMetadata(
-      output.BlockPublicAccessConfigurationMetadata,
-      context
-    );
-  }
-  return contents;
+    BlockPublicAccessConfiguration:
+      output.BlockPublicAccessConfiguration !== undefined &&
+      output.BlockPublicAccessConfiguration !== null
+        ? deserializeAws_json1_1BlockPublicAccessConfiguration(
+            output.BlockPublicAccessConfiguration,
+            context
+          )
+        : undefined,
+    BlockPublicAccessConfigurationMetadata:
+      output.BlockPublicAccessConfigurationMetadata !== undefined &&
+      output.BlockPublicAccessConfigurationMetadata !== null
+        ? deserializeAws_json1_1BlockPublicAccessConfigurationMetadata(
+            output.BlockPublicAccessConfigurationMetadata,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1HadoopJarStepConfig = (
   output: any,
   context: __SerdeContext
 ): HadoopJarStepConfig => {
-  let contents: any = {
+  return {
     __type: "HadoopJarStepConfig",
-    Args: undefined,
-    Jar: undefined,
-    MainClass: undefined,
-    Properties: undefined
-  };
-  if (output.Args !== undefined && output.Args !== null) {
-    contents.Args = deserializeAws_json1_1XmlStringList(output.Args, context);
-  }
-  if (output.Jar !== undefined && output.Jar !== null) {
-    contents.Jar = output.Jar;
-  }
-  if (output.MainClass !== undefined && output.MainClass !== null) {
-    contents.MainClass = output.MainClass;
-  }
-  if (output.Properties !== undefined && output.Properties !== null) {
-    contents.Properties = deserializeAws_json1_1KeyValueList(
-      output.Properties,
-      context
-    );
-  }
-  return contents;
+    Args:
+      output.Args !== undefined && output.Args !== null
+        ? deserializeAws_json1_1XmlStringList(output.Args, context)
+        : undefined,
+    Jar:
+      output.Jar !== undefined && output.Jar !== null ? output.Jar : undefined,
+    MainClass:
+      output.MainClass !== undefined && output.MainClass !== null
+        ? output.MainClass
+        : undefined,
+    Properties:
+      output.Properties !== undefined && output.Properties !== null
+        ? deserializeAws_json1_1KeyValueList(output.Properties, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1HadoopStepConfig = (
   output: any,
   context: __SerdeContext
 ): HadoopStepConfig => {
-  let contents: any = {
+  return {
     __type: "HadoopStepConfig",
-    Args: undefined,
-    Jar: undefined,
-    MainClass: undefined,
-    Properties: undefined
-  };
-  if (output.Args !== undefined && output.Args !== null) {
-    contents.Args = deserializeAws_json1_1StringList(output.Args, context);
-  }
-  if (output.Jar !== undefined && output.Jar !== null) {
-    contents.Jar = output.Jar;
-  }
-  if (output.MainClass !== undefined && output.MainClass !== null) {
-    contents.MainClass = output.MainClass;
-  }
-  if (output.Properties !== undefined && output.Properties !== null) {
-    contents.Properties = deserializeAws_json1_1StringMap(
-      output.Properties,
-      context
-    );
-  }
-  return contents;
+    Args:
+      output.Args !== undefined && output.Args !== null
+        ? deserializeAws_json1_1StringList(output.Args, context)
+        : undefined,
+    Jar:
+      output.Jar !== undefined && output.Jar !== null ? output.Jar : undefined,
+    MainClass:
+      output.MainClass !== undefined && output.MainClass !== null
+        ? output.MainClass
+        : undefined,
+    Properties:
+      output.Properties !== undefined && output.Properties !== null
+        ? deserializeAws_json1_1StringMap(output.Properties, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Instance = (
   output: any,
   context: __SerdeContext
 ): Instance => {
-  let contents: any = {
+  return {
     __type: "Instance",
-    EbsVolumes: undefined,
-    Ec2InstanceId: undefined,
-    Id: undefined,
-    InstanceFleetId: undefined,
-    InstanceGroupId: undefined,
-    InstanceType: undefined,
-    Market: undefined,
-    PrivateDnsName: undefined,
-    PrivateIpAddress: undefined,
-    PublicDnsName: undefined,
-    PublicIpAddress: undefined,
-    Status: undefined
-  };
-  if (output.EbsVolumes !== undefined && output.EbsVolumes !== null) {
-    contents.EbsVolumes = deserializeAws_json1_1EbsVolumeList(
-      output.EbsVolumes,
-      context
-    );
-  }
-  if (output.Ec2InstanceId !== undefined && output.Ec2InstanceId !== null) {
-    contents.Ec2InstanceId = output.Ec2InstanceId;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.InstanceFleetId !== undefined && output.InstanceFleetId !== null) {
-    contents.InstanceFleetId = output.InstanceFleetId;
-  }
-  if (output.InstanceGroupId !== undefined && output.InstanceGroupId !== null) {
-    contents.InstanceGroupId = output.InstanceGroupId;
-  }
-  if (output.InstanceType !== undefined && output.InstanceType !== null) {
-    contents.InstanceType = output.InstanceType;
-  }
-  if (output.Market !== undefined && output.Market !== null) {
-    contents.Market = output.Market;
-  }
-  if (output.PrivateDnsName !== undefined && output.PrivateDnsName !== null) {
-    contents.PrivateDnsName = output.PrivateDnsName;
-  }
-  if (
-    output.PrivateIpAddress !== undefined &&
-    output.PrivateIpAddress !== null
-  ) {
-    contents.PrivateIpAddress = output.PrivateIpAddress;
-  }
-  if (output.PublicDnsName !== undefined && output.PublicDnsName !== null) {
-    contents.PublicDnsName = output.PublicDnsName;
-  }
-  if (output.PublicIpAddress !== undefined && output.PublicIpAddress !== null) {
-    contents.PublicIpAddress = output.PublicIpAddress;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = deserializeAws_json1_1InstanceStatus(
-      output.Status,
-      context
-    );
-  }
-  return contents;
+    EbsVolumes:
+      output.EbsVolumes !== undefined && output.EbsVolumes !== null
+        ? deserializeAws_json1_1EbsVolumeList(output.EbsVolumes, context)
+        : undefined,
+    Ec2InstanceId:
+      output.Ec2InstanceId !== undefined && output.Ec2InstanceId !== null
+        ? output.Ec2InstanceId
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    InstanceFleetId:
+      output.InstanceFleetId !== undefined && output.InstanceFleetId !== null
+        ? output.InstanceFleetId
+        : undefined,
+    InstanceGroupId:
+      output.InstanceGroupId !== undefined && output.InstanceGroupId !== null
+        ? output.InstanceGroupId
+        : undefined,
+    InstanceType:
+      output.InstanceType !== undefined && output.InstanceType !== null
+        ? output.InstanceType
+        : undefined,
+    Market:
+      output.Market !== undefined && output.Market !== null
+        ? output.Market
+        : undefined,
+    PrivateDnsName:
+      output.PrivateDnsName !== undefined && output.PrivateDnsName !== null
+        ? output.PrivateDnsName
+        : undefined,
+    PrivateIpAddress:
+      output.PrivateIpAddress !== undefined && output.PrivateIpAddress !== null
+        ? output.PrivateIpAddress
+        : undefined,
+    PublicDnsName:
+      output.PublicDnsName !== undefined && output.PublicDnsName !== null
+        ? output.PublicDnsName
+        : undefined,
+    PublicIpAddress:
+      output.PublicIpAddress !== undefined && output.PublicIpAddress !== null
+        ? output.PublicIpAddress
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? deserializeAws_json1_1InstanceStatus(output.Status, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InstanceFleet = (
   output: any,
   context: __SerdeContext
 ): InstanceFleet => {
-  let contents: any = {
+  return {
     __type: "InstanceFleet",
-    Id: undefined,
-    InstanceFleetType: undefined,
-    InstanceTypeSpecifications: undefined,
-    LaunchSpecifications: undefined,
-    Name: undefined,
-    ProvisionedOnDemandCapacity: undefined,
-    ProvisionedSpotCapacity: undefined,
-    Status: undefined,
-    TargetOnDemandCapacity: undefined,
-    TargetSpotCapacity: undefined
-  };
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (
-    output.InstanceFleetType !== undefined &&
-    output.InstanceFleetType !== null
-  ) {
-    contents.InstanceFleetType = output.InstanceFleetType;
-  }
-  if (
-    output.InstanceTypeSpecifications !== undefined &&
-    output.InstanceTypeSpecifications !== null
-  ) {
-    contents.InstanceTypeSpecifications = deserializeAws_json1_1InstanceTypeSpecificationList(
-      output.InstanceTypeSpecifications,
-      context
-    );
-  }
-  if (
-    output.LaunchSpecifications !== undefined &&
-    output.LaunchSpecifications !== null
-  ) {
-    contents.LaunchSpecifications = deserializeAws_json1_1InstanceFleetProvisioningSpecifications(
-      output.LaunchSpecifications,
-      context
-    );
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (
-    output.ProvisionedOnDemandCapacity !== undefined &&
-    output.ProvisionedOnDemandCapacity !== null
-  ) {
-    contents.ProvisionedOnDemandCapacity = output.ProvisionedOnDemandCapacity;
-  }
-  if (
-    output.ProvisionedSpotCapacity !== undefined &&
-    output.ProvisionedSpotCapacity !== null
-  ) {
-    contents.ProvisionedSpotCapacity = output.ProvisionedSpotCapacity;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = deserializeAws_json1_1InstanceFleetStatus(
-      output.Status,
-      context
-    );
-  }
-  if (
-    output.TargetOnDemandCapacity !== undefined &&
-    output.TargetOnDemandCapacity !== null
-  ) {
-    contents.TargetOnDemandCapacity = output.TargetOnDemandCapacity;
-  }
-  if (
-    output.TargetSpotCapacity !== undefined &&
-    output.TargetSpotCapacity !== null
-  ) {
-    contents.TargetSpotCapacity = output.TargetSpotCapacity;
-  }
-  return contents;
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    InstanceFleetType:
+      output.InstanceFleetType !== undefined &&
+      output.InstanceFleetType !== null
+        ? output.InstanceFleetType
+        : undefined,
+    InstanceTypeSpecifications:
+      output.InstanceTypeSpecifications !== undefined &&
+      output.InstanceTypeSpecifications !== null
+        ? deserializeAws_json1_1InstanceTypeSpecificationList(
+            output.InstanceTypeSpecifications,
+            context
+          )
+        : undefined,
+    LaunchSpecifications:
+      output.LaunchSpecifications !== undefined &&
+      output.LaunchSpecifications !== null
+        ? deserializeAws_json1_1InstanceFleetProvisioningSpecifications(
+            output.LaunchSpecifications,
+            context
+          )
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    ProvisionedOnDemandCapacity:
+      output.ProvisionedOnDemandCapacity !== undefined &&
+      output.ProvisionedOnDemandCapacity !== null
+        ? output.ProvisionedOnDemandCapacity
+        : undefined,
+    ProvisionedSpotCapacity:
+      output.ProvisionedSpotCapacity !== undefined &&
+      output.ProvisionedSpotCapacity !== null
+        ? output.ProvisionedSpotCapacity
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? deserializeAws_json1_1InstanceFleetStatus(output.Status, context)
+        : undefined,
+    TargetOnDemandCapacity:
+      output.TargetOnDemandCapacity !== undefined &&
+      output.TargetOnDemandCapacity !== null
+        ? output.TargetOnDemandCapacity
+        : undefined,
+    TargetSpotCapacity:
+      output.TargetSpotCapacity !== undefined &&
+      output.TargetSpotCapacity !== null
+        ? output.TargetSpotCapacity
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InstanceFleetList = (
@@ -5741,294 +5518,241 @@ const deserializeAws_json1_1InstanceFleetProvisioningSpecifications = (
   output: any,
   context: __SerdeContext
 ): InstanceFleetProvisioningSpecifications => {
-  let contents: any = {
+  return {
     __type: "InstanceFleetProvisioningSpecifications",
-    SpotSpecification: undefined
-  };
-  if (
-    output.SpotSpecification !== undefined &&
-    output.SpotSpecification !== null
-  ) {
-    contents.SpotSpecification = deserializeAws_json1_1SpotProvisioningSpecification(
-      output.SpotSpecification,
-      context
-    );
-  }
-  return contents;
+    SpotSpecification:
+      output.SpotSpecification !== undefined &&
+      output.SpotSpecification !== null
+        ? deserializeAws_json1_1SpotProvisioningSpecification(
+            output.SpotSpecification,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InstanceFleetStateChangeReason = (
   output: any,
   context: __SerdeContext
 ): InstanceFleetStateChangeReason => {
-  let contents: any = {
+  return {
     __type: "InstanceFleetStateChangeReason",
-    Code: undefined,
-    Message: undefined
-  };
-  if (output.Code !== undefined && output.Code !== null) {
-    contents.Code = output.Code;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Code:
+      output.Code !== undefined && output.Code !== null
+        ? output.Code
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InstanceFleetStatus = (
   output: any,
   context: __SerdeContext
 ): InstanceFleetStatus => {
-  let contents: any = {
+  return {
     __type: "InstanceFleetStatus",
-    State: undefined,
-    StateChangeReason: undefined,
-    Timeline: undefined
-  };
-  if (output.State !== undefined && output.State !== null) {
-    contents.State = output.State;
-  }
-  if (
-    output.StateChangeReason !== undefined &&
-    output.StateChangeReason !== null
-  ) {
-    contents.StateChangeReason = deserializeAws_json1_1InstanceFleetStateChangeReason(
-      output.StateChangeReason,
-      context
-    );
-  }
-  if (output.Timeline !== undefined && output.Timeline !== null) {
-    contents.Timeline = deserializeAws_json1_1InstanceFleetTimeline(
-      output.Timeline,
-      context
-    );
-  }
-  return contents;
+    State:
+      output.State !== undefined && output.State !== null
+        ? output.State
+        : undefined,
+    StateChangeReason:
+      output.StateChangeReason !== undefined &&
+      output.StateChangeReason !== null
+        ? deserializeAws_json1_1InstanceFleetStateChangeReason(
+            output.StateChangeReason,
+            context
+          )
+        : undefined,
+    Timeline:
+      output.Timeline !== undefined && output.Timeline !== null
+        ? deserializeAws_json1_1InstanceFleetTimeline(output.Timeline, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InstanceFleetTimeline = (
   output: any,
   context: __SerdeContext
 ): InstanceFleetTimeline => {
-  let contents: any = {
+  return {
     __type: "InstanceFleetTimeline",
-    CreationDateTime: undefined,
-    EndDateTime: undefined,
-    ReadyDateTime: undefined
-  };
-  if (
-    output.CreationDateTime !== undefined &&
-    output.CreationDateTime !== null
-  ) {
-    contents.CreationDateTime = new Date(
-      Math.round(output.CreationDateTime * 1000)
-    );
-  }
-  if (output.EndDateTime !== undefined && output.EndDateTime !== null) {
-    contents.EndDateTime = new Date(Math.round(output.EndDateTime * 1000));
-  }
-  if (output.ReadyDateTime !== undefined && output.ReadyDateTime !== null) {
-    contents.ReadyDateTime = new Date(Math.round(output.ReadyDateTime * 1000));
-  }
-  return contents;
+    CreationDateTime:
+      output.CreationDateTime !== undefined && output.CreationDateTime !== null
+        ? new Date(Math.round(output.CreationDateTime * 1000))
+        : undefined,
+    EndDateTime:
+      output.EndDateTime !== undefined && output.EndDateTime !== null
+        ? new Date(Math.round(output.EndDateTime * 1000))
+        : undefined,
+    ReadyDateTime:
+      output.ReadyDateTime !== undefined && output.ReadyDateTime !== null
+        ? new Date(Math.round(output.ReadyDateTime * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InstanceGroup = (
   output: any,
   context: __SerdeContext
 ): InstanceGroup => {
-  let contents: any = {
+  return {
     __type: "InstanceGroup",
-    AutoScalingPolicy: undefined,
-    BidPrice: undefined,
-    Configurations: undefined,
-    ConfigurationsVersion: undefined,
-    EbsBlockDevices: undefined,
-    EbsOptimized: undefined,
-    Id: undefined,
-    InstanceGroupType: undefined,
-    InstanceType: undefined,
-    LastSuccessfullyAppliedConfigurations: undefined,
-    LastSuccessfullyAppliedConfigurationsVersion: undefined,
-    Market: undefined,
-    Name: undefined,
-    RequestedInstanceCount: undefined,
-    RunningInstanceCount: undefined,
-    ShrinkPolicy: undefined,
-    Status: undefined
-  };
-  if (
-    output.AutoScalingPolicy !== undefined &&
-    output.AutoScalingPolicy !== null
-  ) {
-    contents.AutoScalingPolicy = deserializeAws_json1_1AutoScalingPolicyDescription(
-      output.AutoScalingPolicy,
-      context
-    );
-  }
-  if (output.BidPrice !== undefined && output.BidPrice !== null) {
-    contents.BidPrice = output.BidPrice;
-  }
-  if (output.Configurations !== undefined && output.Configurations !== null) {
-    contents.Configurations = deserializeAws_json1_1ConfigurationList(
-      output.Configurations,
-      context
-    );
-  }
-  if (
-    output.ConfigurationsVersion !== undefined &&
-    output.ConfigurationsVersion !== null
-  ) {
-    contents.ConfigurationsVersion = output.ConfigurationsVersion;
-  }
-  if (output.EbsBlockDevices !== undefined && output.EbsBlockDevices !== null) {
-    contents.EbsBlockDevices = deserializeAws_json1_1EbsBlockDeviceList(
-      output.EbsBlockDevices,
-      context
-    );
-  }
-  if (output.EbsOptimized !== undefined && output.EbsOptimized !== null) {
-    contents.EbsOptimized = output.EbsOptimized;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (
-    output.InstanceGroupType !== undefined &&
-    output.InstanceGroupType !== null
-  ) {
-    contents.InstanceGroupType = output.InstanceGroupType;
-  }
-  if (output.InstanceType !== undefined && output.InstanceType !== null) {
-    contents.InstanceType = output.InstanceType;
-  }
-  if (
-    output.LastSuccessfullyAppliedConfigurations !== undefined &&
-    output.LastSuccessfullyAppliedConfigurations !== null
-  ) {
-    contents.LastSuccessfullyAppliedConfigurations = deserializeAws_json1_1ConfigurationList(
-      output.LastSuccessfullyAppliedConfigurations,
-      context
-    );
-  }
-  if (
-    output.LastSuccessfullyAppliedConfigurationsVersion !== undefined &&
-    output.LastSuccessfullyAppliedConfigurationsVersion !== null
-  ) {
-    contents.LastSuccessfullyAppliedConfigurationsVersion =
-      output.LastSuccessfullyAppliedConfigurationsVersion;
-  }
-  if (output.Market !== undefined && output.Market !== null) {
-    contents.Market = output.Market;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (
-    output.RequestedInstanceCount !== undefined &&
-    output.RequestedInstanceCount !== null
-  ) {
-    contents.RequestedInstanceCount = output.RequestedInstanceCount;
-  }
-  if (
-    output.RunningInstanceCount !== undefined &&
-    output.RunningInstanceCount !== null
-  ) {
-    contents.RunningInstanceCount = output.RunningInstanceCount;
-  }
-  if (output.ShrinkPolicy !== undefined && output.ShrinkPolicy !== null) {
-    contents.ShrinkPolicy = deserializeAws_json1_1ShrinkPolicy(
-      output.ShrinkPolicy,
-      context
-    );
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = deserializeAws_json1_1InstanceGroupStatus(
-      output.Status,
-      context
-    );
-  }
-  return contents;
+    AutoScalingPolicy:
+      output.AutoScalingPolicy !== undefined &&
+      output.AutoScalingPolicy !== null
+        ? deserializeAws_json1_1AutoScalingPolicyDescription(
+            output.AutoScalingPolicy,
+            context
+          )
+        : undefined,
+    BidPrice:
+      output.BidPrice !== undefined && output.BidPrice !== null
+        ? output.BidPrice
+        : undefined,
+    Configurations:
+      output.Configurations !== undefined && output.Configurations !== null
+        ? deserializeAws_json1_1ConfigurationList(
+            output.Configurations,
+            context
+          )
+        : undefined,
+    ConfigurationsVersion:
+      output.ConfigurationsVersion !== undefined &&
+      output.ConfigurationsVersion !== null
+        ? output.ConfigurationsVersion
+        : undefined,
+    EbsBlockDevices:
+      output.EbsBlockDevices !== undefined && output.EbsBlockDevices !== null
+        ? deserializeAws_json1_1EbsBlockDeviceList(
+            output.EbsBlockDevices,
+            context
+          )
+        : undefined,
+    EbsOptimized:
+      output.EbsOptimized !== undefined && output.EbsOptimized !== null
+        ? output.EbsOptimized
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    InstanceGroupType:
+      output.InstanceGroupType !== undefined &&
+      output.InstanceGroupType !== null
+        ? output.InstanceGroupType
+        : undefined,
+    InstanceType:
+      output.InstanceType !== undefined && output.InstanceType !== null
+        ? output.InstanceType
+        : undefined,
+    LastSuccessfullyAppliedConfigurations:
+      output.LastSuccessfullyAppliedConfigurations !== undefined &&
+      output.LastSuccessfullyAppliedConfigurations !== null
+        ? deserializeAws_json1_1ConfigurationList(
+            output.LastSuccessfullyAppliedConfigurations,
+            context
+          )
+        : undefined,
+    LastSuccessfullyAppliedConfigurationsVersion:
+      output.LastSuccessfullyAppliedConfigurationsVersion !== undefined &&
+      output.LastSuccessfullyAppliedConfigurationsVersion !== null
+        ? output.LastSuccessfullyAppliedConfigurationsVersion
+        : undefined,
+    Market:
+      output.Market !== undefined && output.Market !== null
+        ? output.Market
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    RequestedInstanceCount:
+      output.RequestedInstanceCount !== undefined &&
+      output.RequestedInstanceCount !== null
+        ? output.RequestedInstanceCount
+        : undefined,
+    RunningInstanceCount:
+      output.RunningInstanceCount !== undefined &&
+      output.RunningInstanceCount !== null
+        ? output.RunningInstanceCount
+        : undefined,
+    ShrinkPolicy:
+      output.ShrinkPolicy !== undefined && output.ShrinkPolicy !== null
+        ? deserializeAws_json1_1ShrinkPolicy(output.ShrinkPolicy, context)
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? deserializeAws_json1_1InstanceGroupStatus(output.Status, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InstanceGroupDetail = (
   output: any,
   context: __SerdeContext
 ): InstanceGroupDetail => {
-  let contents: any = {
+  return {
     __type: "InstanceGroupDetail",
-    BidPrice: undefined,
-    CreationDateTime: undefined,
-    EndDateTime: undefined,
-    InstanceGroupId: undefined,
-    InstanceRequestCount: undefined,
-    InstanceRole: undefined,
-    InstanceRunningCount: undefined,
-    InstanceType: undefined,
-    LastStateChangeReason: undefined,
-    Market: undefined,
-    Name: undefined,
-    ReadyDateTime: undefined,
-    StartDateTime: undefined,
-    State: undefined
-  };
-  if (output.BidPrice !== undefined && output.BidPrice !== null) {
-    contents.BidPrice = output.BidPrice;
-  }
-  if (
-    output.CreationDateTime !== undefined &&
-    output.CreationDateTime !== null
-  ) {
-    contents.CreationDateTime = new Date(
-      Math.round(output.CreationDateTime * 1000)
-    );
-  }
-  if (output.EndDateTime !== undefined && output.EndDateTime !== null) {
-    contents.EndDateTime = new Date(Math.round(output.EndDateTime * 1000));
-  }
-  if (output.InstanceGroupId !== undefined && output.InstanceGroupId !== null) {
-    contents.InstanceGroupId = output.InstanceGroupId;
-  }
-  if (
-    output.InstanceRequestCount !== undefined &&
-    output.InstanceRequestCount !== null
-  ) {
-    contents.InstanceRequestCount = output.InstanceRequestCount;
-  }
-  if (output.InstanceRole !== undefined && output.InstanceRole !== null) {
-    contents.InstanceRole = output.InstanceRole;
-  }
-  if (
-    output.InstanceRunningCount !== undefined &&
-    output.InstanceRunningCount !== null
-  ) {
-    contents.InstanceRunningCount = output.InstanceRunningCount;
-  }
-  if (output.InstanceType !== undefined && output.InstanceType !== null) {
-    contents.InstanceType = output.InstanceType;
-  }
-  if (
-    output.LastStateChangeReason !== undefined &&
-    output.LastStateChangeReason !== null
-  ) {
-    contents.LastStateChangeReason = output.LastStateChangeReason;
-  }
-  if (output.Market !== undefined && output.Market !== null) {
-    contents.Market = output.Market;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.ReadyDateTime !== undefined && output.ReadyDateTime !== null) {
-    contents.ReadyDateTime = new Date(Math.round(output.ReadyDateTime * 1000));
-  }
-  if (output.StartDateTime !== undefined && output.StartDateTime !== null) {
-    contents.StartDateTime = new Date(Math.round(output.StartDateTime * 1000));
-  }
-  if (output.State !== undefined && output.State !== null) {
-    contents.State = output.State;
-  }
-  return contents;
+    BidPrice:
+      output.BidPrice !== undefined && output.BidPrice !== null
+        ? output.BidPrice
+        : undefined,
+    CreationDateTime:
+      output.CreationDateTime !== undefined && output.CreationDateTime !== null
+        ? new Date(Math.round(output.CreationDateTime * 1000))
+        : undefined,
+    EndDateTime:
+      output.EndDateTime !== undefined && output.EndDateTime !== null
+        ? new Date(Math.round(output.EndDateTime * 1000))
+        : undefined,
+    InstanceGroupId:
+      output.InstanceGroupId !== undefined && output.InstanceGroupId !== null
+        ? output.InstanceGroupId
+        : undefined,
+    InstanceRequestCount:
+      output.InstanceRequestCount !== undefined &&
+      output.InstanceRequestCount !== null
+        ? output.InstanceRequestCount
+        : undefined,
+    InstanceRole:
+      output.InstanceRole !== undefined && output.InstanceRole !== null
+        ? output.InstanceRole
+        : undefined,
+    InstanceRunningCount:
+      output.InstanceRunningCount !== undefined &&
+      output.InstanceRunningCount !== null
+        ? output.InstanceRunningCount
+        : undefined,
+    InstanceType:
+      output.InstanceType !== undefined && output.InstanceType !== null
+        ? output.InstanceType
+        : undefined,
+    LastStateChangeReason:
+      output.LastStateChangeReason !== undefined &&
+      output.LastStateChangeReason !== null
+        ? output.LastStateChangeReason
+        : undefined,
+    Market:
+      output.Market !== undefined && output.Market !== null
+        ? output.Market
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    ReadyDateTime:
+      output.ReadyDateTime !== undefined && output.ReadyDateTime !== null
+        ? new Date(Math.round(output.ReadyDateTime * 1000))
+        : undefined,
+    StartDateTime:
+      output.StartDateTime !== undefined && output.StartDateTime !== null
+        ? new Date(Math.round(output.StartDateTime * 1000))
+        : undefined,
+    State:
+      output.State !== undefined && output.State !== null
+        ? output.State
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InstanceGroupDetailList = (
@@ -6060,76 +5784,63 @@ const deserializeAws_json1_1InstanceGroupStateChangeReason = (
   output: any,
   context: __SerdeContext
 ): InstanceGroupStateChangeReason => {
-  let contents: any = {
+  return {
     __type: "InstanceGroupStateChangeReason",
-    Code: undefined,
-    Message: undefined
-  };
-  if (output.Code !== undefined && output.Code !== null) {
-    contents.Code = output.Code;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Code:
+      output.Code !== undefined && output.Code !== null
+        ? output.Code
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InstanceGroupStatus = (
   output: any,
   context: __SerdeContext
 ): InstanceGroupStatus => {
-  let contents: any = {
+  return {
     __type: "InstanceGroupStatus",
-    State: undefined,
-    StateChangeReason: undefined,
-    Timeline: undefined
-  };
-  if (output.State !== undefined && output.State !== null) {
-    contents.State = output.State;
-  }
-  if (
-    output.StateChangeReason !== undefined &&
-    output.StateChangeReason !== null
-  ) {
-    contents.StateChangeReason = deserializeAws_json1_1InstanceGroupStateChangeReason(
-      output.StateChangeReason,
-      context
-    );
-  }
-  if (output.Timeline !== undefined && output.Timeline !== null) {
-    contents.Timeline = deserializeAws_json1_1InstanceGroupTimeline(
-      output.Timeline,
-      context
-    );
-  }
-  return contents;
+    State:
+      output.State !== undefined && output.State !== null
+        ? output.State
+        : undefined,
+    StateChangeReason:
+      output.StateChangeReason !== undefined &&
+      output.StateChangeReason !== null
+        ? deserializeAws_json1_1InstanceGroupStateChangeReason(
+            output.StateChangeReason,
+            context
+          )
+        : undefined,
+    Timeline:
+      output.Timeline !== undefined && output.Timeline !== null
+        ? deserializeAws_json1_1InstanceGroupTimeline(output.Timeline, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InstanceGroupTimeline = (
   output: any,
   context: __SerdeContext
 ): InstanceGroupTimeline => {
-  let contents: any = {
+  return {
     __type: "InstanceGroupTimeline",
-    CreationDateTime: undefined,
-    EndDateTime: undefined,
-    ReadyDateTime: undefined
-  };
-  if (
-    output.CreationDateTime !== undefined &&
-    output.CreationDateTime !== null
-  ) {
-    contents.CreationDateTime = new Date(
-      Math.round(output.CreationDateTime * 1000)
-    );
-  }
-  if (output.EndDateTime !== undefined && output.EndDateTime !== null) {
-    contents.EndDateTime = new Date(Math.round(output.EndDateTime * 1000));
-  }
-  if (output.ReadyDateTime !== undefined && output.ReadyDateTime !== null) {
-    contents.ReadyDateTime = new Date(Math.round(output.ReadyDateTime * 1000));
-  }
-  return contents;
+    CreationDateTime:
+      output.CreationDateTime !== undefined && output.CreationDateTime !== null
+        ? new Date(Math.round(output.CreationDateTime * 1000))
+        : undefined,
+    EndDateTime:
+      output.EndDateTime !== undefined && output.EndDateTime !== null
+        ? new Date(Math.round(output.EndDateTime * 1000))
+        : undefined,
+    ReadyDateTime:
+      output.ReadyDateTime !== undefined && output.ReadyDateTime !== null
+        ? new Date(Math.round(output.ReadyDateTime * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InstanceList = (
@@ -6145,164 +5856,137 @@ const deserializeAws_json1_1InstanceResizePolicy = (
   output: any,
   context: __SerdeContext
 ): InstanceResizePolicy => {
-  let contents: any = {
+  return {
     __type: "InstanceResizePolicy",
-    InstanceTerminationTimeout: undefined,
-    InstancesToProtect: undefined,
-    InstancesToTerminate: undefined
-  };
-  if (
-    output.InstanceTerminationTimeout !== undefined &&
-    output.InstanceTerminationTimeout !== null
-  ) {
-    contents.InstanceTerminationTimeout = output.InstanceTerminationTimeout;
-  }
-  if (
-    output.InstancesToProtect !== undefined &&
-    output.InstancesToProtect !== null
-  ) {
-    contents.InstancesToProtect = deserializeAws_json1_1EC2InstanceIdsList(
-      output.InstancesToProtect,
-      context
-    );
-  }
-  if (
-    output.InstancesToTerminate !== undefined &&
-    output.InstancesToTerminate !== null
-  ) {
-    contents.InstancesToTerminate = deserializeAws_json1_1EC2InstanceIdsList(
-      output.InstancesToTerminate,
-      context
-    );
-  }
-  return contents;
+    InstanceTerminationTimeout:
+      output.InstanceTerminationTimeout !== undefined &&
+      output.InstanceTerminationTimeout !== null
+        ? output.InstanceTerminationTimeout
+        : undefined,
+    InstancesToProtect:
+      output.InstancesToProtect !== undefined &&
+      output.InstancesToProtect !== null
+        ? deserializeAws_json1_1EC2InstanceIdsList(
+            output.InstancesToProtect,
+            context
+          )
+        : undefined,
+    InstancesToTerminate:
+      output.InstancesToTerminate !== undefined &&
+      output.InstancesToTerminate !== null
+        ? deserializeAws_json1_1EC2InstanceIdsList(
+            output.InstancesToTerminate,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InstanceStateChangeReason = (
   output: any,
   context: __SerdeContext
 ): InstanceStateChangeReason => {
-  let contents: any = {
+  return {
     __type: "InstanceStateChangeReason",
-    Code: undefined,
-    Message: undefined
-  };
-  if (output.Code !== undefined && output.Code !== null) {
-    contents.Code = output.Code;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Code:
+      output.Code !== undefined && output.Code !== null
+        ? output.Code
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InstanceStatus = (
   output: any,
   context: __SerdeContext
 ): InstanceStatus => {
-  let contents: any = {
+  return {
     __type: "InstanceStatus",
-    State: undefined,
-    StateChangeReason: undefined,
-    Timeline: undefined
-  };
-  if (output.State !== undefined && output.State !== null) {
-    contents.State = output.State;
-  }
-  if (
-    output.StateChangeReason !== undefined &&
-    output.StateChangeReason !== null
-  ) {
-    contents.StateChangeReason = deserializeAws_json1_1InstanceStateChangeReason(
-      output.StateChangeReason,
-      context
-    );
-  }
-  if (output.Timeline !== undefined && output.Timeline !== null) {
-    contents.Timeline = deserializeAws_json1_1InstanceTimeline(
-      output.Timeline,
-      context
-    );
-  }
-  return contents;
+    State:
+      output.State !== undefined && output.State !== null
+        ? output.State
+        : undefined,
+    StateChangeReason:
+      output.StateChangeReason !== undefined &&
+      output.StateChangeReason !== null
+        ? deserializeAws_json1_1InstanceStateChangeReason(
+            output.StateChangeReason,
+            context
+          )
+        : undefined,
+    Timeline:
+      output.Timeline !== undefined && output.Timeline !== null
+        ? deserializeAws_json1_1InstanceTimeline(output.Timeline, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InstanceTimeline = (
   output: any,
   context: __SerdeContext
 ): InstanceTimeline => {
-  let contents: any = {
+  return {
     __type: "InstanceTimeline",
-    CreationDateTime: undefined,
-    EndDateTime: undefined,
-    ReadyDateTime: undefined
-  };
-  if (
-    output.CreationDateTime !== undefined &&
-    output.CreationDateTime !== null
-  ) {
-    contents.CreationDateTime = new Date(
-      Math.round(output.CreationDateTime * 1000)
-    );
-  }
-  if (output.EndDateTime !== undefined && output.EndDateTime !== null) {
-    contents.EndDateTime = new Date(Math.round(output.EndDateTime * 1000));
-  }
-  if (output.ReadyDateTime !== undefined && output.ReadyDateTime !== null) {
-    contents.ReadyDateTime = new Date(Math.round(output.ReadyDateTime * 1000));
-  }
-  return contents;
+    CreationDateTime:
+      output.CreationDateTime !== undefined && output.CreationDateTime !== null
+        ? new Date(Math.round(output.CreationDateTime * 1000))
+        : undefined,
+    EndDateTime:
+      output.EndDateTime !== undefined && output.EndDateTime !== null
+        ? new Date(Math.round(output.EndDateTime * 1000))
+        : undefined,
+    ReadyDateTime:
+      output.ReadyDateTime !== undefined && output.ReadyDateTime !== null
+        ? new Date(Math.round(output.ReadyDateTime * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InstanceTypeSpecification = (
   output: any,
   context: __SerdeContext
 ): InstanceTypeSpecification => {
-  let contents: any = {
+  return {
     __type: "InstanceTypeSpecification",
-    BidPrice: undefined,
-    BidPriceAsPercentageOfOnDemandPrice: undefined,
-    Configurations: undefined,
-    EbsBlockDevices: undefined,
-    EbsOptimized: undefined,
-    InstanceType: undefined,
-    WeightedCapacity: undefined
-  };
-  if (output.BidPrice !== undefined && output.BidPrice !== null) {
-    contents.BidPrice = output.BidPrice;
-  }
-  if (
-    output.BidPriceAsPercentageOfOnDemandPrice !== undefined &&
-    output.BidPriceAsPercentageOfOnDemandPrice !== null
-  ) {
-    contents.BidPriceAsPercentageOfOnDemandPrice =
-      output.BidPriceAsPercentageOfOnDemandPrice;
-  }
-  if (output.Configurations !== undefined && output.Configurations !== null) {
-    contents.Configurations = deserializeAws_json1_1ConfigurationList(
-      output.Configurations,
-      context
-    );
-  }
-  if (output.EbsBlockDevices !== undefined && output.EbsBlockDevices !== null) {
-    contents.EbsBlockDevices = deserializeAws_json1_1EbsBlockDeviceList(
-      output.EbsBlockDevices,
-      context
-    );
-  }
-  if (output.EbsOptimized !== undefined && output.EbsOptimized !== null) {
-    contents.EbsOptimized = output.EbsOptimized;
-  }
-  if (output.InstanceType !== undefined && output.InstanceType !== null) {
-    contents.InstanceType = output.InstanceType;
-  }
-  if (
-    output.WeightedCapacity !== undefined &&
-    output.WeightedCapacity !== null
-  ) {
-    contents.WeightedCapacity = output.WeightedCapacity;
-  }
-  return contents;
+    BidPrice:
+      output.BidPrice !== undefined && output.BidPrice !== null
+        ? output.BidPrice
+        : undefined,
+    BidPriceAsPercentageOfOnDemandPrice:
+      output.BidPriceAsPercentageOfOnDemandPrice !== undefined &&
+      output.BidPriceAsPercentageOfOnDemandPrice !== null
+        ? output.BidPriceAsPercentageOfOnDemandPrice
+        : undefined,
+    Configurations:
+      output.Configurations !== undefined && output.Configurations !== null
+        ? deserializeAws_json1_1ConfigurationList(
+            output.Configurations,
+            context
+          )
+        : undefined,
+    EbsBlockDevices:
+      output.EbsBlockDevices !== undefined && output.EbsBlockDevices !== null
+        ? deserializeAws_json1_1EbsBlockDeviceList(
+            output.EbsBlockDevices,
+            context
+          )
+        : undefined,
+    EbsOptimized:
+      output.EbsOptimized !== undefined && output.EbsOptimized !== null
+        ? output.EbsOptimized
+        : undefined,
+    InstanceType:
+      output.InstanceType !== undefined && output.InstanceType !== null
+        ? output.InstanceType
+        : undefined,
+    WeightedCapacity:
+      output.WeightedCapacity !== undefined && output.WeightedCapacity !== null
+        ? output.WeightedCapacity
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InstanceTypeSpecificationList = (
@@ -6318,138 +6002,120 @@ const deserializeAws_json1_1InternalServerError = (
   output: any,
   context: __SerdeContext
 ): InternalServerError => {
-  let contents: any = {
+  return {
     __type: "InternalServerError"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1InternalServerException = (
   output: any,
   context: __SerdeContext
 ): InternalServerException => {
-  let contents: any = {
+  return {
     __type: "InternalServerException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidRequestException = (
   output: any,
   context: __SerdeContext
 ): InvalidRequestException => {
-  let contents: any = {
+  return {
     __type: "InvalidRequestException",
-    ErrorCode: undefined,
-    Message: undefined
-  };
-  if (output.ErrorCode !== undefined && output.ErrorCode !== null) {
-    contents.ErrorCode = output.ErrorCode;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    ErrorCode:
+      output.ErrorCode !== undefined && output.ErrorCode !== null
+        ? output.ErrorCode
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1JobFlowDetail = (
   output: any,
   context: __SerdeContext
 ): JobFlowDetail => {
-  let contents: any = {
+  return {
     __type: "JobFlowDetail",
-    AmiVersion: undefined,
-    AutoScalingRole: undefined,
-    BootstrapActions: undefined,
-    ExecutionStatusDetail: undefined,
-    Instances: undefined,
-    JobFlowId: undefined,
-    JobFlowRole: undefined,
-    LogUri: undefined,
-    Name: undefined,
-    ScaleDownBehavior: undefined,
-    ServiceRole: undefined,
-    Steps: undefined,
-    SupportedProducts: undefined,
-    VisibleToAllUsers: undefined
-  };
-  if (output.AmiVersion !== undefined && output.AmiVersion !== null) {
-    contents.AmiVersion = output.AmiVersion;
-  }
-  if (output.AutoScalingRole !== undefined && output.AutoScalingRole !== null) {
-    contents.AutoScalingRole = output.AutoScalingRole;
-  }
-  if (
-    output.BootstrapActions !== undefined &&
-    output.BootstrapActions !== null
-  ) {
-    contents.BootstrapActions = deserializeAws_json1_1BootstrapActionDetailList(
-      output.BootstrapActions,
-      context
-    );
-  }
-  if (
-    output.ExecutionStatusDetail !== undefined &&
-    output.ExecutionStatusDetail !== null
-  ) {
-    contents.ExecutionStatusDetail = deserializeAws_json1_1JobFlowExecutionStatusDetail(
-      output.ExecutionStatusDetail,
-      context
-    );
-  }
-  if (output.Instances !== undefined && output.Instances !== null) {
-    contents.Instances = deserializeAws_json1_1JobFlowInstancesDetail(
-      output.Instances,
-      context
-    );
-  }
-  if (output.JobFlowId !== undefined && output.JobFlowId !== null) {
-    contents.JobFlowId = output.JobFlowId;
-  }
-  if (output.JobFlowRole !== undefined && output.JobFlowRole !== null) {
-    contents.JobFlowRole = output.JobFlowRole;
-  }
-  if (output.LogUri !== undefined && output.LogUri !== null) {
-    contents.LogUri = output.LogUri;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (
-    output.ScaleDownBehavior !== undefined &&
-    output.ScaleDownBehavior !== null
-  ) {
-    contents.ScaleDownBehavior = output.ScaleDownBehavior;
-  }
-  if (output.ServiceRole !== undefined && output.ServiceRole !== null) {
-    contents.ServiceRole = output.ServiceRole;
-  }
-  if (output.Steps !== undefined && output.Steps !== null) {
-    contents.Steps = deserializeAws_json1_1StepDetailList(
-      output.Steps,
-      context
-    );
-  }
-  if (
-    output.SupportedProducts !== undefined &&
-    output.SupportedProducts !== null
-  ) {
-    contents.SupportedProducts = deserializeAws_json1_1SupportedProductsList(
-      output.SupportedProducts,
-      context
-    );
-  }
-  if (
-    output.VisibleToAllUsers !== undefined &&
-    output.VisibleToAllUsers !== null
-  ) {
-    contents.VisibleToAllUsers = output.VisibleToAllUsers;
-  }
-  return contents;
+    AmiVersion:
+      output.AmiVersion !== undefined && output.AmiVersion !== null
+        ? output.AmiVersion
+        : undefined,
+    AutoScalingRole:
+      output.AutoScalingRole !== undefined && output.AutoScalingRole !== null
+        ? output.AutoScalingRole
+        : undefined,
+    BootstrapActions:
+      output.BootstrapActions !== undefined && output.BootstrapActions !== null
+        ? deserializeAws_json1_1BootstrapActionDetailList(
+            output.BootstrapActions,
+            context
+          )
+        : undefined,
+    ExecutionStatusDetail:
+      output.ExecutionStatusDetail !== undefined &&
+      output.ExecutionStatusDetail !== null
+        ? deserializeAws_json1_1JobFlowExecutionStatusDetail(
+            output.ExecutionStatusDetail,
+            context
+          )
+        : undefined,
+    Instances:
+      output.Instances !== undefined && output.Instances !== null
+        ? deserializeAws_json1_1JobFlowInstancesDetail(
+            output.Instances,
+            context
+          )
+        : undefined,
+    JobFlowId:
+      output.JobFlowId !== undefined && output.JobFlowId !== null
+        ? output.JobFlowId
+        : undefined,
+    JobFlowRole:
+      output.JobFlowRole !== undefined && output.JobFlowRole !== null
+        ? output.JobFlowRole
+        : undefined,
+    LogUri:
+      output.LogUri !== undefined && output.LogUri !== null
+        ? output.LogUri
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    ScaleDownBehavior:
+      output.ScaleDownBehavior !== undefined &&
+      output.ScaleDownBehavior !== null
+        ? output.ScaleDownBehavior
+        : undefined,
+    ServiceRole:
+      output.ServiceRole !== undefined && output.ServiceRole !== null
+        ? output.ServiceRole
+        : undefined,
+    Steps:
+      output.Steps !== undefined && output.Steps !== null
+        ? deserializeAws_json1_1StepDetailList(output.Steps, context)
+        : undefined,
+    SupportedProducts:
+      output.SupportedProducts !== undefined &&
+      output.SupportedProducts !== null
+        ? deserializeAws_json1_1SupportedProductsList(
+            output.SupportedProducts,
+            context
+          )
+        : undefined,
+    VisibleToAllUsers:
+      output.VisibleToAllUsers !== undefined &&
+      output.VisibleToAllUsers !== null
+        ? output.VisibleToAllUsers
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1JobFlowDetailList = (
@@ -6465,192 +6131,150 @@ const deserializeAws_json1_1JobFlowExecutionStatusDetail = (
   output: any,
   context: __SerdeContext
 ): JobFlowExecutionStatusDetail => {
-  let contents: any = {
+  return {
     __type: "JobFlowExecutionStatusDetail",
-    CreationDateTime: undefined,
-    EndDateTime: undefined,
-    LastStateChangeReason: undefined,
-    ReadyDateTime: undefined,
-    StartDateTime: undefined,
-    State: undefined
-  };
-  if (
-    output.CreationDateTime !== undefined &&
-    output.CreationDateTime !== null
-  ) {
-    contents.CreationDateTime = new Date(
-      Math.round(output.CreationDateTime * 1000)
-    );
-  }
-  if (output.EndDateTime !== undefined && output.EndDateTime !== null) {
-    contents.EndDateTime = new Date(Math.round(output.EndDateTime * 1000));
-  }
-  if (
-    output.LastStateChangeReason !== undefined &&
-    output.LastStateChangeReason !== null
-  ) {
-    contents.LastStateChangeReason = output.LastStateChangeReason;
-  }
-  if (output.ReadyDateTime !== undefined && output.ReadyDateTime !== null) {
-    contents.ReadyDateTime = new Date(Math.round(output.ReadyDateTime * 1000));
-  }
-  if (output.StartDateTime !== undefined && output.StartDateTime !== null) {
-    contents.StartDateTime = new Date(Math.round(output.StartDateTime * 1000));
-  }
-  if (output.State !== undefined && output.State !== null) {
-    contents.State = output.State;
-  }
-  return contents;
+    CreationDateTime:
+      output.CreationDateTime !== undefined && output.CreationDateTime !== null
+        ? new Date(Math.round(output.CreationDateTime * 1000))
+        : undefined,
+    EndDateTime:
+      output.EndDateTime !== undefined && output.EndDateTime !== null
+        ? new Date(Math.round(output.EndDateTime * 1000))
+        : undefined,
+    LastStateChangeReason:
+      output.LastStateChangeReason !== undefined &&
+      output.LastStateChangeReason !== null
+        ? output.LastStateChangeReason
+        : undefined,
+    ReadyDateTime:
+      output.ReadyDateTime !== undefined && output.ReadyDateTime !== null
+        ? new Date(Math.round(output.ReadyDateTime * 1000))
+        : undefined,
+    StartDateTime:
+      output.StartDateTime !== undefined && output.StartDateTime !== null
+        ? new Date(Math.round(output.StartDateTime * 1000))
+        : undefined,
+    State:
+      output.State !== undefined && output.State !== null
+        ? output.State
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1JobFlowInstancesDetail = (
   output: any,
   context: __SerdeContext
 ): JobFlowInstancesDetail => {
-  let contents: any = {
+  return {
     __type: "JobFlowInstancesDetail",
-    Ec2KeyName: undefined,
-    Ec2SubnetId: undefined,
-    HadoopVersion: undefined,
-    InstanceCount: undefined,
-    InstanceGroups: undefined,
-    KeepJobFlowAliveWhenNoSteps: undefined,
-    MasterInstanceId: undefined,
-    MasterInstanceType: undefined,
-    MasterPublicDnsName: undefined,
-    NormalizedInstanceHours: undefined,
-    Placement: undefined,
-    SlaveInstanceType: undefined,
-    TerminationProtected: undefined
-  };
-  if (output.Ec2KeyName !== undefined && output.Ec2KeyName !== null) {
-    contents.Ec2KeyName = output.Ec2KeyName;
-  }
-  if (output.Ec2SubnetId !== undefined && output.Ec2SubnetId !== null) {
-    contents.Ec2SubnetId = output.Ec2SubnetId;
-  }
-  if (output.HadoopVersion !== undefined && output.HadoopVersion !== null) {
-    contents.HadoopVersion = output.HadoopVersion;
-  }
-  if (output.InstanceCount !== undefined && output.InstanceCount !== null) {
-    contents.InstanceCount = output.InstanceCount;
-  }
-  if (output.InstanceGroups !== undefined && output.InstanceGroups !== null) {
-    contents.InstanceGroups = deserializeAws_json1_1InstanceGroupDetailList(
-      output.InstanceGroups,
-      context
-    );
-  }
-  if (
-    output.KeepJobFlowAliveWhenNoSteps !== undefined &&
-    output.KeepJobFlowAliveWhenNoSteps !== null
-  ) {
-    contents.KeepJobFlowAliveWhenNoSteps = output.KeepJobFlowAliveWhenNoSteps;
-  }
-  if (
-    output.MasterInstanceId !== undefined &&
-    output.MasterInstanceId !== null
-  ) {
-    contents.MasterInstanceId = output.MasterInstanceId;
-  }
-  if (
-    output.MasterInstanceType !== undefined &&
-    output.MasterInstanceType !== null
-  ) {
-    contents.MasterInstanceType = output.MasterInstanceType;
-  }
-  if (
-    output.MasterPublicDnsName !== undefined &&
-    output.MasterPublicDnsName !== null
-  ) {
-    contents.MasterPublicDnsName = output.MasterPublicDnsName;
-  }
-  if (
-    output.NormalizedInstanceHours !== undefined &&
-    output.NormalizedInstanceHours !== null
-  ) {
-    contents.NormalizedInstanceHours = output.NormalizedInstanceHours;
-  }
-  if (output.Placement !== undefined && output.Placement !== null) {
-    contents.Placement = deserializeAws_json1_1PlacementType(
-      output.Placement,
-      context
-    );
-  }
-  if (
-    output.SlaveInstanceType !== undefined &&
-    output.SlaveInstanceType !== null
-  ) {
-    contents.SlaveInstanceType = output.SlaveInstanceType;
-  }
-  if (
-    output.TerminationProtected !== undefined &&
-    output.TerminationProtected !== null
-  ) {
-    contents.TerminationProtected = output.TerminationProtected;
-  }
-  return contents;
+    Ec2KeyName:
+      output.Ec2KeyName !== undefined && output.Ec2KeyName !== null
+        ? output.Ec2KeyName
+        : undefined,
+    Ec2SubnetId:
+      output.Ec2SubnetId !== undefined && output.Ec2SubnetId !== null
+        ? output.Ec2SubnetId
+        : undefined,
+    HadoopVersion:
+      output.HadoopVersion !== undefined && output.HadoopVersion !== null
+        ? output.HadoopVersion
+        : undefined,
+    InstanceCount:
+      output.InstanceCount !== undefined && output.InstanceCount !== null
+        ? output.InstanceCount
+        : undefined,
+    InstanceGroups:
+      output.InstanceGroups !== undefined && output.InstanceGroups !== null
+        ? deserializeAws_json1_1InstanceGroupDetailList(
+            output.InstanceGroups,
+            context
+          )
+        : undefined,
+    KeepJobFlowAliveWhenNoSteps:
+      output.KeepJobFlowAliveWhenNoSteps !== undefined &&
+      output.KeepJobFlowAliveWhenNoSteps !== null
+        ? output.KeepJobFlowAliveWhenNoSteps
+        : undefined,
+    MasterInstanceId:
+      output.MasterInstanceId !== undefined && output.MasterInstanceId !== null
+        ? output.MasterInstanceId
+        : undefined,
+    MasterInstanceType:
+      output.MasterInstanceType !== undefined &&
+      output.MasterInstanceType !== null
+        ? output.MasterInstanceType
+        : undefined,
+    MasterPublicDnsName:
+      output.MasterPublicDnsName !== undefined &&
+      output.MasterPublicDnsName !== null
+        ? output.MasterPublicDnsName
+        : undefined,
+    NormalizedInstanceHours:
+      output.NormalizedInstanceHours !== undefined &&
+      output.NormalizedInstanceHours !== null
+        ? output.NormalizedInstanceHours
+        : undefined,
+    Placement:
+      output.Placement !== undefined && output.Placement !== null
+        ? deserializeAws_json1_1PlacementType(output.Placement, context)
+        : undefined,
+    SlaveInstanceType:
+      output.SlaveInstanceType !== undefined &&
+      output.SlaveInstanceType !== null
+        ? output.SlaveInstanceType
+        : undefined,
+    TerminationProtected:
+      output.TerminationProtected !== undefined &&
+      output.TerminationProtected !== null
+        ? output.TerminationProtected
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1KerberosAttributes = (
   output: any,
   context: __SerdeContext
 ): KerberosAttributes => {
-  let contents: any = {
+  return {
     __type: "KerberosAttributes",
-    ADDomainJoinPassword: undefined,
-    ADDomainJoinUser: undefined,
-    CrossRealmTrustPrincipalPassword: undefined,
-    KdcAdminPassword: undefined,
-    Realm: undefined
-  };
-  if (
-    output.ADDomainJoinPassword !== undefined &&
-    output.ADDomainJoinPassword !== null
-  ) {
-    contents.ADDomainJoinPassword = output.ADDomainJoinPassword;
-  }
-  if (
-    output.ADDomainJoinUser !== undefined &&
-    output.ADDomainJoinUser !== null
-  ) {
-    contents.ADDomainJoinUser = output.ADDomainJoinUser;
-  }
-  if (
-    output.CrossRealmTrustPrincipalPassword !== undefined &&
-    output.CrossRealmTrustPrincipalPassword !== null
-  ) {
-    contents.CrossRealmTrustPrincipalPassword =
-      output.CrossRealmTrustPrincipalPassword;
-  }
-  if (
-    output.KdcAdminPassword !== undefined &&
-    output.KdcAdminPassword !== null
-  ) {
-    contents.KdcAdminPassword = output.KdcAdminPassword;
-  }
-  if (output.Realm !== undefined && output.Realm !== null) {
-    contents.Realm = output.Realm;
-  }
-  return contents;
+    ADDomainJoinPassword:
+      output.ADDomainJoinPassword !== undefined &&
+      output.ADDomainJoinPassword !== null
+        ? output.ADDomainJoinPassword
+        : undefined,
+    ADDomainJoinUser:
+      output.ADDomainJoinUser !== undefined && output.ADDomainJoinUser !== null
+        ? output.ADDomainJoinUser
+        : undefined,
+    CrossRealmTrustPrincipalPassword:
+      output.CrossRealmTrustPrincipalPassword !== undefined &&
+      output.CrossRealmTrustPrincipalPassword !== null
+        ? output.CrossRealmTrustPrincipalPassword
+        : undefined,
+    KdcAdminPassword:
+      output.KdcAdminPassword !== undefined && output.KdcAdminPassword !== null
+        ? output.KdcAdminPassword
+        : undefined,
+    Realm:
+      output.Realm !== undefined && output.Realm !== null
+        ? output.Realm
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1KeyValue = (
   output: any,
   context: __SerdeContext
 ): KeyValue => {
-  let contents: any = {
+  return {
     __type: "KeyValue",
-    Key: undefined,
-    Value: undefined
-  };
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1KeyValueList = (
@@ -6666,171 +6290,144 @@ const deserializeAws_json1_1ListBootstrapActionsOutput = (
   output: any,
   context: __SerdeContext
 ): ListBootstrapActionsOutput => {
-  let contents: any = {
+  return {
     __type: "ListBootstrapActionsOutput",
-    BootstrapActions: undefined,
-    Marker: undefined
-  };
-  if (
-    output.BootstrapActions !== undefined &&
-    output.BootstrapActions !== null
-  ) {
-    contents.BootstrapActions = deserializeAws_json1_1CommandList(
-      output.BootstrapActions,
-      context
-    );
-  }
-  if (output.Marker !== undefined && output.Marker !== null) {
-    contents.Marker = output.Marker;
-  }
-  return contents;
+    BootstrapActions:
+      output.BootstrapActions !== undefined && output.BootstrapActions !== null
+        ? deserializeAws_json1_1CommandList(output.BootstrapActions, context)
+        : undefined,
+    Marker:
+      output.Marker !== undefined && output.Marker !== null
+        ? output.Marker
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListClustersOutput = (
   output: any,
   context: __SerdeContext
 ): ListClustersOutput => {
-  let contents: any = {
+  return {
     __type: "ListClustersOutput",
-    Clusters: undefined,
-    Marker: undefined
-  };
-  if (output.Clusters !== undefined && output.Clusters !== null) {
-    contents.Clusters = deserializeAws_json1_1ClusterSummaryList(
-      output.Clusters,
-      context
-    );
-  }
-  if (output.Marker !== undefined && output.Marker !== null) {
-    contents.Marker = output.Marker;
-  }
-  return contents;
+    Clusters:
+      output.Clusters !== undefined && output.Clusters !== null
+        ? deserializeAws_json1_1ClusterSummaryList(output.Clusters, context)
+        : undefined,
+    Marker:
+      output.Marker !== undefined && output.Marker !== null
+        ? output.Marker
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListInstanceFleetsOutput = (
   output: any,
   context: __SerdeContext
 ): ListInstanceFleetsOutput => {
-  let contents: any = {
+  return {
     __type: "ListInstanceFleetsOutput",
-    InstanceFleets: undefined,
-    Marker: undefined
-  };
-  if (output.InstanceFleets !== undefined && output.InstanceFleets !== null) {
-    contents.InstanceFleets = deserializeAws_json1_1InstanceFleetList(
-      output.InstanceFleets,
-      context
-    );
-  }
-  if (output.Marker !== undefined && output.Marker !== null) {
-    contents.Marker = output.Marker;
-  }
-  return contents;
+    InstanceFleets:
+      output.InstanceFleets !== undefined && output.InstanceFleets !== null
+        ? deserializeAws_json1_1InstanceFleetList(
+            output.InstanceFleets,
+            context
+          )
+        : undefined,
+    Marker:
+      output.Marker !== undefined && output.Marker !== null
+        ? output.Marker
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListInstanceGroupsOutput = (
   output: any,
   context: __SerdeContext
 ): ListInstanceGroupsOutput => {
-  let contents: any = {
+  return {
     __type: "ListInstanceGroupsOutput",
-    InstanceGroups: undefined,
-    Marker: undefined
-  };
-  if (output.InstanceGroups !== undefined && output.InstanceGroups !== null) {
-    contents.InstanceGroups = deserializeAws_json1_1InstanceGroupList(
-      output.InstanceGroups,
-      context
-    );
-  }
-  if (output.Marker !== undefined && output.Marker !== null) {
-    contents.Marker = output.Marker;
-  }
-  return contents;
+    InstanceGroups:
+      output.InstanceGroups !== undefined && output.InstanceGroups !== null
+        ? deserializeAws_json1_1InstanceGroupList(
+            output.InstanceGroups,
+            context
+          )
+        : undefined,
+    Marker:
+      output.Marker !== undefined && output.Marker !== null
+        ? output.Marker
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListInstancesOutput = (
   output: any,
   context: __SerdeContext
 ): ListInstancesOutput => {
-  let contents: any = {
+  return {
     __type: "ListInstancesOutput",
-    Instances: undefined,
-    Marker: undefined
-  };
-  if (output.Instances !== undefined && output.Instances !== null) {
-    contents.Instances = deserializeAws_json1_1InstanceList(
-      output.Instances,
-      context
-    );
-  }
-  if (output.Marker !== undefined && output.Marker !== null) {
-    contents.Marker = output.Marker;
-  }
-  return contents;
+    Instances:
+      output.Instances !== undefined && output.Instances !== null
+        ? deserializeAws_json1_1InstanceList(output.Instances, context)
+        : undefined,
+    Marker:
+      output.Marker !== undefined && output.Marker !== null
+        ? output.Marker
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListSecurityConfigurationsOutput = (
   output: any,
   context: __SerdeContext
 ): ListSecurityConfigurationsOutput => {
-  let contents: any = {
+  return {
     __type: "ListSecurityConfigurationsOutput",
-    Marker: undefined,
-    SecurityConfigurations: undefined
-  };
-  if (output.Marker !== undefined && output.Marker !== null) {
-    contents.Marker = output.Marker;
-  }
-  if (
-    output.SecurityConfigurations !== undefined &&
-    output.SecurityConfigurations !== null
-  ) {
-    contents.SecurityConfigurations = deserializeAws_json1_1SecurityConfigurationList(
-      output.SecurityConfigurations,
-      context
-    );
-  }
-  return contents;
+    Marker:
+      output.Marker !== undefined && output.Marker !== null
+        ? output.Marker
+        : undefined,
+    SecurityConfigurations:
+      output.SecurityConfigurations !== undefined &&
+      output.SecurityConfigurations !== null
+        ? deserializeAws_json1_1SecurityConfigurationList(
+            output.SecurityConfigurations,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListStepsOutput = (
   output: any,
   context: __SerdeContext
 ): ListStepsOutput => {
-  let contents: any = {
+  return {
     __type: "ListStepsOutput",
-    Marker: undefined,
-    Steps: undefined
-  };
-  if (output.Marker !== undefined && output.Marker !== null) {
-    contents.Marker = output.Marker;
-  }
-  if (output.Steps !== undefined && output.Steps !== null) {
-    contents.Steps = deserializeAws_json1_1StepSummaryList(
-      output.Steps,
-      context
-    );
-  }
-  return contents;
+    Marker:
+      output.Marker !== undefined && output.Marker !== null
+        ? output.Marker
+        : undefined,
+    Steps:
+      output.Steps !== undefined && output.Steps !== null
+        ? deserializeAws_json1_1StepSummaryList(output.Steps, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1MetricDimension = (
   output: any,
   context: __SerdeContext
 ): MetricDimension => {
-  let contents: any = {
+  return {
     __type: "MetricDimension",
-    Key: undefined,
-    Value: undefined
-  };
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1MetricDimensionList = (
@@ -6846,62 +6443,52 @@ const deserializeAws_json1_1ModifyClusterOutput = (
   output: any,
   context: __SerdeContext
 ): ModifyClusterOutput => {
-  let contents: any = {
+  return {
     __type: "ModifyClusterOutput",
-    StepConcurrencyLevel: undefined
-  };
-  if (
-    output.StepConcurrencyLevel !== undefined &&
-    output.StepConcurrencyLevel !== null
-  ) {
-    contents.StepConcurrencyLevel = output.StepConcurrencyLevel;
-  }
-  return contents;
+    StepConcurrencyLevel:
+      output.StepConcurrencyLevel !== undefined &&
+      output.StepConcurrencyLevel !== null
+        ? output.StepConcurrencyLevel
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PlacementType = (
   output: any,
   context: __SerdeContext
 ): PlacementType => {
-  let contents: any = {
+  return {
     __type: "PlacementType",
-    AvailabilityZone: undefined,
-    AvailabilityZones: undefined
-  };
-  if (
-    output.AvailabilityZone !== undefined &&
-    output.AvailabilityZone !== null
-  ) {
-    contents.AvailabilityZone = output.AvailabilityZone;
-  }
-  if (
-    output.AvailabilityZones !== undefined &&
-    output.AvailabilityZones !== null
-  ) {
-    contents.AvailabilityZones = deserializeAws_json1_1XmlStringMaxLen256List(
-      output.AvailabilityZones,
-      context
-    );
-  }
-  return contents;
+    AvailabilityZone:
+      output.AvailabilityZone !== undefined && output.AvailabilityZone !== null
+        ? output.AvailabilityZone
+        : undefined,
+    AvailabilityZones:
+      output.AvailabilityZones !== undefined &&
+      output.AvailabilityZones !== null
+        ? deserializeAws_json1_1XmlStringMaxLen256List(
+            output.AvailabilityZones,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PortRange = (
   output: any,
   context: __SerdeContext
 ): PortRange => {
-  let contents: any = {
+  return {
     __type: "PortRange",
-    MaxRange: undefined,
-    MinRange: undefined
-  };
-  if (output.MaxRange !== undefined && output.MaxRange !== null) {
-    contents.MaxRange = output.MaxRange;
-  }
-  if (output.MinRange !== undefined && output.MinRange !== null) {
-    contents.MinRange = output.MinRange;
-  }
-  return contents;
+    MaxRange:
+      output.MaxRange !== undefined && output.MaxRange !== null
+        ? output.MaxRange
+        : undefined,
+    MinRange:
+      output.MinRange !== undefined && output.MinRange !== null
+        ? output.MinRange
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PortRanges = (
@@ -6917,154 +6504,136 @@ const deserializeAws_json1_1PutAutoScalingPolicyOutput = (
   output: any,
   context: __SerdeContext
 ): PutAutoScalingPolicyOutput => {
-  let contents: any = {
+  return {
     __type: "PutAutoScalingPolicyOutput",
-    AutoScalingPolicy: undefined,
-    ClusterArn: undefined,
-    ClusterId: undefined,
-    InstanceGroupId: undefined
-  };
-  if (
-    output.AutoScalingPolicy !== undefined &&
-    output.AutoScalingPolicy !== null
-  ) {
-    contents.AutoScalingPolicy = deserializeAws_json1_1AutoScalingPolicyDescription(
-      output.AutoScalingPolicy,
-      context
-    );
-  }
-  if (output.ClusterArn !== undefined && output.ClusterArn !== null) {
-    contents.ClusterArn = output.ClusterArn;
-  }
-  if (output.ClusterId !== undefined && output.ClusterId !== null) {
-    contents.ClusterId = output.ClusterId;
-  }
-  if (output.InstanceGroupId !== undefined && output.InstanceGroupId !== null) {
-    contents.InstanceGroupId = output.InstanceGroupId;
-  }
-  return contents;
+    AutoScalingPolicy:
+      output.AutoScalingPolicy !== undefined &&
+      output.AutoScalingPolicy !== null
+        ? deserializeAws_json1_1AutoScalingPolicyDescription(
+            output.AutoScalingPolicy,
+            context
+          )
+        : undefined,
+    ClusterArn:
+      output.ClusterArn !== undefined && output.ClusterArn !== null
+        ? output.ClusterArn
+        : undefined,
+    ClusterId:
+      output.ClusterId !== undefined && output.ClusterId !== null
+        ? output.ClusterId
+        : undefined,
+    InstanceGroupId:
+      output.InstanceGroupId !== undefined && output.InstanceGroupId !== null
+        ? output.InstanceGroupId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PutBlockPublicAccessConfigurationOutput = (
   output: any,
   context: __SerdeContext
 ): PutBlockPublicAccessConfigurationOutput => {
-  let contents: any = {
+  return {
     __type: "PutBlockPublicAccessConfigurationOutput"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1RemoveAutoScalingPolicyOutput = (
   output: any,
   context: __SerdeContext
 ): RemoveAutoScalingPolicyOutput => {
-  let contents: any = {
+  return {
     __type: "RemoveAutoScalingPolicyOutput"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1RemoveTagsOutput = (
   output: any,
   context: __SerdeContext
 ): RemoveTagsOutput => {
-  let contents: any = {
+  return {
     __type: "RemoveTagsOutput"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1RunJobFlowOutput = (
   output: any,
   context: __SerdeContext
 ): RunJobFlowOutput => {
-  let contents: any = {
+  return {
     __type: "RunJobFlowOutput",
-    ClusterArn: undefined,
-    JobFlowId: undefined
-  };
-  if (output.ClusterArn !== undefined && output.ClusterArn !== null) {
-    contents.ClusterArn = output.ClusterArn;
-  }
-  if (output.JobFlowId !== undefined && output.JobFlowId !== null) {
-    contents.JobFlowId = output.JobFlowId;
-  }
-  return contents;
+    ClusterArn:
+      output.ClusterArn !== undefined && output.ClusterArn !== null
+        ? output.ClusterArn
+        : undefined,
+    JobFlowId:
+      output.JobFlowId !== undefined && output.JobFlowId !== null
+        ? output.JobFlowId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ScalingAction = (
   output: any,
   context: __SerdeContext
 ): ScalingAction => {
-  let contents: any = {
+  return {
     __type: "ScalingAction",
-    Market: undefined,
-    SimpleScalingPolicyConfiguration: undefined
-  };
-  if (output.Market !== undefined && output.Market !== null) {
-    contents.Market = output.Market;
-  }
-  if (
-    output.SimpleScalingPolicyConfiguration !== undefined &&
-    output.SimpleScalingPolicyConfiguration !== null
-  ) {
-    contents.SimpleScalingPolicyConfiguration = deserializeAws_json1_1SimpleScalingPolicyConfiguration(
-      output.SimpleScalingPolicyConfiguration,
-      context
-    );
-  }
-  return contents;
+    Market:
+      output.Market !== undefined && output.Market !== null
+        ? output.Market
+        : undefined,
+    SimpleScalingPolicyConfiguration:
+      output.SimpleScalingPolicyConfiguration !== undefined &&
+      output.SimpleScalingPolicyConfiguration !== null
+        ? deserializeAws_json1_1SimpleScalingPolicyConfiguration(
+            output.SimpleScalingPolicyConfiguration,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ScalingConstraints = (
   output: any,
   context: __SerdeContext
 ): ScalingConstraints => {
-  let contents: any = {
+  return {
     __type: "ScalingConstraints",
-    MaxCapacity: undefined,
-    MinCapacity: undefined
-  };
-  if (output.MaxCapacity !== undefined && output.MaxCapacity !== null) {
-    contents.MaxCapacity = output.MaxCapacity;
-  }
-  if (output.MinCapacity !== undefined && output.MinCapacity !== null) {
-    contents.MinCapacity = output.MinCapacity;
-  }
-  return contents;
+    MaxCapacity:
+      output.MaxCapacity !== undefined && output.MaxCapacity !== null
+        ? output.MaxCapacity
+        : undefined,
+    MinCapacity:
+      output.MinCapacity !== undefined && output.MinCapacity !== null
+        ? output.MinCapacity
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ScalingRule = (
   output: any,
   context: __SerdeContext
 ): ScalingRule => {
-  let contents: any = {
+  return {
     __type: "ScalingRule",
-    Action: undefined,
-    Description: undefined,
-    Name: undefined,
-    Trigger: undefined
-  };
-  if (output.Action !== undefined && output.Action !== null) {
-    contents.Action = deserializeAws_json1_1ScalingAction(
-      output.Action,
-      context
-    );
-  }
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Trigger !== undefined && output.Trigger !== null) {
-    contents.Trigger = deserializeAws_json1_1ScalingTrigger(
-      output.Trigger,
-      context
-    );
-  }
-  return contents;
+    Action:
+      output.Action !== undefined && output.Action !== null
+        ? deserializeAws_json1_1ScalingAction(output.Action, context)
+        : undefined,
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Trigger:
+      output.Trigger !== undefined && output.Trigger !== null
+        ? deserializeAws_json1_1ScalingTrigger(output.Trigger, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ScalingRuleList = (
@@ -7080,38 +6649,34 @@ const deserializeAws_json1_1ScalingTrigger = (
   output: any,
   context: __SerdeContext
 ): ScalingTrigger => {
-  let contents: any = {
+  return {
     __type: "ScalingTrigger",
-    CloudWatchAlarmDefinition: undefined
-  };
-  if (
-    output.CloudWatchAlarmDefinition !== undefined &&
-    output.CloudWatchAlarmDefinition !== null
-  ) {
-    contents.CloudWatchAlarmDefinition = deserializeAws_json1_1CloudWatchAlarmDefinition(
-      output.CloudWatchAlarmDefinition,
-      context
-    );
-  }
-  return contents;
+    CloudWatchAlarmDefinition:
+      output.CloudWatchAlarmDefinition !== undefined &&
+      output.CloudWatchAlarmDefinition !== null
+        ? deserializeAws_json1_1CloudWatchAlarmDefinition(
+            output.CloudWatchAlarmDefinition,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ScriptBootstrapActionConfig = (
   output: any,
   context: __SerdeContext
 ): ScriptBootstrapActionConfig => {
-  let contents: any = {
+  return {
     __type: "ScriptBootstrapActionConfig",
-    Args: undefined,
-    Path: undefined
-  };
-  if (output.Args !== undefined && output.Args !== null) {
-    contents.Args = deserializeAws_json1_1XmlStringList(output.Args, context);
-  }
-  if (output.Path !== undefined && output.Path !== null) {
-    contents.Path = output.Path;
-  }
-  return contents;
+    Args:
+      output.Args !== undefined && output.Args !== null
+        ? deserializeAws_json1_1XmlStringList(output.Args, context)
+        : undefined,
+    Path:
+      output.Path !== undefined && output.Path !== null
+        ? output.Path
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SecurityConfigurationList = (
@@ -7127,188 +6692,155 @@ const deserializeAws_json1_1SecurityConfigurationSummary = (
   output: any,
   context: __SerdeContext
 ): SecurityConfigurationSummary => {
-  let contents: any = {
+  return {
     __type: "SecurityConfigurationSummary",
-    CreationDateTime: undefined,
-    Name: undefined
-  };
-  if (
-    output.CreationDateTime !== undefined &&
-    output.CreationDateTime !== null
-  ) {
-    contents.CreationDateTime = new Date(
-      Math.round(output.CreationDateTime * 1000)
-    );
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    CreationDateTime:
+      output.CreationDateTime !== undefined && output.CreationDateTime !== null
+        ? new Date(Math.round(output.CreationDateTime * 1000))
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ShrinkPolicy = (
   output: any,
   context: __SerdeContext
 ): ShrinkPolicy => {
-  let contents: any = {
+  return {
     __type: "ShrinkPolicy",
-    DecommissionTimeout: undefined,
-    InstanceResizePolicy: undefined
-  };
-  if (
-    output.DecommissionTimeout !== undefined &&
-    output.DecommissionTimeout !== null
-  ) {
-    contents.DecommissionTimeout = output.DecommissionTimeout;
-  }
-  if (
-    output.InstanceResizePolicy !== undefined &&
-    output.InstanceResizePolicy !== null
-  ) {
-    contents.InstanceResizePolicy = deserializeAws_json1_1InstanceResizePolicy(
-      output.InstanceResizePolicy,
-      context
-    );
-  }
-  return contents;
+    DecommissionTimeout:
+      output.DecommissionTimeout !== undefined &&
+      output.DecommissionTimeout !== null
+        ? output.DecommissionTimeout
+        : undefined,
+    InstanceResizePolicy:
+      output.InstanceResizePolicy !== undefined &&
+      output.InstanceResizePolicy !== null
+        ? deserializeAws_json1_1InstanceResizePolicy(
+            output.InstanceResizePolicy,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SimpleScalingPolicyConfiguration = (
   output: any,
   context: __SerdeContext
 ): SimpleScalingPolicyConfiguration => {
-  let contents: any = {
+  return {
     __type: "SimpleScalingPolicyConfiguration",
-    AdjustmentType: undefined,
-    CoolDown: undefined,
-    ScalingAdjustment: undefined
-  };
-  if (output.AdjustmentType !== undefined && output.AdjustmentType !== null) {
-    contents.AdjustmentType = output.AdjustmentType;
-  }
-  if (output.CoolDown !== undefined && output.CoolDown !== null) {
-    contents.CoolDown = output.CoolDown;
-  }
-  if (
-    output.ScalingAdjustment !== undefined &&
-    output.ScalingAdjustment !== null
-  ) {
-    contents.ScalingAdjustment = output.ScalingAdjustment;
-  }
-  return contents;
+    AdjustmentType:
+      output.AdjustmentType !== undefined && output.AdjustmentType !== null
+        ? output.AdjustmentType
+        : undefined,
+    CoolDown:
+      output.CoolDown !== undefined && output.CoolDown !== null
+        ? output.CoolDown
+        : undefined,
+    ScalingAdjustment:
+      output.ScalingAdjustment !== undefined &&
+      output.ScalingAdjustment !== null
+        ? output.ScalingAdjustment
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SpotProvisioningSpecification = (
   output: any,
   context: __SerdeContext
 ): SpotProvisioningSpecification => {
-  let contents: any = {
+  return {
     __type: "SpotProvisioningSpecification",
-    BlockDurationMinutes: undefined,
-    TimeoutAction: undefined,
-    TimeoutDurationMinutes: undefined
-  };
-  if (
-    output.BlockDurationMinutes !== undefined &&
-    output.BlockDurationMinutes !== null
-  ) {
-    contents.BlockDurationMinutes = output.BlockDurationMinutes;
-  }
-  if (output.TimeoutAction !== undefined && output.TimeoutAction !== null) {
-    contents.TimeoutAction = output.TimeoutAction;
-  }
-  if (
-    output.TimeoutDurationMinutes !== undefined &&
-    output.TimeoutDurationMinutes !== null
-  ) {
-    contents.TimeoutDurationMinutes = output.TimeoutDurationMinutes;
-  }
-  return contents;
+    BlockDurationMinutes:
+      output.BlockDurationMinutes !== undefined &&
+      output.BlockDurationMinutes !== null
+        ? output.BlockDurationMinutes
+        : undefined,
+    TimeoutAction:
+      output.TimeoutAction !== undefined && output.TimeoutAction !== null
+        ? output.TimeoutAction
+        : undefined,
+    TimeoutDurationMinutes:
+      output.TimeoutDurationMinutes !== undefined &&
+      output.TimeoutDurationMinutes !== null
+        ? output.TimeoutDurationMinutes
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Step = (
   output: any,
   context: __SerdeContext
 ): Step => {
-  let contents: any = {
+  return {
     __type: "Step",
-    ActionOnFailure: undefined,
-    Config: undefined,
-    Id: undefined,
-    Name: undefined,
-    Status: undefined
-  };
-  if (output.ActionOnFailure !== undefined && output.ActionOnFailure !== null) {
-    contents.ActionOnFailure = output.ActionOnFailure;
-  }
-  if (output.Config !== undefined && output.Config !== null) {
-    contents.Config = deserializeAws_json1_1HadoopStepConfig(
-      output.Config,
-      context
-    );
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = deserializeAws_json1_1StepStatus(output.Status, context);
-  }
-  return contents;
+    ActionOnFailure:
+      output.ActionOnFailure !== undefined && output.ActionOnFailure !== null
+        ? output.ActionOnFailure
+        : undefined,
+    Config:
+      output.Config !== undefined && output.Config !== null
+        ? deserializeAws_json1_1HadoopStepConfig(output.Config, context)
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? deserializeAws_json1_1StepStatus(output.Status, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StepConfig = (
   output: any,
   context: __SerdeContext
 ): StepConfig => {
-  let contents: any = {
+  return {
     __type: "StepConfig",
-    ActionOnFailure: undefined,
-    HadoopJarStep: undefined,
-    Name: undefined
-  };
-  if (output.ActionOnFailure !== undefined && output.ActionOnFailure !== null) {
-    contents.ActionOnFailure = output.ActionOnFailure;
-  }
-  if (output.HadoopJarStep !== undefined && output.HadoopJarStep !== null) {
-    contents.HadoopJarStep = deserializeAws_json1_1HadoopJarStepConfig(
-      output.HadoopJarStep,
-      context
-    );
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    ActionOnFailure:
+      output.ActionOnFailure !== undefined && output.ActionOnFailure !== null
+        ? output.ActionOnFailure
+        : undefined,
+    HadoopJarStep:
+      output.HadoopJarStep !== undefined && output.HadoopJarStep !== null
+        ? deserializeAws_json1_1HadoopJarStepConfig(
+            output.HadoopJarStep,
+            context
+          )
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StepDetail = (
   output: any,
   context: __SerdeContext
 ): StepDetail => {
-  let contents: any = {
+  return {
     __type: "StepDetail",
-    ExecutionStatusDetail: undefined,
-    StepConfig: undefined
-  };
-  if (
-    output.ExecutionStatusDetail !== undefined &&
-    output.ExecutionStatusDetail !== null
-  ) {
-    contents.ExecutionStatusDetail = deserializeAws_json1_1StepExecutionStatusDetail(
-      output.ExecutionStatusDetail,
-      context
-    );
-  }
-  if (output.StepConfig !== undefined && output.StepConfig !== null) {
-    contents.StepConfig = deserializeAws_json1_1StepConfig(
-      output.StepConfig,
-      context
-    );
-  }
-  return contents;
+    ExecutionStatusDetail:
+      output.ExecutionStatusDetail !== undefined &&
+      output.ExecutionStatusDetail !== null
+        ? deserializeAws_json1_1StepExecutionStatusDetail(
+            output.ExecutionStatusDetail,
+            context
+          )
+        : undefined,
+    StepConfig:
+      output.StepConfig !== undefined && output.StepConfig !== null
+        ? deserializeAws_json1_1StepConfig(output.StepConfig, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StepDetailList = (
@@ -7324,38 +6856,30 @@ const deserializeAws_json1_1StepExecutionStatusDetail = (
   output: any,
   context: __SerdeContext
 ): StepExecutionStatusDetail => {
-  let contents: any = {
+  return {
     __type: "StepExecutionStatusDetail",
-    CreationDateTime: undefined,
-    EndDateTime: undefined,
-    LastStateChangeReason: undefined,
-    StartDateTime: undefined,
-    State: undefined
-  };
-  if (
-    output.CreationDateTime !== undefined &&
-    output.CreationDateTime !== null
-  ) {
-    contents.CreationDateTime = new Date(
-      Math.round(output.CreationDateTime * 1000)
-    );
-  }
-  if (output.EndDateTime !== undefined && output.EndDateTime !== null) {
-    contents.EndDateTime = new Date(Math.round(output.EndDateTime * 1000));
-  }
-  if (
-    output.LastStateChangeReason !== undefined &&
-    output.LastStateChangeReason !== null
-  ) {
-    contents.LastStateChangeReason = output.LastStateChangeReason;
-  }
-  if (output.StartDateTime !== undefined && output.StartDateTime !== null) {
-    contents.StartDateTime = new Date(Math.round(output.StartDateTime * 1000));
-  }
-  if (output.State !== undefined && output.State !== null) {
-    contents.State = output.State;
-  }
-  return contents;
+    CreationDateTime:
+      output.CreationDateTime !== undefined && output.CreationDateTime !== null
+        ? new Date(Math.round(output.CreationDateTime * 1000))
+        : undefined,
+    EndDateTime:
+      output.EndDateTime !== undefined && output.EndDateTime !== null
+        ? new Date(Math.round(output.EndDateTime * 1000))
+        : undefined,
+    LastStateChangeReason:
+      output.LastStateChangeReason !== undefined &&
+      output.LastStateChangeReason !== null
+        ? output.LastStateChangeReason
+        : undefined,
+    StartDateTime:
+      output.StartDateTime !== undefined && output.StartDateTime !== null
+        ? new Date(Math.round(output.StartDateTime * 1000))
+        : undefined,
+    State:
+      output.State !== undefined && output.State !== null
+        ? output.State
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StepIdsList = (
@@ -7369,89 +6893,72 @@ const deserializeAws_json1_1StepStateChangeReason = (
   output: any,
   context: __SerdeContext
 ): StepStateChangeReason => {
-  let contents: any = {
+  return {
     __type: "StepStateChangeReason",
-    Code: undefined,
-    Message: undefined
-  };
-  if (output.Code !== undefined && output.Code !== null) {
-    contents.Code = output.Code;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Code:
+      output.Code !== undefined && output.Code !== null
+        ? output.Code
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StepStatus = (
   output: any,
   context: __SerdeContext
 ): StepStatus => {
-  let contents: any = {
+  return {
     __type: "StepStatus",
-    FailureDetails: undefined,
-    State: undefined,
-    StateChangeReason: undefined,
-    Timeline: undefined
-  };
-  if (output.FailureDetails !== undefined && output.FailureDetails !== null) {
-    contents.FailureDetails = deserializeAws_json1_1FailureDetails(
-      output.FailureDetails,
-      context
-    );
-  }
-  if (output.State !== undefined && output.State !== null) {
-    contents.State = output.State;
-  }
-  if (
-    output.StateChangeReason !== undefined &&
-    output.StateChangeReason !== null
-  ) {
-    contents.StateChangeReason = deserializeAws_json1_1StepStateChangeReason(
-      output.StateChangeReason,
-      context
-    );
-  }
-  if (output.Timeline !== undefined && output.Timeline !== null) {
-    contents.Timeline = deserializeAws_json1_1StepTimeline(
-      output.Timeline,
-      context
-    );
-  }
-  return contents;
+    FailureDetails:
+      output.FailureDetails !== undefined && output.FailureDetails !== null
+        ? deserializeAws_json1_1FailureDetails(output.FailureDetails, context)
+        : undefined,
+    State:
+      output.State !== undefined && output.State !== null
+        ? output.State
+        : undefined,
+    StateChangeReason:
+      output.StateChangeReason !== undefined &&
+      output.StateChangeReason !== null
+        ? deserializeAws_json1_1StepStateChangeReason(
+            output.StateChangeReason,
+            context
+          )
+        : undefined,
+    Timeline:
+      output.Timeline !== undefined && output.Timeline !== null
+        ? deserializeAws_json1_1StepTimeline(output.Timeline, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StepSummary = (
   output: any,
   context: __SerdeContext
 ): StepSummary => {
-  let contents: any = {
+  return {
     __type: "StepSummary",
-    ActionOnFailure: undefined,
-    Config: undefined,
-    Id: undefined,
-    Name: undefined,
-    Status: undefined
-  };
-  if (output.ActionOnFailure !== undefined && output.ActionOnFailure !== null) {
-    contents.ActionOnFailure = output.ActionOnFailure;
-  }
-  if (output.Config !== undefined && output.Config !== null) {
-    contents.Config = deserializeAws_json1_1HadoopStepConfig(
-      output.Config,
-      context
-    );
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = deserializeAws_json1_1StepStatus(output.Status, context);
-  }
-  return contents;
+    ActionOnFailure:
+      output.ActionOnFailure !== undefined && output.ActionOnFailure !== null
+        ? output.ActionOnFailure
+        : undefined,
+    Config:
+      output.Config !== undefined && output.Config !== null
+        ? deserializeAws_json1_1HadoopStepConfig(output.Config, context)
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? deserializeAws_json1_1StepStatus(output.Status, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StepSummaryList = (
@@ -7467,27 +6974,21 @@ const deserializeAws_json1_1StepTimeline = (
   output: any,
   context: __SerdeContext
 ): StepTimeline => {
-  let contents: any = {
+  return {
     __type: "StepTimeline",
-    CreationDateTime: undefined,
-    EndDateTime: undefined,
-    StartDateTime: undefined
-  };
-  if (
-    output.CreationDateTime !== undefined &&
-    output.CreationDateTime !== null
-  ) {
-    contents.CreationDateTime = new Date(
-      Math.round(output.CreationDateTime * 1000)
-    );
-  }
-  if (output.EndDateTime !== undefined && output.EndDateTime !== null) {
-    contents.EndDateTime = new Date(Math.round(output.EndDateTime * 1000));
-  }
-  if (output.StartDateTime !== undefined && output.StartDateTime !== null) {
-    contents.StartDateTime = new Date(Math.round(output.StartDateTime * 1000));
-  }
-  return contents;
+    CreationDateTime:
+      output.CreationDateTime !== undefined && output.CreationDateTime !== null
+        ? new Date(Math.round(output.CreationDateTime * 1000))
+        : undefined,
+    EndDateTime:
+      output.EndDateTime !== undefined && output.EndDateTime !== null
+        ? new Date(Math.round(output.EndDateTime * 1000))
+        : undefined,
+    StartDateTime:
+      output.StartDateTime !== undefined && output.StartDateTime !== null
+        ? new Date(Math.round(output.StartDateTime * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StringList = (
@@ -7518,18 +7019,15 @@ const deserializeAws_json1_1Tag = (
   output: any,
   context: __SerdeContext
 ): Tag => {
-  let contents: any = {
+  return {
     __type: "Tag",
-    Key: undefined,
-    Value: undefined
-  };
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TagList = (
@@ -7545,22 +7043,21 @@ const deserializeAws_json1_1VolumeSpecification = (
   output: any,
   context: __SerdeContext
 ): VolumeSpecification => {
-  let contents: any = {
+  return {
     __type: "VolumeSpecification",
-    Iops: undefined,
-    SizeInGB: undefined,
-    VolumeType: undefined
-  };
-  if (output.Iops !== undefined && output.Iops !== null) {
-    contents.Iops = output.Iops;
-  }
-  if (output.SizeInGB !== undefined && output.SizeInGB !== null) {
-    contents.SizeInGB = output.SizeInGB;
-  }
-  if (output.VolumeType !== undefined && output.VolumeType !== null) {
-    contents.VolumeType = output.VolumeType;
-  }
-  return contents;
+    Iops:
+      output.Iops !== undefined && output.Iops !== null
+        ? output.Iops
+        : undefined,
+    SizeInGB:
+      output.SizeInGB !== undefined && output.SizeInGB !== null
+        ? output.SizeInGB
+        : undefined,
+    VolumeType:
+      output.VolumeType !== undefined && output.VolumeType !== null
+        ? output.VolumeType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1XmlStringList = (
