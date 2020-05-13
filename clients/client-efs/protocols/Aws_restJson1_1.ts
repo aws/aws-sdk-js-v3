@@ -152,32 +152,24 @@ export const serializeAws_restJson1_1CreateAccessPointCommand = async (
   };
   let resolvedPath = "/2015-02-01/access-points";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ClientToken === undefined) {
-    input.ClientToken = generateIdempotencyToken();
-  }
-  if (input.ClientToken !== undefined) {
-    bodyParams["ClientToken"] = input.ClientToken;
-  }
-  if (input.FileSystemId !== undefined) {
-    bodyParams["FileSystemId"] = input.FileSystemId;
-  }
-  if (input.PosixUser !== undefined) {
-    bodyParams["PosixUser"] = serializeAws_restJson1_1PosixUser(
-      input.PosixUser,
-      context
-    );
-  }
-  if (input.RootDirectory !== undefined) {
-    bodyParams["RootDirectory"] = serializeAws_restJson1_1RootDirectory(
-      input.RootDirectory,
-      context
-    );
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.FileSystemId !== undefined && {
+      FileSystemId: input.FileSystemId
+    }),
+    ...(input.PosixUser !== undefined && {
+      PosixUser: serializeAws_restJson1_1PosixUser(input.PosixUser, context)
+    }),
+    ...(input.RootDirectory !== undefined && {
+      RootDirectory: serializeAws_restJson1_1RootDirectory(
+        input.RootDirectory,
+        context
+      )
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_restJson1_1Tags(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -199,33 +191,23 @@ export const serializeAws_restJson1_1CreateFileSystemCommand = async (
   };
   let resolvedPath = "/2015-02-01/file-systems";
   let body: any;
-  const bodyParams: any = {};
-  if (input.CreationToken === undefined) {
-    input.CreationToken = generateIdempotencyToken();
-  }
-  if (input.CreationToken !== undefined) {
-    bodyParams["CreationToken"] = input.CreationToken;
-  }
-  if (input.Encrypted !== undefined) {
-    bodyParams["Encrypted"] = input.Encrypted;
-  }
-  if (input.KmsKeyId !== undefined) {
-    bodyParams["KmsKeyId"] = input.KmsKeyId;
-  }
-  if (input.PerformanceMode !== undefined) {
-    bodyParams["PerformanceMode"] = input.PerformanceMode;
-  }
-  if (input.ProvisionedThroughputInMibps !== undefined) {
-    bodyParams["ProvisionedThroughputInMibps"] =
-      input.ProvisionedThroughputInMibps;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
-  }
-  if (input.ThroughputMode !== undefined) {
-    bodyParams["ThroughputMode"] = input.ThroughputMode;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    CreationToken: input.CreationToken ?? generateIdempotencyToken(),
+    ...(input.Encrypted !== undefined && { Encrypted: input.Encrypted }),
+    ...(input.KmsKeyId !== undefined && { KmsKeyId: input.KmsKeyId }),
+    ...(input.PerformanceMode !== undefined && {
+      PerformanceMode: input.PerformanceMode
+    }),
+    ...(input.ProvisionedThroughputInMibps !== undefined && {
+      ProvisionedThroughputInMibps: input.ProvisionedThroughputInMibps
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_restJson1_1Tags(input.Tags, context)
+    }),
+    ...(input.ThroughputMode !== undefined && {
+      ThroughputMode: input.ThroughputMode
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -247,23 +229,19 @@ export const serializeAws_restJson1_1CreateMountTargetCommand = async (
   };
   let resolvedPath = "/2015-02-01/mount-targets";
   let body: any;
-  const bodyParams: any = {};
-  if (input.FileSystemId !== undefined) {
-    bodyParams["FileSystemId"] = input.FileSystemId;
-  }
-  if (input.IpAddress !== undefined) {
-    bodyParams["IpAddress"] = input.IpAddress;
-  }
-  if (input.SecurityGroups !== undefined) {
-    bodyParams["SecurityGroups"] = serializeAws_restJson1_1SecurityGroups(
-      input.SecurityGroups,
-      context
-    );
-  }
-  if (input.SubnetId !== undefined) {
-    bodyParams["SubnetId"] = input.SubnetId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.FileSystemId !== undefined && {
+      FileSystemId: input.FileSystemId
+    }),
+    ...(input.IpAddress !== undefined && { IpAddress: input.IpAddress }),
+    ...(input.SecurityGroups !== undefined && {
+      SecurityGroups: serializeAws_restJson1_1SecurityGroups(
+        input.SecurityGroups,
+        context
+      )
+    }),
+    ...(input.SubnetId !== undefined && { SubnetId: input.SubnetId })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -299,11 +277,11 @@ export const serializeAws_restJson1_1CreateTagsCommand = async (
     throw new Error("No value provided for input HTTP label: FileSystemId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_restJson1_1Tags(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -479,14 +457,11 @@ export const serializeAws_restJson1_1DeleteTagsCommand = async (
     throw new Error("No value provided for input HTTP label: FileSystemId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.TagKeys !== undefined) {
-    bodyParams["TagKeys"] = serializeAws_restJson1_1TagKeys(
-      input.TagKeys,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.TagKeys !== undefined && {
+      TagKeys: serializeAws_restJson1_1TagKeys(input.TagKeys, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -813,14 +788,14 @@ export const serializeAws_restJson1_1ModifyMountTargetSecurityGroupsCommand = as
     throw new Error("No value provided for input HTTP label: MountTargetId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.SecurityGroups !== undefined) {
-    bodyParams["SecurityGroups"] = serializeAws_restJson1_1SecurityGroups(
-      input.SecurityGroups,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.SecurityGroups !== undefined && {
+      SecurityGroups: serializeAws_restJson1_1SecurityGroups(
+        input.SecurityGroups,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -856,15 +831,12 @@ export const serializeAws_restJson1_1PutFileSystemPolicyCommand = async (
     throw new Error("No value provided for input HTTP label: FileSystemId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.BypassPolicyLockoutSafetyCheck !== undefined) {
-    bodyParams["BypassPolicyLockoutSafetyCheck"] =
-      input.BypassPolicyLockoutSafetyCheck;
-  }
-  if (input.Policy !== undefined) {
-    bodyParams["Policy"] = input.Policy;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.BypassPolicyLockoutSafetyCheck !== undefined && {
+      BypassPolicyLockoutSafetyCheck: input.BypassPolicyLockoutSafetyCheck
+    }),
+    ...(input.Policy !== undefined && { Policy: input.Policy })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -901,14 +873,14 @@ export const serializeAws_restJson1_1PutLifecycleConfigurationCommand = async (
     throw new Error("No value provided for input HTTP label: FileSystemId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.LifecyclePolicies !== undefined) {
-    bodyParams["LifecyclePolicies"] = serializeAws_restJson1_1LifecyclePolicies(
-      input.LifecyclePolicies,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.LifecyclePolicies !== undefined && {
+      LifecyclePolicies: serializeAws_restJson1_1LifecyclePolicies(
+        input.LifecyclePolicies,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -942,11 +914,11 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_restJson1_1Tags(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -980,14 +952,11 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.TagKeys !== undefined) {
-    bodyParams["TagKeys"] = serializeAws_restJson1_1TagKeys(
-      input.TagKeys,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.TagKeys !== undefined && {
+      TagKeys: serializeAws_restJson1_1TagKeys(input.TagKeys, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1023,15 +992,14 @@ export const serializeAws_restJson1_1UpdateFileSystemCommand = async (
     throw new Error("No value provided for input HTTP label: FileSystemId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.ProvisionedThroughputInMibps !== undefined) {
-    bodyParams["ProvisionedThroughputInMibps"] =
-      input.ProvisionedThroughputInMibps;
-  }
-  if (input.ThroughputMode !== undefined) {
-    bodyParams["ThroughputMode"] = input.ThroughputMode;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ProvisionedThroughputInMibps !== undefined && {
+      ProvisionedThroughputInMibps: input.ProvisionedThroughputInMibps
+    }),
+    ...(input.ThroughputMode !== undefined && {
+      ThroughputMode: input.ThroughputMode
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

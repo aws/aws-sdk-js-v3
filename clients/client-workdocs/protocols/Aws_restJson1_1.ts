@@ -334,22 +334,20 @@ export const serializeAws_restJson1_1AddResourcePermissionsCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.NotificationOptions !== undefined) {
-    bodyParams[
-      "NotificationOptions"
-    ] = serializeAws_restJson1_1NotificationOptions(
-      input.NotificationOptions,
-      context
-    );
-  }
-  if (input.Principals !== undefined) {
-    bodyParams["Principals"] = serializeAws_restJson1_1SharePrincipalList(
-      input.Principals,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.NotificationOptions !== undefined && {
+      NotificationOptions: serializeAws_restJson1_1NotificationOptions(
+        input.NotificationOptions,
+        context
+      )
+    }),
+    ...(input.Principals !== undefined && {
+      Principals: serializeAws_restJson1_1SharePrincipalList(
+        input.Principals,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -399,23 +397,15 @@ export const serializeAws_restJson1_1CreateCommentCommand = async (
     throw new Error("No value provided for input HTTP label: VersionId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.NotifyCollaborators !== undefined) {
-    bodyParams["NotifyCollaborators"] = input.NotifyCollaborators;
-  }
-  if (input.ParentId !== undefined) {
-    bodyParams["ParentId"] = input.ParentId;
-  }
-  if (input.Text !== undefined) {
-    bodyParams["Text"] = input.Text;
-  }
-  if (input.ThreadId !== undefined) {
-    bodyParams["ThreadId"] = input.ThreadId;
-  }
-  if (input.Visibility !== undefined) {
-    bodyParams["Visibility"] = input.Visibility;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.NotifyCollaborators !== undefined && {
+      NotifyCollaborators: input.NotifyCollaborators
+    }),
+    ...(input.ParentId !== undefined && { ParentId: input.ParentId }),
+    ...(input.Text !== undefined && { Text: input.Text }),
+    ...(input.ThreadId !== undefined && { ThreadId: input.ThreadId }),
+    ...(input.Visibility !== undefined && { Visibility: input.Visibility })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -455,14 +445,14 @@ export const serializeAws_restJson1_1CreateCustomMetadataCommand = async (
     ...(input.VersionId !== undefined && { versionid: input.VersionId })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.CustomMetadata !== undefined) {
-    bodyParams["CustomMetadata"] = serializeAws_restJson1_1CustomMetadataMap(
-      input.CustomMetadata,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.CustomMetadata !== undefined && {
+      CustomMetadata: serializeAws_restJson1_1CustomMetadataMap(
+        input.CustomMetadata,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -488,14 +478,12 @@ export const serializeAws_restJson1_1CreateFolderCommand = async (
   };
   let resolvedPath = "/api/v1/folders";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.ParentFolderId !== undefined) {
-    bodyParams["ParentFolderId"] = input.ParentFolderId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.ParentFolderId !== undefined && {
+      ParentFolderId: input.ParentFolderId
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -532,14 +520,11 @@ export const serializeAws_restJson1_1CreateLabelsCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Labels !== undefined) {
-    bodyParams["Labels"] = serializeAws_restJson1_1SharedLabels(
-      input.Labels,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Labels !== undefined && {
+      Labels: serializeAws_restJson1_1SharedLabels(input.Labels, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -575,17 +560,13 @@ export const serializeAws_restJson1_1CreateNotificationSubscriptionCommand = asy
     throw new Error("No value provided for input HTTP label: OrganizationId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Endpoint !== undefined) {
-    bodyParams["Endpoint"] = input.Endpoint;
-  }
-  if (input.Protocol !== undefined) {
-    bodyParams["Protocol"] = input.Protocol;
-  }
-  if (input.SubscriptionType !== undefined) {
-    bodyParams["SubscriptionType"] = input.SubscriptionType;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Endpoint !== undefined && { Endpoint: input.Endpoint }),
+    ...(input.Protocol !== undefined && { Protocol: input.Protocol }),
+    ...(input.SubscriptionType !== undefined && {
+      SubscriptionType: input.SubscriptionType
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -610,35 +591,25 @@ export const serializeAws_restJson1_1CreateUserCommand = async (
   };
   let resolvedPath = "/api/v1/users";
   let body: any;
-  const bodyParams: any = {};
-  if (input.EmailAddress !== undefined) {
-    bodyParams["EmailAddress"] = input.EmailAddress;
-  }
-  if (input.GivenName !== undefined) {
-    bodyParams["GivenName"] = input.GivenName;
-  }
-  if (input.OrganizationId !== undefined) {
-    bodyParams["OrganizationId"] = input.OrganizationId;
-  }
-  if (input.Password !== undefined) {
-    bodyParams["Password"] = input.Password;
-  }
-  if (input.StorageRule !== undefined) {
-    bodyParams["StorageRule"] = serializeAws_restJson1_1StorageRuleType(
-      input.StorageRule,
-      context
-    );
-  }
-  if (input.Surname !== undefined) {
-    bodyParams["Surname"] = input.Surname;
-  }
-  if (input.TimeZoneId !== undefined) {
-    bodyParams["TimeZoneId"] = input.TimeZoneId;
-  }
-  if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.EmailAddress !== undefined && {
+      EmailAddress: input.EmailAddress
+    }),
+    ...(input.GivenName !== undefined && { GivenName: input.GivenName }),
+    ...(input.OrganizationId !== undefined && {
+      OrganizationId: input.OrganizationId
+    }),
+    ...(input.Password !== undefined && { Password: input.Password }),
+    ...(input.StorageRule !== undefined && {
+      StorageRule: serializeAws_restJson1_1StorageRuleType(
+        input.StorageRule,
+        context
+      )
+    }),
+    ...(input.Surname !== undefined && { Surname: input.Surname }),
+    ...(input.TimeZoneId !== undefined && { TimeZoneId: input.TimeZoneId }),
+    ...(input.Username !== undefined && { Username: input.Username })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1695,33 +1666,27 @@ export const serializeAws_restJson1_1InitiateDocumentVersionUploadCommand = asyn
   };
   let resolvedPath = "/api/v1/documents";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ContentCreatedTimestamp !== undefined) {
-    bodyParams["ContentCreatedTimestamp"] = Math.round(
-      input.ContentCreatedTimestamp.getTime() / 1000
-    );
-  }
-  if (input.ContentModifiedTimestamp !== undefined) {
-    bodyParams["ContentModifiedTimestamp"] = Math.round(
-      input.ContentModifiedTimestamp.getTime() / 1000
-    );
-  }
-  if (input.ContentType !== undefined) {
-    bodyParams["ContentType"] = input.ContentType;
-  }
-  if (input.DocumentSizeInBytes !== undefined) {
-    bodyParams["DocumentSizeInBytes"] = input.DocumentSizeInBytes;
-  }
-  if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.ParentFolderId !== undefined) {
-    bodyParams["ParentFolderId"] = input.ParentFolderId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ContentCreatedTimestamp !== undefined && {
+      ContentCreatedTimestamp: Math.round(
+        input.ContentCreatedTimestamp.getTime() / 1000
+      )
+    }),
+    ...(input.ContentModifiedTimestamp !== undefined && {
+      ContentModifiedTimestamp: Math.round(
+        input.ContentModifiedTimestamp.getTime() / 1000
+      )
+    }),
+    ...(input.ContentType !== undefined && { ContentType: input.ContentType }),
+    ...(input.DocumentSizeInBytes !== undefined && {
+      DocumentSizeInBytes: input.DocumentSizeInBytes
+    }),
+    ...(input.Id !== undefined && { Id: input.Id }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.ParentFolderId !== undefined && {
+      ParentFolderId: input.ParentFolderId
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1848,17 +1813,15 @@ export const serializeAws_restJson1_1UpdateDocumentCommand = async (
     throw new Error("No value provided for input HTTP label: DocumentId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.ParentFolderId !== undefined) {
-    bodyParams["ParentFolderId"] = input.ParentFolderId;
-  }
-  if (input.ResourceState !== undefined) {
-    bodyParams["ResourceState"] = input.ResourceState;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.ParentFolderId !== undefined && {
+      ParentFolderId: input.ParentFolderId
+    }),
+    ...(input.ResourceState !== undefined && {
+      ResourceState: input.ResourceState
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1907,11 +1870,11 @@ export const serializeAws_restJson1_1UpdateDocumentVersionCommand = async (
     throw new Error("No value provided for input HTTP label: VersionId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.VersionStatus !== undefined) {
-    bodyParams["VersionStatus"] = input.VersionStatus;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.VersionStatus !== undefined && {
+      VersionStatus: input.VersionStatus
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1948,17 +1911,15 @@ export const serializeAws_restJson1_1UpdateFolderCommand = async (
     throw new Error("No value provided for input HTTP label: FolderId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.ParentFolderId !== undefined) {
-    bodyParams["ParentFolderId"] = input.ParentFolderId;
-  }
-  if (input.ResourceState !== undefined) {
-    bodyParams["ResourceState"] = input.ResourceState;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.ParentFolderId !== undefined && {
+      ParentFolderId: input.ParentFolderId
+    }),
+    ...(input.ResourceState !== undefined && {
+      ResourceState: input.ResourceState
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1995,32 +1956,22 @@ export const serializeAws_restJson1_1UpdateUserCommand = async (
     throw new Error("No value provided for input HTTP label: UserId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.GivenName !== undefined) {
-    bodyParams["GivenName"] = input.GivenName;
-  }
-  if (input.GrantPoweruserPrivileges !== undefined) {
-    bodyParams["GrantPoweruserPrivileges"] = input.GrantPoweruserPrivileges;
-  }
-  if (input.Locale !== undefined) {
-    bodyParams["Locale"] = input.Locale;
-  }
-  if (input.StorageRule !== undefined) {
-    bodyParams["StorageRule"] = serializeAws_restJson1_1StorageRuleType(
-      input.StorageRule,
-      context
-    );
-  }
-  if (input.Surname !== undefined) {
-    bodyParams["Surname"] = input.Surname;
-  }
-  if (input.TimeZoneId !== undefined) {
-    bodyParams["TimeZoneId"] = input.TimeZoneId;
-  }
-  if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.GivenName !== undefined && { GivenName: input.GivenName }),
+    ...(input.GrantPoweruserPrivileges !== undefined && {
+      GrantPoweruserPrivileges: input.GrantPoweruserPrivileges
+    }),
+    ...(input.Locale !== undefined && { Locale: input.Locale }),
+    ...(input.StorageRule !== undefined && {
+      StorageRule: serializeAws_restJson1_1StorageRuleType(
+        input.StorageRule,
+        context
+      )
+    }),
+    ...(input.Surname !== undefined && { Surname: input.Surname }),
+    ...(input.TimeZoneId !== undefined && { TimeZoneId: input.TimeZoneId }),
+    ...(input.Type !== undefined && { Type: input.Type })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

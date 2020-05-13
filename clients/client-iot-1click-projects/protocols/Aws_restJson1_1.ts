@@ -144,11 +144,9 @@ export const serializeAws_restJson1_1AssociateDeviceWithPlacementCommand = async
     throw new Error("No value provided for input HTTP label: projectName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.deviceId !== undefined) {
-    bodyParams["deviceId"] = input.deviceId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.deviceId !== undefined && { deviceId: input.deviceId })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -184,17 +182,17 @@ export const serializeAws_restJson1_1CreatePlacementCommand = async (
     throw new Error("No value provided for input HTTP label: projectName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.attributes !== undefined) {
-    bodyParams["attributes"] = serializeAws_restJson1_1PlacementAttributeMap(
-      input.attributes,
-      context
-    );
-  }
-  if (input.placementName !== undefined) {
-    bodyParams["placementName"] = input.placementName;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.attributes !== undefined && {
+      attributes: serializeAws_restJson1_1PlacementAttributeMap(
+        input.attributes,
+        context
+      )
+    }),
+    ...(input.placementName !== undefined && {
+      placementName: input.placementName
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -216,23 +214,19 @@ export const serializeAws_restJson1_1CreateProjectCommand = async (
   };
   let resolvedPath = "/projects";
   let body: any;
-  const bodyParams: any = {};
-  if (input.description !== undefined) {
-    bodyParams["description"] = input.description;
-  }
-  if (input.placementTemplate !== undefined) {
-    bodyParams["placementTemplate"] = serializeAws_restJson1_1PlacementTemplate(
-      input.placementTemplate,
-      context
-    );
-  }
-  if (input.projectName !== undefined) {
-    bodyParams["projectName"] = input.projectName;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.placementTemplate !== undefined && {
+      placementTemplate: serializeAws_restJson1_1PlacementTemplate(
+        input.placementTemplate,
+        context
+      )
+    }),
+    ...(input.projectName !== undefined && { projectName: input.projectName }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -657,11 +651,11 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -752,14 +746,14 @@ export const serializeAws_restJson1_1UpdatePlacementCommand = async (
     throw new Error("No value provided for input HTTP label: projectName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.attributes !== undefined) {
-    bodyParams["attributes"] = serializeAws_restJson1_1PlacementAttributeMap(
-      input.attributes,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.attributes !== undefined && {
+      attributes: serializeAws_restJson1_1PlacementAttributeMap(
+        input.attributes,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -795,17 +789,15 @@ export const serializeAws_restJson1_1UpdateProjectCommand = async (
     throw new Error("No value provided for input HTTP label: projectName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.description !== undefined) {
-    bodyParams["description"] = input.description;
-  }
-  if (input.placementTemplate !== undefined) {
-    bodyParams["placementTemplate"] = serializeAws_restJson1_1PlacementTemplate(
-      input.placementTemplate,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.placementTemplate !== undefined && {
+      placementTemplate: serializeAws_restJson1_1PlacementTemplate(
+        input.placementTemplate,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

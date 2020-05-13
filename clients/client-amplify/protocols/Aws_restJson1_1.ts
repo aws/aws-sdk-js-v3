@@ -193,77 +193,57 @@ export const serializeAws_restJson1_1CreateAppCommand = async (
   };
   let resolvedPath = "/apps";
   let body: any;
-  const bodyParams: any = {};
-  if (input.accessToken !== undefined) {
-    bodyParams["accessToken"] = input.accessToken;
-  }
-  if (input.autoBranchCreationConfig !== undefined) {
-    bodyParams[
-      "autoBranchCreationConfig"
-    ] = serializeAws_restJson1_1AutoBranchCreationConfig(
-      input.autoBranchCreationConfig,
-      context
-    );
-  }
-  if (input.autoBranchCreationPatterns !== undefined) {
-    bodyParams[
-      "autoBranchCreationPatterns"
-    ] = serializeAws_restJson1_1AutoBranchCreationPatterns(
-      input.autoBranchCreationPatterns,
-      context
-    );
-  }
-  if (input.basicAuthCredentials !== undefined) {
-    bodyParams["basicAuthCredentials"] = input.basicAuthCredentials;
-  }
-  if (input.buildSpec !== undefined) {
-    bodyParams["buildSpec"] = input.buildSpec;
-  }
-  if (input.customRules !== undefined) {
-    bodyParams["customRules"] = serializeAws_restJson1_1CustomRules(
-      input.customRules,
-      context
-    );
-  }
-  if (input.description !== undefined) {
-    bodyParams["description"] = input.description;
-  }
-  if (input.enableAutoBranchCreation !== undefined) {
-    bodyParams["enableAutoBranchCreation"] = input.enableAutoBranchCreation;
-  }
-  if (input.enableBasicAuth !== undefined) {
-    bodyParams["enableBasicAuth"] = input.enableBasicAuth;
-  }
-  if (input.enableBranchAutoBuild !== undefined) {
-    bodyParams["enableBranchAutoBuild"] = input.enableBranchAutoBuild;
-  }
-  if (input.environmentVariables !== undefined) {
-    bodyParams[
-      "environmentVariables"
-    ] = serializeAws_restJson1_1EnvironmentVariables(
-      input.environmentVariables,
-      context
-    );
-  }
-  if (input.iamServiceRoleArn !== undefined) {
-    bodyParams["iamServiceRoleArn"] = input.iamServiceRoleArn;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.oauthToken !== undefined) {
-    bodyParams["oauthToken"] = input.oauthToken;
-  }
-  if (input.platform !== undefined) {
-    bodyParams["platform"] = input.platform;
-  }
-  if (input.repository !== undefined) {
-    bodyParams["repository"] = input.repository;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.accessToken !== undefined && { accessToken: input.accessToken }),
+    ...(input.autoBranchCreationConfig !== undefined && {
+      autoBranchCreationConfig: serializeAws_restJson1_1AutoBranchCreationConfig(
+        input.autoBranchCreationConfig,
+        context
+      )
+    }),
+    ...(input.autoBranchCreationPatterns !== undefined && {
+      autoBranchCreationPatterns: serializeAws_restJson1_1AutoBranchCreationPatterns(
+        input.autoBranchCreationPatterns,
+        context
+      )
+    }),
+    ...(input.basicAuthCredentials !== undefined && {
+      basicAuthCredentials: input.basicAuthCredentials
+    }),
+    ...(input.buildSpec !== undefined && { buildSpec: input.buildSpec }),
+    ...(input.customRules !== undefined && {
+      customRules: serializeAws_restJson1_1CustomRules(
+        input.customRules,
+        context
+      )
+    }),
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.enableAutoBranchCreation !== undefined && {
+      enableAutoBranchCreation: input.enableAutoBranchCreation
+    }),
+    ...(input.enableBasicAuth !== undefined && {
+      enableBasicAuth: input.enableBasicAuth
+    }),
+    ...(input.enableBranchAutoBuild !== undefined && {
+      enableBranchAutoBuild: input.enableBranchAutoBuild
+    }),
+    ...(input.environmentVariables !== undefined && {
+      environmentVariables: serializeAws_restJson1_1EnvironmentVariables(
+        input.environmentVariables,
+        context
+      )
+    }),
+    ...(input.iamServiceRoleArn !== undefined && {
+      iamServiceRoleArn: input.iamServiceRoleArn
+    }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.oauthToken !== undefined && { oauthToken: input.oauthToken }),
+    ...(input.platform !== undefined && { platform: input.platform }),
+    ...(input.repository !== undefined && { repository: input.repository }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -297,17 +277,15 @@ export const serializeAws_restJson1_1CreateBackendEnvironmentCommand = async (
     throw new Error("No value provided for input HTTP label: appId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.deploymentArtifacts !== undefined) {
-    bodyParams["deploymentArtifacts"] = input.deploymentArtifacts;
-  }
-  if (input.environmentName !== undefined) {
-    bodyParams["environmentName"] = input.environmentName;
-  }
-  if (input.stackName !== undefined) {
-    bodyParams["stackName"] = input.stackName;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.deploymentArtifacts !== undefined && {
+      deploymentArtifacts: input.deploymentArtifacts
+    }),
+    ...(input.environmentName !== undefined && {
+      environmentName: input.environmentName
+    }),
+    ...(input.stackName !== undefined && { stackName: input.stackName })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -341,61 +319,45 @@ export const serializeAws_restJson1_1CreateBranchCommand = async (
     throw new Error("No value provided for input HTTP label: appId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.backendEnvironmentArn !== undefined) {
-    bodyParams["backendEnvironmentArn"] = input.backendEnvironmentArn;
-  }
-  if (input.basicAuthCredentials !== undefined) {
-    bodyParams["basicAuthCredentials"] = input.basicAuthCredentials;
-  }
-  if (input.branchName !== undefined) {
-    bodyParams["branchName"] = input.branchName;
-  }
-  if (input.buildSpec !== undefined) {
-    bodyParams["buildSpec"] = input.buildSpec;
-  }
-  if (input.description !== undefined) {
-    bodyParams["description"] = input.description;
-  }
-  if (input.displayName !== undefined) {
-    bodyParams["displayName"] = input.displayName;
-  }
-  if (input.enableAutoBuild !== undefined) {
-    bodyParams["enableAutoBuild"] = input.enableAutoBuild;
-  }
-  if (input.enableBasicAuth !== undefined) {
-    bodyParams["enableBasicAuth"] = input.enableBasicAuth;
-  }
-  if (input.enableNotification !== undefined) {
-    bodyParams["enableNotification"] = input.enableNotification;
-  }
-  if (input.enablePullRequestPreview !== undefined) {
-    bodyParams["enablePullRequestPreview"] = input.enablePullRequestPreview;
-  }
-  if (input.environmentVariables !== undefined) {
-    bodyParams[
-      "environmentVariables"
-    ] = serializeAws_restJson1_1EnvironmentVariables(
-      input.environmentVariables,
-      context
-    );
-  }
-  if (input.framework !== undefined) {
-    bodyParams["framework"] = input.framework;
-  }
-  if (input.pullRequestEnvironmentName !== undefined) {
-    bodyParams["pullRequestEnvironmentName"] = input.pullRequestEnvironmentName;
-  }
-  if (input.stage !== undefined) {
-    bodyParams["stage"] = input.stage;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
-  }
-  if (input.ttl !== undefined) {
-    bodyParams["ttl"] = input.ttl;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.backendEnvironmentArn !== undefined && {
+      backendEnvironmentArn: input.backendEnvironmentArn
+    }),
+    ...(input.basicAuthCredentials !== undefined && {
+      basicAuthCredentials: input.basicAuthCredentials
+    }),
+    ...(input.branchName !== undefined && { branchName: input.branchName }),
+    ...(input.buildSpec !== undefined && { buildSpec: input.buildSpec }),
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.displayName !== undefined && { displayName: input.displayName }),
+    ...(input.enableAutoBuild !== undefined && {
+      enableAutoBuild: input.enableAutoBuild
+    }),
+    ...(input.enableBasicAuth !== undefined && {
+      enableBasicAuth: input.enableBasicAuth
+    }),
+    ...(input.enableNotification !== undefined && {
+      enableNotification: input.enableNotification
+    }),
+    ...(input.enablePullRequestPreview !== undefined && {
+      enablePullRequestPreview: input.enablePullRequestPreview
+    }),
+    ...(input.environmentVariables !== undefined && {
+      environmentVariables: serializeAws_restJson1_1EnvironmentVariables(
+        input.environmentVariables,
+        context
+      )
+    }),
+    ...(input.framework !== undefined && { framework: input.framework }),
+    ...(input.pullRequestEnvironmentName !== undefined && {
+      pullRequestEnvironmentName: input.pullRequestEnvironmentName
+    }),
+    ...(input.stage !== undefined && { stage: input.stage }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.tags, context)
+    }),
+    ...(input.ttl !== undefined && { ttl: input.ttl })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -441,14 +403,11 @@ export const serializeAws_restJson1_1CreateDeploymentCommand = async (
     throw new Error("No value provided for input HTTP label: branchName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.fileMap !== undefined) {
-    bodyParams["fileMap"] = serializeAws_restJson1_1FileMap(
-      input.fileMap,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.fileMap !== undefined && {
+      fileMap: serializeAws_restJson1_1FileMap(input.fileMap, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -482,20 +441,18 @@ export const serializeAws_restJson1_1CreateDomainAssociationCommand = async (
     throw new Error("No value provided for input HTTP label: appId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.domainName !== undefined) {
-    bodyParams["domainName"] = input.domainName;
-  }
-  if (input.enableAutoSubDomain !== undefined) {
-    bodyParams["enableAutoSubDomain"] = input.enableAutoSubDomain;
-  }
-  if (input.subDomainSettings !== undefined) {
-    bodyParams["subDomainSettings"] = serializeAws_restJson1_1SubDomainSettings(
-      input.subDomainSettings,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.domainName !== undefined && { domainName: input.domainName }),
+    ...(input.enableAutoSubDomain !== undefined && {
+      enableAutoSubDomain: input.enableAutoSubDomain
+    }),
+    ...(input.subDomainSettings !== undefined && {
+      subDomainSettings: serializeAws_restJson1_1SubDomainSettings(
+        input.subDomainSettings,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -529,14 +486,10 @@ export const serializeAws_restJson1_1CreateWebhookCommand = async (
     throw new Error("No value provided for input HTTP label: appId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.branchName !== undefined) {
-    bodyParams["branchName"] = input.branchName;
-  }
-  if (input.description !== undefined) {
-    bodyParams["description"] = input.description;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.branchName !== undefined && { branchName: input.branchName }),
+    ...(input.description !== undefined && { description: input.description })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -830,17 +783,15 @@ export const serializeAws_restJson1_1GenerateAccessLogsCommand = async (
     throw new Error("No value provided for input HTTP label: appId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.domainName !== undefined) {
-    bodyParams["domainName"] = input.domainName;
-  }
-  if (input.endTime !== undefined) {
-    bodyParams["endTime"] = Math.round(input.endTime.getTime() / 1000);
-  }
-  if (input.startTime !== undefined) {
-    bodyParams["startTime"] = Math.round(input.startTime.getTime() / 1000);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.domainName !== undefined && { domainName: input.domainName }),
+    ...(input.endTime !== undefined && {
+      endTime: Math.round(input.endTime.getTime() / 1000)
+    }),
+    ...(input.startTime !== undefined && {
+      startTime: Math.round(input.startTime.getTime() / 1000)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1266,11 +1217,11 @@ export const serializeAws_restJson1_1ListBackendEnvironmentsCommand = async (
     ...(input.nextToken !== undefined && { nextToken: input.nextToken })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.environmentName !== undefined) {
-    bodyParams["environmentName"] = input.environmentName;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.environmentName !== undefined && {
+      environmentName: input.environmentName
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1524,14 +1475,10 @@ export const serializeAws_restJson1_1StartDeploymentCommand = async (
     throw new Error("No value provided for input HTTP label: branchName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.jobId !== undefined) {
-    bodyParams["jobId"] = input.jobId;
-  }
-  if (input.sourceUrl !== undefined) {
-    bodyParams["sourceUrl"] = input.sourceUrl;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.jobId !== undefined && { jobId: input.jobId }),
+    ...(input.sourceUrl !== undefined && { sourceUrl: input.sourceUrl })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1577,26 +1524,18 @@ export const serializeAws_restJson1_1StartJobCommand = async (
     throw new Error("No value provided for input HTTP label: branchName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.commitId !== undefined) {
-    bodyParams["commitId"] = input.commitId;
-  }
-  if (input.commitMessage !== undefined) {
-    bodyParams["commitMessage"] = input.commitMessage;
-  }
-  if (input.commitTime !== undefined) {
-    bodyParams["commitTime"] = Math.round(input.commitTime.getTime() / 1000);
-  }
-  if (input.jobId !== undefined) {
-    bodyParams["jobId"] = input.jobId;
-  }
-  if (input.jobReason !== undefined) {
-    bodyParams["jobReason"] = input.jobReason;
-  }
-  if (input.jobType !== undefined) {
-    bodyParams["jobType"] = input.jobType;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.commitId !== undefined && { commitId: input.commitId }),
+    ...(input.commitMessage !== undefined && {
+      commitMessage: input.commitMessage
+    }),
+    ...(input.commitTime !== undefined && {
+      commitTime: Math.round(input.commitTime.getTime() / 1000)
+    }),
+    ...(input.jobId !== undefined && { jobId: input.jobId }),
+    ...(input.jobReason !== undefined && { jobReason: input.jobReason }),
+    ...(input.jobType !== undefined && { jobType: input.jobType })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1689,11 +1628,11 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1768,74 +1707,54 @@ export const serializeAws_restJson1_1UpdateAppCommand = async (
     throw new Error("No value provided for input HTTP label: appId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.accessToken !== undefined) {
-    bodyParams["accessToken"] = input.accessToken;
-  }
-  if (input.autoBranchCreationConfig !== undefined) {
-    bodyParams[
-      "autoBranchCreationConfig"
-    ] = serializeAws_restJson1_1AutoBranchCreationConfig(
-      input.autoBranchCreationConfig,
-      context
-    );
-  }
-  if (input.autoBranchCreationPatterns !== undefined) {
-    bodyParams[
-      "autoBranchCreationPatterns"
-    ] = serializeAws_restJson1_1AutoBranchCreationPatterns(
-      input.autoBranchCreationPatterns,
-      context
-    );
-  }
-  if (input.basicAuthCredentials !== undefined) {
-    bodyParams["basicAuthCredentials"] = input.basicAuthCredentials;
-  }
-  if (input.buildSpec !== undefined) {
-    bodyParams["buildSpec"] = input.buildSpec;
-  }
-  if (input.customRules !== undefined) {
-    bodyParams["customRules"] = serializeAws_restJson1_1CustomRules(
-      input.customRules,
-      context
-    );
-  }
-  if (input.description !== undefined) {
-    bodyParams["description"] = input.description;
-  }
-  if (input.enableAutoBranchCreation !== undefined) {
-    bodyParams["enableAutoBranchCreation"] = input.enableAutoBranchCreation;
-  }
-  if (input.enableBasicAuth !== undefined) {
-    bodyParams["enableBasicAuth"] = input.enableBasicAuth;
-  }
-  if (input.enableBranchAutoBuild !== undefined) {
-    bodyParams["enableBranchAutoBuild"] = input.enableBranchAutoBuild;
-  }
-  if (input.environmentVariables !== undefined) {
-    bodyParams[
-      "environmentVariables"
-    ] = serializeAws_restJson1_1EnvironmentVariables(
-      input.environmentVariables,
-      context
-    );
-  }
-  if (input.iamServiceRoleArn !== undefined) {
-    bodyParams["iamServiceRoleArn"] = input.iamServiceRoleArn;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.oauthToken !== undefined) {
-    bodyParams["oauthToken"] = input.oauthToken;
-  }
-  if (input.platform !== undefined) {
-    bodyParams["platform"] = input.platform;
-  }
-  if (input.repository !== undefined) {
-    bodyParams["repository"] = input.repository;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.accessToken !== undefined && { accessToken: input.accessToken }),
+    ...(input.autoBranchCreationConfig !== undefined && {
+      autoBranchCreationConfig: serializeAws_restJson1_1AutoBranchCreationConfig(
+        input.autoBranchCreationConfig,
+        context
+      )
+    }),
+    ...(input.autoBranchCreationPatterns !== undefined && {
+      autoBranchCreationPatterns: serializeAws_restJson1_1AutoBranchCreationPatterns(
+        input.autoBranchCreationPatterns,
+        context
+      )
+    }),
+    ...(input.basicAuthCredentials !== undefined && {
+      basicAuthCredentials: input.basicAuthCredentials
+    }),
+    ...(input.buildSpec !== undefined && { buildSpec: input.buildSpec }),
+    ...(input.customRules !== undefined && {
+      customRules: serializeAws_restJson1_1CustomRules(
+        input.customRules,
+        context
+      )
+    }),
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.enableAutoBranchCreation !== undefined && {
+      enableAutoBranchCreation: input.enableAutoBranchCreation
+    }),
+    ...(input.enableBasicAuth !== undefined && {
+      enableBasicAuth: input.enableBasicAuth
+    }),
+    ...(input.enableBranchAutoBuild !== undefined && {
+      enableBranchAutoBuild: input.enableBranchAutoBuild
+    }),
+    ...(input.environmentVariables !== undefined && {
+      environmentVariables: serializeAws_restJson1_1EnvironmentVariables(
+        input.environmentVariables,
+        context
+      )
+    }),
+    ...(input.iamServiceRoleArn !== undefined && {
+      iamServiceRoleArn: input.iamServiceRoleArn
+    }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.oauthToken !== undefined && { oauthToken: input.oauthToken }),
+    ...(input.platform !== undefined && { platform: input.platform }),
+    ...(input.repository !== undefined && { repository: input.repository })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1881,55 +1800,41 @@ export const serializeAws_restJson1_1UpdateBranchCommand = async (
     throw new Error("No value provided for input HTTP label: branchName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.backendEnvironmentArn !== undefined) {
-    bodyParams["backendEnvironmentArn"] = input.backendEnvironmentArn;
-  }
-  if (input.basicAuthCredentials !== undefined) {
-    bodyParams["basicAuthCredentials"] = input.basicAuthCredentials;
-  }
-  if (input.buildSpec !== undefined) {
-    bodyParams["buildSpec"] = input.buildSpec;
-  }
-  if (input.description !== undefined) {
-    bodyParams["description"] = input.description;
-  }
-  if (input.displayName !== undefined) {
-    bodyParams["displayName"] = input.displayName;
-  }
-  if (input.enableAutoBuild !== undefined) {
-    bodyParams["enableAutoBuild"] = input.enableAutoBuild;
-  }
-  if (input.enableBasicAuth !== undefined) {
-    bodyParams["enableBasicAuth"] = input.enableBasicAuth;
-  }
-  if (input.enableNotification !== undefined) {
-    bodyParams["enableNotification"] = input.enableNotification;
-  }
-  if (input.enablePullRequestPreview !== undefined) {
-    bodyParams["enablePullRequestPreview"] = input.enablePullRequestPreview;
-  }
-  if (input.environmentVariables !== undefined) {
-    bodyParams[
-      "environmentVariables"
-    ] = serializeAws_restJson1_1EnvironmentVariables(
-      input.environmentVariables,
-      context
-    );
-  }
-  if (input.framework !== undefined) {
-    bodyParams["framework"] = input.framework;
-  }
-  if (input.pullRequestEnvironmentName !== undefined) {
-    bodyParams["pullRequestEnvironmentName"] = input.pullRequestEnvironmentName;
-  }
-  if (input.stage !== undefined) {
-    bodyParams["stage"] = input.stage;
-  }
-  if (input.ttl !== undefined) {
-    bodyParams["ttl"] = input.ttl;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.backendEnvironmentArn !== undefined && {
+      backendEnvironmentArn: input.backendEnvironmentArn
+    }),
+    ...(input.basicAuthCredentials !== undefined && {
+      basicAuthCredentials: input.basicAuthCredentials
+    }),
+    ...(input.buildSpec !== undefined && { buildSpec: input.buildSpec }),
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.displayName !== undefined && { displayName: input.displayName }),
+    ...(input.enableAutoBuild !== undefined && {
+      enableAutoBuild: input.enableAutoBuild
+    }),
+    ...(input.enableBasicAuth !== undefined && {
+      enableBasicAuth: input.enableBasicAuth
+    }),
+    ...(input.enableNotification !== undefined && {
+      enableNotification: input.enableNotification
+    }),
+    ...(input.enablePullRequestPreview !== undefined && {
+      enablePullRequestPreview: input.enablePullRequestPreview
+    }),
+    ...(input.environmentVariables !== undefined && {
+      environmentVariables: serializeAws_restJson1_1EnvironmentVariables(
+        input.environmentVariables,
+        context
+      )
+    }),
+    ...(input.framework !== undefined && { framework: input.framework }),
+    ...(input.pullRequestEnvironmentName !== undefined && {
+      pullRequestEnvironmentName: input.pullRequestEnvironmentName
+    }),
+    ...(input.stage !== undefined && { stage: input.stage }),
+    ...(input.ttl !== undefined && { ttl: input.ttl })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1975,17 +1880,17 @@ export const serializeAws_restJson1_1UpdateDomainAssociationCommand = async (
     throw new Error("No value provided for input HTTP label: domainName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.enableAutoSubDomain !== undefined) {
-    bodyParams["enableAutoSubDomain"] = input.enableAutoSubDomain;
-  }
-  if (input.subDomainSettings !== undefined) {
-    bodyParams["subDomainSettings"] = serializeAws_restJson1_1SubDomainSettings(
-      input.subDomainSettings,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.enableAutoSubDomain !== undefined && {
+      enableAutoSubDomain: input.enableAutoSubDomain
+    }),
+    ...(input.subDomainSettings !== undefined && {
+      subDomainSettings: serializeAws_restJson1_1SubDomainSettings(
+        input.subDomainSettings,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2019,14 +1924,10 @@ export const serializeAws_restJson1_1UpdateWebhookCommand = async (
     throw new Error("No value provided for input HTTP label: webhookId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.branchName !== undefined) {
-    bodyParams["branchName"] = input.branchName;
-  }
-  if (input.description !== undefined) {
-    bodyParams["description"] = input.description;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.branchName !== undefined && { branchName: input.branchName }),
+    ...(input.description !== undefined && { description: input.description })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

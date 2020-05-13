@@ -62,32 +62,22 @@ export const serializeAws_restJson1_1BatchExecuteStatementCommand = async (
   };
   let resolvedPath = "/BatchExecute";
   let body: any;
-  const bodyParams: any = {};
-  if (input.database !== undefined) {
-    bodyParams["database"] = input.database;
-  }
-  if (input.parameterSets !== undefined) {
-    bodyParams["parameterSets"] = serializeAws_restJson1_1SqlParameterSets(
-      input.parameterSets,
-      context
-    );
-  }
-  if (input.resourceArn !== undefined) {
-    bodyParams["resourceArn"] = input.resourceArn;
-  }
-  if (input.schema !== undefined) {
-    bodyParams["schema"] = input.schema;
-  }
-  if (input.secretArn !== undefined) {
-    bodyParams["secretArn"] = input.secretArn;
-  }
-  if (input.sql !== undefined) {
-    bodyParams["sql"] = input.sql;
-  }
-  if (input.transactionId !== undefined) {
-    bodyParams["transactionId"] = input.transactionId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.database !== undefined && { database: input.database }),
+    ...(input.parameterSets !== undefined && {
+      parameterSets: serializeAws_restJson1_1SqlParameterSets(
+        input.parameterSets,
+        context
+      )
+    }),
+    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
+    ...(input.schema !== undefined && { schema: input.schema }),
+    ...(input.secretArn !== undefined && { secretArn: input.secretArn }),
+    ...(input.sql !== undefined && { sql: input.sql }),
+    ...(input.transactionId !== undefined && {
+      transactionId: input.transactionId
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -109,20 +99,12 @@ export const serializeAws_restJson1_1BeginTransactionCommand = async (
   };
   let resolvedPath = "/BeginTransaction";
   let body: any;
-  const bodyParams: any = {};
-  if (input.database !== undefined) {
-    bodyParams["database"] = input.database;
-  }
-  if (input.resourceArn !== undefined) {
-    bodyParams["resourceArn"] = input.resourceArn;
-  }
-  if (input.schema !== undefined) {
-    bodyParams["schema"] = input.schema;
-  }
-  if (input.secretArn !== undefined) {
-    bodyParams["secretArn"] = input.secretArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.database !== undefined && { database: input.database }),
+    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
+    ...(input.schema !== undefined && { schema: input.schema }),
+    ...(input.secretArn !== undefined && { secretArn: input.secretArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -144,17 +126,13 @@ export const serializeAws_restJson1_1CommitTransactionCommand = async (
   };
   let resolvedPath = "/CommitTransaction";
   let body: any;
-  const bodyParams: any = {};
-  if (input.resourceArn !== undefined) {
-    bodyParams["resourceArn"] = input.resourceArn;
-  }
-  if (input.secretArn !== undefined) {
-    bodyParams["secretArn"] = input.secretArn;
-  }
-  if (input.transactionId !== undefined) {
-    bodyParams["transactionId"] = input.transactionId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
+    ...(input.secretArn !== undefined && { secretArn: input.secretArn }),
+    ...(input.transactionId !== undefined && {
+      transactionId: input.transactionId
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -176,23 +154,19 @@ export const serializeAws_restJson1_1ExecuteSqlCommand = async (
   };
   let resolvedPath = "/ExecuteSql";
   let body: any;
-  const bodyParams: any = {};
-  if (input.awsSecretStoreArn !== undefined) {
-    bodyParams["awsSecretStoreArn"] = input.awsSecretStoreArn;
-  }
-  if (input.database !== undefined) {
-    bodyParams["database"] = input.database;
-  }
-  if (input.dbClusterOrInstanceArn !== undefined) {
-    bodyParams["dbClusterOrInstanceArn"] = input.dbClusterOrInstanceArn;
-  }
-  if (input.schema !== undefined) {
-    bodyParams["schema"] = input.schema;
-  }
-  if (input.sqlStatements !== undefined) {
-    bodyParams["sqlStatements"] = input.sqlStatements;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.awsSecretStoreArn !== undefined && {
+      awsSecretStoreArn: input.awsSecretStoreArn
+    }),
+    ...(input.database !== undefined && { database: input.database }),
+    ...(input.dbClusterOrInstanceArn !== undefined && {
+      dbClusterOrInstanceArn: input.dbClusterOrInstanceArn
+    }),
+    ...(input.schema !== undefined && { schema: input.schema }),
+    ...(input.sqlStatements !== undefined && {
+      sqlStatements: input.sqlStatements
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -214,38 +188,28 @@ export const serializeAws_restJson1_1ExecuteStatementCommand = async (
   };
   let resolvedPath = "/Execute";
   let body: any;
-  const bodyParams: any = {};
-  if (input.continueAfterTimeout !== undefined) {
-    bodyParams["continueAfterTimeout"] = input.continueAfterTimeout;
-  }
-  if (input.database !== undefined) {
-    bodyParams["database"] = input.database;
-  }
-  if (input.includeResultMetadata !== undefined) {
-    bodyParams["includeResultMetadata"] = input.includeResultMetadata;
-  }
-  if (input.parameters !== undefined) {
-    bodyParams["parameters"] = serializeAws_restJson1_1SqlParametersList(
-      input.parameters,
-      context
-    );
-  }
-  if (input.resourceArn !== undefined) {
-    bodyParams["resourceArn"] = input.resourceArn;
-  }
-  if (input.schema !== undefined) {
-    bodyParams["schema"] = input.schema;
-  }
-  if (input.secretArn !== undefined) {
-    bodyParams["secretArn"] = input.secretArn;
-  }
-  if (input.sql !== undefined) {
-    bodyParams["sql"] = input.sql;
-  }
-  if (input.transactionId !== undefined) {
-    bodyParams["transactionId"] = input.transactionId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.continueAfterTimeout !== undefined && {
+      continueAfterTimeout: input.continueAfterTimeout
+    }),
+    ...(input.database !== undefined && { database: input.database }),
+    ...(input.includeResultMetadata !== undefined && {
+      includeResultMetadata: input.includeResultMetadata
+    }),
+    ...(input.parameters !== undefined && {
+      parameters: serializeAws_restJson1_1SqlParametersList(
+        input.parameters,
+        context
+      )
+    }),
+    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
+    ...(input.schema !== undefined && { schema: input.schema }),
+    ...(input.secretArn !== undefined && { secretArn: input.secretArn }),
+    ...(input.sql !== undefined && { sql: input.sql }),
+    ...(input.transactionId !== undefined && {
+      transactionId: input.transactionId
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -267,17 +231,13 @@ export const serializeAws_restJson1_1RollbackTransactionCommand = async (
   };
   let resolvedPath = "/RollbackTransaction";
   let body: any;
-  const bodyParams: any = {};
-  if (input.resourceArn !== undefined) {
-    bodyParams["resourceArn"] = input.resourceArn;
-  }
-  if (input.secretArn !== undefined) {
-    bodyParams["secretArn"] = input.secretArn;
-  }
-  if (input.transactionId !== undefined) {
-    bodyParams["transactionId"] = input.transactionId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn }),
+    ...(input.secretArn !== undefined && { secretArn: input.secretArn }),
+    ...(input.transactionId !== undefined && {
+      transactionId: input.transactionId
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

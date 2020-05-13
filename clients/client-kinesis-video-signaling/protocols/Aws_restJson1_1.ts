@@ -36,20 +36,12 @@ export const serializeAws_restJson1_1GetIceServerConfigCommand = async (
   };
   let resolvedPath = "/v1/get-ice-server-config";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ChannelARN !== undefined) {
-    bodyParams["ChannelARN"] = input.ChannelARN;
-  }
-  if (input.ClientId !== undefined) {
-    bodyParams["ClientId"] = input.ClientId;
-  }
-  if (input.Service !== undefined) {
-    bodyParams["Service"] = input.Service;
-  }
-  if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ChannelARN !== undefined && { ChannelARN: input.ChannelARN }),
+    ...(input.ClientId !== undefined && { ClientId: input.ClientId }),
+    ...(input.Service !== undefined && { Service: input.Service }),
+    ...(input.Username !== undefined && { Username: input.Username })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -71,17 +63,15 @@ export const serializeAws_restJson1_1SendAlexaOfferToMasterCommand = async (
   };
   let resolvedPath = "/v1/send-alexa-offer-to-master";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ChannelARN !== undefined) {
-    bodyParams["ChannelARN"] = input.ChannelARN;
-  }
-  if (input.MessagePayload !== undefined) {
-    bodyParams["MessagePayload"] = input.MessagePayload;
-  }
-  if (input.SenderClientId !== undefined) {
-    bodyParams["SenderClientId"] = input.SenderClientId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ChannelARN !== undefined && { ChannelARN: input.ChannelARN }),
+    ...(input.MessagePayload !== undefined && {
+      MessagePayload: input.MessagePayload
+    }),
+    ...(input.SenderClientId !== undefined && {
+      SenderClientId: input.SenderClientId
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

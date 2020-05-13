@@ -119,28 +119,19 @@ export const serializeAws_restJson1_1CreateSignalingChannelCommand = async (
   };
   let resolvedPath = "/createSignalingChannel";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ChannelName !== undefined) {
-    bodyParams["ChannelName"] = input.ChannelName;
-  }
-  if (input.ChannelType !== undefined) {
-    bodyParams["ChannelType"] = input.ChannelType;
-  }
-  if (input.SingleMasterConfiguration !== undefined) {
-    bodyParams[
-      "SingleMasterConfiguration"
-    ] = serializeAws_restJson1_1SingleMasterConfiguration(
-      input.SingleMasterConfiguration,
-      context
-    );
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1TagOnCreateList(
-      input.Tags,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ChannelName !== undefined && { ChannelName: input.ChannelName }),
+    ...(input.ChannelType !== undefined && { ChannelType: input.ChannelType }),
+    ...(input.SingleMasterConfiguration !== undefined && {
+      SingleMasterConfiguration: serializeAws_restJson1_1SingleMasterConfiguration(
+        input.SingleMasterConfiguration,
+        context
+      )
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_restJson1_1TagOnCreateList(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -162,29 +153,18 @@ export const serializeAws_restJson1_1CreateStreamCommand = async (
   };
   let resolvedPath = "/createStream";
   let body: any;
-  const bodyParams: any = {};
-  if (input.DataRetentionInHours !== undefined) {
-    bodyParams["DataRetentionInHours"] = input.DataRetentionInHours;
-  }
-  if (input.DeviceName !== undefined) {
-    bodyParams["DeviceName"] = input.DeviceName;
-  }
-  if (input.KmsKeyId !== undefined) {
-    bodyParams["KmsKeyId"] = input.KmsKeyId;
-  }
-  if (input.MediaType !== undefined) {
-    bodyParams["MediaType"] = input.MediaType;
-  }
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1ResourceTags(
-      input.Tags,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DataRetentionInHours !== undefined && {
+      DataRetentionInHours: input.DataRetentionInHours
+    }),
+    ...(input.DeviceName !== undefined && { DeviceName: input.DeviceName }),
+    ...(input.KmsKeyId !== undefined && { KmsKeyId: input.KmsKeyId }),
+    ...(input.MediaType !== undefined && { MediaType: input.MediaType }),
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_restJson1_1ResourceTags(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -206,14 +186,12 @@ export const serializeAws_restJson1_1DeleteSignalingChannelCommand = async (
   };
   let resolvedPath = "/deleteSignalingChannel";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ChannelARN !== undefined) {
-    bodyParams["ChannelARN"] = input.ChannelARN;
-  }
-  if (input.CurrentVersion !== undefined) {
-    bodyParams["CurrentVersion"] = input.CurrentVersion;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ChannelARN !== undefined && { ChannelARN: input.ChannelARN }),
+    ...(input.CurrentVersion !== undefined && {
+      CurrentVersion: input.CurrentVersion
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -235,14 +213,12 @@ export const serializeAws_restJson1_1DeleteStreamCommand = async (
   };
   let resolvedPath = "/deleteStream";
   let body: any;
-  const bodyParams: any = {};
-  if (input.CurrentVersion !== undefined) {
-    bodyParams["CurrentVersion"] = input.CurrentVersion;
-  }
-  if (input.StreamARN !== undefined) {
-    bodyParams["StreamARN"] = input.StreamARN;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.CurrentVersion !== undefined && {
+      CurrentVersion: input.CurrentVersion
+    }),
+    ...(input.StreamARN !== undefined && { StreamARN: input.StreamARN })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -264,14 +240,10 @@ export const serializeAws_restJson1_1DescribeSignalingChannelCommand = async (
   };
   let resolvedPath = "/describeSignalingChannel";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ChannelARN !== undefined) {
-    bodyParams["ChannelARN"] = input.ChannelARN;
-  }
-  if (input.ChannelName !== undefined) {
-    bodyParams["ChannelName"] = input.ChannelName;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ChannelARN !== undefined && { ChannelARN: input.ChannelARN }),
+    ...(input.ChannelName !== undefined && { ChannelName: input.ChannelName })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -293,14 +265,10 @@ export const serializeAws_restJson1_1DescribeStreamCommand = async (
   };
   let resolvedPath = "/describeStream";
   let body: any;
-  const bodyParams: any = {};
-  if (input.StreamARN !== undefined) {
-    bodyParams["StreamARN"] = input.StreamARN;
-  }
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.StreamARN !== undefined && { StreamARN: input.StreamARN }),
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -322,17 +290,11 @@ export const serializeAws_restJson1_1GetDataEndpointCommand = async (
   };
   let resolvedPath = "/getDataEndpoint";
   let body: any;
-  const bodyParams: any = {};
-  if (input.APIName !== undefined) {
-    bodyParams["APIName"] = input.APIName;
-  }
-  if (input.StreamARN !== undefined) {
-    bodyParams["StreamARN"] = input.StreamARN;
-  }
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.APIName !== undefined && { APIName: input.APIName }),
+    ...(input.StreamARN !== undefined && { StreamARN: input.StreamARN }),
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -354,19 +316,15 @@ export const serializeAws_restJson1_1GetSignalingChannelEndpointCommand = async 
   };
   let resolvedPath = "/getSignalingChannelEndpoint";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ChannelARN !== undefined) {
-    bodyParams["ChannelARN"] = input.ChannelARN;
-  }
-  if (input.SingleMasterChannelEndpointConfiguration !== undefined) {
-    bodyParams[
-      "SingleMasterChannelEndpointConfiguration"
-    ] = serializeAws_restJson1_1SingleMasterChannelEndpointConfiguration(
-      input.SingleMasterChannelEndpointConfiguration,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ChannelARN !== undefined && { ChannelARN: input.ChannelARN }),
+    ...(input.SingleMasterChannelEndpointConfiguration !== undefined && {
+      SingleMasterChannelEndpointConfiguration: serializeAws_restJson1_1SingleMasterChannelEndpointConfiguration(
+        input.SingleMasterChannelEndpointConfiguration,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -388,22 +346,16 @@ export const serializeAws_restJson1_1ListSignalingChannelsCommand = async (
   };
   let resolvedPath = "/listSignalingChannels";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ChannelNameCondition !== undefined) {
-    bodyParams[
-      "ChannelNameCondition"
-    ] = serializeAws_restJson1_1ChannelNameCondition(
-      input.ChannelNameCondition,
-      context
-    );
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ChannelNameCondition !== undefined && {
+      ChannelNameCondition: serializeAws_restJson1_1ChannelNameCondition(
+        input.ChannelNameCondition,
+        context
+      )
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -425,22 +377,16 @@ export const serializeAws_restJson1_1ListStreamsCommand = async (
   };
   let resolvedPath = "/listStreams";
   let body: any;
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.StreamNameCondition !== undefined) {
-    bodyParams[
-      "StreamNameCondition"
-    ] = serializeAws_restJson1_1StreamNameCondition(
-      input.StreamNameCondition,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.StreamNameCondition !== undefined && {
+      StreamNameCondition: serializeAws_restJson1_1StreamNameCondition(
+        input.StreamNameCondition,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -462,14 +408,10 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   };
   let resolvedPath = "/ListTagsForResource";
   let body: any;
-  const bodyParams: any = {};
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ResourceARN !== undefined) {
-    bodyParams["ResourceARN"] = input.ResourceARN;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -491,17 +433,11 @@ export const serializeAws_restJson1_1ListTagsForStreamCommand = async (
   };
   let resolvedPath = "/listTagsForStream";
   let body: any;
-  const bodyParams: any = {};
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.StreamARN !== undefined) {
-    bodyParams["StreamARN"] = input.StreamARN;
-  }
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.StreamARN !== undefined && { StreamARN: input.StreamARN }),
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -523,14 +459,12 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   };
   let resolvedPath = "/TagResource";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ResourceARN !== undefined) {
-    bodyParams["ResourceARN"] = input.ResourceARN;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1TagList(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_restJson1_1TagList(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -552,20 +486,13 @@ export const serializeAws_restJson1_1TagStreamCommand = async (
   };
   let resolvedPath = "/tagStream";
   let body: any;
-  const bodyParams: any = {};
-  if (input.StreamARN !== undefined) {
-    bodyParams["StreamARN"] = input.StreamARN;
-  }
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1ResourceTags(
-      input.Tags,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.StreamARN !== undefined && { StreamARN: input.StreamARN }),
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_restJson1_1ResourceTags(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -587,17 +514,12 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   };
   let resolvedPath = "/UntagResource";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ResourceARN !== undefined) {
-    bodyParams["ResourceARN"] = input.ResourceARN;
-  }
-  if (input.TagKeyList !== undefined) {
-    bodyParams["TagKeyList"] = serializeAws_restJson1_1TagKeyList(
-      input.TagKeyList,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ResourceARN !== undefined && { ResourceARN: input.ResourceARN }),
+    ...(input.TagKeyList !== undefined && {
+      TagKeyList: serializeAws_restJson1_1TagKeyList(input.TagKeyList, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -619,20 +541,13 @@ export const serializeAws_restJson1_1UntagStreamCommand = async (
   };
   let resolvedPath = "/untagStream";
   let body: any;
-  const bodyParams: any = {};
-  if (input.StreamARN !== undefined) {
-    bodyParams["StreamARN"] = input.StreamARN;
-  }
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  if (input.TagKeyList !== undefined) {
-    bodyParams["TagKeyList"] = serializeAws_restJson1_1TagKeyList(
-      input.TagKeyList,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.StreamARN !== undefined && { StreamARN: input.StreamARN }),
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName }),
+    ...(input.TagKeyList !== undefined && {
+      TagKeyList: serializeAws_restJson1_1TagKeyList(input.TagKeyList, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -654,23 +569,17 @@ export const serializeAws_restJson1_1UpdateDataRetentionCommand = async (
   };
   let resolvedPath = "/updateDataRetention";
   let body: any;
-  const bodyParams: any = {};
-  if (input.CurrentVersion !== undefined) {
-    bodyParams["CurrentVersion"] = input.CurrentVersion;
-  }
-  if (input.DataRetentionChangeInHours !== undefined) {
-    bodyParams["DataRetentionChangeInHours"] = input.DataRetentionChangeInHours;
-  }
-  if (input.Operation !== undefined) {
-    bodyParams["Operation"] = input.Operation;
-  }
-  if (input.StreamARN !== undefined) {
-    bodyParams["StreamARN"] = input.StreamARN;
-  }
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.CurrentVersion !== undefined && {
+      CurrentVersion: input.CurrentVersion
+    }),
+    ...(input.DataRetentionChangeInHours !== undefined && {
+      DataRetentionChangeInHours: input.DataRetentionChangeInHours
+    }),
+    ...(input.Operation !== undefined && { Operation: input.Operation }),
+    ...(input.StreamARN !== undefined && { StreamARN: input.StreamARN }),
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -692,22 +601,18 @@ export const serializeAws_restJson1_1UpdateSignalingChannelCommand = async (
   };
   let resolvedPath = "/updateSignalingChannel";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ChannelARN !== undefined) {
-    bodyParams["ChannelARN"] = input.ChannelARN;
-  }
-  if (input.CurrentVersion !== undefined) {
-    bodyParams["CurrentVersion"] = input.CurrentVersion;
-  }
-  if (input.SingleMasterConfiguration !== undefined) {
-    bodyParams[
-      "SingleMasterConfiguration"
-    ] = serializeAws_restJson1_1SingleMasterConfiguration(
-      input.SingleMasterConfiguration,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ChannelARN !== undefined && { ChannelARN: input.ChannelARN }),
+    ...(input.CurrentVersion !== undefined && {
+      CurrentVersion: input.CurrentVersion
+    }),
+    ...(input.SingleMasterConfiguration !== undefined && {
+      SingleMasterConfiguration: serializeAws_restJson1_1SingleMasterConfiguration(
+        input.SingleMasterConfiguration,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -729,23 +634,15 @@ export const serializeAws_restJson1_1UpdateStreamCommand = async (
   };
   let resolvedPath = "/updateStream";
   let body: any;
-  const bodyParams: any = {};
-  if (input.CurrentVersion !== undefined) {
-    bodyParams["CurrentVersion"] = input.CurrentVersion;
-  }
-  if (input.DeviceName !== undefined) {
-    bodyParams["DeviceName"] = input.DeviceName;
-  }
-  if (input.MediaType !== undefined) {
-    bodyParams["MediaType"] = input.MediaType;
-  }
-  if (input.StreamARN !== undefined) {
-    bodyParams["StreamARN"] = input.StreamARN;
-  }
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.CurrentVersion !== undefined && {
+      CurrentVersion: input.CurrentVersion
+    }),
+    ...(input.DeviceName !== undefined && { DeviceName: input.DeviceName }),
+    ...(input.MediaType !== undefined && { MediaType: input.MediaType }),
+    ...(input.StreamARN !== undefined && { StreamARN: input.StreamARN }),
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

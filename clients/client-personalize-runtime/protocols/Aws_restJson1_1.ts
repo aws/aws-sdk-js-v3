@@ -32,26 +32,16 @@ export const serializeAws_restJson1_1GetPersonalizedRankingCommand = async (
   };
   let resolvedPath = "/personalize-ranking";
   let body: any;
-  const bodyParams: any = {};
-  if (input.campaignArn !== undefined) {
-    bodyParams["campaignArn"] = input.campaignArn;
-  }
-  if (input.context !== undefined) {
-    bodyParams["context"] = serializeAws_restJson1_1Context(
-      input.context,
-      context
-    );
-  }
-  if (input.inputList !== undefined) {
-    bodyParams["inputList"] = serializeAws_restJson1_1InputList(
-      input.inputList,
-      context
-    );
-  }
-  if (input.userId !== undefined) {
-    bodyParams["userId"] = input.userId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.campaignArn !== undefined && { campaignArn: input.campaignArn }),
+    ...(input.context !== undefined && {
+      context: serializeAws_restJson1_1Context(input.context, context)
+    }),
+    ...(input.inputList !== undefined && {
+      inputList: serializeAws_restJson1_1InputList(input.inputList, context)
+    }),
+    ...(input.userId !== undefined && { userId: input.userId })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -73,26 +63,15 @@ export const serializeAws_restJson1_1GetRecommendationsCommand = async (
   };
   let resolvedPath = "/recommendations";
   let body: any;
-  const bodyParams: any = {};
-  if (input.campaignArn !== undefined) {
-    bodyParams["campaignArn"] = input.campaignArn;
-  }
-  if (input.context !== undefined) {
-    bodyParams["context"] = serializeAws_restJson1_1Context(
-      input.context,
-      context
-    );
-  }
-  if (input.itemId !== undefined) {
-    bodyParams["itemId"] = input.itemId;
-  }
-  if (input.numResults !== undefined) {
-    bodyParams["numResults"] = input.numResults;
-  }
-  if (input.userId !== undefined) {
-    bodyParams["userId"] = input.userId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.campaignArn !== undefined && { campaignArn: input.campaignArn }),
+    ...(input.context !== undefined && {
+      context: serializeAws_restJson1_1Context(input.context, context)
+    }),
+    ...(input.itemId !== undefined && { itemId: input.itemId }),
+    ...(input.numResults !== undefined && { numResults: input.numResults }),
+    ...(input.userId !== undefined && { userId: input.userId })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

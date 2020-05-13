@@ -286,11 +286,9 @@ export const serializeAws_restJson1_1PutLexiconCommand = async (
     throw new Error("No value provided for input HTTP label: Name.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Content !== undefined) {
-    bodyParams["Content"] = input.Content;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Content !== undefined && { Content: input.Content })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -312,50 +310,38 @@ export const serializeAws_restJson1_1StartSpeechSynthesisTaskCommand = async (
   };
   let resolvedPath = "/v1/synthesisTasks";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Engine !== undefined) {
-    bodyParams["Engine"] = input.Engine;
-  }
-  if (input.LanguageCode !== undefined) {
-    bodyParams["LanguageCode"] = input.LanguageCode;
-  }
-  if (input.LexiconNames !== undefined) {
-    bodyParams["LexiconNames"] = serializeAws_restJson1_1LexiconNameList(
-      input.LexiconNames,
-      context
-    );
-  }
-  if (input.OutputFormat !== undefined) {
-    bodyParams["OutputFormat"] = input.OutputFormat;
-  }
-  if (input.OutputS3BucketName !== undefined) {
-    bodyParams["OutputS3BucketName"] = input.OutputS3BucketName;
-  }
-  if (input.OutputS3KeyPrefix !== undefined) {
-    bodyParams["OutputS3KeyPrefix"] = input.OutputS3KeyPrefix;
-  }
-  if (input.SampleRate !== undefined) {
-    bodyParams["SampleRate"] = input.SampleRate;
-  }
-  if (input.SnsTopicArn !== undefined) {
-    bodyParams["SnsTopicArn"] = input.SnsTopicArn;
-  }
-  if (input.SpeechMarkTypes !== undefined) {
-    bodyParams["SpeechMarkTypes"] = serializeAws_restJson1_1SpeechMarkTypeList(
-      input.SpeechMarkTypes,
-      context
-    );
-  }
-  if (input.Text !== undefined) {
-    bodyParams["Text"] = input.Text;
-  }
-  if (input.TextType !== undefined) {
-    bodyParams["TextType"] = input.TextType;
-  }
-  if (input.VoiceId !== undefined) {
-    bodyParams["VoiceId"] = input.VoiceId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Engine !== undefined && { Engine: input.Engine }),
+    ...(input.LanguageCode !== undefined && {
+      LanguageCode: input.LanguageCode
+    }),
+    ...(input.LexiconNames !== undefined && {
+      LexiconNames: serializeAws_restJson1_1LexiconNameList(
+        input.LexiconNames,
+        context
+      )
+    }),
+    ...(input.OutputFormat !== undefined && {
+      OutputFormat: input.OutputFormat
+    }),
+    ...(input.OutputS3BucketName !== undefined && {
+      OutputS3BucketName: input.OutputS3BucketName
+    }),
+    ...(input.OutputS3KeyPrefix !== undefined && {
+      OutputS3KeyPrefix: input.OutputS3KeyPrefix
+    }),
+    ...(input.SampleRate !== undefined && { SampleRate: input.SampleRate }),
+    ...(input.SnsTopicArn !== undefined && { SnsTopicArn: input.SnsTopicArn }),
+    ...(input.SpeechMarkTypes !== undefined && {
+      SpeechMarkTypes: serializeAws_restJson1_1SpeechMarkTypeList(
+        input.SpeechMarkTypes,
+        context
+      )
+    }),
+    ...(input.Text !== undefined && { Text: input.Text }),
+    ...(input.TextType !== undefined && { TextType: input.TextType }),
+    ...(input.VoiceId !== undefined && { VoiceId: input.VoiceId })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -377,41 +363,31 @@ export const serializeAws_restJson1_1SynthesizeSpeechCommand = async (
   };
   let resolvedPath = "/v1/speech";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Engine !== undefined) {
-    bodyParams["Engine"] = input.Engine;
-  }
-  if (input.LanguageCode !== undefined) {
-    bodyParams["LanguageCode"] = input.LanguageCode;
-  }
-  if (input.LexiconNames !== undefined) {
-    bodyParams["LexiconNames"] = serializeAws_restJson1_1LexiconNameList(
-      input.LexiconNames,
-      context
-    );
-  }
-  if (input.OutputFormat !== undefined) {
-    bodyParams["OutputFormat"] = input.OutputFormat;
-  }
-  if (input.SampleRate !== undefined) {
-    bodyParams["SampleRate"] = input.SampleRate;
-  }
-  if (input.SpeechMarkTypes !== undefined) {
-    bodyParams["SpeechMarkTypes"] = serializeAws_restJson1_1SpeechMarkTypeList(
-      input.SpeechMarkTypes,
-      context
-    );
-  }
-  if (input.Text !== undefined) {
-    bodyParams["Text"] = input.Text;
-  }
-  if (input.TextType !== undefined) {
-    bodyParams["TextType"] = input.TextType;
-  }
-  if (input.VoiceId !== undefined) {
-    bodyParams["VoiceId"] = input.VoiceId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Engine !== undefined && { Engine: input.Engine }),
+    ...(input.LanguageCode !== undefined && {
+      LanguageCode: input.LanguageCode
+    }),
+    ...(input.LexiconNames !== undefined && {
+      LexiconNames: serializeAws_restJson1_1LexiconNameList(
+        input.LexiconNames,
+        context
+      )
+    }),
+    ...(input.OutputFormat !== undefined && {
+      OutputFormat: input.OutputFormat
+    }),
+    ...(input.SampleRate !== undefined && { SampleRate: input.SampleRate }),
+    ...(input.SpeechMarkTypes !== undefined && {
+      SpeechMarkTypes: serializeAws_restJson1_1SpeechMarkTypeList(
+        input.SpeechMarkTypes,
+        context
+      )
+    }),
+    ...(input.Text !== undefined && { Text: input.Text }),
+    ...(input.TextType !== undefined && { TextType: input.TextType }),
+    ...(input.VoiceId !== undefined && { VoiceId: input.VoiceId })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

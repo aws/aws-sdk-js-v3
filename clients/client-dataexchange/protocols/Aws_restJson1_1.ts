@@ -174,23 +174,14 @@ export const serializeAws_restJson1_1CreateDataSetCommand = async (
   };
   let resolvedPath = "/v1/data-sets";
   let body: any;
-  const bodyParams: any = {};
-  if (input.AssetType !== undefined) {
-    bodyParams["AssetType"] = input.AssetType;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1MapOf__string(
-      input.Tags,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AssetType !== undefined && { AssetType: input.AssetType }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_restJson1_1MapOf__string(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -212,17 +203,12 @@ export const serializeAws_restJson1_1CreateJobCommand = async (
   };
   let resolvedPath = "/v1/jobs";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Details !== undefined) {
-    bodyParams["Details"] = serializeAws_restJson1_1RequestDetails(
-      input.Details,
-      context
-    );
-  }
-  if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Details !== undefined && {
+      Details: serializeAws_restJson1_1RequestDetails(input.Details, context)
+    }),
+    ...(input.Type !== undefined && { Type: input.Type })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -256,17 +242,12 @@ export const serializeAws_restJson1_1CreateRevisionCommand = async (
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Comment !== undefined) {
-    bodyParams["Comment"] = input.Comment;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1MapOf__string(
-      input.Tags,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Comment !== undefined && { Comment: input.Comment }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_restJson1_1MapOf__string(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -826,14 +807,11 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1MapOf__string(
-      input.Tags,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1MapOf__string(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -933,11 +911,9 @@ export const serializeAws_restJson1_1UpdateAssetCommand = async (
     throw new Error("No value provided for input HTTP label: RevisionId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Name !== undefined && { Name: input.Name })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -971,14 +947,10 @@ export const serializeAws_restJson1_1UpdateDataSetCommand = async (
     throw new Error("No value provided for input HTTP label: DataSetId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Name !== undefined && { Name: input.Name })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1024,14 +996,10 @@ export const serializeAws_restJson1_1UpdateRevisionCommand = async (
     throw new Error("No value provided for input HTTP label: RevisionId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Comment !== undefined) {
-    bodyParams["Comment"] = input.Comment;
-  }
-  if (input.Finalized !== undefined) {
-    bodyParams["Finalized"] = input.Finalized;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Comment !== undefined && { Comment: input.Comment }),
+    ...(input.Finalized !== undefined && { Finalized: input.Finalized })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

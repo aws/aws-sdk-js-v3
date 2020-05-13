@@ -89,11 +89,11 @@ export const serializeAws_restJson1_1ConfigureAgentCommand = async (
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.fleetInstanceId !== undefined) {
-    bodyParams["fleetInstanceId"] = input.fleetInstanceId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.fleetInstanceId !== undefined && {
+      fleetInstanceId: input.fleetInstanceId
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -118,19 +118,17 @@ export const serializeAws_restJson1_1CreateProfilingGroupCommand = async (
     ...(input.clientToken !== undefined && { clientToken: input.clientToken })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.agentOrchestrationConfig !== undefined) {
-    bodyParams[
-      "agentOrchestrationConfig"
-    ] = serializeAws_restJson1_1AgentOrchestrationConfig(
-      input.agentOrchestrationConfig,
-      context
-    );
-  }
-  if (input.profilingGroupName !== undefined) {
-    bodyParams["profilingGroupName"] = input.profilingGroupName;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.agentOrchestrationConfig !== undefined && {
+      agentOrchestrationConfig: serializeAws_restJson1_1AgentOrchestrationConfig(
+        input.agentOrchestrationConfig,
+        context
+      )
+    }),
+    ...(input.profilingGroupName !== undefined && {
+      profilingGroupName: input.profilingGroupName
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -274,16 +272,14 @@ export const serializeAws_restJson1_1UpdateProfilingGroupCommand = async (
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.agentOrchestrationConfig !== undefined) {
-    bodyParams[
-      "agentOrchestrationConfig"
-    ] = serializeAws_restJson1_1AgentOrchestrationConfig(
-      input.agentOrchestrationConfig,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.agentOrchestrationConfig !== undefined && {
+      agentOrchestrationConfig: serializeAws_restJson1_1AgentOrchestrationConfig(
+        input.agentOrchestrationConfig,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

@@ -438,11 +438,9 @@ export const serializeAws_restJson1_1AssociateRoleToGroupCommand = async (
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.RoleArn !== undefined) {
-    bodyParams["RoleArn"] = input.RoleArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -464,11 +462,9 @@ export const serializeAws_restJson1_1AssociateServiceRoleToAccountCommand = asyn
   };
   let resolvedPath = "/greengrass/servicerole";
   let body: any;
-  const bodyParams: any = {};
-  if (input.RoleArn !== undefined) {
-    bodyParams["RoleArn"] = input.RoleArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.RoleArn !== undefined && { RoleArn: input.RoleArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -493,22 +489,18 @@ export const serializeAws_restJson1_1CreateConnectorDefinitionCommand = async (
   };
   let resolvedPath = "/greengrass/definition/connectors";
   let body: any;
-  const bodyParams: any = {};
-  if (input.InitialVersion !== undefined) {
-    bodyParams[
-      "InitialVersion"
-    ] = serializeAws_restJson1_1ConnectorDefinitionVersion(
-      input.InitialVersion,
-      context
-    );
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1Tags(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.InitialVersion !== undefined && {
+      InitialVersion: serializeAws_restJson1_1ConnectorDefinitionVersion(
+        input.InitialVersion,
+        context
+      )
+    }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1Tags(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -550,14 +542,14 @@ export const serializeAws_restJson1_1CreateConnectorDefinitionVersionCommand = a
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Connectors !== undefined) {
-    bodyParams["Connectors"] = serializeAws_restJson1_1__listOfConnector(
-      input.Connectors,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Connectors !== undefined && {
+      Connectors: serializeAws_restJson1_1__listOfConnector(
+        input.Connectors,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -582,22 +574,18 @@ export const serializeAws_restJson1_1CreateCoreDefinitionCommand = async (
   };
   let resolvedPath = "/greengrass/definition/cores";
   let body: any;
-  const bodyParams: any = {};
-  if (input.InitialVersion !== undefined) {
-    bodyParams[
-      "InitialVersion"
-    ] = serializeAws_restJson1_1CoreDefinitionVersion(
-      input.InitialVersion,
-      context
-    );
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1Tags(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.InitialVersion !== undefined && {
+      InitialVersion: serializeAws_restJson1_1CoreDefinitionVersion(
+        input.InitialVersion,
+        context
+      )
+    }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1Tags(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -638,14 +626,11 @@ export const serializeAws_restJson1_1CreateCoreDefinitionVersionCommand = async 
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Cores !== undefined) {
-    bodyParams["Cores"] = serializeAws_restJson1_1__listOfCore(
-      input.Cores,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Cores !== undefined && {
+      Cores: serializeAws_restJson1_1__listOfCore(input.Cores, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -682,17 +667,17 @@ export const serializeAws_restJson1_1CreateDeploymentCommand = async (
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.DeploymentId !== undefined) {
-    bodyParams["DeploymentId"] = input.DeploymentId;
-  }
-  if (input.DeploymentType !== undefined) {
-    bodyParams["DeploymentType"] = input.DeploymentType;
-  }
-  if (input.GroupVersionId !== undefined) {
-    bodyParams["GroupVersionId"] = input.GroupVersionId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DeploymentId !== undefined && {
+      DeploymentId: input.DeploymentId
+    }),
+    ...(input.DeploymentType !== undefined && {
+      DeploymentType: input.DeploymentType
+    }),
+    ...(input.GroupVersionId !== undefined && {
+      GroupVersionId: input.GroupVersionId
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -717,22 +702,18 @@ export const serializeAws_restJson1_1CreateDeviceDefinitionCommand = async (
   };
   let resolvedPath = "/greengrass/definition/devices";
   let body: any;
-  const bodyParams: any = {};
-  if (input.InitialVersion !== undefined) {
-    bodyParams[
-      "InitialVersion"
-    ] = serializeAws_restJson1_1DeviceDefinitionVersion(
-      input.InitialVersion,
-      context
-    );
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1Tags(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.InitialVersion !== undefined && {
+      InitialVersion: serializeAws_restJson1_1DeviceDefinitionVersion(
+        input.InitialVersion,
+        context
+      )
+    }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1Tags(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -774,14 +755,11 @@ export const serializeAws_restJson1_1CreateDeviceDefinitionVersionCommand = asyn
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Devices !== undefined) {
-    bodyParams["Devices"] = serializeAws_restJson1_1__listOfDevice(
-      input.Devices,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Devices !== undefined && {
+      Devices: serializeAws_restJson1_1__listOfDevice(input.Devices, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -806,22 +784,18 @@ export const serializeAws_restJson1_1CreateFunctionDefinitionCommand = async (
   };
   let resolvedPath = "/greengrass/definition/functions";
   let body: any;
-  const bodyParams: any = {};
-  if (input.InitialVersion !== undefined) {
-    bodyParams[
-      "InitialVersion"
-    ] = serializeAws_restJson1_1FunctionDefinitionVersion(
-      input.InitialVersion,
-      context
-    );
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1Tags(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.InitialVersion !== undefined && {
+      InitialVersion: serializeAws_restJson1_1FunctionDefinitionVersion(
+        input.InitialVersion,
+        context
+      )
+    }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1Tags(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -863,20 +837,20 @@ export const serializeAws_restJson1_1CreateFunctionDefinitionVersionCommand = as
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.DefaultConfig !== undefined) {
-    bodyParams["DefaultConfig"] = serializeAws_restJson1_1FunctionDefaultConfig(
-      input.DefaultConfig,
-      context
-    );
-  }
-  if (input.Functions !== undefined) {
-    bodyParams["Functions"] = serializeAws_restJson1_1__listOfFunction(
-      input.Functions,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DefaultConfig !== undefined && {
+      DefaultConfig: serializeAws_restJson1_1FunctionDefaultConfig(
+        input.DefaultConfig,
+        context
+      )
+    }),
+    ...(input.Functions !== undefined && {
+      Functions: serializeAws_restJson1_1__listOfFunction(
+        input.Functions,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -901,20 +875,18 @@ export const serializeAws_restJson1_1CreateGroupCommand = async (
   };
   let resolvedPath = "/greengrass/groups";
   let body: any;
-  const bodyParams: any = {};
-  if (input.InitialVersion !== undefined) {
-    bodyParams["InitialVersion"] = serializeAws_restJson1_1GroupVersion(
-      input.InitialVersion,
-      context
-    );
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1Tags(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.InitialVersion !== undefined && {
+      InitialVersion: serializeAws_restJson1_1GroupVersion(
+        input.InitialVersion,
+        context
+      )
+    }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1Tags(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -987,33 +959,29 @@ export const serializeAws_restJson1_1CreateGroupVersionCommand = async (
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.ConnectorDefinitionVersionArn !== undefined) {
-    bodyParams["ConnectorDefinitionVersionArn"] =
-      input.ConnectorDefinitionVersionArn;
-  }
-  if (input.CoreDefinitionVersionArn !== undefined) {
-    bodyParams["CoreDefinitionVersionArn"] = input.CoreDefinitionVersionArn;
-  }
-  if (input.DeviceDefinitionVersionArn !== undefined) {
-    bodyParams["DeviceDefinitionVersionArn"] = input.DeviceDefinitionVersionArn;
-  }
-  if (input.FunctionDefinitionVersionArn !== undefined) {
-    bodyParams["FunctionDefinitionVersionArn"] =
-      input.FunctionDefinitionVersionArn;
-  }
-  if (input.LoggerDefinitionVersionArn !== undefined) {
-    bodyParams["LoggerDefinitionVersionArn"] = input.LoggerDefinitionVersionArn;
-  }
-  if (input.ResourceDefinitionVersionArn !== undefined) {
-    bodyParams["ResourceDefinitionVersionArn"] =
-      input.ResourceDefinitionVersionArn;
-  }
-  if (input.SubscriptionDefinitionVersionArn !== undefined) {
-    bodyParams["SubscriptionDefinitionVersionArn"] =
-      input.SubscriptionDefinitionVersionArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ConnectorDefinitionVersionArn !== undefined && {
+      ConnectorDefinitionVersionArn: input.ConnectorDefinitionVersionArn
+    }),
+    ...(input.CoreDefinitionVersionArn !== undefined && {
+      CoreDefinitionVersionArn: input.CoreDefinitionVersionArn
+    }),
+    ...(input.DeviceDefinitionVersionArn !== undefined && {
+      DeviceDefinitionVersionArn: input.DeviceDefinitionVersionArn
+    }),
+    ...(input.FunctionDefinitionVersionArn !== undefined && {
+      FunctionDefinitionVersionArn: input.FunctionDefinitionVersionArn
+    }),
+    ...(input.LoggerDefinitionVersionArn !== undefined && {
+      LoggerDefinitionVersionArn: input.LoggerDefinitionVersionArn
+    }),
+    ...(input.ResourceDefinitionVersionArn !== undefined && {
+      ResourceDefinitionVersionArn: input.ResourceDefinitionVersionArn
+    }),
+    ...(input.SubscriptionDefinitionVersionArn !== undefined && {
+      SubscriptionDefinitionVersionArn: input.SubscriptionDefinitionVersionArn
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1038,22 +1006,18 @@ export const serializeAws_restJson1_1CreateLoggerDefinitionCommand = async (
   };
   let resolvedPath = "/greengrass/definition/loggers";
   let body: any;
-  const bodyParams: any = {};
-  if (input.InitialVersion !== undefined) {
-    bodyParams[
-      "InitialVersion"
-    ] = serializeAws_restJson1_1LoggerDefinitionVersion(
-      input.InitialVersion,
-      context
-    );
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1Tags(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.InitialVersion !== undefined && {
+      InitialVersion: serializeAws_restJson1_1LoggerDefinitionVersion(
+        input.InitialVersion,
+        context
+      )
+    }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1Tags(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1095,14 +1059,11 @@ export const serializeAws_restJson1_1CreateLoggerDefinitionVersionCommand = asyn
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Loggers !== undefined) {
-    bodyParams["Loggers"] = serializeAws_restJson1_1__listOfLogger(
-      input.Loggers,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Loggers !== undefined && {
+      Loggers: serializeAws_restJson1_1__listOfLogger(input.Loggers, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1127,22 +1088,18 @@ export const serializeAws_restJson1_1CreateResourceDefinitionCommand = async (
   };
   let resolvedPath = "/greengrass/definition/resources";
   let body: any;
-  const bodyParams: any = {};
-  if (input.InitialVersion !== undefined) {
-    bodyParams[
-      "InitialVersion"
-    ] = serializeAws_restJson1_1ResourceDefinitionVersion(
-      input.InitialVersion,
-      context
-    );
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1Tags(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.InitialVersion !== undefined && {
+      InitialVersion: serializeAws_restJson1_1ResourceDefinitionVersion(
+        input.InitialVersion,
+        context
+      )
+    }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1Tags(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1184,14 +1141,14 @@ export const serializeAws_restJson1_1CreateResourceDefinitionVersionCommand = as
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Resources !== undefined) {
-    bodyParams["Resources"] = serializeAws_restJson1_1__listOfResource(
-      input.Resources,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Resources !== undefined && {
+      Resources: serializeAws_restJson1_1__listOfResource(
+        input.Resources,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1216,30 +1173,29 @@ export const serializeAws_restJson1_1CreateSoftwareUpdateJobCommand = async (
   };
   let resolvedPath = "/greengrass/updates";
   let body: any;
-  const bodyParams: any = {};
-  if (input.S3UrlSignerRole !== undefined) {
-    bodyParams["S3UrlSignerRole"] = input.S3UrlSignerRole;
-  }
-  if (input.SoftwareToUpdate !== undefined) {
-    bodyParams["SoftwareToUpdate"] = input.SoftwareToUpdate;
-  }
-  if (input.UpdateAgentLogLevel !== undefined) {
-    bodyParams["UpdateAgentLogLevel"] = input.UpdateAgentLogLevel;
-  }
-  if (input.UpdateTargets !== undefined) {
-    bodyParams["UpdateTargets"] = serializeAws_restJson1_1UpdateTargets(
-      input.UpdateTargets,
-      context
-    );
-  }
-  if (input.UpdateTargetsArchitecture !== undefined) {
-    bodyParams["UpdateTargetsArchitecture"] = input.UpdateTargetsArchitecture;
-  }
-  if (input.UpdateTargetsOperatingSystem !== undefined) {
-    bodyParams["UpdateTargetsOperatingSystem"] =
-      input.UpdateTargetsOperatingSystem;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.S3UrlSignerRole !== undefined && {
+      S3UrlSignerRole: input.S3UrlSignerRole
+    }),
+    ...(input.SoftwareToUpdate !== undefined && {
+      SoftwareToUpdate: input.SoftwareToUpdate
+    }),
+    ...(input.UpdateAgentLogLevel !== undefined && {
+      UpdateAgentLogLevel: input.UpdateAgentLogLevel
+    }),
+    ...(input.UpdateTargets !== undefined && {
+      UpdateTargets: serializeAws_restJson1_1UpdateTargets(
+        input.UpdateTargets,
+        context
+      )
+    }),
+    ...(input.UpdateTargetsArchitecture !== undefined && {
+      UpdateTargetsArchitecture: input.UpdateTargetsArchitecture
+    }),
+    ...(input.UpdateTargetsOperatingSystem !== undefined && {
+      UpdateTargetsOperatingSystem: input.UpdateTargetsOperatingSystem
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1264,22 +1220,18 @@ export const serializeAws_restJson1_1CreateSubscriptionDefinitionCommand = async
   };
   let resolvedPath = "/greengrass/definition/subscriptions";
   let body: any;
-  const bodyParams: any = {};
-  if (input.InitialVersion !== undefined) {
-    bodyParams[
-      "InitialVersion"
-    ] = serializeAws_restJson1_1SubscriptionDefinitionVersion(
-      input.InitialVersion,
-      context
-    );
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1Tags(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.InitialVersion !== undefined && {
+      InitialVersion: serializeAws_restJson1_1SubscriptionDefinitionVersion(
+        input.InitialVersion,
+        context
+      )
+    }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1Tags(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1321,14 +1273,14 @@ export const serializeAws_restJson1_1CreateSubscriptionDefinitionVersionCommand 
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Subscriptions !== undefined) {
-    bodyParams["Subscriptions"] = serializeAws_restJson1_1__listOfSubscription(
-      input.Subscriptions,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Subscriptions !== undefined && {
+      Subscriptions: serializeAws_restJson1_1__listOfSubscription(
+        input.Subscriptions,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3431,11 +3383,9 @@ export const serializeAws_restJson1_1ResetDeploymentsCommand = async (
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Force !== undefined) {
-    bodyParams["Force"] = input.Force;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Force !== undefined && { Force: input.Force })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3460,17 +3410,17 @@ export const serializeAws_restJson1_1StartBulkDeploymentCommand = async (
   };
   let resolvedPath = "/greengrass/bulk/deployments";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ExecutionRoleArn !== undefined) {
-    bodyParams["ExecutionRoleArn"] = input.ExecutionRoleArn;
-  }
-  if (input.InputFileUri !== undefined) {
-    bodyParams["InputFileUri"] = input.InputFileUri;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1Tags(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ExecutionRoleArn !== undefined && {
+      ExecutionRoleArn: input.ExecutionRoleArn
+    }),
+    ...(input.InputFileUri !== undefined && {
+      InputFileUri: input.InputFileUri
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1Tags(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3543,11 +3493,11 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1Tags(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1Tags(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3622,16 +3572,14 @@ export const serializeAws_restJson1_1UpdateConnectivityInfoCommand = async (
     throw new Error("No value provided for input HTTP label: ThingName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.ConnectivityInfo !== undefined) {
-    bodyParams[
-      "ConnectivityInfo"
-    ] = serializeAws_restJson1_1__listOfConnectivityInfo(
-      input.ConnectivityInfo,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ConnectivityInfo !== undefined && {
+      ConnectivityInfo: serializeAws_restJson1_1__listOfConnectivityInfo(
+        input.ConnectivityInfo,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3670,11 +3618,9 @@ export const serializeAws_restJson1_1UpdateConnectorDefinitionCommand = async (
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Name !== undefined && { Name: input.Name })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3712,11 +3658,9 @@ export const serializeAws_restJson1_1UpdateCoreDefinitionCommand = async (
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Name !== undefined && { Name: input.Name })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3754,11 +3698,9 @@ export const serializeAws_restJson1_1UpdateDeviceDefinitionCommand = async (
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Name !== undefined && { Name: input.Name })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3796,11 +3738,9 @@ export const serializeAws_restJson1_1UpdateFunctionDefinitionCommand = async (
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Name !== undefined && { Name: input.Name })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3834,11 +3774,9 @@ export const serializeAws_restJson1_1UpdateGroupCommand = async (
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Name !== undefined && { Name: input.Name })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3873,12 +3811,11 @@ export const serializeAws_restJson1_1UpdateGroupCertificateConfigurationCommand 
     throw new Error("No value provided for input HTTP label: GroupId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.CertificateExpiryInMilliseconds !== undefined) {
-    bodyParams["CertificateExpiryInMilliseconds"] =
-      input.CertificateExpiryInMilliseconds;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.CertificateExpiryInMilliseconds !== undefined && {
+      CertificateExpiryInMilliseconds: input.CertificateExpiryInMilliseconds
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3916,11 +3853,9 @@ export const serializeAws_restJson1_1UpdateLoggerDefinitionCommand = async (
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Name !== undefined && { Name: input.Name })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -3958,11 +3893,9 @@ export const serializeAws_restJson1_1UpdateResourceDefinitionCommand = async (
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Name !== undefined && { Name: input.Name })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -4001,11 +3934,9 @@ export const serializeAws_restJson1_1UpdateSubscriptionDefinitionCommand = async
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Name !== undefined && { Name: input.Name })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

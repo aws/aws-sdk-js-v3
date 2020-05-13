@@ -152,20 +152,14 @@ export const serializeAws_restJson1_1AssociateDomainCommand = async (
   };
   let resolvedPath = "/associateDomain";
   let body: any;
-  const bodyParams: any = {};
-  if (input.AcmCertificateArn !== undefined) {
-    bodyParams["AcmCertificateArn"] = input.AcmCertificateArn;
-  }
-  if (input.DisplayName !== undefined) {
-    bodyParams["DisplayName"] = input.DisplayName;
-  }
-  if (input.DomainName !== undefined) {
-    bodyParams["DomainName"] = input.DomainName;
-  }
-  if (input.FleetArn !== undefined) {
-    bodyParams["FleetArn"] = input.FleetArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AcmCertificateArn !== undefined && {
+      AcmCertificateArn: input.AcmCertificateArn
+    }),
+    ...(input.DisplayName !== undefined && { DisplayName: input.DisplayName }),
+    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
+    ...(input.FleetArn !== undefined && { FleetArn: input.FleetArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -187,17 +181,13 @@ export const serializeAws_restJson1_1AssociateWebsiteAuthorizationProviderComman
   };
   let resolvedPath = "/associateWebsiteAuthorizationProvider";
   let body: any;
-  const bodyParams: any = {};
-  if (input.AuthorizationProviderType !== undefined) {
-    bodyParams["AuthorizationProviderType"] = input.AuthorizationProviderType;
-  }
-  if (input.DomainName !== undefined) {
-    bodyParams["DomainName"] = input.DomainName;
-  }
-  if (input.FleetArn !== undefined) {
-    bodyParams["FleetArn"] = input.FleetArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AuthorizationProviderType !== undefined && {
+      AuthorizationProviderType: input.AuthorizationProviderType
+    }),
+    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
+    ...(input.FleetArn !== undefined && { FleetArn: input.FleetArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -219,17 +209,11 @@ export const serializeAws_restJson1_1AssociateWebsiteCertificateAuthorityCommand
   };
   let resolvedPath = "/associateWebsiteCertificateAuthority";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Certificate !== undefined) {
-    bodyParams["Certificate"] = input.Certificate;
-  }
-  if (input.DisplayName !== undefined) {
-    bodyParams["DisplayName"] = input.DisplayName;
-  }
-  if (input.FleetArn !== undefined) {
-    bodyParams["FleetArn"] = input.FleetArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Certificate !== undefined && { Certificate: input.Certificate }),
+    ...(input.DisplayName !== undefined && { DisplayName: input.DisplayName }),
+    ...(input.FleetArn !== undefined && { FleetArn: input.FleetArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -251,17 +235,13 @@ export const serializeAws_restJson1_1CreateFleetCommand = async (
   };
   let resolvedPath = "/createFleet";
   let body: any;
-  const bodyParams: any = {};
-  if (input.DisplayName !== undefined) {
-    bodyParams["DisplayName"] = input.DisplayName;
-  }
-  if (input.FleetName !== undefined) {
-    bodyParams["FleetName"] = input.FleetName;
-  }
-  if (input.OptimizeForEndUserLocation !== undefined) {
-    bodyParams["OptimizeForEndUserLocation"] = input.OptimizeForEndUserLocation;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DisplayName !== undefined && { DisplayName: input.DisplayName }),
+    ...(input.FleetName !== undefined && { FleetName: input.FleetName }),
+    ...(input.OptimizeForEndUserLocation !== undefined && {
+      OptimizeForEndUserLocation: input.OptimizeForEndUserLocation
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -283,11 +263,9 @@ export const serializeAws_restJson1_1DeleteFleetCommand = async (
   };
   let resolvedPath = "/deleteFleet";
   let body: any;
-  const bodyParams: any = {};
-  if (input.FleetArn !== undefined) {
-    bodyParams["FleetArn"] = input.FleetArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.FleetArn !== undefined && { FleetArn: input.FleetArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -309,11 +287,9 @@ export const serializeAws_restJson1_1DescribeAuditStreamConfigurationCommand = a
   };
   let resolvedPath = "/describeAuditStreamConfiguration";
   let body: any;
-  const bodyParams: any = {};
-  if (input.FleetArn !== undefined) {
-    bodyParams["FleetArn"] = input.FleetArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.FleetArn !== undefined && { FleetArn: input.FleetArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -335,11 +311,9 @@ export const serializeAws_restJson1_1DescribeCompanyNetworkConfigurationCommand 
   };
   let resolvedPath = "/describeCompanyNetworkConfiguration";
   let body: any;
-  const bodyParams: any = {};
-  if (input.FleetArn !== undefined) {
-    bodyParams["FleetArn"] = input.FleetArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.FleetArn !== undefined && { FleetArn: input.FleetArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -361,14 +335,10 @@ export const serializeAws_restJson1_1DescribeDeviceCommand = async (
   };
   let resolvedPath = "/describeDevice";
   let body: any;
-  const bodyParams: any = {};
-  if (input.DeviceId !== undefined) {
-    bodyParams["DeviceId"] = input.DeviceId;
-  }
-  if (input.FleetArn !== undefined) {
-    bodyParams["FleetArn"] = input.FleetArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DeviceId !== undefined && { DeviceId: input.DeviceId }),
+    ...(input.FleetArn !== undefined && { FleetArn: input.FleetArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -390,11 +360,9 @@ export const serializeAws_restJson1_1DescribeDevicePolicyConfigurationCommand = 
   };
   let resolvedPath = "/describeDevicePolicyConfiguration";
   let body: any;
-  const bodyParams: any = {};
-  if (input.FleetArn !== undefined) {
-    bodyParams["FleetArn"] = input.FleetArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.FleetArn !== undefined && { FleetArn: input.FleetArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -416,14 +384,10 @@ export const serializeAws_restJson1_1DescribeDomainCommand = async (
   };
   let resolvedPath = "/describeDomain";
   let body: any;
-  const bodyParams: any = {};
-  if (input.DomainName !== undefined) {
-    bodyParams["DomainName"] = input.DomainName;
-  }
-  if (input.FleetArn !== undefined) {
-    bodyParams["FleetArn"] = input.FleetArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
+    ...(input.FleetArn !== undefined && { FleetArn: input.FleetArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -445,11 +409,9 @@ export const serializeAws_restJson1_1DescribeFleetMetadataCommand = async (
   };
   let resolvedPath = "/describeFleetMetadata";
   let body: any;
-  const bodyParams: any = {};
-  if (input.FleetArn !== undefined) {
-    bodyParams["FleetArn"] = input.FleetArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.FleetArn !== undefined && { FleetArn: input.FleetArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -471,11 +433,9 @@ export const serializeAws_restJson1_1DescribeIdentityProviderConfigurationComman
   };
   let resolvedPath = "/describeIdentityProviderConfiguration";
   let body: any;
-  const bodyParams: any = {};
-  if (input.FleetArn !== undefined) {
-    bodyParams["FleetArn"] = input.FleetArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.FleetArn !== undefined && { FleetArn: input.FleetArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -497,14 +457,10 @@ export const serializeAws_restJson1_1DescribeWebsiteCertificateAuthorityCommand 
   };
   let resolvedPath = "/describeWebsiteCertificateAuthority";
   let body: any;
-  const bodyParams: any = {};
-  if (input.FleetArn !== undefined) {
-    bodyParams["FleetArn"] = input.FleetArn;
-  }
-  if (input.WebsiteCaId !== undefined) {
-    bodyParams["WebsiteCaId"] = input.WebsiteCaId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.FleetArn !== undefined && { FleetArn: input.FleetArn }),
+    ...(input.WebsiteCaId !== undefined && { WebsiteCaId: input.WebsiteCaId })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -526,14 +482,10 @@ export const serializeAws_restJson1_1DisassociateDomainCommand = async (
   };
   let resolvedPath = "/disassociateDomain";
   let body: any;
-  const bodyParams: any = {};
-  if (input.DomainName !== undefined) {
-    bodyParams["DomainName"] = input.DomainName;
-  }
-  if (input.FleetArn !== undefined) {
-    bodyParams["FleetArn"] = input.FleetArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
+    ...(input.FleetArn !== undefined && { FleetArn: input.FleetArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -555,14 +507,12 @@ export const serializeAws_restJson1_1DisassociateWebsiteAuthorizationProviderCom
   };
   let resolvedPath = "/disassociateWebsiteAuthorizationProvider";
   let body: any;
-  const bodyParams: any = {};
-  if (input.AuthorizationProviderId !== undefined) {
-    bodyParams["AuthorizationProviderId"] = input.AuthorizationProviderId;
-  }
-  if (input.FleetArn !== undefined) {
-    bodyParams["FleetArn"] = input.FleetArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AuthorizationProviderId !== undefined && {
+      AuthorizationProviderId: input.AuthorizationProviderId
+    }),
+    ...(input.FleetArn !== undefined && { FleetArn: input.FleetArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -584,14 +534,10 @@ export const serializeAws_restJson1_1DisassociateWebsiteCertificateAuthorityComm
   };
   let resolvedPath = "/disassociateWebsiteCertificateAuthority";
   let body: any;
-  const bodyParams: any = {};
-  if (input.FleetArn !== undefined) {
-    bodyParams["FleetArn"] = input.FleetArn;
-  }
-  if (input.WebsiteCaId !== undefined) {
-    bodyParams["WebsiteCaId"] = input.WebsiteCaId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.FleetArn !== undefined && { FleetArn: input.FleetArn }),
+    ...(input.WebsiteCaId !== undefined && { WebsiteCaId: input.WebsiteCaId })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -613,17 +559,11 @@ export const serializeAws_restJson1_1ListDevicesCommand = async (
   };
   let resolvedPath = "/listDevices";
   let body: any;
-  const bodyParams: any = {};
-  if (input.FleetArn !== undefined) {
-    bodyParams["FleetArn"] = input.FleetArn;
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.FleetArn !== undefined && { FleetArn: input.FleetArn }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -645,17 +585,11 @@ export const serializeAws_restJson1_1ListDomainsCommand = async (
   };
   let resolvedPath = "/listDomains";
   let body: any;
-  const bodyParams: any = {};
-  if (input.FleetArn !== undefined) {
-    bodyParams["FleetArn"] = input.FleetArn;
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.FleetArn !== undefined && { FleetArn: input.FleetArn }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -677,14 +611,10 @@ export const serializeAws_restJson1_1ListFleetsCommand = async (
   };
   let resolvedPath = "/listFleets";
   let body: any;
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -706,17 +636,11 @@ export const serializeAws_restJson1_1ListWebsiteAuthorizationProvidersCommand = 
   };
   let resolvedPath = "/listWebsiteAuthorizationProviders";
   let body: any;
-  const bodyParams: any = {};
-  if (input.FleetArn !== undefined) {
-    bodyParams["FleetArn"] = input.FleetArn;
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.FleetArn !== undefined && { FleetArn: input.FleetArn }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -738,17 +662,11 @@ export const serializeAws_restJson1_1ListWebsiteCertificateAuthoritiesCommand = 
   };
   let resolvedPath = "/listWebsiteCertificateAuthorities";
   let body: any;
-  const bodyParams: any = {};
-  if (input.FleetArn !== undefined) {
-    bodyParams["FleetArn"] = input.FleetArn;
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.FleetArn !== undefined && { FleetArn: input.FleetArn }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -770,14 +688,10 @@ export const serializeAws_restJson1_1RestoreDomainAccessCommand = async (
   };
   let resolvedPath = "/restoreDomainAccess";
   let body: any;
-  const bodyParams: any = {};
-  if (input.DomainName !== undefined) {
-    bodyParams["DomainName"] = input.DomainName;
-  }
-  if (input.FleetArn !== undefined) {
-    bodyParams["FleetArn"] = input.FleetArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
+    ...(input.FleetArn !== undefined && { FleetArn: input.FleetArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -799,14 +713,10 @@ export const serializeAws_restJson1_1RevokeDomainAccessCommand = async (
   };
   let resolvedPath = "/revokeDomainAccess";
   let body: any;
-  const bodyParams: any = {};
-  if (input.DomainName !== undefined) {
-    bodyParams["DomainName"] = input.DomainName;
-  }
-  if (input.FleetArn !== undefined) {
-    bodyParams["FleetArn"] = input.FleetArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
+    ...(input.FleetArn !== undefined && { FleetArn: input.FleetArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -828,14 +738,10 @@ export const serializeAws_restJson1_1SignOutUserCommand = async (
   };
   let resolvedPath = "/signOutUser";
   let body: any;
-  const bodyParams: any = {};
-  if (input.FleetArn !== undefined) {
-    bodyParams["FleetArn"] = input.FleetArn;
-  }
-  if (input.Username !== undefined) {
-    bodyParams["Username"] = input.Username;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.FleetArn !== undefined && { FleetArn: input.FleetArn }),
+    ...(input.Username !== undefined && { Username: input.Username })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -857,14 +763,12 @@ export const serializeAws_restJson1_1UpdateAuditStreamConfigurationCommand = asy
   };
   let resolvedPath = "/updateAuditStreamConfiguration";
   let body: any;
-  const bodyParams: any = {};
-  if (input.AuditStreamArn !== undefined) {
-    bodyParams["AuditStreamArn"] = input.AuditStreamArn;
-  }
-  if (input.FleetArn !== undefined) {
-    bodyParams["FleetArn"] = input.FleetArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AuditStreamArn !== undefined && {
+      AuditStreamArn: input.AuditStreamArn
+    }),
+    ...(input.FleetArn !== undefined && { FleetArn: input.FleetArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -886,26 +790,19 @@ export const serializeAws_restJson1_1UpdateCompanyNetworkConfigurationCommand = 
   };
   let resolvedPath = "/updateCompanyNetworkConfiguration";
   let body: any;
-  const bodyParams: any = {};
-  if (input.FleetArn !== undefined) {
-    bodyParams["FleetArn"] = input.FleetArn;
-  }
-  if (input.SecurityGroupIds !== undefined) {
-    bodyParams["SecurityGroupIds"] = serializeAws_restJson1_1SecurityGroupIds(
-      input.SecurityGroupIds,
-      context
-    );
-  }
-  if (input.SubnetIds !== undefined) {
-    bodyParams["SubnetIds"] = serializeAws_restJson1_1SubnetIds(
-      input.SubnetIds,
-      context
-    );
-  }
-  if (input.VpcId !== undefined) {
-    bodyParams["VpcId"] = input.VpcId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.FleetArn !== undefined && { FleetArn: input.FleetArn }),
+    ...(input.SecurityGroupIds !== undefined && {
+      SecurityGroupIds: serializeAws_restJson1_1SecurityGroupIds(
+        input.SecurityGroupIds,
+        context
+      )
+    }),
+    ...(input.SubnetIds !== undefined && {
+      SubnetIds: serializeAws_restJson1_1SubnetIds(input.SubnetIds, context)
+    }),
+    ...(input.VpcId !== undefined && { VpcId: input.VpcId })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -927,14 +824,12 @@ export const serializeAws_restJson1_1UpdateDevicePolicyConfigurationCommand = as
   };
   let resolvedPath = "/updateDevicePolicyConfiguration";
   let body: any;
-  const bodyParams: any = {};
-  if (input.DeviceCaCertificate !== undefined) {
-    bodyParams["DeviceCaCertificate"] = input.DeviceCaCertificate;
-  }
-  if (input.FleetArn !== undefined) {
-    bodyParams["FleetArn"] = input.FleetArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DeviceCaCertificate !== undefined && {
+      DeviceCaCertificate: input.DeviceCaCertificate
+    }),
+    ...(input.FleetArn !== undefined && { FleetArn: input.FleetArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -956,17 +851,11 @@ export const serializeAws_restJson1_1UpdateDomainMetadataCommand = async (
   };
   let resolvedPath = "/updateDomainMetadata";
   let body: any;
-  const bodyParams: any = {};
-  if (input.DisplayName !== undefined) {
-    bodyParams["DisplayName"] = input.DisplayName;
-  }
-  if (input.DomainName !== undefined) {
-    bodyParams["DomainName"] = input.DomainName;
-  }
-  if (input.FleetArn !== undefined) {
-    bodyParams["FleetArn"] = input.FleetArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DisplayName !== undefined && { DisplayName: input.DisplayName }),
+    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
+    ...(input.FleetArn !== undefined && { FleetArn: input.FleetArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -988,17 +877,13 @@ export const serializeAws_restJson1_1UpdateFleetMetadataCommand = async (
   };
   let resolvedPath = "/UpdateFleetMetadata";
   let body: any;
-  const bodyParams: any = {};
-  if (input.DisplayName !== undefined) {
-    bodyParams["DisplayName"] = input.DisplayName;
-  }
-  if (input.FleetArn !== undefined) {
-    bodyParams["FleetArn"] = input.FleetArn;
-  }
-  if (input.OptimizeForEndUserLocation !== undefined) {
-    bodyParams["OptimizeForEndUserLocation"] = input.OptimizeForEndUserLocation;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DisplayName !== undefined && { DisplayName: input.DisplayName }),
+    ...(input.FleetArn !== undefined && { FleetArn: input.FleetArn }),
+    ...(input.OptimizeForEndUserLocation !== undefined && {
+      OptimizeForEndUserLocation: input.OptimizeForEndUserLocation
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1020,18 +905,15 @@ export const serializeAws_restJson1_1UpdateIdentityProviderConfigurationCommand 
   };
   let resolvedPath = "/updateIdentityProviderConfiguration";
   let body: any;
-  const bodyParams: any = {};
-  if (input.FleetArn !== undefined) {
-    bodyParams["FleetArn"] = input.FleetArn;
-  }
-  if (input.IdentityProviderSamlMetadata !== undefined) {
-    bodyParams["IdentityProviderSamlMetadata"] =
-      input.IdentityProviderSamlMetadata;
-  }
-  if (input.IdentityProviderType !== undefined) {
-    bodyParams["IdentityProviderType"] = input.IdentityProviderType;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.FleetArn !== undefined && { FleetArn: input.FleetArn }),
+    ...(input.IdentityProviderSamlMetadata !== undefined && {
+      IdentityProviderSamlMetadata: input.IdentityProviderSamlMetadata
+    }),
+    ...(input.IdentityProviderType !== undefined && {
+      IdentityProviderType: input.IdentityProviderType
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

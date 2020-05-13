@@ -642,14 +642,10 @@ export const serializeAws_restJson1_1RegisterDeviceCommand = async (
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Platform !== undefined) {
-    bodyParams["Platform"] = input.Platform;
-  }
-  if (input.Token !== undefined) {
-    bodyParams["Token"] = input.Token;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Platform !== undefined && { Platform: input.Platform }),
+    ...(input.Token !== undefined && { Token: input.Token })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -685,14 +681,11 @@ export const serializeAws_restJson1_1SetCognitoEventsCommand = async (
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Events !== undefined) {
-    bodyParams["Events"] = serializeAws_restJson1_1Events(
-      input.Events,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Events !== undefined && {
+      Events: serializeAws_restJson1_1Events(input.Events, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -728,20 +721,17 @@ export const serializeAws_restJson1_1SetIdentityPoolConfigurationCommand = async
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.CognitoStreams !== undefined) {
-    bodyParams["CognitoStreams"] = serializeAws_restJson1_1CognitoStreams(
-      input.CognitoStreams,
-      context
-    );
-  }
-  if (input.PushSync !== undefined) {
-    bodyParams["PushSync"] = serializeAws_restJson1_1PushSync(
-      input.PushSync,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.CognitoStreams !== undefined && {
+      CognitoStreams: serializeAws_restJson1_1CognitoStreams(
+        input.CognitoStreams,
+        context
+      )
+    }),
+    ...(input.PushSync !== undefined && {
+      PushSync: serializeAws_restJson1_1PushSync(input.PushSync, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -955,20 +945,18 @@ export const serializeAws_restJson1_1UpdateRecordsCommand = async (
     throw new Error("No value provided for input HTTP label: IdentityPoolId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.DeviceId !== undefined) {
-    bodyParams["DeviceId"] = input.DeviceId;
-  }
-  if (input.RecordPatches !== undefined) {
-    bodyParams["RecordPatches"] = serializeAws_restJson1_1RecordPatchList(
-      input.RecordPatches,
-      context
-    );
-  }
-  if (input.SyncSessionToken !== undefined) {
-    bodyParams["SyncSessionToken"] = input.SyncSessionToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DeviceId !== undefined && { DeviceId: input.DeviceId }),
+    ...(input.RecordPatches !== undefined && {
+      RecordPatches: serializeAws_restJson1_1RecordPatchList(
+        input.RecordPatches,
+        context
+      )
+    }),
+    ...(input.SyncSessionToken !== undefined && {
+      SyncSessionToken: input.SyncSessionToken
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

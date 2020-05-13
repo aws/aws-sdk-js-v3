@@ -251,14 +251,12 @@ export const serializeAws_restJson1_1AcceptInvitationCommand = async (
   };
   let resolvedPath = "/master";
   let body: any;
-  const bodyParams: any = {};
-  if (input.InvitationId !== undefined) {
-    bodyParams["InvitationId"] = input.InvitationId;
-  }
-  if (input.MasterId !== undefined) {
-    bodyParams["MasterId"] = input.MasterId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.InvitationId !== undefined && {
+      InvitationId: input.InvitationId
+    }),
+    ...(input.MasterId !== undefined && { MasterId: input.MasterId })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -280,16 +278,14 @@ export const serializeAws_restJson1_1BatchDisableStandardsCommand = async (
   };
   let resolvedPath = "/standards/deregister";
   let body: any;
-  const bodyParams: any = {};
-  if (input.StandardsSubscriptionArns !== undefined) {
-    bodyParams[
-      "StandardsSubscriptionArns"
-    ] = serializeAws_restJson1_1StandardsSubscriptionArns(
-      input.StandardsSubscriptionArns,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.StandardsSubscriptionArns !== undefined && {
+      StandardsSubscriptionArns: serializeAws_restJson1_1StandardsSubscriptionArns(
+        input.StandardsSubscriptionArns,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -311,16 +307,14 @@ export const serializeAws_restJson1_1BatchEnableStandardsCommand = async (
   };
   let resolvedPath = "/standards/register";
   let body: any;
-  const bodyParams: any = {};
-  if (input.StandardsSubscriptionRequests !== undefined) {
-    bodyParams[
-      "StandardsSubscriptionRequests"
-    ] = serializeAws_restJson1_1StandardsSubscriptionRequests(
-      input.StandardsSubscriptionRequests,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.StandardsSubscriptionRequests !== undefined && {
+      StandardsSubscriptionRequests: serializeAws_restJson1_1StandardsSubscriptionRequests(
+        input.StandardsSubscriptionRequests,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -342,14 +336,14 @@ export const serializeAws_restJson1_1BatchImportFindingsCommand = async (
   };
   let resolvedPath = "/findings/import";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Findings !== undefined) {
-    bodyParams["Findings"] = serializeAws_restJson1_1AwsSecurityFindingList(
-      input.Findings,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Findings !== undefined && {
+      Findings: serializeAws_restJson1_1AwsSecurityFindingList(
+        input.Findings,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -371,17 +365,11 @@ export const serializeAws_restJson1_1CreateActionTargetCommand = async (
   };
   let resolvedPath = "/actionTargets";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Id !== undefined) {
-    bodyParams["Id"] = input.Id;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Id !== undefined && { Id: input.Id }),
+    ...(input.Name !== undefined && { Name: input.Name })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -403,20 +391,18 @@ export const serializeAws_restJson1_1CreateInsightCommand = async (
   };
   let resolvedPath = "/insights";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Filters !== undefined) {
-    bodyParams["Filters"] = serializeAws_restJson1_1AwsSecurityFindingFilters(
-      input.Filters,
-      context
-    );
-  }
-  if (input.GroupByAttribute !== undefined) {
-    bodyParams["GroupByAttribute"] = input.GroupByAttribute;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Filters !== undefined && {
+      Filters: serializeAws_restJson1_1AwsSecurityFindingFilters(
+        input.Filters,
+        context
+      )
+    }),
+    ...(input.GroupByAttribute !== undefined && {
+      GroupByAttribute: input.GroupByAttribute
+    }),
+    ...(input.Name !== undefined && { Name: input.Name })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -438,14 +424,14 @@ export const serializeAws_restJson1_1CreateMembersCommand = async (
   };
   let resolvedPath = "/members";
   let body: any;
-  const bodyParams: any = {};
-  if (input.AccountDetails !== undefined) {
-    bodyParams["AccountDetails"] = serializeAws_restJson1_1AccountDetailsList(
-      input.AccountDetails,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AccountDetails !== undefined && {
+      AccountDetails: serializeAws_restJson1_1AccountDetailsList(
+        input.AccountDetails,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -467,14 +453,14 @@ export const serializeAws_restJson1_1DeclineInvitationsCommand = async (
   };
   let resolvedPath = "/invitations/decline";
   let body: any;
-  const bodyParams: any = {};
-  if (input.AccountIds !== undefined) {
-    bodyParams["AccountIds"] = serializeAws_restJson1_1AccountIdList(
-      input.AccountIds,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AccountIds !== undefined && {
+      AccountIds: serializeAws_restJson1_1AccountIdList(
+        input.AccountIds,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -570,14 +556,14 @@ export const serializeAws_restJson1_1DeleteInvitationsCommand = async (
   };
   let resolvedPath = "/invitations/delete";
   let body: any;
-  const bodyParams: any = {};
-  if (input.AccountIds !== undefined) {
-    bodyParams["AccountIds"] = serializeAws_restJson1_1AccountIdList(
-      input.AccountIds,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AccountIds !== undefined && {
+      AccountIds: serializeAws_restJson1_1AccountIdList(
+        input.AccountIds,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -599,14 +585,14 @@ export const serializeAws_restJson1_1DeleteMembersCommand = async (
   };
   let resolvedPath = "/members/delete";
   let body: any;
-  const bodyParams: any = {};
-  if (input.AccountIds !== undefined) {
-    bodyParams["AccountIds"] = serializeAws_restJson1_1AccountIdList(
-      input.AccountIds,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AccountIds !== undefined && {
+      AccountIds: serializeAws_restJson1_1AccountIdList(
+        input.AccountIds,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -628,20 +614,16 @@ export const serializeAws_restJson1_1DescribeActionTargetsCommand = async (
   };
   let resolvedPath = "/actionTargets/get";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ActionTargetArns !== undefined) {
-    bodyParams["ActionTargetArns"] = serializeAws_restJson1_1ArnList(
-      input.ActionTargetArns,
-      context
-    );
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ActionTargetArns !== undefined && {
+      ActionTargetArns: serializeAws_restJson1_1ArnList(
+        input.ActionTargetArns,
+        context
+      )
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -847,14 +829,14 @@ export const serializeAws_restJson1_1DisassociateMembersCommand = async (
   };
   let resolvedPath = "/members/disassociate";
   let body: any;
-  const bodyParams: any = {};
-  if (input.AccountIds !== undefined) {
-    bodyParams["AccountIds"] = serializeAws_restJson1_1AccountIdList(
-      input.AccountIds,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AccountIds !== undefined && {
+      AccountIds: serializeAws_restJson1_1AccountIdList(
+        input.AccountIds,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -876,11 +858,9 @@ export const serializeAws_restJson1_1EnableImportFindingsForProductCommand = asy
   };
   let resolvedPath = "/productSubscriptions";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ProductArn !== undefined) {
-    bodyParams["ProductArn"] = input.ProductArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ProductArn !== undefined && { ProductArn: input.ProductArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -902,11 +882,11 @@ export const serializeAws_restJson1_1EnableSecurityHubCommand = async (
   };
   let resolvedPath = "/accounts";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1TagMap(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_restJson1_1TagMap(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -928,22 +908,16 @@ export const serializeAws_restJson1_1GetEnabledStandardsCommand = async (
   };
   let resolvedPath = "/standards/get";
   let body: any;
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.StandardsSubscriptionArns !== undefined) {
-    bodyParams[
-      "StandardsSubscriptionArns"
-    ] = serializeAws_restJson1_1StandardsSubscriptionArns(
-      input.StandardsSubscriptionArns,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.StandardsSubscriptionArns !== undefined && {
+      StandardsSubscriptionArns: serializeAws_restJson1_1StandardsSubscriptionArns(
+        input.StandardsSubscriptionArns,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -965,26 +939,22 @@ export const serializeAws_restJson1_1GetFindingsCommand = async (
   };
   let resolvedPath = "/findings";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Filters !== undefined) {
-    bodyParams["Filters"] = serializeAws_restJson1_1AwsSecurityFindingFilters(
-      input.Filters,
-      context
-    );
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.SortCriteria !== undefined) {
-    bodyParams["SortCriteria"] = serializeAws_restJson1_1SortCriteria(
-      input.SortCriteria,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Filters !== undefined && {
+      Filters: serializeAws_restJson1_1AwsSecurityFindingFilters(
+        input.Filters,
+        context
+      )
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.SortCriteria !== undefined && {
+      SortCriteria: serializeAws_restJson1_1SortCriteria(
+        input.SortCriteria,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1042,20 +1012,13 @@ export const serializeAws_restJson1_1GetInsightsCommand = async (
   };
   let resolvedPath = "/insights/get";
   let body: any;
-  const bodyParams: any = {};
-  if (input.InsightArns !== undefined) {
-    bodyParams["InsightArns"] = serializeAws_restJson1_1ArnList(
-      input.InsightArns,
-      context
-    );
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.InsightArns !== undefined && {
+      InsightArns: serializeAws_restJson1_1ArnList(input.InsightArns, context)
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1121,14 +1084,14 @@ export const serializeAws_restJson1_1GetMembersCommand = async (
   };
   let resolvedPath = "/members/get";
   let body: any;
-  const bodyParams: any = {};
-  if (input.AccountIds !== undefined) {
-    bodyParams["AccountIds"] = serializeAws_restJson1_1AccountIdList(
-      input.AccountIds,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AccountIds !== undefined && {
+      AccountIds: serializeAws_restJson1_1AccountIdList(
+        input.AccountIds,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1150,14 +1113,14 @@ export const serializeAws_restJson1_1InviteMembersCommand = async (
   };
   let resolvedPath = "/members/invite";
   let body: any;
-  const bodyParams: any = {};
-  if (input.AccountIds !== undefined) {
-    bodyParams["AccountIds"] = serializeAws_restJson1_1AccountIdList(
-      input.AccountIds,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AccountIds !== undefined && {
+      AccountIds: serializeAws_restJson1_1AccountIdList(
+        input.AccountIds,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1315,11 +1278,11 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1TagMap(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_restJson1_1TagMap(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1399,14 +1362,10 @@ export const serializeAws_restJson1_1UpdateActionTargetCommand = async (
     throw new Error("No value provided for input HTTP label: ActionTargetArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Name !== undefined && { Name: input.Name })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1428,23 +1387,18 @@ export const serializeAws_restJson1_1UpdateFindingsCommand = async (
   };
   let resolvedPath = "/findings";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Filters !== undefined) {
-    bodyParams["Filters"] = serializeAws_restJson1_1AwsSecurityFindingFilters(
-      input.Filters,
-      context
-    );
-  }
-  if (input.Note !== undefined) {
-    bodyParams["Note"] = serializeAws_restJson1_1NoteUpdate(
-      input.Note,
-      context
-    );
-  }
-  if (input.RecordState !== undefined) {
-    bodyParams["RecordState"] = input.RecordState;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Filters !== undefined && {
+      Filters: serializeAws_restJson1_1AwsSecurityFindingFilters(
+        input.Filters,
+        context
+      )
+    }),
+    ...(input.Note !== undefined && {
+      Note: serializeAws_restJson1_1NoteUpdate(input.Note, context)
+    }),
+    ...(input.RecordState !== undefined && { RecordState: input.RecordState })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1481,20 +1435,18 @@ export const serializeAws_restJson1_1UpdateInsightCommand = async (
     throw new Error("No value provided for input HTTP label: InsightArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Filters !== undefined) {
-    bodyParams["Filters"] = serializeAws_restJson1_1AwsSecurityFindingFilters(
-      input.Filters,
-      context
-    );
-  }
-  if (input.GroupByAttribute !== undefined) {
-    bodyParams["GroupByAttribute"] = input.GroupByAttribute;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Filters !== undefined && {
+      Filters: serializeAws_restJson1_1AwsSecurityFindingFilters(
+        input.Filters,
+        context
+      )
+    }),
+    ...(input.GroupByAttribute !== undefined && {
+      GroupByAttribute: input.GroupByAttribute
+    }),
+    ...(input.Name !== undefined && { Name: input.Name })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1535,14 +1487,14 @@ export const serializeAws_restJson1_1UpdateStandardsControlCommand = async (
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.ControlStatus !== undefined) {
-    bodyParams["ControlStatus"] = input.ControlStatus;
-  }
-  if (input.DisabledReason !== undefined) {
-    bodyParams["DisabledReason"] = input.DisabledReason;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ControlStatus !== undefined && {
+      ControlStatus: input.ControlStatus
+    }),
+    ...(input.DisabledReason !== undefined && {
+      DisabledReason: input.DisabledReason
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

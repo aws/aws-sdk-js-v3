@@ -210,11 +210,11 @@ export const serializeAws_restJson1_1BatchDescribeSimulationJobCommand = async (
   };
   let resolvedPath = "/batchDescribeSimulationJob";
   let body: any;
-  const bodyParams: any = {};
-  if (input.jobs !== undefined) {
-    bodyParams["jobs"] = serializeAws_restJson1_1Arns(input.jobs, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.jobs !== undefined && {
+      jobs: serializeAws_restJson1_1Arns(input.jobs, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -236,11 +236,9 @@ export const serializeAws_restJson1_1CancelDeploymentJobCommand = async (
   };
   let resolvedPath = "/cancelDeploymentJob";
   let body: any;
-  const bodyParams: any = {};
-  if (input.job !== undefined) {
-    bodyParams["job"] = input.job;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.job !== undefined && { job: input.job })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -262,11 +260,9 @@ export const serializeAws_restJson1_1CancelSimulationJobCommand = async (
   };
   let resolvedPath = "/cancelSimulationJob";
   let body: any;
-  const bodyParams: any = {};
-  if (input.job !== undefined) {
-    bodyParams["job"] = input.job;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.job !== undefined && { job: input.job })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -288,34 +284,25 @@ export const serializeAws_restJson1_1CreateDeploymentJobCommand = async (
   };
   let resolvedPath = "/createDeploymentJob";
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientRequestToken === undefined) {
-    input.clientRequestToken = generateIdempotencyToken();
-  }
-  if (input.clientRequestToken !== undefined) {
-    bodyParams["clientRequestToken"] = input.clientRequestToken;
-  }
-  if (input.deploymentApplicationConfigs !== undefined) {
-    bodyParams[
-      "deploymentApplicationConfigs"
-    ] = serializeAws_restJson1_1DeploymentApplicationConfigs(
-      input.deploymentApplicationConfigs,
-      context
-    );
-  }
-  if (input.deploymentConfig !== undefined) {
-    bodyParams["deploymentConfig"] = serializeAws_restJson1_1DeploymentConfig(
-      input.deploymentConfig,
-      context
-    );
-  }
-  if (input.fleet !== undefined) {
-    bodyParams["fleet"] = input.fleet;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
+    ...(input.deploymentApplicationConfigs !== undefined && {
+      deploymentApplicationConfigs: serializeAws_restJson1_1DeploymentApplicationConfigs(
+        input.deploymentApplicationConfigs,
+        context
+      )
+    }),
+    ...(input.deploymentConfig !== undefined && {
+      deploymentConfig: serializeAws_restJson1_1DeploymentConfig(
+        input.deploymentConfig,
+        context
+      )
+    }),
+    ...(input.fleet !== undefined && { fleet: input.fleet }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -337,14 +324,12 @@ export const serializeAws_restJson1_1CreateFleetCommand = async (
   };
   let resolvedPath = "/createFleet";
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -366,20 +351,18 @@ export const serializeAws_restJson1_1CreateRobotCommand = async (
   };
   let resolvedPath = "/createRobot";
   let body: any;
-  const bodyParams: any = {};
-  if (input.architecture !== undefined) {
-    bodyParams["architecture"] = input.architecture;
-  }
-  if (input.greengrassGroupId !== undefined) {
-    bodyParams["greengrassGroupId"] = input.greengrassGroupId;
-  }
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.architecture !== undefined && {
+      architecture: input.architecture
+    }),
+    ...(input.greengrassGroupId !== undefined && {
+      greengrassGroupId: input.greengrassGroupId
+    }),
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -401,28 +384,21 @@ export const serializeAws_restJson1_1CreateRobotApplicationCommand = async (
   };
   let resolvedPath = "/createRobotApplication";
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.robotSoftwareSuite !== undefined) {
-    bodyParams[
-      "robotSoftwareSuite"
-    ] = serializeAws_restJson1_1RobotSoftwareSuite(
-      input.robotSoftwareSuite,
-      context
-    );
-  }
-  if (input.sources !== undefined) {
-    bodyParams["sources"] = serializeAws_restJson1_1SourceConfigs(
-      input.sources,
-      context
-    );
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.robotSoftwareSuite !== undefined && {
+      robotSoftwareSuite: serializeAws_restJson1_1RobotSoftwareSuite(
+        input.robotSoftwareSuite,
+        context
+      )
+    }),
+    ...(input.sources !== undefined && {
+      sources: serializeAws_restJson1_1SourceConfigs(input.sources, context)
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -444,14 +420,12 @@ export const serializeAws_restJson1_1CreateRobotApplicationVersionCommand = asyn
   };
   let resolvedPath = "/createRobotApplicationVersion";
   let body: any;
-  const bodyParams: any = {};
-  if (input.application !== undefined) {
-    bodyParams["application"] = input.application;
-  }
-  if (input.currentRevisionId !== undefined) {
-    bodyParams["currentRevisionId"] = input.currentRevisionId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.application !== undefined && { application: input.application }),
+    ...(input.currentRevisionId !== undefined && {
+      currentRevisionId: input.currentRevisionId
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -473,42 +447,33 @@ export const serializeAws_restJson1_1CreateSimulationApplicationCommand = async 
   };
   let resolvedPath = "/createSimulationApplication";
   let body: any;
-  const bodyParams: any = {};
-  if (input.name !== undefined) {
-    bodyParams["name"] = input.name;
-  }
-  if (input.renderingEngine !== undefined) {
-    bodyParams["renderingEngine"] = serializeAws_restJson1_1RenderingEngine(
-      input.renderingEngine,
-      context
-    );
-  }
-  if (input.robotSoftwareSuite !== undefined) {
-    bodyParams[
-      "robotSoftwareSuite"
-    ] = serializeAws_restJson1_1RobotSoftwareSuite(
-      input.robotSoftwareSuite,
-      context
-    );
-  }
-  if (input.simulationSoftwareSuite !== undefined) {
-    bodyParams[
-      "simulationSoftwareSuite"
-    ] = serializeAws_restJson1_1SimulationSoftwareSuite(
-      input.simulationSoftwareSuite,
-      context
-    );
-  }
-  if (input.sources !== undefined) {
-    bodyParams["sources"] = serializeAws_restJson1_1SourceConfigs(
-      input.sources,
-      context
-    );
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.name !== undefined && { name: input.name }),
+    ...(input.renderingEngine !== undefined && {
+      renderingEngine: serializeAws_restJson1_1RenderingEngine(
+        input.renderingEngine,
+        context
+      )
+    }),
+    ...(input.robotSoftwareSuite !== undefined && {
+      robotSoftwareSuite: serializeAws_restJson1_1RobotSoftwareSuite(
+        input.robotSoftwareSuite,
+        context
+      )
+    }),
+    ...(input.simulationSoftwareSuite !== undefined && {
+      simulationSoftwareSuite: serializeAws_restJson1_1SimulationSoftwareSuite(
+        input.simulationSoftwareSuite,
+        context
+      )
+    }),
+    ...(input.sources !== undefined && {
+      sources: serializeAws_restJson1_1SourceConfigs(input.sources, context)
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -530,14 +495,12 @@ export const serializeAws_restJson1_1CreateSimulationApplicationVersionCommand =
   };
   let resolvedPath = "/createSimulationApplicationVersion";
   let body: any;
-  const bodyParams: any = {};
-  if (input.application !== undefined) {
-    bodyParams["application"] = input.application;
-  }
-  if (input.currentRevisionId !== undefined) {
-    bodyParams["currentRevisionId"] = input.currentRevisionId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.application !== undefined && { application: input.application }),
+    ...(input.currentRevisionId !== undefined && {
+      currentRevisionId: input.currentRevisionId
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -559,66 +522,52 @@ export const serializeAws_restJson1_1CreateSimulationJobCommand = async (
   };
   let resolvedPath = "/createSimulationJob";
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientRequestToken === undefined) {
-    input.clientRequestToken = generateIdempotencyToken();
-  }
-  if (input.clientRequestToken !== undefined) {
-    bodyParams["clientRequestToken"] = input.clientRequestToken;
-  }
-  if (input.dataSources !== undefined) {
-    bodyParams["dataSources"] = serializeAws_restJson1_1DataSourceConfigs(
-      input.dataSources,
-      context
-    );
-  }
-  if (input.failureBehavior !== undefined) {
-    bodyParams["failureBehavior"] = input.failureBehavior;
-  }
-  if (input.iamRole !== undefined) {
-    bodyParams["iamRole"] = input.iamRole;
-  }
-  if (input.loggingConfig !== undefined) {
-    bodyParams["loggingConfig"] = serializeAws_restJson1_1LoggingConfig(
-      input.loggingConfig,
-      context
-    );
-  }
-  if (input.maxJobDurationInSeconds !== undefined) {
-    bodyParams["maxJobDurationInSeconds"] = input.maxJobDurationInSeconds;
-  }
-  if (input.outputLocation !== undefined) {
-    bodyParams["outputLocation"] = serializeAws_restJson1_1OutputLocation(
-      input.outputLocation,
-      context
-    );
-  }
-  if (input.robotApplications !== undefined) {
-    bodyParams[
-      "robotApplications"
-    ] = serializeAws_restJson1_1RobotApplicationConfigs(
-      input.robotApplications,
-      context
-    );
-  }
-  if (input.simulationApplications !== undefined) {
-    bodyParams[
-      "simulationApplications"
-    ] = serializeAws_restJson1_1SimulationApplicationConfigs(
-      input.simulationApplications,
-      context
-    );
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
-  }
-  if (input.vpcConfig !== undefined) {
-    bodyParams["vpcConfig"] = serializeAws_restJson1_1VPCConfig(
-      input.vpcConfig,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
+    ...(input.dataSources !== undefined && {
+      dataSources: serializeAws_restJson1_1DataSourceConfigs(
+        input.dataSources,
+        context
+      )
+    }),
+    ...(input.failureBehavior !== undefined && {
+      failureBehavior: input.failureBehavior
+    }),
+    ...(input.iamRole !== undefined && { iamRole: input.iamRole }),
+    ...(input.loggingConfig !== undefined && {
+      loggingConfig: serializeAws_restJson1_1LoggingConfig(
+        input.loggingConfig,
+        context
+      )
+    }),
+    ...(input.maxJobDurationInSeconds !== undefined && {
+      maxJobDurationInSeconds: input.maxJobDurationInSeconds
+    }),
+    ...(input.outputLocation !== undefined && {
+      outputLocation: serializeAws_restJson1_1OutputLocation(
+        input.outputLocation,
+        context
+      )
+    }),
+    ...(input.robotApplications !== undefined && {
+      robotApplications: serializeAws_restJson1_1RobotApplicationConfigs(
+        input.robotApplications,
+        context
+      )
+    }),
+    ...(input.simulationApplications !== undefined && {
+      simulationApplications: serializeAws_restJson1_1SimulationApplicationConfigs(
+        input.simulationApplications,
+        context
+      )
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.tags, context)
+    }),
+    ...(input.vpcConfig !== undefined && {
+      vpcConfig: serializeAws_restJson1_1VPCConfig(input.vpcConfig, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -640,11 +589,9 @@ export const serializeAws_restJson1_1DeleteFleetCommand = async (
   };
   let resolvedPath = "/deleteFleet";
   let body: any;
-  const bodyParams: any = {};
-  if (input.fleet !== undefined) {
-    bodyParams["fleet"] = input.fleet;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.fleet !== undefined && { fleet: input.fleet })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -666,11 +613,9 @@ export const serializeAws_restJson1_1DeleteRobotCommand = async (
   };
   let resolvedPath = "/deleteRobot";
   let body: any;
-  const bodyParams: any = {};
-  if (input.robot !== undefined) {
-    bodyParams["robot"] = input.robot;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.robot !== undefined && { robot: input.robot })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -692,14 +637,12 @@ export const serializeAws_restJson1_1DeleteRobotApplicationCommand = async (
   };
   let resolvedPath = "/deleteRobotApplication";
   let body: any;
-  const bodyParams: any = {};
-  if (input.application !== undefined) {
-    bodyParams["application"] = input.application;
-  }
-  if (input.applicationVersion !== undefined) {
-    bodyParams["applicationVersion"] = input.applicationVersion;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.application !== undefined && { application: input.application }),
+    ...(input.applicationVersion !== undefined && {
+      applicationVersion: input.applicationVersion
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -721,14 +664,12 @@ export const serializeAws_restJson1_1DeleteSimulationApplicationCommand = async 
   };
   let resolvedPath = "/deleteSimulationApplication";
   let body: any;
-  const bodyParams: any = {};
-  if (input.application !== undefined) {
-    bodyParams["application"] = input.application;
-  }
-  if (input.applicationVersion !== undefined) {
-    bodyParams["applicationVersion"] = input.applicationVersion;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.application !== undefined && { application: input.application }),
+    ...(input.applicationVersion !== undefined && {
+      applicationVersion: input.applicationVersion
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -750,14 +691,10 @@ export const serializeAws_restJson1_1DeregisterRobotCommand = async (
   };
   let resolvedPath = "/deregisterRobot";
   let body: any;
-  const bodyParams: any = {};
-  if (input.fleet !== undefined) {
-    bodyParams["fleet"] = input.fleet;
-  }
-  if (input.robot !== undefined) {
-    bodyParams["robot"] = input.robot;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.fleet !== undefined && { fleet: input.fleet }),
+    ...(input.robot !== undefined && { robot: input.robot })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -779,11 +716,9 @@ export const serializeAws_restJson1_1DescribeDeploymentJobCommand = async (
   };
   let resolvedPath = "/describeDeploymentJob";
   let body: any;
-  const bodyParams: any = {};
-  if (input.job !== undefined) {
-    bodyParams["job"] = input.job;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.job !== undefined && { job: input.job })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -805,11 +740,9 @@ export const serializeAws_restJson1_1DescribeFleetCommand = async (
   };
   let resolvedPath = "/describeFleet";
   let body: any;
-  const bodyParams: any = {};
-  if (input.fleet !== undefined) {
-    bodyParams["fleet"] = input.fleet;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.fleet !== undefined && { fleet: input.fleet })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -831,11 +764,9 @@ export const serializeAws_restJson1_1DescribeRobotCommand = async (
   };
   let resolvedPath = "/describeRobot";
   let body: any;
-  const bodyParams: any = {};
-  if (input.robot !== undefined) {
-    bodyParams["robot"] = input.robot;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.robot !== undefined && { robot: input.robot })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -857,14 +788,12 @@ export const serializeAws_restJson1_1DescribeRobotApplicationCommand = async (
   };
   let resolvedPath = "/describeRobotApplication";
   let body: any;
-  const bodyParams: any = {};
-  if (input.application !== undefined) {
-    bodyParams["application"] = input.application;
-  }
-  if (input.applicationVersion !== undefined) {
-    bodyParams["applicationVersion"] = input.applicationVersion;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.application !== undefined && { application: input.application }),
+    ...(input.applicationVersion !== undefined && {
+      applicationVersion: input.applicationVersion
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -886,14 +815,12 @@ export const serializeAws_restJson1_1DescribeSimulationApplicationCommand = asyn
   };
   let resolvedPath = "/describeSimulationApplication";
   let body: any;
-  const bodyParams: any = {};
-  if (input.application !== undefined) {
-    bodyParams["application"] = input.application;
-  }
-  if (input.applicationVersion !== undefined) {
-    bodyParams["applicationVersion"] = input.applicationVersion;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.application !== undefined && { application: input.application }),
+    ...(input.applicationVersion !== undefined && {
+      applicationVersion: input.applicationVersion
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -915,11 +842,9 @@ export const serializeAws_restJson1_1DescribeSimulationJobCommand = async (
   };
   let resolvedPath = "/describeSimulationJob";
   let body: any;
-  const bodyParams: any = {};
-  if (input.job !== undefined) {
-    bodyParams["job"] = input.job;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.job !== undefined && { job: input.job })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -941,20 +866,13 @@ export const serializeAws_restJson1_1ListDeploymentJobsCommand = async (
   };
   let resolvedPath = "/listDeploymentJobs";
   let body: any;
-  const bodyParams: any = {};
-  if (input.filters !== undefined) {
-    bodyParams["filters"] = serializeAws_restJson1_1Filters(
-      input.filters,
-      context
-    );
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.filters !== undefined && {
+      filters: serializeAws_restJson1_1Filters(input.filters, context)
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -976,20 +894,13 @@ export const serializeAws_restJson1_1ListFleetsCommand = async (
   };
   let resolvedPath = "/listFleets";
   let body: any;
-  const bodyParams: any = {};
-  if (input.filters !== undefined) {
-    bodyParams["filters"] = serializeAws_restJson1_1Filters(
-      input.filters,
-      context
-    );
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.filters !== undefined && {
+      filters: serializeAws_restJson1_1Filters(input.filters, context)
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1011,23 +922,16 @@ export const serializeAws_restJson1_1ListRobotApplicationsCommand = async (
   };
   let resolvedPath = "/listRobotApplications";
   let body: any;
-  const bodyParams: any = {};
-  if (input.filters !== undefined) {
-    bodyParams["filters"] = serializeAws_restJson1_1Filters(
-      input.filters,
-      context
-    );
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.versionQualifier !== undefined) {
-    bodyParams["versionQualifier"] = input.versionQualifier;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.filters !== undefined && {
+      filters: serializeAws_restJson1_1Filters(input.filters, context)
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.versionQualifier !== undefined && {
+      versionQualifier: input.versionQualifier
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1049,20 +953,13 @@ export const serializeAws_restJson1_1ListRobotsCommand = async (
   };
   let resolvedPath = "/listRobots";
   let body: any;
-  const bodyParams: any = {};
-  if (input.filters !== undefined) {
-    bodyParams["filters"] = serializeAws_restJson1_1Filters(
-      input.filters,
-      context
-    );
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.filters !== undefined && {
+      filters: serializeAws_restJson1_1Filters(input.filters, context)
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1084,23 +981,16 @@ export const serializeAws_restJson1_1ListSimulationApplicationsCommand = async (
   };
   let resolvedPath = "/listSimulationApplications";
   let body: any;
-  const bodyParams: any = {};
-  if (input.filters !== undefined) {
-    bodyParams["filters"] = serializeAws_restJson1_1Filters(
-      input.filters,
-      context
-    );
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  if (input.versionQualifier !== undefined) {
-    bodyParams["versionQualifier"] = input.versionQualifier;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.filters !== undefined && {
+      filters: serializeAws_restJson1_1Filters(input.filters, context)
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken }),
+    ...(input.versionQualifier !== undefined && {
+      versionQualifier: input.versionQualifier
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1122,20 +1012,13 @@ export const serializeAws_restJson1_1ListSimulationJobsCommand = async (
   };
   let resolvedPath = "/listSimulationJobs";
   let body: any;
-  const bodyParams: any = {};
-  if (input.filters !== undefined) {
-    bodyParams["filters"] = serializeAws_restJson1_1Filters(
-      input.filters,
-      context
-    );
-  }
-  if (input.maxResults !== undefined) {
-    bodyParams["maxResults"] = input.maxResults;
-  }
-  if (input.nextToken !== undefined) {
-    bodyParams["nextToken"] = input.nextToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.filters !== undefined && {
+      filters: serializeAws_restJson1_1Filters(input.filters, context)
+    }),
+    ...(input.maxResults !== undefined && { maxResults: input.maxResults }),
+    ...(input.nextToken !== undefined && { nextToken: input.nextToken })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1192,14 +1075,10 @@ export const serializeAws_restJson1_1RegisterRobotCommand = async (
   };
   let resolvedPath = "/registerRobot";
   let body: any;
-  const bodyParams: any = {};
-  if (input.fleet !== undefined) {
-    bodyParams["fleet"] = input.fleet;
-  }
-  if (input.robot !== undefined) {
-    bodyParams["robot"] = input.robot;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.fleet !== undefined && { fleet: input.fleet }),
+    ...(input.robot !== undefined && { robot: input.robot })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1221,11 +1100,9 @@ export const serializeAws_restJson1_1RestartSimulationJobCommand = async (
   };
   let resolvedPath = "/restartSimulationJob";
   let body: any;
-  const bodyParams: any = {};
-  if (input.job !== undefined) {
-    bodyParams["job"] = input.job;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.job !== undefined && { job: input.job })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1247,17 +1124,10 @@ export const serializeAws_restJson1_1SyncDeploymentJobCommand = async (
   };
   let resolvedPath = "/syncDeploymentJob";
   let body: any;
-  const bodyParams: any = {};
-  if (input.clientRequestToken === undefined) {
-    input.clientRequestToken = generateIdempotencyToken();
-  }
-  if (input.clientRequestToken !== undefined) {
-    bodyParams["clientRequestToken"] = input.clientRequestToken;
-  }
-  if (input.fleet !== undefined) {
-    bodyParams["fleet"] = input.fleet;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
+    ...(input.fleet !== undefined && { fleet: input.fleet })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1293,11 +1163,11 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: resourceArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1360,28 +1230,21 @@ export const serializeAws_restJson1_1UpdateRobotApplicationCommand = async (
   };
   let resolvedPath = "/updateRobotApplication";
   let body: any;
-  const bodyParams: any = {};
-  if (input.application !== undefined) {
-    bodyParams["application"] = input.application;
-  }
-  if (input.currentRevisionId !== undefined) {
-    bodyParams["currentRevisionId"] = input.currentRevisionId;
-  }
-  if (input.robotSoftwareSuite !== undefined) {
-    bodyParams[
-      "robotSoftwareSuite"
-    ] = serializeAws_restJson1_1RobotSoftwareSuite(
-      input.robotSoftwareSuite,
-      context
-    );
-  }
-  if (input.sources !== undefined) {
-    bodyParams["sources"] = serializeAws_restJson1_1SourceConfigs(
-      input.sources,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.application !== undefined && { application: input.application }),
+    ...(input.currentRevisionId !== undefined && {
+      currentRevisionId: input.currentRevisionId
+    }),
+    ...(input.robotSoftwareSuite !== undefined && {
+      robotSoftwareSuite: serializeAws_restJson1_1RobotSoftwareSuite(
+        input.robotSoftwareSuite,
+        context
+      )
+    }),
+    ...(input.sources !== undefined && {
+      sources: serializeAws_restJson1_1SourceConfigs(input.sources, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1403,42 +1266,33 @@ export const serializeAws_restJson1_1UpdateSimulationApplicationCommand = async 
   };
   let resolvedPath = "/updateSimulationApplication";
   let body: any;
-  const bodyParams: any = {};
-  if (input.application !== undefined) {
-    bodyParams["application"] = input.application;
-  }
-  if (input.currentRevisionId !== undefined) {
-    bodyParams["currentRevisionId"] = input.currentRevisionId;
-  }
-  if (input.renderingEngine !== undefined) {
-    bodyParams["renderingEngine"] = serializeAws_restJson1_1RenderingEngine(
-      input.renderingEngine,
-      context
-    );
-  }
-  if (input.robotSoftwareSuite !== undefined) {
-    bodyParams[
-      "robotSoftwareSuite"
-    ] = serializeAws_restJson1_1RobotSoftwareSuite(
-      input.robotSoftwareSuite,
-      context
-    );
-  }
-  if (input.simulationSoftwareSuite !== undefined) {
-    bodyParams[
-      "simulationSoftwareSuite"
-    ] = serializeAws_restJson1_1SimulationSoftwareSuite(
-      input.simulationSoftwareSuite,
-      context
-    );
-  }
-  if (input.sources !== undefined) {
-    bodyParams["sources"] = serializeAws_restJson1_1SourceConfigs(
-      input.sources,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.application !== undefined && { application: input.application }),
+    ...(input.currentRevisionId !== undefined && {
+      currentRevisionId: input.currentRevisionId
+    }),
+    ...(input.renderingEngine !== undefined && {
+      renderingEngine: serializeAws_restJson1_1RenderingEngine(
+        input.renderingEngine,
+        context
+      )
+    }),
+    ...(input.robotSoftwareSuite !== undefined && {
+      robotSoftwareSuite: serializeAws_restJson1_1RobotSoftwareSuite(
+        input.robotSoftwareSuite,
+        context
+      )
+    }),
+    ...(input.simulationSoftwareSuite !== undefined && {
+      simulationSoftwareSuite: serializeAws_restJson1_1SimulationSoftwareSuite(
+        input.simulationSoftwareSuite,
+        context
+      )
+    }),
+    ...(input.sources !== undefined && {
+      sources: serializeAws_restJson1_1SourceConfigs(input.sources, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

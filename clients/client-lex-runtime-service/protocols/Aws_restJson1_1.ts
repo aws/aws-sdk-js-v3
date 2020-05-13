@@ -293,23 +293,21 @@ export const serializeAws_restJson1_1PostTextCommand = async (
     throw new Error("No value provided for input HTTP label: userId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.inputText !== undefined) {
-    bodyParams["inputText"] = input.inputText;
-  }
-  if (input.requestAttributes !== undefined) {
-    bodyParams["requestAttributes"] = serializeAws_restJson1_1StringMap(
-      input.requestAttributes,
-      context
-    );
-  }
-  if (input.sessionAttributes !== undefined) {
-    bodyParams["sessionAttributes"] = serializeAws_restJson1_1StringMap(
-      input.sessionAttributes,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.inputText !== undefined && { inputText: input.inputText }),
+    ...(input.requestAttributes !== undefined && {
+      requestAttributes: serializeAws_restJson1_1StringMap(
+        input.requestAttributes,
+        context
+      )
+    }),
+    ...(input.sessionAttributes !== undefined && {
+      sessionAttributes: serializeAws_restJson1_1StringMap(
+        input.sessionAttributes,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -368,28 +366,26 @@ export const serializeAws_restJson1_1PutSessionCommand = async (
     throw new Error("No value provided for input HTTP label: userId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.dialogAction !== undefined) {
-    bodyParams["dialogAction"] = serializeAws_restJson1_1DialogAction(
-      input.dialogAction,
-      context
-    );
-  }
-  if (input.recentIntentSummaryView !== undefined) {
-    bodyParams[
-      "recentIntentSummaryView"
-    ] = serializeAws_restJson1_1IntentSummaryList(
-      input.recentIntentSummaryView,
-      context
-    );
-  }
-  if (input.sessionAttributes !== undefined) {
-    bodyParams["sessionAttributes"] = serializeAws_restJson1_1StringMap(
-      input.sessionAttributes,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.dialogAction !== undefined && {
+      dialogAction: serializeAws_restJson1_1DialogAction(
+        input.dialogAction,
+        context
+      )
+    }),
+    ...(input.recentIntentSummaryView !== undefined && {
+      recentIntentSummaryView: serializeAws_restJson1_1IntentSummaryList(
+        input.recentIntentSummaryView,
+        context
+      )
+    }),
+    ...(input.sessionAttributes !== undefined && {
+      sessionAttributes: serializeAws_restJson1_1StringMap(
+        input.sessionAttributes,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

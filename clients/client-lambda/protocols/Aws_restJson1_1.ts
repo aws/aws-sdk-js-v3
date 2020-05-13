@@ -305,20 +305,14 @@ export const serializeAws_restJson1_1AddLayerVersionPermissionCommand = async (
     ...(input.RevisionId !== undefined && { RevisionId: input.RevisionId })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.Action !== undefined) {
-    bodyParams["Action"] = input.Action;
-  }
-  if (input.OrganizationId !== undefined) {
-    bodyParams["OrganizationId"] = input.OrganizationId;
-  }
-  if (input.Principal !== undefined) {
-    bodyParams["Principal"] = input.Principal;
-  }
-  if (input.StatementId !== undefined) {
-    bodyParams["StatementId"] = input.StatementId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Action !== undefined && { Action: input.Action }),
+    ...(input.OrganizationId !== undefined && {
+      OrganizationId: input.OrganizationId
+    }),
+    ...(input.Principal !== undefined && { Principal: input.Principal }),
+    ...(input.StatementId !== undefined && { StatementId: input.StatementId })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -358,29 +352,19 @@ export const serializeAws_restJson1_1AddPermissionCommand = async (
     ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.Action !== undefined) {
-    bodyParams["Action"] = input.Action;
-  }
-  if (input.EventSourceToken !== undefined) {
-    bodyParams["EventSourceToken"] = input.EventSourceToken;
-  }
-  if (input.Principal !== undefined) {
-    bodyParams["Principal"] = input.Principal;
-  }
-  if (input.RevisionId !== undefined) {
-    bodyParams["RevisionId"] = input.RevisionId;
-  }
-  if (input.SourceAccount !== undefined) {
-    bodyParams["SourceAccount"] = input.SourceAccount;
-  }
-  if (input.SourceArn !== undefined) {
-    bodyParams["SourceArn"] = input.SourceArn;
-  }
-  if (input.StatementId !== undefined) {
-    bodyParams["StatementId"] = input.StatementId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Action !== undefined && { Action: input.Action }),
+    ...(input.EventSourceToken !== undefined && {
+      EventSourceToken: input.EventSourceToken
+    }),
+    ...(input.Principal !== undefined && { Principal: input.Principal }),
+    ...(input.RevisionId !== undefined && { RevisionId: input.RevisionId }),
+    ...(input.SourceAccount !== undefined && {
+      SourceAccount: input.SourceAccount
+    }),
+    ...(input.SourceArn !== undefined && { SourceArn: input.SourceArn }),
+    ...(input.StatementId !== undefined && { StatementId: input.StatementId })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -417,25 +401,19 @@ export const serializeAws_restJson1_1CreateAliasCommand = async (
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.FunctionVersion !== undefined) {
-    bodyParams["FunctionVersion"] = input.FunctionVersion;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.RoutingConfig !== undefined) {
-    bodyParams[
-      "RoutingConfig"
-    ] = serializeAws_restJson1_1AliasRoutingConfiguration(
-      input.RoutingConfig,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.FunctionVersion !== undefined && {
+      FunctionVersion: input.FunctionVersion
+    }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.RoutingConfig !== undefined && {
+      RoutingConfig: serializeAws_restJson1_1AliasRoutingConfiguration(
+        input.RoutingConfig,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -457,50 +435,45 @@ export const serializeAws_restJson1_1CreateEventSourceMappingCommand = async (
   };
   let resolvedPath = "/2015-03-31/event-source-mappings";
   let body: any;
-  const bodyParams: any = {};
-  if (input.BatchSize !== undefined) {
-    bodyParams["BatchSize"] = input.BatchSize;
-  }
-  if (input.BisectBatchOnFunctionError !== undefined) {
-    bodyParams["BisectBatchOnFunctionError"] = input.BisectBatchOnFunctionError;
-  }
-  if (input.DestinationConfig !== undefined) {
-    bodyParams["DestinationConfig"] = serializeAws_restJson1_1DestinationConfig(
-      input.DestinationConfig,
-      context
-    );
-  }
-  if (input.Enabled !== undefined) {
-    bodyParams["Enabled"] = input.Enabled;
-  }
-  if (input.EventSourceArn !== undefined) {
-    bodyParams["EventSourceArn"] = input.EventSourceArn;
-  }
-  if (input.FunctionName !== undefined) {
-    bodyParams["FunctionName"] = input.FunctionName;
-  }
-  if (input.MaximumBatchingWindowInSeconds !== undefined) {
-    bodyParams["MaximumBatchingWindowInSeconds"] =
-      input.MaximumBatchingWindowInSeconds;
-  }
-  if (input.MaximumRecordAgeInSeconds !== undefined) {
-    bodyParams["MaximumRecordAgeInSeconds"] = input.MaximumRecordAgeInSeconds;
-  }
-  if (input.MaximumRetryAttempts !== undefined) {
-    bodyParams["MaximumRetryAttempts"] = input.MaximumRetryAttempts;
-  }
-  if (input.ParallelizationFactor !== undefined) {
-    bodyParams["ParallelizationFactor"] = input.ParallelizationFactor;
-  }
-  if (input.StartingPosition !== undefined) {
-    bodyParams["StartingPosition"] = input.StartingPosition;
-  }
-  if (input.StartingPositionTimestamp !== undefined) {
-    bodyParams["StartingPositionTimestamp"] = Math.round(
-      input.StartingPositionTimestamp.getTime() / 1000
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.BatchSize !== undefined && { BatchSize: input.BatchSize }),
+    ...(input.BisectBatchOnFunctionError !== undefined && {
+      BisectBatchOnFunctionError: input.BisectBatchOnFunctionError
+    }),
+    ...(input.DestinationConfig !== undefined && {
+      DestinationConfig: serializeAws_restJson1_1DestinationConfig(
+        input.DestinationConfig,
+        context
+      )
+    }),
+    ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
+    ...(input.EventSourceArn !== undefined && {
+      EventSourceArn: input.EventSourceArn
+    }),
+    ...(input.FunctionName !== undefined && {
+      FunctionName: input.FunctionName
+    }),
+    ...(input.MaximumBatchingWindowInSeconds !== undefined && {
+      MaximumBatchingWindowInSeconds: input.MaximumBatchingWindowInSeconds
+    }),
+    ...(input.MaximumRecordAgeInSeconds !== undefined && {
+      MaximumRecordAgeInSeconds: input.MaximumRecordAgeInSeconds
+    }),
+    ...(input.MaximumRetryAttempts !== undefined && {
+      MaximumRetryAttempts: input.MaximumRetryAttempts
+    }),
+    ...(input.ParallelizationFactor !== undefined && {
+      ParallelizationFactor: input.ParallelizationFactor
+    }),
+    ...(input.StartingPosition !== undefined && {
+      StartingPosition: input.StartingPosition
+    }),
+    ...(input.StartingPositionTimestamp !== undefined && {
+      StartingPositionTimestamp: Math.round(
+        input.StartingPositionTimestamp.getTime() / 1000
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -522,74 +495,49 @@ export const serializeAws_restJson1_1CreateFunctionCommand = async (
   };
   let resolvedPath = "/2015-03-31/functions";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Code !== undefined) {
-    bodyParams["Code"] = serializeAws_restJson1_1FunctionCode(
-      input.Code,
-      context
-    );
-  }
-  if (input.DeadLetterConfig !== undefined) {
-    bodyParams["DeadLetterConfig"] = serializeAws_restJson1_1DeadLetterConfig(
-      input.DeadLetterConfig,
-      context
-    );
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Environment !== undefined) {
-    bodyParams["Environment"] = serializeAws_restJson1_1Environment(
-      input.Environment,
-      context
-    );
-  }
-  if (input.FunctionName !== undefined) {
-    bodyParams["FunctionName"] = input.FunctionName;
-  }
-  if (input.Handler !== undefined) {
-    bodyParams["Handler"] = input.Handler;
-  }
-  if (input.KMSKeyArn !== undefined) {
-    bodyParams["KMSKeyArn"] = input.KMSKeyArn;
-  }
-  if (input.Layers !== undefined) {
-    bodyParams["Layers"] = serializeAws_restJson1_1LayerList(
-      input.Layers,
-      context
-    );
-  }
-  if (input.MemorySize !== undefined) {
-    bodyParams["MemorySize"] = input.MemorySize;
-  }
-  if (input.Publish !== undefined) {
-    bodyParams["Publish"] = input.Publish;
-  }
-  if (input.Role !== undefined) {
-    bodyParams["Role"] = input.Role;
-  }
-  if (input.Runtime !== undefined) {
-    bodyParams["Runtime"] = input.Runtime;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
-  }
-  if (input.Timeout !== undefined) {
-    bodyParams["Timeout"] = input.Timeout;
-  }
-  if (input.TracingConfig !== undefined) {
-    bodyParams["TracingConfig"] = serializeAws_restJson1_1TracingConfig(
-      input.TracingConfig,
-      context
-    );
-  }
-  if (input.VpcConfig !== undefined) {
-    bodyParams["VpcConfig"] = serializeAws_restJson1_1VpcConfig(
-      input.VpcConfig,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Code !== undefined && {
+      Code: serializeAws_restJson1_1FunctionCode(input.Code, context)
+    }),
+    ...(input.DeadLetterConfig !== undefined && {
+      DeadLetterConfig: serializeAws_restJson1_1DeadLetterConfig(
+        input.DeadLetterConfig,
+        context
+      )
+    }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Environment !== undefined && {
+      Environment: serializeAws_restJson1_1Environment(
+        input.Environment,
+        context
+      )
+    }),
+    ...(input.FunctionName !== undefined && {
+      FunctionName: input.FunctionName
+    }),
+    ...(input.Handler !== undefined && { Handler: input.Handler }),
+    ...(input.KMSKeyArn !== undefined && { KMSKeyArn: input.KMSKeyArn }),
+    ...(input.Layers !== undefined && {
+      Layers: serializeAws_restJson1_1LayerList(input.Layers, context)
+    }),
+    ...(input.MemorySize !== undefined && { MemorySize: input.MemorySize }),
+    ...(input.Publish !== undefined && { Publish: input.Publish }),
+    ...(input.Role !== undefined && { Role: input.Role }),
+    ...(input.Runtime !== undefined && { Runtime: input.Runtime }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_restJson1_1Tags(input.Tags, context)
+    }),
+    ...(input.Timeout !== undefined && { Timeout: input.Timeout }),
+    ...(input.TracingConfig !== undefined && {
+      TracingConfig: serializeAws_restJson1_1TracingConfig(
+        input.TracingConfig,
+        context
+      )
+    }),
+    ...(input.VpcConfig !== undefined && {
+      VpcConfig: serializeAws_restJson1_1VpcConfig(input.VpcConfig, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1779,28 +1727,22 @@ export const serializeAws_restJson1_1PublishLayerVersionCommand = async (
     throw new Error("No value provided for input HTTP label: LayerName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.CompatibleRuntimes !== undefined) {
-    bodyParams[
-      "CompatibleRuntimes"
-    ] = serializeAws_restJson1_1CompatibleRuntimes(
-      input.CompatibleRuntimes,
-      context
-    );
-  }
-  if (input.Content !== undefined) {
-    bodyParams["Content"] = serializeAws_restJson1_1LayerVersionContentInput(
-      input.Content,
-      context
-    );
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.LicenseInfo !== undefined) {
-    bodyParams["LicenseInfo"] = input.LicenseInfo;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.CompatibleRuntimes !== undefined && {
+      CompatibleRuntimes: serializeAws_restJson1_1CompatibleRuntimes(
+        input.CompatibleRuntimes,
+        context
+      )
+    }),
+    ...(input.Content !== undefined && {
+      Content: serializeAws_restJson1_1LayerVersionContentInput(
+        input.Content,
+        context
+      )
+    }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.LicenseInfo !== undefined && { LicenseInfo: input.LicenseInfo })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1836,17 +1778,11 @@ export const serializeAws_restJson1_1PublishVersionCommand = async (
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.CodeSha256 !== undefined) {
-    bodyParams["CodeSha256"] = input.CodeSha256;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.RevisionId !== undefined) {
-    bodyParams["RevisionId"] = input.RevisionId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.CodeSha256 !== undefined && { CodeSha256: input.CodeSha256 }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.RevisionId !== undefined && { RevisionId: input.RevisionId })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1882,12 +1818,11 @@ export const serializeAws_restJson1_1PutFunctionConcurrencyCommand = async (
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.ReservedConcurrentExecutions !== undefined) {
-    bodyParams["ReservedConcurrentExecutions"] =
-      input.ReservedConcurrentExecutions;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ReservedConcurrentExecutions !== undefined && {
+      ReservedConcurrentExecutions: input.ReservedConcurrentExecutions
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1926,20 +1861,20 @@ export const serializeAws_restJson1_1PutFunctionEventInvokeConfigCommand = async
     ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.DestinationConfig !== undefined) {
-    bodyParams["DestinationConfig"] = serializeAws_restJson1_1DestinationConfig(
-      input.DestinationConfig,
-      context
-    );
-  }
-  if (input.MaximumEventAgeInSeconds !== undefined) {
-    bodyParams["MaximumEventAgeInSeconds"] = input.MaximumEventAgeInSeconds;
-  }
-  if (input.MaximumRetryAttempts !== undefined) {
-    bodyParams["MaximumRetryAttempts"] = input.MaximumRetryAttempts;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DestinationConfig !== undefined && {
+      DestinationConfig: serializeAws_restJson1_1DestinationConfig(
+        input.DestinationConfig,
+        context
+      )
+    }),
+    ...(input.MaximumEventAgeInSeconds !== undefined && {
+      MaximumEventAgeInSeconds: input.MaximumEventAgeInSeconds
+    }),
+    ...(input.MaximumRetryAttempts !== undefined && {
+      MaximumRetryAttempts: input.MaximumRetryAttempts
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1980,12 +1915,11 @@ export const serializeAws_restJson1_1PutProvisionedConcurrencyConfigCommand = as
     ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.ProvisionedConcurrentExecutions !== undefined) {
-    bodyParams["ProvisionedConcurrentExecutions"] =
-      input.ProvisionedConcurrentExecutions;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ProvisionedConcurrentExecutions !== undefined && {
+      ProvisionedConcurrentExecutions: input.ProvisionedConcurrentExecutions
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2141,11 +2075,11 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: Resource.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_restJson1_1Tags(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2232,25 +2166,19 @@ export const serializeAws_restJson1_1UpdateAliasCommand = async (
     throw new Error("No value provided for input HTTP label: Name.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.FunctionVersion !== undefined) {
-    bodyParams["FunctionVersion"] = input.FunctionVersion;
-  }
-  if (input.RevisionId !== undefined) {
-    bodyParams["RevisionId"] = input.RevisionId;
-  }
-  if (input.RoutingConfig !== undefined) {
-    bodyParams[
-      "RoutingConfig"
-    ] = serializeAws_restJson1_1AliasRoutingConfiguration(
-      input.RoutingConfig,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.FunctionVersion !== undefined && {
+      FunctionVersion: input.FunctionVersion
+    }),
+    ...(input.RevisionId !== undefined && { RevisionId: input.RevisionId }),
+    ...(input.RoutingConfig !== undefined && {
+      RoutingConfig: serializeAws_restJson1_1AliasRoutingConfiguration(
+        input.RoutingConfig,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2284,39 +2212,34 @@ export const serializeAws_restJson1_1UpdateEventSourceMappingCommand = async (
     throw new Error("No value provided for input HTTP label: UUID.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.BatchSize !== undefined) {
-    bodyParams["BatchSize"] = input.BatchSize;
-  }
-  if (input.BisectBatchOnFunctionError !== undefined) {
-    bodyParams["BisectBatchOnFunctionError"] = input.BisectBatchOnFunctionError;
-  }
-  if (input.DestinationConfig !== undefined) {
-    bodyParams["DestinationConfig"] = serializeAws_restJson1_1DestinationConfig(
-      input.DestinationConfig,
-      context
-    );
-  }
-  if (input.Enabled !== undefined) {
-    bodyParams["Enabled"] = input.Enabled;
-  }
-  if (input.FunctionName !== undefined) {
-    bodyParams["FunctionName"] = input.FunctionName;
-  }
-  if (input.MaximumBatchingWindowInSeconds !== undefined) {
-    bodyParams["MaximumBatchingWindowInSeconds"] =
-      input.MaximumBatchingWindowInSeconds;
-  }
-  if (input.MaximumRecordAgeInSeconds !== undefined) {
-    bodyParams["MaximumRecordAgeInSeconds"] = input.MaximumRecordAgeInSeconds;
-  }
-  if (input.MaximumRetryAttempts !== undefined) {
-    bodyParams["MaximumRetryAttempts"] = input.MaximumRetryAttempts;
-  }
-  if (input.ParallelizationFactor !== undefined) {
-    bodyParams["ParallelizationFactor"] = input.ParallelizationFactor;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.BatchSize !== undefined && { BatchSize: input.BatchSize }),
+    ...(input.BisectBatchOnFunctionError !== undefined && {
+      BisectBatchOnFunctionError: input.BisectBatchOnFunctionError
+    }),
+    ...(input.DestinationConfig !== undefined && {
+      DestinationConfig: serializeAws_restJson1_1DestinationConfig(
+        input.DestinationConfig,
+        context
+      )
+    }),
+    ...(input.Enabled !== undefined && { Enabled: input.Enabled }),
+    ...(input.FunctionName !== undefined && {
+      FunctionName: input.FunctionName
+    }),
+    ...(input.MaximumBatchingWindowInSeconds !== undefined && {
+      MaximumBatchingWindowInSeconds: input.MaximumBatchingWindowInSeconds
+    }),
+    ...(input.MaximumRecordAgeInSeconds !== undefined && {
+      MaximumRecordAgeInSeconds: input.MaximumRecordAgeInSeconds
+    }),
+    ...(input.MaximumRetryAttempts !== undefined && {
+      MaximumRetryAttempts: input.MaximumRetryAttempts
+    }),
+    ...(input.ParallelizationFactor !== undefined && {
+      ParallelizationFactor: input.ParallelizationFactor
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2352,29 +2275,19 @@ export const serializeAws_restJson1_1UpdateFunctionCodeCommand = async (
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.DryRun !== undefined) {
-    bodyParams["DryRun"] = input.DryRun;
-  }
-  if (input.Publish !== undefined) {
-    bodyParams["Publish"] = input.Publish;
-  }
-  if (input.RevisionId !== undefined) {
-    bodyParams["RevisionId"] = input.RevisionId;
-  }
-  if (input.S3Bucket !== undefined) {
-    bodyParams["S3Bucket"] = input.S3Bucket;
-  }
-  if (input.S3Key !== undefined) {
-    bodyParams["S3Key"] = input.S3Key;
-  }
-  if (input.S3ObjectVersion !== undefined) {
-    bodyParams["S3ObjectVersion"] = input.S3ObjectVersion;
-  }
-  if (input.ZipFile !== undefined) {
-    bodyParams["ZipFile"] = context.base64Encoder(input.ZipFile);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
+    ...(input.Publish !== undefined && { Publish: input.Publish }),
+    ...(input.RevisionId !== undefined && { RevisionId: input.RevisionId }),
+    ...(input.S3Bucket !== undefined && { S3Bucket: input.S3Bucket }),
+    ...(input.S3Key !== undefined && { S3Key: input.S3Key }),
+    ...(input.S3ObjectVersion !== undefined && {
+      S3ObjectVersion: input.S3ObjectVersion
+    }),
+    ...(input.ZipFile !== undefined && {
+      ZipFile: context.base64Encoder(input.ZipFile)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2410,62 +2323,40 @@ export const serializeAws_restJson1_1UpdateFunctionConfigurationCommand = async 
     throw new Error("No value provided for input HTTP label: FunctionName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.DeadLetterConfig !== undefined) {
-    bodyParams["DeadLetterConfig"] = serializeAws_restJson1_1DeadLetterConfig(
-      input.DeadLetterConfig,
-      context
-    );
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Environment !== undefined) {
-    bodyParams["Environment"] = serializeAws_restJson1_1Environment(
-      input.Environment,
-      context
-    );
-  }
-  if (input.Handler !== undefined) {
-    bodyParams["Handler"] = input.Handler;
-  }
-  if (input.KMSKeyArn !== undefined) {
-    bodyParams["KMSKeyArn"] = input.KMSKeyArn;
-  }
-  if (input.Layers !== undefined) {
-    bodyParams["Layers"] = serializeAws_restJson1_1LayerList(
-      input.Layers,
-      context
-    );
-  }
-  if (input.MemorySize !== undefined) {
-    bodyParams["MemorySize"] = input.MemorySize;
-  }
-  if (input.RevisionId !== undefined) {
-    bodyParams["RevisionId"] = input.RevisionId;
-  }
-  if (input.Role !== undefined) {
-    bodyParams["Role"] = input.Role;
-  }
-  if (input.Runtime !== undefined) {
-    bodyParams["Runtime"] = input.Runtime;
-  }
-  if (input.Timeout !== undefined) {
-    bodyParams["Timeout"] = input.Timeout;
-  }
-  if (input.TracingConfig !== undefined) {
-    bodyParams["TracingConfig"] = serializeAws_restJson1_1TracingConfig(
-      input.TracingConfig,
-      context
-    );
-  }
-  if (input.VpcConfig !== undefined) {
-    bodyParams["VpcConfig"] = serializeAws_restJson1_1VpcConfig(
-      input.VpcConfig,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DeadLetterConfig !== undefined && {
+      DeadLetterConfig: serializeAws_restJson1_1DeadLetterConfig(
+        input.DeadLetterConfig,
+        context
+      )
+    }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Environment !== undefined && {
+      Environment: serializeAws_restJson1_1Environment(
+        input.Environment,
+        context
+      )
+    }),
+    ...(input.Handler !== undefined && { Handler: input.Handler }),
+    ...(input.KMSKeyArn !== undefined && { KMSKeyArn: input.KMSKeyArn }),
+    ...(input.Layers !== undefined && {
+      Layers: serializeAws_restJson1_1LayerList(input.Layers, context)
+    }),
+    ...(input.MemorySize !== undefined && { MemorySize: input.MemorySize }),
+    ...(input.RevisionId !== undefined && { RevisionId: input.RevisionId }),
+    ...(input.Role !== undefined && { Role: input.Role }),
+    ...(input.Runtime !== undefined && { Runtime: input.Runtime }),
+    ...(input.Timeout !== undefined && { Timeout: input.Timeout }),
+    ...(input.TracingConfig !== undefined && {
+      TracingConfig: serializeAws_restJson1_1TracingConfig(
+        input.TracingConfig,
+        context
+      )
+    }),
+    ...(input.VpcConfig !== undefined && {
+      VpcConfig: serializeAws_restJson1_1VpcConfig(input.VpcConfig, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2504,20 +2395,20 @@ export const serializeAws_restJson1_1UpdateFunctionEventInvokeConfigCommand = as
     ...(input.Qualifier !== undefined && { Qualifier: input.Qualifier })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.DestinationConfig !== undefined) {
-    bodyParams["DestinationConfig"] = serializeAws_restJson1_1DestinationConfig(
-      input.DestinationConfig,
-      context
-    );
-  }
-  if (input.MaximumEventAgeInSeconds !== undefined) {
-    bodyParams["MaximumEventAgeInSeconds"] = input.MaximumEventAgeInSeconds;
-  }
-  if (input.MaximumRetryAttempts !== undefined) {
-    bodyParams["MaximumRetryAttempts"] = input.MaximumRetryAttempts;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DestinationConfig !== undefined && {
+      DestinationConfig: serializeAws_restJson1_1DestinationConfig(
+        input.DestinationConfig,
+        context
+      )
+    }),
+    ...(input.MaximumEventAgeInSeconds !== undefined && {
+      MaximumEventAgeInSeconds: input.MaximumEventAgeInSeconds
+    }),
+    ...(input.MaximumRetryAttempts !== undefined && {
+      MaximumRetryAttempts: input.MaximumRetryAttempts
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

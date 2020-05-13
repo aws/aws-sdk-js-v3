@@ -126,14 +126,14 @@ export const serializeAws_restJson1_1AddFlowOutputsCommand = async (
     throw new Error("No value provided for input HTTP label: FlowArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Outputs !== undefined) {
-    bodyParams["outputs"] = serializeAws_restJson1_1__listOfAddOutputRequest(
-      input.Outputs,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Outputs !== undefined && {
+      outputs: serializeAws_restJson1_1__listOfAddOutputRequest(
+        input.Outputs,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -155,34 +155,27 @@ export const serializeAws_restJson1_1CreateFlowCommand = async (
   };
   let resolvedPath = "/v1/flows";
   let body: any;
-  const bodyParams: any = {};
-  if (input.AvailabilityZone !== undefined) {
-    bodyParams["availabilityZone"] = input.AvailabilityZone;
-  }
-  if (input.Entitlements !== undefined) {
-    bodyParams[
-      "entitlements"
-    ] = serializeAws_restJson1_1__listOfGrantEntitlementRequest(
-      input.Entitlements,
-      context
-    );
-  }
-  if (input.Name !== undefined) {
-    bodyParams["name"] = input.Name;
-  }
-  if (input.Outputs !== undefined) {
-    bodyParams["outputs"] = serializeAws_restJson1_1__listOfAddOutputRequest(
-      input.Outputs,
-      context
-    );
-  }
-  if (input.Source !== undefined) {
-    bodyParams["source"] = serializeAws_restJson1_1SetSourceRequest(
-      input.Source,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AvailabilityZone !== undefined && {
+      availabilityZone: input.AvailabilityZone
+    }),
+    ...(input.Entitlements !== undefined && {
+      entitlements: serializeAws_restJson1_1__listOfGrantEntitlementRequest(
+        input.Entitlements,
+        context
+      )
+    }),
+    ...(input.Name !== undefined && { name: input.Name }),
+    ...(input.Outputs !== undefined && {
+      outputs: serializeAws_restJson1_1__listOfAddOutputRequest(
+        input.Outputs,
+        context
+      )
+    }),
+    ...(input.Source !== undefined && {
+      source: serializeAws_restJson1_1SetSourceRequest(input.Source, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -282,16 +275,14 @@ export const serializeAws_restJson1_1GrantFlowEntitlementsCommand = async (
     throw new Error("No value provided for input HTTP label: FlowArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Entitlements !== undefined) {
-    bodyParams[
-      "entitlements"
-    ] = serializeAws_restJson1_1__listOfGrantEntitlementRequest(
-      input.Entitlements,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Entitlements !== undefined && {
+      entitlements: serializeAws_restJson1_1__listOfGrantEntitlementRequest(
+        input.Entitlements,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -576,14 +567,11 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1__mapOf__string(
-      input.Tags,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1__mapOf__string(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -672,23 +660,21 @@ export const serializeAws_restJson1_1UpdateFlowEntitlementCommand = async (
     throw new Error("No value provided for input HTTP label: FlowArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["description"] = input.Description;
-  }
-  if (input.Encryption !== undefined) {
-    bodyParams["encryption"] = serializeAws_restJson1_1UpdateEncryption(
-      input.Encryption,
-      context
-    );
-  }
-  if (input.Subscribers !== undefined) {
-    bodyParams["subscribers"] = serializeAws_restJson1_1__listOf__string(
-      input.Subscribers,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Description !== undefined && { description: input.Description }),
+    ...(input.Encryption !== undefined && {
+      encryption: serializeAws_restJson1_1UpdateEncryption(
+        input.Encryption,
+        context
+      )
+    }),
+    ...(input.Subscribers !== undefined && {
+      subscribers: serializeAws_restJson1_1__listOf__string(
+        input.Subscribers,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -734,44 +720,30 @@ export const serializeAws_restJson1_1UpdateFlowOutputCommand = async (
     throw new Error("No value provided for input HTTP label: OutputArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.CidrAllowList !== undefined) {
-    bodyParams["cidrAllowList"] = serializeAws_restJson1_1__listOf__string(
-      input.CidrAllowList,
-      context
-    );
-  }
-  if (input.Description !== undefined) {
-    bodyParams["description"] = input.Description;
-  }
-  if (input.Destination !== undefined) {
-    bodyParams["destination"] = input.Destination;
-  }
-  if (input.Encryption !== undefined) {
-    bodyParams["encryption"] = serializeAws_restJson1_1UpdateEncryption(
-      input.Encryption,
-      context
-    );
-  }
-  if (input.MaxLatency !== undefined) {
-    bodyParams["maxLatency"] = input.MaxLatency;
-  }
-  if (input.Port !== undefined) {
-    bodyParams["port"] = input.Port;
-  }
-  if (input.Protocol !== undefined) {
-    bodyParams["protocol"] = input.Protocol;
-  }
-  if (input.RemoteId !== undefined) {
-    bodyParams["remoteId"] = input.RemoteId;
-  }
-  if (input.SmoothingLatency !== undefined) {
-    bodyParams["smoothingLatency"] = input.SmoothingLatency;
-  }
-  if (input.StreamId !== undefined) {
-    bodyParams["streamId"] = input.StreamId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.CidrAllowList !== undefined && {
+      cidrAllowList: serializeAws_restJson1_1__listOf__string(
+        input.CidrAllowList,
+        context
+      )
+    }),
+    ...(input.Description !== undefined && { description: input.Description }),
+    ...(input.Destination !== undefined && { destination: input.Destination }),
+    ...(input.Encryption !== undefined && {
+      encryption: serializeAws_restJson1_1UpdateEncryption(
+        input.Encryption,
+        context
+      )
+    }),
+    ...(input.MaxLatency !== undefined && { maxLatency: input.MaxLatency }),
+    ...(input.Port !== undefined && { port: input.Port }),
+    ...(input.Protocol !== undefined && { protocol: input.Protocol }),
+    ...(input.RemoteId !== undefined && { remoteId: input.RemoteId }),
+    ...(input.SmoothingLatency !== undefined && {
+      smoothingLatency: input.SmoothingLatency
+    }),
+    ...(input.StreamId !== undefined && { streamId: input.StreamId })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -817,38 +789,26 @@ export const serializeAws_restJson1_1UpdateFlowSourceCommand = async (
     throw new Error("No value provided for input HTTP label: SourceArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Decryption !== undefined) {
-    bodyParams["decryption"] = serializeAws_restJson1_1UpdateEncryption(
-      input.Decryption,
-      context
-    );
-  }
-  if (input.Description !== undefined) {
-    bodyParams["description"] = input.Description;
-  }
-  if (input.EntitlementArn !== undefined) {
-    bodyParams["entitlementArn"] = input.EntitlementArn;
-  }
-  if (input.IngestPort !== undefined) {
-    bodyParams["ingestPort"] = input.IngestPort;
-  }
-  if (input.MaxBitrate !== undefined) {
-    bodyParams["maxBitrate"] = input.MaxBitrate;
-  }
-  if (input.MaxLatency !== undefined) {
-    bodyParams["maxLatency"] = input.MaxLatency;
-  }
-  if (input.Protocol !== undefined) {
-    bodyParams["protocol"] = input.Protocol;
-  }
-  if (input.StreamId !== undefined) {
-    bodyParams["streamId"] = input.StreamId;
-  }
-  if (input.WhitelistCidr !== undefined) {
-    bodyParams["whitelistCidr"] = input.WhitelistCidr;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Decryption !== undefined && {
+      decryption: serializeAws_restJson1_1UpdateEncryption(
+        input.Decryption,
+        context
+      )
+    }),
+    ...(input.Description !== undefined && { description: input.Description }),
+    ...(input.EntitlementArn !== undefined && {
+      entitlementArn: input.EntitlementArn
+    }),
+    ...(input.IngestPort !== undefined && { ingestPort: input.IngestPort }),
+    ...(input.MaxBitrate !== undefined && { maxBitrate: input.MaxBitrate }),
+    ...(input.MaxLatency !== undefined && { maxLatency: input.MaxLatency }),
+    ...(input.Protocol !== undefined && { protocol: input.Protocol }),
+    ...(input.StreamId !== undefined && { streamId: input.StreamId }),
+    ...(input.WhitelistCidr !== undefined && {
+      whitelistCidr: input.WhitelistCidr
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

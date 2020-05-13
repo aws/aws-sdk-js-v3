@@ -149,17 +149,17 @@ export const serializeAws_restJson1_1StartNextPendingJobExecutionCommand = async
     throw new Error("No value provided for input HTTP label: thingName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.statusDetails !== undefined) {
-    bodyParams["statusDetails"] = serializeAws_restJson1_1DetailsMap(
-      input.statusDetails,
-      context
-    );
-  }
-  if (input.stepTimeoutInMinutes !== undefined) {
-    bodyParams["stepTimeoutInMinutes"] = input.stepTimeoutInMinutes;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.statusDetails !== undefined && {
+      statusDetails: serializeAws_restJson1_1DetailsMap(
+        input.statusDetails,
+        context
+      )
+    }),
+    ...(input.stepTimeoutInMinutes !== undefined && {
+      stepTimeoutInMinutes: input.stepTimeoutInMinutes
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -205,32 +205,30 @@ export const serializeAws_restJson1_1UpdateJobExecutionCommand = async (
     throw new Error("No value provided for input HTTP label: thingName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.executionNumber !== undefined) {
-    bodyParams["executionNumber"] = input.executionNumber;
-  }
-  if (input.expectedVersion !== undefined) {
-    bodyParams["expectedVersion"] = input.expectedVersion;
-  }
-  if (input.includeJobDocument !== undefined) {
-    bodyParams["includeJobDocument"] = input.includeJobDocument;
-  }
-  if (input.includeJobExecutionState !== undefined) {
-    bodyParams["includeJobExecutionState"] = input.includeJobExecutionState;
-  }
-  if (input.status !== undefined) {
-    bodyParams["status"] = input.status;
-  }
-  if (input.statusDetails !== undefined) {
-    bodyParams["statusDetails"] = serializeAws_restJson1_1DetailsMap(
-      input.statusDetails,
-      context
-    );
-  }
-  if (input.stepTimeoutInMinutes !== undefined) {
-    bodyParams["stepTimeoutInMinutes"] = input.stepTimeoutInMinutes;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.executionNumber !== undefined && {
+      executionNumber: input.executionNumber
+    }),
+    ...(input.expectedVersion !== undefined && {
+      expectedVersion: input.expectedVersion
+    }),
+    ...(input.includeJobDocument !== undefined && {
+      includeJobDocument: input.includeJobDocument
+    }),
+    ...(input.includeJobExecutionState !== undefined && {
+      includeJobExecutionState: input.includeJobExecutionState
+    }),
+    ...(input.status !== undefined && { status: input.status }),
+    ...(input.statusDetails !== undefined && {
+      statusDetails: serializeAws_restJson1_1DetailsMap(
+        input.statusDetails,
+        context
+      )
+    }),
+    ...(input.stepTimeoutInMinutes !== undefined && {
+      stepTimeoutInMinutes: input.stepTimeoutInMinutes
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

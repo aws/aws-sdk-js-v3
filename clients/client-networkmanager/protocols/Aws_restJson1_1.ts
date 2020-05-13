@@ -170,17 +170,13 @@ export const serializeAws_restJson1_1AssociateCustomerGatewayCommand = async (
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.CustomerGatewayArn !== undefined) {
-    bodyParams["CustomerGatewayArn"] = input.CustomerGatewayArn;
-  }
-  if (input.DeviceId !== undefined) {
-    bodyParams["DeviceId"] = input.DeviceId;
-  }
-  if (input.LinkId !== undefined) {
-    bodyParams["LinkId"] = input.LinkId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.CustomerGatewayArn !== undefined && {
+      CustomerGatewayArn: input.CustomerGatewayArn
+    }),
+    ...(input.DeviceId !== undefined && { DeviceId: input.DeviceId }),
+    ...(input.LinkId !== undefined && { LinkId: input.LinkId })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -216,14 +212,10 @@ export const serializeAws_restJson1_1AssociateLinkCommand = async (
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.DeviceId !== undefined) {
-    bodyParams["DeviceId"] = input.DeviceId;
-  }
-  if (input.LinkId !== undefined) {
-    bodyParams["LinkId"] = input.LinkId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DeviceId !== undefined && { DeviceId: input.DeviceId }),
+    ...(input.LinkId !== undefined && { LinkId: input.LinkId })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -259,35 +251,22 @@ export const serializeAws_restJson1_1CreateDeviceCommand = async (
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Location !== undefined) {
-    bodyParams["Location"] = serializeAws_restJson1_1Location(
-      input.Location,
-      context
-    );
-  }
-  if (input.Model !== undefined) {
-    bodyParams["Model"] = input.Model;
-  }
-  if (input.SerialNumber !== undefined) {
-    bodyParams["SerialNumber"] = input.SerialNumber;
-  }
-  if (input.SiteId !== undefined) {
-    bodyParams["SiteId"] = input.SiteId;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1TagList(input.Tags, context);
-  }
-  if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
-  }
-  if (input.Vendor !== undefined) {
-    bodyParams["Vendor"] = input.Vendor;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Location !== undefined && {
+      Location: serializeAws_restJson1_1Location(input.Location, context)
+    }),
+    ...(input.Model !== undefined && { Model: input.Model }),
+    ...(input.SerialNumber !== undefined && {
+      SerialNumber: input.SerialNumber
+    }),
+    ...(input.SiteId !== undefined && { SiteId: input.SiteId }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_restJson1_1TagList(input.Tags, context)
+    }),
+    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.Vendor !== undefined && { Vendor: input.Vendor })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -309,14 +288,12 @@ export const serializeAws_restJson1_1CreateGlobalNetworkCommand = async (
   };
   let resolvedPath = "/global-networks";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1TagList(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_restJson1_1TagList(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -352,29 +329,18 @@ export const serializeAws_restJson1_1CreateLinkCommand = async (
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Bandwidth !== undefined) {
-    bodyParams["Bandwidth"] = serializeAws_restJson1_1Bandwidth(
-      input.Bandwidth,
-      context
-    );
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Provider !== undefined) {
-    bodyParams["Provider"] = input.Provider;
-  }
-  if (input.SiteId !== undefined) {
-    bodyParams["SiteId"] = input.SiteId;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1TagList(input.Tags, context);
-  }
-  if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Bandwidth !== undefined && {
+      Bandwidth: serializeAws_restJson1_1Bandwidth(input.Bandwidth, context)
+    }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Provider !== undefined && { Provider: input.Provider }),
+    ...(input.SiteId !== undefined && { SiteId: input.SiteId }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_restJson1_1TagList(input.Tags, context)
+    }),
+    ...(input.Type !== undefined && { Type: input.Type })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -410,20 +376,15 @@ export const serializeAws_restJson1_1CreateSiteCommand = async (
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Location !== undefined) {
-    bodyParams["Location"] = serializeAws_restJson1_1Location(
-      input.Location,
-      context
-    );
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1TagList(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Location !== undefined && {
+      Location: serializeAws_restJson1_1Location(input.Location, context)
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_restJson1_1TagList(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1123,11 +1084,11 @@ export const serializeAws_restJson1_1RegisterTransitGatewayCommand = async (
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.TransitGatewayArn !== undefined) {
-    bodyParams["TransitGatewayArn"] = input.TransitGatewayArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.TransitGatewayArn !== undefined && {
+      TransitGatewayArn: input.TransitGatewayArn
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1163,11 +1124,11 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1TagList(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_restJson1_1TagList(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1256,32 +1217,19 @@ export const serializeAws_restJson1_1UpdateDeviceCommand = async (
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Location !== undefined) {
-    bodyParams["Location"] = serializeAws_restJson1_1Location(
-      input.Location,
-      context
-    );
-  }
-  if (input.Model !== undefined) {
-    bodyParams["Model"] = input.Model;
-  }
-  if (input.SerialNumber !== undefined) {
-    bodyParams["SerialNumber"] = input.SerialNumber;
-  }
-  if (input.SiteId !== undefined) {
-    bodyParams["SiteId"] = input.SiteId;
-  }
-  if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
-  }
-  if (input.Vendor !== undefined) {
-    bodyParams["Vendor"] = input.Vendor;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Location !== undefined && {
+      Location: serializeAws_restJson1_1Location(input.Location, context)
+    }),
+    ...(input.Model !== undefined && { Model: input.Model }),
+    ...(input.SerialNumber !== undefined && {
+      SerialNumber: input.SerialNumber
+    }),
+    ...(input.SiteId !== undefined && { SiteId: input.SiteId }),
+    ...(input.Type !== undefined && { Type: input.Type }),
+    ...(input.Vendor !== undefined && { Vendor: input.Vendor })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1317,11 +1265,9 @@ export const serializeAws_restJson1_1UpdateGlobalNetworkCommand = async (
     throw new Error("No value provided for input HTTP label: GlobalNetworkId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Description !== undefined && { Description: input.Description })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1369,23 +1315,14 @@ export const serializeAws_restJson1_1UpdateLinkCommand = async (
     throw new Error("No value provided for input HTTP label: LinkId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Bandwidth !== undefined) {
-    bodyParams["Bandwidth"] = serializeAws_restJson1_1Bandwidth(
-      input.Bandwidth,
-      context
-    );
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Provider !== undefined) {
-    bodyParams["Provider"] = input.Provider;
-  }
-  if (input.Type !== undefined) {
-    bodyParams["Type"] = input.Type;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Bandwidth !== undefined && {
+      Bandwidth: serializeAws_restJson1_1Bandwidth(input.Bandwidth, context)
+    }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Provider !== undefined && { Provider: input.Provider }),
+    ...(input.Type !== undefined && { Type: input.Type })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1433,17 +1370,12 @@ export const serializeAws_restJson1_1UpdateSiteCommand = async (
     throw new Error("No value provided for input HTTP label: SiteId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Location !== undefined) {
-    bodyParams["Location"] = serializeAws_restJson1_1Location(
-      input.Location,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Location !== undefined && {
+      Location: serializeAws_restJson1_1Location(input.Location, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

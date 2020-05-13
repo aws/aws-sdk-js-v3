@@ -188,51 +188,40 @@ export const serializeAws_restJson1_1PutPlaybackConfigurationCommand = async (
   };
   let resolvedPath = "/playbackConfiguration";
   let body: any;
-  const bodyParams: any = {};
-  if (input.AdDecisionServerUrl !== undefined) {
-    bodyParams["AdDecisionServerUrl"] = input.AdDecisionServerUrl;
-  }
-  if (input.CdnConfiguration !== undefined) {
-    bodyParams["CdnConfiguration"] = serializeAws_restJson1_1CdnConfiguration(
-      input.CdnConfiguration,
-      context
-    );
-  }
-  if (input.DashConfiguration !== undefined) {
-    bodyParams[
-      "DashConfiguration"
-    ] = serializeAws_restJson1_1DashConfigurationForPut(
-      input.DashConfiguration,
-      context
-    );
-  }
-  if (input.LivePreRollConfiguration !== undefined) {
-    bodyParams[
-      "LivePreRollConfiguration"
-    ] = serializeAws_restJson1_1LivePreRollConfiguration(
-      input.LivePreRollConfiguration,
-      context
-    );
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.SlateAdUrl !== undefined) {
-    bodyParams["SlateAdUrl"] = input.SlateAdUrl;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1__mapOf__string(
-      input.Tags,
-      context
-    );
-  }
-  if (input.TranscodeProfileName !== undefined) {
-    bodyParams["TranscodeProfileName"] = input.TranscodeProfileName;
-  }
-  if (input.VideoContentSourceUrl !== undefined) {
-    bodyParams["VideoContentSourceUrl"] = input.VideoContentSourceUrl;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AdDecisionServerUrl !== undefined && {
+      AdDecisionServerUrl: input.AdDecisionServerUrl
+    }),
+    ...(input.CdnConfiguration !== undefined && {
+      CdnConfiguration: serializeAws_restJson1_1CdnConfiguration(
+        input.CdnConfiguration,
+        context
+      )
+    }),
+    ...(input.DashConfiguration !== undefined && {
+      DashConfiguration: serializeAws_restJson1_1DashConfigurationForPut(
+        input.DashConfiguration,
+        context
+      )
+    }),
+    ...(input.LivePreRollConfiguration !== undefined && {
+      LivePreRollConfiguration: serializeAws_restJson1_1LivePreRollConfiguration(
+        input.LivePreRollConfiguration,
+        context
+      )
+    }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.SlateAdUrl !== undefined && { SlateAdUrl: input.SlateAdUrl }),
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1__mapOf__string(input.Tags, context)
+    }),
+    ...(input.TranscodeProfileName !== undefined && {
+      TranscodeProfileName: input.TranscodeProfileName
+    }),
+    ...(input.VideoContentSourceUrl !== undefined && {
+      VideoContentSourceUrl: input.VideoContentSourceUrl
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -268,14 +257,11 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1__mapOf__string(
-      input.Tags,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1__mapOf__string(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

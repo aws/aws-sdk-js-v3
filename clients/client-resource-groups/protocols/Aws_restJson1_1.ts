@@ -84,23 +84,19 @@ export const serializeAws_restJson1_1CreateGroupCommand = async (
   };
   let resolvedPath = "/groups";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.ResourceQuery !== undefined) {
-    bodyParams["ResourceQuery"] = serializeAws_restJson1_1ResourceQuery(
-      input.ResourceQuery,
-      context
-    );
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.ResourceQuery !== undefined && {
+      ResourceQuery: serializeAws_restJson1_1ResourceQuery(
+        input.ResourceQuery,
+        context
+      )
+    }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_restJson1_1Tags(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -272,14 +268,14 @@ export const serializeAws_restJson1_1ListGroupResourcesCommand = async (
     ...(input.NextToken !== undefined && { nextToken: input.NextToken })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.Filters !== undefined) {
-    bodyParams["Filters"] = serializeAws_restJson1_1ResourceFilterList(
-      input.Filters,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Filters !== undefined && {
+      Filters: serializeAws_restJson1_1ResourceFilterList(
+        input.Filters,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -308,14 +304,11 @@ export const serializeAws_restJson1_1ListGroupsCommand = async (
     ...(input.NextToken !== undefined && { nextToken: input.NextToken })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.Filters !== undefined) {
-    bodyParams["Filters"] = serializeAws_restJson1_1GroupFilterList(
-      input.Filters,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Filters !== undefined && {
+      Filters: serializeAws_restJson1_1GroupFilterList(input.Filters, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -338,20 +331,16 @@ export const serializeAws_restJson1_1SearchResourcesCommand = async (
   };
   let resolvedPath = "/resources/search";
   let body: any;
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ResourceQuery !== undefined) {
-    bodyParams["ResourceQuery"] = serializeAws_restJson1_1ResourceQuery(
-      input.ResourceQuery,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ResourceQuery !== undefined && {
+      ResourceQuery: serializeAws_restJson1_1ResourceQuery(
+        input.ResourceQuery,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -385,11 +374,11 @@ export const serializeAws_restJson1_1TagCommand = async (
     throw new Error("No value provided for input HTTP label: Arn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_restJson1_1Tags(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -423,14 +412,11 @@ export const serializeAws_restJson1_1UntagCommand = async (
     throw new Error("No value provided for input HTTP label: Arn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Keys !== undefined) {
-    bodyParams["Keys"] = serializeAws_restJson1_1TagKeyList(
-      input.Keys,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Keys !== undefined && {
+      Keys: serializeAws_restJson1_1TagKeyList(input.Keys, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -464,11 +450,9 @@ export const serializeAws_restJson1_1UpdateGroupCommand = async (
     throw new Error("No value provided for input HTTP label: GroupName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Description !== undefined && { Description: input.Description })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -502,14 +486,14 @@ export const serializeAws_restJson1_1UpdateGroupQueryCommand = async (
     throw new Error("No value provided for input HTTP label: GroupName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.ResourceQuery !== undefined) {
-    bodyParams["ResourceQuery"] = serializeAws_restJson1_1ResourceQuery(
-      input.ResourceQuery,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ResourceQuery !== undefined && {
+      ResourceQuery: serializeAws_restJson1_1ResourceQuery(
+        input.ResourceQuery,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

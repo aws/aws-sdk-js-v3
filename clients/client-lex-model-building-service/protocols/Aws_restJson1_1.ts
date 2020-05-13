@@ -212,11 +212,9 @@ export const serializeAws_restJson1_1CreateBotVersionCommand = async (
     throw new Error("No value provided for input HTTP label: name.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.checksum !== undefined) {
-    bodyParams["checksum"] = input.checksum;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.checksum !== undefined && { checksum: input.checksum })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -250,11 +248,9 @@ export const serializeAws_restJson1_1CreateIntentVersionCommand = async (
     throw new Error("No value provided for input HTTP label: name.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.checksum !== undefined) {
-    bodyParams["checksum"] = input.checksum;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.checksum !== undefined && { checksum: input.checksum })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -288,11 +284,9 @@ export const serializeAws_restJson1_1CreateSlotTypeVersionCommand = async (
     throw new Error("No value provided for input HTTP label: name.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.checksum !== undefined) {
-    bodyParams["checksum"] = input.checksum;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.checksum !== undefined && { checksum: input.checksum })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1458,53 +1452,42 @@ export const serializeAws_restJson1_1PutBotCommand = async (
     throw new Error("No value provided for input HTTP label: name.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.abortStatement !== undefined) {
-    bodyParams["abortStatement"] = serializeAws_restJson1_1Statement(
-      input.abortStatement,
-      context
-    );
-  }
-  if (input.checksum !== undefined) {
-    bodyParams["checksum"] = input.checksum;
-  }
-  if (input.childDirected !== undefined) {
-    bodyParams["childDirected"] = input.childDirected;
-  }
-  if (input.clarificationPrompt !== undefined) {
-    bodyParams["clarificationPrompt"] = serializeAws_restJson1_1Prompt(
-      input.clarificationPrompt,
-      context
-    );
-  }
-  if (input.createVersion !== undefined) {
-    bodyParams["createVersion"] = input.createVersion;
-  }
-  if (input.description !== undefined) {
-    bodyParams["description"] = input.description;
-  }
-  if (input.detectSentiment !== undefined) {
-    bodyParams["detectSentiment"] = input.detectSentiment;
-  }
-  if (input.idleSessionTTLInSeconds !== undefined) {
-    bodyParams["idleSessionTTLInSeconds"] = input.idleSessionTTLInSeconds;
-  }
-  if (input.intents !== undefined) {
-    bodyParams["intents"] = serializeAws_restJson1_1IntentList(
-      input.intents,
-      context
-    );
-  }
-  if (input.locale !== undefined) {
-    bodyParams["locale"] = input.locale;
-  }
-  if (input.processBehavior !== undefined) {
-    bodyParams["processBehavior"] = input.processBehavior;
-  }
-  if (input.voiceId !== undefined) {
-    bodyParams["voiceId"] = input.voiceId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.abortStatement !== undefined && {
+      abortStatement: serializeAws_restJson1_1Statement(
+        input.abortStatement,
+        context
+      )
+    }),
+    ...(input.checksum !== undefined && { checksum: input.checksum }),
+    ...(input.childDirected !== undefined && {
+      childDirected: input.childDirected
+    }),
+    ...(input.clarificationPrompt !== undefined && {
+      clarificationPrompt: serializeAws_restJson1_1Prompt(
+        input.clarificationPrompt,
+        context
+      )
+    }),
+    ...(input.createVersion !== undefined && {
+      createVersion: input.createVersion
+    }),
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.detectSentiment !== undefined && {
+      detectSentiment: input.detectSentiment
+    }),
+    ...(input.idleSessionTTLInSeconds !== undefined && {
+      idleSessionTTLInSeconds: input.idleSessionTTLInSeconds
+    }),
+    ...(input.intents !== undefined && {
+      intents: serializeAws_restJson1_1IntentList(input.intents, context)
+    }),
+    ...(input.locale !== undefined && { locale: input.locale }),
+    ...(input.processBehavior !== undefined && {
+      processBehavior: input.processBehavior
+    }),
+    ...(input.voiceId !== undefined && { voiceId: input.voiceId })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1550,25 +1533,17 @@ export const serializeAws_restJson1_1PutBotAliasCommand = async (
     throw new Error("No value provided for input HTTP label: name.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.botVersion !== undefined) {
-    bodyParams["botVersion"] = input.botVersion;
-  }
-  if (input.checksum !== undefined) {
-    bodyParams["checksum"] = input.checksum;
-  }
-  if (input.conversationLogs !== undefined) {
-    bodyParams[
-      "conversationLogs"
-    ] = serializeAws_restJson1_1ConversationLogsRequest(
-      input.conversationLogs,
-      context
-    );
-  }
-  if (input.description !== undefined) {
-    bodyParams["description"] = input.description;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.botVersion !== undefined && { botVersion: input.botVersion }),
+    ...(input.checksum !== undefined && { checksum: input.checksum }),
+    ...(input.conversationLogs !== undefined && {
+      conversationLogs: serializeAws_restJson1_1ConversationLogsRequest(
+        input.conversationLogs,
+        context
+      )
+    }),
+    ...(input.description !== undefined && { description: input.description })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1602,72 +1577,61 @@ export const serializeAws_restJson1_1PutIntentCommand = async (
     throw new Error("No value provided for input HTTP label: name.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.checksum !== undefined) {
-    bodyParams["checksum"] = input.checksum;
-  }
-  if (input.conclusionStatement !== undefined) {
-    bodyParams["conclusionStatement"] = serializeAws_restJson1_1Statement(
-      input.conclusionStatement,
-      context
-    );
-  }
-  if (input.confirmationPrompt !== undefined) {
-    bodyParams["confirmationPrompt"] = serializeAws_restJson1_1Prompt(
-      input.confirmationPrompt,
-      context
-    );
-  }
-  if (input.createVersion !== undefined) {
-    bodyParams["createVersion"] = input.createVersion;
-  }
-  if (input.description !== undefined) {
-    bodyParams["description"] = input.description;
-  }
-  if (input.dialogCodeHook !== undefined) {
-    bodyParams["dialogCodeHook"] = serializeAws_restJson1_1CodeHook(
-      input.dialogCodeHook,
-      context
-    );
-  }
-  if (input.followUpPrompt !== undefined) {
-    bodyParams["followUpPrompt"] = serializeAws_restJson1_1FollowUpPrompt(
-      input.followUpPrompt,
-      context
-    );
-  }
-  if (input.fulfillmentActivity !== undefined) {
-    bodyParams[
-      "fulfillmentActivity"
-    ] = serializeAws_restJson1_1FulfillmentActivity(
-      input.fulfillmentActivity,
-      context
-    );
-  }
-  if (input.parentIntentSignature !== undefined) {
-    bodyParams["parentIntentSignature"] = input.parentIntentSignature;
-  }
-  if (input.rejectionStatement !== undefined) {
-    bodyParams["rejectionStatement"] = serializeAws_restJson1_1Statement(
-      input.rejectionStatement,
-      context
-    );
-  }
-  if (input.sampleUtterances !== undefined) {
-    bodyParams[
-      "sampleUtterances"
-    ] = serializeAws_restJson1_1IntentUtteranceList(
-      input.sampleUtterances,
-      context
-    );
-  }
-  if (input.slots !== undefined) {
-    bodyParams["slots"] = serializeAws_restJson1_1SlotList(
-      input.slots,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.checksum !== undefined && { checksum: input.checksum }),
+    ...(input.conclusionStatement !== undefined && {
+      conclusionStatement: serializeAws_restJson1_1Statement(
+        input.conclusionStatement,
+        context
+      )
+    }),
+    ...(input.confirmationPrompt !== undefined && {
+      confirmationPrompt: serializeAws_restJson1_1Prompt(
+        input.confirmationPrompt,
+        context
+      )
+    }),
+    ...(input.createVersion !== undefined && {
+      createVersion: input.createVersion
+    }),
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.dialogCodeHook !== undefined && {
+      dialogCodeHook: serializeAws_restJson1_1CodeHook(
+        input.dialogCodeHook,
+        context
+      )
+    }),
+    ...(input.followUpPrompt !== undefined && {
+      followUpPrompt: serializeAws_restJson1_1FollowUpPrompt(
+        input.followUpPrompt,
+        context
+      )
+    }),
+    ...(input.fulfillmentActivity !== undefined && {
+      fulfillmentActivity: serializeAws_restJson1_1FulfillmentActivity(
+        input.fulfillmentActivity,
+        context
+      )
+    }),
+    ...(input.parentIntentSignature !== undefined && {
+      parentIntentSignature: input.parentIntentSignature
+    }),
+    ...(input.rejectionStatement !== undefined && {
+      rejectionStatement: serializeAws_restJson1_1Statement(
+        input.rejectionStatement,
+        context
+      )
+    }),
+    ...(input.sampleUtterances !== undefined && {
+      sampleUtterances: serializeAws_restJson1_1IntentUtteranceList(
+        input.sampleUtterances,
+        context
+      )
+    }),
+    ...(input.slots !== undefined && {
+      slots: serializeAws_restJson1_1SlotList(input.slots, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1701,26 +1665,22 @@ export const serializeAws_restJson1_1PutSlotTypeCommand = async (
     throw new Error("No value provided for input HTTP label: name.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.checksum !== undefined) {
-    bodyParams["checksum"] = input.checksum;
-  }
-  if (input.createVersion !== undefined) {
-    bodyParams["createVersion"] = input.createVersion;
-  }
-  if (input.description !== undefined) {
-    bodyParams["description"] = input.description;
-  }
-  if (input.enumerationValues !== undefined) {
-    bodyParams["enumerationValues"] = serializeAws_restJson1_1EnumerationValues(
-      input.enumerationValues,
-      context
-    );
-  }
-  if (input.valueSelectionStrategy !== undefined) {
-    bodyParams["valueSelectionStrategy"] = input.valueSelectionStrategy;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.checksum !== undefined && { checksum: input.checksum }),
+    ...(input.createVersion !== undefined && {
+      createVersion: input.createVersion
+    }),
+    ...(input.description !== undefined && { description: input.description }),
+    ...(input.enumerationValues !== undefined && {
+      enumerationValues: serializeAws_restJson1_1EnumerationValues(
+        input.enumerationValues,
+        context
+      )
+    }),
+    ...(input.valueSelectionStrategy !== undefined && {
+      valueSelectionStrategy: input.valueSelectionStrategy
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1742,17 +1702,17 @@ export const serializeAws_restJson1_1StartImportCommand = async (
   };
   let resolvedPath = "/imports";
   let body: any;
-  const bodyParams: any = {};
-  if (input.mergeStrategy !== undefined) {
-    bodyParams["mergeStrategy"] = input.mergeStrategy;
-  }
-  if (input.payload !== undefined) {
-    bodyParams["payload"] = context.base64Encoder(input.payload);
-  }
-  if (input.resourceType !== undefined) {
-    bodyParams["resourceType"] = input.resourceType;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.mergeStrategy !== undefined && {
+      mergeStrategy: input.mergeStrategy
+    }),
+    ...(input.payload !== undefined && {
+      payload: context.base64Encoder(input.payload)
+    }),
+    ...(input.resourceType !== undefined && {
+      resourceType: input.resourceType
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

@@ -74,11 +74,9 @@ export const serializeAws_restJson1_1AcceptInvitationCommand = async (
   };
   let resolvedPath = "/invitation";
   let body: any;
-  const bodyParams: any = {};
-  if (input.GraphArn !== undefined) {
-    bodyParams["GraphArn"] = input.GraphArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.GraphArn !== undefined && { GraphArn: input.GraphArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -122,20 +120,13 @@ export const serializeAws_restJson1_1CreateMembersCommand = async (
   };
   let resolvedPath = "/graph/members";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Accounts !== undefined) {
-    bodyParams["Accounts"] = serializeAws_restJson1_1AccountList(
-      input.Accounts,
-      context
-    );
-  }
-  if (input.GraphArn !== undefined) {
-    bodyParams["GraphArn"] = input.GraphArn;
-  }
-  if (input.Message !== undefined) {
-    bodyParams["Message"] = input.Message;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Accounts !== undefined && {
+      Accounts: serializeAws_restJson1_1AccountList(input.Accounts, context)
+    }),
+    ...(input.GraphArn !== undefined && { GraphArn: input.GraphArn }),
+    ...(input.Message !== undefined && { Message: input.Message })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -157,11 +148,9 @@ export const serializeAws_restJson1_1DeleteGraphCommand = async (
   };
   let resolvedPath = "/graph/removal";
   let body: any;
-  const bodyParams: any = {};
-  if (input.GraphArn !== undefined) {
-    bodyParams["GraphArn"] = input.GraphArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.GraphArn !== undefined && { GraphArn: input.GraphArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -183,17 +172,15 @@ export const serializeAws_restJson1_1DeleteMembersCommand = async (
   };
   let resolvedPath = "/graph/members/removal";
   let body: any;
-  const bodyParams: any = {};
-  if (input.AccountIds !== undefined) {
-    bodyParams["AccountIds"] = serializeAws_restJson1_1AccountIdList(
-      input.AccountIds,
-      context
-    );
-  }
-  if (input.GraphArn !== undefined) {
-    bodyParams["GraphArn"] = input.GraphArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AccountIds !== undefined && {
+      AccountIds: serializeAws_restJson1_1AccountIdList(
+        input.AccountIds,
+        context
+      )
+    }),
+    ...(input.GraphArn !== undefined && { GraphArn: input.GraphArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -215,11 +202,9 @@ export const serializeAws_restJson1_1DisassociateMembershipCommand = async (
   };
   let resolvedPath = "/membership/removal";
   let body: any;
-  const bodyParams: any = {};
-  if (input.GraphArn !== undefined) {
-    bodyParams["GraphArn"] = input.GraphArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.GraphArn !== undefined && { GraphArn: input.GraphArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -241,17 +226,15 @@ export const serializeAws_restJson1_1GetMembersCommand = async (
   };
   let resolvedPath = "/graph/members/get";
   let body: any;
-  const bodyParams: any = {};
-  if (input.AccountIds !== undefined) {
-    bodyParams["AccountIds"] = serializeAws_restJson1_1AccountIdList(
-      input.AccountIds,
-      context
-    );
-  }
-  if (input.GraphArn !== undefined) {
-    bodyParams["GraphArn"] = input.GraphArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AccountIds !== undefined && {
+      AccountIds: serializeAws_restJson1_1AccountIdList(
+        input.AccountIds,
+        context
+      )
+    }),
+    ...(input.GraphArn !== undefined && { GraphArn: input.GraphArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -273,14 +256,10 @@ export const serializeAws_restJson1_1ListGraphsCommand = async (
   };
   let resolvedPath = "/graphs/list";
   let body: any;
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -302,14 +281,10 @@ export const serializeAws_restJson1_1ListInvitationsCommand = async (
   };
   let resolvedPath = "/invitations/list";
   let body: any;
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -331,17 +306,11 @@ export const serializeAws_restJson1_1ListMembersCommand = async (
   };
   let resolvedPath = "/graph/members/list";
   let body: any;
-  const bodyParams: any = {};
-  if (input.GraphArn !== undefined) {
-    bodyParams["GraphArn"] = input.GraphArn;
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.GraphArn !== undefined && { GraphArn: input.GraphArn }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -363,11 +332,9 @@ export const serializeAws_restJson1_1RejectInvitationCommand = async (
   };
   let resolvedPath = "/invitation/removal";
   let body: any;
-  const bodyParams: any = {};
-  if (input.GraphArn !== undefined) {
-    bodyParams["GraphArn"] = input.GraphArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.GraphArn !== undefined && { GraphArn: input.GraphArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

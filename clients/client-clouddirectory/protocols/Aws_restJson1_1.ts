@@ -418,28 +418,26 @@ export const serializeAws_restJson1_1AddFacetToObjectCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/facets";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ObjectAttributeList !== undefined) {
-    bodyParams[
-      "ObjectAttributeList"
-    ] = serializeAws_restJson1_1AttributeKeyAndValueList(
-      input.ObjectAttributeList,
-      context
-    );
-  }
-  if (input.ObjectReference !== undefined) {
-    bodyParams["ObjectReference"] = serializeAws_restJson1_1ObjectReference(
-      input.ObjectReference,
-      context
-    );
-  }
-  if (input.SchemaFacet !== undefined) {
-    bodyParams["SchemaFacet"] = serializeAws_restJson1_1SchemaFacet(
-      input.SchemaFacet,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ObjectAttributeList !== undefined && {
+      ObjectAttributeList: serializeAws_restJson1_1AttributeKeyAndValueList(
+        input.ObjectAttributeList,
+        context
+      )
+    }),
+    ...(input.ObjectReference !== undefined && {
+      ObjectReference: serializeAws_restJson1_1ObjectReference(
+        input.ObjectReference,
+        context
+      )
+    }),
+    ...(input.SchemaFacet !== undefined && {
+      SchemaFacet: serializeAws_restJson1_1SchemaFacet(
+        input.SchemaFacet,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -464,11 +462,11 @@ export const serializeAws_restJson1_1ApplySchemaCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/apply";
   let body: any;
-  const bodyParams: any = {};
-  if (input.PublishedSchemaArn !== undefined) {
-    bodyParams["PublishedSchemaArn"] = input.PublishedSchemaArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.PublishedSchemaArn !== undefined && {
+      PublishedSchemaArn: input.PublishedSchemaArn
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -493,23 +491,21 @@ export const serializeAws_restJson1_1AttachObjectCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/attach";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ChildReference !== undefined) {
-    bodyParams["ChildReference"] = serializeAws_restJson1_1ObjectReference(
-      input.ChildReference,
-      context
-    );
-  }
-  if (input.LinkName !== undefined) {
-    bodyParams["LinkName"] = input.LinkName;
-  }
-  if (input.ParentReference !== undefined) {
-    bodyParams["ParentReference"] = serializeAws_restJson1_1ObjectReference(
-      input.ParentReference,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ChildReference !== undefined && {
+      ChildReference: serializeAws_restJson1_1ObjectReference(
+        input.ChildReference,
+        context
+      )
+    }),
+    ...(input.LinkName !== undefined && { LinkName: input.LinkName }),
+    ...(input.ParentReference !== undefined && {
+      ParentReference: serializeAws_restJson1_1ObjectReference(
+        input.ParentReference,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -534,20 +530,20 @@ export const serializeAws_restJson1_1AttachPolicyCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/policy/attach";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ObjectReference !== undefined) {
-    bodyParams["ObjectReference"] = serializeAws_restJson1_1ObjectReference(
-      input.ObjectReference,
-      context
-    );
-  }
-  if (input.PolicyReference !== undefined) {
-    bodyParams["PolicyReference"] = serializeAws_restJson1_1ObjectReference(
-      input.PolicyReference,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ObjectReference !== undefined && {
+      ObjectReference: serializeAws_restJson1_1ObjectReference(
+        input.ObjectReference,
+        context
+      )
+    }),
+    ...(input.PolicyReference !== undefined && {
+      PolicyReference: serializeAws_restJson1_1ObjectReference(
+        input.PolicyReference,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -572,20 +568,20 @@ export const serializeAws_restJson1_1AttachToIndexCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/index/attach";
   let body: any;
-  const bodyParams: any = {};
-  if (input.IndexReference !== undefined) {
-    bodyParams["IndexReference"] = serializeAws_restJson1_1ObjectReference(
-      input.IndexReference,
-      context
-    );
-  }
-  if (input.TargetReference !== undefined) {
-    bodyParams["TargetReference"] = serializeAws_restJson1_1ObjectReference(
-      input.TargetReference,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.IndexReference !== undefined && {
+      IndexReference: serializeAws_restJson1_1ObjectReference(
+        input.IndexReference,
+        context
+      )
+    }),
+    ...(input.TargetReference !== undefined && {
+      TargetReference: serializeAws_restJson1_1ObjectReference(
+        input.TargetReference,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -610,40 +606,32 @@ export const serializeAws_restJson1_1AttachTypedLinkCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/attach";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Attributes !== undefined) {
-    bodyParams[
-      "Attributes"
-    ] = serializeAws_restJson1_1AttributeNameAndValueList(
-      input.Attributes,
-      context
-    );
-  }
-  if (input.SourceObjectReference !== undefined) {
-    bodyParams[
-      "SourceObjectReference"
-    ] = serializeAws_restJson1_1ObjectReference(
-      input.SourceObjectReference,
-      context
-    );
-  }
-  if (input.TargetObjectReference !== undefined) {
-    bodyParams[
-      "TargetObjectReference"
-    ] = serializeAws_restJson1_1ObjectReference(
-      input.TargetObjectReference,
-      context
-    );
-  }
-  if (input.TypedLinkFacet !== undefined) {
-    bodyParams[
-      "TypedLinkFacet"
-    ] = serializeAws_restJson1_1TypedLinkSchemaAndFacetName(
-      input.TypedLinkFacet,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Attributes !== undefined && {
+      Attributes: serializeAws_restJson1_1AttributeNameAndValueList(
+        input.Attributes,
+        context
+      )
+    }),
+    ...(input.SourceObjectReference !== undefined && {
+      SourceObjectReference: serializeAws_restJson1_1ObjectReference(
+        input.SourceObjectReference,
+        context
+      )
+    }),
+    ...(input.TargetObjectReference !== undefined && {
+      TargetObjectReference: serializeAws_restJson1_1ObjectReference(
+        input.TargetObjectReference,
+        context
+      )
+    }),
+    ...(input.TypedLinkFacet !== undefined && {
+      TypedLinkFacet: serializeAws_restJson1_1TypedLinkSchemaAndFacetName(
+        input.TypedLinkFacet,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -671,14 +659,14 @@ export const serializeAws_restJson1_1BatchReadCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/batchread";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Operations !== undefined) {
-    bodyParams["Operations"] = serializeAws_restJson1_1BatchReadOperationList(
-      input.Operations,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Operations !== undefined && {
+      Operations: serializeAws_restJson1_1BatchReadOperationList(
+        input.Operations,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -703,14 +691,14 @@ export const serializeAws_restJson1_1BatchWriteCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/batchwrite";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Operations !== undefined) {
-    bodyParams["Operations"] = serializeAws_restJson1_1BatchWriteOperationList(
-      input.Operations,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Operations !== undefined && {
+      Operations: serializeAws_restJson1_1BatchWriteOperationList(
+        input.Operations,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -735,11 +723,9 @@ export const serializeAws_restJson1_1CreateDirectoryCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/directory/create";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Name !== undefined && { Name: input.Name })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -764,23 +750,17 @@ export const serializeAws_restJson1_1CreateFacetCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/facet/create";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Attributes !== undefined) {
-    bodyParams["Attributes"] = serializeAws_restJson1_1FacetAttributeList(
-      input.Attributes,
-      context
-    );
-  }
-  if (input.FacetStyle !== undefined) {
-    bodyParams["FacetStyle"] = input.FacetStyle;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.ObjectType !== undefined) {
-    bodyParams["ObjectType"] = input.ObjectType;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Attributes !== undefined && {
+      Attributes: serializeAws_restJson1_1FacetAttributeList(
+        input.Attributes,
+        context
+      )
+    }),
+    ...(input.FacetStyle !== undefined && { FacetStyle: input.FacetStyle }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.ObjectType !== undefined && { ObjectType: input.ObjectType })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -805,28 +785,22 @@ export const serializeAws_restJson1_1CreateIndexCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/index";
   let body: any;
-  const bodyParams: any = {};
-  if (input.IsUnique !== undefined) {
-    bodyParams["IsUnique"] = input.IsUnique;
-  }
-  if (input.LinkName !== undefined) {
-    bodyParams["LinkName"] = input.LinkName;
-  }
-  if (input.OrderedIndexedAttributeList !== undefined) {
-    bodyParams[
-      "OrderedIndexedAttributeList"
-    ] = serializeAws_restJson1_1AttributeKeyList(
-      input.OrderedIndexedAttributeList,
-      context
-    );
-  }
-  if (input.ParentReference !== undefined) {
-    bodyParams["ParentReference"] = serializeAws_restJson1_1ObjectReference(
-      input.ParentReference,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.IsUnique !== undefined && { IsUnique: input.IsUnique }),
+    ...(input.LinkName !== undefined && { LinkName: input.LinkName }),
+    ...(input.OrderedIndexedAttributeList !== undefined && {
+      OrderedIndexedAttributeList: serializeAws_restJson1_1AttributeKeyList(
+        input.OrderedIndexedAttributeList,
+        context
+      )
+    }),
+    ...(input.ParentReference !== undefined && {
+      ParentReference: serializeAws_restJson1_1ObjectReference(
+        input.ParentReference,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -851,31 +825,27 @@ export const serializeAws_restJson1_1CreateObjectCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object";
   let body: any;
-  const bodyParams: any = {};
-  if (input.LinkName !== undefined) {
-    bodyParams["LinkName"] = input.LinkName;
-  }
-  if (input.ObjectAttributeList !== undefined) {
-    bodyParams[
-      "ObjectAttributeList"
-    ] = serializeAws_restJson1_1AttributeKeyAndValueList(
-      input.ObjectAttributeList,
-      context
-    );
-  }
-  if (input.ParentReference !== undefined) {
-    bodyParams["ParentReference"] = serializeAws_restJson1_1ObjectReference(
-      input.ParentReference,
-      context
-    );
-  }
-  if (input.SchemaFacets !== undefined) {
-    bodyParams["SchemaFacets"] = serializeAws_restJson1_1SchemaFacetList(
-      input.SchemaFacets,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.LinkName !== undefined && { LinkName: input.LinkName }),
+    ...(input.ObjectAttributeList !== undefined && {
+      ObjectAttributeList: serializeAws_restJson1_1AttributeKeyAndValueList(
+        input.ObjectAttributeList,
+        context
+      )
+    }),
+    ...(input.ParentReference !== undefined && {
+      ParentReference: serializeAws_restJson1_1ObjectReference(
+        input.ParentReference,
+        context
+      )
+    }),
+    ...(input.SchemaFacets !== undefined && {
+      SchemaFacets: serializeAws_restJson1_1SchemaFacetList(
+        input.SchemaFacets,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -897,11 +867,9 @@ export const serializeAws_restJson1_1CreateSchemaCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/create";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Name !== undefined && { Name: input.Name })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -926,14 +894,11 @@ export const serializeAws_restJson1_1CreateTypedLinkFacetCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/facet/create";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Facet !== undefined) {
-    bodyParams["Facet"] = serializeAws_restJson1_1TypedLinkFacet(
-      input.Facet,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Facet !== undefined && {
+      Facet: serializeAws_restJson1_1TypedLinkFacet(input.Facet, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -982,11 +947,9 @@ export const serializeAws_restJson1_1DeleteFacetCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/facet/delete";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Name !== undefined && { Name: input.Name })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1011,14 +974,14 @@ export const serializeAws_restJson1_1DeleteObjectCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/delete";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ObjectReference !== undefined) {
-    bodyParams["ObjectReference"] = serializeAws_restJson1_1ObjectReference(
-      input.ObjectReference,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ObjectReference !== undefined && {
+      ObjectReference: serializeAws_restJson1_1ObjectReference(
+        input.ObjectReference,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1067,11 +1030,9 @@ export const serializeAws_restJson1_1DeleteTypedLinkFacetCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/facet/delete";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Name !== undefined && { Name: input.Name })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1096,20 +1057,20 @@ export const serializeAws_restJson1_1DetachFromIndexCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/index/detach";
   let body: any;
-  const bodyParams: any = {};
-  if (input.IndexReference !== undefined) {
-    bodyParams["IndexReference"] = serializeAws_restJson1_1ObjectReference(
-      input.IndexReference,
-      context
-    );
-  }
-  if (input.TargetReference !== undefined) {
-    bodyParams["TargetReference"] = serializeAws_restJson1_1ObjectReference(
-      input.TargetReference,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.IndexReference !== undefined && {
+      IndexReference: serializeAws_restJson1_1ObjectReference(
+        input.IndexReference,
+        context
+      )
+    }),
+    ...(input.TargetReference !== undefined && {
+      TargetReference: serializeAws_restJson1_1ObjectReference(
+        input.TargetReference,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1134,17 +1095,15 @@ export const serializeAws_restJson1_1DetachObjectCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/detach";
   let body: any;
-  const bodyParams: any = {};
-  if (input.LinkName !== undefined) {
-    bodyParams["LinkName"] = input.LinkName;
-  }
-  if (input.ParentReference !== undefined) {
-    bodyParams["ParentReference"] = serializeAws_restJson1_1ObjectReference(
-      input.ParentReference,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.LinkName !== undefined && { LinkName: input.LinkName }),
+    ...(input.ParentReference !== undefined && {
+      ParentReference: serializeAws_restJson1_1ObjectReference(
+        input.ParentReference,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1169,20 +1128,20 @@ export const serializeAws_restJson1_1DetachPolicyCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/policy/detach";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ObjectReference !== undefined) {
-    bodyParams["ObjectReference"] = serializeAws_restJson1_1ObjectReference(
-      input.ObjectReference,
-      context
-    );
-  }
-  if (input.PolicyReference !== undefined) {
-    bodyParams["PolicyReference"] = serializeAws_restJson1_1ObjectReference(
-      input.PolicyReference,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ObjectReference !== undefined && {
+      ObjectReference: serializeAws_restJson1_1ObjectReference(
+        input.ObjectReference,
+        context
+      )
+    }),
+    ...(input.PolicyReference !== undefined && {
+      PolicyReference: serializeAws_restJson1_1ObjectReference(
+        input.PolicyReference,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1207,16 +1166,14 @@ export const serializeAws_restJson1_1DetachTypedLinkCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/detach";
   let body: any;
-  const bodyParams: any = {};
-  if (input.TypedLinkSpecifier !== undefined) {
-    bodyParams[
-      "TypedLinkSpecifier"
-    ] = serializeAws_restJson1_1TypedLinkSpecifier(
-      input.TypedLinkSpecifier,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.TypedLinkSpecifier !== undefined && {
+      TypedLinkSpecifier: serializeAws_restJson1_1TypedLinkSpecifier(
+        input.TypedLinkSpecifier,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1286,11 +1243,9 @@ export const serializeAws_restJson1_1GetAppliedSchemaVersionCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/getappliedschema";
   let body: any;
-  const bodyParams: any = {};
-  if (input.SchemaArn !== undefined) {
-    bodyParams["SchemaArn"] = input.SchemaArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.SchemaArn !== undefined && { SchemaArn: input.SchemaArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1339,11 +1294,9 @@ export const serializeAws_restJson1_1GetFacetCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/facet";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Name !== undefined && { Name: input.Name })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1369,25 +1322,23 @@ export const serializeAws_restJson1_1GetLinkAttributesCommand = async (
   let resolvedPath =
     "/amazonclouddirectory/2017-01-11/typedlink/attributes/get";
   let body: any;
-  const bodyParams: any = {};
-  if (input.AttributeNames !== undefined) {
-    bodyParams["AttributeNames"] = serializeAws_restJson1_1AttributeNameList(
-      input.AttributeNames,
-      context
-    );
-  }
-  if (input.ConsistencyLevel !== undefined) {
-    bodyParams["ConsistencyLevel"] = input.ConsistencyLevel;
-  }
-  if (input.TypedLinkSpecifier !== undefined) {
-    bodyParams[
-      "TypedLinkSpecifier"
-    ] = serializeAws_restJson1_1TypedLinkSpecifier(
-      input.TypedLinkSpecifier,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AttributeNames !== undefined && {
+      AttributeNames: serializeAws_restJson1_1AttributeNameList(
+        input.AttributeNames,
+        context
+      )
+    }),
+    ...(input.ConsistencyLevel !== undefined && {
+      ConsistencyLevel: input.ConsistencyLevel
+    }),
+    ...(input.TypedLinkSpecifier !== undefined && {
+      TypedLinkSpecifier: serializeAws_restJson1_1TypedLinkSpecifier(
+        input.TypedLinkSpecifier,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1415,26 +1366,26 @@ export const serializeAws_restJson1_1GetObjectAttributesCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/attributes/get";
   let body: any;
-  const bodyParams: any = {};
-  if (input.AttributeNames !== undefined) {
-    bodyParams["AttributeNames"] = serializeAws_restJson1_1AttributeNameList(
-      input.AttributeNames,
-      context
-    );
-  }
-  if (input.ObjectReference !== undefined) {
-    bodyParams["ObjectReference"] = serializeAws_restJson1_1ObjectReference(
-      input.ObjectReference,
-      context
-    );
-  }
-  if (input.SchemaFacet !== undefined) {
-    bodyParams["SchemaFacet"] = serializeAws_restJson1_1SchemaFacet(
-      input.SchemaFacet,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AttributeNames !== undefined && {
+      AttributeNames: serializeAws_restJson1_1AttributeNameList(
+        input.AttributeNames,
+        context
+      )
+    }),
+    ...(input.ObjectReference !== undefined && {
+      ObjectReference: serializeAws_restJson1_1ObjectReference(
+        input.ObjectReference,
+        context
+      )
+    }),
+    ...(input.SchemaFacet !== undefined && {
+      SchemaFacet: serializeAws_restJson1_1SchemaFacet(
+        input.SchemaFacet,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1462,14 +1413,14 @@ export const serializeAws_restJson1_1GetObjectInformationCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/information";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ObjectReference !== undefined) {
-    bodyParams["ObjectReference"] = serializeAws_restJson1_1ObjectReference(
-      input.ObjectReference,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ObjectReference !== undefined && {
+      ObjectReference: serializeAws_restJson1_1ObjectReference(
+        input.ObjectReference,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1518,11 +1469,9 @@ export const serializeAws_restJson1_1GetTypedLinkFacetInformationCommand = async
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/facet/get";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Name !== undefined && { Name: input.Name })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1544,20 +1493,14 @@ export const serializeAws_restJson1_1ListAppliedSchemaArnsCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/applied";
   let body: any;
-  const bodyParams: any = {};
-  if (input.DirectoryArn !== undefined) {
-    bodyParams["DirectoryArn"] = input.DirectoryArn;
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.SchemaArn !== undefined) {
-    bodyParams["SchemaArn"] = input.SchemaArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DirectoryArn !== undefined && {
+      DirectoryArn: input.DirectoryArn
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.SchemaArn !== undefined && { SchemaArn: input.SchemaArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1585,20 +1528,16 @@ export const serializeAws_restJson1_1ListAttachedIndicesCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/indices";
   let body: any;
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.TargetReference !== undefined) {
-    bodyParams["TargetReference"] = serializeAws_restJson1_1ObjectReference(
-      input.TargetReference,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.TargetReference !== undefined && {
+      TargetReference: serializeAws_restJson1_1ObjectReference(
+        input.TargetReference,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1620,14 +1559,10 @@ export const serializeAws_restJson1_1ListDevelopmentSchemaArnsCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/development";
   let body: any;
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1649,17 +1584,11 @@ export const serializeAws_restJson1_1ListDirectoriesCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/directory/list";
   let body: any;
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.state !== undefined) {
-    bodyParams["state"] = input.state;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.state !== undefined && { state: input.state })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1684,17 +1613,11 @@ export const serializeAws_restJson1_1ListFacetAttributesCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/facet/attributes";
   let body: any;
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1719,14 +1642,10 @@ export const serializeAws_restJson1_1ListFacetNamesCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/facet/list";
   let body: any;
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1751,39 +1670,31 @@ export const serializeAws_restJson1_1ListIncomingTypedLinksCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/incoming";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ConsistencyLevel !== undefined) {
-    bodyParams["ConsistencyLevel"] = input.ConsistencyLevel;
-  }
-  if (input.FilterAttributeRanges !== undefined) {
-    bodyParams[
-      "FilterAttributeRanges"
-    ] = serializeAws_restJson1_1TypedLinkAttributeRangeList(
-      input.FilterAttributeRanges,
-      context
-    );
-  }
-  if (input.FilterTypedLink !== undefined) {
-    bodyParams[
-      "FilterTypedLink"
-    ] = serializeAws_restJson1_1TypedLinkSchemaAndFacetName(
-      input.FilterTypedLink,
-      context
-    );
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ObjectReference !== undefined) {
-    bodyParams["ObjectReference"] = serializeAws_restJson1_1ObjectReference(
-      input.ObjectReference,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ConsistencyLevel !== undefined && {
+      ConsistencyLevel: input.ConsistencyLevel
+    }),
+    ...(input.FilterAttributeRanges !== undefined && {
+      FilterAttributeRanges: serializeAws_restJson1_1TypedLinkAttributeRangeList(
+        input.FilterAttributeRanges,
+        context
+      )
+    }),
+    ...(input.FilterTypedLink !== undefined && {
+      FilterTypedLink: serializeAws_restJson1_1TypedLinkSchemaAndFacetName(
+        input.FilterTypedLink,
+        context
+      )
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ObjectReference !== undefined && {
+      ObjectReference: serializeAws_restJson1_1ObjectReference(
+        input.ObjectReference,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1811,28 +1722,22 @@ export const serializeAws_restJson1_1ListIndexCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/index/targets";
   let body: any;
-  const bodyParams: any = {};
-  if (input.IndexReference !== undefined) {
-    bodyParams["IndexReference"] = serializeAws_restJson1_1ObjectReference(
-      input.IndexReference,
-      context
-    );
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.RangesOnIndexedValues !== undefined) {
-    bodyParams[
-      "RangesOnIndexedValues"
-    ] = serializeAws_restJson1_1ObjectAttributeRangeList(
-      input.RangesOnIndexedValues,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.IndexReference !== undefined && {
+      IndexReference: serializeAws_restJson1_1ObjectReference(
+        input.IndexReference,
+        context
+      )
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.RangesOnIndexedValues !== undefined && {
+      RangesOnIndexedValues: serializeAws_restJson1_1ObjectAttributeRangeList(
+        input.RangesOnIndexedValues,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1854,17 +1759,11 @@ export const serializeAws_restJson1_1ListManagedSchemaArnsCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/managed";
   let body: any;
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.SchemaArn !== undefined) {
-    bodyParams["SchemaArn"] = input.SchemaArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.SchemaArn !== undefined && { SchemaArn: input.SchemaArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1892,26 +1791,22 @@ export const serializeAws_restJson1_1ListObjectAttributesCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/attributes";
   let body: any;
-  const bodyParams: any = {};
-  if (input.FacetFilter !== undefined) {
-    bodyParams["FacetFilter"] = serializeAws_restJson1_1SchemaFacet(
-      input.FacetFilter,
-      context
-    );
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ObjectReference !== undefined) {
-    bodyParams["ObjectReference"] = serializeAws_restJson1_1ObjectReference(
-      input.ObjectReference,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.FacetFilter !== undefined && {
+      FacetFilter: serializeAws_restJson1_1SchemaFacet(
+        input.FacetFilter,
+        context
+      )
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ObjectReference !== undefined && {
+      ObjectReference: serializeAws_restJson1_1ObjectReference(
+        input.ObjectReference,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1939,20 +1834,16 @@ export const serializeAws_restJson1_1ListObjectChildrenCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/children";
   let body: any;
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ObjectReference !== undefined) {
-    bodyParams["ObjectReference"] = serializeAws_restJson1_1ObjectReference(
-      input.ObjectReference,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ObjectReference !== undefined && {
+      ObjectReference: serializeAws_restJson1_1ObjectReference(
+        input.ObjectReference,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1977,20 +1868,16 @@ export const serializeAws_restJson1_1ListObjectParentPathsCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/parentpaths";
   let body: any;
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ObjectReference !== undefined) {
-    bodyParams["ObjectReference"] = serializeAws_restJson1_1ObjectReference(
-      input.ObjectReference,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ObjectReference !== undefined && {
+      ObjectReference: serializeAws_restJson1_1ObjectReference(
+        input.ObjectReference,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2018,24 +1905,19 @@ export const serializeAws_restJson1_1ListObjectParentsCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/parent";
   let body: any;
-  const bodyParams: any = {};
-  if (input.IncludeAllLinksToEachParent !== undefined) {
-    bodyParams["IncludeAllLinksToEachParent"] =
-      input.IncludeAllLinksToEachParent;
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ObjectReference !== undefined) {
-    bodyParams["ObjectReference"] = serializeAws_restJson1_1ObjectReference(
-      input.ObjectReference,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.IncludeAllLinksToEachParent !== undefined && {
+      IncludeAllLinksToEachParent: input.IncludeAllLinksToEachParent
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ObjectReference !== undefined && {
+      ObjectReference: serializeAws_restJson1_1ObjectReference(
+        input.ObjectReference,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2063,20 +1945,16 @@ export const serializeAws_restJson1_1ListObjectPoliciesCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/policy";
   let body: any;
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ObjectReference !== undefined) {
-    bodyParams["ObjectReference"] = serializeAws_restJson1_1ObjectReference(
-      input.ObjectReference,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ObjectReference !== undefined && {
+      ObjectReference: serializeAws_restJson1_1ObjectReference(
+        input.ObjectReference,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2101,39 +1979,31 @@ export const serializeAws_restJson1_1ListOutgoingTypedLinksCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/outgoing";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ConsistencyLevel !== undefined) {
-    bodyParams["ConsistencyLevel"] = input.ConsistencyLevel;
-  }
-  if (input.FilterAttributeRanges !== undefined) {
-    bodyParams[
-      "FilterAttributeRanges"
-    ] = serializeAws_restJson1_1TypedLinkAttributeRangeList(
-      input.FilterAttributeRanges,
-      context
-    );
-  }
-  if (input.FilterTypedLink !== undefined) {
-    bodyParams[
-      "FilterTypedLink"
-    ] = serializeAws_restJson1_1TypedLinkSchemaAndFacetName(
-      input.FilterTypedLink,
-      context
-    );
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ObjectReference !== undefined) {
-    bodyParams["ObjectReference"] = serializeAws_restJson1_1ObjectReference(
-      input.ObjectReference,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ConsistencyLevel !== undefined && {
+      ConsistencyLevel: input.ConsistencyLevel
+    }),
+    ...(input.FilterAttributeRanges !== undefined && {
+      FilterAttributeRanges: serializeAws_restJson1_1TypedLinkAttributeRangeList(
+        input.FilterAttributeRanges,
+        context
+      )
+    }),
+    ...(input.FilterTypedLink !== undefined && {
+      FilterTypedLink: serializeAws_restJson1_1TypedLinkSchemaAndFacetName(
+        input.FilterTypedLink,
+        context
+      )
+    }),
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ObjectReference !== undefined && {
+      ObjectReference: serializeAws_restJson1_1ObjectReference(
+        input.ObjectReference,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2161,20 +2031,16 @@ export const serializeAws_restJson1_1ListPolicyAttachmentsCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/policy/attachment";
   let body: any;
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.PolicyReference !== undefined) {
-    bodyParams["PolicyReference"] = serializeAws_restJson1_1ObjectReference(
-      input.PolicyReference,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.PolicyReference !== undefined && {
+      PolicyReference: serializeAws_restJson1_1ObjectReference(
+        input.PolicyReference,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2196,17 +2062,11 @@ export const serializeAws_restJson1_1ListPublishedSchemaArnsCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/published";
   let body: any;
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.SchemaArn !== undefined) {
-    bodyParams["SchemaArn"] = input.SchemaArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.SchemaArn !== undefined && { SchemaArn: input.SchemaArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2228,17 +2088,11 @@ export const serializeAws_restJson1_1ListTagsForResourceCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/tags";
   let body: any;
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ResourceArn !== undefined) {
-    bodyParams["ResourceArn"] = input.ResourceArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2264,17 +2118,11 @@ export const serializeAws_restJson1_1ListTypedLinkFacetAttributesCommand = async
   let resolvedPath =
     "/amazonclouddirectory/2017-01-11/typedlink/facet/attributes";
   let body: any;
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2299,14 +2147,10 @@ export const serializeAws_restJson1_1ListTypedLinkFacetNamesCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/facet/list";
   let body: any;
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2331,20 +2175,16 @@ export const serializeAws_restJson1_1LookupPolicyCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/policy/lookup";
   let body: any;
-  const bodyParams: any = {};
-  if (input.MaxResults !== undefined) {
-    bodyParams["MaxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["NextToken"] = input.NextToken;
-  }
-  if (input.ObjectReference !== undefined) {
-    bodyParams["ObjectReference"] = serializeAws_restJson1_1ObjectReference(
-      input.ObjectReference,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.MaxResults !== undefined && { MaxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { NextToken: input.NextToken }),
+    ...(input.ObjectReference !== undefined && {
+      ObjectReference: serializeAws_restJson1_1ObjectReference(
+        input.ObjectReference,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2369,17 +2209,13 @@ export const serializeAws_restJson1_1PublishSchemaCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/publish";
   let body: any;
-  const bodyParams: any = {};
-  if (input.MinorVersion !== undefined) {
-    bodyParams["MinorVersion"] = input.MinorVersion;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.Version !== undefined) {
-    bodyParams["Version"] = input.Version;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.MinorVersion !== undefined && {
+      MinorVersion: input.MinorVersion
+    }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Version !== undefined && { Version: input.Version })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2404,11 +2240,9 @@ export const serializeAws_restJson1_1PutSchemaFromJsonCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/json";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Document !== undefined) {
-    bodyParams["Document"] = input.Document;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Document !== undefined && { Document: input.Document })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2433,20 +2267,20 @@ export const serializeAws_restJson1_1RemoveFacetFromObjectCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/facets/delete";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ObjectReference !== undefined) {
-    bodyParams["ObjectReference"] = serializeAws_restJson1_1ObjectReference(
-      input.ObjectReference,
-      context
-    );
-  }
-  if (input.SchemaFacet !== undefined) {
-    bodyParams["SchemaFacet"] = serializeAws_restJson1_1SchemaFacet(
-      input.SchemaFacet,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ObjectReference !== undefined && {
+      ObjectReference: serializeAws_restJson1_1ObjectReference(
+        input.ObjectReference,
+        context
+      )
+    }),
+    ...(input.SchemaFacet !== undefined && {
+      SchemaFacet: serializeAws_restJson1_1SchemaFacet(
+        input.SchemaFacet,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2468,14 +2302,12 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/tags/add";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ResourceArn !== undefined) {
-    bodyParams["ResourceArn"] = input.ResourceArn;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["Tags"] = serializeAws_restJson1_1TagList(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.Tags !== undefined && {
+      Tags: serializeAws_restJson1_1TagList(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2497,17 +2329,12 @@ export const serializeAws_restJson1_1UntagResourceCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/tags/remove";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ResourceArn !== undefined) {
-    bodyParams["ResourceArn"] = input.ResourceArn;
-  }
-  if (input.TagKeys !== undefined) {
-    bodyParams["TagKeys"] = serializeAws_restJson1_1TagKeyList(
-      input.TagKeys,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ResourceArn !== undefined && { ResourceArn: input.ResourceArn }),
+    ...(input.TagKeys !== undefined && {
+      TagKeys: serializeAws_restJson1_1TagKeyList(input.TagKeys, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2532,22 +2359,16 @@ export const serializeAws_restJson1_1UpdateFacetCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/facet";
   let body: any;
-  const bodyParams: any = {};
-  if (input.AttributeUpdates !== undefined) {
-    bodyParams[
-      "AttributeUpdates"
-    ] = serializeAws_restJson1_1FacetAttributeUpdateList(
-      input.AttributeUpdates,
-      context
-    );
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.ObjectType !== undefined) {
-    bodyParams["ObjectType"] = input.ObjectType;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AttributeUpdates !== undefined && {
+      AttributeUpdates: serializeAws_restJson1_1FacetAttributeUpdateList(
+        input.AttributeUpdates,
+        context
+      )
+    }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.ObjectType !== undefined && { ObjectType: input.ObjectType })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2573,24 +2394,20 @@ export const serializeAws_restJson1_1UpdateLinkAttributesCommand = async (
   let resolvedPath =
     "/amazonclouddirectory/2017-01-11/typedlink/attributes/update";
   let body: any;
-  const bodyParams: any = {};
-  if (input.AttributeUpdates !== undefined) {
-    bodyParams[
-      "AttributeUpdates"
-    ] = serializeAws_restJson1_1LinkAttributeUpdateList(
-      input.AttributeUpdates,
-      context
-    );
-  }
-  if (input.TypedLinkSpecifier !== undefined) {
-    bodyParams[
-      "TypedLinkSpecifier"
-    ] = serializeAws_restJson1_1TypedLinkSpecifier(
-      input.TypedLinkSpecifier,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AttributeUpdates !== undefined && {
+      AttributeUpdates: serializeAws_restJson1_1LinkAttributeUpdateList(
+        input.AttributeUpdates,
+        context
+      )
+    }),
+    ...(input.TypedLinkSpecifier !== undefined && {
+      TypedLinkSpecifier: serializeAws_restJson1_1TypedLinkSpecifier(
+        input.TypedLinkSpecifier,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2615,22 +2432,20 @@ export const serializeAws_restJson1_1UpdateObjectAttributesCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/object/update";
   let body: any;
-  const bodyParams: any = {};
-  if (input.AttributeUpdates !== undefined) {
-    bodyParams[
-      "AttributeUpdates"
-    ] = serializeAws_restJson1_1ObjectAttributeUpdateList(
-      input.AttributeUpdates,
-      context
-    );
-  }
-  if (input.ObjectReference !== undefined) {
-    bodyParams["ObjectReference"] = serializeAws_restJson1_1ObjectReference(
-      input.ObjectReference,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AttributeUpdates !== undefined && {
+      AttributeUpdates: serializeAws_restJson1_1ObjectAttributeUpdateList(
+        input.AttributeUpdates,
+        context
+      )
+    }),
+    ...(input.ObjectReference !== undefined && {
+      ObjectReference: serializeAws_restJson1_1ObjectReference(
+        input.ObjectReference,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2655,11 +2470,9 @@ export const serializeAws_restJson1_1UpdateSchemaCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/update";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Name !== undefined && { Name: input.Name })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2684,27 +2497,21 @@ export const serializeAws_restJson1_1UpdateTypedLinkFacetCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/typedlink/facet";
   let body: any;
-  const bodyParams: any = {};
-  if (input.AttributeUpdates !== undefined) {
-    bodyParams[
-      "AttributeUpdates"
-    ] = serializeAws_restJson1_1TypedLinkFacetAttributeUpdateList(
-      input.AttributeUpdates,
-      context
-    );
-  }
-  if (input.IdentityAttributeOrder !== undefined) {
-    bodyParams[
-      "IdentityAttributeOrder"
-    ] = serializeAws_restJson1_1AttributeNameList(
-      input.IdentityAttributeOrder,
-      context
-    );
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AttributeUpdates !== undefined && {
+      AttributeUpdates: serializeAws_restJson1_1TypedLinkFacetAttributeUpdateList(
+        input.AttributeUpdates,
+        context
+      )
+    }),
+    ...(input.IdentityAttributeOrder !== undefined && {
+      IdentityAttributeOrder: serializeAws_restJson1_1AttributeNameList(
+        input.IdentityAttributeOrder,
+        context
+      )
+    }),
+    ...(input.Name !== undefined && { Name: input.Name })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2726,17 +2533,15 @@ export const serializeAws_restJson1_1UpgradeAppliedSchemaCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/upgradeapplied";
   let body: any;
-  const bodyParams: any = {};
-  if (input.DirectoryArn !== undefined) {
-    bodyParams["DirectoryArn"] = input.DirectoryArn;
-  }
-  if (input.DryRun !== undefined) {
-    bodyParams["DryRun"] = input.DryRun;
-  }
-  if (input.PublishedSchemaArn !== undefined) {
-    bodyParams["PublishedSchemaArn"] = input.PublishedSchemaArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DirectoryArn !== undefined && {
+      DirectoryArn: input.DirectoryArn
+    }),
+    ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
+    ...(input.PublishedSchemaArn !== undefined && {
+      PublishedSchemaArn: input.PublishedSchemaArn
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2758,20 +2563,18 @@ export const serializeAws_restJson1_1UpgradePublishedSchemaCommand = async (
   };
   let resolvedPath = "/amazonclouddirectory/2017-01-11/schema/upgradepublished";
   let body: any;
-  const bodyParams: any = {};
-  if (input.DevelopmentSchemaArn !== undefined) {
-    bodyParams["DevelopmentSchemaArn"] = input.DevelopmentSchemaArn;
-  }
-  if (input.DryRun !== undefined) {
-    bodyParams["DryRun"] = input.DryRun;
-  }
-  if (input.MinorVersion !== undefined) {
-    bodyParams["MinorVersion"] = input.MinorVersion;
-  }
-  if (input.PublishedSchemaArn !== undefined) {
-    bodyParams["PublishedSchemaArn"] = input.PublishedSchemaArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DevelopmentSchemaArn !== undefined && {
+      DevelopmentSchemaArn: input.DevelopmentSchemaArn
+    }),
+    ...(input.DryRun !== undefined && { DryRun: input.DryRun }),
+    ...(input.MinorVersion !== undefined && {
+      MinorVersion: input.MinorVersion
+    }),
+    ...(input.PublishedSchemaArn !== undefined && {
+      PublishedSchemaArn: input.PublishedSchemaArn
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

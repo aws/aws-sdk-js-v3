@@ -139,85 +139,66 @@ export const serializeAws_restJson1_1CreateBrokerCommand = async (
   };
   let resolvedPath = "/v1/brokers";
   let body: any;
-  const bodyParams: any = {};
-  if (input.AutoMinorVersionUpgrade !== undefined) {
-    bodyParams["autoMinorVersionUpgrade"] = input.AutoMinorVersionUpgrade;
-  }
-  if (input.BrokerName !== undefined) {
-    bodyParams["brokerName"] = input.BrokerName;
-  }
-  if (input.Configuration !== undefined) {
-    bodyParams["configuration"] = serializeAws_restJson1_1ConfigurationId(
-      input.Configuration,
-      context
-    );
-  }
-  if (input.CreatorRequestId === undefined) {
-    input.CreatorRequestId = generateIdempotencyToken();
-  }
-  if (input.CreatorRequestId !== undefined) {
-    bodyParams["creatorRequestId"] = input.CreatorRequestId;
-  }
-  if (input.DeploymentMode !== undefined) {
-    bodyParams["deploymentMode"] = input.DeploymentMode;
-  }
-  if (input.EncryptionOptions !== undefined) {
-    bodyParams["encryptionOptions"] = serializeAws_restJson1_1EncryptionOptions(
-      input.EncryptionOptions,
-      context
-    );
-  }
-  if (input.EngineType !== undefined) {
-    bodyParams["engineType"] = input.EngineType;
-  }
-  if (input.EngineVersion !== undefined) {
-    bodyParams["engineVersion"] = input.EngineVersion;
-  }
-  if (input.HostInstanceType !== undefined) {
-    bodyParams["hostInstanceType"] = input.HostInstanceType;
-  }
-  if (input.Logs !== undefined) {
-    bodyParams["logs"] = serializeAws_restJson1_1Logs(input.Logs, context);
-  }
-  if (input.MaintenanceWindowStartTime !== undefined) {
-    bodyParams[
-      "maintenanceWindowStartTime"
-    ] = serializeAws_restJson1_1WeeklyStartTime(
-      input.MaintenanceWindowStartTime,
-      context
-    );
-  }
-  if (input.PubliclyAccessible !== undefined) {
-    bodyParams["publiclyAccessible"] = input.PubliclyAccessible;
-  }
-  if (input.SecurityGroups !== undefined) {
-    bodyParams["securityGroups"] = serializeAws_restJson1_1__listOf__string(
-      input.SecurityGroups,
-      context
-    );
-  }
-  if (input.StorageType !== undefined) {
-    bodyParams["storageType"] = input.StorageType;
-  }
-  if (input.SubnetIds !== undefined) {
-    bodyParams["subnetIds"] = serializeAws_restJson1_1__listOf__string(
-      input.SubnetIds,
-      context
-    );
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1__mapOf__string(
-      input.Tags,
-      context
-    );
-  }
-  if (input.Users !== undefined) {
-    bodyParams["users"] = serializeAws_restJson1_1__listOfUser(
-      input.Users,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AutoMinorVersionUpgrade !== undefined && {
+      autoMinorVersionUpgrade: input.AutoMinorVersionUpgrade
+    }),
+    ...(input.BrokerName !== undefined && { brokerName: input.BrokerName }),
+    ...(input.Configuration !== undefined && {
+      configuration: serializeAws_restJson1_1ConfigurationId(
+        input.Configuration,
+        context
+      )
+    }),
+    creatorRequestId: input.CreatorRequestId ?? generateIdempotencyToken(),
+    ...(input.DeploymentMode !== undefined && {
+      deploymentMode: input.DeploymentMode
+    }),
+    ...(input.EncryptionOptions !== undefined && {
+      encryptionOptions: serializeAws_restJson1_1EncryptionOptions(
+        input.EncryptionOptions,
+        context
+      )
+    }),
+    ...(input.EngineType !== undefined && { engineType: input.EngineType }),
+    ...(input.EngineVersion !== undefined && {
+      engineVersion: input.EngineVersion
+    }),
+    ...(input.HostInstanceType !== undefined && {
+      hostInstanceType: input.HostInstanceType
+    }),
+    ...(input.Logs !== undefined && {
+      logs: serializeAws_restJson1_1Logs(input.Logs, context)
+    }),
+    ...(input.MaintenanceWindowStartTime !== undefined && {
+      maintenanceWindowStartTime: serializeAws_restJson1_1WeeklyStartTime(
+        input.MaintenanceWindowStartTime,
+        context
+      )
+    }),
+    ...(input.PubliclyAccessible !== undefined && {
+      publiclyAccessible: input.PubliclyAccessible
+    }),
+    ...(input.SecurityGroups !== undefined && {
+      securityGroups: serializeAws_restJson1_1__listOf__string(
+        input.SecurityGroups,
+        context
+      )
+    }),
+    ...(input.StorageType !== undefined && { storageType: input.StorageType }),
+    ...(input.SubnetIds !== undefined && {
+      subnetIds: serializeAws_restJson1_1__listOf__string(
+        input.SubnetIds,
+        context
+      )
+    }),
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1__mapOf__string(input.Tags, context)
+    }),
+    ...(input.Users !== undefined && {
+      users: serializeAws_restJson1_1__listOfUser(input.Users, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -239,23 +220,16 @@ export const serializeAws_restJson1_1CreateConfigurationCommand = async (
   };
   let resolvedPath = "/v1/configurations";
   let body: any;
-  const bodyParams: any = {};
-  if (input.EngineType !== undefined) {
-    bodyParams["engineType"] = input.EngineType;
-  }
-  if (input.EngineVersion !== undefined) {
-    bodyParams["engineVersion"] = input.EngineVersion;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["name"] = input.Name;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1__mapOf__string(
-      input.Tags,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.EngineType !== undefined && { engineType: input.EngineType }),
+    ...(input.EngineVersion !== undefined && {
+      engineVersion: input.EngineVersion
+    }),
+    ...(input.Name !== undefined && { name: input.Name }),
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1__mapOf__string(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -291,14 +265,11 @@ export const serializeAws_restJson1_1CreateTagsCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1__mapOf__string(
-      input.Tags,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1__mapOf__string(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -344,20 +315,15 @@ export const serializeAws_restJson1_1CreateUserCommand = async (
     throw new Error("No value provided for input HTTP label: Username.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.ConsoleAccess !== undefined) {
-    bodyParams["consoleAccess"] = input.ConsoleAccess;
-  }
-  if (input.Groups !== undefined) {
-    bodyParams["groups"] = serializeAws_restJson1_1__listOf__string(
-      input.Groups,
-      context
-    );
-  }
-  if (input.Password !== undefined) {
-    bodyParams["password"] = input.Password;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ConsoleAccess !== undefined && {
+      consoleAccess: input.ConsoleAccess
+    }),
+    ...(input.Groups !== undefined && {
+      groups: serializeAws_restJson1_1__listOf__string(input.Groups, context)
+    }),
+    ...(input.Password !== undefined && { password: input.Password })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -943,32 +909,32 @@ export const serializeAws_restJson1_1UpdateBrokerCommand = async (
     throw new Error("No value provided for input HTTP label: BrokerId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.AutoMinorVersionUpgrade !== undefined) {
-    bodyParams["autoMinorVersionUpgrade"] = input.AutoMinorVersionUpgrade;
-  }
-  if (input.Configuration !== undefined) {
-    bodyParams["configuration"] = serializeAws_restJson1_1ConfigurationId(
-      input.Configuration,
-      context
-    );
-  }
-  if (input.EngineVersion !== undefined) {
-    bodyParams["engineVersion"] = input.EngineVersion;
-  }
-  if (input.HostInstanceType !== undefined) {
-    bodyParams["hostInstanceType"] = input.HostInstanceType;
-  }
-  if (input.Logs !== undefined) {
-    bodyParams["logs"] = serializeAws_restJson1_1Logs(input.Logs, context);
-  }
-  if (input.SecurityGroups !== undefined) {
-    bodyParams["securityGroups"] = serializeAws_restJson1_1__listOf__string(
-      input.SecurityGroups,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AutoMinorVersionUpgrade !== undefined && {
+      autoMinorVersionUpgrade: input.AutoMinorVersionUpgrade
+    }),
+    ...(input.Configuration !== undefined && {
+      configuration: serializeAws_restJson1_1ConfigurationId(
+        input.Configuration,
+        context
+      )
+    }),
+    ...(input.EngineVersion !== undefined && {
+      engineVersion: input.EngineVersion
+    }),
+    ...(input.HostInstanceType !== undefined && {
+      hostInstanceType: input.HostInstanceType
+    }),
+    ...(input.Logs !== undefined && {
+      logs: serializeAws_restJson1_1Logs(input.Logs, context)
+    }),
+    ...(input.SecurityGroups !== undefined && {
+      securityGroups: serializeAws_restJson1_1__listOf__string(
+        input.SecurityGroups,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1004,14 +970,10 @@ export const serializeAws_restJson1_1UpdateConfigurationCommand = async (
     throw new Error("No value provided for input HTTP label: ConfigurationId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Data !== undefined) {
-    bodyParams["data"] = input.Data;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["description"] = input.Description;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Data !== undefined && { data: input.Data }),
+    ...(input.Description !== undefined && { description: input.Description })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1057,20 +1019,15 @@ export const serializeAws_restJson1_1UpdateUserCommand = async (
     throw new Error("No value provided for input HTTP label: Username.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.ConsoleAccess !== undefined) {
-    bodyParams["consoleAccess"] = input.ConsoleAccess;
-  }
-  if (input.Groups !== undefined) {
-    bodyParams["groups"] = serializeAws_restJson1_1__listOf__string(
-      input.Groups,
-      context
-    );
-  }
-  if (input.Password !== undefined) {
-    bodyParams["password"] = input.Password;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ConsoleAccess !== undefined && {
+      consoleAccess: input.ConsoleAccess
+    }),
+    ...(input.Groups !== undefined && {
+      groups: serializeAws_restJson1_1__listOf__string(input.Groups, context)
+    }),
+    ...(input.Password !== undefined && { password: input.Password })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

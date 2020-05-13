@@ -278,14 +278,12 @@ export const serializeAws_restJson1_1AcceptInvitationCommand = async (
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.InvitationId !== undefined) {
-    bodyParams["invitationId"] = input.InvitationId;
-  }
-  if (input.MasterId !== undefined) {
-    bodyParams["masterId"] = input.MasterId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.InvitationId !== undefined && {
+      invitationId: input.InvitationId
+    }),
+    ...(input.MasterId !== undefined && { masterId: input.MasterId })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -319,14 +317,11 @@ export const serializeAws_restJson1_1ArchiveFindingsCommand = async (
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.FindingIds !== undefined) {
-    bodyParams["findingIds"] = serializeAws_restJson1_1FindingIds(
-      input.FindingIds,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.FindingIds !== undefined && {
+      findingIds: serializeAws_restJson1_1FindingIds(input.FindingIds, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -348,23 +343,16 @@ export const serializeAws_restJson1_1CreateDetectorCommand = async (
   };
   let resolvedPath = "/detector";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ClientToken === undefined) {
-    input.ClientToken = generateIdempotencyToken();
-  }
-  if (input.ClientToken !== undefined) {
-    bodyParams["clientToken"] = input.ClientToken;
-  }
-  if (input.Enable !== undefined) {
-    bodyParams["enable"] = input.Enable;
-  }
-  if (input.FindingPublishingFrequency !== undefined) {
-    bodyParams["findingPublishingFrequency"] = input.FindingPublishingFrequency;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    clientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.Enable !== undefined && { enable: input.Enable }),
+    ...(input.FindingPublishingFrequency !== undefined && {
+      findingPublishingFrequency: input.FindingPublishingFrequency
+    }),
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -398,35 +386,22 @@ export const serializeAws_restJson1_1CreateFilterCommand = async (
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Action !== undefined) {
-    bodyParams["action"] = input.Action;
-  }
-  if (input.ClientToken === undefined) {
-    input.ClientToken = generateIdempotencyToken();
-  }
-  if (input.ClientToken !== undefined) {
-    bodyParams["clientToken"] = input.ClientToken;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["description"] = input.Description;
-  }
-  if (input.FindingCriteria !== undefined) {
-    bodyParams["findingCriteria"] = serializeAws_restJson1_1FindingCriteria(
-      input.FindingCriteria,
-      context
-    );
-  }
-  if (input.Name !== undefined) {
-    bodyParams["name"] = input.Name;
-  }
-  if (input.Rank !== undefined) {
-    bodyParams["rank"] = input.Rank;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Action !== undefined && { action: input.Action }),
+    clientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.Description !== undefined && { description: input.Description }),
+    ...(input.FindingCriteria !== undefined && {
+      findingCriteria: serializeAws_restJson1_1FindingCriteria(
+        input.FindingCriteria,
+        context
+      )
+    }),
+    ...(input.Name !== undefined && { name: input.Name }),
+    ...(input.Rank !== undefined && { rank: input.Rank }),
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -460,29 +435,16 @@ export const serializeAws_restJson1_1CreateIPSetCommand = async (
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Activate !== undefined) {
-    bodyParams["activate"] = input.Activate;
-  }
-  if (input.ClientToken === undefined) {
-    input.ClientToken = generateIdempotencyToken();
-  }
-  if (input.ClientToken !== undefined) {
-    bodyParams["clientToken"] = input.ClientToken;
-  }
-  if (input.Format !== undefined) {
-    bodyParams["format"] = input.Format;
-  }
-  if (input.Location !== undefined) {
-    bodyParams["location"] = input.Location;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["name"] = input.Name;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Activate !== undefined && { activate: input.Activate }),
+    clientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.Format !== undefined && { format: input.Format }),
+    ...(input.Location !== undefined && { location: input.Location }),
+    ...(input.Name !== undefined && { name: input.Name }),
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -516,14 +478,14 @@ export const serializeAws_restJson1_1CreateMembersCommand = async (
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.AccountDetails !== undefined) {
-    bodyParams["accountDetails"] = serializeAws_restJson1_1AccountDetails(
-      input.AccountDetails,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AccountDetails !== undefined && {
+      accountDetails: serializeAws_restJson1_1AccountDetails(
+        input.AccountDetails,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -557,25 +519,18 @@ export const serializeAws_restJson1_1CreatePublishingDestinationCommand = async 
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.ClientToken === undefined) {
-    input.ClientToken = generateIdempotencyToken();
-  }
-  if (input.ClientToken !== undefined) {
-    bodyParams["clientToken"] = input.ClientToken;
-  }
-  if (input.DestinationProperties !== undefined) {
-    bodyParams[
-      "destinationProperties"
-    ] = serializeAws_restJson1_1DestinationProperties(
-      input.DestinationProperties,
-      context
-    );
-  }
-  if (input.DestinationType !== undefined) {
-    bodyParams["destinationType"] = input.DestinationType;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    clientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.DestinationProperties !== undefined && {
+      destinationProperties: serializeAws_restJson1_1DestinationProperties(
+        input.DestinationProperties,
+        context
+      )
+    }),
+    ...(input.DestinationType !== undefined && {
+      destinationType: input.DestinationType
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -609,14 +564,14 @@ export const serializeAws_restJson1_1CreateSampleFindingsCommand = async (
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.FindingTypes !== undefined) {
-    bodyParams["findingTypes"] = serializeAws_restJson1_1FindingTypes(
-      input.FindingTypes,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.FindingTypes !== undefined && {
+      findingTypes: serializeAws_restJson1_1FindingTypes(
+        input.FindingTypes,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -650,29 +605,16 @@ export const serializeAws_restJson1_1CreateThreatIntelSetCommand = async (
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Activate !== undefined) {
-    bodyParams["activate"] = input.Activate;
-  }
-  if (input.ClientToken === undefined) {
-    input.ClientToken = generateIdempotencyToken();
-  }
-  if (input.ClientToken !== undefined) {
-    bodyParams["clientToken"] = input.ClientToken;
-  }
-  if (input.Format !== undefined) {
-    bodyParams["format"] = input.Format;
-  }
-  if (input.Location !== undefined) {
-    bodyParams["location"] = input.Location;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["name"] = input.Name;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Activate !== undefined && { activate: input.Activate }),
+    clientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.Format !== undefined && { format: input.Format }),
+    ...(input.Location !== undefined && { location: input.Location }),
+    ...(input.Name !== undefined && { name: input.Name }),
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -694,14 +636,11 @@ export const serializeAws_restJson1_1DeclineInvitationsCommand = async (
   };
   let resolvedPath = "/invitation/decline";
   let body: any;
-  const bodyParams: any = {};
-  if (input.AccountIds !== undefined) {
-    bodyParams["accountIds"] = serializeAws_restJson1_1AccountIds(
-      input.AccountIds,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AccountIds !== undefined && {
+      accountIds: serializeAws_restJson1_1AccountIds(input.AccountIds, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -846,14 +785,11 @@ export const serializeAws_restJson1_1DeleteInvitationsCommand = async (
   };
   let resolvedPath = "/invitation/delete";
   let body: any;
-  const bodyParams: any = {};
-  if (input.AccountIds !== undefined) {
-    bodyParams["accountIds"] = serializeAws_restJson1_1AccountIds(
-      input.AccountIds,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AccountIds !== undefined && {
+      accountIds: serializeAws_restJson1_1AccountIds(input.AccountIds, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -887,14 +823,11 @@ export const serializeAws_restJson1_1DeleteMembersCommand = async (
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.AccountIds !== undefined) {
-    bodyParams["accountIds"] = serializeAws_restJson1_1AccountIds(
-      input.AccountIds,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AccountIds !== undefined && {
+      accountIds: serializeAws_restJson1_1AccountIds(input.AccountIds, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1106,14 +1039,11 @@ export const serializeAws_restJson1_1DisassociateMembersCommand = async (
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.AccountIds !== undefined) {
-    bodyParams["accountIds"] = serializeAws_restJson1_1AccountIds(
-      input.AccountIds,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AccountIds !== undefined && {
+      accountIds: serializeAws_restJson1_1AccountIds(input.AccountIds, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1225,20 +1155,17 @@ export const serializeAws_restJson1_1GetFindingsCommand = async (
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.FindingIds !== undefined) {
-    bodyParams["findingIds"] = serializeAws_restJson1_1FindingIds(
-      input.FindingIds,
-      context
-    );
-  }
-  if (input.SortCriteria !== undefined) {
-    bodyParams["sortCriteria"] = serializeAws_restJson1_1SortCriteria(
-      input.SortCriteria,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.FindingIds !== undefined && {
+      findingIds: serializeAws_restJson1_1FindingIds(input.FindingIds, context)
+    }),
+    ...(input.SortCriteria !== undefined && {
+      sortCriteria: serializeAws_restJson1_1SortCriteria(
+        input.SortCriteria,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1272,22 +1199,20 @@ export const serializeAws_restJson1_1GetFindingsStatisticsCommand = async (
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.FindingCriteria !== undefined) {
-    bodyParams["findingCriteria"] = serializeAws_restJson1_1FindingCriteria(
-      input.FindingCriteria,
-      context
-    );
-  }
-  if (input.FindingStatisticTypes !== undefined) {
-    bodyParams[
-      "findingStatisticTypes"
-    ] = serializeAws_restJson1_1FindingStatisticTypes(
-      input.FindingStatisticTypes,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.FindingCriteria !== undefined && {
+      findingCriteria: serializeAws_restJson1_1FindingCriteria(
+        input.FindingCriteria,
+        context
+      )
+    }),
+    ...(input.FindingStatisticTypes !== undefined && {
+      findingStatisticTypes: serializeAws_restJson1_1FindingStatisticTypes(
+        input.FindingStatisticTypes,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1421,14 +1346,11 @@ export const serializeAws_restJson1_1GetMembersCommand = async (
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.AccountIds !== undefined) {
-    bodyParams["accountIds"] = serializeAws_restJson1_1AccountIds(
-      input.AccountIds,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AccountIds !== undefined && {
+      accountIds: serializeAws_restJson1_1AccountIds(input.AccountIds, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1511,20 +1433,15 @@ export const serializeAws_restJson1_1InviteMembersCommand = async (
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.AccountIds !== undefined) {
-    bodyParams["accountIds"] = serializeAws_restJson1_1AccountIds(
-      input.AccountIds,
-      context
-    );
-  }
-  if (input.DisableEmailNotification !== undefined) {
-    bodyParams["disableEmailNotification"] = input.DisableEmailNotification;
-  }
-  if (input.Message !== undefined) {
-    bodyParams["message"] = input.Message;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AccountIds !== undefined && {
+      accountIds: serializeAws_restJson1_1AccountIds(input.AccountIds, context)
+    }),
+    ...(input.DisableEmailNotification !== undefined && {
+      disableEmailNotification: input.DisableEmailNotification
+    }),
+    ...(input.Message !== undefined && { message: input.Message })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1626,26 +1543,22 @@ export const serializeAws_restJson1_1ListFindingsCommand = async (
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.FindingCriteria !== undefined) {
-    bodyParams["findingCriteria"] = serializeAws_restJson1_1FindingCriteria(
-      input.FindingCriteria,
-      context
-    );
-  }
-  if (input.MaxResults !== undefined) {
-    bodyParams["maxResults"] = input.MaxResults;
-  }
-  if (input.NextToken !== undefined) {
-    bodyParams["nextToken"] = input.NextToken;
-  }
-  if (input.SortCriteria !== undefined) {
-    bodyParams["sortCriteria"] = serializeAws_restJson1_1SortCriteria(
-      input.SortCriteria,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.FindingCriteria !== undefined && {
+      findingCriteria: serializeAws_restJson1_1FindingCriteria(
+        input.FindingCriteria,
+        context
+      )
+    }),
+    ...(input.MaxResults !== undefined && { maxResults: input.MaxResults }),
+    ...(input.NextToken !== undefined && { nextToken: input.NextToken }),
+    ...(input.SortCriteria !== undefined && {
+      sortCriteria: serializeAws_restJson1_1SortCriteria(
+        input.SortCriteria,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1905,14 +1818,11 @@ export const serializeAws_restJson1_1StartMonitoringMembersCommand = async (
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.AccountIds !== undefined) {
-    bodyParams["accountIds"] = serializeAws_restJson1_1AccountIds(
-      input.AccountIds,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AccountIds !== undefined && {
+      accountIds: serializeAws_restJson1_1AccountIds(input.AccountIds, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1946,14 +1856,11 @@ export const serializeAws_restJson1_1StopMonitoringMembersCommand = async (
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.AccountIds !== undefined) {
-    bodyParams["accountIds"] = serializeAws_restJson1_1AccountIds(
-      input.AccountIds,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AccountIds !== undefined && {
+      accountIds: serializeAws_restJson1_1AccountIds(input.AccountIds, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1989,11 +1896,11 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagMap(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1TagMap(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2027,14 +1934,11 @@ export const serializeAws_restJson1_1UnarchiveFindingsCommand = async (
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.FindingIds !== undefined) {
-    bodyParams["findingIds"] = serializeAws_restJson1_1FindingIds(
-      input.FindingIds,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.FindingIds !== undefined && {
+      findingIds: serializeAws_restJson1_1FindingIds(input.FindingIds, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2109,14 +2013,12 @@ export const serializeAws_restJson1_1UpdateDetectorCommand = async (
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Enable !== undefined) {
-    bodyParams["enable"] = input.Enable;
-  }
-  if (input.FindingPublishingFrequency !== undefined) {
-    bodyParams["findingPublishingFrequency"] = input.FindingPublishingFrequency;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Enable !== undefined && { enable: input.Enable }),
+    ...(input.FindingPublishingFrequency !== undefined && {
+      findingPublishingFrequency: input.FindingPublishingFrequency
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2162,23 +2064,17 @@ export const serializeAws_restJson1_1UpdateFilterCommand = async (
     throw new Error("No value provided for input HTTP label: FilterName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Action !== undefined) {
-    bodyParams["action"] = input.Action;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["description"] = input.Description;
-  }
-  if (input.FindingCriteria !== undefined) {
-    bodyParams["findingCriteria"] = serializeAws_restJson1_1FindingCriteria(
-      input.FindingCriteria,
-      context
-    );
-  }
-  if (input.Rank !== undefined) {
-    bodyParams["rank"] = input.Rank;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Action !== undefined && { action: input.Action }),
+    ...(input.Description !== undefined && { description: input.Description }),
+    ...(input.FindingCriteria !== undefined && {
+      findingCriteria: serializeAws_restJson1_1FindingCriteria(
+        input.FindingCriteria,
+        context
+      )
+    }),
+    ...(input.Rank !== undefined && { rank: input.Rank })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2212,20 +2108,13 @@ export const serializeAws_restJson1_1UpdateFindingsFeedbackCommand = async (
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Comments !== undefined) {
-    bodyParams["comments"] = input.Comments;
-  }
-  if (input.Feedback !== undefined) {
-    bodyParams["feedback"] = input.Feedback;
-  }
-  if (input.FindingIds !== undefined) {
-    bodyParams["findingIds"] = serializeAws_restJson1_1FindingIds(
-      input.FindingIds,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Comments !== undefined && { comments: input.Comments }),
+    ...(input.Feedback !== undefined && { feedback: input.Feedback }),
+    ...(input.FindingIds !== undefined && {
+      findingIds: serializeAws_restJson1_1FindingIds(input.FindingIds, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2271,17 +2160,11 @@ export const serializeAws_restJson1_1UpdateIPSetCommand = async (
     throw new Error("No value provided for input HTTP label: IpSetId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Activate !== undefined) {
-    bodyParams["activate"] = input.Activate;
-  }
-  if (input.Location !== undefined) {
-    bodyParams["location"] = input.Location;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["name"] = input.Name;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Activate !== undefined && { activate: input.Activate }),
+    ...(input.Location !== undefined && { location: input.Location }),
+    ...(input.Name !== undefined && { name: input.Name })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2330,16 +2213,14 @@ export const serializeAws_restJson1_1UpdatePublishingDestinationCommand = async 
     throw new Error("No value provided for input HTTP label: DetectorId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.DestinationProperties !== undefined) {
-    bodyParams[
-      "destinationProperties"
-    ] = serializeAws_restJson1_1DestinationProperties(
-      input.DestinationProperties,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DestinationProperties !== undefined && {
+      destinationProperties: serializeAws_restJson1_1DestinationProperties(
+        input.DestinationProperties,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2389,17 +2270,11 @@ export const serializeAws_restJson1_1UpdateThreatIntelSetCommand = async (
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Activate !== undefined) {
-    bodyParams["activate"] = input.Activate;
-  }
-  if (input.Location !== undefined) {
-    bodyParams["location"] = input.Location;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["name"] = input.Name;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Activate !== undefined && { activate: input.Activate }),
+    ...(input.Location !== undefined && { location: input.Location }),
+    ...(input.Name !== undefined && { name: input.Name })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

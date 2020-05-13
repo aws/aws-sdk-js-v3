@@ -163,50 +163,36 @@ export const serializeAws_restJson1_1CreateJobCommand = async (
   };
   let resolvedPath = "/2012-09-25/jobs";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Input !== undefined) {
-    bodyParams["Input"] = serializeAws_restJson1_1JobInput(
-      input.Input,
-      context
-    );
-  }
-  if (input.Inputs !== undefined) {
-    bodyParams["Inputs"] = serializeAws_restJson1_1JobInputs(
-      input.Inputs,
-      context
-    );
-  }
-  if (input.Output !== undefined) {
-    bodyParams["Output"] = serializeAws_restJson1_1CreateJobOutput(
-      input.Output,
-      context
-    );
-  }
-  if (input.OutputKeyPrefix !== undefined) {
-    bodyParams["OutputKeyPrefix"] = input.OutputKeyPrefix;
-  }
-  if (input.Outputs !== undefined) {
-    bodyParams["Outputs"] = serializeAws_restJson1_1CreateJobOutputs(
-      input.Outputs,
-      context
-    );
-  }
-  if (input.PipelineId !== undefined) {
-    bodyParams["PipelineId"] = input.PipelineId;
-  }
-  if (input.Playlists !== undefined) {
-    bodyParams["Playlists"] = serializeAws_restJson1_1CreateJobPlaylists(
-      input.Playlists,
-      context
-    );
-  }
-  if (input.UserMetadata !== undefined) {
-    bodyParams["UserMetadata"] = serializeAws_restJson1_1UserMetadata(
-      input.UserMetadata,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Input !== undefined && {
+      Input: serializeAws_restJson1_1JobInput(input.Input, context)
+    }),
+    ...(input.Inputs !== undefined && {
+      Inputs: serializeAws_restJson1_1JobInputs(input.Inputs, context)
+    }),
+    ...(input.Output !== undefined && {
+      Output: serializeAws_restJson1_1CreateJobOutput(input.Output, context)
+    }),
+    ...(input.OutputKeyPrefix !== undefined && {
+      OutputKeyPrefix: input.OutputKeyPrefix
+    }),
+    ...(input.Outputs !== undefined && {
+      Outputs: serializeAws_restJson1_1CreateJobOutputs(input.Outputs, context)
+    }),
+    ...(input.PipelineId !== undefined && { PipelineId: input.PipelineId }),
+    ...(input.Playlists !== undefined && {
+      Playlists: serializeAws_restJson1_1CreateJobPlaylists(
+        input.Playlists,
+        context
+      )
+    }),
+    ...(input.UserMetadata !== undefined && {
+      UserMetadata: serializeAws_restJson1_1UserMetadata(
+        input.UserMetadata,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -228,43 +214,35 @@ export const serializeAws_restJson1_1CreatePipelineCommand = async (
   };
   let resolvedPath = "/2012-09-25/pipelines";
   let body: any;
-  const bodyParams: any = {};
-  if (input.AwsKmsKeyArn !== undefined) {
-    bodyParams["AwsKmsKeyArn"] = input.AwsKmsKeyArn;
-  }
-  if (input.ContentConfig !== undefined) {
-    bodyParams["ContentConfig"] = serializeAws_restJson1_1PipelineOutputConfig(
-      input.ContentConfig,
-      context
-    );
-  }
-  if (input.InputBucket !== undefined) {
-    bodyParams["InputBucket"] = input.InputBucket;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.Notifications !== undefined) {
-    bodyParams["Notifications"] = serializeAws_restJson1_1Notifications(
-      input.Notifications,
-      context
-    );
-  }
-  if (input.OutputBucket !== undefined) {
-    bodyParams["OutputBucket"] = input.OutputBucket;
-  }
-  if (input.Role !== undefined) {
-    bodyParams["Role"] = input.Role;
-  }
-  if (input.ThumbnailConfig !== undefined) {
-    bodyParams[
-      "ThumbnailConfig"
-    ] = serializeAws_restJson1_1PipelineOutputConfig(
-      input.ThumbnailConfig,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AwsKmsKeyArn !== undefined && {
+      AwsKmsKeyArn: input.AwsKmsKeyArn
+    }),
+    ...(input.ContentConfig !== undefined && {
+      ContentConfig: serializeAws_restJson1_1PipelineOutputConfig(
+        input.ContentConfig,
+        context
+      )
+    }),
+    ...(input.InputBucket !== undefined && { InputBucket: input.InputBucket }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Notifications !== undefined && {
+      Notifications: serializeAws_restJson1_1Notifications(
+        input.Notifications,
+        context
+      )
+    }),
+    ...(input.OutputBucket !== undefined && {
+      OutputBucket: input.OutputBucket
+    }),
+    ...(input.Role !== undefined && { Role: input.Role }),
+    ...(input.ThumbnailConfig !== undefined && {
+      ThumbnailConfig: serializeAws_restJson1_1PipelineOutputConfig(
+        input.ThumbnailConfig,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -286,35 +264,20 @@ export const serializeAws_restJson1_1CreatePresetCommand = async (
   };
   let resolvedPath = "/2012-09-25/presets";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Audio !== undefined) {
-    bodyParams["Audio"] = serializeAws_restJson1_1AudioParameters(
-      input.Audio,
-      context
-    );
-  }
-  if (input.Container !== undefined) {
-    bodyParams["Container"] = input.Container;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.Thumbnails !== undefined) {
-    bodyParams["Thumbnails"] = serializeAws_restJson1_1Thumbnails(
-      input.Thumbnails,
-      context
-    );
-  }
-  if (input.Video !== undefined) {
-    bodyParams["Video"] = serializeAws_restJson1_1VideoParameters(
-      input.Video,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Audio !== undefined && {
+      Audio: serializeAws_restJson1_1AudioParameters(input.Audio, context)
+    }),
+    ...(input.Container !== undefined && { Container: input.Container }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Thumbnails !== undefined && {
+      Thumbnails: serializeAws_restJson1_1Thumbnails(input.Thumbnails, context)
+    }),
+    ...(input.Video !== undefined && {
+      Video: serializeAws_restJson1_1VideoParameters(input.Video, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -629,23 +592,16 @@ export const serializeAws_restJson1_1TestRoleCommand = async (
   };
   let resolvedPath = "/2012-09-25/roleTests";
   let body: any;
-  const bodyParams: any = {};
-  if (input.InputBucket !== undefined) {
-    bodyParams["InputBucket"] = input.InputBucket;
-  }
-  if (input.OutputBucket !== undefined) {
-    bodyParams["OutputBucket"] = input.OutputBucket;
-  }
-  if (input.Role !== undefined) {
-    bodyParams["Role"] = input.Role;
-  }
-  if (input.Topics !== undefined) {
-    bodyParams["Topics"] = serializeAws_restJson1_1SnsTopics(
-      input.Topics,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.InputBucket !== undefined && { InputBucket: input.InputBucket }),
+    ...(input.OutputBucket !== undefined && {
+      OutputBucket: input.OutputBucket
+    }),
+    ...(input.Role !== undefined && { Role: input.Role }),
+    ...(input.Topics !== undefined && {
+      Topics: serializeAws_restJson1_1SnsTopics(input.Topics, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -679,40 +635,32 @@ export const serializeAws_restJson1_1UpdatePipelineCommand = async (
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.AwsKmsKeyArn !== undefined) {
-    bodyParams["AwsKmsKeyArn"] = input.AwsKmsKeyArn;
-  }
-  if (input.ContentConfig !== undefined) {
-    bodyParams["ContentConfig"] = serializeAws_restJson1_1PipelineOutputConfig(
-      input.ContentConfig,
-      context
-    );
-  }
-  if (input.InputBucket !== undefined) {
-    bodyParams["InputBucket"] = input.InputBucket;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.Notifications !== undefined) {
-    bodyParams["Notifications"] = serializeAws_restJson1_1Notifications(
-      input.Notifications,
-      context
-    );
-  }
-  if (input.Role !== undefined) {
-    bodyParams["Role"] = input.Role;
-  }
-  if (input.ThumbnailConfig !== undefined) {
-    bodyParams[
-      "ThumbnailConfig"
-    ] = serializeAws_restJson1_1PipelineOutputConfig(
-      input.ThumbnailConfig,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AwsKmsKeyArn !== undefined && {
+      AwsKmsKeyArn: input.AwsKmsKeyArn
+    }),
+    ...(input.ContentConfig !== undefined && {
+      ContentConfig: serializeAws_restJson1_1PipelineOutputConfig(
+        input.ContentConfig,
+        context
+      )
+    }),
+    ...(input.InputBucket !== undefined && { InputBucket: input.InputBucket }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.Notifications !== undefined && {
+      Notifications: serializeAws_restJson1_1Notifications(
+        input.Notifications,
+        context
+      )
+    }),
+    ...(input.Role !== undefined && { Role: input.Role }),
+    ...(input.ThumbnailConfig !== undefined && {
+      ThumbnailConfig: serializeAws_restJson1_1PipelineOutputConfig(
+        input.ThumbnailConfig,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -746,14 +694,14 @@ export const serializeAws_restJson1_1UpdatePipelineNotificationsCommand = async 
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Notifications !== undefined) {
-    bodyParams["Notifications"] = serializeAws_restJson1_1Notifications(
-      input.Notifications,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Notifications !== undefined && {
+      Notifications: serializeAws_restJson1_1Notifications(
+        input.Notifications,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -787,11 +735,9 @@ export const serializeAws_restJson1_1UpdatePipelineStatusCommand = async (
     throw new Error("No value provided for input HTTP label: Id.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Status !== undefined) {
-    bodyParams["Status"] = input.Status;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Status !== undefined && { Status: input.Status })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

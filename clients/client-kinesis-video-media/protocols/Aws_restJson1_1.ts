@@ -32,20 +32,16 @@ export const serializeAws_restJson1_1GetMediaCommand = async (
   };
   let resolvedPath = "/getMedia";
   let body: any;
-  const bodyParams: any = {};
-  if (input.StartSelector !== undefined) {
-    bodyParams["StartSelector"] = serializeAws_restJson1_1StartSelector(
-      input.StartSelector,
-      context
-    );
-  }
-  if (input.StreamARN !== undefined) {
-    bodyParams["StreamARN"] = input.StreamARN;
-  }
-  if (input.StreamName !== undefined) {
-    bodyParams["StreamName"] = input.StreamName;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.StartSelector !== undefined && {
+      StartSelector: serializeAws_restJson1_1StartSelector(
+        input.StartSelector,
+        context
+      )
+    }),
+    ...(input.StreamARN !== undefined && { StreamARN: input.StreamARN }),
+    ...(input.StreamName !== undefined && { StreamName: input.StreamName })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

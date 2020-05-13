@@ -166,17 +166,12 @@ export const serializeAws_restJson1_1AddTagsCommand = async (
   };
   let resolvedPath = "/2015-01-01/tags";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ARN !== undefined) {
-    bodyParams["ARN"] = input.ARN;
-  }
-  if (input.TagList !== undefined) {
-    bodyParams["TagList"] = serializeAws_restJson1_1TagList(
-      input.TagList,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ARN !== undefined && { ARN: input.ARN }),
+    ...(input.TagList !== undefined && {
+      TagList: serializeAws_restJson1_1TagList(input.TagList, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -198,11 +193,9 @@ export const serializeAws_restJson1_1CancelElasticsearchServiceSoftwareUpdateCom
   };
   let resolvedPath = "/2015-01-01/es/serviceSoftwareUpdate/cancel";
   let body: any;
-  const bodyParams: any = {};
-  if (input.DomainName !== undefined) {
-    bodyParams["DomainName"] = input.DomainName;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DomainName !== undefined && { DomainName: input.DomainName })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -224,87 +217,69 @@ export const serializeAws_restJson1_1CreateElasticsearchDomainCommand = async (
   };
   let resolvedPath = "/2015-01-01/es/domain";
   let body: any;
-  const bodyParams: any = {};
-  if (input.AccessPolicies !== undefined) {
-    bodyParams["AccessPolicies"] = input.AccessPolicies;
-  }
-  if (input.AdvancedOptions !== undefined) {
-    bodyParams["AdvancedOptions"] = serializeAws_restJson1_1AdvancedOptions(
-      input.AdvancedOptions,
-      context
-    );
-  }
-  if (input.CognitoOptions !== undefined) {
-    bodyParams["CognitoOptions"] = serializeAws_restJson1_1CognitoOptions(
-      input.CognitoOptions,
-      context
-    );
-  }
-  if (input.DomainEndpointOptions !== undefined) {
-    bodyParams[
-      "DomainEndpointOptions"
-    ] = serializeAws_restJson1_1DomainEndpointOptions(
-      input.DomainEndpointOptions,
-      context
-    );
-  }
-  if (input.DomainName !== undefined) {
-    bodyParams["DomainName"] = input.DomainName;
-  }
-  if (input.EBSOptions !== undefined) {
-    bodyParams["EBSOptions"] = serializeAws_restJson1_1EBSOptions(
-      input.EBSOptions,
-      context
-    );
-  }
-  if (input.ElasticsearchClusterConfig !== undefined) {
-    bodyParams[
-      "ElasticsearchClusterConfig"
-    ] = serializeAws_restJson1_1ElasticsearchClusterConfig(
-      input.ElasticsearchClusterConfig,
-      context
-    );
-  }
-  if (input.ElasticsearchVersion !== undefined) {
-    bodyParams["ElasticsearchVersion"] = input.ElasticsearchVersion;
-  }
-  if (input.EncryptionAtRestOptions !== undefined) {
-    bodyParams[
-      "EncryptionAtRestOptions"
-    ] = serializeAws_restJson1_1EncryptionAtRestOptions(
-      input.EncryptionAtRestOptions,
-      context
-    );
-  }
-  if (input.LogPublishingOptions !== undefined) {
-    bodyParams[
-      "LogPublishingOptions"
-    ] = serializeAws_restJson1_1LogPublishingOptions(
-      input.LogPublishingOptions,
-      context
-    );
-  }
-  if (input.NodeToNodeEncryptionOptions !== undefined) {
-    bodyParams[
-      "NodeToNodeEncryptionOptions"
-    ] = serializeAws_restJson1_1NodeToNodeEncryptionOptions(
-      input.NodeToNodeEncryptionOptions,
-      context
-    );
-  }
-  if (input.SnapshotOptions !== undefined) {
-    bodyParams["SnapshotOptions"] = serializeAws_restJson1_1SnapshotOptions(
-      input.SnapshotOptions,
-      context
-    );
-  }
-  if (input.VPCOptions !== undefined) {
-    bodyParams["VPCOptions"] = serializeAws_restJson1_1VPCOptions(
-      input.VPCOptions,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AccessPolicies !== undefined && {
+      AccessPolicies: input.AccessPolicies
+    }),
+    ...(input.AdvancedOptions !== undefined && {
+      AdvancedOptions: serializeAws_restJson1_1AdvancedOptions(
+        input.AdvancedOptions,
+        context
+      )
+    }),
+    ...(input.CognitoOptions !== undefined && {
+      CognitoOptions: serializeAws_restJson1_1CognitoOptions(
+        input.CognitoOptions,
+        context
+      )
+    }),
+    ...(input.DomainEndpointOptions !== undefined && {
+      DomainEndpointOptions: serializeAws_restJson1_1DomainEndpointOptions(
+        input.DomainEndpointOptions,
+        context
+      )
+    }),
+    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
+    ...(input.EBSOptions !== undefined && {
+      EBSOptions: serializeAws_restJson1_1EBSOptions(input.EBSOptions, context)
+    }),
+    ...(input.ElasticsearchClusterConfig !== undefined && {
+      ElasticsearchClusterConfig: serializeAws_restJson1_1ElasticsearchClusterConfig(
+        input.ElasticsearchClusterConfig,
+        context
+      )
+    }),
+    ...(input.ElasticsearchVersion !== undefined && {
+      ElasticsearchVersion: input.ElasticsearchVersion
+    }),
+    ...(input.EncryptionAtRestOptions !== undefined && {
+      EncryptionAtRestOptions: serializeAws_restJson1_1EncryptionAtRestOptions(
+        input.EncryptionAtRestOptions,
+        context
+      )
+    }),
+    ...(input.LogPublishingOptions !== undefined && {
+      LogPublishingOptions: serializeAws_restJson1_1LogPublishingOptions(
+        input.LogPublishingOptions,
+        context
+      )
+    }),
+    ...(input.NodeToNodeEncryptionOptions !== undefined && {
+      NodeToNodeEncryptionOptions: serializeAws_restJson1_1NodeToNodeEncryptionOptions(
+        input.NodeToNodeEncryptionOptions,
+        context
+      )
+    }),
+    ...(input.SnapshotOptions !== undefined && {
+      SnapshotOptions: serializeAws_restJson1_1SnapshotOptions(
+        input.SnapshotOptions,
+        context
+      )
+    }),
+    ...(input.VPCOptions !== undefined && {
+      VPCOptions: serializeAws_restJson1_1VPCOptions(input.VPCOptions, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -447,14 +422,14 @@ export const serializeAws_restJson1_1DescribeElasticsearchDomainsCommand = async
   };
   let resolvedPath = "/2015-01-01/es/domain-info";
   let body: any;
-  const bodyParams: any = {};
-  if (input.DomainNames !== undefined) {
-    bodyParams["DomainNames"] = serializeAws_restJson1_1DomainNameList(
-      input.DomainNames,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DomainNames !== undefined && {
+      DomainNames: serializeAws_restJson1_1DomainNameList(
+        input.DomainNames,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -812,18 +787,18 @@ export const serializeAws_restJson1_1PurchaseReservedElasticsearchInstanceOfferi
   };
   let resolvedPath = "/2015-01-01/es/purchaseReservedInstanceOffering";
   let body: any;
-  const bodyParams: any = {};
-  if (input.InstanceCount !== undefined) {
-    bodyParams["InstanceCount"] = input.InstanceCount;
-  }
-  if (input.ReservationName !== undefined) {
-    bodyParams["ReservationName"] = input.ReservationName;
-  }
-  if (input.ReservedElasticsearchInstanceOfferingId !== undefined) {
-    bodyParams["ReservedElasticsearchInstanceOfferingId"] =
-      input.ReservedElasticsearchInstanceOfferingId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.InstanceCount !== undefined && {
+      InstanceCount: input.InstanceCount
+    }),
+    ...(input.ReservationName !== undefined && {
+      ReservationName: input.ReservationName
+    }),
+    ...(input.ReservedElasticsearchInstanceOfferingId !== undefined && {
+      ReservedElasticsearchInstanceOfferingId:
+        input.ReservedElasticsearchInstanceOfferingId
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -845,17 +820,12 @@ export const serializeAws_restJson1_1RemoveTagsCommand = async (
   };
   let resolvedPath = "/2015-01-01/tags-removal";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ARN !== undefined) {
-    bodyParams["ARN"] = input.ARN;
-  }
-  if (input.TagKeys !== undefined) {
-    bodyParams["TagKeys"] = serializeAws_restJson1_1StringList(
-      input.TagKeys,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ARN !== undefined && { ARN: input.ARN }),
+    ...(input.TagKeys !== undefined && {
+      TagKeys: serializeAws_restJson1_1StringList(input.TagKeys, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -877,11 +847,9 @@ export const serializeAws_restJson1_1StartElasticsearchServiceSoftwareUpdateComm
   };
   let resolvedPath = "/2015-01-01/es/serviceSoftwareUpdate/start";
   let body: any;
-  const bodyParams: any = {};
-  if (input.DomainName !== undefined) {
-    bodyParams["DomainName"] = input.DomainName;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DomainName !== undefined && { DomainName: input.DomainName })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -915,65 +883,53 @@ export const serializeAws_restJson1_1UpdateElasticsearchDomainConfigCommand = as
     throw new Error("No value provided for input HTTP label: DomainName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.AccessPolicies !== undefined) {
-    bodyParams["AccessPolicies"] = input.AccessPolicies;
-  }
-  if (input.AdvancedOptions !== undefined) {
-    bodyParams["AdvancedOptions"] = serializeAws_restJson1_1AdvancedOptions(
-      input.AdvancedOptions,
-      context
-    );
-  }
-  if (input.CognitoOptions !== undefined) {
-    bodyParams["CognitoOptions"] = serializeAws_restJson1_1CognitoOptions(
-      input.CognitoOptions,
-      context
-    );
-  }
-  if (input.DomainEndpointOptions !== undefined) {
-    bodyParams[
-      "DomainEndpointOptions"
-    ] = serializeAws_restJson1_1DomainEndpointOptions(
-      input.DomainEndpointOptions,
-      context
-    );
-  }
-  if (input.EBSOptions !== undefined) {
-    bodyParams["EBSOptions"] = serializeAws_restJson1_1EBSOptions(
-      input.EBSOptions,
-      context
-    );
-  }
-  if (input.ElasticsearchClusterConfig !== undefined) {
-    bodyParams[
-      "ElasticsearchClusterConfig"
-    ] = serializeAws_restJson1_1ElasticsearchClusterConfig(
-      input.ElasticsearchClusterConfig,
-      context
-    );
-  }
-  if (input.LogPublishingOptions !== undefined) {
-    bodyParams[
-      "LogPublishingOptions"
-    ] = serializeAws_restJson1_1LogPublishingOptions(
-      input.LogPublishingOptions,
-      context
-    );
-  }
-  if (input.SnapshotOptions !== undefined) {
-    bodyParams["SnapshotOptions"] = serializeAws_restJson1_1SnapshotOptions(
-      input.SnapshotOptions,
-      context
-    );
-  }
-  if (input.VPCOptions !== undefined) {
-    bodyParams["VPCOptions"] = serializeAws_restJson1_1VPCOptions(
-      input.VPCOptions,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AccessPolicies !== undefined && {
+      AccessPolicies: input.AccessPolicies
+    }),
+    ...(input.AdvancedOptions !== undefined && {
+      AdvancedOptions: serializeAws_restJson1_1AdvancedOptions(
+        input.AdvancedOptions,
+        context
+      )
+    }),
+    ...(input.CognitoOptions !== undefined && {
+      CognitoOptions: serializeAws_restJson1_1CognitoOptions(
+        input.CognitoOptions,
+        context
+      )
+    }),
+    ...(input.DomainEndpointOptions !== undefined && {
+      DomainEndpointOptions: serializeAws_restJson1_1DomainEndpointOptions(
+        input.DomainEndpointOptions,
+        context
+      )
+    }),
+    ...(input.EBSOptions !== undefined && {
+      EBSOptions: serializeAws_restJson1_1EBSOptions(input.EBSOptions, context)
+    }),
+    ...(input.ElasticsearchClusterConfig !== undefined && {
+      ElasticsearchClusterConfig: serializeAws_restJson1_1ElasticsearchClusterConfig(
+        input.ElasticsearchClusterConfig,
+        context
+      )
+    }),
+    ...(input.LogPublishingOptions !== undefined && {
+      LogPublishingOptions: serializeAws_restJson1_1LogPublishingOptions(
+        input.LogPublishingOptions,
+        context
+      )
+    }),
+    ...(input.SnapshotOptions !== undefined && {
+      SnapshotOptions: serializeAws_restJson1_1SnapshotOptions(
+        input.SnapshotOptions,
+        context
+      )
+    }),
+    ...(input.VPCOptions !== undefined && {
+      VPCOptions: serializeAws_restJson1_1VPCOptions(input.VPCOptions, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -995,17 +951,15 @@ export const serializeAws_restJson1_1UpgradeElasticsearchDomainCommand = async (
   };
   let resolvedPath = "/2015-01-01/es/upgradeDomain";
   let body: any;
-  const bodyParams: any = {};
-  if (input.DomainName !== undefined) {
-    bodyParams["DomainName"] = input.DomainName;
-  }
-  if (input.PerformCheckOnly !== undefined) {
-    bodyParams["PerformCheckOnly"] = input.PerformCheckOnly;
-  }
-  if (input.TargetVersion !== undefined) {
-    bodyParams["TargetVersion"] = input.TargetVersion;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.DomainName !== undefined && { DomainName: input.DomainName }),
+    ...(input.PerformCheckOnly !== undefined && {
+      PerformCheckOnly: input.PerformCheckOnly
+    }),
+    ...(input.TargetVersion !== undefined && {
+      TargetVersion: input.TargetVersion
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

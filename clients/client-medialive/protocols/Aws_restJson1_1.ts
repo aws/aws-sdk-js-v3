@@ -393,24 +393,20 @@ export const serializeAws_restJson1_1BatchUpdateScheduleCommand = async (
     throw new Error("No value provided for input HTTP label: ChannelId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Creates !== undefined) {
-    bodyParams[
-      "creates"
-    ] = serializeAws_restJson1_1BatchScheduleActionCreateRequest(
-      input.Creates,
-      context
-    );
-  }
-  if (input.Deletes !== undefined) {
-    bodyParams[
-      "deletes"
-    ] = serializeAws_restJson1_1BatchScheduleActionDeleteRequest(
-      input.Deletes,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Creates !== undefined && {
+      creates: serializeAws_restJson1_1BatchScheduleActionCreateRequest(
+        input.Creates,
+        context
+      )
+    }),
+    ...(input.Deletes !== undefined && {
+      deletes: serializeAws_restJson1_1BatchScheduleActionDeleteRequest(
+        input.Deletes,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -432,62 +428,43 @@ export const serializeAws_restJson1_1CreateChannelCommand = async (
   };
   let resolvedPath = "/prod/channels";
   let body: any;
-  const bodyParams: any = {};
-  if (input.ChannelClass !== undefined) {
-    bodyParams["channelClass"] = input.ChannelClass;
-  }
-  if (input.Destinations !== undefined) {
-    bodyParams[
-      "destinations"
-    ] = serializeAws_restJson1_1__listOfOutputDestination(
-      input.Destinations,
-      context
-    );
-  }
-  if (input.EncoderSettings !== undefined) {
-    bodyParams["encoderSettings"] = serializeAws_restJson1_1EncoderSettings(
-      input.EncoderSettings,
-      context
-    );
-  }
-  if (input.InputAttachments !== undefined) {
-    bodyParams[
-      "inputAttachments"
-    ] = serializeAws_restJson1_1__listOfInputAttachment(
-      input.InputAttachments,
-      context
-    );
-  }
-  if (input.InputSpecification !== undefined) {
-    bodyParams[
-      "inputSpecification"
-    ] = serializeAws_restJson1_1InputSpecification(
-      input.InputSpecification,
-      context
-    );
-  }
-  if (input.LogLevel !== undefined) {
-    bodyParams["logLevel"] = input.LogLevel;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["name"] = input.Name;
-  }
-  if (input.RequestId === undefined) {
-    input.RequestId = generateIdempotencyToken();
-  }
-  if (input.RequestId !== undefined) {
-    bodyParams["requestId"] = input.RequestId;
-  }
-  if (input.Reserved !== undefined) {
-    bodyParams["reserved"] = input.Reserved;
-  }
-  if (input.RoleArn !== undefined) {
-    bodyParams["roleArn"] = input.RoleArn;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ChannelClass !== undefined && {
+      channelClass: input.ChannelClass
+    }),
+    ...(input.Destinations !== undefined && {
+      destinations: serializeAws_restJson1_1__listOfOutputDestination(
+        input.Destinations,
+        context
+      )
+    }),
+    ...(input.EncoderSettings !== undefined && {
+      encoderSettings: serializeAws_restJson1_1EncoderSettings(
+        input.EncoderSettings,
+        context
+      )
+    }),
+    ...(input.InputAttachments !== undefined && {
+      inputAttachments: serializeAws_restJson1_1__listOfInputAttachment(
+        input.InputAttachments,
+        context
+      )
+    }),
+    ...(input.InputSpecification !== undefined && {
+      inputSpecification: serializeAws_restJson1_1InputSpecification(
+        input.InputSpecification,
+        context
+      )
+    }),
+    ...(input.LogLevel !== undefined && { logLevel: input.LogLevel }),
+    ...(input.Name !== undefined && { name: input.Name }),
+    requestId: input.RequestId ?? generateIdempotencyToken(),
+    ...(input.Reserved !== undefined && { reserved: input.Reserved }),
+    ...(input.RoleArn !== undefined && { roleArn: input.RoleArn }),
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1Tags(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -509,62 +486,42 @@ export const serializeAws_restJson1_1CreateInputCommand = async (
   };
   let resolvedPath = "/prod/inputs";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Destinations !== undefined) {
-    bodyParams[
-      "destinations"
-    ] = serializeAws_restJson1_1__listOfInputDestinationRequest(
-      input.Destinations,
-      context
-    );
-  }
-  if (input.InputSecurityGroups !== undefined) {
-    bodyParams[
-      "inputSecurityGroups"
-    ] = serializeAws_restJson1_1__listOf__string(
-      input.InputSecurityGroups,
-      context
-    );
-  }
-  if (input.MediaConnectFlows !== undefined) {
-    bodyParams[
-      "mediaConnectFlows"
-    ] = serializeAws_restJson1_1__listOfMediaConnectFlowRequest(
-      input.MediaConnectFlows,
-      context
-    );
-  }
-  if (input.Name !== undefined) {
-    bodyParams["name"] = input.Name;
-  }
-  if (input.RequestId === undefined) {
-    input.RequestId = generateIdempotencyToken();
-  }
-  if (input.RequestId !== undefined) {
-    bodyParams["requestId"] = input.RequestId;
-  }
-  if (input.RoleArn !== undefined) {
-    bodyParams["roleArn"] = input.RoleArn;
-  }
-  if (input.Sources !== undefined) {
-    bodyParams["sources"] = serializeAws_restJson1_1__listOfInputSourceRequest(
-      input.Sources,
-      context
-    );
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
-  }
-  if (input.Type !== undefined) {
-    bodyParams["type"] = input.Type;
-  }
-  if (input.Vpc !== undefined) {
-    bodyParams["vpc"] = serializeAws_restJson1_1InputVpcRequest(
-      input.Vpc,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Destinations !== undefined && {
+      destinations: serializeAws_restJson1_1__listOfInputDestinationRequest(
+        input.Destinations,
+        context
+      )
+    }),
+    ...(input.InputSecurityGroups !== undefined && {
+      inputSecurityGroups: serializeAws_restJson1_1__listOf__string(
+        input.InputSecurityGroups,
+        context
+      )
+    }),
+    ...(input.MediaConnectFlows !== undefined && {
+      mediaConnectFlows: serializeAws_restJson1_1__listOfMediaConnectFlowRequest(
+        input.MediaConnectFlows,
+        context
+      )
+    }),
+    ...(input.Name !== undefined && { name: input.Name }),
+    requestId: input.RequestId ?? generateIdempotencyToken(),
+    ...(input.RoleArn !== undefined && { roleArn: input.RoleArn }),
+    ...(input.Sources !== undefined && {
+      sources: serializeAws_restJson1_1__listOfInputSourceRequest(
+        input.Sources,
+        context
+      )
+    }),
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1Tags(input.Tags, context)
+    }),
+    ...(input.Type !== undefined && { type: input.Type }),
+    ...(input.Vpc !== undefined && {
+      vpc: serializeAws_restJson1_1InputVpcRequest(input.Vpc, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -586,19 +543,17 @@ export const serializeAws_restJson1_1CreateInputSecurityGroupCommand = async (
   };
   let resolvedPath = "/prod/inputSecurityGroups";
   let body: any;
-  const bodyParams: any = {};
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
-  }
-  if (input.WhitelistRules !== undefined) {
-    bodyParams[
-      "whitelistRules"
-    ] = serializeAws_restJson1_1__listOfInputWhitelistRuleCidr(
-      input.WhitelistRules,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1Tags(input.Tags, context)
+    }),
+    ...(input.WhitelistRules !== undefined && {
+      whitelistRules: serializeAws_restJson1_1__listOfInputWhitelistRuleCidr(
+        input.WhitelistRules,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -620,32 +575,25 @@ export const serializeAws_restJson1_1CreateMultiplexCommand = async (
   };
   let resolvedPath = "/prod/multiplexes";
   let body: any;
-  const bodyParams: any = {};
-  if (input.AvailabilityZones !== undefined) {
-    bodyParams["availabilityZones"] = serializeAws_restJson1_1__listOf__string(
-      input.AvailabilityZones,
-      context
-    );
-  }
-  if (input.MultiplexSettings !== undefined) {
-    bodyParams["multiplexSettings"] = serializeAws_restJson1_1MultiplexSettings(
-      input.MultiplexSettings,
-      context
-    );
-  }
-  if (input.Name !== undefined) {
-    bodyParams["name"] = input.Name;
-  }
-  if (input.RequestId === undefined) {
-    input.RequestId = generateIdempotencyToken();
-  }
-  if (input.RequestId !== undefined) {
-    bodyParams["requestId"] = input.RequestId;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AvailabilityZones !== undefined && {
+      availabilityZones: serializeAws_restJson1_1__listOf__string(
+        input.AvailabilityZones,
+        context
+      )
+    }),
+    ...(input.MultiplexSettings !== undefined && {
+      multiplexSettings: serializeAws_restJson1_1MultiplexSettings(
+        input.MultiplexSettings,
+        context
+      )
+    }),
+    ...(input.Name !== undefined && { name: input.Name }),
+    requestId: input.RequestId ?? generateIdempotencyToken(),
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1Tags(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -681,25 +629,16 @@ export const serializeAws_restJson1_1CreateMultiplexProgramCommand = async (
     throw new Error("No value provided for input HTTP label: MultiplexId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.MultiplexProgramSettings !== undefined) {
-    bodyParams[
-      "multiplexProgramSettings"
-    ] = serializeAws_restJson1_1MultiplexProgramSettings(
-      input.MultiplexProgramSettings,
-      context
-    );
-  }
-  if (input.ProgramName !== undefined) {
-    bodyParams["programName"] = input.ProgramName;
-  }
-  if (input.RequestId === undefined) {
-    input.RequestId = generateIdempotencyToken();
-  }
-  if (input.RequestId !== undefined) {
-    bodyParams["requestId"] = input.RequestId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.MultiplexProgramSettings !== undefined && {
+      multiplexProgramSettings: serializeAws_restJson1_1MultiplexProgramSettings(
+        input.MultiplexProgramSettings,
+        context
+      )
+    }),
+    ...(input.ProgramName !== undefined && { programName: input.ProgramName }),
+    requestId: input.RequestId ?? generateIdempotencyToken()
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -735,11 +674,11 @@ export const serializeAws_restJson1_1CreateTagsCommand = async (
     throw new Error("No value provided for input HTTP label: ResourceArn.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1Tags(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1653,26 +1592,15 @@ export const serializeAws_restJson1_1PurchaseOfferingCommand = async (
     throw new Error("No value provided for input HTTP label: OfferingId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Count !== undefined) {
-    bodyParams["count"] = input.Count;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["name"] = input.Name;
-  }
-  if (input.RequestId === undefined) {
-    input.RequestId = generateIdempotencyToken();
-  }
-  if (input.RequestId !== undefined) {
-    bodyParams["requestId"] = input.RequestId;
-  }
-  if (input.Start !== undefined) {
-    bodyParams["start"] = input.Start;
-  }
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Count !== undefined && { count: input.Count }),
+    ...(input.Name !== undefined && { name: input.Name }),
+    requestId: input.RequestId ?? generateIdempotencyToken(),
+    ...(input.Start !== undefined && { start: input.Start }),
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1Tags(input.Tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1842,47 +1770,35 @@ export const serializeAws_restJson1_1UpdateChannelCommand = async (
     throw new Error("No value provided for input HTTP label: ChannelId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Destinations !== undefined) {
-    bodyParams[
-      "destinations"
-    ] = serializeAws_restJson1_1__listOfOutputDestination(
-      input.Destinations,
-      context
-    );
-  }
-  if (input.EncoderSettings !== undefined) {
-    bodyParams["encoderSettings"] = serializeAws_restJson1_1EncoderSettings(
-      input.EncoderSettings,
-      context
-    );
-  }
-  if (input.InputAttachments !== undefined) {
-    bodyParams[
-      "inputAttachments"
-    ] = serializeAws_restJson1_1__listOfInputAttachment(
-      input.InputAttachments,
-      context
-    );
-  }
-  if (input.InputSpecification !== undefined) {
-    bodyParams[
-      "inputSpecification"
-    ] = serializeAws_restJson1_1InputSpecification(
-      input.InputSpecification,
-      context
-    );
-  }
-  if (input.LogLevel !== undefined) {
-    bodyParams["logLevel"] = input.LogLevel;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["name"] = input.Name;
-  }
-  if (input.RoleArn !== undefined) {
-    bodyParams["roleArn"] = input.RoleArn;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Destinations !== undefined && {
+      destinations: serializeAws_restJson1_1__listOfOutputDestination(
+        input.Destinations,
+        context
+      )
+    }),
+    ...(input.EncoderSettings !== undefined && {
+      encoderSettings: serializeAws_restJson1_1EncoderSettings(
+        input.EncoderSettings,
+        context
+      )
+    }),
+    ...(input.InputAttachments !== undefined && {
+      inputAttachments: serializeAws_restJson1_1__listOfInputAttachment(
+        input.InputAttachments,
+        context
+      )
+    }),
+    ...(input.InputSpecification !== undefined && {
+      inputSpecification: serializeAws_restJson1_1InputSpecification(
+        input.InputSpecification,
+        context
+      )
+    }),
+    ...(input.LogLevel !== undefined && { logLevel: input.LogLevel }),
+    ...(input.Name !== undefined && { name: input.Name }),
+    ...(input.RoleArn !== undefined && { roleArn: input.RoleArn })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1916,19 +1832,17 @@ export const serializeAws_restJson1_1UpdateChannelClassCommand = async (
     throw new Error("No value provided for input HTTP label: ChannelId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.ChannelClass !== undefined) {
-    bodyParams["channelClass"] = input.ChannelClass;
-  }
-  if (input.Destinations !== undefined) {
-    bodyParams[
-      "destinations"
-    ] = serializeAws_restJson1_1__listOfOutputDestination(
-      input.Destinations,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.ChannelClass !== undefined && {
+      channelClass: input.ChannelClass
+    }),
+    ...(input.Destinations !== undefined && {
+      destinations: serializeAws_restJson1_1__listOfOutputDestination(
+        input.Destinations,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1962,44 +1876,34 @@ export const serializeAws_restJson1_1UpdateInputCommand = async (
     throw new Error("No value provided for input HTTP label: InputId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Destinations !== undefined) {
-    bodyParams[
-      "destinations"
-    ] = serializeAws_restJson1_1__listOfInputDestinationRequest(
-      input.Destinations,
-      context
-    );
-  }
-  if (input.InputSecurityGroups !== undefined) {
-    bodyParams[
-      "inputSecurityGroups"
-    ] = serializeAws_restJson1_1__listOf__string(
-      input.InputSecurityGroups,
-      context
-    );
-  }
-  if (input.MediaConnectFlows !== undefined) {
-    bodyParams[
-      "mediaConnectFlows"
-    ] = serializeAws_restJson1_1__listOfMediaConnectFlowRequest(
-      input.MediaConnectFlows,
-      context
-    );
-  }
-  if (input.Name !== undefined) {
-    bodyParams["name"] = input.Name;
-  }
-  if (input.RoleArn !== undefined) {
-    bodyParams["roleArn"] = input.RoleArn;
-  }
-  if (input.Sources !== undefined) {
-    bodyParams["sources"] = serializeAws_restJson1_1__listOfInputSourceRequest(
-      input.Sources,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Destinations !== undefined && {
+      destinations: serializeAws_restJson1_1__listOfInputDestinationRequest(
+        input.Destinations,
+        context
+      )
+    }),
+    ...(input.InputSecurityGroups !== undefined && {
+      inputSecurityGroups: serializeAws_restJson1_1__listOf__string(
+        input.InputSecurityGroups,
+        context
+      )
+    }),
+    ...(input.MediaConnectFlows !== undefined && {
+      mediaConnectFlows: serializeAws_restJson1_1__listOfMediaConnectFlowRequest(
+        input.MediaConnectFlows,
+        context
+      )
+    }),
+    ...(input.Name !== undefined && { name: input.Name }),
+    ...(input.RoleArn !== undefined && { roleArn: input.RoleArn }),
+    ...(input.Sources !== undefined && {
+      sources: serializeAws_restJson1_1__listOfInputSourceRequest(
+        input.Sources,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2037,19 +1941,17 @@ export const serializeAws_restJson1_1UpdateInputSecurityGroupCommand = async (
     );
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1Tags(input.Tags, context);
-  }
-  if (input.WhitelistRules !== undefined) {
-    bodyParams[
-      "whitelistRules"
-    ] = serializeAws_restJson1_1__listOfInputWhitelistRuleCidr(
-      input.WhitelistRules,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Tags !== undefined && {
+      tags: serializeAws_restJson1_1Tags(input.Tags, context)
+    }),
+    ...(input.WhitelistRules !== undefined && {
+      whitelistRules: serializeAws_restJson1_1__listOfInputWhitelistRuleCidr(
+        input.WhitelistRules,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2085,17 +1987,15 @@ export const serializeAws_restJson1_1UpdateMultiplexCommand = async (
     throw new Error("No value provided for input HTTP label: MultiplexId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.MultiplexSettings !== undefined) {
-    bodyParams["multiplexSettings"] = serializeAws_restJson1_1MultiplexSettings(
-      input.MultiplexSettings,
-      context
-    );
-  }
-  if (input.Name !== undefined) {
-    bodyParams["name"] = input.Name;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.MultiplexSettings !== undefined && {
+      multiplexSettings: serializeAws_restJson1_1MultiplexSettings(
+        input.MultiplexSettings,
+        context
+      )
+    }),
+    ...(input.Name !== undefined && { name: input.Name })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2145,16 +2045,14 @@ export const serializeAws_restJson1_1UpdateMultiplexProgramCommand = async (
     throw new Error("No value provided for input HTTP label: ProgramName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.MultiplexProgramSettings !== undefined) {
-    bodyParams[
-      "multiplexProgramSettings"
-    ] = serializeAws_restJson1_1MultiplexProgramSettings(
-      input.MultiplexProgramSettings,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.MultiplexProgramSettings !== undefined && {
+      multiplexProgramSettings: serializeAws_restJson1_1MultiplexProgramSettings(
+        input.MultiplexProgramSettings,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -2190,11 +2088,9 @@ export const serializeAws_restJson1_1UpdateReservationCommand = async (
     throw new Error("No value provided for input HTTP label: ReservationId.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.Name !== undefined) {
-    bodyParams["name"] = input.Name;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.Name !== undefined && { name: input.Name })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

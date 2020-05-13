@@ -52,23 +52,17 @@ export const serializeAws_restJson1_1CreateOutpostCommand = async (
   };
   let resolvedPath = "/outposts";
   let body: any;
-  const bodyParams: any = {};
-  if (input.AvailabilityZone !== undefined) {
-    bodyParams["AvailabilityZone"] = input.AvailabilityZone;
-  }
-  if (input.AvailabilityZoneId !== undefined) {
-    bodyParams["AvailabilityZoneId"] = input.AvailabilityZoneId;
-  }
-  if (input.Description !== undefined) {
-    bodyParams["Description"] = input.Description;
-  }
-  if (input.Name !== undefined) {
-    bodyParams["Name"] = input.Name;
-  }
-  if (input.SiteId !== undefined) {
-    bodyParams["SiteId"] = input.SiteId;
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.AvailabilityZone !== undefined && {
+      AvailabilityZone: input.AvailabilityZone
+    }),
+    ...(input.AvailabilityZoneId !== undefined && {
+      AvailabilityZoneId: input.AvailabilityZoneId
+    }),
+    ...(input.Description !== undefined && { Description: input.Description }),
+    ...(input.Name !== undefined && { Name: input.Name }),
+    ...(input.SiteId !== undefined && { SiteId: input.SiteId })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,

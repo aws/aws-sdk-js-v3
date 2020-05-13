@@ -278,26 +278,24 @@ export const serializeAws_restJson1_1CreateChannelCommand = async (
   };
   let resolvedPath = "/channels";
   let body: any;
-  const bodyParams: any = {};
-  if (input.channelName !== undefined) {
-    bodyParams["channelName"] = input.channelName;
-  }
-  if (input.channelStorage !== undefined) {
-    bodyParams["channelStorage"] = serializeAws_restJson1_1ChannelStorage(
-      input.channelStorage,
-      context
-    );
-  }
-  if (input.retentionPeriod !== undefined) {
-    bodyParams["retentionPeriod"] = serializeAws_restJson1_1RetentionPeriod(
-      input.retentionPeriod,
-      context
-    );
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagList(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.channelName !== undefined && { channelName: input.channelName }),
+    ...(input.channelStorage !== undefined && {
+      channelStorage: serializeAws_restJson1_1ChannelStorage(
+        input.channelStorage,
+        context
+      )
+    }),
+    ...(input.retentionPeriod !== undefined && {
+      retentionPeriod: serializeAws_restJson1_1RetentionPeriod(
+        input.retentionPeriod,
+        context
+      )
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagList(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -319,48 +317,36 @@ export const serializeAws_restJson1_1CreateDatasetCommand = async (
   };
   let resolvedPath = "/datasets";
   let body: any;
-  const bodyParams: any = {};
-  if (input.actions !== undefined) {
-    bodyParams["actions"] = serializeAws_restJson1_1DatasetActions(
-      input.actions,
-      context
-    );
-  }
-  if (input.contentDeliveryRules !== undefined) {
-    bodyParams[
-      "contentDeliveryRules"
-    ] = serializeAws_restJson1_1DatasetContentDeliveryRules(
-      input.contentDeliveryRules,
-      context
-    );
-  }
-  if (input.datasetName !== undefined) {
-    bodyParams["datasetName"] = input.datasetName;
-  }
-  if (input.retentionPeriod !== undefined) {
-    bodyParams["retentionPeriod"] = serializeAws_restJson1_1RetentionPeriod(
-      input.retentionPeriod,
-      context
-    );
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagList(input.tags, context);
-  }
-  if (input.triggers !== undefined) {
-    bodyParams["triggers"] = serializeAws_restJson1_1DatasetTriggers(
-      input.triggers,
-      context
-    );
-  }
-  if (input.versioningConfiguration !== undefined) {
-    bodyParams[
-      "versioningConfiguration"
-    ] = serializeAws_restJson1_1VersioningConfiguration(
-      input.versioningConfiguration,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.actions !== undefined && {
+      actions: serializeAws_restJson1_1DatasetActions(input.actions, context)
+    }),
+    ...(input.contentDeliveryRules !== undefined && {
+      contentDeliveryRules: serializeAws_restJson1_1DatasetContentDeliveryRules(
+        input.contentDeliveryRules,
+        context
+      )
+    }),
+    ...(input.datasetName !== undefined && { datasetName: input.datasetName }),
+    ...(input.retentionPeriod !== undefined && {
+      retentionPeriod: serializeAws_restJson1_1RetentionPeriod(
+        input.retentionPeriod,
+        context
+      )
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagList(input.tags, context)
+    }),
+    ...(input.triggers !== undefined && {
+      triggers: serializeAws_restJson1_1DatasetTriggers(input.triggers, context)
+    }),
+    ...(input.versioningConfiguration !== undefined && {
+      versioningConfiguration: serializeAws_restJson1_1VersioningConfiguration(
+        input.versioningConfiguration,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -417,26 +403,26 @@ export const serializeAws_restJson1_1CreateDatastoreCommand = async (
   };
   let resolvedPath = "/datastores";
   let body: any;
-  const bodyParams: any = {};
-  if (input.datastoreName !== undefined) {
-    bodyParams["datastoreName"] = input.datastoreName;
-  }
-  if (input.datastoreStorage !== undefined) {
-    bodyParams["datastoreStorage"] = serializeAws_restJson1_1DatastoreStorage(
-      input.datastoreStorage,
-      context
-    );
-  }
-  if (input.retentionPeriod !== undefined) {
-    bodyParams["retentionPeriod"] = serializeAws_restJson1_1RetentionPeriod(
-      input.retentionPeriod,
-      context
-    );
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagList(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.datastoreName !== undefined && {
+      datastoreName: input.datastoreName
+    }),
+    ...(input.datastoreStorage !== undefined && {
+      datastoreStorage: serializeAws_restJson1_1DatastoreStorage(
+        input.datastoreStorage,
+        context
+      )
+    }),
+    ...(input.retentionPeriod !== undefined && {
+      retentionPeriod: serializeAws_restJson1_1RetentionPeriod(
+        input.retentionPeriod,
+        context
+      )
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagList(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -458,22 +444,20 @@ export const serializeAws_restJson1_1CreatePipelineCommand = async (
   };
   let resolvedPath = "/pipelines";
   let body: any;
-  const bodyParams: any = {};
-  if (input.pipelineActivities !== undefined) {
-    bodyParams[
-      "pipelineActivities"
-    ] = serializeAws_restJson1_1PipelineActivities(
-      input.pipelineActivities,
-      context
-    );
-  }
-  if (input.pipelineName !== undefined) {
-    bodyParams["pipelineName"] = input.pipelineName;
-  }
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagList(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.pipelineActivities !== undefined && {
+      pipelineActivities: serializeAws_restJson1_1PipelineActivities(
+        input.pipelineActivities,
+        context
+      )
+    }),
+    ...(input.pipelineName !== undefined && {
+      pipelineName: input.pipelineName
+    }),
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagList(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1076,14 +1060,14 @@ export const serializeAws_restJson1_1PutLoggingOptionsCommand = async (
   };
   let resolvedPath = "/logging";
   let body: any;
-  const bodyParams: any = {};
-  if (input.loggingOptions !== undefined) {
-    bodyParams["loggingOptions"] = serializeAws_restJson1_1LoggingOptions(
-      input.loggingOptions,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.loggingOptions !== undefined && {
+      loggingOptions: serializeAws_restJson1_1LoggingOptions(
+        input.loggingOptions,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1105,20 +1089,17 @@ export const serializeAws_restJson1_1RunPipelineActivityCommand = async (
   };
   let resolvedPath = "/pipelineactivities/run";
   let body: any;
-  const bodyParams: any = {};
-  if (input.payloads !== undefined) {
-    bodyParams["payloads"] = serializeAws_restJson1_1MessagePayloads(
-      input.payloads,
-      context
-    );
-  }
-  if (input.pipelineActivity !== undefined) {
-    bodyParams["pipelineActivity"] = serializeAws_restJson1_1PipelineActivity(
-      input.pipelineActivity,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.payloads !== undefined && {
+      payloads: serializeAws_restJson1_1MessagePayloads(input.payloads, context)
+    }),
+    ...(input.pipelineActivity !== undefined && {
+      pipelineActivity: serializeAws_restJson1_1PipelineActivity(
+        input.pipelineActivity,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1201,14 +1182,14 @@ export const serializeAws_restJson1_1StartPipelineReprocessingCommand = async (
     throw new Error("No value provided for input HTTP label: pipelineName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.endTime !== undefined) {
-    bodyParams["endTime"] = Math.round(input.endTime.getTime() / 1000);
-  }
-  if (input.startTime !== undefined) {
-    bodyParams["startTime"] = Math.round(input.startTime.getTime() / 1000);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.endTime !== undefined && {
+      endTime: Math.round(input.endTime.getTime() / 1000)
+    }),
+    ...(input.startTime !== undefined && {
+      startTime: Math.round(input.startTime.getTime() / 1000)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1233,11 +1214,11 @@ export const serializeAws_restJson1_1TagResourceCommand = async (
     ...(input.resourceArn !== undefined && { resourceArn: input.resourceArn })
   };
   let body: any;
-  const bodyParams: any = {};
-  if (input.tags !== undefined) {
-    bodyParams["tags"] = serializeAws_restJson1_1TagList(input.tags, context);
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.tags !== undefined && {
+      tags: serializeAws_restJson1_1TagList(input.tags, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1302,20 +1283,20 @@ export const serializeAws_restJson1_1UpdateChannelCommand = async (
     throw new Error("No value provided for input HTTP label: channelName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.channelStorage !== undefined) {
-    bodyParams["channelStorage"] = serializeAws_restJson1_1ChannelStorage(
-      input.channelStorage,
-      context
-    );
-  }
-  if (input.retentionPeriod !== undefined) {
-    bodyParams["retentionPeriod"] = serializeAws_restJson1_1RetentionPeriod(
-      input.retentionPeriod,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.channelStorage !== undefined && {
+      channelStorage: serializeAws_restJson1_1ChannelStorage(
+        input.channelStorage,
+        context
+      )
+    }),
+    ...(input.retentionPeriod !== undefined && {
+      retentionPeriod: serializeAws_restJson1_1RetentionPeriod(
+        input.retentionPeriod,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1351,42 +1332,32 @@ export const serializeAws_restJson1_1UpdateDatasetCommand = async (
     throw new Error("No value provided for input HTTP label: datasetName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.actions !== undefined) {
-    bodyParams["actions"] = serializeAws_restJson1_1DatasetActions(
-      input.actions,
-      context
-    );
-  }
-  if (input.contentDeliveryRules !== undefined) {
-    bodyParams[
-      "contentDeliveryRules"
-    ] = serializeAws_restJson1_1DatasetContentDeliveryRules(
-      input.contentDeliveryRules,
-      context
-    );
-  }
-  if (input.retentionPeriod !== undefined) {
-    bodyParams["retentionPeriod"] = serializeAws_restJson1_1RetentionPeriod(
-      input.retentionPeriod,
-      context
-    );
-  }
-  if (input.triggers !== undefined) {
-    bodyParams["triggers"] = serializeAws_restJson1_1DatasetTriggers(
-      input.triggers,
-      context
-    );
-  }
-  if (input.versioningConfiguration !== undefined) {
-    bodyParams[
-      "versioningConfiguration"
-    ] = serializeAws_restJson1_1VersioningConfiguration(
-      input.versioningConfiguration,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.actions !== undefined && {
+      actions: serializeAws_restJson1_1DatasetActions(input.actions, context)
+    }),
+    ...(input.contentDeliveryRules !== undefined && {
+      contentDeliveryRules: serializeAws_restJson1_1DatasetContentDeliveryRules(
+        input.contentDeliveryRules,
+        context
+      )
+    }),
+    ...(input.retentionPeriod !== undefined && {
+      retentionPeriod: serializeAws_restJson1_1RetentionPeriod(
+        input.retentionPeriod,
+        context
+      )
+    }),
+    ...(input.triggers !== undefined && {
+      triggers: serializeAws_restJson1_1DatasetTriggers(input.triggers, context)
+    }),
+    ...(input.versioningConfiguration !== undefined && {
+      versioningConfiguration: serializeAws_restJson1_1VersioningConfiguration(
+        input.versioningConfiguration,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1422,20 +1393,20 @@ export const serializeAws_restJson1_1UpdateDatastoreCommand = async (
     throw new Error("No value provided for input HTTP label: datastoreName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.datastoreStorage !== undefined) {
-    bodyParams["datastoreStorage"] = serializeAws_restJson1_1DatastoreStorage(
-      input.datastoreStorage,
-      context
-    );
-  }
-  if (input.retentionPeriod !== undefined) {
-    bodyParams["retentionPeriod"] = serializeAws_restJson1_1RetentionPeriod(
-      input.retentionPeriod,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.datastoreStorage !== undefined && {
+      datastoreStorage: serializeAws_restJson1_1DatastoreStorage(
+        input.datastoreStorage,
+        context
+      )
+    }),
+    ...(input.retentionPeriod !== undefined && {
+      retentionPeriod: serializeAws_restJson1_1RetentionPeriod(
+        input.retentionPeriod,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1471,16 +1442,14 @@ export const serializeAws_restJson1_1UpdatePipelineCommand = async (
     throw new Error("No value provided for input HTTP label: pipelineName.");
   }
   let body: any;
-  const bodyParams: any = {};
-  if (input.pipelineActivities !== undefined) {
-    bodyParams[
-      "pipelineActivities"
-    ] = serializeAws_restJson1_1PipelineActivities(
-      input.pipelineActivities,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.pipelineActivities !== undefined && {
+      pipelineActivities: serializeAws_restJson1_1PipelineActivities(
+        input.pipelineActivities,
+        context
+      )
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
@@ -1502,17 +1471,12 @@ export const serializeAws_restJson1_1BatchPutMessageCommand = async (
   };
   let resolvedPath = "/messages/batch";
   let body: any;
-  const bodyParams: any = {};
-  if (input.channelName !== undefined) {
-    bodyParams["channelName"] = input.channelName;
-  }
-  if (input.messages !== undefined) {
-    bodyParams["messages"] = serializeAws_restJson1_1Messages(
-      input.messages,
-      context
-    );
-  }
-  body = JSON.stringify(bodyParams);
+  body = JSON.stringify({
+    ...(input.channelName !== undefined && { channelName: input.channelName }),
+    ...(input.messages !== undefined && {
+      messages: serializeAws_restJson1_1Messages(input.messages, context)
+    })
+  });
   const { hostname, protocol = "https", port } = await context.endpoint();
   return new __HttpRequest({
     protocol,
