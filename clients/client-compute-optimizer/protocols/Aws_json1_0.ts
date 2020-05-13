@@ -1255,153 +1255,131 @@ const deserializeAws_json1_0AccessDeniedException = (
   output: any,
   context: __SerdeContext
 ): AccessDeniedException => {
-  let contents: any = {
+  return {
     __type: "AccessDeniedException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0AutoScalingGroupConfiguration = (
   output: any,
   context: __SerdeContext
 ): AutoScalingGroupConfiguration => {
-  let contents: any = {
+  return {
     __type: "AutoScalingGroupConfiguration",
-    desiredCapacity: undefined,
-    instanceType: undefined,
-    maxSize: undefined,
-    minSize: undefined
-  };
-  if (output.desiredCapacity !== undefined && output.desiredCapacity !== null) {
-    contents.desiredCapacity = output.desiredCapacity;
-  }
-  if (output.instanceType !== undefined && output.instanceType !== null) {
-    contents.instanceType = output.instanceType;
-  }
-  if (output.maxSize !== undefined && output.maxSize !== null) {
-    contents.maxSize = output.maxSize;
-  }
-  if (output.minSize !== undefined && output.minSize !== null) {
-    contents.minSize = output.minSize;
-  }
-  return contents;
+    desiredCapacity:
+      output.desiredCapacity !== undefined && output.desiredCapacity !== null
+        ? output.desiredCapacity
+        : undefined,
+    instanceType:
+      output.instanceType !== undefined && output.instanceType !== null
+        ? output.instanceType
+        : undefined,
+    maxSize:
+      output.maxSize !== undefined && output.maxSize !== null
+        ? output.maxSize
+        : undefined,
+    minSize:
+      output.minSize !== undefined && output.minSize !== null
+        ? output.minSize
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0AutoScalingGroupRecommendation = (
   output: any,
   context: __SerdeContext
 ): AutoScalingGroupRecommendation => {
-  let contents: any = {
+  return {
     __type: "AutoScalingGroupRecommendation",
-    accountId: undefined,
-    autoScalingGroupArn: undefined,
-    autoScalingGroupName: undefined,
-    currentConfiguration: undefined,
-    finding: undefined,
-    lastRefreshTimestamp: undefined,
-    lookBackPeriodInDays: undefined,
-    recommendationOptions: undefined,
-    utilizationMetrics: undefined
-  };
-  if (output.accountId !== undefined && output.accountId !== null) {
-    contents.accountId = output.accountId;
-  }
-  if (
-    output.autoScalingGroupArn !== undefined &&
-    output.autoScalingGroupArn !== null
-  ) {
-    contents.autoScalingGroupArn = output.autoScalingGroupArn;
-  }
-  if (
-    output.autoScalingGroupName !== undefined &&
-    output.autoScalingGroupName !== null
-  ) {
-    contents.autoScalingGroupName = output.autoScalingGroupName;
-  }
-  if (
-    output.currentConfiguration !== undefined &&
-    output.currentConfiguration !== null
-  ) {
-    contents.currentConfiguration = deserializeAws_json1_0AutoScalingGroupConfiguration(
-      output.currentConfiguration,
-      context
-    );
-  }
-  if (output.finding !== undefined && output.finding !== null) {
-    contents.finding = output.finding;
-  }
-  if (
-    output.lastRefreshTimestamp !== undefined &&
-    output.lastRefreshTimestamp !== null
-  ) {
-    contents.lastRefreshTimestamp = new Date(
-      Math.round(output.lastRefreshTimestamp * 1000)
-    );
-  }
-  if (
-    output.lookBackPeriodInDays !== undefined &&
-    output.lookBackPeriodInDays !== null
-  ) {
-    contents.lookBackPeriodInDays = output.lookBackPeriodInDays;
-  }
-  if (
-    output.recommendationOptions !== undefined &&
-    output.recommendationOptions !== null
-  ) {
-    contents.recommendationOptions = deserializeAws_json1_0AutoScalingGroupRecommendationOptions(
-      output.recommendationOptions,
-      context
-    );
-  }
-  if (
-    output.utilizationMetrics !== undefined &&
-    output.utilizationMetrics !== null
-  ) {
-    contents.utilizationMetrics = deserializeAws_json1_0UtilizationMetrics(
-      output.utilizationMetrics,
-      context
-    );
-  }
-  return contents;
+    accountId:
+      output.accountId !== undefined && output.accountId !== null
+        ? output.accountId
+        : undefined,
+    autoScalingGroupArn:
+      output.autoScalingGroupArn !== undefined &&
+      output.autoScalingGroupArn !== null
+        ? output.autoScalingGroupArn
+        : undefined,
+    autoScalingGroupName:
+      output.autoScalingGroupName !== undefined &&
+      output.autoScalingGroupName !== null
+        ? output.autoScalingGroupName
+        : undefined,
+    currentConfiguration:
+      output.currentConfiguration !== undefined &&
+      output.currentConfiguration !== null
+        ? deserializeAws_json1_0AutoScalingGroupConfiguration(
+            output.currentConfiguration,
+            context
+          )
+        : undefined,
+    finding:
+      output.finding !== undefined && output.finding !== null
+        ? output.finding
+        : undefined,
+    lastRefreshTimestamp:
+      output.lastRefreshTimestamp !== undefined &&
+      output.lastRefreshTimestamp !== null
+        ? new Date(Math.round(output.lastRefreshTimestamp * 1000))
+        : undefined,
+    lookBackPeriodInDays:
+      output.lookBackPeriodInDays !== undefined &&
+      output.lookBackPeriodInDays !== null
+        ? output.lookBackPeriodInDays
+        : undefined,
+    recommendationOptions:
+      output.recommendationOptions !== undefined &&
+      output.recommendationOptions !== null
+        ? deserializeAws_json1_0AutoScalingGroupRecommendationOptions(
+            output.recommendationOptions,
+            context
+          )
+        : undefined,
+    utilizationMetrics:
+      output.utilizationMetrics !== undefined &&
+      output.utilizationMetrics !== null
+        ? deserializeAws_json1_0UtilizationMetrics(
+            output.utilizationMetrics,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0AutoScalingGroupRecommendationOption = (
   output: any,
   context: __SerdeContext
 ): AutoScalingGroupRecommendationOption => {
-  let contents: any = {
+  return {
     __type: "AutoScalingGroupRecommendationOption",
-    configuration: undefined,
-    performanceRisk: undefined,
-    projectedUtilizationMetrics: undefined,
-    rank: undefined
-  };
-  if (output.configuration !== undefined && output.configuration !== null) {
-    contents.configuration = deserializeAws_json1_0AutoScalingGroupConfiguration(
-      output.configuration,
-      context
-    );
-  }
-  if (output.performanceRisk !== undefined && output.performanceRisk !== null) {
-    contents.performanceRisk = output.performanceRisk;
-  }
-  if (
-    output.projectedUtilizationMetrics !== undefined &&
-    output.projectedUtilizationMetrics !== null
-  ) {
-    contents.projectedUtilizationMetrics = deserializeAws_json1_0ProjectedUtilizationMetrics(
-      output.projectedUtilizationMetrics,
-      context
-    );
-  }
-  if (output.rank !== undefined && output.rank !== null) {
-    contents.rank = output.rank;
-  }
-  return contents;
+    configuration:
+      output.configuration !== undefined && output.configuration !== null
+        ? deserializeAws_json1_0AutoScalingGroupConfiguration(
+            output.configuration,
+            context
+          )
+        : undefined,
+    performanceRisk:
+      output.performanceRisk !== undefined && output.performanceRisk !== null
+        ? output.performanceRisk
+        : undefined,
+    projectedUtilizationMetrics:
+      output.projectedUtilizationMetrics !== undefined &&
+      output.projectedUtilizationMetrics !== null
+        ? deserializeAws_json1_0ProjectedUtilizationMetrics(
+            output.projectedUtilizationMetrics,
+            context
+          )
+        : undefined,
+    rank:
+      output.rank !== undefined && output.rank !== null
+        ? output.rank
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0AutoScalingGroupRecommendationOptions = (
@@ -1426,129 +1404,110 @@ const deserializeAws_json1_0GetAutoScalingGroupRecommendationsResponse = (
   output: any,
   context: __SerdeContext
 ): GetAutoScalingGroupRecommendationsResponse => {
-  let contents: any = {
+  return {
     __type: "GetAutoScalingGroupRecommendationsResponse",
-    autoScalingGroupRecommendations: undefined,
-    errors: undefined,
-    nextToken: undefined
-  };
-  if (
-    output.autoScalingGroupRecommendations !== undefined &&
-    output.autoScalingGroupRecommendations !== null
-  ) {
-    contents.autoScalingGroupRecommendations = deserializeAws_json1_0AutoScalingGroupRecommendations(
-      output.autoScalingGroupRecommendations,
-      context
-    );
-  }
-  if (output.errors !== undefined && output.errors !== null) {
-    contents.errors = deserializeAws_json1_0GetRecommendationErrors(
-      output.errors,
-      context
-    );
-  }
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  return contents;
+    autoScalingGroupRecommendations:
+      output.autoScalingGroupRecommendations !== undefined &&
+      output.autoScalingGroupRecommendations !== null
+        ? deserializeAws_json1_0AutoScalingGroupRecommendations(
+            output.autoScalingGroupRecommendations,
+            context
+          )
+        : undefined,
+    errors:
+      output.errors !== undefined && output.errors !== null
+        ? deserializeAws_json1_0GetRecommendationErrors(output.errors, context)
+        : undefined,
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0GetEC2InstanceRecommendationsResponse = (
   output: any,
   context: __SerdeContext
 ): GetEC2InstanceRecommendationsResponse => {
-  let contents: any = {
+  return {
     __type: "GetEC2InstanceRecommendationsResponse",
-    errors: undefined,
-    instanceRecommendations: undefined,
-    nextToken: undefined
-  };
-  if (output.errors !== undefined && output.errors !== null) {
-    contents.errors = deserializeAws_json1_0GetRecommendationErrors(
-      output.errors,
-      context
-    );
-  }
-  if (
-    output.instanceRecommendations !== undefined &&
-    output.instanceRecommendations !== null
-  ) {
-    contents.instanceRecommendations = deserializeAws_json1_0InstanceRecommendations(
-      output.instanceRecommendations,
-      context
-    );
-  }
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  return contents;
+    errors:
+      output.errors !== undefined && output.errors !== null
+        ? deserializeAws_json1_0GetRecommendationErrors(output.errors, context)
+        : undefined,
+    instanceRecommendations:
+      output.instanceRecommendations !== undefined &&
+      output.instanceRecommendations !== null
+        ? deserializeAws_json1_0InstanceRecommendations(
+            output.instanceRecommendations,
+            context
+          )
+        : undefined,
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0GetEC2RecommendationProjectedMetricsResponse = (
   output: any,
   context: __SerdeContext
 ): GetEC2RecommendationProjectedMetricsResponse => {
-  let contents: any = {
+  return {
     __type: "GetEC2RecommendationProjectedMetricsResponse",
-    recommendedOptionProjectedMetrics: undefined
-  };
-  if (
-    output.recommendedOptionProjectedMetrics !== undefined &&
-    output.recommendedOptionProjectedMetrics !== null
-  ) {
-    contents.recommendedOptionProjectedMetrics = deserializeAws_json1_0RecommendedOptionProjectedMetrics(
-      output.recommendedOptionProjectedMetrics,
-      context
-    );
-  }
-  return contents;
+    recommendedOptionProjectedMetrics:
+      output.recommendedOptionProjectedMetrics !== undefined &&
+      output.recommendedOptionProjectedMetrics !== null
+        ? deserializeAws_json1_0RecommendedOptionProjectedMetrics(
+            output.recommendedOptionProjectedMetrics,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0GetEnrollmentStatusResponse = (
   output: any,
   context: __SerdeContext
 ): GetEnrollmentStatusResponse => {
-  let contents: any = {
+  return {
     __type: "GetEnrollmentStatusResponse",
-    memberAccountsEnrolled: undefined,
-    status: undefined,
-    statusReason: undefined
-  };
-  if (
-    output.memberAccountsEnrolled !== undefined &&
-    output.memberAccountsEnrolled !== null
-  ) {
-    contents.memberAccountsEnrolled = output.memberAccountsEnrolled;
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  if (output.statusReason !== undefined && output.statusReason !== null) {
-    contents.statusReason = output.statusReason;
-  }
-  return contents;
+    memberAccountsEnrolled:
+      output.memberAccountsEnrolled !== undefined &&
+      output.memberAccountsEnrolled !== null
+        ? output.memberAccountsEnrolled
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined,
+    statusReason:
+      output.statusReason !== undefined && output.statusReason !== null
+        ? output.statusReason
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0GetRecommendationError = (
   output: any,
   context: __SerdeContext
 ): GetRecommendationError => {
-  let contents: any = {
+  return {
     __type: "GetRecommendationError",
-    code: undefined,
-    identifier: undefined,
-    message: undefined
-  };
-  if (output.code !== undefined && output.code !== null) {
-    contents.code = output.code;
-  }
-  if (output.identifier !== undefined && output.identifier !== null) {
-    contents.identifier = output.identifier;
-  }
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    code:
+      output.code !== undefined && output.code !== null
+        ? output.code
+        : undefined,
+    identifier:
+      output.identifier !== undefined && output.identifier !== null
+        ? output.identifier
+        : undefined,
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0GetRecommendationErrors = (
@@ -1564,135 +1523,114 @@ const deserializeAws_json1_0GetRecommendationSummariesResponse = (
   output: any,
   context: __SerdeContext
 ): GetRecommendationSummariesResponse => {
-  let contents: any = {
+  return {
     __type: "GetRecommendationSummariesResponse",
-    nextToken: undefined,
-    recommendationSummaries: undefined
-  };
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  if (
-    output.recommendationSummaries !== undefined &&
-    output.recommendationSummaries !== null
-  ) {
-    contents.recommendationSummaries = deserializeAws_json1_0RecommendationSummaries(
-      output.recommendationSummaries,
-      context
-    );
-  }
-  return contents;
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined,
+    recommendationSummaries:
+      output.recommendationSummaries !== undefined &&
+      output.recommendationSummaries !== null
+        ? deserializeAws_json1_0RecommendationSummaries(
+            output.recommendationSummaries,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0InstanceRecommendation = (
   output: any,
   context: __SerdeContext
 ): InstanceRecommendation => {
-  let contents: any = {
+  return {
     __type: "InstanceRecommendation",
-    accountId: undefined,
-    currentInstanceType: undefined,
-    finding: undefined,
-    instanceArn: undefined,
-    instanceName: undefined,
-    lastRefreshTimestamp: undefined,
-    lookBackPeriodInDays: undefined,
-    recommendationOptions: undefined,
-    recommendationSources: undefined,
-    utilizationMetrics: undefined
-  };
-  if (output.accountId !== undefined && output.accountId !== null) {
-    contents.accountId = output.accountId;
-  }
-  if (
-    output.currentInstanceType !== undefined &&
-    output.currentInstanceType !== null
-  ) {
-    contents.currentInstanceType = output.currentInstanceType;
-  }
-  if (output.finding !== undefined && output.finding !== null) {
-    contents.finding = output.finding;
-  }
-  if (output.instanceArn !== undefined && output.instanceArn !== null) {
-    contents.instanceArn = output.instanceArn;
-  }
-  if (output.instanceName !== undefined && output.instanceName !== null) {
-    contents.instanceName = output.instanceName;
-  }
-  if (
-    output.lastRefreshTimestamp !== undefined &&
-    output.lastRefreshTimestamp !== null
-  ) {
-    contents.lastRefreshTimestamp = new Date(
-      Math.round(output.lastRefreshTimestamp * 1000)
-    );
-  }
-  if (
-    output.lookBackPeriodInDays !== undefined &&
-    output.lookBackPeriodInDays !== null
-  ) {
-    contents.lookBackPeriodInDays = output.lookBackPeriodInDays;
-  }
-  if (
-    output.recommendationOptions !== undefined &&
-    output.recommendationOptions !== null
-  ) {
-    contents.recommendationOptions = deserializeAws_json1_0RecommendationOptions(
-      output.recommendationOptions,
-      context
-    );
-  }
-  if (
-    output.recommendationSources !== undefined &&
-    output.recommendationSources !== null
-  ) {
-    contents.recommendationSources = deserializeAws_json1_0RecommendationSources(
-      output.recommendationSources,
-      context
-    );
-  }
-  if (
-    output.utilizationMetrics !== undefined &&
-    output.utilizationMetrics !== null
-  ) {
-    contents.utilizationMetrics = deserializeAws_json1_0UtilizationMetrics(
-      output.utilizationMetrics,
-      context
-    );
-  }
-  return contents;
+    accountId:
+      output.accountId !== undefined && output.accountId !== null
+        ? output.accountId
+        : undefined,
+    currentInstanceType:
+      output.currentInstanceType !== undefined &&
+      output.currentInstanceType !== null
+        ? output.currentInstanceType
+        : undefined,
+    finding:
+      output.finding !== undefined && output.finding !== null
+        ? output.finding
+        : undefined,
+    instanceArn:
+      output.instanceArn !== undefined && output.instanceArn !== null
+        ? output.instanceArn
+        : undefined,
+    instanceName:
+      output.instanceName !== undefined && output.instanceName !== null
+        ? output.instanceName
+        : undefined,
+    lastRefreshTimestamp:
+      output.lastRefreshTimestamp !== undefined &&
+      output.lastRefreshTimestamp !== null
+        ? new Date(Math.round(output.lastRefreshTimestamp * 1000))
+        : undefined,
+    lookBackPeriodInDays:
+      output.lookBackPeriodInDays !== undefined &&
+      output.lookBackPeriodInDays !== null
+        ? output.lookBackPeriodInDays
+        : undefined,
+    recommendationOptions:
+      output.recommendationOptions !== undefined &&
+      output.recommendationOptions !== null
+        ? deserializeAws_json1_0RecommendationOptions(
+            output.recommendationOptions,
+            context
+          )
+        : undefined,
+    recommendationSources:
+      output.recommendationSources !== undefined &&
+      output.recommendationSources !== null
+        ? deserializeAws_json1_0RecommendationSources(
+            output.recommendationSources,
+            context
+          )
+        : undefined,
+    utilizationMetrics:
+      output.utilizationMetrics !== undefined &&
+      output.utilizationMetrics !== null
+        ? deserializeAws_json1_0UtilizationMetrics(
+            output.utilizationMetrics,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0InstanceRecommendationOption = (
   output: any,
   context: __SerdeContext
 ): InstanceRecommendationOption => {
-  let contents: any = {
+  return {
     __type: "InstanceRecommendationOption",
-    instanceType: undefined,
-    performanceRisk: undefined,
-    projectedUtilizationMetrics: undefined,
-    rank: undefined
-  };
-  if (output.instanceType !== undefined && output.instanceType !== null) {
-    contents.instanceType = output.instanceType;
-  }
-  if (output.performanceRisk !== undefined && output.performanceRisk !== null) {
-    contents.performanceRisk = output.performanceRisk;
-  }
-  if (
-    output.projectedUtilizationMetrics !== undefined &&
-    output.projectedUtilizationMetrics !== null
-  ) {
-    contents.projectedUtilizationMetrics = deserializeAws_json1_0ProjectedUtilizationMetrics(
-      output.projectedUtilizationMetrics,
-      context
-    );
-  }
-  if (output.rank !== undefined && output.rank !== null) {
-    contents.rank = output.rank;
-  }
-  return contents;
+    instanceType:
+      output.instanceType !== undefined && output.instanceType !== null
+        ? output.instanceType
+        : undefined,
+    performanceRisk:
+      output.performanceRisk !== undefined && output.performanceRisk !== null
+        ? output.performanceRisk
+        : undefined,
+    projectedUtilizationMetrics:
+      output.projectedUtilizationMetrics !== undefined &&
+      output.projectedUtilizationMetrics !== null
+        ? deserializeAws_json1_0ProjectedUtilizationMetrics(
+            output.projectedUtilizationMetrics,
+            context
+          )
+        : undefined,
+    rank:
+      output.rank !== undefined && output.rank !== null
+        ? output.rank
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0InstanceRecommendations = (
@@ -1708,28 +1646,26 @@ const deserializeAws_json1_0InternalServerException = (
   output: any,
   context: __SerdeContext
 ): InternalServerException => {
-  let contents: any = {
+  return {
     __type: "InternalServerException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0InvalidParameterValueException = (
   output: any,
   context: __SerdeContext
 ): InvalidParameterValueException => {
-  let contents: any = {
+  return {
     __type: "InvalidParameterValueException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0MetricValues = (
@@ -1743,56 +1679,47 @@ const deserializeAws_json1_0MissingAuthenticationToken = (
   output: any,
   context: __SerdeContext
 ): MissingAuthenticationToken => {
-  let contents: any = {
+  return {
     __type: "MissingAuthenticationToken",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0OptInRequiredException = (
   output: any,
   context: __SerdeContext
 ): OptInRequiredException => {
-  let contents: any = {
+  return {
     __type: "OptInRequiredException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0ProjectedMetric = (
   output: any,
   context: __SerdeContext
 ): ProjectedMetric => {
-  let contents: any = {
+  return {
     __type: "ProjectedMetric",
-    name: undefined,
-    timestamps: undefined,
-    values: undefined
-  };
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (output.timestamps !== undefined && output.timestamps !== null) {
-    contents.timestamps = deserializeAws_json1_0Timestamps(
-      output.timestamps,
-      context
-    );
-  }
-  if (output.values !== undefined && output.values !== null) {
-    contents.values = deserializeAws_json1_0MetricValues(
-      output.values,
-      context
-    );
-  }
-  return contents;
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    timestamps:
+      output.timestamps !== undefined && output.timestamps !== null
+        ? deserializeAws_json1_0Timestamps(output.timestamps, context)
+        : undefined,
+    values:
+      output.values !== undefined && output.values !== null
+        ? deserializeAws_json1_0MetricValues(output.values, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0ProjectedMetrics = (
@@ -1826,24 +1753,19 @@ const deserializeAws_json1_0RecommendationSource = (
   output: any,
   context: __SerdeContext
 ): RecommendationSource => {
-  let contents: any = {
+  return {
     __type: "RecommendationSource",
-    recommendationSourceArn: undefined,
-    recommendationSourceType: undefined
-  };
-  if (
-    output.recommendationSourceArn !== undefined &&
-    output.recommendationSourceArn !== null
-  ) {
-    contents.recommendationSourceArn = output.recommendationSourceArn;
-  }
-  if (
-    output.recommendationSourceType !== undefined &&
-    output.recommendationSourceType !== null
-  ) {
-    contents.recommendationSourceType = output.recommendationSourceType;
-  }
-  return contents;
+    recommendationSourceArn:
+      output.recommendationSourceArn !== undefined &&
+      output.recommendationSourceArn !== null
+        ? output.recommendationSourceArn
+        : undefined,
+    recommendationSourceType:
+      output.recommendationSourceType !== undefined &&
+      output.recommendationSourceType !== null
+        ? output.recommendationSourceType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0RecommendationSources = (
@@ -1868,59 +1790,47 @@ const deserializeAws_json1_0RecommendationSummary = (
   output: any,
   context: __SerdeContext
 ): RecommendationSummary => {
-  let contents: any = {
+  return {
     __type: "RecommendationSummary",
-    accountId: undefined,
-    recommendationResourceType: undefined,
-    summaries: undefined
-  };
-  if (output.accountId !== undefined && output.accountId !== null) {
-    contents.accountId = output.accountId;
-  }
-  if (
-    output.recommendationResourceType !== undefined &&
-    output.recommendationResourceType !== null
-  ) {
-    contents.recommendationResourceType = output.recommendationResourceType;
-  }
-  if (output.summaries !== undefined && output.summaries !== null) {
-    contents.summaries = deserializeAws_json1_0Summaries(
-      output.summaries,
-      context
-    );
-  }
-  return contents;
+    accountId:
+      output.accountId !== undefined && output.accountId !== null
+        ? output.accountId
+        : undefined,
+    recommendationResourceType:
+      output.recommendationResourceType !== undefined &&
+      output.recommendationResourceType !== null
+        ? output.recommendationResourceType
+        : undefined,
+    summaries:
+      output.summaries !== undefined && output.summaries !== null
+        ? deserializeAws_json1_0Summaries(output.summaries, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0RecommendedOptionProjectedMetric = (
   output: any,
   context: __SerdeContext
 ): RecommendedOptionProjectedMetric => {
-  let contents: any = {
+  return {
     __type: "RecommendedOptionProjectedMetric",
-    projectedMetrics: undefined,
-    rank: undefined,
-    recommendedInstanceType: undefined
-  };
-  if (
-    output.projectedMetrics !== undefined &&
-    output.projectedMetrics !== null
-  ) {
-    contents.projectedMetrics = deserializeAws_json1_0ProjectedMetrics(
-      output.projectedMetrics,
-      context
-    );
-  }
-  if (output.rank !== undefined && output.rank !== null) {
-    contents.rank = output.rank;
-  }
-  if (
-    output.recommendedInstanceType !== undefined &&
-    output.recommendedInstanceType !== null
-  ) {
-    contents.recommendedInstanceType = output.recommendedInstanceType;
-  }
-  return contents;
+    projectedMetrics:
+      output.projectedMetrics !== undefined && output.projectedMetrics !== null
+        ? deserializeAws_json1_0ProjectedMetrics(
+            output.projectedMetrics,
+            context
+          )
+        : undefined,
+    rank:
+      output.rank !== undefined && output.rank !== null
+        ? output.rank
+        : undefined,
+    recommendedInstanceType:
+      output.recommendedInstanceType !== undefined &&
+      output.recommendedInstanceType !== null
+        ? output.recommendedInstanceType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0RecommendedOptionProjectedMetrics = (
@@ -1936,28 +1846,26 @@ const deserializeAws_json1_0ResourceNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ResourceNotFoundException => {
-  let contents: any = {
+  return {
     __type: "ResourceNotFoundException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0ServiceUnavailableException = (
   output: any,
   context: __SerdeContext
 ): ServiceUnavailableException => {
-  let contents: any = {
+  return {
     __type: "ServiceUnavailableException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0Summaries = (
@@ -1973,32 +1881,30 @@ const deserializeAws_json1_0Summary = (
   output: any,
   context: __SerdeContext
 ): Summary => {
-  let contents: any = {
+  return {
     __type: "Summary",
-    name: undefined,
-    value: undefined
-  };
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (output.value !== undefined && output.value !== null) {
-    contents.value = output.value;
-  }
-  return contents;
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    value:
+      output.value !== undefined && output.value !== null
+        ? output.value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0ThrottlingException = (
   output: any,
   context: __SerdeContext
 ): ThrottlingException => {
-  let contents: any = {
+  return {
     __type: "ThrottlingException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0Timestamps = (
@@ -2012,40 +1918,38 @@ const deserializeAws_json1_0UpdateEnrollmentStatusResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateEnrollmentStatusResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateEnrollmentStatusResponse",
-    status: undefined,
-    statusReason: undefined
-  };
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  if (output.statusReason !== undefined && output.statusReason !== null) {
-    contents.statusReason = output.statusReason;
-  }
-  return contents;
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined,
+    statusReason:
+      output.statusReason !== undefined && output.statusReason !== null
+        ? output.statusReason
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0UtilizationMetric = (
   output: any,
   context: __SerdeContext
 ): UtilizationMetric => {
-  let contents: any = {
+  return {
     __type: "UtilizationMetric",
-    name: undefined,
-    statistic: undefined,
-    value: undefined
-  };
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (output.statistic !== undefined && output.statistic !== null) {
-    contents.statistic = output.statistic;
-  }
-  if (output.value !== undefined && output.value !== null) {
-    contents.value = output.value;
-  }
-  return contents;
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    statistic:
+      output.statistic !== undefined && output.statistic !== null
+        ? output.statistic
+        : undefined,
+    value:
+      output.value !== undefined && output.value !== null
+        ? output.value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0UtilizationMetrics = (

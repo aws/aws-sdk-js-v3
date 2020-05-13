@@ -1817,192 +1817,168 @@ const deserializeAws_json1_1BadRequestException = (
   output: any,
   context: __SerdeContext
 ): BadRequestException => {
-  let contents: any = {
+  return {
     __type: "BadRequestException",
-    className: undefined,
-    code: undefined,
-    message: undefined
-  };
-  if (output.className !== undefined && output.className !== null) {
-    contents.className = output.className;
-  }
-  if (output.code !== undefined && output.code !== null) {
-    contents.code = output.code;
-  }
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    className:
+      output.className !== undefined && output.className !== null
+        ? output.className
+        : undefined,
+    code:
+      output.code !== undefined && output.code !== null
+        ? output.code
+        : undefined,
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ConflictException = (
   output: any,
   context: __SerdeContext
 ): ConflictException => {
-  let contents: any = {
+  return {
     __type: "ConflictException",
-    className: undefined,
-    code: undefined,
-    message: undefined
-  };
-  if (output.className !== undefined && output.className !== null) {
-    contents.className = output.className;
-  }
-  if (output.code !== undefined && output.code !== null) {
-    contents.code = output.code;
-  }
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    className:
+      output.className !== undefined && output.className !== null
+        ? output.className
+        : undefined,
+    code:
+      output.code !== undefined && output.code !== null
+        ? output.code
+        : undefined,
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateEnvironmentEC2Result = (
   output: any,
   context: __SerdeContext
 ): CreateEnvironmentEC2Result => {
-  let contents: any = {
+  return {
     __type: "CreateEnvironmentEC2Result",
-    environmentId: undefined
-  };
-  if (output.environmentId !== undefined && output.environmentId !== null) {
-    contents.environmentId = output.environmentId;
-  }
-  return contents;
+    environmentId:
+      output.environmentId !== undefined && output.environmentId !== null
+        ? output.environmentId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateEnvironmentMembershipResult = (
   output: any,
   context: __SerdeContext
 ): CreateEnvironmentMembershipResult => {
-  let contents: any = {
+  return {
     __type: "CreateEnvironmentMembershipResult",
-    membership: undefined
-  };
-  if (output.membership !== undefined && output.membership !== null) {
-    contents.membership = deserializeAws_json1_1EnvironmentMember(
-      output.membership,
-      context
-    );
-  }
-  return contents;
+    membership:
+      output.membership !== undefined && output.membership !== null
+        ? deserializeAws_json1_1EnvironmentMember(output.membership, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteEnvironmentMembershipResult = (
   output: any,
   context: __SerdeContext
 ): DeleteEnvironmentMembershipResult => {
-  let contents: any = {
+  return {
     __type: "DeleteEnvironmentMembershipResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteEnvironmentResult = (
   output: any,
   context: __SerdeContext
 ): DeleteEnvironmentResult => {
-  let contents: any = {
+  return {
     __type: "DeleteEnvironmentResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeEnvironmentMembershipsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeEnvironmentMembershipsResult => {
-  let contents: any = {
+  return {
     __type: "DescribeEnvironmentMembershipsResult",
-    memberships: undefined,
-    nextToken: undefined
-  };
-  if (output.memberships !== undefined && output.memberships !== null) {
-    contents.memberships = deserializeAws_json1_1EnvironmentMembersList(
-      output.memberships,
-      context
-    );
-  }
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  return contents;
+    memberships:
+      output.memberships !== undefined && output.memberships !== null
+        ? deserializeAws_json1_1EnvironmentMembersList(
+            output.memberships,
+            context
+          )
+        : undefined,
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeEnvironmentStatusResult = (
   output: any,
   context: __SerdeContext
 ): DescribeEnvironmentStatusResult => {
-  let contents: any = {
+  return {
     __type: "DescribeEnvironmentStatusResult",
-    message: undefined,
-    status: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeEnvironmentsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeEnvironmentsResult => {
-  let contents: any = {
+  return {
     __type: "DescribeEnvironmentsResult",
-    environments: undefined
-  };
-  if (output.environments !== undefined && output.environments !== null) {
-    contents.environments = deserializeAws_json1_1EnvironmentList(
-      output.environments,
-      context
-    );
-  }
-  return contents;
+    environments:
+      output.environments !== undefined && output.environments !== null
+        ? deserializeAws_json1_1EnvironmentList(output.environments, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Environment = (
   output: any,
   context: __SerdeContext
 ): Environment => {
-  let contents: any = {
+  return {
     __type: "Environment",
-    arn: undefined,
-    description: undefined,
-    id: undefined,
-    lifecycle: undefined,
-    name: undefined,
-    ownerArn: undefined,
-    type: undefined
-  };
-  if (output.arn !== undefined && output.arn !== null) {
-    contents.arn = output.arn;
-  }
-  if (output.description !== undefined && output.description !== null) {
-    contents.description = output.description;
-  }
-  if (output.id !== undefined && output.id !== null) {
-    contents.id = output.id;
-  }
-  if (output.lifecycle !== undefined && output.lifecycle !== null) {
-    contents.lifecycle = deserializeAws_json1_1EnvironmentLifecycle(
-      output.lifecycle,
-      context
-    );
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (output.ownerArn !== undefined && output.ownerArn !== null) {
-    contents.ownerArn = output.ownerArn;
-  }
-  if (output.type !== undefined && output.type !== null) {
-    contents.type = output.type;
-  }
-  return contents;
+    arn:
+      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    description:
+      output.description !== undefined && output.description !== null
+        ? output.description
+        : undefined,
+    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    lifecycle:
+      output.lifecycle !== undefined && output.lifecycle !== null
+        ? deserializeAws_json1_1EnvironmentLifecycle(output.lifecycle, context)
+        : undefined,
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    ownerArn:
+      output.ownerArn !== undefined && output.ownerArn !== null
+        ? output.ownerArn
+        : undefined,
+    type:
+      output.type !== undefined && output.type !== null
+        ? output.type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EnvironmentIdList = (
@@ -2016,22 +1992,21 @@ const deserializeAws_json1_1EnvironmentLifecycle = (
   output: any,
   context: __SerdeContext
 ): EnvironmentLifecycle => {
-  let contents: any = {
+  return {
     __type: "EnvironmentLifecycle",
-    failureResource: undefined,
-    reason: undefined,
-    status: undefined
-  };
-  if (output.failureResource !== undefined && output.failureResource !== null) {
-    contents.failureResource = output.failureResource;
-  }
-  if (output.reason !== undefined && output.reason !== null) {
-    contents.reason = output.reason;
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  return contents;
+    failureResource:
+      output.failureResource !== undefined && output.failureResource !== null
+        ? output.failureResource
+        : undefined,
+    reason:
+      output.reason !== undefined && output.reason !== null
+        ? output.reason
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EnvironmentList = (
@@ -2047,30 +2022,29 @@ const deserializeAws_json1_1EnvironmentMember = (
   output: any,
   context: __SerdeContext
 ): EnvironmentMember => {
-  let contents: any = {
+  return {
     __type: "EnvironmentMember",
-    environmentId: undefined,
-    lastAccess: undefined,
-    permissions: undefined,
-    userArn: undefined,
-    userId: undefined
-  };
-  if (output.environmentId !== undefined && output.environmentId !== null) {
-    contents.environmentId = output.environmentId;
-  }
-  if (output.lastAccess !== undefined && output.lastAccess !== null) {
-    contents.lastAccess = new Date(Math.round(output.lastAccess * 1000));
-  }
-  if (output.permissions !== undefined && output.permissions !== null) {
-    contents.permissions = output.permissions;
-  }
-  if (output.userArn !== undefined && output.userArn !== null) {
-    contents.userArn = output.userArn;
-  }
-  if (output.userId !== undefined && output.userId !== null) {
-    contents.userId = output.userId;
-  }
-  return contents;
+    environmentId:
+      output.environmentId !== undefined && output.environmentId !== null
+        ? output.environmentId
+        : undefined,
+    lastAccess:
+      output.lastAccess !== undefined && output.lastAccess !== null
+        ? new Date(Math.round(output.lastAccess * 1000))
+        : undefined,
+    permissions:
+      output.permissions !== undefined && output.permissions !== null
+        ? output.permissions
+        : undefined,
+    userArn:
+      output.userArn !== undefined && output.userArn !== null
+        ? output.userArn
+        : undefined,
+    userId:
+      output.userId !== undefined && output.userId !== null
+        ? output.userId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EnvironmentMembersList = (
@@ -2086,158 +2060,147 @@ const deserializeAws_json1_1ForbiddenException = (
   output: any,
   context: __SerdeContext
 ): ForbiddenException => {
-  let contents: any = {
+  return {
     __type: "ForbiddenException",
-    className: undefined,
-    code: undefined,
-    message: undefined
-  };
-  if (output.className !== undefined && output.className !== null) {
-    contents.className = output.className;
-  }
-  if (output.code !== undefined && output.code !== null) {
-    contents.code = output.code;
-  }
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    className:
+      output.className !== undefined && output.className !== null
+        ? output.className
+        : undefined,
+    code:
+      output.code !== undefined && output.code !== null
+        ? output.code
+        : undefined,
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InternalServerErrorException = (
   output: any,
   context: __SerdeContext
 ): InternalServerErrorException => {
-  let contents: any = {
+  return {
     __type: "InternalServerErrorException",
-    className: undefined,
-    code: undefined,
-    message: undefined
-  };
-  if (output.className !== undefined && output.className !== null) {
-    contents.className = output.className;
-  }
-  if (output.code !== undefined && output.code !== null) {
-    contents.code = output.code;
-  }
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    className:
+      output.className !== undefined && output.className !== null
+        ? output.className
+        : undefined,
+    code:
+      output.code !== undefined && output.code !== null
+        ? output.code
+        : undefined,
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (
   output: any,
   context: __SerdeContext
 ): LimitExceededException => {
-  let contents: any = {
+  return {
     __type: "LimitExceededException",
-    className: undefined,
-    code: undefined,
-    message: undefined
-  };
-  if (output.className !== undefined && output.className !== null) {
-    contents.className = output.className;
-  }
-  if (output.code !== undefined && output.code !== null) {
-    contents.code = output.code;
-  }
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    className:
+      output.className !== undefined && output.className !== null
+        ? output.className
+        : undefined,
+    code:
+      output.code !== undefined && output.code !== null
+        ? output.code
+        : undefined,
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListEnvironmentsResult = (
   output: any,
   context: __SerdeContext
 ): ListEnvironmentsResult => {
-  let contents: any = {
+  return {
     __type: "ListEnvironmentsResult",
-    environmentIds: undefined,
-    nextToken: undefined
-  };
-  if (output.environmentIds !== undefined && output.environmentIds !== null) {
-    contents.environmentIds = deserializeAws_json1_1EnvironmentIdList(
-      output.environmentIds,
-      context
-    );
-  }
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  return contents;
+    environmentIds:
+      output.environmentIds !== undefined && output.environmentIds !== null
+        ? deserializeAws_json1_1EnvironmentIdList(
+            output.environmentIds,
+            context
+          )
+        : undefined,
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1NotFoundException = (
   output: any,
   context: __SerdeContext
 ): NotFoundException => {
-  let contents: any = {
+  return {
     __type: "NotFoundException",
-    className: undefined,
-    code: undefined,
-    message: undefined
-  };
-  if (output.className !== undefined && output.className !== null) {
-    contents.className = output.className;
-  }
-  if (output.code !== undefined && output.code !== null) {
-    contents.code = output.code;
-  }
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    className:
+      output.className !== undefined && output.className !== null
+        ? output.className
+        : undefined,
+    code:
+      output.code !== undefined && output.code !== null
+        ? output.code
+        : undefined,
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TooManyRequestsException = (
   output: any,
   context: __SerdeContext
 ): TooManyRequestsException => {
-  let contents: any = {
+  return {
     __type: "TooManyRequestsException",
-    className: undefined,
-    code: undefined,
-    message: undefined
-  };
-  if (output.className !== undefined && output.className !== null) {
-    contents.className = output.className;
-  }
-  if (output.code !== undefined && output.code !== null) {
-    contents.code = output.code;
-  }
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    className:
+      output.className !== undefined && output.className !== null
+        ? output.className
+        : undefined,
+    code:
+      output.code !== undefined && output.code !== null
+        ? output.code
+        : undefined,
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateEnvironmentMembershipResult = (
   output: any,
   context: __SerdeContext
 ): UpdateEnvironmentMembershipResult => {
-  let contents: any = {
+  return {
     __type: "UpdateEnvironmentMembershipResult",
-    membership: undefined
-  };
-  if (output.membership !== undefined && output.membership !== null) {
-    contents.membership = deserializeAws_json1_1EnvironmentMember(
-      output.membership,
-      context
-    );
-  }
-  return contents;
+    membership:
+      output.membership !== undefined && output.membership !== null
+        ? deserializeAws_json1_1EnvironmentMember(output.membership, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateEnvironmentResult = (
   output: any,
   context: __SerdeContext
 ): UpdateEnvironmentResult => {
-  let contents: any = {
+  return {
     __type: "UpdateEnvironmentResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

@@ -7352,121 +7352,100 @@ const deserializeAws_restJson1_1Activity = (
   output: any,
   context: __SerdeContext
 ): Activity => {
-  let contents: any = {
+  return {
     __type: "Activity",
-    CommentMetadata: undefined,
-    Initiator: undefined,
-    IsIndirectActivity: undefined,
-    OrganizationId: undefined,
-    OriginalParent: undefined,
-    Participants: undefined,
-    ResourceMetadata: undefined,
-    TimeStamp: undefined,
-    Type: undefined
-  };
-  if (output.CommentMetadata !== undefined && output.CommentMetadata !== null) {
-    contents.CommentMetadata = deserializeAws_restJson1_1CommentMetadata(
-      output.CommentMetadata,
-      context
-    );
-  }
-  if (output.Initiator !== undefined && output.Initiator !== null) {
-    contents.Initiator = deserializeAws_restJson1_1UserMetadata(
-      output.Initiator,
-      context
-    );
-  }
-  if (
-    output.IsIndirectActivity !== undefined &&
-    output.IsIndirectActivity !== null
-  ) {
-    contents.IsIndirectActivity = output.IsIndirectActivity;
-  }
-  if (output.OrganizationId !== undefined && output.OrganizationId !== null) {
-    contents.OrganizationId = output.OrganizationId;
-  }
-  if (output.OriginalParent !== undefined && output.OriginalParent !== null) {
-    contents.OriginalParent = deserializeAws_restJson1_1ResourceMetadata(
-      output.OriginalParent,
-      context
-    );
-  }
-  if (output.Participants !== undefined && output.Participants !== null) {
-    contents.Participants = deserializeAws_restJson1_1Participants(
-      output.Participants,
-      context
-    );
-  }
-  if (
-    output.ResourceMetadata !== undefined &&
-    output.ResourceMetadata !== null
-  ) {
-    contents.ResourceMetadata = deserializeAws_restJson1_1ResourceMetadata(
-      output.ResourceMetadata,
-      context
-    );
-  }
-  if (output.TimeStamp !== undefined && output.TimeStamp !== null) {
-    contents.TimeStamp = new Date(Math.round(output.TimeStamp * 1000));
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    CommentMetadata:
+      output.CommentMetadata !== undefined && output.CommentMetadata !== null
+        ? deserializeAws_restJson1_1CommentMetadata(
+            output.CommentMetadata,
+            context
+          )
+        : undefined,
+    Initiator:
+      output.Initiator !== undefined && output.Initiator !== null
+        ? deserializeAws_restJson1_1UserMetadata(output.Initiator, context)
+        : undefined,
+    IsIndirectActivity:
+      output.IsIndirectActivity !== undefined &&
+      output.IsIndirectActivity !== null
+        ? output.IsIndirectActivity
+        : undefined,
+    OrganizationId:
+      output.OrganizationId !== undefined && output.OrganizationId !== null
+        ? output.OrganizationId
+        : undefined,
+    OriginalParent:
+      output.OriginalParent !== undefined && output.OriginalParent !== null
+        ? deserializeAws_restJson1_1ResourceMetadata(
+            output.OriginalParent,
+            context
+          )
+        : undefined,
+    Participants:
+      output.Participants !== undefined && output.Participants !== null
+        ? deserializeAws_restJson1_1Participants(output.Participants, context)
+        : undefined,
+    ResourceMetadata:
+      output.ResourceMetadata !== undefined && output.ResourceMetadata !== null
+        ? deserializeAws_restJson1_1ResourceMetadata(
+            output.ResourceMetadata,
+            context
+          )
+        : undefined,
+    TimeStamp:
+      output.TimeStamp !== undefined && output.TimeStamp !== null
+        ? new Date(Math.round(output.TimeStamp * 1000))
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Comment = (
   output: any,
   context: __SerdeContext
 ): Comment => {
-  let contents: any = {
+  return {
     __type: "Comment",
-    CommentId: undefined,
-    Contributor: undefined,
-    CreatedTimestamp: undefined,
-    ParentId: undefined,
-    RecipientId: undefined,
-    Status: undefined,
-    Text: undefined,
-    ThreadId: undefined,
-    Visibility: undefined
-  };
-  if (output.CommentId !== undefined && output.CommentId !== null) {
-    contents.CommentId = output.CommentId;
-  }
-  if (output.Contributor !== undefined && output.Contributor !== null) {
-    contents.Contributor = deserializeAws_restJson1_1User(
-      output.Contributor,
-      context
-    );
-  }
-  if (
-    output.CreatedTimestamp !== undefined &&
-    output.CreatedTimestamp !== null
-  ) {
-    contents.CreatedTimestamp = new Date(
-      Math.round(output.CreatedTimestamp * 1000)
-    );
-  }
-  if (output.ParentId !== undefined && output.ParentId !== null) {
-    contents.ParentId = output.ParentId;
-  }
-  if (output.RecipientId !== undefined && output.RecipientId !== null) {
-    contents.RecipientId = output.RecipientId;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.Text !== undefined && output.Text !== null) {
-    contents.Text = output.Text;
-  }
-  if (output.ThreadId !== undefined && output.ThreadId !== null) {
-    contents.ThreadId = output.ThreadId;
-  }
-  if (output.Visibility !== undefined && output.Visibility !== null) {
-    contents.Visibility = output.Visibility;
-  }
-  return contents;
+    CommentId:
+      output.CommentId !== undefined && output.CommentId !== null
+        ? output.CommentId
+        : undefined,
+    Contributor:
+      output.Contributor !== undefined && output.Contributor !== null
+        ? deserializeAws_restJson1_1User(output.Contributor, context)
+        : undefined,
+    CreatedTimestamp:
+      output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
+        ? new Date(Math.round(output.CreatedTimestamp * 1000))
+        : undefined,
+    ParentId:
+      output.ParentId !== undefined && output.ParentId !== null
+        ? output.ParentId
+        : undefined,
+    RecipientId:
+      output.RecipientId !== undefined && output.RecipientId !== null
+        ? output.RecipientId
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    Text:
+      output.Text !== undefined && output.Text !== null
+        ? output.Text
+        : undefined,
+    ThreadId:
+      output.ThreadId !== undefined && output.ThreadId !== null
+        ? output.ThreadId
+        : undefined,
+    Visibility:
+      output.Visibility !== undefined && output.Visibility !== null
+        ? output.Visibility
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1CommentList = (
@@ -7482,38 +7461,29 @@ const deserializeAws_restJson1_1CommentMetadata = (
   output: any,
   context: __SerdeContext
 ): CommentMetadata => {
-  let contents: any = {
+  return {
     __type: "CommentMetadata",
-    CommentId: undefined,
-    CommentStatus: undefined,
-    Contributor: undefined,
-    CreatedTimestamp: undefined,
-    RecipientId: undefined
-  };
-  if (output.CommentId !== undefined && output.CommentId !== null) {
-    contents.CommentId = output.CommentId;
-  }
-  if (output.CommentStatus !== undefined && output.CommentStatus !== null) {
-    contents.CommentStatus = output.CommentStatus;
-  }
-  if (output.Contributor !== undefined && output.Contributor !== null) {
-    contents.Contributor = deserializeAws_restJson1_1User(
-      output.Contributor,
-      context
-    );
-  }
-  if (
-    output.CreatedTimestamp !== undefined &&
-    output.CreatedTimestamp !== null
-  ) {
-    contents.CreatedTimestamp = new Date(
-      Math.round(output.CreatedTimestamp * 1000)
-    );
-  }
-  if (output.RecipientId !== undefined && output.RecipientId !== null) {
-    contents.RecipientId = output.RecipientId;
-  }
-  return contents;
+    CommentId:
+      output.CommentId !== undefined && output.CommentId !== null
+        ? output.CommentId
+        : undefined,
+    CommentStatus:
+      output.CommentStatus !== undefined && output.CommentStatus !== null
+        ? output.CommentStatus
+        : undefined,
+    Contributor:
+      output.Contributor !== undefined && output.Contributor !== null
+        ? deserializeAws_restJson1_1User(output.Contributor, context)
+        : undefined,
+    CreatedTimestamp:
+      output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
+        ? new Date(Math.round(output.CreatedTimestamp * 1000))
+        : undefined,
+    RecipientId:
+      output.RecipientId !== undefined && output.RecipientId !== null
+        ? output.RecipientId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1CustomMetadataMap = (
@@ -7530,61 +7500,43 @@ const deserializeAws_restJson1_1DocumentMetadata = (
   output: any,
   context: __SerdeContext
 ): DocumentMetadata => {
-  let contents: any = {
+  return {
     __type: "DocumentMetadata",
-    CreatedTimestamp: undefined,
-    CreatorId: undefined,
-    Id: undefined,
-    Labels: undefined,
-    LatestVersionMetadata: undefined,
-    ModifiedTimestamp: undefined,
-    ParentFolderId: undefined,
-    ResourceState: undefined
-  };
-  if (
-    output.CreatedTimestamp !== undefined &&
-    output.CreatedTimestamp !== null
-  ) {
-    contents.CreatedTimestamp = new Date(
-      Math.round(output.CreatedTimestamp * 1000)
-    );
-  }
-  if (output.CreatorId !== undefined && output.CreatorId !== null) {
-    contents.CreatorId = output.CreatorId;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Labels !== undefined && output.Labels !== null) {
-    contents.Labels = deserializeAws_restJson1_1SharedLabels(
-      output.Labels,
-      context
-    );
-  }
-  if (
-    output.LatestVersionMetadata !== undefined &&
-    output.LatestVersionMetadata !== null
-  ) {
-    contents.LatestVersionMetadata = deserializeAws_restJson1_1DocumentVersionMetadata(
-      output.LatestVersionMetadata,
-      context
-    );
-  }
-  if (
-    output.ModifiedTimestamp !== undefined &&
-    output.ModifiedTimestamp !== null
-  ) {
-    contents.ModifiedTimestamp = new Date(
-      Math.round(output.ModifiedTimestamp * 1000)
-    );
-  }
-  if (output.ParentFolderId !== undefined && output.ParentFolderId !== null) {
-    contents.ParentFolderId = output.ParentFolderId;
-  }
-  if (output.ResourceState !== undefined && output.ResourceState !== null) {
-    contents.ResourceState = output.ResourceState;
-  }
-  return contents;
+    CreatedTimestamp:
+      output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
+        ? new Date(Math.round(output.CreatedTimestamp * 1000))
+        : undefined,
+    CreatorId:
+      output.CreatorId !== undefined && output.CreatorId !== null
+        ? output.CreatorId
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Labels:
+      output.Labels !== undefined && output.Labels !== null
+        ? deserializeAws_restJson1_1SharedLabels(output.Labels, context)
+        : undefined,
+    LatestVersionMetadata:
+      output.LatestVersionMetadata !== undefined &&
+      output.LatestVersionMetadata !== null
+        ? deserializeAws_restJson1_1DocumentVersionMetadata(
+            output.LatestVersionMetadata,
+            context
+          )
+        : undefined,
+    ModifiedTimestamp:
+      output.ModifiedTimestamp !== undefined &&
+      output.ModifiedTimestamp !== null
+        ? new Date(Math.round(output.ModifiedTimestamp * 1000))
+        : undefined,
+    ParentFolderId:
+      output.ParentFolderId !== undefined && output.ParentFolderId !== null
+        ? output.ParentFolderId
+        : undefined,
+    ResourceState:
+      output.ResourceState !== undefined && output.ResourceState !== null
+        ? output.ResourceState
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DocumentMetadataList = (
@@ -7620,88 +7572,64 @@ const deserializeAws_restJson1_1DocumentVersionMetadata = (
   output: any,
   context: __SerdeContext
 ): DocumentVersionMetadata => {
-  let contents: any = {
+  return {
     __type: "DocumentVersionMetadata",
-    ContentCreatedTimestamp: undefined,
-    ContentModifiedTimestamp: undefined,
-    ContentType: undefined,
-    CreatedTimestamp: undefined,
-    CreatorId: undefined,
-    Id: undefined,
-    ModifiedTimestamp: undefined,
-    Name: undefined,
-    Signature: undefined,
-    Size: undefined,
-    Source: undefined,
-    Status: undefined,
-    Thumbnail: undefined
-  };
-  if (
-    output.ContentCreatedTimestamp !== undefined &&
-    output.ContentCreatedTimestamp !== null
-  ) {
-    contents.ContentCreatedTimestamp = new Date(
-      Math.round(output.ContentCreatedTimestamp * 1000)
-    );
-  }
-  if (
-    output.ContentModifiedTimestamp !== undefined &&
-    output.ContentModifiedTimestamp !== null
-  ) {
-    contents.ContentModifiedTimestamp = new Date(
-      Math.round(output.ContentModifiedTimestamp * 1000)
-    );
-  }
-  if (output.ContentType !== undefined && output.ContentType !== null) {
-    contents.ContentType = output.ContentType;
-  }
-  if (
-    output.CreatedTimestamp !== undefined &&
-    output.CreatedTimestamp !== null
-  ) {
-    contents.CreatedTimestamp = new Date(
-      Math.round(output.CreatedTimestamp * 1000)
-    );
-  }
-  if (output.CreatorId !== undefined && output.CreatorId !== null) {
-    contents.CreatorId = output.CreatorId;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (
-    output.ModifiedTimestamp !== undefined &&
-    output.ModifiedTimestamp !== null
-  ) {
-    contents.ModifiedTimestamp = new Date(
-      Math.round(output.ModifiedTimestamp * 1000)
-    );
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Signature !== undefined && output.Signature !== null) {
-    contents.Signature = output.Signature;
-  }
-  if (output.Size !== undefined && output.Size !== null) {
-    contents.Size = output.Size;
-  }
-  if (output.Source !== undefined && output.Source !== null) {
-    contents.Source = deserializeAws_restJson1_1DocumentSourceUrlMap(
-      output.Source,
-      context
-    );
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.Thumbnail !== undefined && output.Thumbnail !== null) {
-    contents.Thumbnail = deserializeAws_restJson1_1DocumentThumbnailUrlMap(
-      output.Thumbnail,
-      context
-    );
-  }
-  return contents;
+    ContentCreatedTimestamp:
+      output.ContentCreatedTimestamp !== undefined &&
+      output.ContentCreatedTimestamp !== null
+        ? new Date(Math.round(output.ContentCreatedTimestamp * 1000))
+        : undefined,
+    ContentModifiedTimestamp:
+      output.ContentModifiedTimestamp !== undefined &&
+      output.ContentModifiedTimestamp !== null
+        ? new Date(Math.round(output.ContentModifiedTimestamp * 1000))
+        : undefined,
+    ContentType:
+      output.ContentType !== undefined && output.ContentType !== null
+        ? output.ContentType
+        : undefined,
+    CreatedTimestamp:
+      output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
+        ? new Date(Math.round(output.CreatedTimestamp * 1000))
+        : undefined,
+    CreatorId:
+      output.CreatorId !== undefined && output.CreatorId !== null
+        ? output.CreatorId
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    ModifiedTimestamp:
+      output.ModifiedTimestamp !== undefined &&
+      output.ModifiedTimestamp !== null
+        ? new Date(Math.round(output.ModifiedTimestamp * 1000))
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Signature:
+      output.Signature !== undefined && output.Signature !== null
+        ? output.Signature
+        : undefined,
+    Size:
+      output.Size !== undefined && output.Size !== null
+        ? output.Size
+        : undefined,
+    Source:
+      output.Source !== undefined && output.Source !== null
+        ? deserializeAws_restJson1_1DocumentSourceUrlMap(output.Source, context)
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    Thumbnail:
+      output.Thumbnail !== undefined && output.Thumbnail !== null
+        ? deserializeAws_restJson1_1DocumentThumbnailUrlMap(
+            output.Thumbnail,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DocumentVersionMetadataList = (
@@ -7724,70 +7652,52 @@ const deserializeAws_restJson1_1FolderMetadata = (
   output: any,
   context: __SerdeContext
 ): FolderMetadata => {
-  let contents: any = {
+  return {
     __type: "FolderMetadata",
-    CreatedTimestamp: undefined,
-    CreatorId: undefined,
-    Id: undefined,
-    Labels: undefined,
-    LatestVersionSize: undefined,
-    ModifiedTimestamp: undefined,
-    Name: undefined,
-    ParentFolderId: undefined,
-    ResourceState: undefined,
-    Signature: undefined,
-    Size: undefined
-  };
-  if (
-    output.CreatedTimestamp !== undefined &&
-    output.CreatedTimestamp !== null
-  ) {
-    contents.CreatedTimestamp = new Date(
-      Math.round(output.CreatedTimestamp * 1000)
-    );
-  }
-  if (output.CreatorId !== undefined && output.CreatorId !== null) {
-    contents.CreatorId = output.CreatorId;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Labels !== undefined && output.Labels !== null) {
-    contents.Labels = deserializeAws_restJson1_1SharedLabels(
-      output.Labels,
-      context
-    );
-  }
-  if (
-    output.LatestVersionSize !== undefined &&
-    output.LatestVersionSize !== null
-  ) {
-    contents.LatestVersionSize = output.LatestVersionSize;
-  }
-  if (
-    output.ModifiedTimestamp !== undefined &&
-    output.ModifiedTimestamp !== null
-  ) {
-    contents.ModifiedTimestamp = new Date(
-      Math.round(output.ModifiedTimestamp * 1000)
-    );
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.ParentFolderId !== undefined && output.ParentFolderId !== null) {
-    contents.ParentFolderId = output.ParentFolderId;
-  }
-  if (output.ResourceState !== undefined && output.ResourceState !== null) {
-    contents.ResourceState = output.ResourceState;
-  }
-  if (output.Signature !== undefined && output.Signature !== null) {
-    contents.Signature = output.Signature;
-  }
-  if (output.Size !== undefined && output.Size !== null) {
-    contents.Size = output.Size;
-  }
-  return contents;
+    CreatedTimestamp:
+      output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
+        ? new Date(Math.round(output.CreatedTimestamp * 1000))
+        : undefined,
+    CreatorId:
+      output.CreatorId !== undefined && output.CreatorId !== null
+        ? output.CreatorId
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Labels:
+      output.Labels !== undefined && output.Labels !== null
+        ? deserializeAws_restJson1_1SharedLabels(output.Labels, context)
+        : undefined,
+    LatestVersionSize:
+      output.LatestVersionSize !== undefined &&
+      output.LatestVersionSize !== null
+        ? output.LatestVersionSize
+        : undefined,
+    ModifiedTimestamp:
+      output.ModifiedTimestamp !== undefined &&
+      output.ModifiedTimestamp !== null
+        ? new Date(Math.round(output.ModifiedTimestamp * 1000))
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    ParentFolderId:
+      output.ParentFolderId !== undefined && output.ParentFolderId !== null
+        ? output.ParentFolderId
+        : undefined,
+    ResourceState:
+      output.ResourceState !== undefined && output.ResourceState !== null
+        ? output.ResourceState
+        : undefined,
+    Signature:
+      output.Signature !== undefined && output.Signature !== null
+        ? output.Signature
+        : undefined,
+    Size:
+      output.Size !== undefined && output.Size !== null
+        ? output.Size
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1FolderMetadataList = (
@@ -7803,18 +7713,14 @@ const deserializeAws_restJson1_1GroupMetadata = (
   output: any,
   context: __SerdeContext
 ): GroupMetadata => {
-  let contents: any = {
+  return {
     __type: "GroupMetadata",
-    Id: undefined,
-    Name: undefined
-  };
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1GroupMetadataList = (
@@ -7839,42 +7745,34 @@ const deserializeAws_restJson1_1Participants = (
   output: any,
   context: __SerdeContext
 ): Participants => {
-  let contents: any = {
+  return {
     __type: "Participants",
-    Groups: undefined,
-    Users: undefined
-  };
-  if (output.Groups !== undefined && output.Groups !== null) {
-    contents.Groups = deserializeAws_restJson1_1GroupMetadataList(
-      output.Groups,
-      context
-    );
-  }
-  if (output.Users !== undefined && output.Users !== null) {
-    contents.Users = deserializeAws_restJson1_1UserMetadataList(
-      output.Users,
-      context
-    );
-  }
-  return contents;
+    Groups:
+      output.Groups !== undefined && output.Groups !== null
+        ? deserializeAws_restJson1_1GroupMetadataList(output.Groups, context)
+        : undefined,
+    Users:
+      output.Users !== undefined && output.Users !== null
+        ? deserializeAws_restJson1_1UserMetadataList(output.Users, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1PermissionInfo = (
   output: any,
   context: __SerdeContext
 ): PermissionInfo => {
-  let contents: any = {
+  return {
     __type: "PermissionInfo",
-    Role: undefined,
-    Type: undefined
-  };
-  if (output.Role !== undefined && output.Role !== null) {
-    contents.Role = output.Role;
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    Role:
+      output.Role !== undefined && output.Role !== null
+        ? output.Role
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1PermissionInfoList = (
@@ -7890,25 +7788,18 @@ const deserializeAws_restJson1_1Principal = (
   output: any,
   context: __SerdeContext
 ): Principal => {
-  let contents: any = {
+  return {
     __type: "Principal",
-    Id: undefined,
-    Roles: undefined,
-    Type: undefined
-  };
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Roles !== undefined && output.Roles !== null) {
-    contents.Roles = deserializeAws_restJson1_1PermissionInfoList(
-      output.Roles,
-      context
-    );
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Roles:
+      output.Roles !== undefined && output.Roles !== null
+        ? deserializeAws_restJson1_1PermissionInfoList(output.Roles, context)
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1PrincipalList = (
@@ -7924,76 +7815,64 @@ const deserializeAws_restJson1_1ResourceMetadata = (
   output: any,
   context: __SerdeContext
 ): ResourceMetadata => {
-  let contents: any = {
+  return {
     __type: "ResourceMetadata",
-    Id: undefined,
-    Name: undefined,
-    OriginalName: undefined,
-    Owner: undefined,
-    ParentId: undefined,
-    Type: undefined,
-    VersionId: undefined
-  };
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.OriginalName !== undefined && output.OriginalName !== null) {
-    contents.OriginalName = output.OriginalName;
-  }
-  if (output.Owner !== undefined && output.Owner !== null) {
-    contents.Owner = deserializeAws_restJson1_1UserMetadata(
-      output.Owner,
-      context
-    );
-  }
-  if (output.ParentId !== undefined && output.ParentId !== null) {
-    contents.ParentId = output.ParentId;
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  if (output.VersionId !== undefined && output.VersionId !== null) {
-    contents.VersionId = output.VersionId;
-  }
-  return contents;
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    OriginalName:
+      output.OriginalName !== undefined && output.OriginalName !== null
+        ? output.OriginalName
+        : undefined,
+    Owner:
+      output.Owner !== undefined && output.Owner !== null
+        ? deserializeAws_restJson1_1UserMetadata(output.Owner, context)
+        : undefined,
+    ParentId:
+      output.ParentId !== undefined && output.ParentId !== null
+        ? output.ParentId
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined,
+    VersionId:
+      output.VersionId !== undefined && output.VersionId !== null
+        ? output.VersionId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ResourcePath = (
   output: any,
   context: __SerdeContext
 ): ResourcePath => {
-  let contents: any = {
+  return {
     __type: "ResourcePath",
-    Components: undefined
-  };
-  if (output.Components !== undefined && output.Components !== null) {
-    contents.Components = deserializeAws_restJson1_1ResourcePathComponentList(
-      output.Components,
-      context
-    );
-  }
-  return contents;
+    Components:
+      output.Components !== undefined && output.Components !== null
+        ? deserializeAws_restJson1_1ResourcePathComponentList(
+            output.Components,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ResourcePathComponent = (
   output: any,
   context: __SerdeContext
 ): ResourcePathComponent => {
-  let contents: any = {
+  return {
     __type: "ResourcePathComponent",
-    Id: undefined,
-    Name: undefined
-  };
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ResourcePathComponentList = (
@@ -8009,37 +7888,34 @@ const deserializeAws_restJson1_1ShareResult = (
   output: any,
   context: __SerdeContext
 ): ShareResult => {
-  let contents: any = {
+  return {
     __type: "ShareResult",
-    InviteePrincipalId: undefined,
-    PrincipalId: undefined,
-    Role: undefined,
-    ShareId: undefined,
-    Status: undefined,
-    StatusMessage: undefined
-  };
-  if (
-    output.InviteePrincipalId !== undefined &&
-    output.InviteePrincipalId !== null
-  ) {
-    contents.InviteePrincipalId = output.InviteePrincipalId;
-  }
-  if (output.PrincipalId !== undefined && output.PrincipalId !== null) {
-    contents.PrincipalId = output.PrincipalId;
-  }
-  if (output.Role !== undefined && output.Role !== null) {
-    contents.Role = output.Role;
-  }
-  if (output.ShareId !== undefined && output.ShareId !== null) {
-    contents.ShareId = output.ShareId;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.StatusMessage !== undefined && output.StatusMessage !== null) {
-    contents.StatusMessage = output.StatusMessage;
-  }
-  return contents;
+    InviteePrincipalId:
+      output.InviteePrincipalId !== undefined &&
+      output.InviteePrincipalId !== null
+        ? output.InviteePrincipalId
+        : undefined,
+    PrincipalId:
+      output.PrincipalId !== undefined && output.PrincipalId !== null
+        ? output.PrincipalId
+        : undefined,
+    Role:
+      output.Role !== undefined && output.Role !== null
+        ? output.Role
+        : undefined,
+    ShareId:
+      output.ShareId !== undefined && output.ShareId !== null
+        ? output.ShareId
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    StatusMessage:
+      output.StatusMessage !== undefined && output.StatusMessage !== null
+        ? output.StatusMessage
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ShareResultsList = (
@@ -8072,43 +7948,39 @@ const deserializeAws_restJson1_1StorageRuleType = (
   output: any,
   context: __SerdeContext
 ): StorageRuleType => {
-  let contents: any = {
+  return {
     __type: "StorageRuleType",
-    StorageAllocatedInBytes: undefined,
-    StorageType: undefined
-  };
-  if (
-    output.StorageAllocatedInBytes !== undefined &&
-    output.StorageAllocatedInBytes !== null
-  ) {
-    contents.StorageAllocatedInBytes = output.StorageAllocatedInBytes;
-  }
-  if (output.StorageType !== undefined && output.StorageType !== null) {
-    contents.StorageType = output.StorageType;
-  }
-  return contents;
+    StorageAllocatedInBytes:
+      output.StorageAllocatedInBytes !== undefined &&
+      output.StorageAllocatedInBytes !== null
+        ? output.StorageAllocatedInBytes
+        : undefined,
+    StorageType:
+      output.StorageType !== undefined && output.StorageType !== null
+        ? output.StorageType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Subscription = (
   output: any,
   context: __SerdeContext
 ): Subscription => {
-  let contents: any = {
+  return {
     __type: "Subscription",
-    EndPoint: undefined,
-    Protocol: undefined,
-    SubscriptionId: undefined
-  };
-  if (output.EndPoint !== undefined && output.EndPoint !== null) {
-    contents.EndPoint = output.EndPoint;
-  }
-  if (output.Protocol !== undefined && output.Protocol !== null) {
-    contents.Protocol = output.Protocol;
-  }
-  if (output.SubscriptionId !== undefined && output.SubscriptionId !== null) {
-    contents.SubscriptionId = output.SubscriptionId;
-  }
-  return contents;
+    EndPoint:
+      output.EndPoint !== undefined && output.EndPoint !== null
+        ? output.EndPoint
+        : undefined,
+    Protocol:
+      output.Protocol !== undefined && output.Protocol !== null
+        ? output.Protocol
+        : undefined,
+    SubscriptionId:
+      output.SubscriptionId !== undefined && output.SubscriptionId !== null
+        ? output.SubscriptionId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SubscriptionList = (
@@ -8124,107 +7996,88 @@ const deserializeAws_restJson1_1UploadMetadata = (
   output: any,
   context: __SerdeContext
 ): UploadMetadata => {
-  let contents: any = {
+  return {
     __type: "UploadMetadata",
-    SignedHeaders: undefined,
-    UploadUrl: undefined
-  };
-  if (output.SignedHeaders !== undefined && output.SignedHeaders !== null) {
-    contents.SignedHeaders = deserializeAws_restJson1_1SignedHeaderMap(
-      output.SignedHeaders,
-      context
-    );
-  }
-  if (output.UploadUrl !== undefined && output.UploadUrl !== null) {
-    contents.UploadUrl = output.UploadUrl;
-  }
-  return contents;
+    SignedHeaders:
+      output.SignedHeaders !== undefined && output.SignedHeaders !== null
+        ? deserializeAws_restJson1_1SignedHeaderMap(
+            output.SignedHeaders,
+            context
+          )
+        : undefined,
+    UploadUrl:
+      output.UploadUrl !== undefined && output.UploadUrl !== null
+        ? output.UploadUrl
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1User = (
   output: any,
   context: __SerdeContext
 ): User => {
-  let contents: any = {
+  return {
     __type: "User",
-    CreatedTimestamp: undefined,
-    EmailAddress: undefined,
-    GivenName: undefined,
-    Id: undefined,
-    Locale: undefined,
-    ModifiedTimestamp: undefined,
-    OrganizationId: undefined,
-    RecycleBinFolderId: undefined,
-    RootFolderId: undefined,
-    Status: undefined,
-    Storage: undefined,
-    Surname: undefined,
-    TimeZoneId: undefined,
-    Type: undefined,
-    Username: undefined
-  };
-  if (
-    output.CreatedTimestamp !== undefined &&
-    output.CreatedTimestamp !== null
-  ) {
-    contents.CreatedTimestamp = new Date(
-      Math.round(output.CreatedTimestamp * 1000)
-    );
-  }
-  if (output.EmailAddress !== undefined && output.EmailAddress !== null) {
-    contents.EmailAddress = output.EmailAddress;
-  }
-  if (output.GivenName !== undefined && output.GivenName !== null) {
-    contents.GivenName = output.GivenName;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Locale !== undefined && output.Locale !== null) {
-    contents.Locale = output.Locale;
-  }
-  if (
-    output.ModifiedTimestamp !== undefined &&
-    output.ModifiedTimestamp !== null
-  ) {
-    contents.ModifiedTimestamp = new Date(
-      Math.round(output.ModifiedTimestamp * 1000)
-    );
-  }
-  if (output.OrganizationId !== undefined && output.OrganizationId !== null) {
-    contents.OrganizationId = output.OrganizationId;
-  }
-  if (
-    output.RecycleBinFolderId !== undefined &&
-    output.RecycleBinFolderId !== null
-  ) {
-    contents.RecycleBinFolderId = output.RecycleBinFolderId;
-  }
-  if (output.RootFolderId !== undefined && output.RootFolderId !== null) {
-    contents.RootFolderId = output.RootFolderId;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.Storage !== undefined && output.Storage !== null) {
-    contents.Storage = deserializeAws_restJson1_1UserStorageMetadata(
-      output.Storage,
-      context
-    );
-  }
-  if (output.Surname !== undefined && output.Surname !== null) {
-    contents.Surname = output.Surname;
-  }
-  if (output.TimeZoneId !== undefined && output.TimeZoneId !== null) {
-    contents.TimeZoneId = output.TimeZoneId;
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  if (output.Username !== undefined && output.Username !== null) {
-    contents.Username = output.Username;
-  }
-  return contents;
+    CreatedTimestamp:
+      output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
+        ? new Date(Math.round(output.CreatedTimestamp * 1000))
+        : undefined,
+    EmailAddress:
+      output.EmailAddress !== undefined && output.EmailAddress !== null
+        ? output.EmailAddress
+        : undefined,
+    GivenName:
+      output.GivenName !== undefined && output.GivenName !== null
+        ? output.GivenName
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Locale:
+      output.Locale !== undefined && output.Locale !== null
+        ? output.Locale
+        : undefined,
+    ModifiedTimestamp:
+      output.ModifiedTimestamp !== undefined &&
+      output.ModifiedTimestamp !== null
+        ? new Date(Math.round(output.ModifiedTimestamp * 1000))
+        : undefined,
+    OrganizationId:
+      output.OrganizationId !== undefined && output.OrganizationId !== null
+        ? output.OrganizationId
+        : undefined,
+    RecycleBinFolderId:
+      output.RecycleBinFolderId !== undefined &&
+      output.RecycleBinFolderId !== null
+        ? output.RecycleBinFolderId
+        : undefined,
+    RootFolderId:
+      output.RootFolderId !== undefined && output.RootFolderId !== null
+        ? output.RootFolderId
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    Storage:
+      output.Storage !== undefined && output.Storage !== null
+        ? deserializeAws_restJson1_1UserStorageMetadata(output.Storage, context)
+        : undefined,
+    Surname:
+      output.Surname !== undefined && output.Surname !== null
+        ? output.Surname
+        : undefined,
+    TimeZoneId:
+      output.TimeZoneId !== undefined && output.TimeZoneId !== null
+        ? output.TimeZoneId
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined,
+    Username:
+      output.Username !== undefined && output.Username !== null
+        ? output.Username
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1UserActivities = (
@@ -8240,30 +8093,26 @@ const deserializeAws_restJson1_1UserMetadata = (
   output: any,
   context: __SerdeContext
 ): UserMetadata => {
-  let contents: any = {
+  return {
     __type: "UserMetadata",
-    EmailAddress: undefined,
-    GivenName: undefined,
-    Id: undefined,
-    Surname: undefined,
-    Username: undefined
-  };
-  if (output.EmailAddress !== undefined && output.EmailAddress !== null) {
-    contents.EmailAddress = output.EmailAddress;
-  }
-  if (output.GivenName !== undefined && output.GivenName !== null) {
-    contents.GivenName = output.GivenName;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Surname !== undefined && output.Surname !== null) {
-    contents.Surname = output.Surname;
-  }
-  if (output.Username !== undefined && output.Username !== null) {
-    contents.Username = output.Username;
-  }
-  return contents;
+    EmailAddress:
+      output.EmailAddress !== undefined && output.EmailAddress !== null
+        ? output.EmailAddress
+        : undefined,
+    GivenName:
+      output.GivenName !== undefined && output.GivenName !== null
+        ? output.GivenName
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Surname:
+      output.Surname !== undefined && output.Surname !== null
+        ? output.Surname
+        : undefined,
+    Username:
+      output.Username !== undefined && output.Username !== null
+        ? output.Username
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1UserMetadataList = (
@@ -8279,24 +8128,18 @@ const deserializeAws_restJson1_1UserStorageMetadata = (
   output: any,
   context: __SerdeContext
 ): UserStorageMetadata => {
-  let contents: any = {
+  return {
     __type: "UserStorageMetadata",
-    StorageRule: undefined,
-    StorageUtilizedInBytes: undefined
-  };
-  if (output.StorageRule !== undefined && output.StorageRule !== null) {
-    contents.StorageRule = deserializeAws_restJson1_1StorageRuleType(
-      output.StorageRule,
-      context
-    );
-  }
-  if (
-    output.StorageUtilizedInBytes !== undefined &&
-    output.StorageUtilizedInBytes !== null
-  ) {
-    contents.StorageUtilizedInBytes = output.StorageUtilizedInBytes;
-  }
-  return contents;
+    StorageRule:
+      output.StorageRule !== undefined && output.StorageRule !== null
+        ? deserializeAws_restJson1_1StorageRuleType(output.StorageRule, context)
+        : undefined,
+    StorageUtilizedInBytes:
+      output.StorageUtilizedInBytes !== undefined &&
+      output.StorageUtilizedInBytes !== null
+        ? output.StorageUtilizedInBytes
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

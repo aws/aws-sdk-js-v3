@@ -6172,18 +6172,15 @@ const deserializeAws_restJson1_1Tag = (
   output: any,
   context: __SerdeContext
 ): Tag => {
-  let contents: any = {
+  return {
     __type: "Tag",
-    Key: undefined,
-    Value: undefined
-  };
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1TagList = (
@@ -6208,22 +6205,21 @@ const deserializeAws_restJson1_1BlacklistEntry = (
   output: any,
   context: __SerdeContext
 ): BlacklistEntry => {
-  let contents: any = {
+  return {
     __type: "BlacklistEntry",
-    Description: undefined,
-    ListingTime: undefined,
-    RblName: undefined
-  };
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (output.ListingTime !== undefined && output.ListingTime !== null) {
-    contents.ListingTime = new Date(Math.round(output.ListingTime * 1000));
-  }
-  if (output.RblName !== undefined && output.RblName !== null) {
-    contents.RblName = output.RblName;
-  }
-  return contents;
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    ListingTime:
+      output.ListingTime !== undefined && output.ListingTime !== null
+        ? new Date(Math.round(output.ListingTime * 1000))
+        : undefined,
+    RblName:
+      output.RblName !== undefined && output.RblName !== null
+        ? output.RblName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1BlacklistReport = (
@@ -6240,48 +6236,40 @@ const deserializeAws_restJson1_1CloudWatchDestination = (
   output: any,
   context: __SerdeContext
 ): CloudWatchDestination => {
-  let contents: any = {
+  return {
     __type: "CloudWatchDestination",
-    DimensionConfigurations: undefined
-  };
-  if (
-    output.DimensionConfigurations !== undefined &&
-    output.DimensionConfigurations !== null
-  ) {
-    contents.DimensionConfigurations = deserializeAws_restJson1_1CloudWatchDimensionConfigurations(
-      output.DimensionConfigurations,
-      context
-    );
-  }
-  return contents;
+    DimensionConfigurations:
+      output.DimensionConfigurations !== undefined &&
+      output.DimensionConfigurations !== null
+        ? deserializeAws_restJson1_1CloudWatchDimensionConfigurations(
+            output.DimensionConfigurations,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1CloudWatchDimensionConfiguration = (
   output: any,
   context: __SerdeContext
 ): CloudWatchDimensionConfiguration => {
-  let contents: any = {
+  return {
     __type: "CloudWatchDimensionConfiguration",
-    DefaultDimensionValue: undefined,
-    DimensionName: undefined,
-    DimensionValueSource: undefined
-  };
-  if (
-    output.DefaultDimensionValue !== undefined &&
-    output.DefaultDimensionValue !== null
-  ) {
-    contents.DefaultDimensionValue = output.DefaultDimensionValue;
-  }
-  if (output.DimensionName !== undefined && output.DimensionName !== null) {
-    contents.DimensionName = output.DimensionName;
-  }
-  if (
-    output.DimensionValueSource !== undefined &&
-    output.DimensionValueSource !== null
-  ) {
-    contents.DimensionValueSource = output.DimensionValueSource;
-  }
-  return contents;
+    DefaultDimensionValue:
+      output.DefaultDimensionValue !== undefined &&
+      output.DefaultDimensionValue !== null
+        ? output.DefaultDimensionValue
+        : undefined,
+    DimensionName:
+      output.DimensionName !== undefined && output.DimensionName !== null
+        ? output.DimensionName
+        : undefined,
+    DimensionValueSource:
+      output.DimensionValueSource !== undefined &&
+      output.DimensionValueSource !== null
+        ? output.DimensionValueSource
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1CloudWatchDimensionConfigurations = (
@@ -6304,34 +6292,28 @@ const deserializeAws_restJson1_1DailyVolume = (
   output: any,
   context: __SerdeContext
 ): DailyVolume => {
-  let contents: any = {
+  return {
     __type: "DailyVolume",
-    DomainIspPlacements: undefined,
-    StartDate: undefined,
-    VolumeStatistics: undefined
-  };
-  if (
-    output.DomainIspPlacements !== undefined &&
-    output.DomainIspPlacements !== null
-  ) {
-    contents.DomainIspPlacements = deserializeAws_restJson1_1DomainIspPlacements(
-      output.DomainIspPlacements,
-      context
-    );
-  }
-  if (output.StartDate !== undefined && output.StartDate !== null) {
-    contents.StartDate = new Date(Math.round(output.StartDate * 1000));
-  }
-  if (
-    output.VolumeStatistics !== undefined &&
-    output.VolumeStatistics !== null
-  ) {
-    contents.VolumeStatistics = deserializeAws_restJson1_1VolumeStatistics(
-      output.VolumeStatistics,
-      context
-    );
-  }
-  return contents;
+    DomainIspPlacements:
+      output.DomainIspPlacements !== undefined &&
+      output.DomainIspPlacements !== null
+        ? deserializeAws_restJson1_1DomainIspPlacements(
+            output.DomainIspPlacements,
+            context
+          )
+        : undefined,
+    StartDate:
+      output.StartDate !== undefined && output.StartDate !== null
+        ? new Date(Math.round(output.StartDate * 1000))
+        : undefined,
+    VolumeStatistics:
+      output.VolumeStatistics !== undefined && output.VolumeStatistics !== null
+        ? deserializeAws_restJson1_1VolumeStatistics(
+            output.VolumeStatistics,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DailyVolumes = (
@@ -6347,29 +6329,22 @@ const deserializeAws_restJson1_1DedicatedIp = (
   output: any,
   context: __SerdeContext
 ): DedicatedIp => {
-  let contents: any = {
+  return {
     __type: "DedicatedIp",
-    Ip: undefined,
-    PoolName: undefined,
-    WarmupPercentage: undefined,
-    WarmupStatus: undefined
-  };
-  if (output.Ip !== undefined && output.Ip !== null) {
-    contents.Ip = output.Ip;
-  }
-  if (output.PoolName !== undefined && output.PoolName !== null) {
-    contents.PoolName = output.PoolName;
-  }
-  if (
-    output.WarmupPercentage !== undefined &&
-    output.WarmupPercentage !== null
-  ) {
-    contents.WarmupPercentage = output.WarmupPercentage;
-  }
-  if (output.WarmupStatus !== undefined && output.WarmupStatus !== null) {
-    contents.WarmupStatus = output.WarmupStatus;
-  }
-  return contents;
+    Ip: output.Ip !== undefined && output.Ip !== null ? output.Ip : undefined,
+    PoolName:
+      output.PoolName !== undefined && output.PoolName !== null
+        ? output.PoolName
+        : undefined,
+    WarmupPercentage:
+      output.WarmupPercentage !== undefined && output.WarmupPercentage !== null
+        ? output.WarmupPercentage
+        : undefined,
+    WarmupStatus:
+      output.WarmupStatus !== undefined && output.WarmupStatus !== null
+        ? output.WarmupStatus
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DedicatedIpList = (
@@ -6385,40 +6360,34 @@ const deserializeAws_restJson1_1DeliverabilityTestReport = (
   output: any,
   context: __SerdeContext
 ): DeliverabilityTestReport => {
-  let contents: any = {
+  return {
     __type: "DeliverabilityTestReport",
-    CreateDate: undefined,
-    DeliverabilityTestStatus: undefined,
-    FromEmailAddress: undefined,
-    ReportId: undefined,
-    ReportName: undefined,
-    Subject: undefined
-  };
-  if (output.CreateDate !== undefined && output.CreateDate !== null) {
-    contents.CreateDate = new Date(Math.round(output.CreateDate * 1000));
-  }
-  if (
-    output.DeliverabilityTestStatus !== undefined &&
-    output.DeliverabilityTestStatus !== null
-  ) {
-    contents.DeliverabilityTestStatus = output.DeliverabilityTestStatus;
-  }
-  if (
-    output.FromEmailAddress !== undefined &&
-    output.FromEmailAddress !== null
-  ) {
-    contents.FromEmailAddress = output.FromEmailAddress;
-  }
-  if (output.ReportId !== undefined && output.ReportId !== null) {
-    contents.ReportId = output.ReportId;
-  }
-  if (output.ReportName !== undefined && output.ReportName !== null) {
-    contents.ReportName = output.ReportName;
-  }
-  if (output.Subject !== undefined && output.Subject !== null) {
-    contents.Subject = output.Subject;
-  }
-  return contents;
+    CreateDate:
+      output.CreateDate !== undefined && output.CreateDate !== null
+        ? new Date(Math.round(output.CreateDate * 1000))
+        : undefined,
+    DeliverabilityTestStatus:
+      output.DeliverabilityTestStatus !== undefined &&
+      output.DeliverabilityTestStatus !== null
+        ? output.DeliverabilityTestStatus
+        : undefined,
+    FromEmailAddress:
+      output.FromEmailAddress !== undefined && output.FromEmailAddress !== null
+        ? output.FromEmailAddress
+        : undefined,
+    ReportId:
+      output.ReportId !== undefined && output.ReportId !== null
+        ? output.ReportId
+        : undefined,
+    ReportName:
+      output.ReportName !== undefined && output.ReportName !== null
+        ? output.ReportName
+        : undefined,
+    Subject:
+      output.Subject !== undefined && output.Subject !== null
+        ? output.Subject
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DeliverabilityTestReports = (
@@ -6434,43 +6403,38 @@ const deserializeAws_restJson1_1DeliveryOptions = (
   output: any,
   context: __SerdeContext
 ): DeliveryOptions => {
-  let contents: any = {
+  return {
     __type: "DeliveryOptions",
-    SendingPoolName: undefined,
-    TlsPolicy: undefined
-  };
-  if (output.SendingPoolName !== undefined && output.SendingPoolName !== null) {
-    contents.SendingPoolName = output.SendingPoolName;
-  }
-  if (output.TlsPolicy !== undefined && output.TlsPolicy !== null) {
-    contents.TlsPolicy = output.TlsPolicy;
-  }
-  return contents;
+    SendingPoolName:
+      output.SendingPoolName !== undefined && output.SendingPoolName !== null
+        ? output.SendingPoolName
+        : undefined,
+    TlsPolicy:
+      output.TlsPolicy !== undefined && output.TlsPolicy !== null
+        ? output.TlsPolicy
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DkimAttributes = (
   output: any,
   context: __SerdeContext
 ): DkimAttributes => {
-  let contents: any = {
+  return {
     __type: "DkimAttributes",
-    SigningEnabled: undefined,
-    Status: undefined,
-    Tokens: undefined
-  };
-  if (output.SigningEnabled !== undefined && output.SigningEnabled !== null) {
-    contents.SigningEnabled = output.SigningEnabled;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.Tokens !== undefined && output.Tokens !== null) {
-    contents.Tokens = deserializeAws_restJson1_1DnsTokenList(
-      output.Tokens,
-      context
-    );
-  }
-  return contents;
+    SigningEnabled:
+      output.SigningEnabled !== undefined && output.SigningEnabled !== null
+        ? output.SigningEnabled
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    Tokens:
+      output.Tokens !== undefined && output.Tokens !== null
+        ? deserializeAws_restJson1_1DnsTokenList(output.Tokens, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DnsTokenList = (
@@ -6484,79 +6448,66 @@ const deserializeAws_restJson1_1DomainDeliverabilityCampaign = (
   output: any,
   context: __SerdeContext
 ): DomainDeliverabilityCampaign => {
-  let contents: any = {
+  return {
     __type: "DomainDeliverabilityCampaign",
-    CampaignId: undefined,
-    DeleteRate: undefined,
-    Esps: undefined,
-    FirstSeenDateTime: undefined,
-    FromAddress: undefined,
-    ImageUrl: undefined,
-    InboxCount: undefined,
-    LastSeenDateTime: undefined,
-    ProjectedVolume: undefined,
-    ReadDeleteRate: undefined,
-    ReadRate: undefined,
-    SendingIps: undefined,
-    SpamCount: undefined,
-    Subject: undefined
-  };
-  if (output.CampaignId !== undefined && output.CampaignId !== null) {
-    contents.CampaignId = output.CampaignId;
-  }
-  if (output.DeleteRate !== undefined && output.DeleteRate !== null) {
-    contents.DeleteRate = output.DeleteRate;
-  }
-  if (output.Esps !== undefined && output.Esps !== null) {
-    contents.Esps = deserializeAws_restJson1_1Esps(output.Esps, context);
-  }
-  if (
-    output.FirstSeenDateTime !== undefined &&
-    output.FirstSeenDateTime !== null
-  ) {
-    contents.FirstSeenDateTime = new Date(
-      Math.round(output.FirstSeenDateTime * 1000)
-    );
-  }
-  if (output.FromAddress !== undefined && output.FromAddress !== null) {
-    contents.FromAddress = output.FromAddress;
-  }
-  if (output.ImageUrl !== undefined && output.ImageUrl !== null) {
-    contents.ImageUrl = output.ImageUrl;
-  }
-  if (output.InboxCount !== undefined && output.InboxCount !== null) {
-    contents.InboxCount = output.InboxCount;
-  }
-  if (
-    output.LastSeenDateTime !== undefined &&
-    output.LastSeenDateTime !== null
-  ) {
-    contents.LastSeenDateTime = new Date(
-      Math.round(output.LastSeenDateTime * 1000)
-    );
-  }
-  if (output.ProjectedVolume !== undefined && output.ProjectedVolume !== null) {
-    contents.ProjectedVolume = output.ProjectedVolume;
-  }
-  if (output.ReadDeleteRate !== undefined && output.ReadDeleteRate !== null) {
-    contents.ReadDeleteRate = output.ReadDeleteRate;
-  }
-  if (output.ReadRate !== undefined && output.ReadRate !== null) {
-    contents.ReadRate = output.ReadRate;
-  }
-  if (output.SendingIps !== undefined && output.SendingIps !== null) {
-    contents.SendingIps = deserializeAws_restJson1_1IpList(
-      output.SendingIps,
-      context
-    );
-  }
-  if (output.SpamCount !== undefined && output.SpamCount !== null) {
-    contents.SpamCount = output.SpamCount;
-  }
-  if (output.Subject !== undefined && output.Subject !== null) {
-    contents.Subject = output.Subject;
-  }
-  return contents;
+    CampaignId:
+      output.CampaignId !== undefined && output.CampaignId !== null
+        ? output.CampaignId
+        : undefined,
+    DeleteRate:
+      output.DeleteRate !== undefined && output.DeleteRate !== null
+        ? output.DeleteRate
+        : undefined,
+    Esps:
+      output.Esps !== undefined && output.Esps !== null
+        ? deserializeAws_restJson1_1Esps(output.Esps, context)
+        : undefined,
+    FirstSeenDateTime:
+      output.FirstSeenDateTime !== undefined &&
+      output.FirstSeenDateTime !== null
+        ? new Date(Math.round(output.FirstSeenDateTime * 1000))
+        : undefined,
+    FromAddress:
+      output.FromAddress !== undefined && output.FromAddress !== null
+        ? output.FromAddress
+        : undefined,
+    ImageUrl:
+      output.ImageUrl !== undefined && output.ImageUrl !== null
+        ? output.ImageUrl
+        : undefined,
+    InboxCount:
+      output.InboxCount !== undefined && output.InboxCount !== null
+        ? output.InboxCount
+        : undefined,
+    LastSeenDateTime:
+      output.LastSeenDateTime !== undefined && output.LastSeenDateTime !== null
+        ? new Date(Math.round(output.LastSeenDateTime * 1000))
+        : undefined,
+    ProjectedVolume:
+      output.ProjectedVolume !== undefined && output.ProjectedVolume !== null
+        ? output.ProjectedVolume
+        : undefined,
+    ReadDeleteRate:
+      output.ReadDeleteRate !== undefined && output.ReadDeleteRate !== null
+        ? output.ReadDeleteRate
+        : undefined,
+    ReadRate:
+      output.ReadRate !== undefined && output.ReadRate !== null
+        ? output.ReadRate
+        : undefined,
+    SendingIps:
+      output.SendingIps !== undefined && output.SendingIps !== null
+        ? deserializeAws_restJson1_1IpList(output.SendingIps, context)
+        : undefined,
+    SpamCount:
+      output.SpamCount !== undefined && output.SpamCount !== null
+        ? output.SpamCount
+        : undefined,
+    Subject:
+      output.Subject !== undefined && output.Subject !== null
+        ? output.Subject
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DomainDeliverabilityCampaignList = (
@@ -6572,33 +6523,26 @@ const deserializeAws_restJson1_1DomainDeliverabilityTrackingOption = (
   output: any,
   context: __SerdeContext
 ): DomainDeliverabilityTrackingOption => {
-  let contents: any = {
+  return {
     __type: "DomainDeliverabilityTrackingOption",
-    Domain: undefined,
-    InboxPlacementTrackingOption: undefined,
-    SubscriptionStartDate: undefined
-  };
-  if (output.Domain !== undefined && output.Domain !== null) {
-    contents.Domain = output.Domain;
-  }
-  if (
-    output.InboxPlacementTrackingOption !== undefined &&
-    output.InboxPlacementTrackingOption !== null
-  ) {
-    contents.InboxPlacementTrackingOption = deserializeAws_restJson1_1InboxPlacementTrackingOption(
-      output.InboxPlacementTrackingOption,
-      context
-    );
-  }
-  if (
-    output.SubscriptionStartDate !== undefined &&
-    output.SubscriptionStartDate !== null
-  ) {
-    contents.SubscriptionStartDate = new Date(
-      Math.round(output.SubscriptionStartDate * 1000)
-    );
-  }
-  return contents;
+    Domain:
+      output.Domain !== undefined && output.Domain !== null
+        ? output.Domain
+        : undefined,
+    InboxPlacementTrackingOption:
+      output.InboxPlacementTrackingOption !== undefined &&
+      output.InboxPlacementTrackingOption !== null
+        ? deserializeAws_restJson1_1InboxPlacementTrackingOption(
+            output.InboxPlacementTrackingOption,
+            context
+          )
+        : undefined,
+    SubscriptionStartDate:
+      output.SubscriptionStartDate !== undefined &&
+      output.SubscriptionStartDate !== null
+        ? new Date(Math.round(output.SubscriptionStartDate * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DomainDeliverabilityTrackingOptions = (
@@ -6614,30 +6558,29 @@ const deserializeAws_restJson1_1DomainIspPlacement = (
   output: any,
   context: __SerdeContext
 ): DomainIspPlacement => {
-  let contents: any = {
+  return {
     __type: "DomainIspPlacement",
-    InboxPercentage: undefined,
-    InboxRawCount: undefined,
-    IspName: undefined,
-    SpamPercentage: undefined,
-    SpamRawCount: undefined
-  };
-  if (output.InboxPercentage !== undefined && output.InboxPercentage !== null) {
-    contents.InboxPercentage = output.InboxPercentage;
-  }
-  if (output.InboxRawCount !== undefined && output.InboxRawCount !== null) {
-    contents.InboxRawCount = output.InboxRawCount;
-  }
-  if (output.IspName !== undefined && output.IspName !== null) {
-    contents.IspName = output.IspName;
-  }
-  if (output.SpamPercentage !== undefined && output.SpamPercentage !== null) {
-    contents.SpamPercentage = output.SpamPercentage;
-  }
-  if (output.SpamRawCount !== undefined && output.SpamRawCount !== null) {
-    contents.SpamRawCount = output.SpamRawCount;
-  }
-  return contents;
+    InboxPercentage:
+      output.InboxPercentage !== undefined && output.InboxPercentage !== null
+        ? output.InboxPercentage
+        : undefined,
+    InboxRawCount:
+      output.InboxRawCount !== undefined && output.InboxRawCount !== null
+        ? output.InboxRawCount
+        : undefined,
+    IspName:
+      output.IspName !== undefined && output.IspName !== null
+        ? output.IspName
+        : undefined,
+    SpamPercentage:
+      output.SpamPercentage !== undefined && output.SpamPercentage !== null
+        ? output.SpamPercentage
+        : undefined,
+    SpamRawCount:
+      output.SpamRawCount !== undefined && output.SpamRawCount !== null
+        ? output.SpamRawCount
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DomainIspPlacements = (
@@ -6660,65 +6603,56 @@ const deserializeAws_restJson1_1EventDestination = (
   output: any,
   context: __SerdeContext
 ): EventDestination => {
-  let contents: any = {
+  return {
     __type: "EventDestination",
-    CloudWatchDestination: undefined,
-    Enabled: undefined,
-    KinesisFirehoseDestination: undefined,
-    MatchingEventTypes: undefined,
-    Name: undefined,
-    PinpointDestination: undefined,
-    SnsDestination: undefined
-  };
-  if (
-    output.CloudWatchDestination !== undefined &&
-    output.CloudWatchDestination !== null
-  ) {
-    contents.CloudWatchDestination = deserializeAws_restJson1_1CloudWatchDestination(
-      output.CloudWatchDestination,
-      context
-    );
-  }
-  if (output.Enabled !== undefined && output.Enabled !== null) {
-    contents.Enabled = output.Enabled;
-  }
-  if (
-    output.KinesisFirehoseDestination !== undefined &&
-    output.KinesisFirehoseDestination !== null
-  ) {
-    contents.KinesisFirehoseDestination = deserializeAws_restJson1_1KinesisFirehoseDestination(
-      output.KinesisFirehoseDestination,
-      context
-    );
-  }
-  if (
-    output.MatchingEventTypes !== undefined &&
-    output.MatchingEventTypes !== null
-  ) {
-    contents.MatchingEventTypes = deserializeAws_restJson1_1EventTypes(
-      output.MatchingEventTypes,
-      context
-    );
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (
-    output.PinpointDestination !== undefined &&
-    output.PinpointDestination !== null
-  ) {
-    contents.PinpointDestination = deserializeAws_restJson1_1PinpointDestination(
-      output.PinpointDestination,
-      context
-    );
-  }
-  if (output.SnsDestination !== undefined && output.SnsDestination !== null) {
-    contents.SnsDestination = deserializeAws_restJson1_1SnsDestination(
-      output.SnsDestination,
-      context
-    );
-  }
-  return contents;
+    CloudWatchDestination:
+      output.CloudWatchDestination !== undefined &&
+      output.CloudWatchDestination !== null
+        ? deserializeAws_restJson1_1CloudWatchDestination(
+            output.CloudWatchDestination,
+            context
+          )
+        : undefined,
+    Enabled:
+      output.Enabled !== undefined && output.Enabled !== null
+        ? output.Enabled
+        : undefined,
+    KinesisFirehoseDestination:
+      output.KinesisFirehoseDestination !== undefined &&
+      output.KinesisFirehoseDestination !== null
+        ? deserializeAws_restJson1_1KinesisFirehoseDestination(
+            output.KinesisFirehoseDestination,
+            context
+          )
+        : undefined,
+    MatchingEventTypes:
+      output.MatchingEventTypes !== undefined &&
+      output.MatchingEventTypes !== null
+        ? deserializeAws_restJson1_1EventTypes(
+            output.MatchingEventTypes,
+            context
+          )
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    PinpointDestination:
+      output.PinpointDestination !== undefined &&
+      output.PinpointDestination !== null
+        ? deserializeAws_restJson1_1PinpointDestination(
+            output.PinpointDestination,
+            context
+          )
+        : undefined,
+    SnsDestination:
+      output.SnsDestination !== undefined && output.SnsDestination !== null
+        ? deserializeAws_restJson1_1SnsDestination(
+            output.SnsDestination,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1EventDestinations = (
@@ -6741,22 +6675,21 @@ const deserializeAws_restJson1_1IdentityInfo = (
   output: any,
   context: __SerdeContext
 ): IdentityInfo => {
-  let contents: any = {
+  return {
     __type: "IdentityInfo",
-    IdentityName: undefined,
-    IdentityType: undefined,
-    SendingEnabled: undefined
-  };
-  if (output.IdentityName !== undefined && output.IdentityName !== null) {
-    contents.IdentityName = output.IdentityName;
-  }
-  if (output.IdentityType !== undefined && output.IdentityType !== null) {
-    contents.IdentityType = output.IdentityType;
-  }
-  if (output.SendingEnabled !== undefined && output.SendingEnabled !== null) {
-    contents.SendingEnabled = output.SendingEnabled;
-  }
-  return contents;
+    IdentityName:
+      output.IdentityName !== undefined && output.IdentityName !== null
+        ? output.IdentityName
+        : undefined,
+    IdentityType:
+      output.IdentityType !== undefined && output.IdentityType !== null
+        ? output.IdentityType
+        : undefined,
+    SendingEnabled:
+      output.SendingEnabled !== undefined && output.SendingEnabled !== null
+        ? output.SendingEnabled
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1IdentityInfoList = (
@@ -6772,21 +6705,17 @@ const deserializeAws_restJson1_1InboxPlacementTrackingOption = (
   output: any,
   context: __SerdeContext
 ): InboxPlacementTrackingOption => {
-  let contents: any = {
+  return {
     __type: "InboxPlacementTrackingOption",
-    Global: undefined,
-    TrackedIsps: undefined
-  };
-  if (output.Global !== undefined && output.Global !== null) {
-    contents.Global = output.Global;
-  }
-  if (output.TrackedIsps !== undefined && output.TrackedIsps !== null) {
-    contents.TrackedIsps = deserializeAws_restJson1_1IspNameList(
-      output.TrackedIsps,
-      context
-    );
-  }
-  return contents;
+    Global:
+      output.Global !== undefined && output.Global !== null
+        ? output.Global
+        : undefined,
+    TrackedIsps:
+      output.TrackedIsps !== undefined && output.TrackedIsps !== null
+        ? deserializeAws_restJson1_1IspNameList(output.TrackedIsps, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1IpList = (
@@ -6807,24 +6736,21 @@ const deserializeAws_restJson1_1IspPlacement = (
   output: any,
   context: __SerdeContext
 ): IspPlacement => {
-  let contents: any = {
+  return {
     __type: "IspPlacement",
-    IspName: undefined,
-    PlacementStatistics: undefined
-  };
-  if (output.IspName !== undefined && output.IspName !== null) {
-    contents.IspName = output.IspName;
-  }
-  if (
-    output.PlacementStatistics !== undefined &&
-    output.PlacementStatistics !== null
-  ) {
-    contents.PlacementStatistics = deserializeAws_restJson1_1PlacementStatistics(
-      output.PlacementStatistics,
-      context
-    );
-  }
-  return contents;
+    IspName:
+      output.IspName !== undefined && output.IspName !== null
+        ? output.IspName
+        : undefined,
+    PlacementStatistics:
+      output.PlacementStatistics !== undefined &&
+      output.PlacementStatistics !== null
+        ? deserializeAws_restJson1_1PlacementStatistics(
+            output.PlacementStatistics,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1IspPlacements = (
@@ -6840,21 +6766,18 @@ const deserializeAws_restJson1_1KinesisFirehoseDestination = (
   output: any,
   context: __SerdeContext
 ): KinesisFirehoseDestination => {
-  let contents: any = {
+  return {
     __type: "KinesisFirehoseDestination",
-    DeliveryStreamArn: undefined,
-    IamRoleArn: undefined
-  };
-  if (
-    output.DeliveryStreamArn !== undefined &&
-    output.DeliveryStreamArn !== null
-  ) {
-    contents.DeliveryStreamArn = output.DeliveryStreamArn;
-  }
-  if (output.IamRoleArn !== undefined && output.IamRoleArn !== null) {
-    contents.IamRoleArn = output.IamRoleArn;
-  }
-  return contents;
+    DeliveryStreamArn:
+      output.DeliveryStreamArn !== undefined &&
+      output.DeliveryStreamArn !== null
+        ? output.DeliveryStreamArn
+        : undefined,
+    IamRoleArn:
+      output.IamRoleArn !== undefined && output.IamRoleArn !== null
+        ? output.IamRoleArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ListOfDedicatedIpPools = (
@@ -6868,225 +6791,198 @@ const deserializeAws_restJson1_1MailFromAttributes = (
   output: any,
   context: __SerdeContext
 ): MailFromAttributes => {
-  let contents: any = {
+  return {
     __type: "MailFromAttributes",
-    BehaviorOnMxFailure: undefined,
-    MailFromDomain: undefined,
-    MailFromDomainStatus: undefined
-  };
-  if (
-    output.BehaviorOnMxFailure !== undefined &&
-    output.BehaviorOnMxFailure !== null
-  ) {
-    contents.BehaviorOnMxFailure = output.BehaviorOnMxFailure;
-  }
-  if (output.MailFromDomain !== undefined && output.MailFromDomain !== null) {
-    contents.MailFromDomain = output.MailFromDomain;
-  }
-  if (
-    output.MailFromDomainStatus !== undefined &&
-    output.MailFromDomainStatus !== null
-  ) {
-    contents.MailFromDomainStatus = output.MailFromDomainStatus;
-  }
-  return contents;
+    BehaviorOnMxFailure:
+      output.BehaviorOnMxFailure !== undefined &&
+      output.BehaviorOnMxFailure !== null
+        ? output.BehaviorOnMxFailure
+        : undefined,
+    MailFromDomain:
+      output.MailFromDomain !== undefined && output.MailFromDomain !== null
+        ? output.MailFromDomain
+        : undefined,
+    MailFromDomainStatus:
+      output.MailFromDomainStatus !== undefined &&
+      output.MailFromDomainStatus !== null
+        ? output.MailFromDomainStatus
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1OverallVolume = (
   output: any,
   context: __SerdeContext
 ): OverallVolume => {
-  let contents: any = {
+  return {
     __type: "OverallVolume",
-    DomainIspPlacements: undefined,
-    ReadRatePercent: undefined,
-    VolumeStatistics: undefined
-  };
-  if (
-    output.DomainIspPlacements !== undefined &&
-    output.DomainIspPlacements !== null
-  ) {
-    contents.DomainIspPlacements = deserializeAws_restJson1_1DomainIspPlacements(
-      output.DomainIspPlacements,
-      context
-    );
-  }
-  if (output.ReadRatePercent !== undefined && output.ReadRatePercent !== null) {
-    contents.ReadRatePercent = output.ReadRatePercent;
-  }
-  if (
-    output.VolumeStatistics !== undefined &&
-    output.VolumeStatistics !== null
-  ) {
-    contents.VolumeStatistics = deserializeAws_restJson1_1VolumeStatistics(
-      output.VolumeStatistics,
-      context
-    );
-  }
-  return contents;
+    DomainIspPlacements:
+      output.DomainIspPlacements !== undefined &&
+      output.DomainIspPlacements !== null
+        ? deserializeAws_restJson1_1DomainIspPlacements(
+            output.DomainIspPlacements,
+            context
+          )
+        : undefined,
+    ReadRatePercent:
+      output.ReadRatePercent !== undefined && output.ReadRatePercent !== null
+        ? output.ReadRatePercent
+        : undefined,
+    VolumeStatistics:
+      output.VolumeStatistics !== undefined && output.VolumeStatistics !== null
+        ? deserializeAws_restJson1_1VolumeStatistics(
+            output.VolumeStatistics,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1PinpointDestination = (
   output: any,
   context: __SerdeContext
 ): PinpointDestination => {
-  let contents: any = {
+  return {
     __type: "PinpointDestination",
-    ApplicationArn: undefined
-  };
-  if (output.ApplicationArn !== undefined && output.ApplicationArn !== null) {
-    contents.ApplicationArn = output.ApplicationArn;
-  }
-  return contents;
+    ApplicationArn:
+      output.ApplicationArn !== undefined && output.ApplicationArn !== null
+        ? output.ApplicationArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1PlacementStatistics = (
   output: any,
   context: __SerdeContext
 ): PlacementStatistics => {
-  let contents: any = {
+  return {
     __type: "PlacementStatistics",
-    DkimPercentage: undefined,
-    InboxPercentage: undefined,
-    MissingPercentage: undefined,
-    SpamPercentage: undefined,
-    SpfPercentage: undefined
-  };
-  if (output.DkimPercentage !== undefined && output.DkimPercentage !== null) {
-    contents.DkimPercentage = output.DkimPercentage;
-  }
-  if (output.InboxPercentage !== undefined && output.InboxPercentage !== null) {
-    contents.InboxPercentage = output.InboxPercentage;
-  }
-  if (
-    output.MissingPercentage !== undefined &&
-    output.MissingPercentage !== null
-  ) {
-    contents.MissingPercentage = output.MissingPercentage;
-  }
-  if (output.SpamPercentage !== undefined && output.SpamPercentage !== null) {
-    contents.SpamPercentage = output.SpamPercentage;
-  }
-  if (output.SpfPercentage !== undefined && output.SpfPercentage !== null) {
-    contents.SpfPercentage = output.SpfPercentage;
-  }
-  return contents;
+    DkimPercentage:
+      output.DkimPercentage !== undefined && output.DkimPercentage !== null
+        ? output.DkimPercentage
+        : undefined,
+    InboxPercentage:
+      output.InboxPercentage !== undefined && output.InboxPercentage !== null
+        ? output.InboxPercentage
+        : undefined,
+    MissingPercentage:
+      output.MissingPercentage !== undefined &&
+      output.MissingPercentage !== null
+        ? output.MissingPercentage
+        : undefined,
+    SpamPercentage:
+      output.SpamPercentage !== undefined && output.SpamPercentage !== null
+        ? output.SpamPercentage
+        : undefined,
+    SpfPercentage:
+      output.SpfPercentage !== undefined && output.SpfPercentage !== null
+        ? output.SpfPercentage
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ReputationOptions = (
   output: any,
   context: __SerdeContext
 ): ReputationOptions => {
-  let contents: any = {
+  return {
     __type: "ReputationOptions",
-    LastFreshStart: undefined,
-    ReputationMetricsEnabled: undefined
-  };
-  if (output.LastFreshStart !== undefined && output.LastFreshStart !== null) {
-    contents.LastFreshStart = new Date(
-      Math.round(output.LastFreshStart * 1000)
-    );
-  }
-  if (
-    output.ReputationMetricsEnabled !== undefined &&
-    output.ReputationMetricsEnabled !== null
-  ) {
-    contents.ReputationMetricsEnabled = output.ReputationMetricsEnabled;
-  }
-  return contents;
+    LastFreshStart:
+      output.LastFreshStart !== undefined && output.LastFreshStart !== null
+        ? new Date(Math.round(output.LastFreshStart * 1000))
+        : undefined,
+    ReputationMetricsEnabled:
+      output.ReputationMetricsEnabled !== undefined &&
+      output.ReputationMetricsEnabled !== null
+        ? output.ReputationMetricsEnabled
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SendQuota = (
   output: any,
   context: __SerdeContext
 ): SendQuota => {
-  let contents: any = {
+  return {
     __type: "SendQuota",
-    Max24HourSend: undefined,
-    MaxSendRate: undefined,
-    SentLast24Hours: undefined
-  };
-  if (output.Max24HourSend !== undefined && output.Max24HourSend !== null) {
-    contents.Max24HourSend = output.Max24HourSend;
-  }
-  if (output.MaxSendRate !== undefined && output.MaxSendRate !== null) {
-    contents.MaxSendRate = output.MaxSendRate;
-  }
-  if (output.SentLast24Hours !== undefined && output.SentLast24Hours !== null) {
-    contents.SentLast24Hours = output.SentLast24Hours;
-  }
-  return contents;
+    Max24HourSend:
+      output.Max24HourSend !== undefined && output.Max24HourSend !== null
+        ? output.Max24HourSend
+        : undefined,
+    MaxSendRate:
+      output.MaxSendRate !== undefined && output.MaxSendRate !== null
+        ? output.MaxSendRate
+        : undefined,
+    SentLast24Hours:
+      output.SentLast24Hours !== undefined && output.SentLast24Hours !== null
+        ? output.SentLast24Hours
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SendingOptions = (
   output: any,
   context: __SerdeContext
 ): SendingOptions => {
-  let contents: any = {
+  return {
     __type: "SendingOptions",
-    SendingEnabled: undefined
-  };
-  if (output.SendingEnabled !== undefined && output.SendingEnabled !== null) {
-    contents.SendingEnabled = output.SendingEnabled;
-  }
-  return contents;
+    SendingEnabled:
+      output.SendingEnabled !== undefined && output.SendingEnabled !== null
+        ? output.SendingEnabled
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SnsDestination = (
   output: any,
   context: __SerdeContext
 ): SnsDestination => {
-  let contents: any = {
+  return {
     __type: "SnsDestination",
-    TopicArn: undefined
-  };
-  if (output.TopicArn !== undefined && output.TopicArn !== null) {
-    contents.TopicArn = output.TopicArn;
-  }
-  return contents;
+    TopicArn:
+      output.TopicArn !== undefined && output.TopicArn !== null
+        ? output.TopicArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1TrackingOptions = (
   output: any,
   context: __SerdeContext
 ): TrackingOptions => {
-  let contents: any = {
+  return {
     __type: "TrackingOptions",
-    CustomRedirectDomain: undefined
-  };
-  if (
-    output.CustomRedirectDomain !== undefined &&
-    output.CustomRedirectDomain !== null
-  ) {
-    contents.CustomRedirectDomain = output.CustomRedirectDomain;
-  }
-  return contents;
+    CustomRedirectDomain:
+      output.CustomRedirectDomain !== undefined &&
+      output.CustomRedirectDomain !== null
+        ? output.CustomRedirectDomain
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1VolumeStatistics = (
   output: any,
   context: __SerdeContext
 ): VolumeStatistics => {
-  let contents: any = {
+  return {
     __type: "VolumeStatistics",
-    InboxRawCount: undefined,
-    ProjectedInbox: undefined,
-    ProjectedSpam: undefined,
-    SpamRawCount: undefined
-  };
-  if (output.InboxRawCount !== undefined && output.InboxRawCount !== null) {
-    contents.InboxRawCount = output.InboxRawCount;
-  }
-  if (output.ProjectedInbox !== undefined && output.ProjectedInbox !== null) {
-    contents.ProjectedInbox = output.ProjectedInbox;
-  }
-  if (output.ProjectedSpam !== undefined && output.ProjectedSpam !== null) {
-    contents.ProjectedSpam = output.ProjectedSpam;
-  }
-  if (output.SpamRawCount !== undefined && output.SpamRawCount !== null) {
-    contents.SpamRawCount = output.SpamRawCount;
-  }
-  return contents;
+    InboxRawCount:
+      output.InboxRawCount !== undefined && output.InboxRawCount !== null
+        ? output.InboxRawCount
+        : undefined,
+    ProjectedInbox:
+      output.ProjectedInbox !== undefined && output.ProjectedInbox !== null
+        ? output.ProjectedInbox
+        : undefined,
+    ProjectedSpam:
+      output.ProjectedSpam !== undefined && output.ProjectedSpam !== null
+        ? output.ProjectedSpam
+        : undefined,
+    SpamRawCount:
+      output.SpamRawCount !== undefined && output.SpamRawCount !== null
+        ? output.SpamRawCount
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

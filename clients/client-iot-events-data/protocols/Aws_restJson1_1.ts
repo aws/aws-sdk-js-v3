@@ -813,22 +813,21 @@ const deserializeAws_restJson1_1BatchPutMessageErrorEntry = (
   output: any,
   context: __SerdeContext
 ): BatchPutMessageErrorEntry => {
-  let contents: any = {
+  return {
     __type: "BatchPutMessageErrorEntry",
-    errorCode: undefined,
-    errorMessage: undefined,
-    messageId: undefined
-  };
-  if (output.errorCode !== undefined && output.errorCode !== null) {
-    contents.errorCode = output.errorCode;
-  }
-  if (output.errorMessage !== undefined && output.errorMessage !== null) {
-    contents.errorMessage = output.errorMessage;
-  }
-  if (output.messageId !== undefined && output.messageId !== null) {
-    contents.messageId = output.messageId;
-  }
-  return contents;
+    errorCode:
+      output.errorCode !== undefined && output.errorCode !== null
+        ? output.errorCode
+        : undefined,
+    errorMessage:
+      output.errorMessage !== undefined && output.errorMessage !== null
+        ? output.errorMessage
+        : undefined,
+    messageId:
+      output.messageId !== undefined && output.messageId !== null
+        ? output.messageId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1BatchUpdateDetectorErrorEntries = (
@@ -844,106 +843,90 @@ const deserializeAws_restJson1_1BatchUpdateDetectorErrorEntry = (
   output: any,
   context: __SerdeContext
 ): BatchUpdateDetectorErrorEntry => {
-  let contents: any = {
+  return {
     __type: "BatchUpdateDetectorErrorEntry",
-    errorCode: undefined,
-    errorMessage: undefined,
-    messageId: undefined
-  };
-  if (output.errorCode !== undefined && output.errorCode !== null) {
-    contents.errorCode = output.errorCode;
-  }
-  if (output.errorMessage !== undefined && output.errorMessage !== null) {
-    contents.errorMessage = output.errorMessage;
-  }
-  if (output.messageId !== undefined && output.messageId !== null) {
-    contents.messageId = output.messageId;
-  }
-  return contents;
+    errorCode:
+      output.errorCode !== undefined && output.errorCode !== null
+        ? output.errorCode
+        : undefined,
+    errorMessage:
+      output.errorMessage !== undefined && output.errorMessage !== null
+        ? output.errorMessage
+        : undefined,
+    messageId:
+      output.messageId !== undefined && output.messageId !== null
+        ? output.messageId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Detector = (
   output: any,
   context: __SerdeContext
 ): Detector => {
-  let contents: any = {
+  return {
     __type: "Detector",
-    creationTime: undefined,
-    detectorModelName: undefined,
-    detectorModelVersion: undefined,
-    keyValue: undefined,
-    lastUpdateTime: undefined,
-    state: undefined
-  };
-  if (output.creationTime !== undefined && output.creationTime !== null) {
-    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
-  }
-  if (
-    output.detectorModelName !== undefined &&
-    output.detectorModelName !== null
-  ) {
-    contents.detectorModelName = output.detectorModelName;
-  }
-  if (
-    output.detectorModelVersion !== undefined &&
-    output.detectorModelVersion !== null
-  ) {
-    contents.detectorModelVersion = output.detectorModelVersion;
-  }
-  if (output.keyValue !== undefined && output.keyValue !== null) {
-    contents.keyValue = output.keyValue;
-  }
-  if (output.lastUpdateTime !== undefined && output.lastUpdateTime !== null) {
-    contents.lastUpdateTime = new Date(
-      Math.round(output.lastUpdateTime * 1000)
-    );
-  }
-  if (output.state !== undefined && output.state !== null) {
-    contents.state = deserializeAws_restJson1_1DetectorState(
-      output.state,
-      context
-    );
-  }
-  return contents;
+    creationTime:
+      output.creationTime !== undefined && output.creationTime !== null
+        ? new Date(Math.round(output.creationTime * 1000))
+        : undefined,
+    detectorModelName:
+      output.detectorModelName !== undefined &&
+      output.detectorModelName !== null
+        ? output.detectorModelName
+        : undefined,
+    detectorModelVersion:
+      output.detectorModelVersion !== undefined &&
+      output.detectorModelVersion !== null
+        ? output.detectorModelVersion
+        : undefined,
+    keyValue:
+      output.keyValue !== undefined && output.keyValue !== null
+        ? output.keyValue
+        : undefined,
+    lastUpdateTime:
+      output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
+        ? new Date(Math.round(output.lastUpdateTime * 1000))
+        : undefined,
+    state:
+      output.state !== undefined && output.state !== null
+        ? deserializeAws_restJson1_1DetectorState(output.state, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DetectorState = (
   output: any,
   context: __SerdeContext
 ): DetectorState => {
-  let contents: any = {
+  return {
     __type: "DetectorState",
-    stateName: undefined,
-    timers: undefined,
-    variables: undefined
-  };
-  if (output.stateName !== undefined && output.stateName !== null) {
-    contents.stateName = output.stateName;
-  }
-  if (output.timers !== undefined && output.timers !== null) {
-    contents.timers = deserializeAws_restJson1_1Timers(output.timers, context);
-  }
-  if (output.variables !== undefined && output.variables !== null) {
-    contents.variables = deserializeAws_restJson1_1Variables(
-      output.variables,
-      context
-    );
-  }
-  return contents;
+    stateName:
+      output.stateName !== undefined && output.stateName !== null
+        ? output.stateName
+        : undefined,
+    timers:
+      output.timers !== undefined && output.timers !== null
+        ? deserializeAws_restJson1_1Timers(output.timers, context)
+        : undefined,
+    variables:
+      output.variables !== undefined && output.variables !== null
+        ? deserializeAws_restJson1_1Variables(output.variables, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DetectorStateSummary = (
   output: any,
   context: __SerdeContext
 ): DetectorStateSummary => {
-  let contents: any = {
+  return {
     __type: "DetectorStateSummary",
-    stateName: undefined
-  };
-  if (output.stateName !== undefined && output.stateName !== null) {
-    contents.stateName = output.stateName;
-  }
-  return contents;
+    stateName:
+      output.stateName !== undefined && output.stateName !== null
+        ? output.stateName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DetectorSummaries = (
@@ -959,63 +942,52 @@ const deserializeAws_restJson1_1DetectorSummary = (
   output: any,
   context: __SerdeContext
 ): DetectorSummary => {
-  let contents: any = {
+  return {
     __type: "DetectorSummary",
-    creationTime: undefined,
-    detectorModelName: undefined,
-    detectorModelVersion: undefined,
-    keyValue: undefined,
-    lastUpdateTime: undefined,
-    state: undefined
-  };
-  if (output.creationTime !== undefined && output.creationTime !== null) {
-    contents.creationTime = new Date(Math.round(output.creationTime * 1000));
-  }
-  if (
-    output.detectorModelName !== undefined &&
-    output.detectorModelName !== null
-  ) {
-    contents.detectorModelName = output.detectorModelName;
-  }
-  if (
-    output.detectorModelVersion !== undefined &&
-    output.detectorModelVersion !== null
-  ) {
-    contents.detectorModelVersion = output.detectorModelVersion;
-  }
-  if (output.keyValue !== undefined && output.keyValue !== null) {
-    contents.keyValue = output.keyValue;
-  }
-  if (output.lastUpdateTime !== undefined && output.lastUpdateTime !== null) {
-    contents.lastUpdateTime = new Date(
-      Math.round(output.lastUpdateTime * 1000)
-    );
-  }
-  if (output.state !== undefined && output.state !== null) {
-    contents.state = deserializeAws_restJson1_1DetectorStateSummary(
-      output.state,
-      context
-    );
-  }
-  return contents;
+    creationTime:
+      output.creationTime !== undefined && output.creationTime !== null
+        ? new Date(Math.round(output.creationTime * 1000))
+        : undefined,
+    detectorModelName:
+      output.detectorModelName !== undefined &&
+      output.detectorModelName !== null
+        ? output.detectorModelName
+        : undefined,
+    detectorModelVersion:
+      output.detectorModelVersion !== undefined &&
+      output.detectorModelVersion !== null
+        ? output.detectorModelVersion
+        : undefined,
+    keyValue:
+      output.keyValue !== undefined && output.keyValue !== null
+        ? output.keyValue
+        : undefined,
+    lastUpdateTime:
+      output.lastUpdateTime !== undefined && output.lastUpdateTime !== null
+        ? new Date(Math.round(output.lastUpdateTime * 1000))
+        : undefined,
+    state:
+      output.state !== undefined && output.state !== null
+        ? deserializeAws_restJson1_1DetectorStateSummary(output.state, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Timer = (
   output: any,
   context: __SerdeContext
 ): Timer => {
-  let contents: any = {
+  return {
     __type: "Timer",
-    name: undefined,
-    timestamp: undefined
-  };
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (output.timestamp !== undefined && output.timestamp !== null) {
-    contents.timestamp = new Date(Math.round(output.timestamp * 1000));
-  }
-  return contents;
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    timestamp:
+      output.timestamp !== undefined && output.timestamp !== null
+        ? new Date(Math.round(output.timestamp * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Timers = (
@@ -1031,18 +1003,17 @@ const deserializeAws_restJson1_1Variable = (
   output: any,
   context: __SerdeContext
 ): Variable => {
-  let contents: any = {
+  return {
     __type: "Variable",
-    name: undefined,
-    value: undefined
-  };
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (output.value !== undefined && output.value !== null) {
-    contents.value = output.value;
-  }
-  return contents;
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    value:
+      output.value !== undefined && output.value !== null
+        ? output.value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Variables = (

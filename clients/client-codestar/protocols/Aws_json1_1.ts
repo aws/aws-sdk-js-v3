@@ -2610,489 +2610,408 @@ const deserializeAws_json1_1AssociateTeamMemberResult = (
   output: any,
   context: __SerdeContext
 ): AssociateTeamMemberResult => {
-  let contents: any = {
+  return {
     __type: "AssociateTeamMemberResult",
-    clientRequestToken: undefined
-  };
-  if (
-    output.clientRequestToken !== undefined &&
-    output.clientRequestToken !== null
-  ) {
-    contents.clientRequestToken = output.clientRequestToken;
-  }
-  return contents;
+    clientRequestToken:
+      output.clientRequestToken !== undefined &&
+      output.clientRequestToken !== null
+        ? output.clientRequestToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ConcurrentModificationException = (
   output: any,
   context: __SerdeContext
 ): ConcurrentModificationException => {
-  let contents: any = {
+  return {
     __type: "ConcurrentModificationException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateProjectResult = (
   output: any,
   context: __SerdeContext
 ): CreateProjectResult => {
-  let contents: any = {
+  return {
     __type: "CreateProjectResult",
-    arn: undefined,
-    clientRequestToken: undefined,
-    id: undefined,
-    projectTemplateId: undefined
-  };
-  if (output.arn !== undefined && output.arn !== null) {
-    contents.arn = output.arn;
-  }
-  if (
-    output.clientRequestToken !== undefined &&
-    output.clientRequestToken !== null
-  ) {
-    contents.clientRequestToken = output.clientRequestToken;
-  }
-  if (output.id !== undefined && output.id !== null) {
-    contents.id = output.id;
-  }
-  if (
-    output.projectTemplateId !== undefined &&
-    output.projectTemplateId !== null
-  ) {
-    contents.projectTemplateId = output.projectTemplateId;
-  }
-  return contents;
+    arn:
+      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    clientRequestToken:
+      output.clientRequestToken !== undefined &&
+      output.clientRequestToken !== null
+        ? output.clientRequestToken
+        : undefined,
+    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    projectTemplateId:
+      output.projectTemplateId !== undefined &&
+      output.projectTemplateId !== null
+        ? output.projectTemplateId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateUserProfileResult = (
   output: any,
   context: __SerdeContext
 ): CreateUserProfileResult => {
-  let contents: any = {
+  return {
     __type: "CreateUserProfileResult",
-    createdTimestamp: undefined,
-    displayName: undefined,
-    emailAddress: undefined,
-    lastModifiedTimestamp: undefined,
-    sshPublicKey: undefined,
-    userArn: undefined
-  };
-  if (
-    output.createdTimestamp !== undefined &&
-    output.createdTimestamp !== null
-  ) {
-    contents.createdTimestamp = new Date(
-      Math.round(output.createdTimestamp * 1000)
-    );
-  }
-  if (output.displayName !== undefined && output.displayName !== null) {
-    contents.displayName = output.displayName;
-  }
-  if (output.emailAddress !== undefined && output.emailAddress !== null) {
-    contents.emailAddress = output.emailAddress;
-  }
-  if (
-    output.lastModifiedTimestamp !== undefined &&
-    output.lastModifiedTimestamp !== null
-  ) {
-    contents.lastModifiedTimestamp = new Date(
-      Math.round(output.lastModifiedTimestamp * 1000)
-    );
-  }
-  if (output.sshPublicKey !== undefined && output.sshPublicKey !== null) {
-    contents.sshPublicKey = output.sshPublicKey;
-  }
-  if (output.userArn !== undefined && output.userArn !== null) {
-    contents.userArn = output.userArn;
-  }
-  return contents;
+    createdTimestamp:
+      output.createdTimestamp !== undefined && output.createdTimestamp !== null
+        ? new Date(Math.round(output.createdTimestamp * 1000))
+        : undefined,
+    displayName:
+      output.displayName !== undefined && output.displayName !== null
+        ? output.displayName
+        : undefined,
+    emailAddress:
+      output.emailAddress !== undefined && output.emailAddress !== null
+        ? output.emailAddress
+        : undefined,
+    lastModifiedTimestamp:
+      output.lastModifiedTimestamp !== undefined &&
+      output.lastModifiedTimestamp !== null
+        ? new Date(Math.round(output.lastModifiedTimestamp * 1000))
+        : undefined,
+    sshPublicKey:
+      output.sshPublicKey !== undefined && output.sshPublicKey !== null
+        ? output.sshPublicKey
+        : undefined,
+    userArn:
+      output.userArn !== undefined && output.userArn !== null
+        ? output.userArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteProjectResult = (
   output: any,
   context: __SerdeContext
 ): DeleteProjectResult => {
-  let contents: any = {
+  return {
     __type: "DeleteProjectResult",
-    projectArn: undefined,
-    stackId: undefined
-  };
-  if (output.projectArn !== undefined && output.projectArn !== null) {
-    contents.projectArn = output.projectArn;
-  }
-  if (output.stackId !== undefined && output.stackId !== null) {
-    contents.stackId = output.stackId;
-  }
-  return contents;
+    projectArn:
+      output.projectArn !== undefined && output.projectArn !== null
+        ? output.projectArn
+        : undefined,
+    stackId:
+      output.stackId !== undefined && output.stackId !== null
+        ? output.stackId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteUserProfileResult = (
   output: any,
   context: __SerdeContext
 ): DeleteUserProfileResult => {
-  let contents: any = {
+  return {
     __type: "DeleteUserProfileResult",
-    userArn: undefined
-  };
-  if (output.userArn !== undefined && output.userArn !== null) {
-    contents.userArn = output.userArn;
-  }
-  return contents;
+    userArn:
+      output.userArn !== undefined && output.userArn !== null
+        ? output.userArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeProjectResult = (
   output: any,
   context: __SerdeContext
 ): DescribeProjectResult => {
-  let contents: any = {
+  return {
     __type: "DescribeProjectResult",
-    arn: undefined,
-    clientRequestToken: undefined,
-    createdTimeStamp: undefined,
-    description: undefined,
-    id: undefined,
-    name: undefined,
-    projectTemplateId: undefined,
-    stackId: undefined,
-    status: undefined
-  };
-  if (output.arn !== undefined && output.arn !== null) {
-    contents.arn = output.arn;
-  }
-  if (
-    output.clientRequestToken !== undefined &&
-    output.clientRequestToken !== null
-  ) {
-    contents.clientRequestToken = output.clientRequestToken;
-  }
-  if (
-    output.createdTimeStamp !== undefined &&
-    output.createdTimeStamp !== null
-  ) {
-    contents.createdTimeStamp = new Date(
-      Math.round(output.createdTimeStamp * 1000)
-    );
-  }
-  if (output.description !== undefined && output.description !== null) {
-    contents.description = output.description;
-  }
-  if (output.id !== undefined && output.id !== null) {
-    contents.id = output.id;
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (
-    output.projectTemplateId !== undefined &&
-    output.projectTemplateId !== null
-  ) {
-    contents.projectTemplateId = output.projectTemplateId;
-  }
-  if (output.stackId !== undefined && output.stackId !== null) {
-    contents.stackId = output.stackId;
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = deserializeAws_json1_1ProjectStatus(
-      output.status,
-      context
-    );
-  }
-  return contents;
+    arn:
+      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    clientRequestToken:
+      output.clientRequestToken !== undefined &&
+      output.clientRequestToken !== null
+        ? output.clientRequestToken
+        : undefined,
+    createdTimeStamp:
+      output.createdTimeStamp !== undefined && output.createdTimeStamp !== null
+        ? new Date(Math.round(output.createdTimeStamp * 1000))
+        : undefined,
+    description:
+      output.description !== undefined && output.description !== null
+        ? output.description
+        : undefined,
+    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    projectTemplateId:
+      output.projectTemplateId !== undefined &&
+      output.projectTemplateId !== null
+        ? output.projectTemplateId
+        : undefined,
+    stackId:
+      output.stackId !== undefined && output.stackId !== null
+        ? output.stackId
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? deserializeAws_json1_1ProjectStatus(output.status, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeUserProfileResult = (
   output: any,
   context: __SerdeContext
 ): DescribeUserProfileResult => {
-  let contents: any = {
+  return {
     __type: "DescribeUserProfileResult",
-    createdTimestamp: undefined,
-    displayName: undefined,
-    emailAddress: undefined,
-    lastModifiedTimestamp: undefined,
-    sshPublicKey: undefined,
-    userArn: undefined
-  };
-  if (
-    output.createdTimestamp !== undefined &&
-    output.createdTimestamp !== null
-  ) {
-    contents.createdTimestamp = new Date(
-      Math.round(output.createdTimestamp * 1000)
-    );
-  }
-  if (output.displayName !== undefined && output.displayName !== null) {
-    contents.displayName = output.displayName;
-  }
-  if (output.emailAddress !== undefined && output.emailAddress !== null) {
-    contents.emailAddress = output.emailAddress;
-  }
-  if (
-    output.lastModifiedTimestamp !== undefined &&
-    output.lastModifiedTimestamp !== null
-  ) {
-    contents.lastModifiedTimestamp = new Date(
-      Math.round(output.lastModifiedTimestamp * 1000)
-    );
-  }
-  if (output.sshPublicKey !== undefined && output.sshPublicKey !== null) {
-    contents.sshPublicKey = output.sshPublicKey;
-  }
-  if (output.userArn !== undefined && output.userArn !== null) {
-    contents.userArn = output.userArn;
-  }
-  return contents;
+    createdTimestamp:
+      output.createdTimestamp !== undefined && output.createdTimestamp !== null
+        ? new Date(Math.round(output.createdTimestamp * 1000))
+        : undefined,
+    displayName:
+      output.displayName !== undefined && output.displayName !== null
+        ? output.displayName
+        : undefined,
+    emailAddress:
+      output.emailAddress !== undefined && output.emailAddress !== null
+        ? output.emailAddress
+        : undefined,
+    lastModifiedTimestamp:
+      output.lastModifiedTimestamp !== undefined &&
+      output.lastModifiedTimestamp !== null
+        ? new Date(Math.round(output.lastModifiedTimestamp * 1000))
+        : undefined,
+    sshPublicKey:
+      output.sshPublicKey !== undefined && output.sshPublicKey !== null
+        ? output.sshPublicKey
+        : undefined,
+    userArn:
+      output.userArn !== undefined && output.userArn !== null
+        ? output.userArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DisassociateTeamMemberResult = (
   output: any,
   context: __SerdeContext
 ): DisassociateTeamMemberResult => {
-  let contents: any = {
+  return {
     __type: "DisassociateTeamMemberResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidNextTokenException = (
   output: any,
   context: __SerdeContext
 ): InvalidNextTokenException => {
-  let contents: any = {
+  return {
     __type: "InvalidNextTokenException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidServiceRoleException = (
   output: any,
   context: __SerdeContext
 ): InvalidServiceRoleException => {
-  let contents: any = {
+  return {
     __type: "InvalidServiceRoleException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (
   output: any,
   context: __SerdeContext
 ): LimitExceededException => {
-  let contents: any = {
+  return {
     __type: "LimitExceededException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListProjectsResult = (
   output: any,
   context: __SerdeContext
 ): ListProjectsResult => {
-  let contents: any = {
+  return {
     __type: "ListProjectsResult",
-    nextToken: undefined,
-    projects: undefined
-  };
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  if (output.projects !== undefined && output.projects !== null) {
-    contents.projects = deserializeAws_json1_1ProjectsList(
-      output.projects,
-      context
-    );
-  }
-  return contents;
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined,
+    projects:
+      output.projects !== undefined && output.projects !== null
+        ? deserializeAws_json1_1ProjectsList(output.projects, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListResourcesResult = (
   output: any,
   context: __SerdeContext
 ): ListResourcesResult => {
-  let contents: any = {
+  return {
     __type: "ListResourcesResult",
-    nextToken: undefined,
-    resources: undefined
-  };
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  if (output.resources !== undefined && output.resources !== null) {
-    contents.resources = deserializeAws_json1_1ResourcesResult(
-      output.resources,
-      context
-    );
-  }
-  return contents;
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined,
+    resources:
+      output.resources !== undefined && output.resources !== null
+        ? deserializeAws_json1_1ResourcesResult(output.resources, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListTagsForProjectResult = (
   output: any,
   context: __SerdeContext
 ): ListTagsForProjectResult => {
-  let contents: any = {
+  return {
     __type: "ListTagsForProjectResult",
-    nextToken: undefined,
-    tags: undefined
-  };
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  if (output.tags !== undefined && output.tags !== null) {
-    contents.tags = deserializeAws_json1_1Tags(output.tags, context);
-  }
-  return contents;
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_json1_1Tags(output.tags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListTeamMembersResult = (
   output: any,
   context: __SerdeContext
 ): ListTeamMembersResult => {
-  let contents: any = {
+  return {
     __type: "ListTeamMembersResult",
-    nextToken: undefined,
-    teamMembers: undefined
-  };
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  if (output.teamMembers !== undefined && output.teamMembers !== null) {
-    contents.teamMembers = deserializeAws_json1_1TeamMemberResult(
-      output.teamMembers,
-      context
-    );
-  }
-  return contents;
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined,
+    teamMembers:
+      output.teamMembers !== undefined && output.teamMembers !== null
+        ? deserializeAws_json1_1TeamMemberResult(output.teamMembers, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListUserProfilesResult = (
   output: any,
   context: __SerdeContext
 ): ListUserProfilesResult => {
-  let contents: any = {
+  return {
     __type: "ListUserProfilesResult",
-    nextToken: undefined,
-    userProfiles: undefined
-  };
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  if (output.userProfiles !== undefined && output.userProfiles !== null) {
-    contents.userProfiles = deserializeAws_json1_1UserProfilesList(
-      output.userProfiles,
-      context
-    );
-  }
-  return contents;
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined,
+    userProfiles:
+      output.userProfiles !== undefined && output.userProfiles !== null
+        ? deserializeAws_json1_1UserProfilesList(output.userProfiles, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ProjectAlreadyExistsException = (
   output: any,
   context: __SerdeContext
 ): ProjectAlreadyExistsException => {
-  let contents: any = {
+  return {
     __type: "ProjectAlreadyExistsException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ProjectConfigurationException = (
   output: any,
   context: __SerdeContext
 ): ProjectConfigurationException => {
-  let contents: any = {
+  return {
     __type: "ProjectConfigurationException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ProjectCreationFailedException = (
   output: any,
   context: __SerdeContext
 ): ProjectCreationFailedException => {
-  let contents: any = {
+  return {
     __type: "ProjectCreationFailedException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ProjectNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ProjectNotFoundException => {
-  let contents: any = {
+  return {
     __type: "ProjectNotFoundException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ProjectStatus = (
   output: any,
   context: __SerdeContext
 ): ProjectStatus => {
-  let contents: any = {
+  return {
     __type: "ProjectStatus",
-    reason: undefined,
-    state: undefined
-  };
-  if (output.reason !== undefined && output.reason !== null) {
-    contents.reason = output.reason;
-  }
-  if (output.state !== undefined && output.state !== null) {
-    contents.state = output.state;
-  }
-  return contents;
+    reason:
+      output.reason !== undefined && output.reason !== null
+        ? output.reason
+        : undefined,
+    state:
+      output.state !== undefined && output.state !== null
+        ? output.state
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ProjectSummary = (
   output: any,
   context: __SerdeContext
 ): ProjectSummary => {
-  let contents: any = {
+  return {
     __type: "ProjectSummary",
-    projectArn: undefined,
-    projectId: undefined
-  };
-  if (output.projectArn !== undefined && output.projectArn !== null) {
-    contents.projectArn = output.projectArn;
-  }
-  if (output.projectId !== undefined && output.projectId !== null) {
-    contents.projectId = output.projectId;
-  }
-  return contents;
+    projectArn:
+      output.projectArn !== undefined && output.projectArn !== null
+        ? output.projectArn
+        : undefined,
+    projectId:
+      output.projectId !== undefined && output.projectId !== null
+        ? output.projectId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ProjectsList = (
@@ -3108,14 +3027,10 @@ const deserializeAws_json1_1Resource = (
   output: any,
   context: __SerdeContext
 ): Resource => {
-  let contents: any = {
+  return {
     __type: "Resource",
-    id: undefined
-  };
-  if (output.id !== undefined && output.id !== null) {
-    contents.id = output.id;
-  }
-  return contents;
+    id: output.id !== undefined && output.id !== null ? output.id : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourcesResult = (
@@ -3131,14 +3046,13 @@ const deserializeAws_json1_1TagProjectResult = (
   output: any,
   context: __SerdeContext
 ): TagProjectResult => {
-  let contents: any = {
+  return {
     __type: "TagProjectResult",
-    tags: undefined
-  };
-  if (output.tags !== undefined && output.tags !== null) {
-    contents.tags = deserializeAws_json1_1Tags(output.tags, context);
-  }
-  return contents;
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_json1_1Tags(output.tags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Tags = (
@@ -3155,53 +3069,48 @@ const deserializeAws_json1_1TeamMember = (
   output: any,
   context: __SerdeContext
 ): TeamMember => {
-  let contents: any = {
+  return {
     __type: "TeamMember",
-    projectRole: undefined,
-    remoteAccessAllowed: undefined,
-    userArn: undefined
-  };
-  if (output.projectRole !== undefined && output.projectRole !== null) {
-    contents.projectRole = output.projectRole;
-  }
-  if (
-    output.remoteAccessAllowed !== undefined &&
-    output.remoteAccessAllowed !== null
-  ) {
-    contents.remoteAccessAllowed = output.remoteAccessAllowed;
-  }
-  if (output.userArn !== undefined && output.userArn !== null) {
-    contents.userArn = output.userArn;
-  }
-  return contents;
+    projectRole:
+      output.projectRole !== undefined && output.projectRole !== null
+        ? output.projectRole
+        : undefined,
+    remoteAccessAllowed:
+      output.remoteAccessAllowed !== undefined &&
+      output.remoteAccessAllowed !== null
+        ? output.remoteAccessAllowed
+        : undefined,
+    userArn:
+      output.userArn !== undefined && output.userArn !== null
+        ? output.userArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TeamMemberAlreadyAssociatedException = (
   output: any,
   context: __SerdeContext
 ): TeamMemberAlreadyAssociatedException => {
-  let contents: any = {
+  return {
     __type: "TeamMemberAlreadyAssociatedException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TeamMemberNotFoundException = (
   output: any,
   context: __SerdeContext
 ): TeamMemberNotFoundException => {
-  let contents: any = {
+  return {
     __type: "TeamMemberNotFoundException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TeamMemberResult = (
@@ -3217,143 +3126,125 @@ const deserializeAws_json1_1UntagProjectResult = (
   output: any,
   context: __SerdeContext
 ): UntagProjectResult => {
-  let contents: any = {
+  return {
     __type: "UntagProjectResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateProjectResult = (
   output: any,
   context: __SerdeContext
 ): UpdateProjectResult => {
-  let contents: any = {
+  return {
     __type: "UpdateProjectResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateTeamMemberResult = (
   output: any,
   context: __SerdeContext
 ): UpdateTeamMemberResult => {
-  let contents: any = {
+  return {
     __type: "UpdateTeamMemberResult",
-    projectRole: undefined,
-    remoteAccessAllowed: undefined,
-    userArn: undefined
-  };
-  if (output.projectRole !== undefined && output.projectRole !== null) {
-    contents.projectRole = output.projectRole;
-  }
-  if (
-    output.remoteAccessAllowed !== undefined &&
-    output.remoteAccessAllowed !== null
-  ) {
-    contents.remoteAccessAllowed = output.remoteAccessAllowed;
-  }
-  if (output.userArn !== undefined && output.userArn !== null) {
-    contents.userArn = output.userArn;
-  }
-  return contents;
+    projectRole:
+      output.projectRole !== undefined && output.projectRole !== null
+        ? output.projectRole
+        : undefined,
+    remoteAccessAllowed:
+      output.remoteAccessAllowed !== undefined &&
+      output.remoteAccessAllowed !== null
+        ? output.remoteAccessAllowed
+        : undefined,
+    userArn:
+      output.userArn !== undefined && output.userArn !== null
+        ? output.userArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateUserProfileResult = (
   output: any,
   context: __SerdeContext
 ): UpdateUserProfileResult => {
-  let contents: any = {
+  return {
     __type: "UpdateUserProfileResult",
-    createdTimestamp: undefined,
-    displayName: undefined,
-    emailAddress: undefined,
-    lastModifiedTimestamp: undefined,
-    sshPublicKey: undefined,
-    userArn: undefined
-  };
-  if (
-    output.createdTimestamp !== undefined &&
-    output.createdTimestamp !== null
-  ) {
-    contents.createdTimestamp = new Date(
-      Math.round(output.createdTimestamp * 1000)
-    );
-  }
-  if (output.displayName !== undefined && output.displayName !== null) {
-    contents.displayName = output.displayName;
-  }
-  if (output.emailAddress !== undefined && output.emailAddress !== null) {
-    contents.emailAddress = output.emailAddress;
-  }
-  if (
-    output.lastModifiedTimestamp !== undefined &&
-    output.lastModifiedTimestamp !== null
-  ) {
-    contents.lastModifiedTimestamp = new Date(
-      Math.round(output.lastModifiedTimestamp * 1000)
-    );
-  }
-  if (output.sshPublicKey !== undefined && output.sshPublicKey !== null) {
-    contents.sshPublicKey = output.sshPublicKey;
-  }
-  if (output.userArn !== undefined && output.userArn !== null) {
-    contents.userArn = output.userArn;
-  }
-  return contents;
+    createdTimestamp:
+      output.createdTimestamp !== undefined && output.createdTimestamp !== null
+        ? new Date(Math.round(output.createdTimestamp * 1000))
+        : undefined,
+    displayName:
+      output.displayName !== undefined && output.displayName !== null
+        ? output.displayName
+        : undefined,
+    emailAddress:
+      output.emailAddress !== undefined && output.emailAddress !== null
+        ? output.emailAddress
+        : undefined,
+    lastModifiedTimestamp:
+      output.lastModifiedTimestamp !== undefined &&
+      output.lastModifiedTimestamp !== null
+        ? new Date(Math.round(output.lastModifiedTimestamp * 1000))
+        : undefined,
+    sshPublicKey:
+      output.sshPublicKey !== undefined && output.sshPublicKey !== null
+        ? output.sshPublicKey
+        : undefined,
+    userArn:
+      output.userArn !== undefined && output.userArn !== null
+        ? output.userArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UserProfileAlreadyExistsException = (
   output: any,
   context: __SerdeContext
 ): UserProfileAlreadyExistsException => {
-  let contents: any = {
+  return {
     __type: "UserProfileAlreadyExistsException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UserProfileNotFoundException = (
   output: any,
   context: __SerdeContext
 ): UserProfileNotFoundException => {
-  let contents: any = {
+  return {
     __type: "UserProfileNotFoundException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UserProfileSummary = (
   output: any,
   context: __SerdeContext
 ): UserProfileSummary => {
-  let contents: any = {
+  return {
     __type: "UserProfileSummary",
-    displayName: undefined,
-    emailAddress: undefined,
-    sshPublicKey: undefined,
-    userArn: undefined
-  };
-  if (output.displayName !== undefined && output.displayName !== null) {
-    contents.displayName = output.displayName;
-  }
-  if (output.emailAddress !== undefined && output.emailAddress !== null) {
-    contents.emailAddress = output.emailAddress;
-  }
-  if (output.sshPublicKey !== undefined && output.sshPublicKey !== null) {
-    contents.sshPublicKey = output.sshPublicKey;
-  }
-  if (output.userArn !== undefined && output.userArn !== null) {
-    contents.userArn = output.userArn;
-  }
-  return contents;
+    displayName:
+      output.displayName !== undefined && output.displayName !== null
+        ? output.displayName
+        : undefined,
+    emailAddress:
+      output.emailAddress !== undefined && output.emailAddress !== null
+        ? output.emailAddress
+        : undefined,
+    sshPublicKey:
+      output.sshPublicKey !== undefined && output.sshPublicKey !== null
+        ? output.sshPublicKey
+        : undefined,
+    userArn:
+      output.userArn !== undefined && output.userArn !== null
+        ? output.userArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UserProfilesList = (
@@ -3369,14 +3260,13 @@ const deserializeAws_json1_1ValidationException = (
   output: any,
   context: __SerdeContext
 ): ValidationException => {
-  let contents: any = {
+  return {
     __type: "ValidationException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

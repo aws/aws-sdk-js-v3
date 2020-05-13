@@ -774,14 +774,13 @@ const deserializeAws_restJson1_1InstanceTypeItem = (
   output: any,
   context: __SerdeContext
 ): InstanceTypeItem => {
-  let contents: any = {
+  return {
     __type: "InstanceTypeItem",
-    InstanceType: undefined
-  };
-  if (output.InstanceType !== undefined && output.InstanceType !== null) {
-    contents.InstanceType = output.InstanceType;
-  }
-  return contents;
+    InstanceType:
+      output.InstanceType !== undefined && output.InstanceType !== null
+        ? output.InstanceType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1InstanceTypeListDefinition = (
@@ -797,78 +796,71 @@ const deserializeAws_restJson1_1Outpost = (
   output: any,
   context: __SerdeContext
 ): Outpost => {
-  let contents: any = {
+  return {
     __type: "Outpost",
-    AvailabilityZone: undefined,
-    AvailabilityZoneId: undefined,
-    Description: undefined,
-    LifeCycleStatus: undefined,
-    Name: undefined,
-    OutpostArn: undefined,
-    OutpostId: undefined,
-    OwnerId: undefined,
-    SiteId: undefined
-  };
-  if (
-    output.AvailabilityZone !== undefined &&
-    output.AvailabilityZone !== null
-  ) {
-    contents.AvailabilityZone = output.AvailabilityZone;
-  }
-  if (
-    output.AvailabilityZoneId !== undefined &&
-    output.AvailabilityZoneId !== null
-  ) {
-    contents.AvailabilityZoneId = output.AvailabilityZoneId;
-  }
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (output.LifeCycleStatus !== undefined && output.LifeCycleStatus !== null) {
-    contents.LifeCycleStatus = output.LifeCycleStatus;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.OutpostArn !== undefined && output.OutpostArn !== null) {
-    contents.OutpostArn = output.OutpostArn;
-  }
-  if (output.OutpostId !== undefined && output.OutpostId !== null) {
-    contents.OutpostId = output.OutpostId;
-  }
-  if (output.OwnerId !== undefined && output.OwnerId !== null) {
-    contents.OwnerId = output.OwnerId;
-  }
-  if (output.SiteId !== undefined && output.SiteId !== null) {
-    contents.SiteId = output.SiteId;
-  }
-  return contents;
+    AvailabilityZone:
+      output.AvailabilityZone !== undefined && output.AvailabilityZone !== null
+        ? output.AvailabilityZone
+        : undefined,
+    AvailabilityZoneId:
+      output.AvailabilityZoneId !== undefined &&
+      output.AvailabilityZoneId !== null
+        ? output.AvailabilityZoneId
+        : undefined,
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    LifeCycleStatus:
+      output.LifeCycleStatus !== undefined && output.LifeCycleStatus !== null
+        ? output.LifeCycleStatus
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    OutpostArn:
+      output.OutpostArn !== undefined && output.OutpostArn !== null
+        ? output.OutpostArn
+        : undefined,
+    OutpostId:
+      output.OutpostId !== undefined && output.OutpostId !== null
+        ? output.OutpostId
+        : undefined,
+    OwnerId:
+      output.OwnerId !== undefined && output.OwnerId !== null
+        ? output.OwnerId
+        : undefined,
+    SiteId:
+      output.SiteId !== undefined && output.SiteId !== null
+        ? output.SiteId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Site = (
   output: any,
   context: __SerdeContext
 ): Site => {
-  let contents: any = {
+  return {
     __type: "Site",
-    AccountId: undefined,
-    Description: undefined,
-    Name: undefined,
-    SiteId: undefined
-  };
-  if (output.AccountId !== undefined && output.AccountId !== null) {
-    contents.AccountId = output.AccountId;
-  }
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.SiteId !== undefined && output.SiteId !== null) {
-    contents.SiteId = output.SiteId;
-  }
-  return contents;
+    AccountId:
+      output.AccountId !== undefined && output.AccountId !== null
+        ? output.AccountId
+        : undefined,
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    SiteId:
+      output.SiteId !== undefined && output.SiteId !== null
+        ? output.SiteId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1outpostListDefinition = (

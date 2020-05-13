@@ -266,48 +266,39 @@ const deserializeAws_json1_1GenerateDataSetResult = (
   output: any,
   context: __SerdeContext
 ): GenerateDataSetResult => {
-  let contents: any = {
+  return {
     __type: "GenerateDataSetResult",
-    dataSetRequestId: undefined
-  };
-  if (
-    output.dataSetRequestId !== undefined &&
-    output.dataSetRequestId !== null
-  ) {
-    contents.dataSetRequestId = output.dataSetRequestId;
-  }
-  return contents;
+    dataSetRequestId:
+      output.dataSetRequestId !== undefined && output.dataSetRequestId !== null
+        ? output.dataSetRequestId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1MarketplaceCommerceAnalyticsException = (
   output: any,
   context: __SerdeContext
 ): MarketplaceCommerceAnalyticsException => {
-  let contents: any = {
+  return {
     __type: "MarketplaceCommerceAnalyticsException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StartSupportDataExportResult = (
   output: any,
   context: __SerdeContext
 ): StartSupportDataExportResult => {
-  let contents: any = {
+  return {
     __type: "StartSupportDataExportResult",
-    dataSetRequestId: undefined
-  };
-  if (
-    output.dataSetRequestId !== undefined &&
-    output.dataSetRequestId !== null
-  ) {
-    contents.dataSetRequestId = output.dataSetRequestId;
-  }
-  return contents;
+    dataSetRequestId:
+      output.dataSetRequestId !== undefined && output.dataSetRequestId !== null
+        ? output.dataSetRequestId
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

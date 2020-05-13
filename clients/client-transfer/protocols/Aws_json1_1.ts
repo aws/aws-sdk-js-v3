@@ -2661,14 +2661,13 @@ const deserializeAws_json1_1ServiceUnavailableException = (
   output: any,
   context: __SerdeContext
 ): ServiceUnavailableException => {
-  let contents: any = {
+  return {
     __type: "ServiceUnavailableException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1AddressAllocationIds = (
@@ -2682,261 +2681,224 @@ const deserializeAws_json1_1ConflictException = (
   output: any,
   context: __SerdeContext
 ): ConflictException => {
-  let contents: any = {
+  return {
     __type: "ConflictException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateServerResponse = (
   output: any,
   context: __SerdeContext
 ): CreateServerResponse => {
-  let contents: any = {
+  return {
     __type: "CreateServerResponse",
-    ServerId: undefined
-  };
-  if (output.ServerId !== undefined && output.ServerId !== null) {
-    contents.ServerId = output.ServerId;
-  }
-  return contents;
+    ServerId:
+      output.ServerId !== undefined && output.ServerId !== null
+        ? output.ServerId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateUserResponse = (
   output: any,
   context: __SerdeContext
 ): CreateUserResponse => {
-  let contents: any = {
+  return {
     __type: "CreateUserResponse",
-    ServerId: undefined,
-    UserName: undefined
-  };
-  if (output.ServerId !== undefined && output.ServerId !== null) {
-    contents.ServerId = output.ServerId;
-  }
-  if (output.UserName !== undefined && output.UserName !== null) {
-    contents.UserName = output.UserName;
-  }
-  return contents;
+    ServerId:
+      output.ServerId !== undefined && output.ServerId !== null
+        ? output.ServerId
+        : undefined,
+    UserName:
+      output.UserName !== undefined && output.UserName !== null
+        ? output.UserName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeServerResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeServerResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeServerResponse",
-    Server: undefined
-  };
-  if (output.Server !== undefined && output.Server !== null) {
-    contents.Server = deserializeAws_json1_1DescribedServer(
-      output.Server,
-      context
-    );
-  }
-  return contents;
+    Server:
+      output.Server !== undefined && output.Server !== null
+        ? deserializeAws_json1_1DescribedServer(output.Server, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeUserResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeUserResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeUserResponse",
-    ServerId: undefined,
-    User: undefined
-  };
-  if (output.ServerId !== undefined && output.ServerId !== null) {
-    contents.ServerId = output.ServerId;
-  }
-  if (output.User !== undefined && output.User !== null) {
-    contents.User = deserializeAws_json1_1DescribedUser(output.User, context);
-  }
-  return contents;
+    ServerId:
+      output.ServerId !== undefined && output.ServerId !== null
+        ? output.ServerId
+        : undefined,
+    User:
+      output.User !== undefined && output.User !== null
+        ? deserializeAws_json1_1DescribedUser(output.User, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribedServer = (
   output: any,
   context: __SerdeContext
 ): DescribedServer => {
-  let contents: any = {
+  return {
     __type: "DescribedServer",
-    Arn: undefined,
-    EndpointDetails: undefined,
-    EndpointType: undefined,
-    HostKeyFingerprint: undefined,
-    IdentityProviderDetails: undefined,
-    IdentityProviderType: undefined,
-    LoggingRole: undefined,
-    ServerId: undefined,
-    State: undefined,
-    Tags: undefined,
-    UserCount: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (output.EndpointDetails !== undefined && output.EndpointDetails !== null) {
-    contents.EndpointDetails = deserializeAws_json1_1EndpointDetails(
-      output.EndpointDetails,
-      context
-    );
-  }
-  if (output.EndpointType !== undefined && output.EndpointType !== null) {
-    contents.EndpointType = output.EndpointType;
-  }
-  if (
-    output.HostKeyFingerprint !== undefined &&
-    output.HostKeyFingerprint !== null
-  ) {
-    contents.HostKeyFingerprint = output.HostKeyFingerprint;
-  }
-  if (
-    output.IdentityProviderDetails !== undefined &&
-    output.IdentityProviderDetails !== null
-  ) {
-    contents.IdentityProviderDetails = deserializeAws_json1_1IdentityProviderDetails(
-      output.IdentityProviderDetails,
-      context
-    );
-  }
-  if (
-    output.IdentityProviderType !== undefined &&
-    output.IdentityProviderType !== null
-  ) {
-    contents.IdentityProviderType = output.IdentityProviderType;
-  }
-  if (output.LoggingRole !== undefined && output.LoggingRole !== null) {
-    contents.LoggingRole = output.LoggingRole;
-  }
-  if (output.ServerId !== undefined && output.ServerId !== null) {
-    contents.ServerId = output.ServerId;
-  }
-  if (output.State !== undefined && output.State !== null) {
-    contents.State = output.State;
-  }
-  if (output.Tags !== undefined && output.Tags !== null) {
-    contents.Tags = deserializeAws_json1_1Tags(output.Tags, context);
-  }
-  if (output.UserCount !== undefined && output.UserCount !== null) {
-    contents.UserCount = output.UserCount;
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    EndpointDetails:
+      output.EndpointDetails !== undefined && output.EndpointDetails !== null
+        ? deserializeAws_json1_1EndpointDetails(output.EndpointDetails, context)
+        : undefined,
+    EndpointType:
+      output.EndpointType !== undefined && output.EndpointType !== null
+        ? output.EndpointType
+        : undefined,
+    HostKeyFingerprint:
+      output.HostKeyFingerprint !== undefined &&
+      output.HostKeyFingerprint !== null
+        ? output.HostKeyFingerprint
+        : undefined,
+    IdentityProviderDetails:
+      output.IdentityProviderDetails !== undefined &&
+      output.IdentityProviderDetails !== null
+        ? deserializeAws_json1_1IdentityProviderDetails(
+            output.IdentityProviderDetails,
+            context
+          )
+        : undefined,
+    IdentityProviderType:
+      output.IdentityProviderType !== undefined &&
+      output.IdentityProviderType !== null
+        ? output.IdentityProviderType
+        : undefined,
+    LoggingRole:
+      output.LoggingRole !== undefined && output.LoggingRole !== null
+        ? output.LoggingRole
+        : undefined,
+    ServerId:
+      output.ServerId !== undefined && output.ServerId !== null
+        ? output.ServerId
+        : undefined,
+    State:
+      output.State !== undefined && output.State !== null
+        ? output.State
+        : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1Tags(output.Tags, context)
+        : undefined,
+    UserCount:
+      output.UserCount !== undefined && output.UserCount !== null
+        ? output.UserCount
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribedUser = (
   output: any,
   context: __SerdeContext
 ): DescribedUser => {
-  let contents: any = {
+  return {
     __type: "DescribedUser",
-    Arn: undefined,
-    HomeDirectory: undefined,
-    HomeDirectoryMappings: undefined,
-    HomeDirectoryType: undefined,
-    Policy: undefined,
-    Role: undefined,
-    SshPublicKeys: undefined,
-    Tags: undefined,
-    UserName: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (output.HomeDirectory !== undefined && output.HomeDirectory !== null) {
-    contents.HomeDirectory = output.HomeDirectory;
-  }
-  if (
-    output.HomeDirectoryMappings !== undefined &&
-    output.HomeDirectoryMappings !== null
-  ) {
-    contents.HomeDirectoryMappings = deserializeAws_json1_1HomeDirectoryMappings(
-      output.HomeDirectoryMappings,
-      context
-    );
-  }
-  if (
-    output.HomeDirectoryType !== undefined &&
-    output.HomeDirectoryType !== null
-  ) {
-    contents.HomeDirectoryType = output.HomeDirectoryType;
-  }
-  if (output.Policy !== undefined && output.Policy !== null) {
-    contents.Policy = output.Policy;
-  }
-  if (output.Role !== undefined && output.Role !== null) {
-    contents.Role = output.Role;
-  }
-  if (output.SshPublicKeys !== undefined && output.SshPublicKeys !== null) {
-    contents.SshPublicKeys = deserializeAws_json1_1SshPublicKeys(
-      output.SshPublicKeys,
-      context
-    );
-  }
-  if (output.Tags !== undefined && output.Tags !== null) {
-    contents.Tags = deserializeAws_json1_1Tags(output.Tags, context);
-  }
-  if (output.UserName !== undefined && output.UserName !== null) {
-    contents.UserName = output.UserName;
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    HomeDirectory:
+      output.HomeDirectory !== undefined && output.HomeDirectory !== null
+        ? output.HomeDirectory
+        : undefined,
+    HomeDirectoryMappings:
+      output.HomeDirectoryMappings !== undefined &&
+      output.HomeDirectoryMappings !== null
+        ? deserializeAws_json1_1HomeDirectoryMappings(
+            output.HomeDirectoryMappings,
+            context
+          )
+        : undefined,
+    HomeDirectoryType:
+      output.HomeDirectoryType !== undefined &&
+      output.HomeDirectoryType !== null
+        ? output.HomeDirectoryType
+        : undefined,
+    Policy:
+      output.Policy !== undefined && output.Policy !== null
+        ? output.Policy
+        : undefined,
+    Role:
+      output.Role !== undefined && output.Role !== null
+        ? output.Role
+        : undefined,
+    SshPublicKeys:
+      output.SshPublicKeys !== undefined && output.SshPublicKeys !== null
+        ? deserializeAws_json1_1SshPublicKeys(output.SshPublicKeys, context)
+        : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1Tags(output.Tags, context)
+        : undefined,
+    UserName:
+      output.UserName !== undefined && output.UserName !== null
+        ? output.UserName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EndpointDetails = (
   output: any,
   context: __SerdeContext
 ): EndpointDetails => {
-  let contents: any = {
+  return {
     __type: "EndpointDetails",
-    AddressAllocationIds: undefined,
-    SubnetIds: undefined,
-    VpcEndpointId: undefined,
-    VpcId: undefined
-  };
-  if (
-    output.AddressAllocationIds !== undefined &&
-    output.AddressAllocationIds !== null
-  ) {
-    contents.AddressAllocationIds = deserializeAws_json1_1AddressAllocationIds(
-      output.AddressAllocationIds,
-      context
-    );
-  }
-  if (output.SubnetIds !== undefined && output.SubnetIds !== null) {
-    contents.SubnetIds = deserializeAws_json1_1SubnetIds(
-      output.SubnetIds,
-      context
-    );
-  }
-  if (output.VpcEndpointId !== undefined && output.VpcEndpointId !== null) {
-    contents.VpcEndpointId = output.VpcEndpointId;
-  }
-  if (output.VpcId !== undefined && output.VpcId !== null) {
-    contents.VpcId = output.VpcId;
-  }
-  return contents;
+    AddressAllocationIds:
+      output.AddressAllocationIds !== undefined &&
+      output.AddressAllocationIds !== null
+        ? deserializeAws_json1_1AddressAllocationIds(
+            output.AddressAllocationIds,
+            context
+          )
+        : undefined,
+    SubnetIds:
+      output.SubnetIds !== undefined && output.SubnetIds !== null
+        ? deserializeAws_json1_1SubnetIds(output.SubnetIds, context)
+        : undefined,
+    VpcEndpointId:
+      output.VpcEndpointId !== undefined && output.VpcEndpointId !== null
+        ? output.VpcEndpointId
+        : undefined,
+    VpcId:
+      output.VpcId !== undefined && output.VpcId !== null
+        ? output.VpcId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1HomeDirectoryMapEntry = (
   output: any,
   context: __SerdeContext
 ): HomeDirectoryMapEntry => {
-  let contents: any = {
+  return {
     __type: "HomeDirectoryMapEntry",
-    Entry: undefined,
-    Target: undefined
-  };
-  if (output.Entry !== undefined && output.Entry !== null) {
-    contents.Entry = output.Entry;
-  }
-  if (output.Target !== undefined && output.Target !== null) {
-    contents.Target = output.Target;
-  }
-  return contents;
+    Entry:
+      output.Entry !== undefined && output.Entry !== null
+        ? output.Entry
+        : undefined,
+    Target:
+      output.Target !== undefined && output.Target !== null
+        ? output.Target
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1HomeDirectoryMappings = (
@@ -2952,188 +2914,168 @@ const deserializeAws_json1_1IdentityProviderDetails = (
   output: any,
   context: __SerdeContext
 ): IdentityProviderDetails => {
-  let contents: any = {
+  return {
     __type: "IdentityProviderDetails",
-    InvocationRole: undefined,
-    Url: undefined
-  };
-  if (output.InvocationRole !== undefined && output.InvocationRole !== null) {
-    contents.InvocationRole = output.InvocationRole;
-  }
-  if (output.Url !== undefined && output.Url !== null) {
-    contents.Url = output.Url;
-  }
-  return contents;
+    InvocationRole:
+      output.InvocationRole !== undefined && output.InvocationRole !== null
+        ? output.InvocationRole
+        : undefined,
+    Url:
+      output.Url !== undefined && output.Url !== null ? output.Url : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ImportSshPublicKeyResponse = (
   output: any,
   context: __SerdeContext
 ): ImportSshPublicKeyResponse => {
-  let contents: any = {
+  return {
     __type: "ImportSshPublicKeyResponse",
-    ServerId: undefined,
-    SshPublicKeyId: undefined,
-    UserName: undefined
-  };
-  if (output.ServerId !== undefined && output.ServerId !== null) {
-    contents.ServerId = output.ServerId;
-  }
-  if (output.SshPublicKeyId !== undefined && output.SshPublicKeyId !== null) {
-    contents.SshPublicKeyId = output.SshPublicKeyId;
-  }
-  if (output.UserName !== undefined && output.UserName !== null) {
-    contents.UserName = output.UserName;
-  }
-  return contents;
+    ServerId:
+      output.ServerId !== undefined && output.ServerId !== null
+        ? output.ServerId
+        : undefined,
+    SshPublicKeyId:
+      output.SshPublicKeyId !== undefined && output.SshPublicKeyId !== null
+        ? output.SshPublicKeyId
+        : undefined,
+    UserName:
+      output.UserName !== undefined && output.UserName !== null
+        ? output.UserName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InternalServiceError = (
   output: any,
   context: __SerdeContext
 ): InternalServiceError => {
-  let contents: any = {
+  return {
     __type: "InternalServiceError",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidNextTokenException = (
   output: any,
   context: __SerdeContext
 ): InvalidNextTokenException => {
-  let contents: any = {
+  return {
     __type: "InvalidNextTokenException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidRequestException = (
   output: any,
   context: __SerdeContext
 ): InvalidRequestException => {
-  let contents: any = {
+  return {
     __type: "InvalidRequestException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListServersResponse = (
   output: any,
   context: __SerdeContext
 ): ListServersResponse => {
-  let contents: any = {
+  return {
     __type: "ListServersResponse",
-    NextToken: undefined,
-    Servers: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.Servers !== undefined && output.Servers !== null) {
-    contents.Servers = deserializeAws_json1_1ListedServers(
-      output.Servers,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Servers:
+      output.Servers !== undefined && output.Servers !== null
+        ? deserializeAws_json1_1ListedServers(output.Servers, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListTagsForResourceResponse = (
   output: any,
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
-  let contents: any = {
+  return {
     __type: "ListTagsForResourceResponse",
-    Arn: undefined,
-    NextToken: undefined,
-    Tags: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.Tags !== undefined && output.Tags !== null) {
-    contents.Tags = deserializeAws_json1_1Tags(output.Tags, context);
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1Tags(output.Tags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListUsersResponse = (
   output: any,
   context: __SerdeContext
 ): ListUsersResponse => {
-  let contents: any = {
+  return {
     __type: "ListUsersResponse",
-    NextToken: undefined,
-    ServerId: undefined,
-    Users: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.ServerId !== undefined && output.ServerId !== null) {
-    contents.ServerId = output.ServerId;
-  }
-  if (output.Users !== undefined && output.Users !== null) {
-    contents.Users = deserializeAws_json1_1ListedUsers(output.Users, context);
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    ServerId:
+      output.ServerId !== undefined && output.ServerId !== null
+        ? output.ServerId
+        : undefined,
+    Users:
+      output.Users !== undefined && output.Users !== null
+        ? deserializeAws_json1_1ListedUsers(output.Users, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListedServer = (
   output: any,
   context: __SerdeContext
 ): ListedServer => {
-  let contents: any = {
+  return {
     __type: "ListedServer",
-    Arn: undefined,
-    EndpointType: undefined,
-    IdentityProviderType: undefined,
-    LoggingRole: undefined,
-    ServerId: undefined,
-    State: undefined,
-    UserCount: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (output.EndpointType !== undefined && output.EndpointType !== null) {
-    contents.EndpointType = output.EndpointType;
-  }
-  if (
-    output.IdentityProviderType !== undefined &&
-    output.IdentityProviderType !== null
-  ) {
-    contents.IdentityProviderType = output.IdentityProviderType;
-  }
-  if (output.LoggingRole !== undefined && output.LoggingRole !== null) {
-    contents.LoggingRole = output.LoggingRole;
-  }
-  if (output.ServerId !== undefined && output.ServerId !== null) {
-    contents.ServerId = output.ServerId;
-  }
-  if (output.State !== undefined && output.State !== null) {
-    contents.State = output.State;
-  }
-  if (output.UserCount !== undefined && output.UserCount !== null) {
-    contents.UserCount = output.UserCount;
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    EndpointType:
+      output.EndpointType !== undefined && output.EndpointType !== null
+        ? output.EndpointType
+        : undefined,
+    IdentityProviderType:
+      output.IdentityProviderType !== undefined &&
+      output.IdentityProviderType !== null
+        ? output.IdentityProviderType
+        : undefined,
+    LoggingRole:
+      output.LoggingRole !== undefined && output.LoggingRole !== null
+        ? output.LoggingRole
+        : undefined,
+    ServerId:
+      output.ServerId !== undefined && output.ServerId !== null
+        ? output.ServerId
+        : undefined,
+    State:
+      output.State !== undefined && output.State !== null
+        ? output.State
+        : undefined,
+    UserCount:
+      output.UserCount !== undefined && output.UserCount !== null
+        ? output.UserCount
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListedServers = (
@@ -3149,40 +3091,33 @@ const deserializeAws_json1_1ListedUser = (
   output: any,
   context: __SerdeContext
 ): ListedUser => {
-  let contents: any = {
+  return {
     __type: "ListedUser",
-    Arn: undefined,
-    HomeDirectory: undefined,
-    HomeDirectoryType: undefined,
-    Role: undefined,
-    SshPublicKeyCount: undefined,
-    UserName: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (output.HomeDirectory !== undefined && output.HomeDirectory !== null) {
-    contents.HomeDirectory = output.HomeDirectory;
-  }
-  if (
-    output.HomeDirectoryType !== undefined &&
-    output.HomeDirectoryType !== null
-  ) {
-    contents.HomeDirectoryType = output.HomeDirectoryType;
-  }
-  if (output.Role !== undefined && output.Role !== null) {
-    contents.Role = output.Role;
-  }
-  if (
-    output.SshPublicKeyCount !== undefined &&
-    output.SshPublicKeyCount !== null
-  ) {
-    contents.SshPublicKeyCount = output.SshPublicKeyCount;
-  }
-  if (output.UserName !== undefined && output.UserName !== null) {
-    contents.UserName = output.UserName;
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    HomeDirectory:
+      output.HomeDirectory !== undefined && output.HomeDirectory !== null
+        ? output.HomeDirectory
+        : undefined,
+    HomeDirectoryType:
+      output.HomeDirectoryType !== undefined &&
+      output.HomeDirectoryType !== null
+        ? output.HomeDirectoryType
+        : undefined,
+    Role:
+      output.Role !== undefined && output.Role !== null
+        ? output.Role
+        : undefined,
+    SshPublicKeyCount:
+      output.SshPublicKeyCount !== undefined &&
+      output.SshPublicKeyCount !== null
+        ? output.SshPublicKeyCount
+        : undefined,
+    UserName:
+      output.UserName !== undefined && output.UserName !== null
+        ? output.UserName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListedUsers = (
@@ -3198,69 +3133,63 @@ const deserializeAws_json1_1ResourceExistsException = (
   output: any,
   context: __SerdeContext
 ): ResourceExistsException => {
-  let contents: any = {
+  return {
     __type: "ResourceExistsException",
-    Message: undefined,
-    Resource: undefined,
-    ResourceType: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.Resource !== undefined && output.Resource !== null) {
-    contents.Resource = output.Resource;
-  }
-  if (output.ResourceType !== undefined && output.ResourceType !== null) {
-    contents.ResourceType = output.ResourceType;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    Resource:
+      output.Resource !== undefined && output.Resource !== null
+        ? output.Resource
+        : undefined,
+    ResourceType:
+      output.ResourceType !== undefined && output.ResourceType !== null
+        ? output.ResourceType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ResourceNotFoundException => {
-  let contents: any = {
+  return {
     __type: "ResourceNotFoundException",
-    Message: undefined,
-    Resource: undefined,
-    ResourceType: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.Resource !== undefined && output.Resource !== null) {
-    contents.Resource = output.Resource;
-  }
-  if (output.ResourceType !== undefined && output.ResourceType !== null) {
-    contents.ResourceType = output.ResourceType;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    Resource:
+      output.Resource !== undefined && output.Resource !== null
+        ? output.Resource
+        : undefined,
+    ResourceType:
+      output.ResourceType !== undefined && output.ResourceType !== null
+        ? output.ResourceType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SshPublicKey = (
   output: any,
   context: __SerdeContext
 ): SshPublicKey => {
-  let contents: any = {
+  return {
     __type: "SshPublicKey",
-    DateImported: undefined,
-    SshPublicKeyBody: undefined,
-    SshPublicKeyId: undefined
-  };
-  if (output.DateImported !== undefined && output.DateImported !== null) {
-    contents.DateImported = new Date(Math.round(output.DateImported * 1000));
-  }
-  if (
-    output.SshPublicKeyBody !== undefined &&
-    output.SshPublicKeyBody !== null
-  ) {
-    contents.SshPublicKeyBody = output.SshPublicKeyBody;
-  }
-  if (output.SshPublicKeyId !== undefined && output.SshPublicKeyId !== null) {
-    contents.SshPublicKeyId = output.SshPublicKeyId;
-  }
-  return contents;
+    DateImported:
+      output.DateImported !== undefined && output.DateImported !== null
+        ? new Date(Math.round(output.DateImported * 1000))
+        : undefined,
+    SshPublicKeyBody:
+      output.SshPublicKeyBody !== undefined && output.SshPublicKeyBody !== null
+        ? output.SshPublicKeyBody
+        : undefined,
+    SshPublicKeyId:
+      output.SshPublicKeyId !== undefined && output.SshPublicKeyId !== null
+        ? output.SshPublicKeyId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SshPublicKeys = (
@@ -3283,18 +3212,15 @@ const deserializeAws_json1_1Tag = (
   output: any,
   context: __SerdeContext
 ): Tag => {
-  let contents: any = {
+  return {
     __type: "Tag",
-    Key: undefined,
-    Value: undefined
-  };
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Tags = (
@@ -3310,75 +3236,67 @@ const deserializeAws_json1_1TestIdentityProviderResponse = (
   output: any,
   context: __SerdeContext
 ): TestIdentityProviderResponse => {
-  let contents: any = {
+  return {
     __type: "TestIdentityProviderResponse",
-    Message: undefined,
-    Response: undefined,
-    StatusCode: undefined,
-    Url: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.Response !== undefined && output.Response !== null) {
-    contents.Response = output.Response;
-  }
-  if (output.StatusCode !== undefined && output.StatusCode !== null) {
-    contents.StatusCode = output.StatusCode;
-  }
-  if (output.Url !== undefined && output.Url !== null) {
-    contents.Url = output.Url;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    Response:
+      output.Response !== undefined && output.Response !== null
+        ? output.Response
+        : undefined,
+    StatusCode:
+      output.StatusCode !== undefined && output.StatusCode !== null
+        ? output.StatusCode
+        : undefined,
+    Url:
+      output.Url !== undefined && output.Url !== null ? output.Url : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ThrottlingException = (
   output: any,
   context: __SerdeContext
 ): ThrottlingException => {
-  let contents: any = {
+  return {
     __type: "ThrottlingException",
-    RetryAfterSeconds: undefined
-  };
-  if (
-    output.RetryAfterSeconds !== undefined &&
-    output.RetryAfterSeconds !== null
-  ) {
-    contents.RetryAfterSeconds = output.RetryAfterSeconds;
-  }
-  return contents;
+    RetryAfterSeconds:
+      output.RetryAfterSeconds !== undefined &&
+      output.RetryAfterSeconds !== null
+        ? output.RetryAfterSeconds
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateServerResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateServerResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateServerResponse",
-    ServerId: undefined
-  };
-  if (output.ServerId !== undefined && output.ServerId !== null) {
-    contents.ServerId = output.ServerId;
-  }
-  return contents;
+    ServerId:
+      output.ServerId !== undefined && output.ServerId !== null
+        ? output.ServerId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateUserResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateUserResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateUserResponse",
-    ServerId: undefined,
-    UserName: undefined
-  };
-  if (output.ServerId !== undefined && output.ServerId !== null) {
-    contents.ServerId = output.ServerId;
-  }
-  if (output.UserName !== undefined && output.UserName !== null) {
-    contents.UserName = output.UserName;
-  }
-  return contents;
+    ServerId:
+      output.ServerId !== undefined && output.ServerId !== null
+        ? output.ServerId
+        : undefined,
+    UserName:
+      output.UserName !== undefined && output.UserName !== null
+        ? output.UserName
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

@@ -6235,191 +6235,158 @@ const deserializeAws_restJson1_1AccessKeyDetails = (
   output: any,
   context: __SerdeContext
 ): AccessKeyDetails => {
-  let contents: any = {
+  return {
     __type: "AccessKeyDetails",
-    AccessKeyId: undefined,
-    PrincipalId: undefined,
-    UserName: undefined,
-    UserType: undefined
-  };
-  if (output.accessKeyId !== undefined && output.accessKeyId !== null) {
-    contents.AccessKeyId = output.accessKeyId;
-  }
-  if (output.principalId !== undefined && output.principalId !== null) {
-    contents.PrincipalId = output.principalId;
-  }
-  if (output.userName !== undefined && output.userName !== null) {
-    contents.UserName = output.userName;
-  }
-  if (output.userType !== undefined && output.userType !== null) {
-    contents.UserType = output.userType;
-  }
-  return contents;
+    AccessKeyId:
+      output.accessKeyId !== undefined && output.accessKeyId !== null
+        ? output.accessKeyId
+        : undefined,
+    PrincipalId:
+      output.principalId !== undefined && output.principalId !== null
+        ? output.principalId
+        : undefined,
+    UserName:
+      output.userName !== undefined && output.userName !== null
+        ? output.userName
+        : undefined,
+    UserType:
+      output.userType !== undefined && output.userType !== null
+        ? output.userType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Action = (
   output: any,
   context: __SerdeContext
 ): Action => {
-  let contents: any = {
+  return {
     __type: "Action",
-    ActionType: undefined,
-    AwsApiCallAction: undefined,
-    DnsRequestAction: undefined,
-    NetworkConnectionAction: undefined,
-    PortProbeAction: undefined
-  };
-  if (output.actionType !== undefined && output.actionType !== null) {
-    contents.ActionType = output.actionType;
-  }
-  if (
-    output.awsApiCallAction !== undefined &&
-    output.awsApiCallAction !== null
-  ) {
-    contents.AwsApiCallAction = deserializeAws_restJson1_1AwsApiCallAction(
-      output.awsApiCallAction,
-      context
-    );
-  }
-  if (
-    output.dnsRequestAction !== undefined &&
-    output.dnsRequestAction !== null
-  ) {
-    contents.DnsRequestAction = deserializeAws_restJson1_1DnsRequestAction(
-      output.dnsRequestAction,
-      context
-    );
-  }
-  if (
-    output.networkConnectionAction !== undefined &&
-    output.networkConnectionAction !== null
-  ) {
-    contents.NetworkConnectionAction = deserializeAws_restJson1_1NetworkConnectionAction(
-      output.networkConnectionAction,
-      context
-    );
-  }
-  if (output.portProbeAction !== undefined && output.portProbeAction !== null) {
-    contents.PortProbeAction = deserializeAws_restJson1_1PortProbeAction(
-      output.portProbeAction,
-      context
-    );
-  }
-  return contents;
+    ActionType:
+      output.actionType !== undefined && output.actionType !== null
+        ? output.actionType
+        : undefined,
+    AwsApiCallAction:
+      output.awsApiCallAction !== undefined && output.awsApiCallAction !== null
+        ? deserializeAws_restJson1_1AwsApiCallAction(
+            output.awsApiCallAction,
+            context
+          )
+        : undefined,
+    DnsRequestAction:
+      output.dnsRequestAction !== undefined && output.dnsRequestAction !== null
+        ? deserializeAws_restJson1_1DnsRequestAction(
+            output.dnsRequestAction,
+            context
+          )
+        : undefined,
+    NetworkConnectionAction:
+      output.networkConnectionAction !== undefined &&
+      output.networkConnectionAction !== null
+        ? deserializeAws_restJson1_1NetworkConnectionAction(
+            output.networkConnectionAction,
+            context
+          )
+        : undefined,
+    PortProbeAction:
+      output.portProbeAction !== undefined && output.portProbeAction !== null
+        ? deserializeAws_restJson1_1PortProbeAction(
+            output.portProbeAction,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1AwsApiCallAction = (
   output: any,
   context: __SerdeContext
 ): AwsApiCallAction => {
-  let contents: any = {
+  return {
     __type: "AwsApiCallAction",
-    Api: undefined,
-    CallerType: undefined,
-    DomainDetails: undefined,
-    RemoteIpDetails: undefined,
-    ServiceName: undefined
-  };
-  if (output.api !== undefined && output.api !== null) {
-    contents.Api = output.api;
-  }
-  if (output.callerType !== undefined && output.callerType !== null) {
-    contents.CallerType = output.callerType;
-  }
-  if (output.domainDetails !== undefined && output.domainDetails !== null) {
-    contents.DomainDetails = deserializeAws_restJson1_1DomainDetails(
-      output.domainDetails,
-      context
-    );
-  }
-  if (output.remoteIpDetails !== undefined && output.remoteIpDetails !== null) {
-    contents.RemoteIpDetails = deserializeAws_restJson1_1RemoteIpDetails(
-      output.remoteIpDetails,
-      context
-    );
-  }
-  if (output.serviceName !== undefined && output.serviceName !== null) {
-    contents.ServiceName = output.serviceName;
-  }
-  return contents;
+    Api:
+      output.api !== undefined && output.api !== null ? output.api : undefined,
+    CallerType:
+      output.callerType !== undefined && output.callerType !== null
+        ? output.callerType
+        : undefined,
+    DomainDetails:
+      output.domainDetails !== undefined && output.domainDetails !== null
+        ? deserializeAws_restJson1_1DomainDetails(output.domainDetails, context)
+        : undefined,
+    RemoteIpDetails:
+      output.remoteIpDetails !== undefined && output.remoteIpDetails !== null
+        ? deserializeAws_restJson1_1RemoteIpDetails(
+            output.remoteIpDetails,
+            context
+          )
+        : undefined,
+    ServiceName:
+      output.serviceName !== undefined && output.serviceName !== null
+        ? output.serviceName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1City = (
   output: any,
   context: __SerdeContext
 ): City => {
-  let contents: any = {
+  return {
     __type: "City",
-    CityName: undefined
-  };
-  if (output.cityName !== undefined && output.cityName !== null) {
-    contents.CityName = output.cityName;
-  }
-  return contents;
+    CityName:
+      output.cityName !== undefined && output.cityName !== null
+        ? output.cityName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Condition = (
   output: any,
   context: __SerdeContext
 ): Condition => {
-  let contents: any = {
+  return {
     __type: "Condition",
-    Eq: undefined,
-    Equals: undefined,
-    GreaterThan: undefined,
-    GreaterThanOrEqual: undefined,
-    Gt: undefined,
-    Gte: undefined,
-    LessThan: undefined,
-    LessThanOrEqual: undefined,
-    Lt: undefined,
-    Lte: undefined,
-    Neq: undefined,
-    NotEquals: undefined
-  };
-  if (output.eq !== undefined && output.eq !== null) {
-    contents.Eq = deserializeAws_restJson1_1Eq(output.eq, context);
-  }
-  if (output.equals !== undefined && output.equals !== null) {
-    contents.Equals = deserializeAws_restJson1_1Equals(output.equals, context);
-  }
-  if (output.greaterThan !== undefined && output.greaterThan !== null) {
-    contents.GreaterThan = output.greaterThan;
-  }
-  if (
-    output.greaterThanOrEqual !== undefined &&
-    output.greaterThanOrEqual !== null
-  ) {
-    contents.GreaterThanOrEqual = output.greaterThanOrEqual;
-  }
-  if (output.gt !== undefined && output.gt !== null) {
-    contents.Gt = output.gt;
-  }
-  if (output.gte !== undefined && output.gte !== null) {
-    contents.Gte = output.gte;
-  }
-  if (output.lessThan !== undefined && output.lessThan !== null) {
-    contents.LessThan = output.lessThan;
-  }
-  if (output.lessThanOrEqual !== undefined && output.lessThanOrEqual !== null) {
-    contents.LessThanOrEqual = output.lessThanOrEqual;
-  }
-  if (output.lt !== undefined && output.lt !== null) {
-    contents.Lt = output.lt;
-  }
-  if (output.lte !== undefined && output.lte !== null) {
-    contents.Lte = output.lte;
-  }
-  if (output.neq !== undefined && output.neq !== null) {
-    contents.Neq = deserializeAws_restJson1_1Neq(output.neq, context);
-  }
-  if (output.notEquals !== undefined && output.notEquals !== null) {
-    contents.NotEquals = deserializeAws_restJson1_1NotEquals(
-      output.notEquals,
-      context
-    );
-  }
-  return contents;
+    Eq:
+      output.eq !== undefined && output.eq !== null
+        ? deserializeAws_restJson1_1Eq(output.eq, context)
+        : undefined,
+    Equals:
+      output.equals !== undefined && output.equals !== null
+        ? deserializeAws_restJson1_1Equals(output.equals, context)
+        : undefined,
+    GreaterThan:
+      output.greaterThan !== undefined && output.greaterThan !== null
+        ? output.greaterThan
+        : undefined,
+    GreaterThanOrEqual:
+      output.greaterThanOrEqual !== undefined &&
+      output.greaterThanOrEqual !== null
+        ? output.greaterThanOrEqual
+        : undefined,
+    Gt: output.gt !== undefined && output.gt !== null ? output.gt : undefined,
+    Gte:
+      output.gte !== undefined && output.gte !== null ? output.gte : undefined,
+    LessThan:
+      output.lessThan !== undefined && output.lessThan !== null
+        ? output.lessThan
+        : undefined,
+    LessThanOrEqual:
+      output.lessThanOrEqual !== undefined && output.lessThanOrEqual !== null
+        ? output.lessThanOrEqual
+        : undefined,
+    Lt: output.lt !== undefined && output.lt !== null ? output.lt : undefined,
+    Lte:
+      output.lte !== undefined && output.lte !== null ? output.lte : undefined,
+    Neq:
+      output.neq !== undefined && output.neq !== null
+        ? deserializeAws_restJson1_1Neq(output.neq, context)
+        : undefined,
+    NotEquals:
+      output.notEquals !== undefined && output.notEquals !== null
+        ? deserializeAws_restJson1_1NotEquals(output.notEquals, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1CountBySeverity = (
@@ -6436,18 +6403,17 @@ const deserializeAws_restJson1_1Country = (
   output: any,
   context: __SerdeContext
 ): Country => {
-  let contents: any = {
+  return {
     __type: "Country",
-    CountryCode: undefined,
-    CountryName: undefined
-  };
-  if (output.countryCode !== undefined && output.countryCode !== null) {
-    contents.CountryCode = output.countryCode;
-  }
-  if (output.countryName !== undefined && output.countryName !== null) {
-    contents.CountryName = output.countryName;
-  }
-  return contents;
+    CountryCode:
+      output.countryCode !== undefined && output.countryCode !== null
+        ? output.countryCode
+        : undefined,
+    CountryName:
+      output.countryName !== undefined && output.countryName !== null
+        ? output.countryName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Criterion = (
@@ -6464,40 +6430,38 @@ const deserializeAws_restJson1_1Destination = (
   output: any,
   context: __SerdeContext
 ): Destination => {
-  let contents: any = {
+  return {
     __type: "Destination",
-    DestinationId: undefined,
-    DestinationType: undefined,
-    Status: undefined
-  };
-  if (output.destinationId !== undefined && output.destinationId !== null) {
-    contents.DestinationId = output.destinationId;
-  }
-  if (output.destinationType !== undefined && output.destinationType !== null) {
-    contents.DestinationType = output.destinationType;
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.Status = output.status;
-  }
-  return contents;
+    DestinationId:
+      output.destinationId !== undefined && output.destinationId !== null
+        ? output.destinationId
+        : undefined,
+    DestinationType:
+      output.destinationType !== undefined && output.destinationType !== null
+        ? output.destinationType
+        : undefined,
+    Status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DestinationProperties = (
   output: any,
   context: __SerdeContext
 ): DestinationProperties => {
-  let contents: any = {
+  return {
     __type: "DestinationProperties",
-    DestinationArn: undefined,
-    KmsKeyArn: undefined
-  };
-  if (output.destinationArn !== undefined && output.destinationArn !== null) {
-    contents.DestinationArn = output.destinationArn;
-  }
-  if (output.kmsKeyArn !== undefined && output.kmsKeyArn !== null) {
-    contents.KmsKeyArn = output.kmsKeyArn;
-  }
-  return contents;
+    DestinationArn:
+      output.destinationArn !== undefined && output.destinationArn !== null
+        ? output.destinationArn
+        : undefined,
+    KmsKeyArn:
+      output.kmsKeyArn !== undefined && output.kmsKeyArn !== null
+        ? output.kmsKeyArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Destinations = (
@@ -6520,28 +6484,26 @@ const deserializeAws_restJson1_1DnsRequestAction = (
   output: any,
   context: __SerdeContext
 ): DnsRequestAction => {
-  let contents: any = {
+  return {
     __type: "DnsRequestAction",
-    Domain: undefined
-  };
-  if (output.domain !== undefined && output.domain !== null) {
-    contents.Domain = output.domain;
-  }
-  return contents;
+    Domain:
+      output.domain !== undefined && output.domain !== null
+        ? output.domain
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DomainDetails = (
   output: any,
   context: __SerdeContext
 ): DomainDetails => {
-  let contents: any = {
+  return {
     __type: "DomainDetails",
-    Domain: undefined
-  };
-  if (output.domain !== undefined && output.domain !== null) {
-    contents.Domain = output.domain;
-  }
-  return contents;
+    Domain:
+      output.domain !== undefined && output.domain !== null
+        ? output.domain
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Eq = (
@@ -6562,20 +6524,17 @@ const deserializeAws_restJson1_1Evidence = (
   output: any,
   context: __SerdeContext
 ): Evidence => {
-  let contents: any = {
+  return {
     __type: "Evidence",
-    ThreatIntelligenceDetails: undefined
-  };
-  if (
-    output.threatIntelligenceDetails !== undefined &&
-    output.threatIntelligenceDetails !== null
-  ) {
-    contents.ThreatIntelligenceDetails = deserializeAws_restJson1_1ThreatIntelligenceDetails(
-      output.threatIntelligenceDetails,
-      context
-    );
-  }
-  return contents;
+    ThreatIntelligenceDetails:
+      output.threatIntelligenceDetails !== undefined &&
+      output.threatIntelligenceDetails !== null
+        ? deserializeAws_restJson1_1ThreatIntelligenceDetails(
+            output.threatIntelligenceDetails,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1FilterNames = (
@@ -6589,93 +6548,77 @@ const deserializeAws_restJson1_1Finding = (
   output: any,
   context: __SerdeContext
 ): Finding => {
-  let contents: any = {
+  return {
     __type: "Finding",
-    AccountId: undefined,
-    Arn: undefined,
-    Confidence: undefined,
-    CreatedAt: undefined,
-    Description: undefined,
-    Id: undefined,
-    Partition: undefined,
-    Region: undefined,
-    Resource: undefined,
-    SchemaVersion: undefined,
-    Service: undefined,
-    Severity: undefined,
-    Title: undefined,
-    Type: undefined,
-    UpdatedAt: undefined
-  };
-  if (output.accountId !== undefined && output.accountId !== null) {
-    contents.AccountId = output.accountId;
-  }
-  if (output.arn !== undefined && output.arn !== null) {
-    contents.Arn = output.arn;
-  }
-  if (output.confidence !== undefined && output.confidence !== null) {
-    contents.Confidence = output.confidence;
-  }
-  if (output.createdAt !== undefined && output.createdAt !== null) {
-    contents.CreatedAt = output.createdAt;
-  }
-  if (output.description !== undefined && output.description !== null) {
-    contents.Description = output.description;
-  }
-  if (output.id !== undefined && output.id !== null) {
-    contents.Id = output.id;
-  }
-  if (output.partition !== undefined && output.partition !== null) {
-    contents.Partition = output.partition;
-  }
-  if (output.region !== undefined && output.region !== null) {
-    contents.Region = output.region;
-  }
-  if (output.resource !== undefined && output.resource !== null) {
-    contents.Resource = deserializeAws_restJson1_1Resource(
-      output.resource,
-      context
-    );
-  }
-  if (output.schemaVersion !== undefined && output.schemaVersion !== null) {
-    contents.SchemaVersion = output.schemaVersion;
-  }
-  if (output.service !== undefined && output.service !== null) {
-    contents.Service = deserializeAws_restJson1_1Service(
-      output.service,
-      context
-    );
-  }
-  if (output.severity !== undefined && output.severity !== null) {
-    contents.Severity = output.severity;
-  }
-  if (output.title !== undefined && output.title !== null) {
-    contents.Title = output.title;
-  }
-  if (output.type !== undefined && output.type !== null) {
-    contents.Type = output.type;
-  }
-  if (output.updatedAt !== undefined && output.updatedAt !== null) {
-    contents.UpdatedAt = output.updatedAt;
-  }
-  return contents;
+    AccountId:
+      output.accountId !== undefined && output.accountId !== null
+        ? output.accountId
+        : undefined,
+    Arn:
+      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    Confidence:
+      output.confidence !== undefined && output.confidence !== null
+        ? output.confidence
+        : undefined,
+    CreatedAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? output.createdAt
+        : undefined,
+    Description:
+      output.description !== undefined && output.description !== null
+        ? output.description
+        : undefined,
+    Id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    Partition:
+      output.partition !== undefined && output.partition !== null
+        ? output.partition
+        : undefined,
+    Region:
+      output.region !== undefined && output.region !== null
+        ? output.region
+        : undefined,
+    Resource:
+      output.resource !== undefined && output.resource !== null
+        ? deserializeAws_restJson1_1Resource(output.resource, context)
+        : undefined,
+    SchemaVersion:
+      output.schemaVersion !== undefined && output.schemaVersion !== null
+        ? output.schemaVersion
+        : undefined,
+    Service:
+      output.service !== undefined && output.service !== null
+        ? deserializeAws_restJson1_1Service(output.service, context)
+        : undefined,
+    Severity:
+      output.severity !== undefined && output.severity !== null
+        ? output.severity
+        : undefined,
+    Title:
+      output.title !== undefined && output.title !== null
+        ? output.title
+        : undefined,
+    Type:
+      output.type !== undefined && output.type !== null
+        ? output.type
+        : undefined,
+    UpdatedAt:
+      output.updatedAt !== undefined && output.updatedAt !== null
+        ? output.updatedAt
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1FindingCriteria = (
   output: any,
   context: __SerdeContext
 ): FindingCriteria => {
-  let contents: any = {
+  return {
     __type: "FindingCriteria",
-    Criterion: undefined
-  };
-  if (output.criterion !== undefined && output.criterion !== null) {
-    contents.Criterion = deserializeAws_restJson1_1Criterion(
-      output.criterion,
-      context
-    );
-  }
-  return contents;
+    Criterion:
+      output.criterion !== undefined && output.criterion !== null
+        ? deserializeAws_restJson1_1Criterion(output.criterion, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1FindingIds = (
@@ -6689,17 +6632,16 @@ const deserializeAws_restJson1_1FindingStatistics = (
   output: any,
   context: __SerdeContext
 ): FindingStatistics => {
-  let contents: any = {
+  return {
     __type: "FindingStatistics",
-    CountBySeverity: undefined
-  };
-  if (output.countBySeverity !== undefined && output.countBySeverity !== null) {
-    contents.CountBySeverity = deserializeAws_restJson1_1CountBySeverity(
-      output.countBySeverity,
-      context
-    );
-  }
-  return contents;
+    CountBySeverity:
+      output.countBySeverity !== undefined && output.countBySeverity !== null
+        ? deserializeAws_restJson1_1CountBySeverity(
+            output.countBySeverity,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Findings = (
@@ -6715,144 +6657,116 @@ const deserializeAws_restJson1_1GeoLocation = (
   output: any,
   context: __SerdeContext
 ): GeoLocation => {
-  let contents: any = {
+  return {
     __type: "GeoLocation",
-    Lat: undefined,
-    Lon: undefined
-  };
-  if (output.lat !== undefined && output.lat !== null) {
-    contents.Lat = output.lat;
-  }
-  if (output.lon !== undefined && output.lon !== null) {
-    contents.Lon = output.lon;
-  }
-  return contents;
+    Lat:
+      output.lat !== undefined && output.lat !== null ? output.lat : undefined,
+    Lon:
+      output.lon !== undefined && output.lon !== null ? output.lon : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1IamInstanceProfile = (
   output: any,
   context: __SerdeContext
 ): IamInstanceProfile => {
-  let contents: any = {
+  return {
     __type: "IamInstanceProfile",
-    Arn: undefined,
-    Id: undefined
-  };
-  if (output.arn !== undefined && output.arn !== null) {
-    contents.Arn = output.arn;
-  }
-  if (output.id !== undefined && output.id !== null) {
-    contents.Id = output.id;
-  }
-  return contents;
+    Arn:
+      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    Id: output.id !== undefined && output.id !== null ? output.id : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1InstanceDetails = (
   output: any,
   context: __SerdeContext
 ): InstanceDetails => {
-  let contents: any = {
+  return {
     __type: "InstanceDetails",
-    AvailabilityZone: undefined,
-    IamInstanceProfile: undefined,
-    ImageDescription: undefined,
-    ImageId: undefined,
-    InstanceId: undefined,
-    InstanceState: undefined,
-    InstanceType: undefined,
-    LaunchTime: undefined,
-    NetworkInterfaces: undefined,
-    Platform: undefined,
-    ProductCodes: undefined,
-    Tags: undefined
-  };
-  if (
-    output.availabilityZone !== undefined &&
-    output.availabilityZone !== null
-  ) {
-    contents.AvailabilityZone = output.availabilityZone;
-  }
-  if (
-    output.iamInstanceProfile !== undefined &&
-    output.iamInstanceProfile !== null
-  ) {
-    contents.IamInstanceProfile = deserializeAws_restJson1_1IamInstanceProfile(
-      output.iamInstanceProfile,
-      context
-    );
-  }
-  if (
-    output.imageDescription !== undefined &&
-    output.imageDescription !== null
-  ) {
-    contents.ImageDescription = output.imageDescription;
-  }
-  if (output.imageId !== undefined && output.imageId !== null) {
-    contents.ImageId = output.imageId;
-  }
-  if (output.instanceId !== undefined && output.instanceId !== null) {
-    contents.InstanceId = output.instanceId;
-  }
-  if (output.instanceState !== undefined && output.instanceState !== null) {
-    contents.InstanceState = output.instanceState;
-  }
-  if (output.instanceType !== undefined && output.instanceType !== null) {
-    contents.InstanceType = output.instanceType;
-  }
-  if (output.launchTime !== undefined && output.launchTime !== null) {
-    contents.LaunchTime = output.launchTime;
-  }
-  if (
-    output.networkInterfaces !== undefined &&
-    output.networkInterfaces !== null
-  ) {
-    contents.NetworkInterfaces = deserializeAws_restJson1_1NetworkInterfaces(
-      output.networkInterfaces,
-      context
-    );
-  }
-  if (output.platform !== undefined && output.platform !== null) {
-    contents.Platform = output.platform;
-  }
-  if (output.productCodes !== undefined && output.productCodes !== null) {
-    contents.ProductCodes = deserializeAws_restJson1_1ProductCodes(
-      output.productCodes,
-      context
-    );
-  }
-  if (output.tags !== undefined && output.tags !== null) {
-    contents.Tags = deserializeAws_restJson1_1Tags(output.tags, context);
-  }
-  return contents;
+    AvailabilityZone:
+      output.availabilityZone !== undefined && output.availabilityZone !== null
+        ? output.availabilityZone
+        : undefined,
+    IamInstanceProfile:
+      output.iamInstanceProfile !== undefined &&
+      output.iamInstanceProfile !== null
+        ? deserializeAws_restJson1_1IamInstanceProfile(
+            output.iamInstanceProfile,
+            context
+          )
+        : undefined,
+    ImageDescription:
+      output.imageDescription !== undefined && output.imageDescription !== null
+        ? output.imageDescription
+        : undefined,
+    ImageId:
+      output.imageId !== undefined && output.imageId !== null
+        ? output.imageId
+        : undefined,
+    InstanceId:
+      output.instanceId !== undefined && output.instanceId !== null
+        ? output.instanceId
+        : undefined,
+    InstanceState:
+      output.instanceState !== undefined && output.instanceState !== null
+        ? output.instanceState
+        : undefined,
+    InstanceType:
+      output.instanceType !== undefined && output.instanceType !== null
+        ? output.instanceType
+        : undefined,
+    LaunchTime:
+      output.launchTime !== undefined && output.launchTime !== null
+        ? output.launchTime
+        : undefined,
+    NetworkInterfaces:
+      output.networkInterfaces !== undefined &&
+      output.networkInterfaces !== null
+        ? deserializeAws_restJson1_1NetworkInterfaces(
+            output.networkInterfaces,
+            context
+          )
+        : undefined,
+    Platform:
+      output.platform !== undefined && output.platform !== null
+        ? output.platform
+        : undefined,
+    ProductCodes:
+      output.productCodes !== undefined && output.productCodes !== null
+        ? deserializeAws_restJson1_1ProductCodes(output.productCodes, context)
+        : undefined,
+    Tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1_1Tags(output.tags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Invitation = (
   output: any,
   context: __SerdeContext
 ): Invitation => {
-  let contents: any = {
+  return {
     __type: "Invitation",
-    AccountId: undefined,
-    InvitationId: undefined,
-    InvitedAt: undefined,
-    RelationshipStatus: undefined
-  };
-  if (output.accountId !== undefined && output.accountId !== null) {
-    contents.AccountId = output.accountId;
-  }
-  if (output.invitationId !== undefined && output.invitationId !== null) {
-    contents.InvitationId = output.invitationId;
-  }
-  if (output.invitedAt !== undefined && output.invitedAt !== null) {
-    contents.InvitedAt = output.invitedAt;
-  }
-  if (
-    output.relationshipStatus !== undefined &&
-    output.relationshipStatus !== null
-  ) {
-    contents.RelationshipStatus = output.relationshipStatus;
-  }
-  return contents;
+    AccountId:
+      output.accountId !== undefined && output.accountId !== null
+        ? output.accountId
+        : undefined,
+    InvitationId:
+      output.invitationId !== undefined && output.invitationId !== null
+        ? output.invitationId
+        : undefined,
+    InvitedAt:
+      output.invitedAt !== undefined && output.invitedAt !== null
+        ? output.invitedAt
+        : undefined,
+    RelationshipStatus:
+      output.relationshipStatus !== undefined &&
+      output.relationshipStatus !== null
+        ? output.relationshipStatus
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Invitations = (
@@ -6882,88 +6796,81 @@ const deserializeAws_restJson1_1LocalPortDetails = (
   output: any,
   context: __SerdeContext
 ): LocalPortDetails => {
-  let contents: any = {
+  return {
     __type: "LocalPortDetails",
-    Port: undefined,
-    PortName: undefined
-  };
-  if (output.port !== undefined && output.port !== null) {
-    contents.Port = output.port;
-  }
-  if (output.portName !== undefined && output.portName !== null) {
-    contents.PortName = output.portName;
-  }
-  return contents;
+    Port:
+      output.port !== undefined && output.port !== null
+        ? output.port
+        : undefined,
+    PortName:
+      output.portName !== undefined && output.portName !== null
+        ? output.portName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Master = (
   output: any,
   context: __SerdeContext
 ): Master => {
-  let contents: any = {
+  return {
     __type: "Master",
-    AccountId: undefined,
-    InvitationId: undefined,
-    InvitedAt: undefined,
-    RelationshipStatus: undefined
-  };
-  if (output.accountId !== undefined && output.accountId !== null) {
-    contents.AccountId = output.accountId;
-  }
-  if (output.invitationId !== undefined && output.invitationId !== null) {
-    contents.InvitationId = output.invitationId;
-  }
-  if (output.invitedAt !== undefined && output.invitedAt !== null) {
-    contents.InvitedAt = output.invitedAt;
-  }
-  if (
-    output.relationshipStatus !== undefined &&
-    output.relationshipStatus !== null
-  ) {
-    contents.RelationshipStatus = output.relationshipStatus;
-  }
-  return contents;
+    AccountId:
+      output.accountId !== undefined && output.accountId !== null
+        ? output.accountId
+        : undefined,
+    InvitationId:
+      output.invitationId !== undefined && output.invitationId !== null
+        ? output.invitationId
+        : undefined,
+    InvitedAt:
+      output.invitedAt !== undefined && output.invitedAt !== null
+        ? output.invitedAt
+        : undefined,
+    RelationshipStatus:
+      output.relationshipStatus !== undefined &&
+      output.relationshipStatus !== null
+        ? output.relationshipStatus
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Member = (
   output: any,
   context: __SerdeContext
 ): Member => {
-  let contents: any = {
+  return {
     __type: "Member",
-    AccountId: undefined,
-    DetectorId: undefined,
-    Email: undefined,
-    InvitedAt: undefined,
-    MasterId: undefined,
-    RelationshipStatus: undefined,
-    UpdatedAt: undefined
-  };
-  if (output.accountId !== undefined && output.accountId !== null) {
-    contents.AccountId = output.accountId;
-  }
-  if (output.detectorId !== undefined && output.detectorId !== null) {
-    contents.DetectorId = output.detectorId;
-  }
-  if (output.email !== undefined && output.email !== null) {
-    contents.Email = output.email;
-  }
-  if (output.invitedAt !== undefined && output.invitedAt !== null) {
-    contents.InvitedAt = output.invitedAt;
-  }
-  if (output.masterId !== undefined && output.masterId !== null) {
-    contents.MasterId = output.masterId;
-  }
-  if (
-    output.relationshipStatus !== undefined &&
-    output.relationshipStatus !== null
-  ) {
-    contents.RelationshipStatus = output.relationshipStatus;
-  }
-  if (output.updatedAt !== undefined && output.updatedAt !== null) {
-    contents.UpdatedAt = output.updatedAt;
-  }
-  return contents;
+    AccountId:
+      output.accountId !== undefined && output.accountId !== null
+        ? output.accountId
+        : undefined,
+    DetectorId:
+      output.detectorId !== undefined && output.detectorId !== null
+        ? output.detectorId
+        : undefined,
+    Email:
+      output.email !== undefined && output.email !== null
+        ? output.email
+        : undefined,
+    InvitedAt:
+      output.invitedAt !== undefined && output.invitedAt !== null
+        ? output.invitedAt
+        : undefined,
+    MasterId:
+      output.masterId !== undefined && output.masterId !== null
+        ? output.masterId
+        : undefined,
+    RelationshipStatus:
+      output.relationshipStatus !== undefined &&
+      output.relationshipStatus !== null
+        ? output.relationshipStatus
+        : undefined,
+    UpdatedAt:
+      output.updatedAt !== undefined && output.updatedAt !== null
+        ? output.updatedAt
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Members = (
@@ -6986,120 +6893,101 @@ const deserializeAws_restJson1_1NetworkConnectionAction = (
   output: any,
   context: __SerdeContext
 ): NetworkConnectionAction => {
-  let contents: any = {
+  return {
     __type: "NetworkConnectionAction",
-    Blocked: undefined,
-    ConnectionDirection: undefined,
-    LocalPortDetails: undefined,
-    Protocol: undefined,
-    RemoteIpDetails: undefined,
-    RemotePortDetails: undefined
-  };
-  if (output.blocked !== undefined && output.blocked !== null) {
-    contents.Blocked = output.blocked;
-  }
-  if (
-    output.connectionDirection !== undefined &&
-    output.connectionDirection !== null
-  ) {
-    contents.ConnectionDirection = output.connectionDirection;
-  }
-  if (
-    output.localPortDetails !== undefined &&
-    output.localPortDetails !== null
-  ) {
-    contents.LocalPortDetails = deserializeAws_restJson1_1LocalPortDetails(
-      output.localPortDetails,
-      context
-    );
-  }
-  if (output.protocol !== undefined && output.protocol !== null) {
-    contents.Protocol = output.protocol;
-  }
-  if (output.remoteIpDetails !== undefined && output.remoteIpDetails !== null) {
-    contents.RemoteIpDetails = deserializeAws_restJson1_1RemoteIpDetails(
-      output.remoteIpDetails,
-      context
-    );
-  }
-  if (
-    output.remotePortDetails !== undefined &&
-    output.remotePortDetails !== null
-  ) {
-    contents.RemotePortDetails = deserializeAws_restJson1_1RemotePortDetails(
-      output.remotePortDetails,
-      context
-    );
-  }
-  return contents;
+    Blocked:
+      output.blocked !== undefined && output.blocked !== null
+        ? output.blocked
+        : undefined,
+    ConnectionDirection:
+      output.connectionDirection !== undefined &&
+      output.connectionDirection !== null
+        ? output.connectionDirection
+        : undefined,
+    LocalPortDetails:
+      output.localPortDetails !== undefined && output.localPortDetails !== null
+        ? deserializeAws_restJson1_1LocalPortDetails(
+            output.localPortDetails,
+            context
+          )
+        : undefined,
+    Protocol:
+      output.protocol !== undefined && output.protocol !== null
+        ? output.protocol
+        : undefined,
+    RemoteIpDetails:
+      output.remoteIpDetails !== undefined && output.remoteIpDetails !== null
+        ? deserializeAws_restJson1_1RemoteIpDetails(
+            output.remoteIpDetails,
+            context
+          )
+        : undefined,
+    RemotePortDetails:
+      output.remotePortDetails !== undefined &&
+      output.remotePortDetails !== null
+        ? deserializeAws_restJson1_1RemotePortDetails(
+            output.remotePortDetails,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1NetworkInterface = (
   output: any,
   context: __SerdeContext
 ): NetworkInterface => {
-  let contents: any = {
+  return {
     __type: "NetworkInterface",
-    Ipv6Addresses: undefined,
-    NetworkInterfaceId: undefined,
-    PrivateDnsName: undefined,
-    PrivateIpAddress: undefined,
-    PrivateIpAddresses: undefined,
-    PublicDnsName: undefined,
-    PublicIp: undefined,
-    SecurityGroups: undefined,
-    SubnetId: undefined,
-    VpcId: undefined
-  };
-  if (output.ipv6Addresses !== undefined && output.ipv6Addresses !== null) {
-    contents.Ipv6Addresses = deserializeAws_restJson1_1Ipv6Addresses(
-      output.ipv6Addresses,
-      context
-    );
-  }
-  if (
-    output.networkInterfaceId !== undefined &&
-    output.networkInterfaceId !== null
-  ) {
-    contents.NetworkInterfaceId = output.networkInterfaceId;
-  }
-  if (output.privateDnsName !== undefined && output.privateDnsName !== null) {
-    contents.PrivateDnsName = output.privateDnsName;
-  }
-  if (
-    output.privateIpAddress !== undefined &&
-    output.privateIpAddress !== null
-  ) {
-    contents.PrivateIpAddress = output.privateIpAddress;
-  }
-  if (
-    output.privateIpAddresses !== undefined &&
-    output.privateIpAddresses !== null
-  ) {
-    contents.PrivateIpAddresses = deserializeAws_restJson1_1PrivateIpAddresses(
-      output.privateIpAddresses,
-      context
-    );
-  }
-  if (output.publicDnsName !== undefined && output.publicDnsName !== null) {
-    contents.PublicDnsName = output.publicDnsName;
-  }
-  if (output.publicIp !== undefined && output.publicIp !== null) {
-    contents.PublicIp = output.publicIp;
-  }
-  if (output.securityGroups !== undefined && output.securityGroups !== null) {
-    contents.SecurityGroups = deserializeAws_restJson1_1SecurityGroups(
-      output.securityGroups,
-      context
-    );
-  }
-  if (output.subnetId !== undefined && output.subnetId !== null) {
-    contents.SubnetId = output.subnetId;
-  }
-  if (output.vpcId !== undefined && output.vpcId !== null) {
-    contents.VpcId = output.vpcId;
-  }
-  return contents;
+    Ipv6Addresses:
+      output.ipv6Addresses !== undefined && output.ipv6Addresses !== null
+        ? deserializeAws_restJson1_1Ipv6Addresses(output.ipv6Addresses, context)
+        : undefined,
+    NetworkInterfaceId:
+      output.networkInterfaceId !== undefined &&
+      output.networkInterfaceId !== null
+        ? output.networkInterfaceId
+        : undefined,
+    PrivateDnsName:
+      output.privateDnsName !== undefined && output.privateDnsName !== null
+        ? output.privateDnsName
+        : undefined,
+    PrivateIpAddress:
+      output.privateIpAddress !== undefined && output.privateIpAddress !== null
+        ? output.privateIpAddress
+        : undefined,
+    PrivateIpAddresses:
+      output.privateIpAddresses !== undefined &&
+      output.privateIpAddresses !== null
+        ? deserializeAws_restJson1_1PrivateIpAddresses(
+            output.privateIpAddresses,
+            context
+          )
+        : undefined,
+    PublicDnsName:
+      output.publicDnsName !== undefined && output.publicDnsName !== null
+        ? output.publicDnsName
+        : undefined,
+    PublicIp:
+      output.publicIp !== undefined && output.publicIp !== null
+        ? output.publicIp
+        : undefined,
+    SecurityGroups:
+      output.securityGroups !== undefined && output.securityGroups !== null
+        ? deserializeAws_restJson1_1SecurityGroups(
+            output.securityGroups,
+            context
+          )
+        : undefined,
+    SubnetId:
+      output.subnetId !== undefined && output.subnetId !== null
+        ? output.subnetId
+        : undefined,
+    VpcId:
+      output.vpcId !== undefined && output.vpcId !== null
+        ? output.vpcId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1NetworkInterfaces = (
@@ -7122,77 +7010,62 @@ const deserializeAws_restJson1_1Organization = (
   output: any,
   context: __SerdeContext
 ): Organization => {
-  let contents: any = {
+  return {
     __type: "Organization",
-    Asn: undefined,
-    AsnOrg: undefined,
-    Isp: undefined,
-    Org: undefined
-  };
-  if (output.asn !== undefined && output.asn !== null) {
-    contents.Asn = output.asn;
-  }
-  if (output.asnOrg !== undefined && output.asnOrg !== null) {
-    contents.AsnOrg = output.asnOrg;
-  }
-  if (output.isp !== undefined && output.isp !== null) {
-    contents.Isp = output.isp;
-  }
-  if (output.org !== undefined && output.org !== null) {
-    contents.Org = output.org;
-  }
-  return contents;
+    Asn:
+      output.asn !== undefined && output.asn !== null ? output.asn : undefined,
+    AsnOrg:
+      output.asnOrg !== undefined && output.asnOrg !== null
+        ? output.asnOrg
+        : undefined,
+    Isp:
+      output.isp !== undefined && output.isp !== null ? output.isp : undefined,
+    Org:
+      output.org !== undefined && output.org !== null ? output.org : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1PortProbeAction = (
   output: any,
   context: __SerdeContext
 ): PortProbeAction => {
-  let contents: any = {
+  return {
     __type: "PortProbeAction",
-    Blocked: undefined,
-    PortProbeDetails: undefined
-  };
-  if (output.blocked !== undefined && output.blocked !== null) {
-    contents.Blocked = output.blocked;
-  }
-  if (
-    output.portProbeDetails !== undefined &&
-    output.portProbeDetails !== null
-  ) {
-    contents.PortProbeDetails = deserializeAws_restJson1_1PortProbeDetails(
-      output.portProbeDetails,
-      context
-    );
-  }
-  return contents;
+    Blocked:
+      output.blocked !== undefined && output.blocked !== null
+        ? output.blocked
+        : undefined,
+    PortProbeDetails:
+      output.portProbeDetails !== undefined && output.portProbeDetails !== null
+        ? deserializeAws_restJson1_1PortProbeDetails(
+            output.portProbeDetails,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1PortProbeDetail = (
   output: any,
   context: __SerdeContext
 ): PortProbeDetail => {
-  let contents: any = {
+  return {
     __type: "PortProbeDetail",
-    LocalPortDetails: undefined,
-    RemoteIpDetails: undefined
-  };
-  if (
-    output.localPortDetails !== undefined &&
-    output.localPortDetails !== null
-  ) {
-    contents.LocalPortDetails = deserializeAws_restJson1_1LocalPortDetails(
-      output.localPortDetails,
-      context
-    );
-  }
-  if (output.remoteIpDetails !== undefined && output.remoteIpDetails !== null) {
-    contents.RemoteIpDetails = deserializeAws_restJson1_1RemoteIpDetails(
-      output.remoteIpDetails,
-      context
-    );
-  }
-  return contents;
+    LocalPortDetails:
+      output.localPortDetails !== undefined && output.localPortDetails !== null
+        ? deserializeAws_restJson1_1LocalPortDetails(
+            output.localPortDetails,
+            context
+          )
+        : undefined,
+    RemoteIpDetails:
+      output.remoteIpDetails !== undefined && output.remoteIpDetails !== null
+        ? deserializeAws_restJson1_1RemoteIpDetails(
+            output.remoteIpDetails,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1PortProbeDetails = (
@@ -7208,21 +7081,17 @@ const deserializeAws_restJson1_1PrivateIpAddressDetails = (
   output: any,
   context: __SerdeContext
 ): PrivateIpAddressDetails => {
-  let contents: any = {
+  return {
     __type: "PrivateIpAddressDetails",
-    PrivateDnsName: undefined,
-    PrivateIpAddress: undefined
-  };
-  if (output.privateDnsName !== undefined && output.privateDnsName !== null) {
-    contents.PrivateDnsName = output.privateDnsName;
-  }
-  if (
-    output.privateIpAddress !== undefined &&
-    output.privateIpAddress !== null
-  ) {
-    contents.PrivateIpAddress = output.privateIpAddress;
-  }
-  return contents;
+    PrivateDnsName:
+      output.privateDnsName !== undefined && output.privateDnsName !== null
+        ? output.privateDnsName
+        : undefined,
+    PrivateIpAddress:
+      output.privateIpAddress !== undefined && output.privateIpAddress !== null
+        ? output.privateIpAddress
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1PrivateIpAddresses = (
@@ -7238,18 +7107,17 @@ const deserializeAws_restJson1_1ProductCode = (
   output: any,
   context: __SerdeContext
 ): ProductCode => {
-  let contents: any = {
+  return {
     __type: "ProductCode",
-    Code: undefined,
-    ProductType: undefined
-  };
-  if (output.code !== undefined && output.code !== null) {
-    contents.Code = output.code;
-  }
-  if (output.productType !== undefined && output.productType !== null) {
-    contents.ProductType = output.productType;
-  }
-  return contents;
+    Code:
+      output.code !== undefined && output.code !== null
+        ? output.code
+        : undefined,
+    ProductType:
+      output.productType !== undefined && output.productType !== null
+        ? output.productType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ProductCodes = (
@@ -7265,106 +7133,90 @@ const deserializeAws_restJson1_1RemoteIpDetails = (
   output: any,
   context: __SerdeContext
 ): RemoteIpDetails => {
-  let contents: any = {
+  return {
     __type: "RemoteIpDetails",
-    City: undefined,
-    Country: undefined,
-    GeoLocation: undefined,
-    IpAddressV4: undefined,
-    Organization: undefined
-  };
-  if (output.city !== undefined && output.city !== null) {
-    contents.City = deserializeAws_restJson1_1City(output.city, context);
-  }
-  if (output.country !== undefined && output.country !== null) {
-    contents.Country = deserializeAws_restJson1_1Country(
-      output.country,
-      context
-    );
-  }
-  if (output.geoLocation !== undefined && output.geoLocation !== null) {
-    contents.GeoLocation = deserializeAws_restJson1_1GeoLocation(
-      output.geoLocation,
-      context
-    );
-  }
-  if (output.ipAddressV4 !== undefined && output.ipAddressV4 !== null) {
-    contents.IpAddressV4 = output.ipAddressV4;
-  }
-  if (output.organization !== undefined && output.organization !== null) {
-    contents.Organization = deserializeAws_restJson1_1Organization(
-      output.organization,
-      context
-    );
-  }
-  return contents;
+    City:
+      output.city !== undefined && output.city !== null
+        ? deserializeAws_restJson1_1City(output.city, context)
+        : undefined,
+    Country:
+      output.country !== undefined && output.country !== null
+        ? deserializeAws_restJson1_1Country(output.country, context)
+        : undefined,
+    GeoLocation:
+      output.geoLocation !== undefined && output.geoLocation !== null
+        ? deserializeAws_restJson1_1GeoLocation(output.geoLocation, context)
+        : undefined,
+    IpAddressV4:
+      output.ipAddressV4 !== undefined && output.ipAddressV4 !== null
+        ? output.ipAddressV4
+        : undefined,
+    Organization:
+      output.organization !== undefined && output.organization !== null
+        ? deserializeAws_restJson1_1Organization(output.organization, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1RemotePortDetails = (
   output: any,
   context: __SerdeContext
 ): RemotePortDetails => {
-  let contents: any = {
+  return {
     __type: "RemotePortDetails",
-    Port: undefined,
-    PortName: undefined
-  };
-  if (output.port !== undefined && output.port !== null) {
-    contents.Port = output.port;
-  }
-  if (output.portName !== undefined && output.portName !== null) {
-    contents.PortName = output.portName;
-  }
-  return contents;
+    Port:
+      output.port !== undefined && output.port !== null
+        ? output.port
+        : undefined,
+    PortName:
+      output.portName !== undefined && output.portName !== null
+        ? output.portName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Resource = (
   output: any,
   context: __SerdeContext
 ): Resource => {
-  let contents: any = {
+  return {
     __type: "Resource",
-    AccessKeyDetails: undefined,
-    InstanceDetails: undefined,
-    ResourceType: undefined
-  };
-  if (
-    output.accessKeyDetails !== undefined &&
-    output.accessKeyDetails !== null
-  ) {
-    contents.AccessKeyDetails = deserializeAws_restJson1_1AccessKeyDetails(
-      output.accessKeyDetails,
-      context
-    );
-  }
-  if (output.instanceDetails !== undefined && output.instanceDetails !== null) {
-    contents.InstanceDetails = deserializeAws_restJson1_1InstanceDetails(
-      output.instanceDetails,
-      context
-    );
-  }
-  if (output.resourceType !== undefined && output.resourceType !== null) {
-    contents.ResourceType = output.resourceType;
-  }
-  return contents;
+    AccessKeyDetails:
+      output.accessKeyDetails !== undefined && output.accessKeyDetails !== null
+        ? deserializeAws_restJson1_1AccessKeyDetails(
+            output.accessKeyDetails,
+            context
+          )
+        : undefined,
+    InstanceDetails:
+      output.instanceDetails !== undefined && output.instanceDetails !== null
+        ? deserializeAws_restJson1_1InstanceDetails(
+            output.instanceDetails,
+            context
+          )
+        : undefined,
+    ResourceType:
+      output.resourceType !== undefined && output.resourceType !== null
+        ? output.resourceType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SecurityGroup = (
   output: any,
   context: __SerdeContext
 ): SecurityGroup => {
-  let contents: any = {
+  return {
     __type: "SecurityGroup",
-    GroupId: undefined,
-    GroupName: undefined
-  };
-  if (output.groupId !== undefined && output.groupId !== null) {
-    contents.GroupId = output.groupId;
-  }
-  if (output.groupName !== undefined && output.groupName !== null) {
-    contents.GroupName = output.groupName;
-  }
-  return contents;
+    GroupId:
+      output.groupId !== undefined && output.groupId !== null
+        ? output.groupId
+        : undefined,
+    GroupName:
+      output.groupName !== undefined && output.groupName !== null
+        ? output.groupName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SecurityGroups = (
@@ -7380,71 +7232,64 @@ const deserializeAws_restJson1_1Service = (
   output: any,
   context: __SerdeContext
 ): Service => {
-  let contents: any = {
+  return {
     __type: "Service",
-    Action: undefined,
-    Archived: undefined,
-    Count: undefined,
-    DetectorId: undefined,
-    EventFirstSeen: undefined,
-    EventLastSeen: undefined,
-    Evidence: undefined,
-    ResourceRole: undefined,
-    ServiceName: undefined,
-    UserFeedback: undefined
-  };
-  if (output.action !== undefined && output.action !== null) {
-    contents.Action = deserializeAws_restJson1_1Action(output.action, context);
-  }
-  if (output.archived !== undefined && output.archived !== null) {
-    contents.Archived = output.archived;
-  }
-  if (output.count !== undefined && output.count !== null) {
-    contents.Count = output.count;
-  }
-  if (output.detectorId !== undefined && output.detectorId !== null) {
-    contents.DetectorId = output.detectorId;
-  }
-  if (output.eventFirstSeen !== undefined && output.eventFirstSeen !== null) {
-    contents.EventFirstSeen = output.eventFirstSeen;
-  }
-  if (output.eventLastSeen !== undefined && output.eventLastSeen !== null) {
-    contents.EventLastSeen = output.eventLastSeen;
-  }
-  if (output.evidence !== undefined && output.evidence !== null) {
-    contents.Evidence = deserializeAws_restJson1_1Evidence(
-      output.evidence,
-      context
-    );
-  }
-  if (output.resourceRole !== undefined && output.resourceRole !== null) {
-    contents.ResourceRole = output.resourceRole;
-  }
-  if (output.serviceName !== undefined && output.serviceName !== null) {
-    contents.ServiceName = output.serviceName;
-  }
-  if (output.userFeedback !== undefined && output.userFeedback !== null) {
-    contents.UserFeedback = output.userFeedback;
-  }
-  return contents;
+    Action:
+      output.action !== undefined && output.action !== null
+        ? deserializeAws_restJson1_1Action(output.action, context)
+        : undefined,
+    Archived:
+      output.archived !== undefined && output.archived !== null
+        ? output.archived
+        : undefined,
+    Count:
+      output.count !== undefined && output.count !== null
+        ? output.count
+        : undefined,
+    DetectorId:
+      output.detectorId !== undefined && output.detectorId !== null
+        ? output.detectorId
+        : undefined,
+    EventFirstSeen:
+      output.eventFirstSeen !== undefined && output.eventFirstSeen !== null
+        ? output.eventFirstSeen
+        : undefined,
+    EventLastSeen:
+      output.eventLastSeen !== undefined && output.eventLastSeen !== null
+        ? output.eventLastSeen
+        : undefined,
+    Evidence:
+      output.evidence !== undefined && output.evidence !== null
+        ? deserializeAws_restJson1_1Evidence(output.evidence, context)
+        : undefined,
+    ResourceRole:
+      output.resourceRole !== undefined && output.resourceRole !== null
+        ? output.resourceRole
+        : undefined,
+    ServiceName:
+      output.serviceName !== undefined && output.serviceName !== null
+        ? output.serviceName
+        : undefined,
+    UserFeedback:
+      output.userFeedback !== undefined && output.userFeedback !== null
+        ? output.userFeedback
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Tag = (
   output: any,
   context: __SerdeContext
 ): Tag => {
-  let contents: any = {
+  return {
     __type: "Tag",
-    Key: undefined,
-    Value: undefined
-  };
-  if (output.key !== undefined && output.key !== null) {
-    contents.Key = output.key;
-  }
-  if (output.value !== undefined && output.value !== null) {
-    contents.Value = output.value;
-  }
-  return contents;
+    Key:
+      output.key !== undefined && output.key !== null ? output.key : undefined,
+    Value:
+      output.value !== undefined && output.value !== null
+        ? output.value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1TagMap = (
@@ -7477,21 +7322,17 @@ const deserializeAws_restJson1_1ThreatIntelligenceDetail = (
   output: any,
   context: __SerdeContext
 ): ThreatIntelligenceDetail => {
-  let contents: any = {
+  return {
     __type: "ThreatIntelligenceDetail",
-    ThreatListName: undefined,
-    ThreatNames: undefined
-  };
-  if (output.threatListName !== undefined && output.threatListName !== null) {
-    contents.ThreatListName = output.threatListName;
-  }
-  if (output.threatNames !== undefined && output.threatNames !== null) {
-    contents.ThreatNames = deserializeAws_restJson1_1ThreatNames(
-      output.threatNames,
-      context
-    );
-  }
-  return contents;
+    ThreatListName:
+      output.threatListName !== undefined && output.threatListName !== null
+        ? output.threatListName
+        : undefined,
+    ThreatNames:
+      output.threatNames !== undefined && output.threatNames !== null
+        ? deserializeAws_restJson1_1ThreatNames(output.threatNames, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ThreatIntelligenceDetails = (
@@ -7514,18 +7355,17 @@ const deserializeAws_restJson1_1UnprocessedAccount = (
   output: any,
   context: __SerdeContext
 ): UnprocessedAccount => {
-  let contents: any = {
+  return {
     __type: "UnprocessedAccount",
-    AccountId: undefined,
-    Result: undefined
-  };
-  if (output.accountId !== undefined && output.accountId !== null) {
-    contents.AccountId = output.accountId;
-  }
-  if (output.result !== undefined && output.result !== null) {
-    contents.Result = output.result;
-  }
-  return contents;
+    AccountId:
+      output.accountId !== undefined && output.accountId !== null
+        ? output.accountId
+        : undefined,
+    Result:
+      output.result !== undefined && output.result !== null
+        ? output.result
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1UnprocessedAccounts = (

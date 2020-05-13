@@ -406,60 +406,56 @@ const deserializeAws_json1_1InternalServiceError = (
   output: any,
   context: __SerdeContext
 ): InternalServiceError => {
-  let contents: any = {
+  return {
     __type: "InternalServiceError",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidArgumentException = (
   output: any,
   context: __SerdeContext
 ): InvalidArgumentException => {
-  let contents: any = {
+  return {
     __type: "InvalidArgumentException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1NotAuthorizedException = (
   output: any,
   context: __SerdeContext
 ): NotAuthorizedException => {
-  let contents: any = {
+  return {
     __type: "NotAuthorizedException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DataPoint = (
   output: any,
   context: __SerdeContext
 ): DataPoint => {
-  let contents: any = {
+  return {
     __type: "DataPoint",
-    Timestamp: undefined,
-    Value: undefined
-  };
-  if (output.Timestamp !== undefined && output.Timestamp !== null) {
-    contents.Timestamp = new Date(Math.round(output.Timestamp * 1000));
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Timestamp:
+      output.Timestamp !== undefined && output.Timestamp !== null
+        ? new Date(Math.round(output.Timestamp * 1000))
+        : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DataPointsList = (
@@ -475,71 +471,56 @@ const deserializeAws_json1_1DescribeDimensionKeysResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeDimensionKeysResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeDimensionKeysResponse",
-    AlignedEndTime: undefined,
-    AlignedStartTime: undefined,
-    Keys: undefined,
-    NextToken: undefined,
-    PartitionKeys: undefined
-  };
-  if (output.AlignedEndTime !== undefined && output.AlignedEndTime !== null) {
-    contents.AlignedEndTime = new Date(
-      Math.round(output.AlignedEndTime * 1000)
-    );
-  }
-  if (
-    output.AlignedStartTime !== undefined &&
-    output.AlignedStartTime !== null
-  ) {
-    contents.AlignedStartTime = new Date(
-      Math.round(output.AlignedStartTime * 1000)
-    );
-  }
-  if (output.Keys !== undefined && output.Keys !== null) {
-    contents.Keys = deserializeAws_json1_1DimensionKeyDescriptionList(
-      output.Keys,
-      context
-    );
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.PartitionKeys !== undefined && output.PartitionKeys !== null) {
-    contents.PartitionKeys = deserializeAws_json1_1ResponsePartitionKeyList(
-      output.PartitionKeys,
-      context
-    );
-  }
-  return contents;
+    AlignedEndTime:
+      output.AlignedEndTime !== undefined && output.AlignedEndTime !== null
+        ? new Date(Math.round(output.AlignedEndTime * 1000))
+        : undefined,
+    AlignedStartTime:
+      output.AlignedStartTime !== undefined && output.AlignedStartTime !== null
+        ? new Date(Math.round(output.AlignedStartTime * 1000))
+        : undefined,
+    Keys:
+      output.Keys !== undefined && output.Keys !== null
+        ? deserializeAws_json1_1DimensionKeyDescriptionList(
+            output.Keys,
+            context
+          )
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    PartitionKeys:
+      output.PartitionKeys !== undefined && output.PartitionKeys !== null
+        ? deserializeAws_json1_1ResponsePartitionKeyList(
+            output.PartitionKeys,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DimensionKeyDescription = (
   output: any,
   context: __SerdeContext
 ): DimensionKeyDescription => {
-  let contents: any = {
+  return {
     __type: "DimensionKeyDescription",
-    Dimensions: undefined,
-    Partitions: undefined,
-    Total: undefined
-  };
-  if (output.Dimensions !== undefined && output.Dimensions !== null) {
-    contents.Dimensions = deserializeAws_json1_1DimensionMap(
-      output.Dimensions,
-      context
-    );
-  }
-  if (output.Partitions !== undefined && output.Partitions !== null) {
-    contents.Partitions = deserializeAws_json1_1MetricValuesList(
-      output.Partitions,
-      context
-    );
-  }
-  if (output.Total !== undefined && output.Total !== null) {
-    contents.Total = output.Total;
-  }
-  return contents;
+    Dimensions:
+      output.Dimensions !== undefined && output.Dimensions !== null
+        ? deserializeAws_json1_1DimensionMap(output.Dimensions, context)
+        : undefined,
+    Partitions:
+      output.Partitions !== undefined && output.Partitions !== null
+        ? deserializeAws_json1_1MetricValuesList(output.Partitions, context)
+        : undefined,
+    Total:
+      output.Total !== undefined && output.Total !== null
+        ? output.Total
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DimensionKeyDescriptionList = (
@@ -565,64 +546,49 @@ const deserializeAws_json1_1GetResourceMetricsResponse = (
   output: any,
   context: __SerdeContext
 ): GetResourceMetricsResponse => {
-  let contents: any = {
+  return {
     __type: "GetResourceMetricsResponse",
-    AlignedEndTime: undefined,
-    AlignedStartTime: undefined,
-    Identifier: undefined,
-    MetricList: undefined,
-    NextToken: undefined
-  };
-  if (output.AlignedEndTime !== undefined && output.AlignedEndTime !== null) {
-    contents.AlignedEndTime = new Date(
-      Math.round(output.AlignedEndTime * 1000)
-    );
-  }
-  if (
-    output.AlignedStartTime !== undefined &&
-    output.AlignedStartTime !== null
-  ) {
-    contents.AlignedStartTime = new Date(
-      Math.round(output.AlignedStartTime * 1000)
-    );
-  }
-  if (output.Identifier !== undefined && output.Identifier !== null) {
-    contents.Identifier = output.Identifier;
-  }
-  if (output.MetricList !== undefined && output.MetricList !== null) {
-    contents.MetricList = deserializeAws_json1_1MetricKeyDataPointsList(
-      output.MetricList,
-      context
-    );
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  return contents;
+    AlignedEndTime:
+      output.AlignedEndTime !== undefined && output.AlignedEndTime !== null
+        ? new Date(Math.round(output.AlignedEndTime * 1000))
+        : undefined,
+    AlignedStartTime:
+      output.AlignedStartTime !== undefined && output.AlignedStartTime !== null
+        ? new Date(Math.round(output.AlignedStartTime * 1000))
+        : undefined,
+    Identifier:
+      output.Identifier !== undefined && output.Identifier !== null
+        ? output.Identifier
+        : undefined,
+    MetricList:
+      output.MetricList !== undefined && output.MetricList !== null
+        ? deserializeAws_json1_1MetricKeyDataPointsList(
+            output.MetricList,
+            context
+          )
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1MetricKeyDataPoints = (
   output: any,
   context: __SerdeContext
 ): MetricKeyDataPoints => {
-  let contents: any = {
+  return {
     __type: "MetricKeyDataPoints",
-    DataPoints: undefined,
-    Key: undefined
-  };
-  if (output.DataPoints !== undefined && output.DataPoints !== null) {
-    contents.DataPoints = deserializeAws_json1_1DataPointsList(
-      output.DataPoints,
-      context
-    );
-  }
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = deserializeAws_json1_1ResponseResourceMetricKey(
-      output.Key,
-      context
-    );
-  }
-  return contents;
+    DataPoints:
+      output.DataPoints !== undefined && output.DataPoints !== null
+        ? deserializeAws_json1_1DataPointsList(output.DataPoints, context)
+        : undefined,
+    Key:
+      output.Key !== undefined && output.Key !== null
+        ? deserializeAws_json1_1ResponseResourceMetricKey(output.Key, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1MetricKeyDataPointsList = (
@@ -645,17 +611,13 @@ const deserializeAws_json1_1ResponsePartitionKey = (
   output: any,
   context: __SerdeContext
 ): ResponsePartitionKey => {
-  let contents: any = {
+  return {
     __type: "ResponsePartitionKey",
-    Dimensions: undefined
-  };
-  if (output.Dimensions !== undefined && output.Dimensions !== null) {
-    contents.Dimensions = deserializeAws_json1_1DimensionMap(
-      output.Dimensions,
-      context
-    );
-  }
-  return contents;
+    Dimensions:
+      output.Dimensions !== undefined && output.Dimensions !== null
+        ? deserializeAws_json1_1DimensionMap(output.Dimensions, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResponsePartitionKeyList = (
@@ -671,21 +633,17 @@ const deserializeAws_json1_1ResponseResourceMetricKey = (
   output: any,
   context: __SerdeContext
 ): ResponseResourceMetricKey => {
-  let contents: any = {
+  return {
     __type: "ResponseResourceMetricKey",
-    Dimensions: undefined,
-    Metric: undefined
-  };
-  if (output.Dimensions !== undefined && output.Dimensions !== null) {
-    contents.Dimensions = deserializeAws_json1_1DimensionMap(
-      output.Dimensions,
-      context
-    );
-  }
-  if (output.Metric !== undefined && output.Metric !== null) {
-    contents.Metric = output.Metric;
-  }
-  return contents;
+    Dimensions:
+      output.Dimensions !== undefined && output.Dimensions !== null
+        ? deserializeAws_json1_1DimensionMap(output.Dimensions, context)
+        : undefined,
+    Metric:
+      output.Metric !== undefined && output.Metric !== null
+        ? output.Metric
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

@@ -8978,73 +8978,65 @@ const deserializeAws_json1_1AcceptSharedDirectoryResult = (
   output: any,
   context: __SerdeContext
 ): AcceptSharedDirectoryResult => {
-  let contents: any = {
+  return {
     __type: "AcceptSharedDirectoryResult",
-    SharedDirectory: undefined
-  };
-  if (output.SharedDirectory !== undefined && output.SharedDirectory !== null) {
-    contents.SharedDirectory = deserializeAws_json1_1SharedDirectory(
-      output.SharedDirectory,
-      context
-    );
-  }
-  return contents;
+    SharedDirectory:
+      output.SharedDirectory !== undefined && output.SharedDirectory !== null
+        ? deserializeAws_json1_1SharedDirectory(output.SharedDirectory, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1AccessDeniedException = (
   output: any,
   context: __SerdeContext
 ): AccessDeniedException => {
-  let contents: any = {
+  return {
     __type: "AccessDeniedException",
-    Message: undefined,
-    RequestId: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.RequestId !== undefined && output.RequestId !== null) {
-    contents.RequestId = output.RequestId;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    RequestId:
+      output.RequestId !== undefined && output.RequestId !== null
+        ? output.RequestId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1AddIpRoutesResult = (
   output: any,
   context: __SerdeContext
 ): AddIpRoutesResult => {
-  let contents: any = {
+  return {
     __type: "AddIpRoutesResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1AddTagsToResourceResult = (
   output: any,
   context: __SerdeContext
 ): AddTagsToResourceResult => {
-  let contents: any = {
+  return {
     __type: "AddTagsToResourceResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1Attribute = (
   output: any,
   context: __SerdeContext
 ): Attribute => {
-  let contents: any = {
+  return {
     __type: "Attribute",
-    Name: undefined,
-    Value: undefined
-  };
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Attributes = (
@@ -9060,18 +9052,17 @@ const deserializeAws_json1_1AuthenticationFailedException = (
   output: any,
   context: __SerdeContext
 ): AuthenticationFailedException => {
-  let contents: any = {
+  return {
     __type: "AuthenticationFailedException",
-    Message: undefined,
-    RequestId: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.RequestId !== undefined && output.RequestId !== null) {
-    contents.RequestId = output.RequestId;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    RequestId:
+      output.RequestId !== undefined && output.RequestId !== null
+        ? output.RequestId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1AvailabilityZones = (
@@ -9085,145 +9076,132 @@ const deserializeAws_json1_1CancelSchemaExtensionResult = (
   output: any,
   context: __SerdeContext
 ): CancelSchemaExtensionResult => {
-  let contents: any = {
+  return {
     __type: "CancelSchemaExtensionResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1Certificate = (
   output: any,
   context: __SerdeContext
 ): Certificate => {
-  let contents: any = {
+  return {
     __type: "Certificate",
-    CertificateId: undefined,
-    CommonName: undefined,
-    ExpiryDateTime: undefined,
-    RegisteredDateTime: undefined,
-    State: undefined,
-    StateReason: undefined
-  };
-  if (output.CertificateId !== undefined && output.CertificateId !== null) {
-    contents.CertificateId = output.CertificateId;
-  }
-  if (output.CommonName !== undefined && output.CommonName !== null) {
-    contents.CommonName = output.CommonName;
-  }
-  if (output.ExpiryDateTime !== undefined && output.ExpiryDateTime !== null) {
-    contents.ExpiryDateTime = new Date(
-      Math.round(output.ExpiryDateTime * 1000)
-    );
-  }
-  if (
-    output.RegisteredDateTime !== undefined &&
-    output.RegisteredDateTime !== null
-  ) {
-    contents.RegisteredDateTime = new Date(
-      Math.round(output.RegisteredDateTime * 1000)
-    );
-  }
-  if (output.State !== undefined && output.State !== null) {
-    contents.State = output.State;
-  }
-  if (output.StateReason !== undefined && output.StateReason !== null) {
-    contents.StateReason = output.StateReason;
-  }
-  return contents;
+    CertificateId:
+      output.CertificateId !== undefined && output.CertificateId !== null
+        ? output.CertificateId
+        : undefined,
+    CommonName:
+      output.CommonName !== undefined && output.CommonName !== null
+        ? output.CommonName
+        : undefined,
+    ExpiryDateTime:
+      output.ExpiryDateTime !== undefined && output.ExpiryDateTime !== null
+        ? new Date(Math.round(output.ExpiryDateTime * 1000))
+        : undefined,
+    RegisteredDateTime:
+      output.RegisteredDateTime !== undefined &&
+      output.RegisteredDateTime !== null
+        ? new Date(Math.round(output.RegisteredDateTime * 1000))
+        : undefined,
+    State:
+      output.State !== undefined && output.State !== null
+        ? output.State
+        : undefined,
+    StateReason:
+      output.StateReason !== undefined && output.StateReason !== null
+        ? output.StateReason
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CertificateAlreadyExistsException = (
   output: any,
   context: __SerdeContext
 ): CertificateAlreadyExistsException => {
-  let contents: any = {
+  return {
     __type: "CertificateAlreadyExistsException",
-    Message: undefined,
-    RequestId: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.RequestId !== undefined && output.RequestId !== null) {
-    contents.RequestId = output.RequestId;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    RequestId:
+      output.RequestId !== undefined && output.RequestId !== null
+        ? output.RequestId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CertificateDoesNotExistException = (
   output: any,
   context: __SerdeContext
 ): CertificateDoesNotExistException => {
-  let contents: any = {
+  return {
     __type: "CertificateDoesNotExistException",
-    Message: undefined,
-    RequestId: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.RequestId !== undefined && output.RequestId !== null) {
-    contents.RequestId = output.RequestId;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    RequestId:
+      output.RequestId !== undefined && output.RequestId !== null
+        ? output.RequestId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CertificateInUseException = (
   output: any,
   context: __SerdeContext
 ): CertificateInUseException => {
-  let contents: any = {
+  return {
     __type: "CertificateInUseException",
-    Message: undefined,
-    RequestId: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.RequestId !== undefined && output.RequestId !== null) {
-    contents.RequestId = output.RequestId;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    RequestId:
+      output.RequestId !== undefined && output.RequestId !== null
+        ? output.RequestId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CertificateInfo = (
   output: any,
   context: __SerdeContext
 ): CertificateInfo => {
-  let contents: any = {
+  return {
     __type: "CertificateInfo",
-    CertificateId: undefined,
-    CommonName: undefined,
-    State: undefined
-  };
-  if (output.CertificateId !== undefined && output.CertificateId !== null) {
-    contents.CertificateId = output.CertificateId;
-  }
-  if (output.CommonName !== undefined && output.CommonName !== null) {
-    contents.CommonName = output.CommonName;
-  }
-  if (output.State !== undefined && output.State !== null) {
-    contents.State = output.State;
-  }
-  return contents;
+    CertificateId:
+      output.CertificateId !== undefined && output.CertificateId !== null
+        ? output.CertificateId
+        : undefined,
+    CommonName:
+      output.CommonName !== undefined && output.CommonName !== null
+        ? output.CommonName
+        : undefined,
+    State:
+      output.State !== undefined && output.State !== null
+        ? output.State
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CertificateLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): CertificateLimitExceededException => {
-  let contents: any = {
+  return {
     __type: "CertificateLimitExceededException",
-    Message: undefined,
-    RequestId: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.RequestId !== undefined && output.RequestId !== null) {
-    contents.RequestId = output.RequestId;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    RequestId:
+      output.RequestId !== undefined && output.RequestId !== null
+        ? output.RequestId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CertificatesInfo = (
@@ -9239,77 +9217,60 @@ const deserializeAws_json1_1ClientException = (
   output: any,
   context: __SerdeContext
 ): ClientException => {
-  let contents: any = {
+  return {
     __type: "ClientException",
-    Message: undefined,
-    RequestId: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.RequestId !== undefined && output.RequestId !== null) {
-    contents.RequestId = output.RequestId;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    RequestId:
+      output.RequestId !== undefined && output.RequestId !== null
+        ? output.RequestId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Computer = (
   output: any,
   context: __SerdeContext
 ): Computer => {
-  let contents: any = {
+  return {
     __type: "Computer",
-    ComputerAttributes: undefined,
-    ComputerId: undefined,
-    ComputerName: undefined
-  };
-  if (
-    output.ComputerAttributes !== undefined &&
-    output.ComputerAttributes !== null
-  ) {
-    contents.ComputerAttributes = deserializeAws_json1_1Attributes(
-      output.ComputerAttributes,
-      context
-    );
-  }
-  if (output.ComputerId !== undefined && output.ComputerId !== null) {
-    contents.ComputerId = output.ComputerId;
-  }
-  if (output.ComputerName !== undefined && output.ComputerName !== null) {
-    contents.ComputerName = output.ComputerName;
-  }
-  return contents;
+    ComputerAttributes:
+      output.ComputerAttributes !== undefined &&
+      output.ComputerAttributes !== null
+        ? deserializeAws_json1_1Attributes(output.ComputerAttributes, context)
+        : undefined,
+    ComputerId:
+      output.ComputerId !== undefined && output.ComputerId !== null
+        ? output.ComputerId
+        : undefined,
+    ComputerName:
+      output.ComputerName !== undefined && output.ComputerName !== null
+        ? output.ComputerName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ConditionalForwarder = (
   output: any,
   context: __SerdeContext
 ): ConditionalForwarder => {
-  let contents: any = {
+  return {
     __type: "ConditionalForwarder",
-    DnsIpAddrs: undefined,
-    RemoteDomainName: undefined,
-    ReplicationScope: undefined
-  };
-  if (output.DnsIpAddrs !== undefined && output.DnsIpAddrs !== null) {
-    contents.DnsIpAddrs = deserializeAws_json1_1DnsIpAddrs(
-      output.DnsIpAddrs,
-      context
-    );
-  }
-  if (
-    output.RemoteDomainName !== undefined &&
-    output.RemoteDomainName !== null
-  ) {
-    contents.RemoteDomainName = output.RemoteDomainName;
-  }
-  if (
-    output.ReplicationScope !== undefined &&
-    output.ReplicationScope !== null
-  ) {
-    contents.ReplicationScope = output.ReplicationScope;
-  }
-  return contents;
+    DnsIpAddrs:
+      output.DnsIpAddrs !== undefined && output.DnsIpAddrs !== null
+        ? deserializeAws_json1_1DnsIpAddrs(output.DnsIpAddrs, context)
+        : undefined,
+    RemoteDomainName:
+      output.RemoteDomainName !== undefined && output.RemoteDomainName !== null
+        ? output.RemoteDomainName
+        : undefined,
+    ReplicationScope:
+      output.ReplicationScope !== undefined && output.ReplicationScope !== null
+        ? output.ReplicationScope
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ConditionalForwarders = (
@@ -9325,596 +9286,520 @@ const deserializeAws_json1_1ConnectDirectoryResult = (
   output: any,
   context: __SerdeContext
 ): ConnectDirectoryResult => {
-  let contents: any = {
+  return {
     __type: "ConnectDirectoryResult",
-    DirectoryId: undefined
-  };
-  if (output.DirectoryId !== undefined && output.DirectoryId !== null) {
-    contents.DirectoryId = output.DirectoryId;
-  }
-  return contents;
+    DirectoryId:
+      output.DirectoryId !== undefined && output.DirectoryId !== null
+        ? output.DirectoryId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateAliasResult = (
   output: any,
   context: __SerdeContext
 ): CreateAliasResult => {
-  let contents: any = {
+  return {
     __type: "CreateAliasResult",
-    Alias: undefined,
-    DirectoryId: undefined
-  };
-  if (output.Alias !== undefined && output.Alias !== null) {
-    contents.Alias = output.Alias;
-  }
-  if (output.DirectoryId !== undefined && output.DirectoryId !== null) {
-    contents.DirectoryId = output.DirectoryId;
-  }
-  return contents;
+    Alias:
+      output.Alias !== undefined && output.Alias !== null
+        ? output.Alias
+        : undefined,
+    DirectoryId:
+      output.DirectoryId !== undefined && output.DirectoryId !== null
+        ? output.DirectoryId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateComputerResult = (
   output: any,
   context: __SerdeContext
 ): CreateComputerResult => {
-  let contents: any = {
+  return {
     __type: "CreateComputerResult",
-    Computer: undefined
-  };
-  if (output.Computer !== undefined && output.Computer !== null) {
-    contents.Computer = deserializeAws_json1_1Computer(
-      output.Computer,
-      context
-    );
-  }
-  return contents;
+    Computer:
+      output.Computer !== undefined && output.Computer !== null
+        ? deserializeAws_json1_1Computer(output.Computer, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateConditionalForwarderResult = (
   output: any,
   context: __SerdeContext
 ): CreateConditionalForwarderResult => {
-  let contents: any = {
+  return {
     __type: "CreateConditionalForwarderResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1CreateDirectoryResult = (
   output: any,
   context: __SerdeContext
 ): CreateDirectoryResult => {
-  let contents: any = {
+  return {
     __type: "CreateDirectoryResult",
-    DirectoryId: undefined
-  };
-  if (output.DirectoryId !== undefined && output.DirectoryId !== null) {
-    contents.DirectoryId = output.DirectoryId;
-  }
-  return contents;
+    DirectoryId:
+      output.DirectoryId !== undefined && output.DirectoryId !== null
+        ? output.DirectoryId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateLogSubscriptionResult = (
   output: any,
   context: __SerdeContext
 ): CreateLogSubscriptionResult => {
-  let contents: any = {
+  return {
     __type: "CreateLogSubscriptionResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1CreateMicrosoftADResult = (
   output: any,
   context: __SerdeContext
 ): CreateMicrosoftADResult => {
-  let contents: any = {
+  return {
     __type: "CreateMicrosoftADResult",
-    DirectoryId: undefined
-  };
-  if (output.DirectoryId !== undefined && output.DirectoryId !== null) {
-    contents.DirectoryId = output.DirectoryId;
-  }
-  return contents;
+    DirectoryId:
+      output.DirectoryId !== undefined && output.DirectoryId !== null
+        ? output.DirectoryId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateSnapshotResult = (
   output: any,
   context: __SerdeContext
 ): CreateSnapshotResult => {
-  let contents: any = {
+  return {
     __type: "CreateSnapshotResult",
-    SnapshotId: undefined
-  };
-  if (output.SnapshotId !== undefined && output.SnapshotId !== null) {
-    contents.SnapshotId = output.SnapshotId;
-  }
-  return contents;
+    SnapshotId:
+      output.SnapshotId !== undefined && output.SnapshotId !== null
+        ? output.SnapshotId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateTrustResult = (
   output: any,
   context: __SerdeContext
 ): CreateTrustResult => {
-  let contents: any = {
+  return {
     __type: "CreateTrustResult",
-    TrustId: undefined
-  };
-  if (output.TrustId !== undefined && output.TrustId !== null) {
-    contents.TrustId = output.TrustId;
-  }
-  return contents;
+    TrustId:
+      output.TrustId !== undefined && output.TrustId !== null
+        ? output.TrustId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteConditionalForwarderResult = (
   output: any,
   context: __SerdeContext
 ): DeleteConditionalForwarderResult => {
-  let contents: any = {
+  return {
     __type: "DeleteConditionalForwarderResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteDirectoryResult = (
   output: any,
   context: __SerdeContext
 ): DeleteDirectoryResult => {
-  let contents: any = {
+  return {
     __type: "DeleteDirectoryResult",
-    DirectoryId: undefined
-  };
-  if (output.DirectoryId !== undefined && output.DirectoryId !== null) {
-    contents.DirectoryId = output.DirectoryId;
-  }
-  return contents;
+    DirectoryId:
+      output.DirectoryId !== undefined && output.DirectoryId !== null
+        ? output.DirectoryId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteLogSubscriptionResult = (
   output: any,
   context: __SerdeContext
 ): DeleteLogSubscriptionResult => {
-  let contents: any = {
+  return {
     __type: "DeleteLogSubscriptionResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteSnapshotResult = (
   output: any,
   context: __SerdeContext
 ): DeleteSnapshotResult => {
-  let contents: any = {
+  return {
     __type: "DeleteSnapshotResult",
-    SnapshotId: undefined
-  };
-  if (output.SnapshotId !== undefined && output.SnapshotId !== null) {
-    contents.SnapshotId = output.SnapshotId;
-  }
-  return contents;
+    SnapshotId:
+      output.SnapshotId !== undefined && output.SnapshotId !== null
+        ? output.SnapshotId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteTrustResult = (
   output: any,
   context: __SerdeContext
 ): DeleteTrustResult => {
-  let contents: any = {
+  return {
     __type: "DeleteTrustResult",
-    TrustId: undefined
-  };
-  if (output.TrustId !== undefined && output.TrustId !== null) {
-    contents.TrustId = output.TrustId;
-  }
-  return contents;
+    TrustId:
+      output.TrustId !== undefined && output.TrustId !== null
+        ? output.TrustId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeregisterCertificateResult = (
   output: any,
   context: __SerdeContext
 ): DeregisterCertificateResult => {
-  let contents: any = {
+  return {
     __type: "DeregisterCertificateResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DeregisterEventTopicResult = (
   output: any,
   context: __SerdeContext
 ): DeregisterEventTopicResult => {
-  let contents: any = {
+  return {
     __type: "DeregisterEventTopicResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeCertificateResult = (
   output: any,
   context: __SerdeContext
 ): DescribeCertificateResult => {
-  let contents: any = {
+  return {
     __type: "DescribeCertificateResult",
-    Certificate: undefined
-  };
-  if (output.Certificate !== undefined && output.Certificate !== null) {
-    contents.Certificate = deserializeAws_json1_1Certificate(
-      output.Certificate,
-      context
-    );
-  }
-  return contents;
+    Certificate:
+      output.Certificate !== undefined && output.Certificate !== null
+        ? deserializeAws_json1_1Certificate(output.Certificate, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeConditionalForwardersResult = (
   output: any,
   context: __SerdeContext
 ): DescribeConditionalForwardersResult => {
-  let contents: any = {
+  return {
     __type: "DescribeConditionalForwardersResult",
-    ConditionalForwarders: undefined
-  };
-  if (
-    output.ConditionalForwarders !== undefined &&
-    output.ConditionalForwarders !== null
-  ) {
-    contents.ConditionalForwarders = deserializeAws_json1_1ConditionalForwarders(
-      output.ConditionalForwarders,
-      context
-    );
-  }
-  return contents;
+    ConditionalForwarders:
+      output.ConditionalForwarders !== undefined &&
+      output.ConditionalForwarders !== null
+        ? deserializeAws_json1_1ConditionalForwarders(
+            output.ConditionalForwarders,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeDirectoriesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeDirectoriesResult => {
-  let contents: any = {
+  return {
     __type: "DescribeDirectoriesResult",
-    DirectoryDescriptions: undefined,
-    NextToken: undefined
-  };
-  if (
-    output.DirectoryDescriptions !== undefined &&
-    output.DirectoryDescriptions !== null
-  ) {
-    contents.DirectoryDescriptions = deserializeAws_json1_1DirectoryDescriptions(
-      output.DirectoryDescriptions,
-      context
-    );
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  return contents;
+    DirectoryDescriptions:
+      output.DirectoryDescriptions !== undefined &&
+      output.DirectoryDescriptions !== null
+        ? deserializeAws_json1_1DirectoryDescriptions(
+            output.DirectoryDescriptions,
+            context
+          )
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeDomainControllersResult = (
   output: any,
   context: __SerdeContext
 ): DescribeDomainControllersResult => {
-  let contents: any = {
+  return {
     __type: "DescribeDomainControllersResult",
-    DomainControllers: undefined,
-    NextToken: undefined
-  };
-  if (
-    output.DomainControllers !== undefined &&
-    output.DomainControllers !== null
-  ) {
-    contents.DomainControllers = deserializeAws_json1_1DomainControllers(
-      output.DomainControllers,
-      context
-    );
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  return contents;
+    DomainControllers:
+      output.DomainControllers !== undefined &&
+      output.DomainControllers !== null
+        ? deserializeAws_json1_1DomainControllers(
+            output.DomainControllers,
+            context
+          )
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeEventTopicsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeEventTopicsResult => {
-  let contents: any = {
+  return {
     __type: "DescribeEventTopicsResult",
-    EventTopics: undefined
-  };
-  if (output.EventTopics !== undefined && output.EventTopics !== null) {
-    contents.EventTopics = deserializeAws_json1_1EventTopics(
-      output.EventTopics,
-      context
-    );
-  }
-  return contents;
+    EventTopics:
+      output.EventTopics !== undefined && output.EventTopics !== null
+        ? deserializeAws_json1_1EventTopics(output.EventTopics, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeLDAPSSettingsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeLDAPSSettingsResult => {
-  let contents: any = {
+  return {
     __type: "DescribeLDAPSSettingsResult",
-    LDAPSSettingsInfo: undefined,
-    NextToken: undefined
-  };
-  if (
-    output.LDAPSSettingsInfo !== undefined &&
-    output.LDAPSSettingsInfo !== null
-  ) {
-    contents.LDAPSSettingsInfo = deserializeAws_json1_1LDAPSSettingsInfo(
-      output.LDAPSSettingsInfo,
-      context
-    );
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  return contents;
+    LDAPSSettingsInfo:
+      output.LDAPSSettingsInfo !== undefined &&
+      output.LDAPSSettingsInfo !== null
+        ? deserializeAws_json1_1LDAPSSettingsInfo(
+            output.LDAPSSettingsInfo,
+            context
+          )
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeSharedDirectoriesResult = (
   output: any,
   context: __SerdeContext
 ): DescribeSharedDirectoriesResult => {
-  let contents: any = {
+  return {
     __type: "DescribeSharedDirectoriesResult",
-    NextToken: undefined,
-    SharedDirectories: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (
-    output.SharedDirectories !== undefined &&
-    output.SharedDirectories !== null
-  ) {
-    contents.SharedDirectories = deserializeAws_json1_1SharedDirectories(
-      output.SharedDirectories,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    SharedDirectories:
+      output.SharedDirectories !== undefined &&
+      output.SharedDirectories !== null
+        ? deserializeAws_json1_1SharedDirectories(
+            output.SharedDirectories,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeSnapshotsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeSnapshotsResult => {
-  let contents: any = {
+  return {
     __type: "DescribeSnapshotsResult",
-    NextToken: undefined,
-    Snapshots: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.Snapshots !== undefined && output.Snapshots !== null) {
-    contents.Snapshots = deserializeAws_json1_1Snapshots(
-      output.Snapshots,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Snapshots:
+      output.Snapshots !== undefined && output.Snapshots !== null
+        ? deserializeAws_json1_1Snapshots(output.Snapshots, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeTrustsResult = (
   output: any,
   context: __SerdeContext
 ): DescribeTrustsResult => {
-  let contents: any = {
+  return {
     __type: "DescribeTrustsResult",
-    NextToken: undefined,
-    Trusts: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.Trusts !== undefined && output.Trusts !== null) {
-    contents.Trusts = deserializeAws_json1_1Trusts(output.Trusts, context);
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Trusts:
+      output.Trusts !== undefined && output.Trusts !== null
+        ? deserializeAws_json1_1Trusts(output.Trusts, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DirectoryAlreadySharedException = (
   output: any,
   context: __SerdeContext
 ): DirectoryAlreadySharedException => {
-  let contents: any = {
+  return {
     __type: "DirectoryAlreadySharedException",
-    Message: undefined,
-    RequestId: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.RequestId !== undefined && output.RequestId !== null) {
-    contents.RequestId = output.RequestId;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    RequestId:
+      output.RequestId !== undefined && output.RequestId !== null
+        ? output.RequestId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DirectoryConnectSettingsDescription = (
   output: any,
   context: __SerdeContext
 ): DirectoryConnectSettingsDescription => {
-  let contents: any = {
+  return {
     __type: "DirectoryConnectSettingsDescription",
-    AvailabilityZones: undefined,
-    ConnectIps: undefined,
-    CustomerUserName: undefined,
-    SecurityGroupId: undefined,
-    SubnetIds: undefined,
-    VpcId: undefined
-  };
-  if (
-    output.AvailabilityZones !== undefined &&
-    output.AvailabilityZones !== null
-  ) {
-    contents.AvailabilityZones = deserializeAws_json1_1AvailabilityZones(
-      output.AvailabilityZones,
-      context
-    );
-  }
-  if (output.ConnectIps !== undefined && output.ConnectIps !== null) {
-    contents.ConnectIps = deserializeAws_json1_1IpAddrs(
-      output.ConnectIps,
-      context
-    );
-  }
-  if (
-    output.CustomerUserName !== undefined &&
-    output.CustomerUserName !== null
-  ) {
-    contents.CustomerUserName = output.CustomerUserName;
-  }
-  if (output.SecurityGroupId !== undefined && output.SecurityGroupId !== null) {
-    contents.SecurityGroupId = output.SecurityGroupId;
-  }
-  if (output.SubnetIds !== undefined && output.SubnetIds !== null) {
-    contents.SubnetIds = deserializeAws_json1_1SubnetIds(
-      output.SubnetIds,
-      context
-    );
-  }
-  if (output.VpcId !== undefined && output.VpcId !== null) {
-    contents.VpcId = output.VpcId;
-  }
-  return contents;
+    AvailabilityZones:
+      output.AvailabilityZones !== undefined &&
+      output.AvailabilityZones !== null
+        ? deserializeAws_json1_1AvailabilityZones(
+            output.AvailabilityZones,
+            context
+          )
+        : undefined,
+    ConnectIps:
+      output.ConnectIps !== undefined && output.ConnectIps !== null
+        ? deserializeAws_json1_1IpAddrs(output.ConnectIps, context)
+        : undefined,
+    CustomerUserName:
+      output.CustomerUserName !== undefined && output.CustomerUserName !== null
+        ? output.CustomerUserName
+        : undefined,
+    SecurityGroupId:
+      output.SecurityGroupId !== undefined && output.SecurityGroupId !== null
+        ? output.SecurityGroupId
+        : undefined,
+    SubnetIds:
+      output.SubnetIds !== undefined && output.SubnetIds !== null
+        ? deserializeAws_json1_1SubnetIds(output.SubnetIds, context)
+        : undefined,
+    VpcId:
+      output.VpcId !== undefined && output.VpcId !== null
+        ? output.VpcId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DirectoryDescription = (
   output: any,
   context: __SerdeContext
 ): DirectoryDescription => {
-  let contents: any = {
+  return {
     __type: "DirectoryDescription",
-    AccessUrl: undefined,
-    Alias: undefined,
-    ConnectSettings: undefined,
-    Description: undefined,
-    DesiredNumberOfDomainControllers: undefined,
-    DirectoryId: undefined,
-    DnsIpAddrs: undefined,
-    Edition: undefined,
-    LaunchTime: undefined,
-    Name: undefined,
-    OwnerDirectoryDescription: undefined,
-    RadiusSettings: undefined,
-    RadiusStatus: undefined,
-    ShareMethod: undefined,
-    ShareNotes: undefined,
-    ShareStatus: undefined,
-    ShortName: undefined,
-    Size: undefined,
-    SsoEnabled: undefined,
-    Stage: undefined,
-    StageLastUpdatedDateTime: undefined,
-    StageReason: undefined,
-    Type: undefined,
-    VpcSettings: undefined
-  };
-  if (output.AccessUrl !== undefined && output.AccessUrl !== null) {
-    contents.AccessUrl = output.AccessUrl;
-  }
-  if (output.Alias !== undefined && output.Alias !== null) {
-    contents.Alias = output.Alias;
-  }
-  if (output.ConnectSettings !== undefined && output.ConnectSettings !== null) {
-    contents.ConnectSettings = deserializeAws_json1_1DirectoryConnectSettingsDescription(
-      output.ConnectSettings,
-      context
-    );
-  }
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (
-    output.DesiredNumberOfDomainControllers !== undefined &&
-    output.DesiredNumberOfDomainControllers !== null
-  ) {
-    contents.DesiredNumberOfDomainControllers =
-      output.DesiredNumberOfDomainControllers;
-  }
-  if (output.DirectoryId !== undefined && output.DirectoryId !== null) {
-    contents.DirectoryId = output.DirectoryId;
-  }
-  if (output.DnsIpAddrs !== undefined && output.DnsIpAddrs !== null) {
-    contents.DnsIpAddrs = deserializeAws_json1_1DnsIpAddrs(
-      output.DnsIpAddrs,
-      context
-    );
-  }
-  if (output.Edition !== undefined && output.Edition !== null) {
-    contents.Edition = output.Edition;
-  }
-  if (output.LaunchTime !== undefined && output.LaunchTime !== null) {
-    contents.LaunchTime = new Date(Math.round(output.LaunchTime * 1000));
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (
-    output.OwnerDirectoryDescription !== undefined &&
-    output.OwnerDirectoryDescription !== null
-  ) {
-    contents.OwnerDirectoryDescription = deserializeAws_json1_1OwnerDirectoryDescription(
-      output.OwnerDirectoryDescription,
-      context
-    );
-  }
-  if (output.RadiusSettings !== undefined && output.RadiusSettings !== null) {
-    contents.RadiusSettings = deserializeAws_json1_1RadiusSettings(
-      output.RadiusSettings,
-      context
-    );
-  }
-  if (output.RadiusStatus !== undefined && output.RadiusStatus !== null) {
-    contents.RadiusStatus = output.RadiusStatus;
-  }
-  if (output.ShareMethod !== undefined && output.ShareMethod !== null) {
-    contents.ShareMethod = output.ShareMethod;
-  }
-  if (output.ShareNotes !== undefined && output.ShareNotes !== null) {
-    contents.ShareNotes = output.ShareNotes;
-  }
-  if (output.ShareStatus !== undefined && output.ShareStatus !== null) {
-    contents.ShareStatus = output.ShareStatus;
-  }
-  if (output.ShortName !== undefined && output.ShortName !== null) {
-    contents.ShortName = output.ShortName;
-  }
-  if (output.Size !== undefined && output.Size !== null) {
-    contents.Size = output.Size;
-  }
-  if (output.SsoEnabled !== undefined && output.SsoEnabled !== null) {
-    contents.SsoEnabled = output.SsoEnabled;
-  }
-  if (output.Stage !== undefined && output.Stage !== null) {
-    contents.Stage = output.Stage;
-  }
-  if (
-    output.StageLastUpdatedDateTime !== undefined &&
-    output.StageLastUpdatedDateTime !== null
-  ) {
-    contents.StageLastUpdatedDateTime = new Date(
-      Math.round(output.StageLastUpdatedDateTime * 1000)
-    );
-  }
-  if (output.StageReason !== undefined && output.StageReason !== null) {
-    contents.StageReason = output.StageReason;
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  if (output.VpcSettings !== undefined && output.VpcSettings !== null) {
-    contents.VpcSettings = deserializeAws_json1_1DirectoryVpcSettingsDescription(
-      output.VpcSettings,
-      context
-    );
-  }
-  return contents;
+    AccessUrl:
+      output.AccessUrl !== undefined && output.AccessUrl !== null
+        ? output.AccessUrl
+        : undefined,
+    Alias:
+      output.Alias !== undefined && output.Alias !== null
+        ? output.Alias
+        : undefined,
+    ConnectSettings:
+      output.ConnectSettings !== undefined && output.ConnectSettings !== null
+        ? deserializeAws_json1_1DirectoryConnectSettingsDescription(
+            output.ConnectSettings,
+            context
+          )
+        : undefined,
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    DesiredNumberOfDomainControllers:
+      output.DesiredNumberOfDomainControllers !== undefined &&
+      output.DesiredNumberOfDomainControllers !== null
+        ? output.DesiredNumberOfDomainControllers
+        : undefined,
+    DirectoryId:
+      output.DirectoryId !== undefined && output.DirectoryId !== null
+        ? output.DirectoryId
+        : undefined,
+    DnsIpAddrs:
+      output.DnsIpAddrs !== undefined && output.DnsIpAddrs !== null
+        ? deserializeAws_json1_1DnsIpAddrs(output.DnsIpAddrs, context)
+        : undefined,
+    Edition:
+      output.Edition !== undefined && output.Edition !== null
+        ? output.Edition
+        : undefined,
+    LaunchTime:
+      output.LaunchTime !== undefined && output.LaunchTime !== null
+        ? new Date(Math.round(output.LaunchTime * 1000))
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    OwnerDirectoryDescription:
+      output.OwnerDirectoryDescription !== undefined &&
+      output.OwnerDirectoryDescription !== null
+        ? deserializeAws_json1_1OwnerDirectoryDescription(
+            output.OwnerDirectoryDescription,
+            context
+          )
+        : undefined,
+    RadiusSettings:
+      output.RadiusSettings !== undefined && output.RadiusSettings !== null
+        ? deserializeAws_json1_1RadiusSettings(output.RadiusSettings, context)
+        : undefined,
+    RadiusStatus:
+      output.RadiusStatus !== undefined && output.RadiusStatus !== null
+        ? output.RadiusStatus
+        : undefined,
+    ShareMethod:
+      output.ShareMethod !== undefined && output.ShareMethod !== null
+        ? output.ShareMethod
+        : undefined,
+    ShareNotes:
+      output.ShareNotes !== undefined && output.ShareNotes !== null
+        ? output.ShareNotes
+        : undefined,
+    ShareStatus:
+      output.ShareStatus !== undefined && output.ShareStatus !== null
+        ? output.ShareStatus
+        : undefined,
+    ShortName:
+      output.ShortName !== undefined && output.ShortName !== null
+        ? output.ShortName
+        : undefined,
+    Size:
+      output.Size !== undefined && output.Size !== null
+        ? output.Size
+        : undefined,
+    SsoEnabled:
+      output.SsoEnabled !== undefined && output.SsoEnabled !== null
+        ? output.SsoEnabled
+        : undefined,
+    Stage:
+      output.Stage !== undefined && output.Stage !== null
+        ? output.Stage
+        : undefined,
+    StageLastUpdatedDateTime:
+      output.StageLastUpdatedDateTime !== undefined &&
+      output.StageLastUpdatedDateTime !== null
+        ? new Date(Math.round(output.StageLastUpdatedDateTime * 1000))
+        : undefined,
+    StageReason:
+      output.StageReason !== undefined && output.StageReason !== null
+        ? output.StageReason
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined,
+    VpcSettings:
+      output.VpcSettings !== undefined && output.VpcSettings !== null
+        ? deserializeAws_json1_1DirectoryVpcSettingsDescription(
+            output.VpcSettings,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DirectoryDescriptions = (
@@ -9930,216 +9815,178 @@ const deserializeAws_json1_1DirectoryDoesNotExistException = (
   output: any,
   context: __SerdeContext
 ): DirectoryDoesNotExistException => {
-  let contents: any = {
+  return {
     __type: "DirectoryDoesNotExistException",
-    Message: undefined,
-    RequestId: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.RequestId !== undefined && output.RequestId !== null) {
-    contents.RequestId = output.RequestId;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    RequestId:
+      output.RequestId !== undefined && output.RequestId !== null
+        ? output.RequestId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DirectoryLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): DirectoryLimitExceededException => {
-  let contents: any = {
+  return {
     __type: "DirectoryLimitExceededException",
-    Message: undefined,
-    RequestId: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.RequestId !== undefined && output.RequestId !== null) {
-    contents.RequestId = output.RequestId;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    RequestId:
+      output.RequestId !== undefined && output.RequestId !== null
+        ? output.RequestId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DirectoryLimits = (
   output: any,
   context: __SerdeContext
 ): DirectoryLimits => {
-  let contents: any = {
+  return {
     __type: "DirectoryLimits",
-    CloudOnlyDirectoriesCurrentCount: undefined,
-    CloudOnlyDirectoriesLimit: undefined,
-    CloudOnlyDirectoriesLimitReached: undefined,
-    CloudOnlyMicrosoftADCurrentCount: undefined,
-    CloudOnlyMicrosoftADLimit: undefined,
-    CloudOnlyMicrosoftADLimitReached: undefined,
-    ConnectedDirectoriesCurrentCount: undefined,
-    ConnectedDirectoriesLimit: undefined,
-    ConnectedDirectoriesLimitReached: undefined
-  };
-  if (
-    output.CloudOnlyDirectoriesCurrentCount !== undefined &&
-    output.CloudOnlyDirectoriesCurrentCount !== null
-  ) {
-    contents.CloudOnlyDirectoriesCurrentCount =
-      output.CloudOnlyDirectoriesCurrentCount;
-  }
-  if (
-    output.CloudOnlyDirectoriesLimit !== undefined &&
-    output.CloudOnlyDirectoriesLimit !== null
-  ) {
-    contents.CloudOnlyDirectoriesLimit = output.CloudOnlyDirectoriesLimit;
-  }
-  if (
-    output.CloudOnlyDirectoriesLimitReached !== undefined &&
-    output.CloudOnlyDirectoriesLimitReached !== null
-  ) {
-    contents.CloudOnlyDirectoriesLimitReached =
-      output.CloudOnlyDirectoriesLimitReached;
-  }
-  if (
-    output.CloudOnlyMicrosoftADCurrentCount !== undefined &&
-    output.CloudOnlyMicrosoftADCurrentCount !== null
-  ) {
-    contents.CloudOnlyMicrosoftADCurrentCount =
-      output.CloudOnlyMicrosoftADCurrentCount;
-  }
-  if (
-    output.CloudOnlyMicrosoftADLimit !== undefined &&
-    output.CloudOnlyMicrosoftADLimit !== null
-  ) {
-    contents.CloudOnlyMicrosoftADLimit = output.CloudOnlyMicrosoftADLimit;
-  }
-  if (
-    output.CloudOnlyMicrosoftADLimitReached !== undefined &&
-    output.CloudOnlyMicrosoftADLimitReached !== null
-  ) {
-    contents.CloudOnlyMicrosoftADLimitReached =
-      output.CloudOnlyMicrosoftADLimitReached;
-  }
-  if (
-    output.ConnectedDirectoriesCurrentCount !== undefined &&
-    output.ConnectedDirectoriesCurrentCount !== null
-  ) {
-    contents.ConnectedDirectoriesCurrentCount =
-      output.ConnectedDirectoriesCurrentCount;
-  }
-  if (
-    output.ConnectedDirectoriesLimit !== undefined &&
-    output.ConnectedDirectoriesLimit !== null
-  ) {
-    contents.ConnectedDirectoriesLimit = output.ConnectedDirectoriesLimit;
-  }
-  if (
-    output.ConnectedDirectoriesLimitReached !== undefined &&
-    output.ConnectedDirectoriesLimitReached !== null
-  ) {
-    contents.ConnectedDirectoriesLimitReached =
-      output.ConnectedDirectoriesLimitReached;
-  }
-  return contents;
+    CloudOnlyDirectoriesCurrentCount:
+      output.CloudOnlyDirectoriesCurrentCount !== undefined &&
+      output.CloudOnlyDirectoriesCurrentCount !== null
+        ? output.CloudOnlyDirectoriesCurrentCount
+        : undefined,
+    CloudOnlyDirectoriesLimit:
+      output.CloudOnlyDirectoriesLimit !== undefined &&
+      output.CloudOnlyDirectoriesLimit !== null
+        ? output.CloudOnlyDirectoriesLimit
+        : undefined,
+    CloudOnlyDirectoriesLimitReached:
+      output.CloudOnlyDirectoriesLimitReached !== undefined &&
+      output.CloudOnlyDirectoriesLimitReached !== null
+        ? output.CloudOnlyDirectoriesLimitReached
+        : undefined,
+    CloudOnlyMicrosoftADCurrentCount:
+      output.CloudOnlyMicrosoftADCurrentCount !== undefined &&
+      output.CloudOnlyMicrosoftADCurrentCount !== null
+        ? output.CloudOnlyMicrosoftADCurrentCount
+        : undefined,
+    CloudOnlyMicrosoftADLimit:
+      output.CloudOnlyMicrosoftADLimit !== undefined &&
+      output.CloudOnlyMicrosoftADLimit !== null
+        ? output.CloudOnlyMicrosoftADLimit
+        : undefined,
+    CloudOnlyMicrosoftADLimitReached:
+      output.CloudOnlyMicrosoftADLimitReached !== undefined &&
+      output.CloudOnlyMicrosoftADLimitReached !== null
+        ? output.CloudOnlyMicrosoftADLimitReached
+        : undefined,
+    ConnectedDirectoriesCurrentCount:
+      output.ConnectedDirectoriesCurrentCount !== undefined &&
+      output.ConnectedDirectoriesCurrentCount !== null
+        ? output.ConnectedDirectoriesCurrentCount
+        : undefined,
+    ConnectedDirectoriesLimit:
+      output.ConnectedDirectoriesLimit !== undefined &&
+      output.ConnectedDirectoriesLimit !== null
+        ? output.ConnectedDirectoriesLimit
+        : undefined,
+    ConnectedDirectoriesLimitReached:
+      output.ConnectedDirectoriesLimitReached !== undefined &&
+      output.ConnectedDirectoriesLimitReached !== null
+        ? output.ConnectedDirectoriesLimitReached
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DirectoryNotSharedException = (
   output: any,
   context: __SerdeContext
 ): DirectoryNotSharedException => {
-  let contents: any = {
+  return {
     __type: "DirectoryNotSharedException",
-    Message: undefined,
-    RequestId: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.RequestId !== undefined && output.RequestId !== null) {
-    contents.RequestId = output.RequestId;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    RequestId:
+      output.RequestId !== undefined && output.RequestId !== null
+        ? output.RequestId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DirectoryUnavailableException = (
   output: any,
   context: __SerdeContext
 ): DirectoryUnavailableException => {
-  let contents: any = {
+  return {
     __type: "DirectoryUnavailableException",
-    Message: undefined,
-    RequestId: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.RequestId !== undefined && output.RequestId !== null) {
-    contents.RequestId = output.RequestId;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    RequestId:
+      output.RequestId !== undefined && output.RequestId !== null
+        ? output.RequestId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DirectoryVpcSettingsDescription = (
   output: any,
   context: __SerdeContext
 ): DirectoryVpcSettingsDescription => {
-  let contents: any = {
+  return {
     __type: "DirectoryVpcSettingsDescription",
-    AvailabilityZones: undefined,
-    SecurityGroupId: undefined,
-    SubnetIds: undefined,
-    VpcId: undefined
-  };
-  if (
-    output.AvailabilityZones !== undefined &&
-    output.AvailabilityZones !== null
-  ) {
-    contents.AvailabilityZones = deserializeAws_json1_1AvailabilityZones(
-      output.AvailabilityZones,
-      context
-    );
-  }
-  if (output.SecurityGroupId !== undefined && output.SecurityGroupId !== null) {
-    contents.SecurityGroupId = output.SecurityGroupId;
-  }
-  if (output.SubnetIds !== undefined && output.SubnetIds !== null) {
-    contents.SubnetIds = deserializeAws_json1_1SubnetIds(
-      output.SubnetIds,
-      context
-    );
-  }
-  if (output.VpcId !== undefined && output.VpcId !== null) {
-    contents.VpcId = output.VpcId;
-  }
-  return contents;
+    AvailabilityZones:
+      output.AvailabilityZones !== undefined &&
+      output.AvailabilityZones !== null
+        ? deserializeAws_json1_1AvailabilityZones(
+            output.AvailabilityZones,
+            context
+          )
+        : undefined,
+    SecurityGroupId:
+      output.SecurityGroupId !== undefined && output.SecurityGroupId !== null
+        ? output.SecurityGroupId
+        : undefined,
+    SubnetIds:
+      output.SubnetIds !== undefined && output.SubnetIds !== null
+        ? deserializeAws_json1_1SubnetIds(output.SubnetIds, context)
+        : undefined,
+    VpcId:
+      output.VpcId !== undefined && output.VpcId !== null
+        ? output.VpcId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DisableLDAPSResult = (
   output: any,
   context: __SerdeContext
 ): DisableLDAPSResult => {
-  let contents: any = {
+  return {
     __type: "DisableLDAPSResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DisableRadiusResult = (
   output: any,
   context: __SerdeContext
 ): DisableRadiusResult => {
-  let contents: any = {
+  return {
     __type: "DisableRadiusResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DisableSsoResult = (
   output: any,
   context: __SerdeContext
 ): DisableSsoResult => {
-  let contents: any = {
+  return {
     __type: "DisableSsoResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DnsIpAddrs = (
@@ -10153,79 +10000,68 @@ const deserializeAws_json1_1DomainController = (
   output: any,
   context: __SerdeContext
 ): DomainController => {
-  let contents: any = {
+  return {
     __type: "DomainController",
-    AvailabilityZone: undefined,
-    DirectoryId: undefined,
-    DnsIpAddr: undefined,
-    DomainControllerId: undefined,
-    LaunchTime: undefined,
-    Status: undefined,
-    StatusLastUpdatedDateTime: undefined,
-    StatusReason: undefined,
-    SubnetId: undefined,
-    VpcId: undefined
-  };
-  if (
-    output.AvailabilityZone !== undefined &&
-    output.AvailabilityZone !== null
-  ) {
-    contents.AvailabilityZone = output.AvailabilityZone;
-  }
-  if (output.DirectoryId !== undefined && output.DirectoryId !== null) {
-    contents.DirectoryId = output.DirectoryId;
-  }
-  if (output.DnsIpAddr !== undefined && output.DnsIpAddr !== null) {
-    contents.DnsIpAddr = output.DnsIpAddr;
-  }
-  if (
-    output.DomainControllerId !== undefined &&
-    output.DomainControllerId !== null
-  ) {
-    contents.DomainControllerId = output.DomainControllerId;
-  }
-  if (output.LaunchTime !== undefined && output.LaunchTime !== null) {
-    contents.LaunchTime = new Date(Math.round(output.LaunchTime * 1000));
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (
-    output.StatusLastUpdatedDateTime !== undefined &&
-    output.StatusLastUpdatedDateTime !== null
-  ) {
-    contents.StatusLastUpdatedDateTime = new Date(
-      Math.round(output.StatusLastUpdatedDateTime * 1000)
-    );
-  }
-  if (output.StatusReason !== undefined && output.StatusReason !== null) {
-    contents.StatusReason = output.StatusReason;
-  }
-  if (output.SubnetId !== undefined && output.SubnetId !== null) {
-    contents.SubnetId = output.SubnetId;
-  }
-  if (output.VpcId !== undefined && output.VpcId !== null) {
-    contents.VpcId = output.VpcId;
-  }
-  return contents;
+    AvailabilityZone:
+      output.AvailabilityZone !== undefined && output.AvailabilityZone !== null
+        ? output.AvailabilityZone
+        : undefined,
+    DirectoryId:
+      output.DirectoryId !== undefined && output.DirectoryId !== null
+        ? output.DirectoryId
+        : undefined,
+    DnsIpAddr:
+      output.DnsIpAddr !== undefined && output.DnsIpAddr !== null
+        ? output.DnsIpAddr
+        : undefined,
+    DomainControllerId:
+      output.DomainControllerId !== undefined &&
+      output.DomainControllerId !== null
+        ? output.DomainControllerId
+        : undefined,
+    LaunchTime:
+      output.LaunchTime !== undefined && output.LaunchTime !== null
+        ? new Date(Math.round(output.LaunchTime * 1000))
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    StatusLastUpdatedDateTime:
+      output.StatusLastUpdatedDateTime !== undefined &&
+      output.StatusLastUpdatedDateTime !== null
+        ? new Date(Math.round(output.StatusLastUpdatedDateTime * 1000))
+        : undefined,
+    StatusReason:
+      output.StatusReason !== undefined && output.StatusReason !== null
+        ? output.StatusReason
+        : undefined,
+    SubnetId:
+      output.SubnetId !== undefined && output.SubnetId !== null
+        ? output.SubnetId
+        : undefined,
+    VpcId:
+      output.VpcId !== undefined && output.VpcId !== null
+        ? output.VpcId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DomainControllerLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): DomainControllerLimitExceededException => {
-  let contents: any = {
+  return {
     __type: "DomainControllerLimitExceededException",
-    Message: undefined,
-    RequestId: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.RequestId !== undefined && output.RequestId !== null) {
-    contents.RequestId = output.RequestId;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    RequestId:
+      output.RequestId !== undefined && output.RequestId !== null
+        ? output.RequestId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DomainControllers = (
@@ -10241,98 +10077,90 @@ const deserializeAws_json1_1EnableLDAPSResult = (
   output: any,
   context: __SerdeContext
 ): EnableLDAPSResult => {
-  let contents: any = {
+  return {
     __type: "EnableLDAPSResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1EnableRadiusResult = (
   output: any,
   context: __SerdeContext
 ): EnableRadiusResult => {
-  let contents: any = {
+  return {
     __type: "EnableRadiusResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1EnableSsoResult = (
   output: any,
   context: __SerdeContext
 ): EnableSsoResult => {
-  let contents: any = {
+  return {
     __type: "EnableSsoResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1EntityAlreadyExistsException = (
   output: any,
   context: __SerdeContext
 ): EntityAlreadyExistsException => {
-  let contents: any = {
+  return {
     __type: "EntityAlreadyExistsException",
-    Message: undefined,
-    RequestId: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.RequestId !== undefined && output.RequestId !== null) {
-    contents.RequestId = output.RequestId;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    RequestId:
+      output.RequestId !== undefined && output.RequestId !== null
+        ? output.RequestId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EntityDoesNotExistException = (
   output: any,
   context: __SerdeContext
 ): EntityDoesNotExistException => {
-  let contents: any = {
+  return {
     __type: "EntityDoesNotExistException",
-    Message: undefined,
-    RequestId: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.RequestId !== undefined && output.RequestId !== null) {
-    contents.RequestId = output.RequestId;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    RequestId:
+      output.RequestId !== undefined && output.RequestId !== null
+        ? output.RequestId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EventTopic = (
   output: any,
   context: __SerdeContext
 ): EventTopic => {
-  let contents: any = {
+  return {
     __type: "EventTopic",
-    CreatedDateTime: undefined,
-    DirectoryId: undefined,
-    Status: undefined,
-    TopicArn: undefined,
-    TopicName: undefined
-  };
-  if (output.CreatedDateTime !== undefined && output.CreatedDateTime !== null) {
-    contents.CreatedDateTime = new Date(
-      Math.round(output.CreatedDateTime * 1000)
-    );
-  }
-  if (output.DirectoryId !== undefined && output.DirectoryId !== null) {
-    contents.DirectoryId = output.DirectoryId;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.TopicArn !== undefined && output.TopicArn !== null) {
-    contents.TopicArn = output.TopicArn;
-  }
-  if (output.TopicName !== undefined && output.TopicName !== null) {
-    contents.TopicName = output.TopicName;
-  }
-  return contents;
+    CreatedDateTime:
+      output.CreatedDateTime !== undefined && output.CreatedDateTime !== null
+        ? new Date(Math.round(output.CreatedDateTime * 1000))
+        : undefined,
+    DirectoryId:
+      output.DirectoryId !== undefined && output.DirectoryId !== null
+        ? output.DirectoryId
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    TopicArn:
+      output.TopicArn !== undefined && output.TopicArn !== null
+        ? output.TopicArn
+        : undefined,
+    TopicName:
+      output.TopicName !== undefined && output.TopicName !== null
+        ? output.TopicName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EventTopics = (
@@ -10348,160 +10176,145 @@ const deserializeAws_json1_1GetDirectoryLimitsResult = (
   output: any,
   context: __SerdeContext
 ): GetDirectoryLimitsResult => {
-  let contents: any = {
+  return {
     __type: "GetDirectoryLimitsResult",
-    DirectoryLimits: undefined
-  };
-  if (output.DirectoryLimits !== undefined && output.DirectoryLimits !== null) {
-    contents.DirectoryLimits = deserializeAws_json1_1DirectoryLimits(
-      output.DirectoryLimits,
-      context
-    );
-  }
-  return contents;
+    DirectoryLimits:
+      output.DirectoryLimits !== undefined && output.DirectoryLimits !== null
+        ? deserializeAws_json1_1DirectoryLimits(output.DirectoryLimits, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetSnapshotLimitsResult = (
   output: any,
   context: __SerdeContext
 ): GetSnapshotLimitsResult => {
-  let contents: any = {
+  return {
     __type: "GetSnapshotLimitsResult",
-    SnapshotLimits: undefined
-  };
-  if (output.SnapshotLimits !== undefined && output.SnapshotLimits !== null) {
-    contents.SnapshotLimits = deserializeAws_json1_1SnapshotLimits(
-      output.SnapshotLimits,
-      context
-    );
-  }
-  return contents;
+    SnapshotLimits:
+      output.SnapshotLimits !== undefined && output.SnapshotLimits !== null
+        ? deserializeAws_json1_1SnapshotLimits(output.SnapshotLimits, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InsufficientPermissionsException = (
   output: any,
   context: __SerdeContext
 ): InsufficientPermissionsException => {
-  let contents: any = {
+  return {
     __type: "InsufficientPermissionsException",
-    Message: undefined,
-    RequestId: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.RequestId !== undefined && output.RequestId !== null) {
-    contents.RequestId = output.RequestId;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    RequestId:
+      output.RequestId !== undefined && output.RequestId !== null
+        ? output.RequestId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidCertificateException = (
   output: any,
   context: __SerdeContext
 ): InvalidCertificateException => {
-  let contents: any = {
+  return {
     __type: "InvalidCertificateException",
-    Message: undefined,
-    RequestId: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.RequestId !== undefined && output.RequestId !== null) {
-    contents.RequestId = output.RequestId;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    RequestId:
+      output.RequestId !== undefined && output.RequestId !== null
+        ? output.RequestId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidLDAPSStatusException = (
   output: any,
   context: __SerdeContext
 ): InvalidLDAPSStatusException => {
-  let contents: any = {
+  return {
     __type: "InvalidLDAPSStatusException",
-    Message: undefined,
-    RequestId: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.RequestId !== undefined && output.RequestId !== null) {
-    contents.RequestId = output.RequestId;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    RequestId:
+      output.RequestId !== undefined && output.RequestId !== null
+        ? output.RequestId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidNextTokenException = (
   output: any,
   context: __SerdeContext
 ): InvalidNextTokenException => {
-  let contents: any = {
+  return {
     __type: "InvalidNextTokenException",
-    Message: undefined,
-    RequestId: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.RequestId !== undefined && output.RequestId !== null) {
-    contents.RequestId = output.RequestId;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    RequestId:
+      output.RequestId !== undefined && output.RequestId !== null
+        ? output.RequestId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidParameterException = (
   output: any,
   context: __SerdeContext
 ): InvalidParameterException => {
-  let contents: any = {
+  return {
     __type: "InvalidParameterException",
-    Message: undefined,
-    RequestId: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.RequestId !== undefined && output.RequestId !== null) {
-    contents.RequestId = output.RequestId;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    RequestId:
+      output.RequestId !== undefined && output.RequestId !== null
+        ? output.RequestId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidPasswordException = (
   output: any,
   context: __SerdeContext
 ): InvalidPasswordException => {
-  let contents: any = {
+  return {
     __type: "InvalidPasswordException",
-    Message: undefined,
-    RequestId: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.RequestId !== undefined && output.RequestId !== null) {
-    contents.RequestId = output.RequestId;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    RequestId:
+      output.RequestId !== undefined && output.RequestId !== null
+        ? output.RequestId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidTargetException = (
   output: any,
   context: __SerdeContext
 ): InvalidTargetException => {
-  let contents: any = {
+  return {
     __type: "InvalidTargetException",
-    Message: undefined,
-    RequestId: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.RequestId !== undefined && output.RequestId !== null) {
-    contents.RequestId = output.RequestId;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    RequestId:
+      output.RequestId !== undefined && output.RequestId !== null
+        ? output.RequestId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1IpAddrs = (
@@ -10515,58 +10328,51 @@ const deserializeAws_json1_1IpRouteInfo = (
   output: any,
   context: __SerdeContext
 ): IpRouteInfo => {
-  let contents: any = {
+  return {
     __type: "IpRouteInfo",
-    AddedDateTime: undefined,
-    CidrIp: undefined,
-    Description: undefined,
-    DirectoryId: undefined,
-    IpRouteStatusMsg: undefined,
-    IpRouteStatusReason: undefined
-  };
-  if (output.AddedDateTime !== undefined && output.AddedDateTime !== null) {
-    contents.AddedDateTime = new Date(Math.round(output.AddedDateTime * 1000));
-  }
-  if (output.CidrIp !== undefined && output.CidrIp !== null) {
-    contents.CidrIp = output.CidrIp;
-  }
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (output.DirectoryId !== undefined && output.DirectoryId !== null) {
-    contents.DirectoryId = output.DirectoryId;
-  }
-  if (
-    output.IpRouteStatusMsg !== undefined &&
-    output.IpRouteStatusMsg !== null
-  ) {
-    contents.IpRouteStatusMsg = output.IpRouteStatusMsg;
-  }
-  if (
-    output.IpRouteStatusReason !== undefined &&
-    output.IpRouteStatusReason !== null
-  ) {
-    contents.IpRouteStatusReason = output.IpRouteStatusReason;
-  }
-  return contents;
+    AddedDateTime:
+      output.AddedDateTime !== undefined && output.AddedDateTime !== null
+        ? new Date(Math.round(output.AddedDateTime * 1000))
+        : undefined,
+    CidrIp:
+      output.CidrIp !== undefined && output.CidrIp !== null
+        ? output.CidrIp
+        : undefined,
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    DirectoryId:
+      output.DirectoryId !== undefined && output.DirectoryId !== null
+        ? output.DirectoryId
+        : undefined,
+    IpRouteStatusMsg:
+      output.IpRouteStatusMsg !== undefined && output.IpRouteStatusMsg !== null
+        ? output.IpRouteStatusMsg
+        : undefined,
+    IpRouteStatusReason:
+      output.IpRouteStatusReason !== undefined &&
+      output.IpRouteStatusReason !== null
+        ? output.IpRouteStatusReason
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1IpRouteLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): IpRouteLimitExceededException => {
-  let contents: any = {
+  return {
     __type: "IpRouteLimitExceededException",
-    Message: undefined,
-    RequestId: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.RequestId !== undefined && output.RequestId !== null) {
-    contents.RequestId = output.RequestId;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    RequestId:
+      output.RequestId !== undefined && output.RequestId !== null
+        ? output.RequestId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1IpRoutesInfo = (
@@ -10582,30 +10388,23 @@ const deserializeAws_json1_1LDAPSSettingInfo = (
   output: any,
   context: __SerdeContext
 ): LDAPSSettingInfo => {
-  let contents: any = {
+  return {
     __type: "LDAPSSettingInfo",
-    LDAPSStatus: undefined,
-    LDAPSStatusReason: undefined,
-    LastUpdatedDateTime: undefined
-  };
-  if (output.LDAPSStatus !== undefined && output.LDAPSStatus !== null) {
-    contents.LDAPSStatus = output.LDAPSStatus;
-  }
-  if (
-    output.LDAPSStatusReason !== undefined &&
-    output.LDAPSStatusReason !== null
-  ) {
-    contents.LDAPSStatusReason = output.LDAPSStatusReason;
-  }
-  if (
-    output.LastUpdatedDateTime !== undefined &&
-    output.LastUpdatedDateTime !== null
-  ) {
-    contents.LastUpdatedDateTime = new Date(
-      Math.round(output.LastUpdatedDateTime * 1000)
-    );
-  }
-  return contents;
+    LDAPSStatus:
+      output.LDAPSStatus !== undefined && output.LDAPSStatus !== null
+        ? output.LDAPSStatus
+        : undefined,
+    LDAPSStatusReason:
+      output.LDAPSStatusReason !== undefined &&
+      output.LDAPSStatusReason !== null
+        ? output.LDAPSStatusReason
+        : undefined,
+    LastUpdatedDateTime:
+      output.LastUpdatedDateTime !== undefined &&
+      output.LastUpdatedDateTime !== null
+        ? new Date(Math.round(output.LastUpdatedDateTime * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LDAPSSettingsInfo = (
@@ -10621,138 +10420,117 @@ const deserializeAws_json1_1ListCertificatesResult = (
   output: any,
   context: __SerdeContext
 ): ListCertificatesResult => {
-  let contents: any = {
+  return {
     __type: "ListCertificatesResult",
-    CertificatesInfo: undefined,
-    NextToken: undefined
-  };
-  if (
-    output.CertificatesInfo !== undefined &&
-    output.CertificatesInfo !== null
-  ) {
-    contents.CertificatesInfo = deserializeAws_json1_1CertificatesInfo(
-      output.CertificatesInfo,
-      context
-    );
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  return contents;
+    CertificatesInfo:
+      output.CertificatesInfo !== undefined && output.CertificatesInfo !== null
+        ? deserializeAws_json1_1CertificatesInfo(
+            output.CertificatesInfo,
+            context
+          )
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListIpRoutesResult = (
   output: any,
   context: __SerdeContext
 ): ListIpRoutesResult => {
-  let contents: any = {
+  return {
     __type: "ListIpRoutesResult",
-    IpRoutesInfo: undefined,
-    NextToken: undefined
-  };
-  if (output.IpRoutesInfo !== undefined && output.IpRoutesInfo !== null) {
-    contents.IpRoutesInfo = deserializeAws_json1_1IpRoutesInfo(
-      output.IpRoutesInfo,
-      context
-    );
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  return contents;
+    IpRoutesInfo:
+      output.IpRoutesInfo !== undefined && output.IpRoutesInfo !== null
+        ? deserializeAws_json1_1IpRoutesInfo(output.IpRoutesInfo, context)
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListLogSubscriptionsResult = (
   output: any,
   context: __SerdeContext
 ): ListLogSubscriptionsResult => {
-  let contents: any = {
+  return {
     __type: "ListLogSubscriptionsResult",
-    LogSubscriptions: undefined,
-    NextToken: undefined
-  };
-  if (
-    output.LogSubscriptions !== undefined &&
-    output.LogSubscriptions !== null
-  ) {
-    contents.LogSubscriptions = deserializeAws_json1_1LogSubscriptions(
-      output.LogSubscriptions,
-      context
-    );
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  return contents;
+    LogSubscriptions:
+      output.LogSubscriptions !== undefined && output.LogSubscriptions !== null
+        ? deserializeAws_json1_1LogSubscriptions(
+            output.LogSubscriptions,
+            context
+          )
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListSchemaExtensionsResult = (
   output: any,
   context: __SerdeContext
 ): ListSchemaExtensionsResult => {
-  let contents: any = {
+  return {
     __type: "ListSchemaExtensionsResult",
-    NextToken: undefined,
-    SchemaExtensionsInfo: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (
-    output.SchemaExtensionsInfo !== undefined &&
-    output.SchemaExtensionsInfo !== null
-  ) {
-    contents.SchemaExtensionsInfo = deserializeAws_json1_1SchemaExtensionsInfo(
-      output.SchemaExtensionsInfo,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    SchemaExtensionsInfo:
+      output.SchemaExtensionsInfo !== undefined &&
+      output.SchemaExtensionsInfo !== null
+        ? deserializeAws_json1_1SchemaExtensionsInfo(
+            output.SchemaExtensionsInfo,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListTagsForResourceResult = (
   output: any,
   context: __SerdeContext
 ): ListTagsForResourceResult => {
-  let contents: any = {
+  return {
     __type: "ListTagsForResourceResult",
-    NextToken: undefined,
-    Tags: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.Tags !== undefined && output.Tags !== null) {
-    contents.Tags = deserializeAws_json1_1Tags(output.Tags, context);
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1Tags(output.Tags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LogSubscription = (
   output: any,
   context: __SerdeContext
 ): LogSubscription => {
-  let contents: any = {
+  return {
     __type: "LogSubscription",
-    DirectoryId: undefined,
-    LogGroupName: undefined,
-    SubscriptionCreatedDateTime: undefined
-  };
-  if (output.DirectoryId !== undefined && output.DirectoryId !== null) {
-    contents.DirectoryId = output.DirectoryId;
-  }
-  if (output.LogGroupName !== undefined && output.LogGroupName !== null) {
-    contents.LogGroupName = output.LogGroupName;
-  }
-  if (
-    output.SubscriptionCreatedDateTime !== undefined &&
-    output.SubscriptionCreatedDateTime !== null
-  ) {
-    contents.SubscriptionCreatedDateTime = new Date(
-      Math.round(output.SubscriptionCreatedDateTime * 1000)
-    );
-  }
-  return contents;
+    DirectoryId:
+      output.DirectoryId !== undefined && output.DirectoryId !== null
+        ? output.DirectoryId
+        : undefined,
+    LogGroupName:
+      output.LogGroupName !== undefined && output.LogGroupName !== null
+        ? output.LogGroupName
+        : undefined,
+    SubscriptionCreatedDateTime:
+      output.SubscriptionCreatedDateTime !== undefined &&
+      output.SubscriptionCreatedDateTime !== null
+        ? new Date(Math.round(output.SubscriptionCreatedDateTime * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LogSubscriptions = (
@@ -10768,255 +10546,224 @@ const deserializeAws_json1_1NoAvailableCertificateException = (
   output: any,
   context: __SerdeContext
 ): NoAvailableCertificateException => {
-  let contents: any = {
+  return {
     __type: "NoAvailableCertificateException",
-    Message: undefined,
-    RequestId: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.RequestId !== undefined && output.RequestId !== null) {
-    contents.RequestId = output.RequestId;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    RequestId:
+      output.RequestId !== undefined && output.RequestId !== null
+        ? output.RequestId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1OrganizationsException = (
   output: any,
   context: __SerdeContext
 ): OrganizationsException => {
-  let contents: any = {
+  return {
     __type: "OrganizationsException",
-    Message: undefined,
-    RequestId: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.RequestId !== undefined && output.RequestId !== null) {
-    contents.RequestId = output.RequestId;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    RequestId:
+      output.RequestId !== undefined && output.RequestId !== null
+        ? output.RequestId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1OwnerDirectoryDescription = (
   output: any,
   context: __SerdeContext
 ): OwnerDirectoryDescription => {
-  let contents: any = {
+  return {
     __type: "OwnerDirectoryDescription",
-    AccountId: undefined,
-    DirectoryId: undefined,
-    DnsIpAddrs: undefined,
-    RadiusSettings: undefined,
-    RadiusStatus: undefined,
-    VpcSettings: undefined
-  };
-  if (output.AccountId !== undefined && output.AccountId !== null) {
-    contents.AccountId = output.AccountId;
-  }
-  if (output.DirectoryId !== undefined && output.DirectoryId !== null) {
-    contents.DirectoryId = output.DirectoryId;
-  }
-  if (output.DnsIpAddrs !== undefined && output.DnsIpAddrs !== null) {
-    contents.DnsIpAddrs = deserializeAws_json1_1DnsIpAddrs(
-      output.DnsIpAddrs,
-      context
-    );
-  }
-  if (output.RadiusSettings !== undefined && output.RadiusSettings !== null) {
-    contents.RadiusSettings = deserializeAws_json1_1RadiusSettings(
-      output.RadiusSettings,
-      context
-    );
-  }
-  if (output.RadiusStatus !== undefined && output.RadiusStatus !== null) {
-    contents.RadiusStatus = output.RadiusStatus;
-  }
-  if (output.VpcSettings !== undefined && output.VpcSettings !== null) {
-    contents.VpcSettings = deserializeAws_json1_1DirectoryVpcSettingsDescription(
-      output.VpcSettings,
-      context
-    );
-  }
-  return contents;
+    AccountId:
+      output.AccountId !== undefined && output.AccountId !== null
+        ? output.AccountId
+        : undefined,
+    DirectoryId:
+      output.DirectoryId !== undefined && output.DirectoryId !== null
+        ? output.DirectoryId
+        : undefined,
+    DnsIpAddrs:
+      output.DnsIpAddrs !== undefined && output.DnsIpAddrs !== null
+        ? deserializeAws_json1_1DnsIpAddrs(output.DnsIpAddrs, context)
+        : undefined,
+    RadiusSettings:
+      output.RadiusSettings !== undefined && output.RadiusSettings !== null
+        ? deserializeAws_json1_1RadiusSettings(output.RadiusSettings, context)
+        : undefined,
+    RadiusStatus:
+      output.RadiusStatus !== undefined && output.RadiusStatus !== null
+        ? output.RadiusStatus
+        : undefined,
+    VpcSettings:
+      output.VpcSettings !== undefined && output.VpcSettings !== null
+        ? deserializeAws_json1_1DirectoryVpcSettingsDescription(
+            output.VpcSettings,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RadiusSettings = (
   output: any,
   context: __SerdeContext
 ): RadiusSettings => {
-  let contents: any = {
+  return {
     __type: "RadiusSettings",
-    AuthenticationProtocol: undefined,
-    DisplayLabel: undefined,
-    RadiusPort: undefined,
-    RadiusRetries: undefined,
-    RadiusServers: undefined,
-    RadiusTimeout: undefined,
-    SharedSecret: undefined,
-    UseSameUsername: undefined
-  };
-  if (
-    output.AuthenticationProtocol !== undefined &&
-    output.AuthenticationProtocol !== null
-  ) {
-    contents.AuthenticationProtocol = output.AuthenticationProtocol;
-  }
-  if (output.DisplayLabel !== undefined && output.DisplayLabel !== null) {
-    contents.DisplayLabel = output.DisplayLabel;
-  }
-  if (output.RadiusPort !== undefined && output.RadiusPort !== null) {
-    contents.RadiusPort = output.RadiusPort;
-  }
-  if (output.RadiusRetries !== undefined && output.RadiusRetries !== null) {
-    contents.RadiusRetries = output.RadiusRetries;
-  }
-  if (output.RadiusServers !== undefined && output.RadiusServers !== null) {
-    contents.RadiusServers = deserializeAws_json1_1Servers(
-      output.RadiusServers,
-      context
-    );
-  }
-  if (output.RadiusTimeout !== undefined && output.RadiusTimeout !== null) {
-    contents.RadiusTimeout = output.RadiusTimeout;
-  }
-  if (output.SharedSecret !== undefined && output.SharedSecret !== null) {
-    contents.SharedSecret = output.SharedSecret;
-  }
-  if (output.UseSameUsername !== undefined && output.UseSameUsername !== null) {
-    contents.UseSameUsername = output.UseSameUsername;
-  }
-  return contents;
+    AuthenticationProtocol:
+      output.AuthenticationProtocol !== undefined &&
+      output.AuthenticationProtocol !== null
+        ? output.AuthenticationProtocol
+        : undefined,
+    DisplayLabel:
+      output.DisplayLabel !== undefined && output.DisplayLabel !== null
+        ? output.DisplayLabel
+        : undefined,
+    RadiusPort:
+      output.RadiusPort !== undefined && output.RadiusPort !== null
+        ? output.RadiusPort
+        : undefined,
+    RadiusRetries:
+      output.RadiusRetries !== undefined && output.RadiusRetries !== null
+        ? output.RadiusRetries
+        : undefined,
+    RadiusServers:
+      output.RadiusServers !== undefined && output.RadiusServers !== null
+        ? deserializeAws_json1_1Servers(output.RadiusServers, context)
+        : undefined,
+    RadiusTimeout:
+      output.RadiusTimeout !== undefined && output.RadiusTimeout !== null
+        ? output.RadiusTimeout
+        : undefined,
+    SharedSecret:
+      output.SharedSecret !== undefined && output.SharedSecret !== null
+        ? output.SharedSecret
+        : undefined,
+    UseSameUsername:
+      output.UseSameUsername !== undefined && output.UseSameUsername !== null
+        ? output.UseSameUsername
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RegisterCertificateResult = (
   output: any,
   context: __SerdeContext
 ): RegisterCertificateResult => {
-  let contents: any = {
+  return {
     __type: "RegisterCertificateResult",
-    CertificateId: undefined
-  };
-  if (output.CertificateId !== undefined && output.CertificateId !== null) {
-    contents.CertificateId = output.CertificateId;
-  }
-  return contents;
+    CertificateId:
+      output.CertificateId !== undefined && output.CertificateId !== null
+        ? output.CertificateId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RegisterEventTopicResult = (
   output: any,
   context: __SerdeContext
 ): RegisterEventTopicResult => {
-  let contents: any = {
+  return {
     __type: "RegisterEventTopicResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1RejectSharedDirectoryResult = (
   output: any,
   context: __SerdeContext
 ): RejectSharedDirectoryResult => {
-  let contents: any = {
+  return {
     __type: "RejectSharedDirectoryResult",
-    SharedDirectoryId: undefined
-  };
-  if (
-    output.SharedDirectoryId !== undefined &&
-    output.SharedDirectoryId !== null
-  ) {
-    contents.SharedDirectoryId = output.SharedDirectoryId;
-  }
-  return contents;
+    SharedDirectoryId:
+      output.SharedDirectoryId !== undefined &&
+      output.SharedDirectoryId !== null
+        ? output.SharedDirectoryId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RemoveIpRoutesResult = (
   output: any,
   context: __SerdeContext
 ): RemoveIpRoutesResult => {
-  let contents: any = {
+  return {
     __type: "RemoveIpRoutesResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1RemoveTagsFromResourceResult = (
   output: any,
   context: __SerdeContext
 ): RemoveTagsFromResourceResult => {
-  let contents: any = {
+  return {
     __type: "RemoveTagsFromResourceResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1ResetUserPasswordResult = (
   output: any,
   context: __SerdeContext
 ): ResetUserPasswordResult => {
-  let contents: any = {
+  return {
     __type: "ResetUserPasswordResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1RestoreFromSnapshotResult = (
   output: any,
   context: __SerdeContext
 ): RestoreFromSnapshotResult => {
-  let contents: any = {
+  return {
     __type: "RestoreFromSnapshotResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1SchemaExtensionInfo = (
   output: any,
   context: __SerdeContext
 ): SchemaExtensionInfo => {
-  let contents: any = {
+  return {
     __type: "SchemaExtensionInfo",
-    Description: undefined,
-    DirectoryId: undefined,
-    EndDateTime: undefined,
-    SchemaExtensionId: undefined,
-    SchemaExtensionStatus: undefined,
-    SchemaExtensionStatusReason: undefined,
-    StartDateTime: undefined
-  };
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (output.DirectoryId !== undefined && output.DirectoryId !== null) {
-    contents.DirectoryId = output.DirectoryId;
-  }
-  if (output.EndDateTime !== undefined && output.EndDateTime !== null) {
-    contents.EndDateTime = new Date(Math.round(output.EndDateTime * 1000));
-  }
-  if (
-    output.SchemaExtensionId !== undefined &&
-    output.SchemaExtensionId !== null
-  ) {
-    contents.SchemaExtensionId = output.SchemaExtensionId;
-  }
-  if (
-    output.SchemaExtensionStatus !== undefined &&
-    output.SchemaExtensionStatus !== null
-  ) {
-    contents.SchemaExtensionStatus = output.SchemaExtensionStatus;
-  }
-  if (
-    output.SchemaExtensionStatusReason !== undefined &&
-    output.SchemaExtensionStatusReason !== null
-  ) {
-    contents.SchemaExtensionStatusReason = output.SchemaExtensionStatusReason;
-  }
-  if (output.StartDateTime !== undefined && output.StartDateTime !== null) {
-    contents.StartDateTime = new Date(Math.round(output.StartDateTime * 1000));
-  }
-  return contents;
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    DirectoryId:
+      output.DirectoryId !== undefined && output.DirectoryId !== null
+        ? output.DirectoryId
+        : undefined,
+    EndDateTime:
+      output.EndDateTime !== undefined && output.EndDateTime !== null
+        ? new Date(Math.round(output.EndDateTime * 1000))
+        : undefined,
+    SchemaExtensionId:
+      output.SchemaExtensionId !== undefined &&
+      output.SchemaExtensionId !== null
+        ? output.SchemaExtensionId
+        : undefined,
+    SchemaExtensionStatus:
+      output.SchemaExtensionStatus !== undefined &&
+      output.SchemaExtensionStatus !== null
+        ? output.SchemaExtensionStatus
+        : undefined,
+    SchemaExtensionStatusReason:
+      output.SchemaExtensionStatusReason !== undefined &&
+      output.SchemaExtensionStatusReason !== null
+        ? output.SchemaExtensionStatusReason
+        : undefined,
+    StartDateTime:
+      output.StartDateTime !== undefined && output.StartDateTime !== null
+        ? new Date(Math.round(output.StartDateTime * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SchemaExtensionsInfo = (
@@ -11039,53 +10786,48 @@ const deserializeAws_json1_1ServiceException = (
   output: any,
   context: __SerdeContext
 ): ServiceException => {
-  let contents: any = {
+  return {
     __type: "ServiceException",
-    Message: undefined,
-    RequestId: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.RequestId !== undefined && output.RequestId !== null) {
-    contents.RequestId = output.RequestId;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    RequestId:
+      output.RequestId !== undefined && output.RequestId !== null
+        ? output.RequestId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ShareDirectoryResult = (
   output: any,
   context: __SerdeContext
 ): ShareDirectoryResult => {
-  let contents: any = {
+  return {
     __type: "ShareDirectoryResult",
-    SharedDirectoryId: undefined
-  };
-  if (
-    output.SharedDirectoryId !== undefined &&
-    output.SharedDirectoryId !== null
-  ) {
-    contents.SharedDirectoryId = output.SharedDirectoryId;
-  }
-  return contents;
+    SharedDirectoryId:
+      output.SharedDirectoryId !== undefined &&
+      output.SharedDirectoryId !== null
+        ? output.SharedDirectoryId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ShareLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): ShareLimitExceededException => {
-  let contents: any = {
+  return {
     __type: "ShareLimitExceededException",
-    Message: undefined,
-    RequestId: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.RequestId !== undefined && output.RequestId !== null) {
-    contents.RequestId = output.RequestId;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    RequestId:
+      output.RequestId !== undefined && output.RequestId !== null
+        ? output.RequestId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SharedDirectories = (
@@ -11101,142 +10843,121 @@ const deserializeAws_json1_1SharedDirectory = (
   output: any,
   context: __SerdeContext
 ): SharedDirectory => {
-  let contents: any = {
+  return {
     __type: "SharedDirectory",
-    CreatedDateTime: undefined,
-    LastUpdatedDateTime: undefined,
-    OwnerAccountId: undefined,
-    OwnerDirectoryId: undefined,
-    ShareMethod: undefined,
-    ShareNotes: undefined,
-    ShareStatus: undefined,
-    SharedAccountId: undefined,
-    SharedDirectoryId: undefined
-  };
-  if (output.CreatedDateTime !== undefined && output.CreatedDateTime !== null) {
-    contents.CreatedDateTime = new Date(
-      Math.round(output.CreatedDateTime * 1000)
-    );
-  }
-  if (
-    output.LastUpdatedDateTime !== undefined &&
-    output.LastUpdatedDateTime !== null
-  ) {
-    contents.LastUpdatedDateTime = new Date(
-      Math.round(output.LastUpdatedDateTime * 1000)
-    );
-  }
-  if (output.OwnerAccountId !== undefined && output.OwnerAccountId !== null) {
-    contents.OwnerAccountId = output.OwnerAccountId;
-  }
-  if (
-    output.OwnerDirectoryId !== undefined &&
-    output.OwnerDirectoryId !== null
-  ) {
-    contents.OwnerDirectoryId = output.OwnerDirectoryId;
-  }
-  if (output.ShareMethod !== undefined && output.ShareMethod !== null) {
-    contents.ShareMethod = output.ShareMethod;
-  }
-  if (output.ShareNotes !== undefined && output.ShareNotes !== null) {
-    contents.ShareNotes = output.ShareNotes;
-  }
-  if (output.ShareStatus !== undefined && output.ShareStatus !== null) {
-    contents.ShareStatus = output.ShareStatus;
-  }
-  if (output.SharedAccountId !== undefined && output.SharedAccountId !== null) {
-    contents.SharedAccountId = output.SharedAccountId;
-  }
-  if (
-    output.SharedDirectoryId !== undefined &&
-    output.SharedDirectoryId !== null
-  ) {
-    contents.SharedDirectoryId = output.SharedDirectoryId;
-  }
-  return contents;
+    CreatedDateTime:
+      output.CreatedDateTime !== undefined && output.CreatedDateTime !== null
+        ? new Date(Math.round(output.CreatedDateTime * 1000))
+        : undefined,
+    LastUpdatedDateTime:
+      output.LastUpdatedDateTime !== undefined &&
+      output.LastUpdatedDateTime !== null
+        ? new Date(Math.round(output.LastUpdatedDateTime * 1000))
+        : undefined,
+    OwnerAccountId:
+      output.OwnerAccountId !== undefined && output.OwnerAccountId !== null
+        ? output.OwnerAccountId
+        : undefined,
+    OwnerDirectoryId:
+      output.OwnerDirectoryId !== undefined && output.OwnerDirectoryId !== null
+        ? output.OwnerDirectoryId
+        : undefined,
+    ShareMethod:
+      output.ShareMethod !== undefined && output.ShareMethod !== null
+        ? output.ShareMethod
+        : undefined,
+    ShareNotes:
+      output.ShareNotes !== undefined && output.ShareNotes !== null
+        ? output.ShareNotes
+        : undefined,
+    ShareStatus:
+      output.ShareStatus !== undefined && output.ShareStatus !== null
+        ? output.ShareStatus
+        : undefined,
+    SharedAccountId:
+      output.SharedAccountId !== undefined && output.SharedAccountId !== null
+        ? output.SharedAccountId
+        : undefined,
+    SharedDirectoryId:
+      output.SharedDirectoryId !== undefined &&
+      output.SharedDirectoryId !== null
+        ? output.SharedDirectoryId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Snapshot = (
   output: any,
   context: __SerdeContext
 ): Snapshot => {
-  let contents: any = {
+  return {
     __type: "Snapshot",
-    DirectoryId: undefined,
-    Name: undefined,
-    SnapshotId: undefined,
-    StartTime: undefined,
-    Status: undefined,
-    Type: undefined
-  };
-  if (output.DirectoryId !== undefined && output.DirectoryId !== null) {
-    contents.DirectoryId = output.DirectoryId;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.SnapshotId !== undefined && output.SnapshotId !== null) {
-    contents.SnapshotId = output.SnapshotId;
-  }
-  if (output.StartTime !== undefined && output.StartTime !== null) {
-    contents.StartTime = new Date(Math.round(output.StartTime * 1000));
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    DirectoryId:
+      output.DirectoryId !== undefined && output.DirectoryId !== null
+        ? output.DirectoryId
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    SnapshotId:
+      output.SnapshotId !== undefined && output.SnapshotId !== null
+        ? output.SnapshotId
+        : undefined,
+    StartTime:
+      output.StartTime !== undefined && output.StartTime !== null
+        ? new Date(Math.round(output.StartTime * 1000))
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SnapshotLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): SnapshotLimitExceededException => {
-  let contents: any = {
+  return {
     __type: "SnapshotLimitExceededException",
-    Message: undefined,
-    RequestId: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.RequestId !== undefined && output.RequestId !== null) {
-    contents.RequestId = output.RequestId;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    RequestId:
+      output.RequestId !== undefined && output.RequestId !== null
+        ? output.RequestId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SnapshotLimits = (
   output: any,
   context: __SerdeContext
 ): SnapshotLimits => {
-  let contents: any = {
+  return {
     __type: "SnapshotLimits",
-    ManualSnapshotsCurrentCount: undefined,
-    ManualSnapshotsLimit: undefined,
-    ManualSnapshotsLimitReached: undefined
-  };
-  if (
-    output.ManualSnapshotsCurrentCount !== undefined &&
-    output.ManualSnapshotsCurrentCount !== null
-  ) {
-    contents.ManualSnapshotsCurrentCount = output.ManualSnapshotsCurrentCount;
-  }
-  if (
-    output.ManualSnapshotsLimit !== undefined &&
-    output.ManualSnapshotsLimit !== null
-  ) {
-    contents.ManualSnapshotsLimit = output.ManualSnapshotsLimit;
-  }
-  if (
-    output.ManualSnapshotsLimitReached !== undefined &&
-    output.ManualSnapshotsLimitReached !== null
-  ) {
-    contents.ManualSnapshotsLimitReached = output.ManualSnapshotsLimitReached;
-  }
-  return contents;
+    ManualSnapshotsCurrentCount:
+      output.ManualSnapshotsCurrentCount !== undefined &&
+      output.ManualSnapshotsCurrentCount !== null
+        ? output.ManualSnapshotsCurrentCount
+        : undefined,
+    ManualSnapshotsLimit:
+      output.ManualSnapshotsLimit !== undefined &&
+      output.ManualSnapshotsLimit !== null
+        ? output.ManualSnapshotsLimit
+        : undefined,
+    ManualSnapshotsLimitReached:
+      output.ManualSnapshotsLimitReached !== undefined &&
+      output.ManualSnapshotsLimitReached !== null
+        ? output.ManualSnapshotsLimitReached
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Snapshots = (
@@ -11252,17 +10973,14 @@ const deserializeAws_json1_1StartSchemaExtensionResult = (
   output: any,
   context: __SerdeContext
 ): StartSchemaExtensionResult => {
-  let contents: any = {
+  return {
     __type: "StartSchemaExtensionResult",
-    SchemaExtensionId: undefined
-  };
-  if (
-    output.SchemaExtensionId !== undefined &&
-    output.SchemaExtensionId !== null
-  ) {
-    contents.SchemaExtensionId = output.SchemaExtensionId;
-  }
-  return contents;
+    SchemaExtensionId:
+      output.SchemaExtensionId !== undefined &&
+      output.SchemaExtensionId !== null
+        ? output.SchemaExtensionId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SubnetIds = (
@@ -11276,36 +10994,32 @@ const deserializeAws_json1_1Tag = (
   output: any,
   context: __SerdeContext
 ): Tag => {
-  let contents: any = {
+  return {
     __type: "Tag",
-    Key: undefined,
-    Value: undefined
-  };
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TagLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): TagLimitExceededException => {
-  let contents: any = {
+  return {
     __type: "TagLimitExceededException",
-    Message: undefined,
-    RequestId: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.RequestId !== undefined && output.RequestId !== null) {
-    contents.RequestId = output.RequestId;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    RequestId:
+      output.RequestId !== undefined && output.RequestId !== null
+        ? output.RequestId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Tags = (
@@ -11321,72 +11035,55 @@ const deserializeAws_json1_1Trust = (
   output: any,
   context: __SerdeContext
 ): Trust => {
-  let contents: any = {
+  return {
     __type: "Trust",
-    CreatedDateTime: undefined,
-    DirectoryId: undefined,
-    LastUpdatedDateTime: undefined,
-    RemoteDomainName: undefined,
-    SelectiveAuth: undefined,
-    StateLastUpdatedDateTime: undefined,
-    TrustDirection: undefined,
-    TrustId: undefined,
-    TrustState: undefined,
-    TrustStateReason: undefined,
-    TrustType: undefined
-  };
-  if (output.CreatedDateTime !== undefined && output.CreatedDateTime !== null) {
-    contents.CreatedDateTime = new Date(
-      Math.round(output.CreatedDateTime * 1000)
-    );
-  }
-  if (output.DirectoryId !== undefined && output.DirectoryId !== null) {
-    contents.DirectoryId = output.DirectoryId;
-  }
-  if (
-    output.LastUpdatedDateTime !== undefined &&
-    output.LastUpdatedDateTime !== null
-  ) {
-    contents.LastUpdatedDateTime = new Date(
-      Math.round(output.LastUpdatedDateTime * 1000)
-    );
-  }
-  if (
-    output.RemoteDomainName !== undefined &&
-    output.RemoteDomainName !== null
-  ) {
-    contents.RemoteDomainName = output.RemoteDomainName;
-  }
-  if (output.SelectiveAuth !== undefined && output.SelectiveAuth !== null) {
-    contents.SelectiveAuth = output.SelectiveAuth;
-  }
-  if (
-    output.StateLastUpdatedDateTime !== undefined &&
-    output.StateLastUpdatedDateTime !== null
-  ) {
-    contents.StateLastUpdatedDateTime = new Date(
-      Math.round(output.StateLastUpdatedDateTime * 1000)
-    );
-  }
-  if (output.TrustDirection !== undefined && output.TrustDirection !== null) {
-    contents.TrustDirection = output.TrustDirection;
-  }
-  if (output.TrustId !== undefined && output.TrustId !== null) {
-    contents.TrustId = output.TrustId;
-  }
-  if (output.TrustState !== undefined && output.TrustState !== null) {
-    contents.TrustState = output.TrustState;
-  }
-  if (
-    output.TrustStateReason !== undefined &&
-    output.TrustStateReason !== null
-  ) {
-    contents.TrustStateReason = output.TrustStateReason;
-  }
-  if (output.TrustType !== undefined && output.TrustType !== null) {
-    contents.TrustType = output.TrustType;
-  }
-  return contents;
+    CreatedDateTime:
+      output.CreatedDateTime !== undefined && output.CreatedDateTime !== null
+        ? new Date(Math.round(output.CreatedDateTime * 1000))
+        : undefined,
+    DirectoryId:
+      output.DirectoryId !== undefined && output.DirectoryId !== null
+        ? output.DirectoryId
+        : undefined,
+    LastUpdatedDateTime:
+      output.LastUpdatedDateTime !== undefined &&
+      output.LastUpdatedDateTime !== null
+        ? new Date(Math.round(output.LastUpdatedDateTime * 1000))
+        : undefined,
+    RemoteDomainName:
+      output.RemoteDomainName !== undefined && output.RemoteDomainName !== null
+        ? output.RemoteDomainName
+        : undefined,
+    SelectiveAuth:
+      output.SelectiveAuth !== undefined && output.SelectiveAuth !== null
+        ? output.SelectiveAuth
+        : undefined,
+    StateLastUpdatedDateTime:
+      output.StateLastUpdatedDateTime !== undefined &&
+      output.StateLastUpdatedDateTime !== null
+        ? new Date(Math.round(output.StateLastUpdatedDateTime * 1000))
+        : undefined,
+    TrustDirection:
+      output.TrustDirection !== undefined && output.TrustDirection !== null
+        ? output.TrustDirection
+        : undefined,
+    TrustId:
+      output.TrustId !== undefined && output.TrustId !== null
+        ? output.TrustId
+        : undefined,
+    TrustState:
+      output.TrustState !== undefined && output.TrustState !== null
+        ? output.TrustState
+        : undefined,
+    TrustStateReason:
+      output.TrustStateReason !== undefined && output.TrustStateReason !== null
+        ? output.TrustStateReason
+        : undefined,
+    TrustType:
+      output.TrustType !== undefined && output.TrustType !== null
+        ? output.TrustType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Trusts = (
@@ -11402,115 +11099,105 @@ const deserializeAws_json1_1UnshareDirectoryResult = (
   output: any,
   context: __SerdeContext
 ): UnshareDirectoryResult => {
-  let contents: any = {
+  return {
     __type: "UnshareDirectoryResult",
-    SharedDirectoryId: undefined
-  };
-  if (
-    output.SharedDirectoryId !== undefined &&
-    output.SharedDirectoryId !== null
-  ) {
-    contents.SharedDirectoryId = output.SharedDirectoryId;
-  }
-  return contents;
+    SharedDirectoryId:
+      output.SharedDirectoryId !== undefined &&
+      output.SharedDirectoryId !== null
+        ? output.SharedDirectoryId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UnsupportedOperationException = (
   output: any,
   context: __SerdeContext
 ): UnsupportedOperationException => {
-  let contents: any = {
+  return {
     __type: "UnsupportedOperationException",
-    Message: undefined,
-    RequestId: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.RequestId !== undefined && output.RequestId !== null) {
-    contents.RequestId = output.RequestId;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    RequestId:
+      output.RequestId !== undefined && output.RequestId !== null
+        ? output.RequestId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateConditionalForwarderResult = (
   output: any,
   context: __SerdeContext
 ): UpdateConditionalForwarderResult => {
-  let contents: any = {
+  return {
     __type: "UpdateConditionalForwarderResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateNumberOfDomainControllersResult = (
   output: any,
   context: __SerdeContext
 ): UpdateNumberOfDomainControllersResult => {
-  let contents: any = {
+  return {
     __type: "UpdateNumberOfDomainControllersResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateRadiusResult = (
   output: any,
   context: __SerdeContext
 ): UpdateRadiusResult => {
-  let contents: any = {
+  return {
     __type: "UpdateRadiusResult"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateTrustResult = (
   output: any,
   context: __SerdeContext
 ): UpdateTrustResult => {
-  let contents: any = {
+  return {
     __type: "UpdateTrustResult",
-    RequestId: undefined,
-    TrustId: undefined
-  };
-  if (output.RequestId !== undefined && output.RequestId !== null) {
-    contents.RequestId = output.RequestId;
-  }
-  if (output.TrustId !== undefined && output.TrustId !== null) {
-    contents.TrustId = output.TrustId;
-  }
-  return contents;
+    RequestId:
+      output.RequestId !== undefined && output.RequestId !== null
+        ? output.RequestId
+        : undefined,
+    TrustId:
+      output.TrustId !== undefined && output.TrustId !== null
+        ? output.TrustId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UserDoesNotExistException = (
   output: any,
   context: __SerdeContext
 ): UserDoesNotExistException => {
-  let contents: any = {
+  return {
     __type: "UserDoesNotExistException",
-    Message: undefined,
-    RequestId: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.RequestId !== undefined && output.RequestId !== null) {
-    contents.RequestId = output.RequestId;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    RequestId:
+      output.RequestId !== undefined && output.RequestId !== null
+        ? output.RequestId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1VerifyTrustResult = (
   output: any,
   context: __SerdeContext
 ): VerifyTrustResult => {
-  let contents: any = {
+  return {
     __type: "VerifyTrustResult",
-    TrustId: undefined
-  };
-  if (output.TrustId !== undefined && output.TrustId !== null) {
-    contents.TrustId = output.TrustId;
-  }
-  return contents;
+    TrustId:
+      output.TrustId !== undefined && output.TrustId !== null
+        ? output.TrustId
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

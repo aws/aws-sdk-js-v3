@@ -1434,18 +1434,15 @@ const deserializeAws_restJson1_1Graph = (
   output: any,
   context: __SerdeContext
 ): Graph => {
-  let contents: any = {
+  return {
     __type: "Graph",
-    Arn: undefined,
-    CreatedTime: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (output.CreatedTime !== undefined && output.CreatedTime !== null) {
-    contents.CreatedTime = new Date(Math.round(output.CreatedTime * 1000));
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    CreatedTime:
+      output.CreatedTime !== undefined && output.CreatedTime !== null
+        ? new Date(Math.round(output.CreatedTime * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1GraphList = (
@@ -1461,38 +1458,37 @@ const deserializeAws_restJson1_1MemberDetail = (
   output: any,
   context: __SerdeContext
 ): MemberDetail => {
-  let contents: any = {
+  return {
     __type: "MemberDetail",
-    AccountId: undefined,
-    EmailAddress: undefined,
-    GraphArn: undefined,
-    InvitedTime: undefined,
-    MasterId: undefined,
-    Status: undefined,
-    UpdatedTime: undefined
-  };
-  if (output.AccountId !== undefined && output.AccountId !== null) {
-    contents.AccountId = output.AccountId;
-  }
-  if (output.EmailAddress !== undefined && output.EmailAddress !== null) {
-    contents.EmailAddress = output.EmailAddress;
-  }
-  if (output.GraphArn !== undefined && output.GraphArn !== null) {
-    contents.GraphArn = output.GraphArn;
-  }
-  if (output.InvitedTime !== undefined && output.InvitedTime !== null) {
-    contents.InvitedTime = new Date(Math.round(output.InvitedTime * 1000));
-  }
-  if (output.MasterId !== undefined && output.MasterId !== null) {
-    contents.MasterId = output.MasterId;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.UpdatedTime !== undefined && output.UpdatedTime !== null) {
-    contents.UpdatedTime = new Date(Math.round(output.UpdatedTime * 1000));
-  }
-  return contents;
+    AccountId:
+      output.AccountId !== undefined && output.AccountId !== null
+        ? output.AccountId
+        : undefined,
+    EmailAddress:
+      output.EmailAddress !== undefined && output.EmailAddress !== null
+        ? output.EmailAddress
+        : undefined,
+    GraphArn:
+      output.GraphArn !== undefined && output.GraphArn !== null
+        ? output.GraphArn
+        : undefined,
+    InvitedTime:
+      output.InvitedTime !== undefined && output.InvitedTime !== null
+        ? new Date(Math.round(output.InvitedTime * 1000))
+        : undefined,
+    MasterId:
+      output.MasterId !== undefined && output.MasterId !== null
+        ? output.MasterId
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    UpdatedTime:
+      output.UpdatedTime !== undefined && output.UpdatedTime !== null
+        ? new Date(Math.round(output.UpdatedTime * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1MemberDetailList = (
@@ -1508,18 +1504,17 @@ const deserializeAws_restJson1_1UnprocessedAccount = (
   output: any,
   context: __SerdeContext
 ): UnprocessedAccount => {
-  let contents: any = {
+  return {
     __type: "UnprocessedAccount",
-    AccountId: undefined,
-    Reason: undefined
-  };
-  if (output.AccountId !== undefined && output.AccountId !== null) {
-    contents.AccountId = output.AccountId;
-  }
-  if (output.Reason !== undefined && output.Reason !== null) {
-    contents.Reason = output.Reason;
-  }
-  return contents;
+    AccountId:
+      output.AccountId !== undefined && output.AccountId !== null
+        ? output.AccountId
+        : undefined,
+    Reason:
+      output.Reason !== undefined && output.Reason !== null
+        ? output.Reason
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1UnprocessedAccountList = (

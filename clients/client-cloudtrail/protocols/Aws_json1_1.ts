@@ -4116,153 +4116,132 @@ const deserializeAws_json1_1AddTagsResponse = (
   output: any,
   context: __SerdeContext
 ): AddTagsResponse => {
-  let contents: any = {
+  return {
     __type: "AddTagsResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1CloudTrailARNInvalidException = (
   output: any,
   context: __SerdeContext
 ): CloudTrailARNInvalidException => {
-  let contents: any = {
+  return {
     __type: "CloudTrailARNInvalidException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CloudTrailAccessNotEnabledException = (
   output: any,
   context: __SerdeContext
 ): CloudTrailAccessNotEnabledException => {
-  let contents: any = {
+  return {
     __type: "CloudTrailAccessNotEnabledException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CloudWatchLogsDeliveryUnavailableException = (
   output: any,
   context: __SerdeContext
 ): CloudWatchLogsDeliveryUnavailableException => {
-  let contents: any = {
+  return {
     __type: "CloudWatchLogsDeliveryUnavailableException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateTrailResponse = (
   output: any,
   context: __SerdeContext
 ): CreateTrailResponse => {
-  let contents: any = {
+  return {
     __type: "CreateTrailResponse",
-    CloudWatchLogsLogGroupArn: undefined,
-    CloudWatchLogsRoleArn: undefined,
-    IncludeGlobalServiceEvents: undefined,
-    IsMultiRegionTrail: undefined,
-    IsOrganizationTrail: undefined,
-    KmsKeyId: undefined,
-    LogFileValidationEnabled: undefined,
-    Name: undefined,
-    S3BucketName: undefined,
-    S3KeyPrefix: undefined,
-    SnsTopicARN: undefined,
-    SnsTopicName: undefined,
-    TrailARN: undefined
-  };
-  if (
-    output.CloudWatchLogsLogGroupArn !== undefined &&
-    output.CloudWatchLogsLogGroupArn !== null
-  ) {
-    contents.CloudWatchLogsLogGroupArn = output.CloudWatchLogsLogGroupArn;
-  }
-  if (
-    output.CloudWatchLogsRoleArn !== undefined &&
-    output.CloudWatchLogsRoleArn !== null
-  ) {
-    contents.CloudWatchLogsRoleArn = output.CloudWatchLogsRoleArn;
-  }
-  if (
-    output.IncludeGlobalServiceEvents !== undefined &&
-    output.IncludeGlobalServiceEvents !== null
-  ) {
-    contents.IncludeGlobalServiceEvents = output.IncludeGlobalServiceEvents;
-  }
-  if (
-    output.IsMultiRegionTrail !== undefined &&
-    output.IsMultiRegionTrail !== null
-  ) {
-    contents.IsMultiRegionTrail = output.IsMultiRegionTrail;
-  }
-  if (
-    output.IsOrganizationTrail !== undefined &&
-    output.IsOrganizationTrail !== null
-  ) {
-    contents.IsOrganizationTrail = output.IsOrganizationTrail;
-  }
-  if (output.KmsKeyId !== undefined && output.KmsKeyId !== null) {
-    contents.KmsKeyId = output.KmsKeyId;
-  }
-  if (
-    output.LogFileValidationEnabled !== undefined &&
-    output.LogFileValidationEnabled !== null
-  ) {
-    contents.LogFileValidationEnabled = output.LogFileValidationEnabled;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.S3BucketName !== undefined && output.S3BucketName !== null) {
-    contents.S3BucketName = output.S3BucketName;
-  }
-  if (output.S3KeyPrefix !== undefined && output.S3KeyPrefix !== null) {
-    contents.S3KeyPrefix = output.S3KeyPrefix;
-  }
-  if (output.SnsTopicARN !== undefined && output.SnsTopicARN !== null) {
-    contents.SnsTopicARN = output.SnsTopicARN;
-  }
-  if (output.SnsTopicName !== undefined && output.SnsTopicName !== null) {
-    contents.SnsTopicName = output.SnsTopicName;
-  }
-  if (output.TrailARN !== undefined && output.TrailARN !== null) {
-    contents.TrailARN = output.TrailARN;
-  }
-  return contents;
+    CloudWatchLogsLogGroupArn:
+      output.CloudWatchLogsLogGroupArn !== undefined &&
+      output.CloudWatchLogsLogGroupArn !== null
+        ? output.CloudWatchLogsLogGroupArn
+        : undefined,
+    CloudWatchLogsRoleArn:
+      output.CloudWatchLogsRoleArn !== undefined &&
+      output.CloudWatchLogsRoleArn !== null
+        ? output.CloudWatchLogsRoleArn
+        : undefined,
+    IncludeGlobalServiceEvents:
+      output.IncludeGlobalServiceEvents !== undefined &&
+      output.IncludeGlobalServiceEvents !== null
+        ? output.IncludeGlobalServiceEvents
+        : undefined,
+    IsMultiRegionTrail:
+      output.IsMultiRegionTrail !== undefined &&
+      output.IsMultiRegionTrail !== null
+        ? output.IsMultiRegionTrail
+        : undefined,
+    IsOrganizationTrail:
+      output.IsOrganizationTrail !== undefined &&
+      output.IsOrganizationTrail !== null
+        ? output.IsOrganizationTrail
+        : undefined,
+    KmsKeyId:
+      output.KmsKeyId !== undefined && output.KmsKeyId !== null
+        ? output.KmsKeyId
+        : undefined,
+    LogFileValidationEnabled:
+      output.LogFileValidationEnabled !== undefined &&
+      output.LogFileValidationEnabled !== null
+        ? output.LogFileValidationEnabled
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    S3BucketName:
+      output.S3BucketName !== undefined && output.S3BucketName !== null
+        ? output.S3BucketName
+        : undefined,
+    S3KeyPrefix:
+      output.S3KeyPrefix !== undefined && output.S3KeyPrefix !== null
+        ? output.S3KeyPrefix
+        : undefined,
+    SnsTopicARN:
+      output.SnsTopicARN !== undefined && output.SnsTopicARN !== null
+        ? output.SnsTopicARN
+        : undefined,
+    SnsTopicName:
+      output.SnsTopicName !== undefined && output.SnsTopicName !== null
+        ? output.SnsTopicName
+        : undefined,
+    TrailARN:
+      output.TrailARN !== undefined && output.TrailARN !== null
+        ? output.TrailARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DataResource = (
   output: any,
   context: __SerdeContext
 ): DataResource => {
-  let contents: any = {
+  return {
     __type: "DataResource",
-    Type: undefined,
-    Values: undefined
-  };
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  if (output.Values !== undefined && output.Values !== null) {
-    contents.Values = deserializeAws_json1_1DataResourceValues(
-      output.Values,
-      context
-    );
-  }
-  return contents;
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined,
+    Values:
+      output.Values !== undefined && output.Values !== null
+        ? deserializeAws_json1_1DataResourceValues(output.Values, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DataResourceValues = (
@@ -4285,114 +4264,97 @@ const deserializeAws_json1_1DeleteTrailResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteTrailResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteTrailResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeTrailsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeTrailsResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeTrailsResponse",
-    trailList: undefined
-  };
-  if (output.trailList !== undefined && output.trailList !== null) {
-    contents.trailList = deserializeAws_json1_1TrailList(
-      output.trailList,
-      context
-    );
-  }
-  return contents;
+    trailList:
+      output.trailList !== undefined && output.trailList !== null
+        ? deserializeAws_json1_1TrailList(output.trailList, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Event = (
   output: any,
   context: __SerdeContext
 ): Event => {
-  let contents: any = {
+  return {
     __type: "Event",
-    AccessKeyId: undefined,
-    CloudTrailEvent: undefined,
-    EventId: undefined,
-    EventName: undefined,
-    EventSource: undefined,
-    EventTime: undefined,
-    ReadOnly: undefined,
-    Resources: undefined,
-    Username: undefined
-  };
-  if (output.AccessKeyId !== undefined && output.AccessKeyId !== null) {
-    contents.AccessKeyId = output.AccessKeyId;
-  }
-  if (output.CloudTrailEvent !== undefined && output.CloudTrailEvent !== null) {
-    contents.CloudTrailEvent = output.CloudTrailEvent;
-  }
-  if (output.EventId !== undefined && output.EventId !== null) {
-    contents.EventId = output.EventId;
-  }
-  if (output.EventName !== undefined && output.EventName !== null) {
-    contents.EventName = output.EventName;
-  }
-  if (output.EventSource !== undefined && output.EventSource !== null) {
-    contents.EventSource = output.EventSource;
-  }
-  if (output.EventTime !== undefined && output.EventTime !== null) {
-    contents.EventTime = new Date(Math.round(output.EventTime * 1000));
-  }
-  if (output.ReadOnly !== undefined && output.ReadOnly !== null) {
-    contents.ReadOnly = output.ReadOnly;
-  }
-  if (output.Resources !== undefined && output.Resources !== null) {
-    contents.Resources = deserializeAws_json1_1ResourceList(
-      output.Resources,
-      context
-    );
-  }
-  if (output.Username !== undefined && output.Username !== null) {
-    contents.Username = output.Username;
-  }
-  return contents;
+    AccessKeyId:
+      output.AccessKeyId !== undefined && output.AccessKeyId !== null
+        ? output.AccessKeyId
+        : undefined,
+    CloudTrailEvent:
+      output.CloudTrailEvent !== undefined && output.CloudTrailEvent !== null
+        ? output.CloudTrailEvent
+        : undefined,
+    EventId:
+      output.EventId !== undefined && output.EventId !== null
+        ? output.EventId
+        : undefined,
+    EventName:
+      output.EventName !== undefined && output.EventName !== null
+        ? output.EventName
+        : undefined,
+    EventSource:
+      output.EventSource !== undefined && output.EventSource !== null
+        ? output.EventSource
+        : undefined,
+    EventTime:
+      output.EventTime !== undefined && output.EventTime !== null
+        ? new Date(Math.round(output.EventTime * 1000))
+        : undefined,
+    ReadOnly:
+      output.ReadOnly !== undefined && output.ReadOnly !== null
+        ? output.ReadOnly
+        : undefined,
+    Resources:
+      output.Resources !== undefined && output.Resources !== null
+        ? deserializeAws_json1_1ResourceList(output.Resources, context)
+        : undefined,
+    Username:
+      output.Username !== undefined && output.Username !== null
+        ? output.Username
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EventSelector = (
   output: any,
   context: __SerdeContext
 ): EventSelector => {
-  let contents: any = {
+  return {
     __type: "EventSelector",
-    DataResources: undefined,
-    ExcludeManagementEventSources: undefined,
-    IncludeManagementEvents: undefined,
-    ReadWriteType: undefined
-  };
-  if (output.DataResources !== undefined && output.DataResources !== null) {
-    contents.DataResources = deserializeAws_json1_1DataResources(
-      output.DataResources,
-      context
-    );
-  }
-  if (
-    output.ExcludeManagementEventSources !== undefined &&
-    output.ExcludeManagementEventSources !== null
-  ) {
-    contents.ExcludeManagementEventSources = deserializeAws_json1_1ExcludeManagementEventSources(
-      output.ExcludeManagementEventSources,
-      context
-    );
-  }
-  if (
-    output.IncludeManagementEvents !== undefined &&
-    output.IncludeManagementEvents !== null
-  ) {
-    contents.IncludeManagementEvents = output.IncludeManagementEvents;
-  }
-  if (output.ReadWriteType !== undefined && output.ReadWriteType !== null) {
-    contents.ReadWriteType = output.ReadWriteType;
-  }
-  return contents;
+    DataResources:
+      output.DataResources !== undefined && output.DataResources !== null
+        ? deserializeAws_json1_1DataResources(output.DataResources, context)
+        : undefined,
+    ExcludeManagementEventSources:
+      output.ExcludeManagementEventSources !== undefined &&
+      output.ExcludeManagementEventSources !== null
+        ? deserializeAws_json1_1ExcludeManagementEventSources(
+            output.ExcludeManagementEventSources,
+            context
+          )
+        : undefined,
+    IncludeManagementEvents:
+      output.IncludeManagementEvents !== undefined &&
+      output.IncludeManagementEvents !== null
+        ? output.IncludeManagementEvents
+        : undefined,
+    ReadWriteType:
+      output.ReadWriteType !== undefined && output.ReadWriteType !== null
+        ? output.ReadWriteType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EventSelectors = (
@@ -4424,226 +4386,167 @@ const deserializeAws_json1_1GetEventSelectorsResponse = (
   output: any,
   context: __SerdeContext
 ): GetEventSelectorsResponse => {
-  let contents: any = {
+  return {
     __type: "GetEventSelectorsResponse",
-    EventSelectors: undefined,
-    TrailARN: undefined
-  };
-  if (output.EventSelectors !== undefined && output.EventSelectors !== null) {
-    contents.EventSelectors = deserializeAws_json1_1EventSelectors(
-      output.EventSelectors,
-      context
-    );
-  }
-  if (output.TrailARN !== undefined && output.TrailARN !== null) {
-    contents.TrailARN = output.TrailARN;
-  }
-  return contents;
+    EventSelectors:
+      output.EventSelectors !== undefined && output.EventSelectors !== null
+        ? deserializeAws_json1_1EventSelectors(output.EventSelectors, context)
+        : undefined,
+    TrailARN:
+      output.TrailARN !== undefined && output.TrailARN !== null
+        ? output.TrailARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetInsightSelectorsResponse = (
   output: any,
   context: __SerdeContext
 ): GetInsightSelectorsResponse => {
-  let contents: any = {
+  return {
     __type: "GetInsightSelectorsResponse",
-    InsightSelectors: undefined,
-    TrailARN: undefined
-  };
-  if (
-    output.InsightSelectors !== undefined &&
-    output.InsightSelectors !== null
-  ) {
-    contents.InsightSelectors = deserializeAws_json1_1InsightSelectors(
-      output.InsightSelectors,
-      context
-    );
-  }
-  if (output.TrailARN !== undefined && output.TrailARN !== null) {
-    contents.TrailARN = output.TrailARN;
-  }
-  return contents;
+    InsightSelectors:
+      output.InsightSelectors !== undefined && output.InsightSelectors !== null
+        ? deserializeAws_json1_1InsightSelectors(
+            output.InsightSelectors,
+            context
+          )
+        : undefined,
+    TrailARN:
+      output.TrailARN !== undefined && output.TrailARN !== null
+        ? output.TrailARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetTrailResponse = (
   output: any,
   context: __SerdeContext
 ): GetTrailResponse => {
-  let contents: any = {
+  return {
     __type: "GetTrailResponse",
-    Trail: undefined
-  };
-  if (output.Trail !== undefined && output.Trail !== null) {
-    contents.Trail = deserializeAws_json1_1Trail(output.Trail, context);
-  }
-  return contents;
+    Trail:
+      output.Trail !== undefined && output.Trail !== null
+        ? deserializeAws_json1_1Trail(output.Trail, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetTrailStatusResponse = (
   output: any,
   context: __SerdeContext
 ): GetTrailStatusResponse => {
-  let contents: any = {
+  return {
     __type: "GetTrailStatusResponse",
-    IsLogging: undefined,
-    LatestCloudWatchLogsDeliveryError: undefined,
-    LatestCloudWatchLogsDeliveryTime: undefined,
-    LatestDeliveryAttemptSucceeded: undefined,
-    LatestDeliveryAttemptTime: undefined,
-    LatestDeliveryError: undefined,
-    LatestDeliveryTime: undefined,
-    LatestDigestDeliveryError: undefined,
-    LatestDigestDeliveryTime: undefined,
-    LatestNotificationAttemptSucceeded: undefined,
-    LatestNotificationAttemptTime: undefined,
-    LatestNotificationError: undefined,
-    LatestNotificationTime: undefined,
-    StartLoggingTime: undefined,
-    StopLoggingTime: undefined,
-    TimeLoggingStarted: undefined,
-    TimeLoggingStopped: undefined
-  };
-  if (output.IsLogging !== undefined && output.IsLogging !== null) {
-    contents.IsLogging = output.IsLogging;
-  }
-  if (
-    output.LatestCloudWatchLogsDeliveryError !== undefined &&
-    output.LatestCloudWatchLogsDeliveryError !== null
-  ) {
-    contents.LatestCloudWatchLogsDeliveryError =
-      output.LatestCloudWatchLogsDeliveryError;
-  }
-  if (
-    output.LatestCloudWatchLogsDeliveryTime !== undefined &&
-    output.LatestCloudWatchLogsDeliveryTime !== null
-  ) {
-    contents.LatestCloudWatchLogsDeliveryTime = new Date(
-      Math.round(output.LatestCloudWatchLogsDeliveryTime * 1000)
-    );
-  }
-  if (
-    output.LatestDeliveryAttemptSucceeded !== undefined &&
-    output.LatestDeliveryAttemptSucceeded !== null
-  ) {
-    contents.LatestDeliveryAttemptSucceeded =
-      output.LatestDeliveryAttemptSucceeded;
-  }
-  if (
-    output.LatestDeliveryAttemptTime !== undefined &&
-    output.LatestDeliveryAttemptTime !== null
-  ) {
-    contents.LatestDeliveryAttemptTime = output.LatestDeliveryAttemptTime;
-  }
-  if (
-    output.LatestDeliveryError !== undefined &&
-    output.LatestDeliveryError !== null
-  ) {
-    contents.LatestDeliveryError = output.LatestDeliveryError;
-  }
-  if (
-    output.LatestDeliveryTime !== undefined &&
-    output.LatestDeliveryTime !== null
-  ) {
-    contents.LatestDeliveryTime = new Date(
-      Math.round(output.LatestDeliveryTime * 1000)
-    );
-  }
-  if (
-    output.LatestDigestDeliveryError !== undefined &&
-    output.LatestDigestDeliveryError !== null
-  ) {
-    contents.LatestDigestDeliveryError = output.LatestDigestDeliveryError;
-  }
-  if (
-    output.LatestDigestDeliveryTime !== undefined &&
-    output.LatestDigestDeliveryTime !== null
-  ) {
-    contents.LatestDigestDeliveryTime = new Date(
-      Math.round(output.LatestDigestDeliveryTime * 1000)
-    );
-  }
-  if (
-    output.LatestNotificationAttemptSucceeded !== undefined &&
-    output.LatestNotificationAttemptSucceeded !== null
-  ) {
-    contents.LatestNotificationAttemptSucceeded =
-      output.LatestNotificationAttemptSucceeded;
-  }
-  if (
-    output.LatestNotificationAttemptTime !== undefined &&
-    output.LatestNotificationAttemptTime !== null
-  ) {
-    contents.LatestNotificationAttemptTime =
-      output.LatestNotificationAttemptTime;
-  }
-  if (
-    output.LatestNotificationError !== undefined &&
-    output.LatestNotificationError !== null
-  ) {
-    contents.LatestNotificationError = output.LatestNotificationError;
-  }
-  if (
-    output.LatestNotificationTime !== undefined &&
-    output.LatestNotificationTime !== null
-  ) {
-    contents.LatestNotificationTime = new Date(
-      Math.round(output.LatestNotificationTime * 1000)
-    );
-  }
-  if (
-    output.StartLoggingTime !== undefined &&
-    output.StartLoggingTime !== null
-  ) {
-    contents.StartLoggingTime = new Date(
-      Math.round(output.StartLoggingTime * 1000)
-    );
-  }
-  if (output.StopLoggingTime !== undefined && output.StopLoggingTime !== null) {
-    contents.StopLoggingTime = new Date(
-      Math.round(output.StopLoggingTime * 1000)
-    );
-  }
-  if (
-    output.TimeLoggingStarted !== undefined &&
-    output.TimeLoggingStarted !== null
-  ) {
-    contents.TimeLoggingStarted = output.TimeLoggingStarted;
-  }
-  if (
-    output.TimeLoggingStopped !== undefined &&
-    output.TimeLoggingStopped !== null
-  ) {
-    contents.TimeLoggingStopped = output.TimeLoggingStopped;
-  }
-  return contents;
+    IsLogging:
+      output.IsLogging !== undefined && output.IsLogging !== null
+        ? output.IsLogging
+        : undefined,
+    LatestCloudWatchLogsDeliveryError:
+      output.LatestCloudWatchLogsDeliveryError !== undefined &&
+      output.LatestCloudWatchLogsDeliveryError !== null
+        ? output.LatestCloudWatchLogsDeliveryError
+        : undefined,
+    LatestCloudWatchLogsDeliveryTime:
+      output.LatestCloudWatchLogsDeliveryTime !== undefined &&
+      output.LatestCloudWatchLogsDeliveryTime !== null
+        ? new Date(Math.round(output.LatestCloudWatchLogsDeliveryTime * 1000))
+        : undefined,
+    LatestDeliveryAttemptSucceeded:
+      output.LatestDeliveryAttemptSucceeded !== undefined &&
+      output.LatestDeliveryAttemptSucceeded !== null
+        ? output.LatestDeliveryAttemptSucceeded
+        : undefined,
+    LatestDeliveryAttemptTime:
+      output.LatestDeliveryAttemptTime !== undefined &&
+      output.LatestDeliveryAttemptTime !== null
+        ? output.LatestDeliveryAttemptTime
+        : undefined,
+    LatestDeliveryError:
+      output.LatestDeliveryError !== undefined &&
+      output.LatestDeliveryError !== null
+        ? output.LatestDeliveryError
+        : undefined,
+    LatestDeliveryTime:
+      output.LatestDeliveryTime !== undefined &&
+      output.LatestDeliveryTime !== null
+        ? new Date(Math.round(output.LatestDeliveryTime * 1000))
+        : undefined,
+    LatestDigestDeliveryError:
+      output.LatestDigestDeliveryError !== undefined &&
+      output.LatestDigestDeliveryError !== null
+        ? output.LatestDigestDeliveryError
+        : undefined,
+    LatestDigestDeliveryTime:
+      output.LatestDigestDeliveryTime !== undefined &&
+      output.LatestDigestDeliveryTime !== null
+        ? new Date(Math.round(output.LatestDigestDeliveryTime * 1000))
+        : undefined,
+    LatestNotificationAttemptSucceeded:
+      output.LatestNotificationAttemptSucceeded !== undefined &&
+      output.LatestNotificationAttemptSucceeded !== null
+        ? output.LatestNotificationAttemptSucceeded
+        : undefined,
+    LatestNotificationAttemptTime:
+      output.LatestNotificationAttemptTime !== undefined &&
+      output.LatestNotificationAttemptTime !== null
+        ? output.LatestNotificationAttemptTime
+        : undefined,
+    LatestNotificationError:
+      output.LatestNotificationError !== undefined &&
+      output.LatestNotificationError !== null
+        ? output.LatestNotificationError
+        : undefined,
+    LatestNotificationTime:
+      output.LatestNotificationTime !== undefined &&
+      output.LatestNotificationTime !== null
+        ? new Date(Math.round(output.LatestNotificationTime * 1000))
+        : undefined,
+    StartLoggingTime:
+      output.StartLoggingTime !== undefined && output.StartLoggingTime !== null
+        ? new Date(Math.round(output.StartLoggingTime * 1000))
+        : undefined,
+    StopLoggingTime:
+      output.StopLoggingTime !== undefined && output.StopLoggingTime !== null
+        ? new Date(Math.round(output.StopLoggingTime * 1000))
+        : undefined,
+    TimeLoggingStarted:
+      output.TimeLoggingStarted !== undefined &&
+      output.TimeLoggingStarted !== null
+        ? output.TimeLoggingStarted
+        : undefined,
+    TimeLoggingStopped:
+      output.TimeLoggingStopped !== undefined &&
+      output.TimeLoggingStopped !== null
+        ? output.TimeLoggingStopped
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InsightNotEnabledException = (
   output: any,
   context: __SerdeContext
 ): InsightNotEnabledException => {
-  let contents: any = {
+  return {
     __type: "InsightNotEnabledException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InsightSelector = (
   output: any,
   context: __SerdeContext
 ): InsightSelector => {
-  let contents: any = {
+  return {
     __type: "InsightSelector",
-    InsightType: undefined
-  };
-  if (output.InsightType !== undefined && output.InsightType !== null) {
-    contents.InsightType = output.InsightType;
-  }
-  return contents;
+    InsightType:
+      output.InsightType !== undefined && output.InsightType !== null
+        ? output.InsightType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InsightSelectors = (
@@ -4659,531 +4562,484 @@ const deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExcepti
   output: any,
   context: __SerdeContext
 ): InsufficientDependencyServiceAccessPermissionException => {
-  let contents: any = {
+  return {
     __type: "InsufficientDependencyServiceAccessPermissionException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InsufficientEncryptionPolicyException = (
   output: any,
   context: __SerdeContext
 ): InsufficientEncryptionPolicyException => {
-  let contents: any = {
+  return {
     __type: "InsufficientEncryptionPolicyException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InsufficientS3BucketPolicyException = (
   output: any,
   context: __SerdeContext
 ): InsufficientS3BucketPolicyException => {
-  let contents: any = {
+  return {
     __type: "InsufficientS3BucketPolicyException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InsufficientSnsTopicPolicyException = (
   output: any,
   context: __SerdeContext
 ): InsufficientSnsTopicPolicyException => {
-  let contents: any = {
+  return {
     __type: "InsufficientSnsTopicPolicyException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidCloudWatchLogsLogGroupArnException = (
   output: any,
   context: __SerdeContext
 ): InvalidCloudWatchLogsLogGroupArnException => {
-  let contents: any = {
+  return {
     __type: "InvalidCloudWatchLogsLogGroupArnException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidCloudWatchLogsRoleArnException = (
   output: any,
   context: __SerdeContext
 ): InvalidCloudWatchLogsRoleArnException => {
-  let contents: any = {
+  return {
     __type: "InvalidCloudWatchLogsRoleArnException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidEventCategoryException = (
   output: any,
   context: __SerdeContext
 ): InvalidEventCategoryException => {
-  let contents: any = {
+  return {
     __type: "InvalidEventCategoryException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidEventSelectorsException = (
   output: any,
   context: __SerdeContext
 ): InvalidEventSelectorsException => {
-  let contents: any = {
+  return {
     __type: "InvalidEventSelectorsException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidHomeRegionException = (
   output: any,
   context: __SerdeContext
 ): InvalidHomeRegionException => {
-  let contents: any = {
+  return {
     __type: "InvalidHomeRegionException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidInsightSelectorsException = (
   output: any,
   context: __SerdeContext
 ): InvalidInsightSelectorsException => {
-  let contents: any = {
+  return {
     __type: "InvalidInsightSelectorsException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidKmsKeyIdException = (
   output: any,
   context: __SerdeContext
 ): InvalidKmsKeyIdException => {
-  let contents: any = {
+  return {
     __type: "InvalidKmsKeyIdException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidLookupAttributesException = (
   output: any,
   context: __SerdeContext
 ): InvalidLookupAttributesException => {
-  let contents: any = {
+  return {
     __type: "InvalidLookupAttributesException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidMaxResultsException = (
   output: any,
   context: __SerdeContext
 ): InvalidMaxResultsException => {
-  let contents: any = {
+  return {
     __type: "InvalidMaxResultsException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidNextTokenException = (
   output: any,
   context: __SerdeContext
 ): InvalidNextTokenException => {
-  let contents: any = {
+  return {
     __type: "InvalidNextTokenException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidParameterCombinationException = (
   output: any,
   context: __SerdeContext
 ): InvalidParameterCombinationException => {
-  let contents: any = {
+  return {
     __type: "InvalidParameterCombinationException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidS3BucketNameException = (
   output: any,
   context: __SerdeContext
 ): InvalidS3BucketNameException => {
-  let contents: any = {
+  return {
     __type: "InvalidS3BucketNameException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidS3PrefixException = (
   output: any,
   context: __SerdeContext
 ): InvalidS3PrefixException => {
-  let contents: any = {
+  return {
     __type: "InvalidS3PrefixException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidSnsTopicNameException = (
   output: any,
   context: __SerdeContext
 ): InvalidSnsTopicNameException => {
-  let contents: any = {
+  return {
     __type: "InvalidSnsTopicNameException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidTagParameterException = (
   output: any,
   context: __SerdeContext
 ): InvalidTagParameterException => {
-  let contents: any = {
+  return {
     __type: "InvalidTagParameterException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidTimeRangeException = (
   output: any,
   context: __SerdeContext
 ): InvalidTimeRangeException => {
-  let contents: any = {
+  return {
     __type: "InvalidTimeRangeException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidTokenException = (
   output: any,
   context: __SerdeContext
 ): InvalidTokenException => {
-  let contents: any = {
+  return {
     __type: "InvalidTokenException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidTrailNameException = (
   output: any,
   context: __SerdeContext
 ): InvalidTrailNameException => {
-  let contents: any = {
+  return {
     __type: "InvalidTrailNameException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1KmsException = (
   output: any,
   context: __SerdeContext
 ): KmsException => {
-  let contents: any = {
+  return {
     __type: "KmsException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1KmsKeyDisabledException = (
   output: any,
   context: __SerdeContext
 ): KmsKeyDisabledException => {
-  let contents: any = {
+  return {
     __type: "KmsKeyDisabledException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1KmsKeyNotFoundException = (
   output: any,
   context: __SerdeContext
 ): KmsKeyNotFoundException => {
-  let contents: any = {
+  return {
     __type: "KmsKeyNotFoundException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListPublicKeysResponse = (
   output: any,
   context: __SerdeContext
 ): ListPublicKeysResponse => {
-  let contents: any = {
+  return {
     __type: "ListPublicKeysResponse",
-    NextToken: undefined,
-    PublicKeyList: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.PublicKeyList !== undefined && output.PublicKeyList !== null) {
-    contents.PublicKeyList = deserializeAws_json1_1PublicKeyList(
-      output.PublicKeyList,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    PublicKeyList:
+      output.PublicKeyList !== undefined && output.PublicKeyList !== null
+        ? deserializeAws_json1_1PublicKeyList(output.PublicKeyList, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListTagsResponse = (
   output: any,
   context: __SerdeContext
 ): ListTagsResponse => {
-  let contents: any = {
+  return {
     __type: "ListTagsResponse",
-    NextToken: undefined,
-    ResourceTagList: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.ResourceTagList !== undefined && output.ResourceTagList !== null) {
-    contents.ResourceTagList = deserializeAws_json1_1ResourceTagList(
-      output.ResourceTagList,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    ResourceTagList:
+      output.ResourceTagList !== undefined && output.ResourceTagList !== null
+        ? deserializeAws_json1_1ResourceTagList(output.ResourceTagList, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListTrailsResponse = (
   output: any,
   context: __SerdeContext
 ): ListTrailsResponse => {
-  let contents: any = {
+  return {
     __type: "ListTrailsResponse",
-    NextToken: undefined,
-    Trails: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.Trails !== undefined && output.Trails !== null) {
-    contents.Trails = deserializeAws_json1_1Trails(output.Trails, context);
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Trails:
+      output.Trails !== undefined && output.Trails !== null
+        ? deserializeAws_json1_1Trails(output.Trails, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LookupEventsResponse = (
   output: any,
   context: __SerdeContext
 ): LookupEventsResponse => {
-  let contents: any = {
+  return {
     __type: "LookupEventsResponse",
-    Events: undefined,
-    NextToken: undefined
-  };
-  if (output.Events !== undefined && output.Events !== null) {
-    contents.Events = deserializeAws_json1_1EventsList(output.Events, context);
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  return contents;
+    Events:
+      output.Events !== undefined && output.Events !== null
+        ? deserializeAws_json1_1EventsList(output.Events, context)
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1MaximumNumberOfTrailsExceededException = (
   output: any,
   context: __SerdeContext
 ): MaximumNumberOfTrailsExceededException => {
-  let contents: any = {
+  return {
     __type: "MaximumNumberOfTrailsExceededException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1NotOrganizationMasterAccountException = (
   output: any,
   context: __SerdeContext
 ): NotOrganizationMasterAccountException => {
-  let contents: any = {
+  return {
     __type: "NotOrganizationMasterAccountException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1OperationNotPermittedException = (
   output: any,
   context: __SerdeContext
 ): OperationNotPermittedException => {
-  let contents: any = {
+  return {
     __type: "OperationNotPermittedException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1OrganizationNotInAllFeaturesModeException = (
   output: any,
   context: __SerdeContext
 ): OrganizationNotInAllFeaturesModeException => {
-  let contents: any = {
+  return {
     __type: "OrganizationNotInAllFeaturesModeException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1OrganizationsNotInUseException = (
   output: any,
   context: __SerdeContext
 ): OrganizationsNotInUseException => {
-  let contents: any = {
+  return {
     __type: "OrganizationsNotInUseException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PublicKey = (
   output: any,
   context: __SerdeContext
 ): PublicKey => {
-  let contents: any = {
+  return {
     __type: "PublicKey",
-    Fingerprint: undefined,
-    ValidityEndTime: undefined,
-    ValidityStartTime: undefined,
-    Value: undefined
-  };
-  if (output.Fingerprint !== undefined && output.Fingerprint !== null) {
-    contents.Fingerprint = output.Fingerprint;
-  }
-  if (output.ValidityEndTime !== undefined && output.ValidityEndTime !== null) {
-    contents.ValidityEndTime = new Date(
-      Math.round(output.ValidityEndTime * 1000)
-    );
-  }
-  if (
-    output.ValidityStartTime !== undefined &&
-    output.ValidityStartTime !== null
-  ) {
-    contents.ValidityStartTime = new Date(
-      Math.round(output.ValidityStartTime * 1000)
-    );
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = context.base64Decoder(output.Value);
-  }
-  return contents;
+    Fingerprint:
+      output.Fingerprint !== undefined && output.Fingerprint !== null
+        ? output.Fingerprint
+        : undefined,
+    ValidityEndTime:
+      output.ValidityEndTime !== undefined && output.ValidityEndTime !== null
+        ? new Date(Math.round(output.ValidityEndTime * 1000))
+        : undefined,
+    ValidityStartTime:
+      output.ValidityStartTime !== undefined &&
+      output.ValidityStartTime !== null
+        ? new Date(Math.round(output.ValidityStartTime * 1000))
+        : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? context.base64Decoder(output.Value)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PublicKeyList = (
@@ -5199,73 +5055,63 @@ const deserializeAws_json1_1PutEventSelectorsResponse = (
   output: any,
   context: __SerdeContext
 ): PutEventSelectorsResponse => {
-  let contents: any = {
+  return {
     __type: "PutEventSelectorsResponse",
-    EventSelectors: undefined,
-    TrailARN: undefined
-  };
-  if (output.EventSelectors !== undefined && output.EventSelectors !== null) {
-    contents.EventSelectors = deserializeAws_json1_1EventSelectors(
-      output.EventSelectors,
-      context
-    );
-  }
-  if (output.TrailARN !== undefined && output.TrailARN !== null) {
-    contents.TrailARN = output.TrailARN;
-  }
-  return contents;
+    EventSelectors:
+      output.EventSelectors !== undefined && output.EventSelectors !== null
+        ? deserializeAws_json1_1EventSelectors(output.EventSelectors, context)
+        : undefined,
+    TrailARN:
+      output.TrailARN !== undefined && output.TrailARN !== null
+        ? output.TrailARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PutInsightSelectorsResponse = (
   output: any,
   context: __SerdeContext
 ): PutInsightSelectorsResponse => {
-  let contents: any = {
+  return {
     __type: "PutInsightSelectorsResponse",
-    InsightSelectors: undefined,
-    TrailARN: undefined
-  };
-  if (
-    output.InsightSelectors !== undefined &&
-    output.InsightSelectors !== null
-  ) {
-    contents.InsightSelectors = deserializeAws_json1_1InsightSelectors(
-      output.InsightSelectors,
-      context
-    );
-  }
-  if (output.TrailARN !== undefined && output.TrailARN !== null) {
-    contents.TrailARN = output.TrailARN;
-  }
-  return contents;
+    InsightSelectors:
+      output.InsightSelectors !== undefined && output.InsightSelectors !== null
+        ? deserializeAws_json1_1InsightSelectors(
+            output.InsightSelectors,
+            context
+          )
+        : undefined,
+    TrailARN:
+      output.TrailARN !== undefined && output.TrailARN !== null
+        ? output.TrailARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RemoveTagsResponse = (
   output: any,
   context: __SerdeContext
 ): RemoveTagsResponse => {
-  let contents: any = {
+  return {
     __type: "RemoveTagsResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1Resource = (
   output: any,
   context: __SerdeContext
 ): Resource => {
-  let contents: any = {
+  return {
     __type: "Resource",
-    ResourceName: undefined,
-    ResourceType: undefined
-  };
-  if (output.ResourceName !== undefined && output.ResourceName !== null) {
-    contents.ResourceName = output.ResourceName;
-  }
-  if (output.ResourceType !== undefined && output.ResourceType !== null) {
-    contents.ResourceType = output.ResourceType;
-  }
-  return contents;
+    ResourceName:
+      output.ResourceName !== undefined && output.ResourceName !== null
+        ? output.ResourceName
+        : undefined,
+    ResourceType:
+      output.ResourceType !== undefined && output.ResourceType !== null
+        ? output.ResourceType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceList = (
@@ -5281,35 +5127,30 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ResourceNotFoundException => {
-  let contents: any = {
+  return {
     __type: "ResourceNotFoundException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceTag = (
   output: any,
   context: __SerdeContext
 ): ResourceTag => {
-  let contents: any = {
+  return {
     __type: "ResourceTag",
-    ResourceId: undefined,
-    TagsList: undefined
-  };
-  if (output.ResourceId !== undefined && output.ResourceId !== null) {
-    contents.ResourceId = output.ResourceId;
-  }
-  if (output.TagsList !== undefined && output.TagsList !== null) {
-    contents.TagsList = deserializeAws_json1_1TagsList(
-      output.TagsList,
-      context
-    );
-  }
-  return contents;
+    ResourceId:
+      output.ResourceId !== undefined && output.ResourceId !== null
+        ? output.ResourceId
+        : undefined,
+    TagsList:
+      output.TagsList !== undefined && output.TagsList !== null
+        ? deserializeAws_json1_1TagsList(output.TagsList, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceTagList = (
@@ -5325,80 +5166,72 @@ const deserializeAws_json1_1ResourceTypeNotSupportedException = (
   output: any,
   context: __SerdeContext
 ): ResourceTypeNotSupportedException => {
-  let contents: any = {
+  return {
     __type: "ResourceTypeNotSupportedException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1S3BucketDoesNotExistException = (
   output: any,
   context: __SerdeContext
 ): S3BucketDoesNotExistException => {
-  let contents: any = {
+  return {
     __type: "S3BucketDoesNotExistException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StartLoggingResponse = (
   output: any,
   context: __SerdeContext
 ): StartLoggingResponse => {
-  let contents: any = {
+  return {
     __type: "StartLoggingResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1StopLoggingResponse = (
   output: any,
   context: __SerdeContext
 ): StopLoggingResponse => {
-  let contents: any = {
+  return {
     __type: "StopLoggingResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1Tag = (
   output: any,
   context: __SerdeContext
 ): Tag => {
-  let contents: any = {
+  return {
     __type: "Tag",
-    Key: undefined,
-    Value: undefined
-  };
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TagsLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): TagsLimitExceededException => {
-  let contents: any = {
+  return {
     __type: "TagsLimitExceededException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TagsList = (
@@ -5414,134 +5247,115 @@ const deserializeAws_json1_1Trail = (
   output: any,
   context: __SerdeContext
 ): Trail => {
-  let contents: any = {
+  return {
     __type: "Trail",
-    CloudWatchLogsLogGroupArn: undefined,
-    CloudWatchLogsRoleArn: undefined,
-    HasCustomEventSelectors: undefined,
-    HasInsightSelectors: undefined,
-    HomeRegion: undefined,
-    IncludeGlobalServiceEvents: undefined,
-    IsMultiRegionTrail: undefined,
-    IsOrganizationTrail: undefined,
-    KmsKeyId: undefined,
-    LogFileValidationEnabled: undefined,
-    Name: undefined,
-    S3BucketName: undefined,
-    S3KeyPrefix: undefined,
-    SnsTopicARN: undefined,
-    SnsTopicName: undefined,
-    TrailARN: undefined
-  };
-  if (
-    output.CloudWatchLogsLogGroupArn !== undefined &&
-    output.CloudWatchLogsLogGroupArn !== null
-  ) {
-    contents.CloudWatchLogsLogGroupArn = output.CloudWatchLogsLogGroupArn;
-  }
-  if (
-    output.CloudWatchLogsRoleArn !== undefined &&
-    output.CloudWatchLogsRoleArn !== null
-  ) {
-    contents.CloudWatchLogsRoleArn = output.CloudWatchLogsRoleArn;
-  }
-  if (
-    output.HasCustomEventSelectors !== undefined &&
-    output.HasCustomEventSelectors !== null
-  ) {
-    contents.HasCustomEventSelectors = output.HasCustomEventSelectors;
-  }
-  if (
-    output.HasInsightSelectors !== undefined &&
-    output.HasInsightSelectors !== null
-  ) {
-    contents.HasInsightSelectors = output.HasInsightSelectors;
-  }
-  if (output.HomeRegion !== undefined && output.HomeRegion !== null) {
-    contents.HomeRegion = output.HomeRegion;
-  }
-  if (
-    output.IncludeGlobalServiceEvents !== undefined &&
-    output.IncludeGlobalServiceEvents !== null
-  ) {
-    contents.IncludeGlobalServiceEvents = output.IncludeGlobalServiceEvents;
-  }
-  if (
-    output.IsMultiRegionTrail !== undefined &&
-    output.IsMultiRegionTrail !== null
-  ) {
-    contents.IsMultiRegionTrail = output.IsMultiRegionTrail;
-  }
-  if (
-    output.IsOrganizationTrail !== undefined &&
-    output.IsOrganizationTrail !== null
-  ) {
-    contents.IsOrganizationTrail = output.IsOrganizationTrail;
-  }
-  if (output.KmsKeyId !== undefined && output.KmsKeyId !== null) {
-    contents.KmsKeyId = output.KmsKeyId;
-  }
-  if (
-    output.LogFileValidationEnabled !== undefined &&
-    output.LogFileValidationEnabled !== null
-  ) {
-    contents.LogFileValidationEnabled = output.LogFileValidationEnabled;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.S3BucketName !== undefined && output.S3BucketName !== null) {
-    contents.S3BucketName = output.S3BucketName;
-  }
-  if (output.S3KeyPrefix !== undefined && output.S3KeyPrefix !== null) {
-    contents.S3KeyPrefix = output.S3KeyPrefix;
-  }
-  if (output.SnsTopicARN !== undefined && output.SnsTopicARN !== null) {
-    contents.SnsTopicARN = output.SnsTopicARN;
-  }
-  if (output.SnsTopicName !== undefined && output.SnsTopicName !== null) {
-    contents.SnsTopicName = output.SnsTopicName;
-  }
-  if (output.TrailARN !== undefined && output.TrailARN !== null) {
-    contents.TrailARN = output.TrailARN;
-  }
-  return contents;
+    CloudWatchLogsLogGroupArn:
+      output.CloudWatchLogsLogGroupArn !== undefined &&
+      output.CloudWatchLogsLogGroupArn !== null
+        ? output.CloudWatchLogsLogGroupArn
+        : undefined,
+    CloudWatchLogsRoleArn:
+      output.CloudWatchLogsRoleArn !== undefined &&
+      output.CloudWatchLogsRoleArn !== null
+        ? output.CloudWatchLogsRoleArn
+        : undefined,
+    HasCustomEventSelectors:
+      output.HasCustomEventSelectors !== undefined &&
+      output.HasCustomEventSelectors !== null
+        ? output.HasCustomEventSelectors
+        : undefined,
+    HasInsightSelectors:
+      output.HasInsightSelectors !== undefined &&
+      output.HasInsightSelectors !== null
+        ? output.HasInsightSelectors
+        : undefined,
+    HomeRegion:
+      output.HomeRegion !== undefined && output.HomeRegion !== null
+        ? output.HomeRegion
+        : undefined,
+    IncludeGlobalServiceEvents:
+      output.IncludeGlobalServiceEvents !== undefined &&
+      output.IncludeGlobalServiceEvents !== null
+        ? output.IncludeGlobalServiceEvents
+        : undefined,
+    IsMultiRegionTrail:
+      output.IsMultiRegionTrail !== undefined &&
+      output.IsMultiRegionTrail !== null
+        ? output.IsMultiRegionTrail
+        : undefined,
+    IsOrganizationTrail:
+      output.IsOrganizationTrail !== undefined &&
+      output.IsOrganizationTrail !== null
+        ? output.IsOrganizationTrail
+        : undefined,
+    KmsKeyId:
+      output.KmsKeyId !== undefined && output.KmsKeyId !== null
+        ? output.KmsKeyId
+        : undefined,
+    LogFileValidationEnabled:
+      output.LogFileValidationEnabled !== undefined &&
+      output.LogFileValidationEnabled !== null
+        ? output.LogFileValidationEnabled
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    S3BucketName:
+      output.S3BucketName !== undefined && output.S3BucketName !== null
+        ? output.S3BucketName
+        : undefined,
+    S3KeyPrefix:
+      output.S3KeyPrefix !== undefined && output.S3KeyPrefix !== null
+        ? output.S3KeyPrefix
+        : undefined,
+    SnsTopicARN:
+      output.SnsTopicARN !== undefined && output.SnsTopicARN !== null
+        ? output.SnsTopicARN
+        : undefined,
+    SnsTopicName:
+      output.SnsTopicName !== undefined && output.SnsTopicName !== null
+        ? output.SnsTopicName
+        : undefined,
+    TrailARN:
+      output.TrailARN !== undefined && output.TrailARN !== null
+        ? output.TrailARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TrailAlreadyExistsException = (
   output: any,
   context: __SerdeContext
 ): TrailAlreadyExistsException => {
-  let contents: any = {
+  return {
     __type: "TrailAlreadyExistsException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TrailInfo = (
   output: any,
   context: __SerdeContext
 ): TrailInfo => {
-  let contents: any = {
+  return {
     __type: "TrailInfo",
-    HomeRegion: undefined,
-    Name: undefined,
-    TrailARN: undefined
-  };
-  if (output.HomeRegion !== undefined && output.HomeRegion !== null) {
-    contents.HomeRegion = output.HomeRegion;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.TrailARN !== undefined && output.TrailARN !== null) {
-    contents.TrailARN = output.TrailARN;
-  }
-  return contents;
+    HomeRegion:
+      output.HomeRegion !== undefined && output.HomeRegion !== null
+        ? output.HomeRegion
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    TrailARN:
+      output.TrailARN !== undefined && output.TrailARN !== null
+        ? output.TrailARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TrailList = (
@@ -5557,28 +5371,26 @@ const deserializeAws_json1_1TrailNotFoundException = (
   output: any,
   context: __SerdeContext
 ): TrailNotFoundException => {
-  let contents: any = {
+  return {
     __type: "TrailNotFoundException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TrailNotProvidedException = (
   output: any,
   context: __SerdeContext
 ): TrailNotProvidedException => {
-  let contents: any = {
+  return {
     __type: "TrailNotProvidedException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Trails = (
@@ -5594,94 +5406,80 @@ const deserializeAws_json1_1UnsupportedOperationException = (
   output: any,
   context: __SerdeContext
 ): UnsupportedOperationException => {
-  let contents: any = {
+  return {
     __type: "UnsupportedOperationException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateTrailResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateTrailResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateTrailResponse",
-    CloudWatchLogsLogGroupArn: undefined,
-    CloudWatchLogsRoleArn: undefined,
-    IncludeGlobalServiceEvents: undefined,
-    IsMultiRegionTrail: undefined,
-    IsOrganizationTrail: undefined,
-    KmsKeyId: undefined,
-    LogFileValidationEnabled: undefined,
-    Name: undefined,
-    S3BucketName: undefined,
-    S3KeyPrefix: undefined,
-    SnsTopicARN: undefined,
-    SnsTopicName: undefined,
-    TrailARN: undefined
-  };
-  if (
-    output.CloudWatchLogsLogGroupArn !== undefined &&
-    output.CloudWatchLogsLogGroupArn !== null
-  ) {
-    contents.CloudWatchLogsLogGroupArn = output.CloudWatchLogsLogGroupArn;
-  }
-  if (
-    output.CloudWatchLogsRoleArn !== undefined &&
-    output.CloudWatchLogsRoleArn !== null
-  ) {
-    contents.CloudWatchLogsRoleArn = output.CloudWatchLogsRoleArn;
-  }
-  if (
-    output.IncludeGlobalServiceEvents !== undefined &&
-    output.IncludeGlobalServiceEvents !== null
-  ) {
-    contents.IncludeGlobalServiceEvents = output.IncludeGlobalServiceEvents;
-  }
-  if (
-    output.IsMultiRegionTrail !== undefined &&
-    output.IsMultiRegionTrail !== null
-  ) {
-    contents.IsMultiRegionTrail = output.IsMultiRegionTrail;
-  }
-  if (
-    output.IsOrganizationTrail !== undefined &&
-    output.IsOrganizationTrail !== null
-  ) {
-    contents.IsOrganizationTrail = output.IsOrganizationTrail;
-  }
-  if (output.KmsKeyId !== undefined && output.KmsKeyId !== null) {
-    contents.KmsKeyId = output.KmsKeyId;
-  }
-  if (
-    output.LogFileValidationEnabled !== undefined &&
-    output.LogFileValidationEnabled !== null
-  ) {
-    contents.LogFileValidationEnabled = output.LogFileValidationEnabled;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.S3BucketName !== undefined && output.S3BucketName !== null) {
-    contents.S3BucketName = output.S3BucketName;
-  }
-  if (output.S3KeyPrefix !== undefined && output.S3KeyPrefix !== null) {
-    contents.S3KeyPrefix = output.S3KeyPrefix;
-  }
-  if (output.SnsTopicARN !== undefined && output.SnsTopicARN !== null) {
-    contents.SnsTopicARN = output.SnsTopicARN;
-  }
-  if (output.SnsTopicName !== undefined && output.SnsTopicName !== null) {
-    contents.SnsTopicName = output.SnsTopicName;
-  }
-  if (output.TrailARN !== undefined && output.TrailARN !== null) {
-    contents.TrailARN = output.TrailARN;
-  }
-  return contents;
+    CloudWatchLogsLogGroupArn:
+      output.CloudWatchLogsLogGroupArn !== undefined &&
+      output.CloudWatchLogsLogGroupArn !== null
+        ? output.CloudWatchLogsLogGroupArn
+        : undefined,
+    CloudWatchLogsRoleArn:
+      output.CloudWatchLogsRoleArn !== undefined &&
+      output.CloudWatchLogsRoleArn !== null
+        ? output.CloudWatchLogsRoleArn
+        : undefined,
+    IncludeGlobalServiceEvents:
+      output.IncludeGlobalServiceEvents !== undefined &&
+      output.IncludeGlobalServiceEvents !== null
+        ? output.IncludeGlobalServiceEvents
+        : undefined,
+    IsMultiRegionTrail:
+      output.IsMultiRegionTrail !== undefined &&
+      output.IsMultiRegionTrail !== null
+        ? output.IsMultiRegionTrail
+        : undefined,
+    IsOrganizationTrail:
+      output.IsOrganizationTrail !== undefined &&
+      output.IsOrganizationTrail !== null
+        ? output.IsOrganizationTrail
+        : undefined,
+    KmsKeyId:
+      output.KmsKeyId !== undefined && output.KmsKeyId !== null
+        ? output.KmsKeyId
+        : undefined,
+    LogFileValidationEnabled:
+      output.LogFileValidationEnabled !== undefined &&
+      output.LogFileValidationEnabled !== null
+        ? output.LogFileValidationEnabled
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    S3BucketName:
+      output.S3BucketName !== undefined && output.S3BucketName !== null
+        ? output.S3BucketName
+        : undefined,
+    S3KeyPrefix:
+      output.S3KeyPrefix !== undefined && output.S3KeyPrefix !== null
+        ? output.S3KeyPrefix
+        : undefined,
+    SnsTopicARN:
+      output.SnsTopicARN !== undefined && output.SnsTopicARN !== null
+        ? output.SnsTopicARN
+        : undefined,
+    SnsTopicName:
+      output.SnsTopicName !== undefined && output.SnsTopicName !== null
+        ? output.SnsTopicName
+        : undefined,
+    TrailARN:
+      output.TrailARN !== undefined && output.TrailARN !== null
+        ? output.TrailARN
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

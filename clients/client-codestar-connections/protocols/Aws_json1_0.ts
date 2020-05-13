@@ -416,33 +416,29 @@ const deserializeAws_json1_0Connection = (
   output: any,
   context: __SerdeContext
 ): Connection => {
-  let contents: any = {
+  return {
     __type: "Connection",
-    ConnectionArn: undefined,
-    ConnectionName: undefined,
-    ConnectionStatus: undefined,
-    OwnerAccountId: undefined,
-    ProviderType: undefined
-  };
-  if (output.ConnectionArn !== undefined && output.ConnectionArn !== null) {
-    contents.ConnectionArn = output.ConnectionArn;
-  }
-  if (output.ConnectionName !== undefined && output.ConnectionName !== null) {
-    contents.ConnectionName = output.ConnectionName;
-  }
-  if (
-    output.ConnectionStatus !== undefined &&
-    output.ConnectionStatus !== null
-  ) {
-    contents.ConnectionStatus = output.ConnectionStatus;
-  }
-  if (output.OwnerAccountId !== undefined && output.OwnerAccountId !== null) {
-    contents.OwnerAccountId = output.OwnerAccountId;
-  }
-  if (output.ProviderType !== undefined && output.ProviderType !== null) {
-    contents.ProviderType = output.ProviderType;
-  }
-  return contents;
+    ConnectionArn:
+      output.ConnectionArn !== undefined && output.ConnectionArn !== null
+        ? output.ConnectionArn
+        : undefined,
+    ConnectionName:
+      output.ConnectionName !== undefined && output.ConnectionName !== null
+        ? output.ConnectionName
+        : undefined,
+    ConnectionStatus:
+      output.ConnectionStatus !== undefined && output.ConnectionStatus !== null
+        ? output.ConnectionStatus
+        : undefined,
+    OwnerAccountId:
+      output.OwnerAccountId !== undefined && output.OwnerAccountId !== null
+        ? output.OwnerAccountId
+        : undefined,
+    ProviderType:
+      output.ProviderType !== undefined && output.ProviderType !== null
+        ? output.ProviderType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0ConnectionList = (
@@ -458,90 +454,78 @@ const deserializeAws_json1_0CreateConnectionOutput = (
   output: any,
   context: __SerdeContext
 ): CreateConnectionOutput => {
-  let contents: any = {
+  return {
     __type: "CreateConnectionOutput",
-    ConnectionArn: undefined
-  };
-  if (output.ConnectionArn !== undefined && output.ConnectionArn !== null) {
-    contents.ConnectionArn = output.ConnectionArn;
-  }
-  return contents;
+    ConnectionArn:
+      output.ConnectionArn !== undefined && output.ConnectionArn !== null
+        ? output.ConnectionArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0DeleteConnectionOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteConnectionOutput => {
-  let contents: any = {
+  return {
     __type: "DeleteConnectionOutput"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_0GetConnectionOutput = (
   output: any,
   context: __SerdeContext
 ): GetConnectionOutput => {
-  let contents: any = {
+  return {
     __type: "GetConnectionOutput",
-    Connection: undefined
-  };
-  if (output.Connection !== undefined && output.Connection !== null) {
-    contents.Connection = deserializeAws_json1_0Connection(
-      output.Connection,
-      context
-    );
-  }
-  return contents;
+    Connection:
+      output.Connection !== undefined && output.Connection !== null
+        ? deserializeAws_json1_0Connection(output.Connection, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0LimitExceededException = (
   output: any,
   context: __SerdeContext
 ): LimitExceededException => {
-  let contents: any = {
+  return {
     __type: "LimitExceededException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0ListConnectionsOutput = (
   output: any,
   context: __SerdeContext
 ): ListConnectionsOutput => {
-  let contents: any = {
+  return {
     __type: "ListConnectionsOutput",
-    Connections: undefined,
-    NextToken: undefined
-  };
-  if (output.Connections !== undefined && output.Connections !== null) {
-    contents.Connections = deserializeAws_json1_0ConnectionList(
-      output.Connections,
-      context
-    );
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  return contents;
+    Connections:
+      output.Connections !== undefined && output.Connections !== null
+        ? deserializeAws_json1_0ConnectionList(output.Connections, context)
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_0ResourceNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ResourceNotFoundException => {
-  let contents: any = {
+  return {
     __type: "ResourceNotFoundException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

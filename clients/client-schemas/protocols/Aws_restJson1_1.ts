@@ -5020,151 +5020,145 @@ const deserializeAws_restJson1_1DiscovererSummary = (
   output: any,
   context: __SerdeContext
 ): DiscovererSummary => {
-  let contents: any = {
+  return {
     __type: "DiscovererSummary",
-    DiscovererArn: undefined,
-    DiscovererId: undefined,
-    SourceArn: undefined,
-    State: undefined,
-    Tags: undefined
-  };
-  if (output.DiscovererArn !== undefined && output.DiscovererArn !== null) {
-    contents.DiscovererArn = output.DiscovererArn;
-  }
-  if (output.DiscovererId !== undefined && output.DiscovererId !== null) {
-    contents.DiscovererId = output.DiscovererId;
-  }
-  if (output.SourceArn !== undefined && output.SourceArn !== null) {
-    contents.SourceArn = output.SourceArn;
-  }
-  if (output.State !== undefined && output.State !== null) {
-    contents.State = output.State;
-  }
-  if (output.tags !== undefined && output.tags !== null) {
-    contents.Tags = deserializeAws_restJson1_1Tags(output.tags, context);
-  }
-  return contents;
+    DiscovererArn:
+      output.DiscovererArn !== undefined && output.DiscovererArn !== null
+        ? output.DiscovererArn
+        : undefined,
+    DiscovererId:
+      output.DiscovererId !== undefined && output.DiscovererId !== null
+        ? output.DiscovererId
+        : undefined,
+    SourceArn:
+      output.SourceArn !== undefined && output.SourceArn !== null
+        ? output.SourceArn
+        : undefined,
+    State:
+      output.State !== undefined && output.State !== null
+        ? output.State
+        : undefined,
+    Tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1_1Tags(output.tags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1RegistrySummary = (
   output: any,
   context: __SerdeContext
 ): RegistrySummary => {
-  let contents: any = {
+  return {
     __type: "RegistrySummary",
-    RegistryArn: undefined,
-    RegistryName: undefined,
-    Tags: undefined
-  };
-  if (output.RegistryArn !== undefined && output.RegistryArn !== null) {
-    contents.RegistryArn = output.RegistryArn;
-  }
-  if (output.RegistryName !== undefined && output.RegistryName !== null) {
-    contents.RegistryName = output.RegistryName;
-  }
-  if (output.tags !== undefined && output.tags !== null) {
-    contents.Tags = deserializeAws_restJson1_1Tags(output.tags, context);
-  }
-  return contents;
+    RegistryArn:
+      output.RegistryArn !== undefined && output.RegistryArn !== null
+        ? output.RegistryArn
+        : undefined,
+    RegistryName:
+      output.RegistryName !== undefined && output.RegistryName !== null
+        ? output.RegistryName
+        : undefined,
+    Tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1_1Tags(output.tags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SchemaSummary = (
   output: any,
   context: __SerdeContext
 ): SchemaSummary => {
-  let contents: any = {
+  return {
     __type: "SchemaSummary",
-    LastModified: undefined,
-    SchemaArn: undefined,
-    SchemaName: undefined,
-    Tags: undefined,
-    VersionCount: undefined
-  };
-  if (output.LastModified !== undefined && output.LastModified !== null) {
-    contents.LastModified = new Date(output.LastModified);
-  }
-  if (output.SchemaArn !== undefined && output.SchemaArn !== null) {
-    contents.SchemaArn = output.SchemaArn;
-  }
-  if (output.SchemaName !== undefined && output.SchemaName !== null) {
-    contents.SchemaName = output.SchemaName;
-  }
-  if (output.tags !== undefined && output.tags !== null) {
-    contents.Tags = deserializeAws_restJson1_1Tags(output.tags, context);
-  }
-  if (output.VersionCount !== undefined && output.VersionCount !== null) {
-    contents.VersionCount = output.VersionCount;
-  }
-  return contents;
+    LastModified:
+      output.LastModified !== undefined && output.LastModified !== null
+        ? new Date(output.LastModified)
+        : undefined,
+    SchemaArn:
+      output.SchemaArn !== undefined && output.SchemaArn !== null
+        ? output.SchemaArn
+        : undefined,
+    SchemaName:
+      output.SchemaName !== undefined && output.SchemaName !== null
+        ? output.SchemaName
+        : undefined,
+    Tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1_1Tags(output.tags, context)
+        : undefined,
+    VersionCount:
+      output.VersionCount !== undefined && output.VersionCount !== null
+        ? output.VersionCount
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SchemaVersionSummary = (
   output: any,
   context: __SerdeContext
 ): SchemaVersionSummary => {
-  let contents: any = {
+  return {
     __type: "SchemaVersionSummary",
-    SchemaArn: undefined,
-    SchemaName: undefined,
-    SchemaVersion: undefined
-  };
-  if (output.SchemaArn !== undefined && output.SchemaArn !== null) {
-    contents.SchemaArn = output.SchemaArn;
-  }
-  if (output.SchemaName !== undefined && output.SchemaName !== null) {
-    contents.SchemaName = output.SchemaName;
-  }
-  if (output.SchemaVersion !== undefined && output.SchemaVersion !== null) {
-    contents.SchemaVersion = output.SchemaVersion;
-  }
-  return contents;
+    SchemaArn:
+      output.SchemaArn !== undefined && output.SchemaArn !== null
+        ? output.SchemaArn
+        : undefined,
+    SchemaName:
+      output.SchemaName !== undefined && output.SchemaName !== null
+        ? output.SchemaName
+        : undefined,
+    SchemaVersion:
+      output.SchemaVersion !== undefined && output.SchemaVersion !== null
+        ? output.SchemaVersion
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SearchSchemaSummary = (
   output: any,
   context: __SerdeContext
 ): SearchSchemaSummary => {
-  let contents: any = {
+  return {
     __type: "SearchSchemaSummary",
-    RegistryName: undefined,
-    SchemaArn: undefined,
-    SchemaName: undefined,
-    SchemaVersions: undefined
-  };
-  if (output.RegistryName !== undefined && output.RegistryName !== null) {
-    contents.RegistryName = output.RegistryName;
-  }
-  if (output.SchemaArn !== undefined && output.SchemaArn !== null) {
-    contents.SchemaArn = output.SchemaArn;
-  }
-  if (output.SchemaName !== undefined && output.SchemaName !== null) {
-    contents.SchemaName = output.SchemaName;
-  }
-  if (output.SchemaVersions !== undefined && output.SchemaVersions !== null) {
-    contents.SchemaVersions = deserializeAws_restJson1_1__listOfSearchSchemaVersionSummary(
-      output.SchemaVersions,
-      context
-    );
-  }
-  return contents;
+    RegistryName:
+      output.RegistryName !== undefined && output.RegistryName !== null
+        ? output.RegistryName
+        : undefined,
+    SchemaArn:
+      output.SchemaArn !== undefined && output.SchemaArn !== null
+        ? output.SchemaArn
+        : undefined,
+    SchemaName:
+      output.SchemaName !== undefined && output.SchemaName !== null
+        ? output.SchemaName
+        : undefined,
+    SchemaVersions:
+      output.SchemaVersions !== undefined && output.SchemaVersions !== null
+        ? deserializeAws_restJson1_1__listOfSearchSchemaVersionSummary(
+            output.SchemaVersions,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SearchSchemaVersionSummary = (
   output: any,
   context: __SerdeContext
 ): SearchSchemaVersionSummary => {
-  let contents: any = {
+  return {
     __type: "SearchSchemaVersionSummary",
-    CreatedDate: undefined,
-    SchemaVersion: undefined
-  };
-  if (output.CreatedDate !== undefined && output.CreatedDate !== null) {
-    contents.CreatedDate = new Date(output.CreatedDate);
-  }
-  if (output.SchemaVersion !== undefined && output.SchemaVersion !== null) {
-    contents.SchemaVersion = output.SchemaVersion;
-  }
-  return contents;
+    CreatedDate:
+      output.CreatedDate !== undefined && output.CreatedDate !== null
+        ? new Date(output.CreatedDate)
+        : undefined,
+    SchemaVersion:
+      output.SchemaVersion !== undefined && output.SchemaVersion !== null
+        ? output.SchemaVersion
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Tags = (

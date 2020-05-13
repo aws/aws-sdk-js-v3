@@ -4580,22 +4580,18 @@ const deserializeAws_restJson1_1Application = (
   output: any,
   context: __SerdeContext
 ): Application => {
-  let contents: any = {
+  return {
     __type: "Application",
-    Description: undefined,
-    Id: undefined,
-    Name: undefined
-  };
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ApplicationList = (
@@ -4611,33 +4607,29 @@ const deserializeAws_restJson1_1ConfigurationProfileSummary = (
   output: any,
   context: __SerdeContext
 ): ConfigurationProfileSummary => {
-  let contents: any = {
+  return {
     __type: "ConfigurationProfileSummary",
-    ApplicationId: undefined,
-    Id: undefined,
-    LocationUri: undefined,
-    Name: undefined,
-    ValidatorTypes: undefined
-  };
-  if (output.ApplicationId !== undefined && output.ApplicationId !== null) {
-    contents.ApplicationId = output.ApplicationId;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.LocationUri !== undefined && output.LocationUri !== null) {
-    contents.LocationUri = output.LocationUri;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.ValidatorTypes !== undefined && output.ValidatorTypes !== null) {
-    contents.ValidatorTypes = deserializeAws_restJson1_1ValidatorTypeList(
-      output.ValidatorTypes,
-      context
-    );
-  }
-  return contents;
+    ApplicationId:
+      output.ApplicationId !== undefined && output.ApplicationId !== null
+        ? output.ApplicationId
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    LocationUri:
+      output.LocationUri !== undefined && output.LocationUri !== null
+        ? output.LocationUri
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    ValidatorTypes:
+      output.ValidatorTypes !== undefined && output.ValidatorTypes !== null
+        ? deserializeAws_restJson1_1ValidatorTypeList(
+            output.ValidatorTypes,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ConfigurationProfileSummaryList = (
@@ -4662,48 +4654,40 @@ const deserializeAws_restJson1_1DeploymentStrategy = (
   output: any,
   context: __SerdeContext
 ): DeploymentStrategy => {
-  let contents: any = {
+  return {
     __type: "DeploymentStrategy",
-    DeploymentDurationInMinutes: undefined,
-    Description: undefined,
-    FinalBakeTimeInMinutes: undefined,
-    GrowthFactor: undefined,
-    GrowthType: undefined,
-    Id: undefined,
-    Name: undefined,
-    ReplicateTo: undefined
-  };
-  if (
-    output.DeploymentDurationInMinutes !== undefined &&
-    output.DeploymentDurationInMinutes !== null
-  ) {
-    contents.DeploymentDurationInMinutes = output.DeploymentDurationInMinutes;
-  }
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (
-    output.FinalBakeTimeInMinutes !== undefined &&
-    output.FinalBakeTimeInMinutes !== null
-  ) {
-    contents.FinalBakeTimeInMinutes = output.FinalBakeTimeInMinutes;
-  }
-  if (output.GrowthFactor !== undefined && output.GrowthFactor !== null) {
-    contents.GrowthFactor = output.GrowthFactor;
-  }
-  if (output.GrowthType !== undefined && output.GrowthType !== null) {
-    contents.GrowthType = output.GrowthType;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.ReplicateTo !== undefined && output.ReplicateTo !== null) {
-    contents.ReplicateTo = output.ReplicateTo;
-  }
-  return contents;
+    DeploymentDurationInMinutes:
+      output.DeploymentDurationInMinutes !== undefined &&
+      output.DeploymentDurationInMinutes !== null
+        ? output.DeploymentDurationInMinutes
+        : undefined,
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    FinalBakeTimeInMinutes:
+      output.FinalBakeTimeInMinutes !== undefined &&
+      output.FinalBakeTimeInMinutes !== null
+        ? output.FinalBakeTimeInMinutes
+        : undefined,
+    GrowthFactor:
+      output.GrowthFactor !== undefined && output.GrowthFactor !== null
+        ? output.GrowthFactor
+        : undefined,
+    GrowthType:
+      output.GrowthType !== undefined && output.GrowthType !== null
+        ? output.GrowthType
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    ReplicateTo:
+      output.ReplicateTo !== undefined && output.ReplicateTo !== null
+        ? output.ReplicateTo
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DeploymentStrategyList = (
@@ -4719,109 +4703,88 @@ const deserializeAws_restJson1_1DeploymentSummary = (
   output: any,
   context: __SerdeContext
 ): DeploymentSummary => {
-  let contents: any = {
+  return {
     __type: "DeploymentSummary",
-    CompletedAt: undefined,
-    ConfigurationName: undefined,
-    ConfigurationVersion: undefined,
-    DeploymentDurationInMinutes: undefined,
-    DeploymentNumber: undefined,
-    FinalBakeTimeInMinutes: undefined,
-    GrowthFactor: undefined,
-    GrowthType: undefined,
-    PercentageComplete: undefined,
-    StartedAt: undefined,
-    State: undefined
-  };
-  if (output.CompletedAt !== undefined && output.CompletedAt !== null) {
-    contents.CompletedAt = new Date(output.CompletedAt);
-  }
-  if (
-    output.ConfigurationName !== undefined &&
-    output.ConfigurationName !== null
-  ) {
-    contents.ConfigurationName = output.ConfigurationName;
-  }
-  if (
-    output.ConfigurationVersion !== undefined &&
-    output.ConfigurationVersion !== null
-  ) {
-    contents.ConfigurationVersion = output.ConfigurationVersion;
-  }
-  if (
-    output.DeploymentDurationInMinutes !== undefined &&
-    output.DeploymentDurationInMinutes !== null
-  ) {
-    contents.DeploymentDurationInMinutes = output.DeploymentDurationInMinutes;
-  }
-  if (
-    output.DeploymentNumber !== undefined &&
-    output.DeploymentNumber !== null
-  ) {
-    contents.DeploymentNumber = output.DeploymentNumber;
-  }
-  if (
-    output.FinalBakeTimeInMinutes !== undefined &&
-    output.FinalBakeTimeInMinutes !== null
-  ) {
-    contents.FinalBakeTimeInMinutes = output.FinalBakeTimeInMinutes;
-  }
-  if (output.GrowthFactor !== undefined && output.GrowthFactor !== null) {
-    contents.GrowthFactor = output.GrowthFactor;
-  }
-  if (output.GrowthType !== undefined && output.GrowthType !== null) {
-    contents.GrowthType = output.GrowthType;
-  }
-  if (
-    output.PercentageComplete !== undefined &&
-    output.PercentageComplete !== null
-  ) {
-    contents.PercentageComplete = output.PercentageComplete;
-  }
-  if (output.StartedAt !== undefined && output.StartedAt !== null) {
-    contents.StartedAt = new Date(output.StartedAt);
-  }
-  if (output.State !== undefined && output.State !== null) {
-    contents.State = output.State;
-  }
-  return contents;
+    CompletedAt:
+      output.CompletedAt !== undefined && output.CompletedAt !== null
+        ? new Date(output.CompletedAt)
+        : undefined,
+    ConfigurationName:
+      output.ConfigurationName !== undefined &&
+      output.ConfigurationName !== null
+        ? output.ConfigurationName
+        : undefined,
+    ConfigurationVersion:
+      output.ConfigurationVersion !== undefined &&
+      output.ConfigurationVersion !== null
+        ? output.ConfigurationVersion
+        : undefined,
+    DeploymentDurationInMinutes:
+      output.DeploymentDurationInMinutes !== undefined &&
+      output.DeploymentDurationInMinutes !== null
+        ? output.DeploymentDurationInMinutes
+        : undefined,
+    DeploymentNumber:
+      output.DeploymentNumber !== undefined && output.DeploymentNumber !== null
+        ? output.DeploymentNumber
+        : undefined,
+    FinalBakeTimeInMinutes:
+      output.FinalBakeTimeInMinutes !== undefined &&
+      output.FinalBakeTimeInMinutes !== null
+        ? output.FinalBakeTimeInMinutes
+        : undefined,
+    GrowthFactor:
+      output.GrowthFactor !== undefined && output.GrowthFactor !== null
+        ? output.GrowthFactor
+        : undefined,
+    GrowthType:
+      output.GrowthType !== undefined && output.GrowthType !== null
+        ? output.GrowthType
+        : undefined,
+    PercentageComplete:
+      output.PercentageComplete !== undefined &&
+      output.PercentageComplete !== null
+        ? output.PercentageComplete
+        : undefined,
+    StartedAt:
+      output.StartedAt !== undefined && output.StartedAt !== null
+        ? new Date(output.StartedAt)
+        : undefined,
+    State:
+      output.State !== undefined && output.State !== null
+        ? output.State
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Environment = (
   output: any,
   context: __SerdeContext
 ): Environment => {
-  let contents: any = {
+  return {
     __type: "Environment",
-    ApplicationId: undefined,
-    Description: undefined,
-    Id: undefined,
-    Monitors: undefined,
-    Name: undefined,
-    State: undefined
-  };
-  if (output.ApplicationId !== undefined && output.ApplicationId !== null) {
-    contents.ApplicationId = output.ApplicationId;
-  }
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Monitors !== undefined && output.Monitors !== null) {
-    contents.Monitors = deserializeAws_restJson1_1MonitorList(
-      output.Monitors,
-      context
-    );
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.State !== undefined && output.State !== null) {
-    contents.State = output.State;
-  }
-  return contents;
+    ApplicationId:
+      output.ApplicationId !== undefined && output.ApplicationId !== null
+        ? output.ApplicationId
+        : undefined,
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Monitors:
+      output.Monitors !== undefined && output.Monitors !== null
+        ? deserializeAws_restJson1_1MonitorList(output.Monitors, context)
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    State:
+      output.State !== undefined && output.State !== null
+        ? output.State
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1EnvironmentList = (
@@ -4837,18 +4800,17 @@ const deserializeAws_restJson1_1Monitor = (
   output: any,
   context: __SerdeContext
 ): Monitor => {
-  let contents: any = {
+  return {
     __type: "Monitor",
-    AlarmArn: undefined,
-    AlarmRoleArn: undefined
-  };
-  if (output.AlarmArn !== undefined && output.AlarmArn !== null) {
-    contents.AlarmArn = output.AlarmArn;
-  }
-  if (output.AlarmRoleArn !== undefined && output.AlarmRoleArn !== null) {
-    contents.AlarmRoleArn = output.AlarmRoleArn;
-  }
-  return contents;
+    AlarmArn:
+      output.AlarmArn !== undefined && output.AlarmArn !== null
+        ? output.AlarmArn
+        : undefined,
+    AlarmRoleArn:
+      output.AlarmRoleArn !== undefined && output.AlarmRoleArn !== null
+        ? output.AlarmRoleArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1MonitorList = (
@@ -4874,18 +4836,17 @@ const deserializeAws_restJson1_1Validator = (
   output: any,
   context: __SerdeContext
 ): Validator => {
-  let contents: any = {
+  return {
     __type: "Validator",
-    Content: undefined,
-    Type: undefined
-  };
-  if (output.Content !== undefined && output.Content !== null) {
-    contents.Content = output.Content;
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    Content:
+      output.Content !== undefined && output.Content !== null
+        ? output.Content
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ValidatorList = (

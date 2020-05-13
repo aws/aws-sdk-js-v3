@@ -4584,89 +4584,76 @@ const deserializeAws_json1_1AcceptQualificationRequestResponse = (
   output: any,
   context: __SerdeContext
 ): AcceptQualificationRequestResponse => {
-  let contents: any = {
+  return {
     __type: "AcceptQualificationRequestResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1ApproveAssignmentResponse = (
   output: any,
   context: __SerdeContext
 ): ApproveAssignmentResponse => {
-  let contents: any = {
+  return {
     __type: "ApproveAssignmentResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1Assignment = (
   output: any,
   context: __SerdeContext
 ): Assignment => {
-  let contents: any = {
+  return {
     __type: "Assignment",
-    AcceptTime: undefined,
-    Answer: undefined,
-    ApprovalTime: undefined,
-    AssignmentId: undefined,
-    AssignmentStatus: undefined,
-    AutoApprovalTime: undefined,
-    Deadline: undefined,
-    HITId: undefined,
-    RejectionTime: undefined,
-    RequesterFeedback: undefined,
-    SubmitTime: undefined,
-    WorkerId: undefined
-  };
-  if (output.AcceptTime !== undefined && output.AcceptTime !== null) {
-    contents.AcceptTime = new Date(Math.round(output.AcceptTime * 1000));
-  }
-  if (output.Answer !== undefined && output.Answer !== null) {
-    contents.Answer = output.Answer;
-  }
-  if (output.ApprovalTime !== undefined && output.ApprovalTime !== null) {
-    contents.ApprovalTime = new Date(Math.round(output.ApprovalTime * 1000));
-  }
-  if (output.AssignmentId !== undefined && output.AssignmentId !== null) {
-    contents.AssignmentId = output.AssignmentId;
-  }
-  if (
-    output.AssignmentStatus !== undefined &&
-    output.AssignmentStatus !== null
-  ) {
-    contents.AssignmentStatus = output.AssignmentStatus;
-  }
-  if (
-    output.AutoApprovalTime !== undefined &&
-    output.AutoApprovalTime !== null
-  ) {
-    contents.AutoApprovalTime = new Date(
-      Math.round(output.AutoApprovalTime * 1000)
-    );
-  }
-  if (output.Deadline !== undefined && output.Deadline !== null) {
-    contents.Deadline = new Date(Math.round(output.Deadline * 1000));
-  }
-  if (output.HITId !== undefined && output.HITId !== null) {
-    contents.HITId = output.HITId;
-  }
-  if (output.RejectionTime !== undefined && output.RejectionTime !== null) {
-    contents.RejectionTime = new Date(Math.round(output.RejectionTime * 1000));
-  }
-  if (
-    output.RequesterFeedback !== undefined &&
-    output.RequesterFeedback !== null
-  ) {
-    contents.RequesterFeedback = output.RequesterFeedback;
-  }
-  if (output.SubmitTime !== undefined && output.SubmitTime !== null) {
-    contents.SubmitTime = new Date(Math.round(output.SubmitTime * 1000));
-  }
-  if (output.WorkerId !== undefined && output.WorkerId !== null) {
-    contents.WorkerId = output.WorkerId;
-  }
-  return contents;
+    AcceptTime:
+      output.AcceptTime !== undefined && output.AcceptTime !== null
+        ? new Date(Math.round(output.AcceptTime * 1000))
+        : undefined,
+    Answer:
+      output.Answer !== undefined && output.Answer !== null
+        ? output.Answer
+        : undefined,
+    ApprovalTime:
+      output.ApprovalTime !== undefined && output.ApprovalTime !== null
+        ? new Date(Math.round(output.ApprovalTime * 1000))
+        : undefined,
+    AssignmentId:
+      output.AssignmentId !== undefined && output.AssignmentId !== null
+        ? output.AssignmentId
+        : undefined,
+    AssignmentStatus:
+      output.AssignmentStatus !== undefined && output.AssignmentStatus !== null
+        ? output.AssignmentStatus
+        : undefined,
+    AutoApprovalTime:
+      output.AutoApprovalTime !== undefined && output.AutoApprovalTime !== null
+        ? new Date(Math.round(output.AutoApprovalTime * 1000))
+        : undefined,
+    Deadline:
+      output.Deadline !== undefined && output.Deadline !== null
+        ? new Date(Math.round(output.Deadline * 1000))
+        : undefined,
+    HITId:
+      output.HITId !== undefined && output.HITId !== null
+        ? output.HITId
+        : undefined,
+    RejectionTime:
+      output.RejectionTime !== undefined && output.RejectionTime !== null
+        ? new Date(Math.round(output.RejectionTime * 1000))
+        : undefined,
+    RequesterFeedback:
+      output.RequesterFeedback !== undefined &&
+      output.RequesterFeedback !== null
+        ? output.RequesterFeedback
+        : undefined,
+    SubmitTime:
+      output.SubmitTime !== undefined && output.SubmitTime !== null
+        ? new Date(Math.round(output.SubmitTime * 1000))
+        : undefined,
+    WorkerId:
+      output.WorkerId !== undefined && output.WorkerId !== null
+        ? output.WorkerId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1AssignmentList = (
@@ -4682,40 +4669,38 @@ const deserializeAws_json1_1AssociateQualificationWithWorkerResponse = (
   output: any,
   context: __SerdeContext
 ): AssociateQualificationWithWorkerResponse => {
-  let contents: any = {
+  return {
     __type: "AssociateQualificationWithWorkerResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1BonusPayment = (
   output: any,
   context: __SerdeContext
 ): BonusPayment => {
-  let contents: any = {
+  return {
     __type: "BonusPayment",
-    AssignmentId: undefined,
-    BonusAmount: undefined,
-    GrantTime: undefined,
-    Reason: undefined,
-    WorkerId: undefined
-  };
-  if (output.AssignmentId !== undefined && output.AssignmentId !== null) {
-    contents.AssignmentId = output.AssignmentId;
-  }
-  if (output.BonusAmount !== undefined && output.BonusAmount !== null) {
-    contents.BonusAmount = output.BonusAmount;
-  }
-  if (output.GrantTime !== undefined && output.GrantTime !== null) {
-    contents.GrantTime = new Date(Math.round(output.GrantTime * 1000));
-  }
-  if (output.Reason !== undefined && output.Reason !== null) {
-    contents.Reason = output.Reason;
-  }
-  if (output.WorkerId !== undefined && output.WorkerId !== null) {
-    contents.WorkerId = output.WorkerId;
-  }
-  return contents;
+    AssignmentId:
+      output.AssignmentId !== undefined && output.AssignmentId !== null
+        ? output.AssignmentId
+        : undefined,
+    BonusAmount:
+      output.BonusAmount !== undefined && output.BonusAmount !== null
+        ? output.BonusAmount
+        : undefined,
+    GrantTime:
+      output.GrantTime !== undefined && output.GrantTime !== null
+        ? new Date(Math.round(output.GrantTime * 1000))
+        : undefined,
+    Reason:
+      output.Reason !== undefined && output.Reason !== null
+        ? output.Reason
+        : undefined,
+    WorkerId:
+      output.WorkerId !== undefined && output.WorkerId !== null
+        ? output.WorkerId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1BonusPaymentList = (
@@ -4731,347 +4716,303 @@ const deserializeAws_json1_1CreateAdditionalAssignmentsForHITResponse = (
   output: any,
   context: __SerdeContext
 ): CreateAdditionalAssignmentsForHITResponse => {
-  let contents: any = {
+  return {
     __type: "CreateAdditionalAssignmentsForHITResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1CreateHITResponse = (
   output: any,
   context: __SerdeContext
 ): CreateHITResponse => {
-  let contents: any = {
+  return {
     __type: "CreateHITResponse",
-    HIT: undefined
-  };
-  if (output.HIT !== undefined && output.HIT !== null) {
-    contents.HIT = deserializeAws_json1_1HIT(output.HIT, context);
-  }
-  return contents;
+    HIT:
+      output.HIT !== undefined && output.HIT !== null
+        ? deserializeAws_json1_1HIT(output.HIT, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateHITTypeResponse = (
   output: any,
   context: __SerdeContext
 ): CreateHITTypeResponse => {
-  let contents: any = {
+  return {
     __type: "CreateHITTypeResponse",
-    HITTypeId: undefined
-  };
-  if (output.HITTypeId !== undefined && output.HITTypeId !== null) {
-    contents.HITTypeId = output.HITTypeId;
-  }
-  return contents;
+    HITTypeId:
+      output.HITTypeId !== undefined && output.HITTypeId !== null
+        ? output.HITTypeId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateHITWithHITTypeResponse = (
   output: any,
   context: __SerdeContext
 ): CreateHITWithHITTypeResponse => {
-  let contents: any = {
+  return {
     __type: "CreateHITWithHITTypeResponse",
-    HIT: undefined
-  };
-  if (output.HIT !== undefined && output.HIT !== null) {
-    contents.HIT = deserializeAws_json1_1HIT(output.HIT, context);
-  }
-  return contents;
+    HIT:
+      output.HIT !== undefined && output.HIT !== null
+        ? deserializeAws_json1_1HIT(output.HIT, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateQualificationTypeResponse = (
   output: any,
   context: __SerdeContext
 ): CreateQualificationTypeResponse => {
-  let contents: any = {
+  return {
     __type: "CreateQualificationTypeResponse",
-    QualificationType: undefined
-  };
-  if (
-    output.QualificationType !== undefined &&
-    output.QualificationType !== null
-  ) {
-    contents.QualificationType = deserializeAws_json1_1QualificationType(
-      output.QualificationType,
-      context
-    );
-  }
-  return contents;
+    QualificationType:
+      output.QualificationType !== undefined &&
+      output.QualificationType !== null
+        ? deserializeAws_json1_1QualificationType(
+            output.QualificationType,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateWorkerBlockResponse = (
   output: any,
   context: __SerdeContext
 ): CreateWorkerBlockResponse => {
-  let contents: any = {
+  return {
     __type: "CreateWorkerBlockResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteHITResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteHITResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteHITResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteQualificationTypeResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteQualificationTypeResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteQualificationTypeResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteWorkerBlockResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteWorkerBlockResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteWorkerBlockResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DisassociateQualificationFromWorkerResponse = (
   output: any,
   context: __SerdeContext
 ): DisassociateQualificationFromWorkerResponse => {
-  let contents: any = {
+  return {
     __type: "DisassociateQualificationFromWorkerResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1GetAccountBalanceResponse = (
   output: any,
   context: __SerdeContext
 ): GetAccountBalanceResponse => {
-  let contents: any = {
+  return {
     __type: "GetAccountBalanceResponse",
-    AvailableBalance: undefined,
-    OnHoldBalance: undefined
-  };
-  if (
-    output.AvailableBalance !== undefined &&
-    output.AvailableBalance !== null
-  ) {
-    contents.AvailableBalance = output.AvailableBalance;
-  }
-  if (output.OnHoldBalance !== undefined && output.OnHoldBalance !== null) {
-    contents.OnHoldBalance = output.OnHoldBalance;
-  }
-  return contents;
+    AvailableBalance:
+      output.AvailableBalance !== undefined && output.AvailableBalance !== null
+        ? output.AvailableBalance
+        : undefined,
+    OnHoldBalance:
+      output.OnHoldBalance !== undefined && output.OnHoldBalance !== null
+        ? output.OnHoldBalance
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetAssignmentResponse = (
   output: any,
   context: __SerdeContext
 ): GetAssignmentResponse => {
-  let contents: any = {
+  return {
     __type: "GetAssignmentResponse",
-    Assignment: undefined,
-    HIT: undefined
-  };
-  if (output.Assignment !== undefined && output.Assignment !== null) {
-    contents.Assignment = deserializeAws_json1_1Assignment(
-      output.Assignment,
-      context
-    );
-  }
-  if (output.HIT !== undefined && output.HIT !== null) {
-    contents.HIT = deserializeAws_json1_1HIT(output.HIT, context);
-  }
-  return contents;
+    Assignment:
+      output.Assignment !== undefined && output.Assignment !== null
+        ? deserializeAws_json1_1Assignment(output.Assignment, context)
+        : undefined,
+    HIT:
+      output.HIT !== undefined && output.HIT !== null
+        ? deserializeAws_json1_1HIT(output.HIT, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetFileUploadURLResponse = (
   output: any,
   context: __SerdeContext
 ): GetFileUploadURLResponse => {
-  let contents: any = {
+  return {
     __type: "GetFileUploadURLResponse",
-    FileUploadURL: undefined
-  };
-  if (output.FileUploadURL !== undefined && output.FileUploadURL !== null) {
-    contents.FileUploadURL = output.FileUploadURL;
-  }
-  return contents;
+    FileUploadURL:
+      output.FileUploadURL !== undefined && output.FileUploadURL !== null
+        ? output.FileUploadURL
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetHITResponse = (
   output: any,
   context: __SerdeContext
 ): GetHITResponse => {
-  let contents: any = {
+  return {
     __type: "GetHITResponse",
-    HIT: undefined
-  };
-  if (output.HIT !== undefined && output.HIT !== null) {
-    contents.HIT = deserializeAws_json1_1HIT(output.HIT, context);
-  }
-  return contents;
+    HIT:
+      output.HIT !== undefined && output.HIT !== null
+        ? deserializeAws_json1_1HIT(output.HIT, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetQualificationScoreResponse = (
   output: any,
   context: __SerdeContext
 ): GetQualificationScoreResponse => {
-  let contents: any = {
+  return {
     __type: "GetQualificationScoreResponse",
-    Qualification: undefined
-  };
-  if (output.Qualification !== undefined && output.Qualification !== null) {
-    contents.Qualification = deserializeAws_json1_1Qualification(
-      output.Qualification,
-      context
-    );
-  }
-  return contents;
+    Qualification:
+      output.Qualification !== undefined && output.Qualification !== null
+        ? deserializeAws_json1_1Qualification(output.Qualification, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetQualificationTypeResponse = (
   output: any,
   context: __SerdeContext
 ): GetQualificationTypeResponse => {
-  let contents: any = {
+  return {
     __type: "GetQualificationTypeResponse",
-    QualificationType: undefined
-  };
-  if (
-    output.QualificationType !== undefined &&
-    output.QualificationType !== null
-  ) {
-    contents.QualificationType = deserializeAws_json1_1QualificationType(
-      output.QualificationType,
-      context
-    );
-  }
-  return contents;
+    QualificationType:
+      output.QualificationType !== undefined &&
+      output.QualificationType !== null
+        ? deserializeAws_json1_1QualificationType(
+            output.QualificationType,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1HIT = (
   output: any,
   context: __SerdeContext
 ): HIT => {
-  let contents: any = {
+  return {
     __type: "HIT",
-    AssignmentDurationInSeconds: undefined,
-    AutoApprovalDelayInSeconds: undefined,
-    CreationTime: undefined,
-    Description: undefined,
-    Expiration: undefined,
-    HITGroupId: undefined,
-    HITId: undefined,
-    HITLayoutId: undefined,
-    HITReviewStatus: undefined,
-    HITStatus: undefined,
-    HITTypeId: undefined,
-    Keywords: undefined,
-    MaxAssignments: undefined,
-    NumberOfAssignmentsAvailable: undefined,
-    NumberOfAssignmentsCompleted: undefined,
-    NumberOfAssignmentsPending: undefined,
-    QualificationRequirements: undefined,
-    Question: undefined,
-    RequesterAnnotation: undefined,
-    Reward: undefined,
-    Title: undefined
-  };
-  if (
-    output.AssignmentDurationInSeconds !== undefined &&
-    output.AssignmentDurationInSeconds !== null
-  ) {
-    contents.AssignmentDurationInSeconds = output.AssignmentDurationInSeconds;
-  }
-  if (
-    output.AutoApprovalDelayInSeconds !== undefined &&
-    output.AutoApprovalDelayInSeconds !== null
-  ) {
-    contents.AutoApprovalDelayInSeconds = output.AutoApprovalDelayInSeconds;
-  }
-  if (output.CreationTime !== undefined && output.CreationTime !== null) {
-    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
-  }
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (output.Expiration !== undefined && output.Expiration !== null) {
-    contents.Expiration = new Date(Math.round(output.Expiration * 1000));
-  }
-  if (output.HITGroupId !== undefined && output.HITGroupId !== null) {
-    contents.HITGroupId = output.HITGroupId;
-  }
-  if (output.HITId !== undefined && output.HITId !== null) {
-    contents.HITId = output.HITId;
-  }
-  if (output.HITLayoutId !== undefined && output.HITLayoutId !== null) {
-    contents.HITLayoutId = output.HITLayoutId;
-  }
-  if (output.HITReviewStatus !== undefined && output.HITReviewStatus !== null) {
-    contents.HITReviewStatus = output.HITReviewStatus;
-  }
-  if (output.HITStatus !== undefined && output.HITStatus !== null) {
-    contents.HITStatus = output.HITStatus;
-  }
-  if (output.HITTypeId !== undefined && output.HITTypeId !== null) {
-    contents.HITTypeId = output.HITTypeId;
-  }
-  if (output.Keywords !== undefined && output.Keywords !== null) {
-    contents.Keywords = output.Keywords;
-  }
-  if (output.MaxAssignments !== undefined && output.MaxAssignments !== null) {
-    contents.MaxAssignments = output.MaxAssignments;
-  }
-  if (
-    output.NumberOfAssignmentsAvailable !== undefined &&
-    output.NumberOfAssignmentsAvailable !== null
-  ) {
-    contents.NumberOfAssignmentsAvailable = output.NumberOfAssignmentsAvailable;
-  }
-  if (
-    output.NumberOfAssignmentsCompleted !== undefined &&
-    output.NumberOfAssignmentsCompleted !== null
-  ) {
-    contents.NumberOfAssignmentsCompleted = output.NumberOfAssignmentsCompleted;
-  }
-  if (
-    output.NumberOfAssignmentsPending !== undefined &&
-    output.NumberOfAssignmentsPending !== null
-  ) {
-    contents.NumberOfAssignmentsPending = output.NumberOfAssignmentsPending;
-  }
-  if (
-    output.QualificationRequirements !== undefined &&
-    output.QualificationRequirements !== null
-  ) {
-    contents.QualificationRequirements = deserializeAws_json1_1QualificationRequirementList(
-      output.QualificationRequirements,
-      context
-    );
-  }
-  if (output.Question !== undefined && output.Question !== null) {
-    contents.Question = output.Question;
-  }
-  if (
-    output.RequesterAnnotation !== undefined &&
-    output.RequesterAnnotation !== null
-  ) {
-    contents.RequesterAnnotation = output.RequesterAnnotation;
-  }
-  if (output.Reward !== undefined && output.Reward !== null) {
-    contents.Reward = output.Reward;
-  }
-  if (output.Title !== undefined && output.Title !== null) {
-    contents.Title = output.Title;
-  }
-  return contents;
+    AssignmentDurationInSeconds:
+      output.AssignmentDurationInSeconds !== undefined &&
+      output.AssignmentDurationInSeconds !== null
+        ? output.AssignmentDurationInSeconds
+        : undefined,
+    AutoApprovalDelayInSeconds:
+      output.AutoApprovalDelayInSeconds !== undefined &&
+      output.AutoApprovalDelayInSeconds !== null
+        ? output.AutoApprovalDelayInSeconds
+        : undefined,
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    Expiration:
+      output.Expiration !== undefined && output.Expiration !== null
+        ? new Date(Math.round(output.Expiration * 1000))
+        : undefined,
+    HITGroupId:
+      output.HITGroupId !== undefined && output.HITGroupId !== null
+        ? output.HITGroupId
+        : undefined,
+    HITId:
+      output.HITId !== undefined && output.HITId !== null
+        ? output.HITId
+        : undefined,
+    HITLayoutId:
+      output.HITLayoutId !== undefined && output.HITLayoutId !== null
+        ? output.HITLayoutId
+        : undefined,
+    HITReviewStatus:
+      output.HITReviewStatus !== undefined && output.HITReviewStatus !== null
+        ? output.HITReviewStatus
+        : undefined,
+    HITStatus:
+      output.HITStatus !== undefined && output.HITStatus !== null
+        ? output.HITStatus
+        : undefined,
+    HITTypeId:
+      output.HITTypeId !== undefined && output.HITTypeId !== null
+        ? output.HITTypeId
+        : undefined,
+    Keywords:
+      output.Keywords !== undefined && output.Keywords !== null
+        ? output.Keywords
+        : undefined,
+    MaxAssignments:
+      output.MaxAssignments !== undefined && output.MaxAssignments !== null
+        ? output.MaxAssignments
+        : undefined,
+    NumberOfAssignmentsAvailable:
+      output.NumberOfAssignmentsAvailable !== undefined &&
+      output.NumberOfAssignmentsAvailable !== null
+        ? output.NumberOfAssignmentsAvailable
+        : undefined,
+    NumberOfAssignmentsCompleted:
+      output.NumberOfAssignmentsCompleted !== undefined &&
+      output.NumberOfAssignmentsCompleted !== null
+        ? output.NumberOfAssignmentsCompleted
+        : undefined,
+    NumberOfAssignmentsPending:
+      output.NumberOfAssignmentsPending !== undefined &&
+      output.NumberOfAssignmentsPending !== null
+        ? output.NumberOfAssignmentsPending
+        : undefined,
+    QualificationRequirements:
+      output.QualificationRequirements !== undefined &&
+      output.QualificationRequirements !== null
+        ? deserializeAws_json1_1QualificationRequirementList(
+            output.QualificationRequirements,
+            context
+          )
+        : undefined,
+    Question:
+      output.Question !== undefined && output.Question !== null
+        ? output.Question
+        : undefined,
+    RequesterAnnotation:
+      output.RequesterAnnotation !== undefined &&
+      output.RequesterAnnotation !== null
+        ? output.RequesterAnnotation
+        : undefined,
+    Reward:
+      output.Reward !== undefined && output.Reward !== null
+        ? output.Reward
+        : undefined,
+    Title:
+      output.Title !== undefined && output.Title !== null
+        ? output.Title
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1HITList = (
@@ -5094,292 +5035,258 @@ const deserializeAws_json1_1ListAssignmentsForHITResponse = (
   output: any,
   context: __SerdeContext
 ): ListAssignmentsForHITResponse => {
-  let contents: any = {
+  return {
     __type: "ListAssignmentsForHITResponse",
-    Assignments: undefined,
-    NextToken: undefined,
-    NumResults: undefined
-  };
-  if (output.Assignments !== undefined && output.Assignments !== null) {
-    contents.Assignments = deserializeAws_json1_1AssignmentList(
-      output.Assignments,
-      context
-    );
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.NumResults !== undefined && output.NumResults !== null) {
-    contents.NumResults = output.NumResults;
-  }
-  return contents;
+    Assignments:
+      output.Assignments !== undefined && output.Assignments !== null
+        ? deserializeAws_json1_1AssignmentList(output.Assignments, context)
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    NumResults:
+      output.NumResults !== undefined && output.NumResults !== null
+        ? output.NumResults
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListBonusPaymentsResponse = (
   output: any,
   context: __SerdeContext
 ): ListBonusPaymentsResponse => {
-  let contents: any = {
+  return {
     __type: "ListBonusPaymentsResponse",
-    BonusPayments: undefined,
-    NextToken: undefined,
-    NumResults: undefined
-  };
-  if (output.BonusPayments !== undefined && output.BonusPayments !== null) {
-    contents.BonusPayments = deserializeAws_json1_1BonusPaymentList(
-      output.BonusPayments,
-      context
-    );
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.NumResults !== undefined && output.NumResults !== null) {
-    contents.NumResults = output.NumResults;
-  }
-  return contents;
+    BonusPayments:
+      output.BonusPayments !== undefined && output.BonusPayments !== null
+        ? deserializeAws_json1_1BonusPaymentList(output.BonusPayments, context)
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    NumResults:
+      output.NumResults !== undefined && output.NumResults !== null
+        ? output.NumResults
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListHITsForQualificationTypeResponse = (
   output: any,
   context: __SerdeContext
 ): ListHITsForQualificationTypeResponse => {
-  let contents: any = {
+  return {
     __type: "ListHITsForQualificationTypeResponse",
-    HITs: undefined,
-    NextToken: undefined,
-    NumResults: undefined
-  };
-  if (output.HITs !== undefined && output.HITs !== null) {
-    contents.HITs = deserializeAws_json1_1HITList(output.HITs, context);
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.NumResults !== undefined && output.NumResults !== null) {
-    contents.NumResults = output.NumResults;
-  }
-  return contents;
+    HITs:
+      output.HITs !== undefined && output.HITs !== null
+        ? deserializeAws_json1_1HITList(output.HITs, context)
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    NumResults:
+      output.NumResults !== undefined && output.NumResults !== null
+        ? output.NumResults
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListHITsResponse = (
   output: any,
   context: __SerdeContext
 ): ListHITsResponse => {
-  let contents: any = {
+  return {
     __type: "ListHITsResponse",
-    HITs: undefined,
-    NextToken: undefined,
-    NumResults: undefined
-  };
-  if (output.HITs !== undefined && output.HITs !== null) {
-    contents.HITs = deserializeAws_json1_1HITList(output.HITs, context);
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.NumResults !== undefined && output.NumResults !== null) {
-    contents.NumResults = output.NumResults;
-  }
-  return contents;
+    HITs:
+      output.HITs !== undefined && output.HITs !== null
+        ? deserializeAws_json1_1HITList(output.HITs, context)
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    NumResults:
+      output.NumResults !== undefined && output.NumResults !== null
+        ? output.NumResults
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListQualificationRequestsResponse = (
   output: any,
   context: __SerdeContext
 ): ListQualificationRequestsResponse => {
-  let contents: any = {
+  return {
     __type: "ListQualificationRequestsResponse",
-    NextToken: undefined,
-    NumResults: undefined,
-    QualificationRequests: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.NumResults !== undefined && output.NumResults !== null) {
-    contents.NumResults = output.NumResults;
-  }
-  if (
-    output.QualificationRequests !== undefined &&
-    output.QualificationRequests !== null
-  ) {
-    contents.QualificationRequests = deserializeAws_json1_1QualificationRequestList(
-      output.QualificationRequests,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    NumResults:
+      output.NumResults !== undefined && output.NumResults !== null
+        ? output.NumResults
+        : undefined,
+    QualificationRequests:
+      output.QualificationRequests !== undefined &&
+      output.QualificationRequests !== null
+        ? deserializeAws_json1_1QualificationRequestList(
+            output.QualificationRequests,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListQualificationTypesResponse = (
   output: any,
   context: __SerdeContext
 ): ListQualificationTypesResponse => {
-  let contents: any = {
+  return {
     __type: "ListQualificationTypesResponse",
-    NextToken: undefined,
-    NumResults: undefined,
-    QualificationTypes: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.NumResults !== undefined && output.NumResults !== null) {
-    contents.NumResults = output.NumResults;
-  }
-  if (
-    output.QualificationTypes !== undefined &&
-    output.QualificationTypes !== null
-  ) {
-    contents.QualificationTypes = deserializeAws_json1_1QualificationTypeList(
-      output.QualificationTypes,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    NumResults:
+      output.NumResults !== undefined && output.NumResults !== null
+        ? output.NumResults
+        : undefined,
+    QualificationTypes:
+      output.QualificationTypes !== undefined &&
+      output.QualificationTypes !== null
+        ? deserializeAws_json1_1QualificationTypeList(
+            output.QualificationTypes,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListReviewPolicyResultsForHITResponse = (
   output: any,
   context: __SerdeContext
 ): ListReviewPolicyResultsForHITResponse => {
-  let contents: any = {
+  return {
     __type: "ListReviewPolicyResultsForHITResponse",
-    AssignmentReviewPolicy: undefined,
-    AssignmentReviewReport: undefined,
-    HITId: undefined,
-    HITReviewPolicy: undefined,
-    HITReviewReport: undefined,
-    NextToken: undefined
-  };
-  if (
-    output.AssignmentReviewPolicy !== undefined &&
-    output.AssignmentReviewPolicy !== null
-  ) {
-    contents.AssignmentReviewPolicy = deserializeAws_json1_1ReviewPolicy(
-      output.AssignmentReviewPolicy,
-      context
-    );
-  }
-  if (
-    output.AssignmentReviewReport !== undefined &&
-    output.AssignmentReviewReport !== null
-  ) {
-    contents.AssignmentReviewReport = deserializeAws_json1_1ReviewReport(
-      output.AssignmentReviewReport,
-      context
-    );
-  }
-  if (output.HITId !== undefined && output.HITId !== null) {
-    contents.HITId = output.HITId;
-  }
-  if (output.HITReviewPolicy !== undefined && output.HITReviewPolicy !== null) {
-    contents.HITReviewPolicy = deserializeAws_json1_1ReviewPolicy(
-      output.HITReviewPolicy,
-      context
-    );
-  }
-  if (output.HITReviewReport !== undefined && output.HITReviewReport !== null) {
-    contents.HITReviewReport = deserializeAws_json1_1ReviewReport(
-      output.HITReviewReport,
-      context
-    );
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  return contents;
+    AssignmentReviewPolicy:
+      output.AssignmentReviewPolicy !== undefined &&
+      output.AssignmentReviewPolicy !== null
+        ? deserializeAws_json1_1ReviewPolicy(
+            output.AssignmentReviewPolicy,
+            context
+          )
+        : undefined,
+    AssignmentReviewReport:
+      output.AssignmentReviewReport !== undefined &&
+      output.AssignmentReviewReport !== null
+        ? deserializeAws_json1_1ReviewReport(
+            output.AssignmentReviewReport,
+            context
+          )
+        : undefined,
+    HITId:
+      output.HITId !== undefined && output.HITId !== null
+        ? output.HITId
+        : undefined,
+    HITReviewPolicy:
+      output.HITReviewPolicy !== undefined && output.HITReviewPolicy !== null
+        ? deserializeAws_json1_1ReviewPolicy(output.HITReviewPolicy, context)
+        : undefined,
+    HITReviewReport:
+      output.HITReviewReport !== undefined && output.HITReviewReport !== null
+        ? deserializeAws_json1_1ReviewReport(output.HITReviewReport, context)
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListReviewableHITsResponse = (
   output: any,
   context: __SerdeContext
 ): ListReviewableHITsResponse => {
-  let contents: any = {
+  return {
     __type: "ListReviewableHITsResponse",
-    HITs: undefined,
-    NextToken: undefined,
-    NumResults: undefined
-  };
-  if (output.HITs !== undefined && output.HITs !== null) {
-    contents.HITs = deserializeAws_json1_1HITList(output.HITs, context);
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.NumResults !== undefined && output.NumResults !== null) {
-    contents.NumResults = output.NumResults;
-  }
-  return contents;
+    HITs:
+      output.HITs !== undefined && output.HITs !== null
+        ? deserializeAws_json1_1HITList(output.HITs, context)
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    NumResults:
+      output.NumResults !== undefined && output.NumResults !== null
+        ? output.NumResults
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListWorkerBlocksResponse = (
   output: any,
   context: __SerdeContext
 ): ListWorkerBlocksResponse => {
-  let contents: any = {
+  return {
     __type: "ListWorkerBlocksResponse",
-    NextToken: undefined,
-    NumResults: undefined,
-    WorkerBlocks: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.NumResults !== undefined && output.NumResults !== null) {
-    contents.NumResults = output.NumResults;
-  }
-  if (output.WorkerBlocks !== undefined && output.WorkerBlocks !== null) {
-    contents.WorkerBlocks = deserializeAws_json1_1WorkerBlockList(
-      output.WorkerBlocks,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    NumResults:
+      output.NumResults !== undefined && output.NumResults !== null
+        ? output.NumResults
+        : undefined,
+    WorkerBlocks:
+      output.WorkerBlocks !== undefined && output.WorkerBlocks !== null
+        ? deserializeAws_json1_1WorkerBlockList(output.WorkerBlocks, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListWorkersWithQualificationTypeResponse = (
   output: any,
   context: __SerdeContext
 ): ListWorkersWithQualificationTypeResponse => {
-  let contents: any = {
+  return {
     __type: "ListWorkersWithQualificationTypeResponse",
-    NextToken: undefined,
-    NumResults: undefined,
-    Qualifications: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.NumResults !== undefined && output.NumResults !== null) {
-    contents.NumResults = output.NumResults;
-  }
-  if (output.Qualifications !== undefined && output.Qualifications !== null) {
-    contents.Qualifications = deserializeAws_json1_1QualificationList(
-      output.Qualifications,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    NumResults:
+      output.NumResults !== undefined && output.NumResults !== null
+        ? output.NumResults
+        : undefined,
+    Qualifications:
+      output.Qualifications !== undefined && output.Qualifications !== null
+        ? deserializeAws_json1_1QualificationList(
+            output.Qualifications,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Locale = (
   output: any,
   context: __SerdeContext
 ): Locale => {
-  let contents: any = {
+  return {
     __type: "Locale",
-    Country: undefined,
-    Subdivision: undefined
-  };
-  if (output.Country !== undefined && output.Country !== null) {
-    contents.Country = output.Country;
-  }
-  if (output.Subdivision !== undefined && output.Subdivision !== null) {
-    contents.Subdivision = output.Subdivision;
-  }
-  return contents;
+    Country:
+      output.Country !== undefined && output.Country !== null
+        ? output.Country
+        : undefined,
+    Subdivision:
+      output.Subdivision !== undefined && output.Subdivision !== null
+        ? output.Subdivision
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LocaleList = (
@@ -5395,28 +5302,23 @@ const deserializeAws_json1_1NotifyWorkersFailureStatus = (
   output: any,
   context: __SerdeContext
 ): NotifyWorkersFailureStatus => {
-  let contents: any = {
+  return {
     __type: "NotifyWorkersFailureStatus",
-    NotifyWorkersFailureCode: undefined,
-    NotifyWorkersFailureMessage: undefined,
-    WorkerId: undefined
-  };
-  if (
-    output.NotifyWorkersFailureCode !== undefined &&
-    output.NotifyWorkersFailureCode !== null
-  ) {
-    contents.NotifyWorkersFailureCode = output.NotifyWorkersFailureCode;
-  }
-  if (
-    output.NotifyWorkersFailureMessage !== undefined &&
-    output.NotifyWorkersFailureMessage !== null
-  ) {
-    contents.NotifyWorkersFailureMessage = output.NotifyWorkersFailureMessage;
-  }
-  if (output.WorkerId !== undefined && output.WorkerId !== null) {
-    contents.WorkerId = output.WorkerId;
-  }
-  return contents;
+    NotifyWorkersFailureCode:
+      output.NotifyWorkersFailureCode !== undefined &&
+      output.NotifyWorkersFailureCode !== null
+        ? output.NotifyWorkersFailureCode
+        : undefined,
+    NotifyWorkersFailureMessage:
+      output.NotifyWorkersFailureMessage !== undefined &&
+      output.NotifyWorkersFailureMessage !== null
+        ? output.NotifyWorkersFailureMessage
+        : undefined,
+    WorkerId:
+      output.WorkerId !== undefined && output.WorkerId !== null
+        ? output.WorkerId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1NotifyWorkersFailureStatusList = (
@@ -5432,38 +5334,32 @@ const deserializeAws_json1_1NotifyWorkersResponse = (
   output: any,
   context: __SerdeContext
 ): NotifyWorkersResponse => {
-  let contents: any = {
+  return {
     __type: "NotifyWorkersResponse",
-    NotifyWorkersFailureStatuses: undefined
-  };
-  if (
-    output.NotifyWorkersFailureStatuses !== undefined &&
-    output.NotifyWorkersFailureStatuses !== null
-  ) {
-    contents.NotifyWorkersFailureStatuses = deserializeAws_json1_1NotifyWorkersFailureStatusList(
-      output.NotifyWorkersFailureStatuses,
-      context
-    );
-  }
-  return contents;
+    NotifyWorkersFailureStatuses:
+      output.NotifyWorkersFailureStatuses !== undefined &&
+      output.NotifyWorkersFailureStatuses !== null
+        ? deserializeAws_json1_1NotifyWorkersFailureStatusList(
+            output.NotifyWorkersFailureStatuses,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ParameterMapEntry = (
   output: any,
   context: __SerdeContext
 ): ParameterMapEntry => {
-  let contents: any = {
+  return {
     __type: "ParameterMapEntry",
-    Key: undefined,
-    Values: undefined
-  };
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  if (output.Values !== undefined && output.Values !== null) {
-    contents.Values = deserializeAws_json1_1StringList(output.Values, context);
-  }
-  return contents;
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Values:
+      output.Values !== undefined && output.Values !== null
+        ? deserializeAws_json1_1StringList(output.Values, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ParameterMapEntryList = (
@@ -5479,25 +5375,22 @@ const deserializeAws_json1_1PolicyParameter = (
   output: any,
   context: __SerdeContext
 ): PolicyParameter => {
-  let contents: any = {
+  return {
     __type: "PolicyParameter",
-    Key: undefined,
-    MapEntries: undefined,
-    Values: undefined
-  };
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  if (output.MapEntries !== undefined && output.MapEntries !== null) {
-    contents.MapEntries = deserializeAws_json1_1ParameterMapEntryList(
-      output.MapEntries,
-      context
-    );
-  }
-  if (output.Values !== undefined && output.Values !== null) {
-    contents.Values = deserializeAws_json1_1StringList(output.Values, context);
-  }
-  return contents;
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    MapEntries:
+      output.MapEntries !== undefined && output.MapEntries !== null
+        ? deserializeAws_json1_1ParameterMapEntryList(
+            output.MapEntries,
+            context
+          )
+        : undefined,
+    Values:
+      output.Values !== undefined && output.Values !== null
+        ? deserializeAws_json1_1StringList(output.Values, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PolicyParameterList = (
@@ -5513,40 +5406,34 @@ const deserializeAws_json1_1Qualification = (
   output: any,
   context: __SerdeContext
 ): Qualification => {
-  let contents: any = {
+  return {
     __type: "Qualification",
-    GrantTime: undefined,
-    IntegerValue: undefined,
-    LocaleValue: undefined,
-    QualificationTypeId: undefined,
-    Status: undefined,
-    WorkerId: undefined
-  };
-  if (output.GrantTime !== undefined && output.GrantTime !== null) {
-    contents.GrantTime = new Date(Math.round(output.GrantTime * 1000));
-  }
-  if (output.IntegerValue !== undefined && output.IntegerValue !== null) {
-    contents.IntegerValue = output.IntegerValue;
-  }
-  if (output.LocaleValue !== undefined && output.LocaleValue !== null) {
-    contents.LocaleValue = deserializeAws_json1_1Locale(
-      output.LocaleValue,
-      context
-    );
-  }
-  if (
-    output.QualificationTypeId !== undefined &&
-    output.QualificationTypeId !== null
-  ) {
-    contents.QualificationTypeId = output.QualificationTypeId;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.WorkerId !== undefined && output.WorkerId !== null) {
-    contents.WorkerId = output.WorkerId;
-  }
-  return contents;
+    GrantTime:
+      output.GrantTime !== undefined && output.GrantTime !== null
+        ? new Date(Math.round(output.GrantTime * 1000))
+        : undefined,
+    IntegerValue:
+      output.IntegerValue !== undefined && output.IntegerValue !== null
+        ? output.IntegerValue
+        : undefined,
+    LocaleValue:
+      output.LocaleValue !== undefined && output.LocaleValue !== null
+        ? deserializeAws_json1_1Locale(output.LocaleValue, context)
+        : undefined,
+    QualificationTypeId:
+      output.QualificationTypeId !== undefined &&
+      output.QualificationTypeId !== null
+        ? output.QualificationTypeId
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    WorkerId:
+      output.WorkerId !== undefined && output.WorkerId !== null
+        ? output.WorkerId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1QualificationList = (
@@ -5562,40 +5449,35 @@ const deserializeAws_json1_1QualificationRequest = (
   output: any,
   context: __SerdeContext
 ): QualificationRequest => {
-  let contents: any = {
+  return {
     __type: "QualificationRequest",
-    Answer: undefined,
-    QualificationRequestId: undefined,
-    QualificationTypeId: undefined,
-    SubmitTime: undefined,
-    Test: undefined,
-    WorkerId: undefined
-  };
-  if (output.Answer !== undefined && output.Answer !== null) {
-    contents.Answer = output.Answer;
-  }
-  if (
-    output.QualificationRequestId !== undefined &&
-    output.QualificationRequestId !== null
-  ) {
-    contents.QualificationRequestId = output.QualificationRequestId;
-  }
-  if (
-    output.QualificationTypeId !== undefined &&
-    output.QualificationTypeId !== null
-  ) {
-    contents.QualificationTypeId = output.QualificationTypeId;
-  }
-  if (output.SubmitTime !== undefined && output.SubmitTime !== null) {
-    contents.SubmitTime = new Date(Math.round(output.SubmitTime * 1000));
-  }
-  if (output.Test !== undefined && output.Test !== null) {
-    contents.Test = output.Test;
-  }
-  if (output.WorkerId !== undefined && output.WorkerId !== null) {
-    contents.WorkerId = output.WorkerId;
-  }
-  return contents;
+    Answer:
+      output.Answer !== undefined && output.Answer !== null
+        ? output.Answer
+        : undefined,
+    QualificationRequestId:
+      output.QualificationRequestId !== undefined &&
+      output.QualificationRequestId !== null
+        ? output.QualificationRequestId
+        : undefined,
+    QualificationTypeId:
+      output.QualificationTypeId !== undefined &&
+      output.QualificationTypeId !== null
+        ? output.QualificationTypeId
+        : undefined,
+    SubmitTime:
+      output.SubmitTime !== undefined && output.SubmitTime !== null
+        ? new Date(Math.round(output.SubmitTime * 1000))
+        : undefined,
+    Test:
+      output.Test !== undefined && output.Test !== null
+        ? output.Test
+        : undefined,
+    WorkerId:
+      output.WorkerId !== undefined && output.WorkerId !== null
+        ? output.WorkerId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1QualificationRequestList = (
@@ -5611,46 +5493,35 @@ const deserializeAws_json1_1QualificationRequirement = (
   output: any,
   context: __SerdeContext
 ): QualificationRequirement => {
-  let contents: any = {
+  return {
     __type: "QualificationRequirement",
-    ActionsGuarded: undefined,
-    Comparator: undefined,
-    IntegerValues: undefined,
-    LocaleValues: undefined,
-    QualificationTypeId: undefined,
-    RequiredToPreview: undefined
-  };
-  if (output.ActionsGuarded !== undefined && output.ActionsGuarded !== null) {
-    contents.ActionsGuarded = output.ActionsGuarded;
-  }
-  if (output.Comparator !== undefined && output.Comparator !== null) {
-    contents.Comparator = output.Comparator;
-  }
-  if (output.IntegerValues !== undefined && output.IntegerValues !== null) {
-    contents.IntegerValues = deserializeAws_json1_1IntegerList(
-      output.IntegerValues,
-      context
-    );
-  }
-  if (output.LocaleValues !== undefined && output.LocaleValues !== null) {
-    contents.LocaleValues = deserializeAws_json1_1LocaleList(
-      output.LocaleValues,
-      context
-    );
-  }
-  if (
-    output.QualificationTypeId !== undefined &&
-    output.QualificationTypeId !== null
-  ) {
-    contents.QualificationTypeId = output.QualificationTypeId;
-  }
-  if (
-    output.RequiredToPreview !== undefined &&
-    output.RequiredToPreview !== null
-  ) {
-    contents.RequiredToPreview = output.RequiredToPreview;
-  }
-  return contents;
+    ActionsGuarded:
+      output.ActionsGuarded !== undefined && output.ActionsGuarded !== null
+        ? output.ActionsGuarded
+        : undefined,
+    Comparator:
+      output.Comparator !== undefined && output.Comparator !== null
+        ? output.Comparator
+        : undefined,
+    IntegerValues:
+      output.IntegerValues !== undefined && output.IntegerValues !== null
+        ? deserializeAws_json1_1IntegerList(output.IntegerValues, context)
+        : undefined,
+    LocaleValues:
+      output.LocaleValues !== undefined && output.LocaleValues !== null
+        ? deserializeAws_json1_1LocaleList(output.LocaleValues, context)
+        : undefined,
+    QualificationTypeId:
+      output.QualificationTypeId !== undefined &&
+      output.QualificationTypeId !== null
+        ? output.QualificationTypeId
+        : undefined,
+    RequiredToPreview:
+      output.RequiredToPreview !== undefined &&
+      output.RequiredToPreview !== null
+        ? output.RequiredToPreview
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1QualificationRequirementList = (
@@ -5666,77 +5537,65 @@ const deserializeAws_json1_1QualificationType = (
   output: any,
   context: __SerdeContext
 ): QualificationType => {
-  let contents: any = {
+  return {
     __type: "QualificationType",
-    AnswerKey: undefined,
-    AutoGranted: undefined,
-    AutoGrantedValue: undefined,
-    CreationTime: undefined,
-    Description: undefined,
-    IsRequestable: undefined,
-    Keywords: undefined,
-    Name: undefined,
-    QualificationTypeId: undefined,
-    QualificationTypeStatus: undefined,
-    RetryDelayInSeconds: undefined,
-    Test: undefined,
-    TestDurationInSeconds: undefined
-  };
-  if (output.AnswerKey !== undefined && output.AnswerKey !== null) {
-    contents.AnswerKey = output.AnswerKey;
-  }
-  if (output.AutoGranted !== undefined && output.AutoGranted !== null) {
-    contents.AutoGranted = output.AutoGranted;
-  }
-  if (
-    output.AutoGrantedValue !== undefined &&
-    output.AutoGrantedValue !== null
-  ) {
-    contents.AutoGrantedValue = output.AutoGrantedValue;
-  }
-  if (output.CreationTime !== undefined && output.CreationTime !== null) {
-    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
-  }
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (output.IsRequestable !== undefined && output.IsRequestable !== null) {
-    contents.IsRequestable = output.IsRequestable;
-  }
-  if (output.Keywords !== undefined && output.Keywords !== null) {
-    contents.Keywords = output.Keywords;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (
-    output.QualificationTypeId !== undefined &&
-    output.QualificationTypeId !== null
-  ) {
-    contents.QualificationTypeId = output.QualificationTypeId;
-  }
-  if (
-    output.QualificationTypeStatus !== undefined &&
-    output.QualificationTypeStatus !== null
-  ) {
-    contents.QualificationTypeStatus = output.QualificationTypeStatus;
-  }
-  if (
-    output.RetryDelayInSeconds !== undefined &&
-    output.RetryDelayInSeconds !== null
-  ) {
-    contents.RetryDelayInSeconds = output.RetryDelayInSeconds;
-  }
-  if (output.Test !== undefined && output.Test !== null) {
-    contents.Test = output.Test;
-  }
-  if (
-    output.TestDurationInSeconds !== undefined &&
-    output.TestDurationInSeconds !== null
-  ) {
-    contents.TestDurationInSeconds = output.TestDurationInSeconds;
-  }
-  return contents;
+    AnswerKey:
+      output.AnswerKey !== undefined && output.AnswerKey !== null
+        ? output.AnswerKey
+        : undefined,
+    AutoGranted:
+      output.AutoGranted !== undefined && output.AutoGranted !== null
+        ? output.AutoGranted
+        : undefined,
+    AutoGrantedValue:
+      output.AutoGrantedValue !== undefined && output.AutoGrantedValue !== null
+        ? output.AutoGrantedValue
+        : undefined,
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    IsRequestable:
+      output.IsRequestable !== undefined && output.IsRequestable !== null
+        ? output.IsRequestable
+        : undefined,
+    Keywords:
+      output.Keywords !== undefined && output.Keywords !== null
+        ? output.Keywords
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    QualificationTypeId:
+      output.QualificationTypeId !== undefined &&
+      output.QualificationTypeId !== null
+        ? output.QualificationTypeId
+        : undefined,
+    QualificationTypeStatus:
+      output.QualificationTypeStatus !== undefined &&
+      output.QualificationTypeStatus !== null
+        ? output.QualificationTypeStatus
+        : undefined,
+    RetryDelayInSeconds:
+      output.RetryDelayInSeconds !== undefined &&
+      output.RetryDelayInSeconds !== null
+        ? output.RetryDelayInSeconds
+        : undefined,
+    Test:
+      output.Test !== undefined && output.Test !== null
+        ? output.Test
+        : undefined,
+    TestDurationInSeconds:
+      output.TestDurationInSeconds !== undefined &&
+      output.TestDurationInSeconds !== null
+        ? output.TestDurationInSeconds
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1QualificationTypeList = (
@@ -5752,62 +5611,59 @@ const deserializeAws_json1_1RejectAssignmentResponse = (
   output: any,
   context: __SerdeContext
 ): RejectAssignmentResponse => {
-  let contents: any = {
+  return {
     __type: "RejectAssignmentResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1RejectQualificationRequestResponse = (
   output: any,
   context: __SerdeContext
 ): RejectQualificationRequestResponse => {
-  let contents: any = {
+  return {
     __type: "RejectQualificationRequestResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1ReviewActionDetail = (
   output: any,
   context: __SerdeContext
 ): ReviewActionDetail => {
-  let contents: any = {
+  return {
     __type: "ReviewActionDetail",
-    ActionId: undefined,
-    ActionName: undefined,
-    CompleteTime: undefined,
-    ErrorCode: undefined,
-    Result: undefined,
-    Status: undefined,
-    TargetId: undefined,
-    TargetType: undefined
-  };
-  if (output.ActionId !== undefined && output.ActionId !== null) {
-    contents.ActionId = output.ActionId;
-  }
-  if (output.ActionName !== undefined && output.ActionName !== null) {
-    contents.ActionName = output.ActionName;
-  }
-  if (output.CompleteTime !== undefined && output.CompleteTime !== null) {
-    contents.CompleteTime = new Date(Math.round(output.CompleteTime * 1000));
-  }
-  if (output.ErrorCode !== undefined && output.ErrorCode !== null) {
-    contents.ErrorCode = output.ErrorCode;
-  }
-  if (output.Result !== undefined && output.Result !== null) {
-    contents.Result = output.Result;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.TargetId !== undefined && output.TargetId !== null) {
-    contents.TargetId = output.TargetId;
-  }
-  if (output.TargetType !== undefined && output.TargetType !== null) {
-    contents.TargetType = output.TargetType;
-  }
-  return contents;
+    ActionId:
+      output.ActionId !== undefined && output.ActionId !== null
+        ? output.ActionId
+        : undefined,
+    ActionName:
+      output.ActionName !== undefined && output.ActionName !== null
+        ? output.ActionName
+        : undefined,
+    CompleteTime:
+      output.CompleteTime !== undefined && output.CompleteTime !== null
+        ? new Date(Math.round(output.CompleteTime * 1000))
+        : undefined,
+    ErrorCode:
+      output.ErrorCode !== undefined && output.ErrorCode !== null
+        ? output.ErrorCode
+        : undefined,
+    Result:
+      output.Result !== undefined && output.Result !== null
+        ? output.Result
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    TargetId:
+      output.TargetId !== undefined && output.TargetId !== null
+        ? output.TargetId
+        : undefined,
+    TargetType:
+      output.TargetType !== undefined && output.TargetType !== null
+        ? output.TargetType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ReviewActionDetailList = (
@@ -5823,79 +5679,71 @@ const deserializeAws_json1_1ReviewPolicy = (
   output: any,
   context: __SerdeContext
 ): ReviewPolicy => {
-  let contents: any = {
+  return {
     __type: "ReviewPolicy",
-    Parameters: undefined,
-    PolicyName: undefined
-  };
-  if (output.Parameters !== undefined && output.Parameters !== null) {
-    contents.Parameters = deserializeAws_json1_1PolicyParameterList(
-      output.Parameters,
-      context
-    );
-  }
-  if (output.PolicyName !== undefined && output.PolicyName !== null) {
-    contents.PolicyName = output.PolicyName;
-  }
-  return contents;
+    Parameters:
+      output.Parameters !== undefined && output.Parameters !== null
+        ? deserializeAws_json1_1PolicyParameterList(output.Parameters, context)
+        : undefined,
+    PolicyName:
+      output.PolicyName !== undefined && output.PolicyName !== null
+        ? output.PolicyName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ReviewReport = (
   output: any,
   context: __SerdeContext
 ): ReviewReport => {
-  let contents: any = {
+  return {
     __type: "ReviewReport",
-    ReviewActions: undefined,
-    ReviewResults: undefined
-  };
-  if (output.ReviewActions !== undefined && output.ReviewActions !== null) {
-    contents.ReviewActions = deserializeAws_json1_1ReviewActionDetailList(
-      output.ReviewActions,
-      context
-    );
-  }
-  if (output.ReviewResults !== undefined && output.ReviewResults !== null) {
-    contents.ReviewResults = deserializeAws_json1_1ReviewResultDetailList(
-      output.ReviewResults,
-      context
-    );
-  }
-  return contents;
+    ReviewActions:
+      output.ReviewActions !== undefined && output.ReviewActions !== null
+        ? deserializeAws_json1_1ReviewActionDetailList(
+            output.ReviewActions,
+            context
+          )
+        : undefined,
+    ReviewResults:
+      output.ReviewResults !== undefined && output.ReviewResults !== null
+        ? deserializeAws_json1_1ReviewResultDetailList(
+            output.ReviewResults,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ReviewResultDetail = (
   output: any,
   context: __SerdeContext
 ): ReviewResultDetail => {
-  let contents: any = {
+  return {
     __type: "ReviewResultDetail",
-    ActionId: undefined,
-    Key: undefined,
-    QuestionId: undefined,
-    SubjectId: undefined,
-    SubjectType: undefined,
-    Value: undefined
-  };
-  if (output.ActionId !== undefined && output.ActionId !== null) {
-    contents.ActionId = output.ActionId;
-  }
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  if (output.QuestionId !== undefined && output.QuestionId !== null) {
-    contents.QuestionId = output.QuestionId;
-  }
-  if (output.SubjectId !== undefined && output.SubjectId !== null) {
-    contents.SubjectId = output.SubjectId;
-  }
-  if (output.SubjectType !== undefined && output.SubjectType !== null) {
-    contents.SubjectType = output.SubjectType;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    ActionId:
+      output.ActionId !== undefined && output.ActionId !== null
+        ? output.ActionId
+        : undefined,
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    QuestionId:
+      output.QuestionId !== undefined && output.QuestionId !== null
+        ? output.QuestionId
+        : undefined,
+    SubjectId:
+      output.SubjectId !== undefined && output.SubjectId !== null
+        ? output.SubjectId
+        : undefined,
+    SubjectType:
+      output.SubjectType !== undefined && output.SubjectType !== null
+        ? output.SubjectType
+        : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ReviewResultDetailList = (
@@ -5911,20 +5759,18 @@ const deserializeAws_json1_1SendBonusResponse = (
   output: any,
   context: __SerdeContext
 ): SendBonusResponse => {
-  let contents: any = {
+  return {
     __type: "SendBonusResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1SendTestEventNotificationResponse = (
   output: any,
   context: __SerdeContext
 ): SendTestEventNotificationResponse => {
-  let contents: any = {
+  return {
     __type: "SendTestEventNotificationResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1StringList = (
@@ -5938,78 +5784,70 @@ const deserializeAws_json1_1UpdateExpirationForHITResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateExpirationForHITResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateExpirationForHITResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateHITReviewStatusResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateHITReviewStatusResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateHITReviewStatusResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateHITTypeOfHITResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateHITTypeOfHITResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateHITTypeOfHITResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateNotificationSettingsResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateNotificationSettingsResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateNotificationSettingsResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateQualificationTypeResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateQualificationTypeResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateQualificationTypeResponse",
-    QualificationType: undefined
-  };
-  if (
-    output.QualificationType !== undefined &&
-    output.QualificationType !== null
-  ) {
-    contents.QualificationType = deserializeAws_json1_1QualificationType(
-      output.QualificationType,
-      context
-    );
-  }
-  return contents;
+    QualificationType:
+      output.QualificationType !== undefined &&
+      output.QualificationType !== null
+        ? deserializeAws_json1_1QualificationType(
+            output.QualificationType,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1WorkerBlock = (
   output: any,
   context: __SerdeContext
 ): WorkerBlock => {
-  let contents: any = {
+  return {
     __type: "WorkerBlock",
-    Reason: undefined,
-    WorkerId: undefined
-  };
-  if (output.Reason !== undefined && output.Reason !== null) {
-    contents.Reason = output.Reason;
-  }
-  if (output.WorkerId !== undefined && output.WorkerId !== null) {
-    contents.WorkerId = output.WorkerId;
-  }
-  return contents;
+    Reason:
+      output.Reason !== undefined && output.Reason !== null
+        ? output.Reason
+        : undefined,
+    WorkerId:
+      output.WorkerId !== undefined && output.WorkerId !== null
+        ? output.WorkerId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1WorkerBlockList = (
@@ -6025,36 +5863,34 @@ const deserializeAws_json1_1RequestError = (
   output: any,
   context: __SerdeContext
 ): RequestError => {
-  let contents: any = {
+  return {
     __type: "RequestError",
-    Message: undefined,
-    TurkErrorCode: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.TurkErrorCode !== undefined && output.TurkErrorCode !== null) {
-    contents.TurkErrorCode = output.TurkErrorCode;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    TurkErrorCode:
+      output.TurkErrorCode !== undefined && output.TurkErrorCode !== null
+        ? output.TurkErrorCode
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ServiceFault = (
   output: any,
   context: __SerdeContext
 ): ServiceFault => {
-  let contents: any = {
+  return {
     __type: "ServiceFault",
-    Message: undefined,
-    TurkErrorCode: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.TurkErrorCode !== undefined && output.TurkErrorCode !== null) {
-    contents.TurkErrorCode = output.TurkErrorCode;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    TurkErrorCode:
+      output.TurkErrorCode !== undefined && output.TurkErrorCode !== null
+        ? output.TurkErrorCode
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

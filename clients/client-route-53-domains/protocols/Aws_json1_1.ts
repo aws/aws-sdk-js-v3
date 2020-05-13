@@ -3161,30 +3161,29 @@ const deserializeAws_json1_1BillingRecord = (
   output: any,
   context: __SerdeContext
 ): BillingRecord => {
-  let contents: any = {
+  return {
     __type: "BillingRecord",
-    BillDate: undefined,
-    DomainName: undefined,
-    InvoiceId: undefined,
-    Operation: undefined,
-    Price: undefined
-  };
-  if (output.BillDate !== undefined && output.BillDate !== null) {
-    contents.BillDate = new Date(Math.round(output.BillDate * 1000));
-  }
-  if (output.DomainName !== undefined && output.DomainName !== null) {
-    contents.DomainName = output.DomainName;
-  }
-  if (output.InvoiceId !== undefined && output.InvoiceId !== null) {
-    contents.InvoiceId = output.InvoiceId;
-  }
-  if (output.Operation !== undefined && output.Operation !== null) {
-    contents.Operation = output.Operation;
-  }
-  if (output.Price !== undefined && output.Price !== null) {
-    contents.Price = output.Price;
-  }
-  return contents;
+    BillDate:
+      output.BillDate !== undefined && output.BillDate !== null
+        ? new Date(Math.round(output.BillDate * 1000))
+        : undefined,
+    DomainName:
+      output.DomainName !== undefined && output.DomainName !== null
+        ? output.DomainName
+        : undefined,
+    InvoiceId:
+      output.InvoiceId !== undefined && output.InvoiceId !== null
+        ? output.InvoiceId
+        : undefined,
+    Operation:
+      output.Operation !== undefined && output.Operation !== null
+        ? output.Operation
+        : undefined,
+    Price:
+      output.Price !== undefined && output.Price !== null
+        ? output.Price
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1BillingRecords = (
@@ -3200,151 +3199,136 @@ const deserializeAws_json1_1CheckDomainAvailabilityResponse = (
   output: any,
   context: __SerdeContext
 ): CheckDomainAvailabilityResponse => {
-  let contents: any = {
+  return {
     __type: "CheckDomainAvailabilityResponse",
-    Availability: undefined
-  };
-  if (output.Availability !== undefined && output.Availability !== null) {
-    contents.Availability = output.Availability;
-  }
-  return contents;
+    Availability:
+      output.Availability !== undefined && output.Availability !== null
+        ? output.Availability
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CheckDomainTransferabilityResponse = (
   output: any,
   context: __SerdeContext
 ): CheckDomainTransferabilityResponse => {
-  let contents: any = {
+  return {
     __type: "CheckDomainTransferabilityResponse",
-    Transferability: undefined
-  };
-  if (output.Transferability !== undefined && output.Transferability !== null) {
-    contents.Transferability = deserializeAws_json1_1DomainTransferability(
-      output.Transferability,
-      context
-    );
-  }
-  return contents;
+    Transferability:
+      output.Transferability !== undefined && output.Transferability !== null
+        ? deserializeAws_json1_1DomainTransferability(
+            output.Transferability,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ContactDetail = (
   output: any,
   context: __SerdeContext
 ): ContactDetail => {
-  let contents: any = {
+  return {
     __type: "ContactDetail",
-    AddressLine1: undefined,
-    AddressLine2: undefined,
-    City: undefined,
-    ContactType: undefined,
-    CountryCode: undefined,
-    Email: undefined,
-    ExtraParams: undefined,
-    Fax: undefined,
-    FirstName: undefined,
-    LastName: undefined,
-    OrganizationName: undefined,
-    PhoneNumber: undefined,
-    State: undefined,
-    ZipCode: undefined
-  };
-  if (output.AddressLine1 !== undefined && output.AddressLine1 !== null) {
-    contents.AddressLine1 = output.AddressLine1;
-  }
-  if (output.AddressLine2 !== undefined && output.AddressLine2 !== null) {
-    contents.AddressLine2 = output.AddressLine2;
-  }
-  if (output.City !== undefined && output.City !== null) {
-    contents.City = output.City;
-  }
-  if (output.ContactType !== undefined && output.ContactType !== null) {
-    contents.ContactType = output.ContactType;
-  }
-  if (output.CountryCode !== undefined && output.CountryCode !== null) {
-    contents.CountryCode = output.CountryCode;
-  }
-  if (output.Email !== undefined && output.Email !== null) {
-    contents.Email = output.Email;
-  }
-  if (output.ExtraParams !== undefined && output.ExtraParams !== null) {
-    contents.ExtraParams = deserializeAws_json1_1ExtraParamList(
-      output.ExtraParams,
-      context
-    );
-  }
-  if (output.Fax !== undefined && output.Fax !== null) {
-    contents.Fax = output.Fax;
-  }
-  if (output.FirstName !== undefined && output.FirstName !== null) {
-    contents.FirstName = output.FirstName;
-  }
-  if (output.LastName !== undefined && output.LastName !== null) {
-    contents.LastName = output.LastName;
-  }
-  if (
-    output.OrganizationName !== undefined &&
-    output.OrganizationName !== null
-  ) {
-    contents.OrganizationName = output.OrganizationName;
-  }
-  if (output.PhoneNumber !== undefined && output.PhoneNumber !== null) {
-    contents.PhoneNumber = output.PhoneNumber;
-  }
-  if (output.State !== undefined && output.State !== null) {
-    contents.State = output.State;
-  }
-  if (output.ZipCode !== undefined && output.ZipCode !== null) {
-    contents.ZipCode = output.ZipCode;
-  }
-  return contents;
+    AddressLine1:
+      output.AddressLine1 !== undefined && output.AddressLine1 !== null
+        ? output.AddressLine1
+        : undefined,
+    AddressLine2:
+      output.AddressLine2 !== undefined && output.AddressLine2 !== null
+        ? output.AddressLine2
+        : undefined,
+    City:
+      output.City !== undefined && output.City !== null
+        ? output.City
+        : undefined,
+    ContactType:
+      output.ContactType !== undefined && output.ContactType !== null
+        ? output.ContactType
+        : undefined,
+    CountryCode:
+      output.CountryCode !== undefined && output.CountryCode !== null
+        ? output.CountryCode
+        : undefined,
+    Email:
+      output.Email !== undefined && output.Email !== null
+        ? output.Email
+        : undefined,
+    ExtraParams:
+      output.ExtraParams !== undefined && output.ExtraParams !== null
+        ? deserializeAws_json1_1ExtraParamList(output.ExtraParams, context)
+        : undefined,
+    Fax:
+      output.Fax !== undefined && output.Fax !== null ? output.Fax : undefined,
+    FirstName:
+      output.FirstName !== undefined && output.FirstName !== null
+        ? output.FirstName
+        : undefined,
+    LastName:
+      output.LastName !== undefined && output.LastName !== null
+        ? output.LastName
+        : undefined,
+    OrganizationName:
+      output.OrganizationName !== undefined && output.OrganizationName !== null
+        ? output.OrganizationName
+        : undefined,
+    PhoneNumber:
+      output.PhoneNumber !== undefined && output.PhoneNumber !== null
+        ? output.PhoneNumber
+        : undefined,
+    State:
+      output.State !== undefined && output.State !== null
+        ? output.State
+        : undefined,
+    ZipCode:
+      output.ZipCode !== undefined && output.ZipCode !== null
+        ? output.ZipCode
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteTagsForDomainResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteTagsForDomainResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteTagsForDomainResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DisableDomainAutoRenewResponse = (
   output: any,
   context: __SerdeContext
 ): DisableDomainAutoRenewResponse => {
-  let contents: any = {
+  return {
     __type: "DisableDomainAutoRenewResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DisableDomainTransferLockResponse = (
   output: any,
   context: __SerdeContext
 ): DisableDomainTransferLockResponse => {
-  let contents: any = {
+  return {
     __type: "DisableDomainTransferLockResponse",
-    OperationId: undefined
-  };
-  if (output.OperationId !== undefined && output.OperationId !== null) {
-    contents.OperationId = output.OperationId;
-  }
-  return contents;
+    OperationId:
+      output.OperationId !== undefined && output.OperationId !== null
+        ? output.OperationId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DomainLimitExceeded = (
   output: any,
   context: __SerdeContext
 ): DomainLimitExceeded => {
-  let contents: any = {
+  return {
     __type: "DomainLimitExceeded",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DomainStatusList = (
@@ -3358,18 +3342,17 @@ const deserializeAws_json1_1DomainSuggestion = (
   output: any,
   context: __SerdeContext
 ): DomainSuggestion => {
-  let contents: any = {
+  return {
     __type: "DomainSuggestion",
-    Availability: undefined,
-    DomainName: undefined
-  };
-  if (output.Availability !== undefined && output.Availability !== null) {
-    contents.Availability = output.Availability;
-  }
-  if (output.DomainName !== undefined && output.DomainName !== null) {
-    contents.DomainName = output.DomainName;
-  }
-  return contents;
+    Availability:
+      output.Availability !== undefined && output.Availability !== null
+        ? output.Availability
+        : undefined,
+    DomainName:
+      output.DomainName !== undefined && output.DomainName !== null
+        ? output.DomainName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DomainSuggestionsList = (
@@ -3385,26 +3368,25 @@ const deserializeAws_json1_1DomainSummary = (
   output: any,
   context: __SerdeContext
 ): DomainSummary => {
-  let contents: any = {
+  return {
     __type: "DomainSummary",
-    AutoRenew: undefined,
-    DomainName: undefined,
-    Expiry: undefined,
-    TransferLock: undefined
-  };
-  if (output.AutoRenew !== undefined && output.AutoRenew !== null) {
-    contents.AutoRenew = output.AutoRenew;
-  }
-  if (output.DomainName !== undefined && output.DomainName !== null) {
-    contents.DomainName = output.DomainName;
-  }
-  if (output.Expiry !== undefined && output.Expiry !== null) {
-    contents.Expiry = new Date(Math.round(output.Expiry * 1000));
-  }
-  if (output.TransferLock !== undefined && output.TransferLock !== null) {
-    contents.TransferLock = output.TransferLock;
-  }
-  return contents;
+    AutoRenew:
+      output.AutoRenew !== undefined && output.AutoRenew !== null
+        ? output.AutoRenew
+        : undefined,
+    DomainName:
+      output.DomainName !== undefined && output.DomainName !== null
+        ? output.DomainName
+        : undefined,
+    Expiry:
+      output.Expiry !== undefined && output.Expiry !== null
+        ? new Date(Math.round(output.Expiry * 1000))
+        : undefined,
+    TransferLock:
+      output.TransferLock !== undefined && output.TransferLock !== null
+        ? output.TransferLock
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DomainSummaryList = (
@@ -3420,70 +3402,65 @@ const deserializeAws_json1_1DomainTransferability = (
   output: any,
   context: __SerdeContext
 ): DomainTransferability => {
-  let contents: any = {
+  return {
     __type: "DomainTransferability",
-    Transferable: undefined
-  };
-  if (output.Transferable !== undefined && output.Transferable !== null) {
-    contents.Transferable = output.Transferable;
-  }
-  return contents;
+    Transferable:
+      output.Transferable !== undefined && output.Transferable !== null
+        ? output.Transferable
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DuplicateRequest = (
   output: any,
   context: __SerdeContext
 ): DuplicateRequest => {
-  let contents: any = {
+  return {
     __type: "DuplicateRequest",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EnableDomainAutoRenewResponse = (
   output: any,
   context: __SerdeContext
 ): EnableDomainAutoRenewResponse => {
-  let contents: any = {
+  return {
     __type: "EnableDomainAutoRenewResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1EnableDomainTransferLockResponse = (
   output: any,
   context: __SerdeContext
 ): EnableDomainTransferLockResponse => {
-  let contents: any = {
+  return {
     __type: "EnableDomainTransferLockResponse",
-    OperationId: undefined
-  };
-  if (output.OperationId !== undefined && output.OperationId !== null) {
-    contents.OperationId = output.OperationId;
-  }
-  return contents;
+    OperationId:
+      output.OperationId !== undefined && output.OperationId !== null
+        ? output.OperationId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ExtraParam = (
   output: any,
   context: __SerdeContext
 ): ExtraParam => {
-  let contents: any = {
+  return {
     __type: "ExtraParam",
-    Name: undefined,
-    Value: undefined
-  };
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ExtraParamList = (
@@ -3499,195 +3476,163 @@ const deserializeAws_json1_1GetContactReachabilityStatusResponse = (
   output: any,
   context: __SerdeContext
 ): GetContactReachabilityStatusResponse => {
-  let contents: any = {
+  return {
     __type: "GetContactReachabilityStatusResponse",
-    domainName: undefined,
-    status: undefined
-  };
-  if (output.domainName !== undefined && output.domainName !== null) {
-    contents.domainName = output.domainName;
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  return contents;
+    domainName:
+      output.domainName !== undefined && output.domainName !== null
+        ? output.domainName
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetDomainDetailResponse = (
   output: any,
   context: __SerdeContext
 ): GetDomainDetailResponse => {
-  let contents: any = {
+  return {
     __type: "GetDomainDetailResponse",
-    AbuseContactEmail: undefined,
-    AbuseContactPhone: undefined,
-    AdminContact: undefined,
-    AdminPrivacy: undefined,
-    AutoRenew: undefined,
-    CreationDate: undefined,
-    DnsSec: undefined,
-    DomainName: undefined,
-    ExpirationDate: undefined,
-    Nameservers: undefined,
-    RegistrantContact: undefined,
-    RegistrantPrivacy: undefined,
-    RegistrarName: undefined,
-    RegistrarUrl: undefined,
-    RegistryDomainId: undefined,
-    Reseller: undefined,
-    StatusList: undefined,
-    TechContact: undefined,
-    TechPrivacy: undefined,
-    UpdatedDate: undefined,
-    WhoIsServer: undefined
-  };
-  if (
-    output.AbuseContactEmail !== undefined &&
-    output.AbuseContactEmail !== null
-  ) {
-    contents.AbuseContactEmail = output.AbuseContactEmail;
-  }
-  if (
-    output.AbuseContactPhone !== undefined &&
-    output.AbuseContactPhone !== null
-  ) {
-    contents.AbuseContactPhone = output.AbuseContactPhone;
-  }
-  if (output.AdminContact !== undefined && output.AdminContact !== null) {
-    contents.AdminContact = deserializeAws_json1_1ContactDetail(
-      output.AdminContact,
-      context
-    );
-  }
-  if (output.AdminPrivacy !== undefined && output.AdminPrivacy !== null) {
-    contents.AdminPrivacy = output.AdminPrivacy;
-  }
-  if (output.AutoRenew !== undefined && output.AutoRenew !== null) {
-    contents.AutoRenew = output.AutoRenew;
-  }
-  if (output.CreationDate !== undefined && output.CreationDate !== null) {
-    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
-  }
-  if (output.DnsSec !== undefined && output.DnsSec !== null) {
-    contents.DnsSec = output.DnsSec;
-  }
-  if (output.DomainName !== undefined && output.DomainName !== null) {
-    contents.DomainName = output.DomainName;
-  }
-  if (output.ExpirationDate !== undefined && output.ExpirationDate !== null) {
-    contents.ExpirationDate = new Date(
-      Math.round(output.ExpirationDate * 1000)
-    );
-  }
-  if (output.Nameservers !== undefined && output.Nameservers !== null) {
-    contents.Nameservers = deserializeAws_json1_1NameserverList(
-      output.Nameservers,
-      context
-    );
-  }
-  if (
-    output.RegistrantContact !== undefined &&
-    output.RegistrantContact !== null
-  ) {
-    contents.RegistrantContact = deserializeAws_json1_1ContactDetail(
-      output.RegistrantContact,
-      context
-    );
-  }
-  if (
-    output.RegistrantPrivacy !== undefined &&
-    output.RegistrantPrivacy !== null
-  ) {
-    contents.RegistrantPrivacy = output.RegistrantPrivacy;
-  }
-  if (output.RegistrarName !== undefined && output.RegistrarName !== null) {
-    contents.RegistrarName = output.RegistrarName;
-  }
-  if (output.RegistrarUrl !== undefined && output.RegistrarUrl !== null) {
-    contents.RegistrarUrl = output.RegistrarUrl;
-  }
-  if (
-    output.RegistryDomainId !== undefined &&
-    output.RegistryDomainId !== null
-  ) {
-    contents.RegistryDomainId = output.RegistryDomainId;
-  }
-  if (output.Reseller !== undefined && output.Reseller !== null) {
-    contents.Reseller = output.Reseller;
-  }
-  if (output.StatusList !== undefined && output.StatusList !== null) {
-    contents.StatusList = deserializeAws_json1_1DomainStatusList(
-      output.StatusList,
-      context
-    );
-  }
-  if (output.TechContact !== undefined && output.TechContact !== null) {
-    contents.TechContact = deserializeAws_json1_1ContactDetail(
-      output.TechContact,
-      context
-    );
-  }
-  if (output.TechPrivacy !== undefined && output.TechPrivacy !== null) {
-    contents.TechPrivacy = output.TechPrivacy;
-  }
-  if (output.UpdatedDate !== undefined && output.UpdatedDate !== null) {
-    contents.UpdatedDate = new Date(Math.round(output.UpdatedDate * 1000));
-  }
-  if (output.WhoIsServer !== undefined && output.WhoIsServer !== null) {
-    contents.WhoIsServer = output.WhoIsServer;
-  }
-  return contents;
+    AbuseContactEmail:
+      output.AbuseContactEmail !== undefined &&
+      output.AbuseContactEmail !== null
+        ? output.AbuseContactEmail
+        : undefined,
+    AbuseContactPhone:
+      output.AbuseContactPhone !== undefined &&
+      output.AbuseContactPhone !== null
+        ? output.AbuseContactPhone
+        : undefined,
+    AdminContact:
+      output.AdminContact !== undefined && output.AdminContact !== null
+        ? deserializeAws_json1_1ContactDetail(output.AdminContact, context)
+        : undefined,
+    AdminPrivacy:
+      output.AdminPrivacy !== undefined && output.AdminPrivacy !== null
+        ? output.AdminPrivacy
+        : undefined,
+    AutoRenew:
+      output.AutoRenew !== undefined && output.AutoRenew !== null
+        ? output.AutoRenew
+        : undefined,
+    CreationDate:
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? new Date(Math.round(output.CreationDate * 1000))
+        : undefined,
+    DnsSec:
+      output.DnsSec !== undefined && output.DnsSec !== null
+        ? output.DnsSec
+        : undefined,
+    DomainName:
+      output.DomainName !== undefined && output.DomainName !== null
+        ? output.DomainName
+        : undefined,
+    ExpirationDate:
+      output.ExpirationDate !== undefined && output.ExpirationDate !== null
+        ? new Date(Math.round(output.ExpirationDate * 1000))
+        : undefined,
+    Nameservers:
+      output.Nameservers !== undefined && output.Nameservers !== null
+        ? deserializeAws_json1_1NameserverList(output.Nameservers, context)
+        : undefined,
+    RegistrantContact:
+      output.RegistrantContact !== undefined &&
+      output.RegistrantContact !== null
+        ? deserializeAws_json1_1ContactDetail(output.RegistrantContact, context)
+        : undefined,
+    RegistrantPrivacy:
+      output.RegistrantPrivacy !== undefined &&
+      output.RegistrantPrivacy !== null
+        ? output.RegistrantPrivacy
+        : undefined,
+    RegistrarName:
+      output.RegistrarName !== undefined && output.RegistrarName !== null
+        ? output.RegistrarName
+        : undefined,
+    RegistrarUrl:
+      output.RegistrarUrl !== undefined && output.RegistrarUrl !== null
+        ? output.RegistrarUrl
+        : undefined,
+    RegistryDomainId:
+      output.RegistryDomainId !== undefined && output.RegistryDomainId !== null
+        ? output.RegistryDomainId
+        : undefined,
+    Reseller:
+      output.Reseller !== undefined && output.Reseller !== null
+        ? output.Reseller
+        : undefined,
+    StatusList:
+      output.StatusList !== undefined && output.StatusList !== null
+        ? deserializeAws_json1_1DomainStatusList(output.StatusList, context)
+        : undefined,
+    TechContact:
+      output.TechContact !== undefined && output.TechContact !== null
+        ? deserializeAws_json1_1ContactDetail(output.TechContact, context)
+        : undefined,
+    TechPrivacy:
+      output.TechPrivacy !== undefined && output.TechPrivacy !== null
+        ? output.TechPrivacy
+        : undefined,
+    UpdatedDate:
+      output.UpdatedDate !== undefined && output.UpdatedDate !== null
+        ? new Date(Math.round(output.UpdatedDate * 1000))
+        : undefined,
+    WhoIsServer:
+      output.WhoIsServer !== undefined && output.WhoIsServer !== null
+        ? output.WhoIsServer
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetDomainSuggestionsResponse = (
   output: any,
   context: __SerdeContext
 ): GetDomainSuggestionsResponse => {
-  let contents: any = {
+  return {
     __type: "GetDomainSuggestionsResponse",
-    SuggestionsList: undefined
-  };
-  if (output.SuggestionsList !== undefined && output.SuggestionsList !== null) {
-    contents.SuggestionsList = deserializeAws_json1_1DomainSuggestionsList(
-      output.SuggestionsList,
-      context
-    );
-  }
-  return contents;
+    SuggestionsList:
+      output.SuggestionsList !== undefined && output.SuggestionsList !== null
+        ? deserializeAws_json1_1DomainSuggestionsList(
+            output.SuggestionsList,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetOperationDetailResponse = (
   output: any,
   context: __SerdeContext
 ): GetOperationDetailResponse => {
-  let contents: any = {
+  return {
     __type: "GetOperationDetailResponse",
-    DomainName: undefined,
-    Message: undefined,
-    OperationId: undefined,
-    Status: undefined,
-    SubmittedDate: undefined,
-    Type: undefined
-  };
-  if (output.DomainName !== undefined && output.DomainName !== null) {
-    contents.DomainName = output.DomainName;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.OperationId !== undefined && output.OperationId !== null) {
-    contents.OperationId = output.OperationId;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.SubmittedDate !== undefined && output.SubmittedDate !== null) {
-    contents.SubmittedDate = new Date(Math.round(output.SubmittedDate * 1000));
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    DomainName:
+      output.DomainName !== undefined && output.DomainName !== null
+        ? output.DomainName
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    OperationId:
+      output.OperationId !== undefined && output.OperationId !== null
+        ? output.OperationId
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    SubmittedDate:
+      output.SubmittedDate !== undefined && output.SubmittedDate !== null
+        ? new Date(Math.round(output.SubmittedDate * 1000))
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GlueIpList = (
@@ -3701,91 +3646,77 @@ const deserializeAws_json1_1InvalidInput = (
   output: any,
   context: __SerdeContext
 ): InvalidInput => {
-  let contents: any = {
+  return {
     __type: "InvalidInput",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListDomainsResponse = (
   output: any,
   context: __SerdeContext
 ): ListDomainsResponse => {
-  let contents: any = {
+  return {
     __type: "ListDomainsResponse",
-    Domains: undefined,
-    NextPageMarker: undefined
-  };
-  if (output.Domains !== undefined && output.Domains !== null) {
-    contents.Domains = deserializeAws_json1_1DomainSummaryList(
-      output.Domains,
-      context
-    );
-  }
-  if (output.NextPageMarker !== undefined && output.NextPageMarker !== null) {
-    contents.NextPageMarker = output.NextPageMarker;
-  }
-  return contents;
+    Domains:
+      output.Domains !== undefined && output.Domains !== null
+        ? deserializeAws_json1_1DomainSummaryList(output.Domains, context)
+        : undefined,
+    NextPageMarker:
+      output.NextPageMarker !== undefined && output.NextPageMarker !== null
+        ? output.NextPageMarker
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListOperationsResponse = (
   output: any,
   context: __SerdeContext
 ): ListOperationsResponse => {
-  let contents: any = {
+  return {
     __type: "ListOperationsResponse",
-    NextPageMarker: undefined,
-    Operations: undefined
-  };
-  if (output.NextPageMarker !== undefined && output.NextPageMarker !== null) {
-    contents.NextPageMarker = output.NextPageMarker;
-  }
-  if (output.Operations !== undefined && output.Operations !== null) {
-    contents.Operations = deserializeAws_json1_1OperationSummaryList(
-      output.Operations,
-      context
-    );
-  }
-  return contents;
+    NextPageMarker:
+      output.NextPageMarker !== undefined && output.NextPageMarker !== null
+        ? output.NextPageMarker
+        : undefined,
+    Operations:
+      output.Operations !== undefined && output.Operations !== null
+        ? deserializeAws_json1_1OperationSummaryList(output.Operations, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListTagsForDomainResponse = (
   output: any,
   context: __SerdeContext
 ): ListTagsForDomainResponse => {
-  let contents: any = {
+  return {
     __type: "ListTagsForDomainResponse",
-    TagList: undefined
-  };
-  if (output.TagList !== undefined && output.TagList !== null) {
-    contents.TagList = deserializeAws_json1_1TagList(output.TagList, context);
-  }
-  return contents;
+    TagList:
+      output.TagList !== undefined && output.TagList !== null
+        ? deserializeAws_json1_1TagList(output.TagList, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Nameserver = (
   output: any,
   context: __SerdeContext
 ): Nameserver => {
-  let contents: any = {
+  return {
     __type: "Nameserver",
-    GlueIps: undefined,
-    Name: undefined
-  };
-  if (output.GlueIps !== undefined && output.GlueIps !== null) {
-    contents.GlueIps = deserializeAws_json1_1GlueIpList(
-      output.GlueIps,
-      context
-    );
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    GlueIps:
+      output.GlueIps !== undefined && output.GlueIps !== null
+        ? deserializeAws_json1_1GlueIpList(output.GlueIps, context)
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1NameserverList = (
@@ -3801,40 +3732,38 @@ const deserializeAws_json1_1OperationLimitExceeded = (
   output: any,
   context: __SerdeContext
 ): OperationLimitExceeded => {
-  let contents: any = {
+  return {
     __type: "OperationLimitExceeded",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1OperationSummary = (
   output: any,
   context: __SerdeContext
 ): OperationSummary => {
-  let contents: any = {
+  return {
     __type: "OperationSummary",
-    OperationId: undefined,
-    Status: undefined,
-    SubmittedDate: undefined,
-    Type: undefined
-  };
-  if (output.OperationId !== undefined && output.OperationId !== null) {
-    contents.OperationId = output.OperationId;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.SubmittedDate !== undefined && output.SubmittedDate !== null) {
-    contents.SubmittedDate = new Date(Math.round(output.SubmittedDate * 1000));
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    OperationId:
+      output.OperationId !== undefined && output.OperationId !== null
+        ? output.OperationId
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    SubmittedDate:
+      output.SubmittedDate !== undefined && output.SubmittedDate !== null
+        ? new Date(Math.round(output.SubmittedDate * 1000))
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1OperationSummaryList = (
@@ -3850,99 +3779,89 @@ const deserializeAws_json1_1RegisterDomainResponse = (
   output: any,
   context: __SerdeContext
 ): RegisterDomainResponse => {
-  let contents: any = {
+  return {
     __type: "RegisterDomainResponse",
-    OperationId: undefined
-  };
-  if (output.OperationId !== undefined && output.OperationId !== null) {
-    contents.OperationId = output.OperationId;
-  }
-  return contents;
+    OperationId:
+      output.OperationId !== undefined && output.OperationId !== null
+        ? output.OperationId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RenewDomainResponse = (
   output: any,
   context: __SerdeContext
 ): RenewDomainResponse => {
-  let contents: any = {
+  return {
     __type: "RenewDomainResponse",
-    OperationId: undefined
-  };
-  if (output.OperationId !== undefined && output.OperationId !== null) {
-    contents.OperationId = output.OperationId;
-  }
-  return contents;
+    OperationId:
+      output.OperationId !== undefined && output.OperationId !== null
+        ? output.OperationId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResendContactReachabilityEmailResponse = (
   output: any,
   context: __SerdeContext
 ): ResendContactReachabilityEmailResponse => {
-  let contents: any = {
+  return {
     __type: "ResendContactReachabilityEmailResponse",
-    domainName: undefined,
-    emailAddress: undefined,
-    isAlreadyVerified: undefined
-  };
-  if (output.domainName !== undefined && output.domainName !== null) {
-    contents.domainName = output.domainName;
-  }
-  if (output.emailAddress !== undefined && output.emailAddress !== null) {
-    contents.emailAddress = output.emailAddress;
-  }
-  if (
-    output.isAlreadyVerified !== undefined &&
-    output.isAlreadyVerified !== null
-  ) {
-    contents.isAlreadyVerified = output.isAlreadyVerified;
-  }
-  return contents;
+    domainName:
+      output.domainName !== undefined && output.domainName !== null
+        ? output.domainName
+        : undefined,
+    emailAddress:
+      output.emailAddress !== undefined && output.emailAddress !== null
+        ? output.emailAddress
+        : undefined,
+    isAlreadyVerified:
+      output.isAlreadyVerified !== undefined &&
+      output.isAlreadyVerified !== null
+        ? output.isAlreadyVerified
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RetrieveDomainAuthCodeResponse = (
   output: any,
   context: __SerdeContext
 ): RetrieveDomainAuthCodeResponse => {
-  let contents: any = {
+  return {
     __type: "RetrieveDomainAuthCodeResponse",
-    AuthCode: undefined
-  };
-  if (output.AuthCode !== undefined && output.AuthCode !== null) {
-    contents.AuthCode = output.AuthCode;
-  }
-  return contents;
+    AuthCode:
+      output.AuthCode !== undefined && output.AuthCode !== null
+        ? output.AuthCode
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TLDRulesViolation = (
   output: any,
   context: __SerdeContext
 ): TLDRulesViolation => {
-  let contents: any = {
+  return {
     __type: "TLDRulesViolation",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Tag = (
   output: any,
   context: __SerdeContext
 ): Tag => {
-  let contents: any = {
+  return {
     __type: "Tag",
-    Key: undefined,
-    Value: undefined
-  };
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TagList = (
@@ -3958,101 +3877,91 @@ const deserializeAws_json1_1TransferDomainResponse = (
   output: any,
   context: __SerdeContext
 ): TransferDomainResponse => {
-  let contents: any = {
+  return {
     __type: "TransferDomainResponse",
-    OperationId: undefined
-  };
-  if (output.OperationId !== undefined && output.OperationId !== null) {
-    contents.OperationId = output.OperationId;
-  }
-  return contents;
+    OperationId:
+      output.OperationId !== undefined && output.OperationId !== null
+        ? output.OperationId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UnsupportedTLD = (
   output: any,
   context: __SerdeContext
 ): UnsupportedTLD => {
-  let contents: any = {
+  return {
     __type: "UnsupportedTLD",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateDomainContactPrivacyResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateDomainContactPrivacyResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateDomainContactPrivacyResponse",
-    OperationId: undefined
-  };
-  if (output.OperationId !== undefined && output.OperationId !== null) {
-    contents.OperationId = output.OperationId;
-  }
-  return contents;
+    OperationId:
+      output.OperationId !== undefined && output.OperationId !== null
+        ? output.OperationId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateDomainContactResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateDomainContactResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateDomainContactResponse",
-    OperationId: undefined
-  };
-  if (output.OperationId !== undefined && output.OperationId !== null) {
-    contents.OperationId = output.OperationId;
-  }
-  return contents;
+    OperationId:
+      output.OperationId !== undefined && output.OperationId !== null
+        ? output.OperationId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateDomainNameserversResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateDomainNameserversResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateDomainNameserversResponse",
-    OperationId: undefined
-  };
-  if (output.OperationId !== undefined && output.OperationId !== null) {
-    contents.OperationId = output.OperationId;
-  }
-  return contents;
+    OperationId:
+      output.OperationId !== undefined && output.OperationId !== null
+        ? output.OperationId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateTagsForDomainResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateTagsForDomainResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateTagsForDomainResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1ViewBillingResponse = (
   output: any,
   context: __SerdeContext
 ): ViewBillingResponse => {
-  let contents: any = {
+  return {
     __type: "ViewBillingResponse",
-    BillingRecords: undefined,
-    NextPageMarker: undefined
-  };
-  if (output.BillingRecords !== undefined && output.BillingRecords !== null) {
-    contents.BillingRecords = deserializeAws_json1_1BillingRecords(
-      output.BillingRecords,
-      context
-    );
-  }
-  if (output.NextPageMarker !== undefined && output.NextPageMarker !== null) {
-    contents.NextPageMarker = output.NextPageMarker;
-  }
-  return contents;
+    BillingRecords:
+      output.BillingRecords !== undefined && output.BillingRecords !== null
+        ? deserializeAws_json1_1BillingRecords(output.BillingRecords, context)
+        : undefined,
+    NextPageMarker:
+      output.NextPageMarker !== undefined && output.NextPageMarker !== null
+        ? output.NextPageMarker
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

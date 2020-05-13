@@ -781,42 +781,38 @@ const deserializeAws_restJson1_1Item = (
   output: any,
   context: __SerdeContext
 ): Item => {
-  let contents: any = {
+  return {
     __type: "Item",
-    AbsoluteTime: undefined,
-    Content: undefined,
-    ContentType: undefined,
-    DisplayName: undefined,
-    Id: undefined,
-    ParticipantId: undefined,
-    ParticipantRole: undefined,
-    Type: undefined
-  };
-  if (output.AbsoluteTime !== undefined && output.AbsoluteTime !== null) {
-    contents.AbsoluteTime = output.AbsoluteTime;
-  }
-  if (output.Content !== undefined && output.Content !== null) {
-    contents.Content = output.Content;
-  }
-  if (output.ContentType !== undefined && output.ContentType !== null) {
-    contents.ContentType = output.ContentType;
-  }
-  if (output.DisplayName !== undefined && output.DisplayName !== null) {
-    contents.DisplayName = output.DisplayName;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.ParticipantId !== undefined && output.ParticipantId !== null) {
-    contents.ParticipantId = output.ParticipantId;
-  }
-  if (output.ParticipantRole !== undefined && output.ParticipantRole !== null) {
-    contents.ParticipantRole = output.ParticipantRole;
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    AbsoluteTime:
+      output.AbsoluteTime !== undefined && output.AbsoluteTime !== null
+        ? output.AbsoluteTime
+        : undefined,
+    Content:
+      output.Content !== undefined && output.Content !== null
+        ? output.Content
+        : undefined,
+    ContentType:
+      output.ContentType !== undefined && output.ContentType !== null
+        ? output.ContentType
+        : undefined,
+    DisplayName:
+      output.DisplayName !== undefined && output.DisplayName !== null
+        ? output.DisplayName
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    ParticipantId:
+      output.ParticipantId !== undefined && output.ParticipantId !== null
+        ? output.ParticipantId
+        : undefined,
+    ParticipantRole:
+      output.ParticipantRole !== undefined && output.ParticipantRole !== null
+        ? output.ParticipantRole
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Transcript = (
@@ -832,39 +828,32 @@ const deserializeAws_restJson1_1ConnectionCredentials = (
   output: any,
   context: __SerdeContext
 ): ConnectionCredentials => {
-  let contents: any = {
+  return {
     __type: "ConnectionCredentials",
-    ConnectionToken: undefined,
-    Expiry: undefined
-  };
-  if (output.ConnectionToken !== undefined && output.ConnectionToken !== null) {
-    contents.ConnectionToken = output.ConnectionToken;
-  }
-  if (output.Expiry !== undefined && output.Expiry !== null) {
-    contents.Expiry = output.Expiry;
-  }
-  return contents;
+    ConnectionToken:
+      output.ConnectionToken !== undefined && output.ConnectionToken !== null
+        ? output.ConnectionToken
+        : undefined,
+    Expiry:
+      output.Expiry !== undefined && output.Expiry !== null
+        ? output.Expiry
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Websocket = (
   output: any,
   context: __SerdeContext
 ): Websocket => {
-  let contents: any = {
+  return {
     __type: "Websocket",
-    ConnectionExpiry: undefined,
-    Url: undefined
-  };
-  if (
-    output.ConnectionExpiry !== undefined &&
-    output.ConnectionExpiry !== null
-  ) {
-    contents.ConnectionExpiry = output.ConnectionExpiry;
-  }
-  if (output.Url !== undefined && output.Url !== null) {
-    contents.Url = output.Url;
-  }
-  return contents;
+    ConnectionExpiry:
+      output.ConnectionExpiry !== undefined && output.ConnectionExpiry !== null
+        ? output.ConnectionExpiry
+        : undefined,
+    Url:
+      output.Url !== undefined && output.Url !== null ? output.Url : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

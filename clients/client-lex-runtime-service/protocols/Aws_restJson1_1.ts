@@ -1459,88 +1459,75 @@ const deserializeAws_restJson1_1DialogAction = (
   output: any,
   context: __SerdeContext
 ): DialogAction => {
-  let contents: any = {
+  return {
     __type: "DialogAction",
-    fulfillmentState: undefined,
-    intentName: undefined,
-    message: undefined,
-    messageFormat: undefined,
-    slotToElicit: undefined,
-    slots: undefined,
-    type: undefined
-  };
-  if (
-    output.fulfillmentState !== undefined &&
-    output.fulfillmentState !== null
-  ) {
-    contents.fulfillmentState = output.fulfillmentState;
-  }
-  if (output.intentName !== undefined && output.intentName !== null) {
-    contents.intentName = output.intentName;
-  }
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  if (output.messageFormat !== undefined && output.messageFormat !== null) {
-    contents.messageFormat = output.messageFormat;
-  }
-  if (output.slotToElicit !== undefined && output.slotToElicit !== null) {
-    contents.slotToElicit = output.slotToElicit;
-  }
-  if (output.slots !== undefined && output.slots !== null) {
-    contents.slots = deserializeAws_restJson1_1StringMap(output.slots, context);
-  }
-  if (output.type !== undefined && output.type !== null) {
-    contents.type = output.type;
-  }
-  return contents;
+    fulfillmentState:
+      output.fulfillmentState !== undefined && output.fulfillmentState !== null
+        ? output.fulfillmentState
+        : undefined,
+    intentName:
+      output.intentName !== undefined && output.intentName !== null
+        ? output.intentName
+        : undefined,
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined,
+    messageFormat:
+      output.messageFormat !== undefined && output.messageFormat !== null
+        ? output.messageFormat
+        : undefined,
+    slotToElicit:
+      output.slotToElicit !== undefined && output.slotToElicit !== null
+        ? output.slotToElicit
+        : undefined,
+    slots:
+      output.slots !== undefined && output.slots !== null
+        ? deserializeAws_restJson1_1StringMap(output.slots, context)
+        : undefined,
+    type:
+      output.type !== undefined && output.type !== null
+        ? output.type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1IntentSummary = (
   output: any,
   context: __SerdeContext
 ): IntentSummary => {
-  let contents: any = {
+  return {
     __type: "IntentSummary",
-    checkpointLabel: undefined,
-    confirmationStatus: undefined,
-    dialogActionType: undefined,
-    fulfillmentState: undefined,
-    intentName: undefined,
-    slotToElicit: undefined,
-    slots: undefined
-  };
-  if (output.checkpointLabel !== undefined && output.checkpointLabel !== null) {
-    contents.checkpointLabel = output.checkpointLabel;
-  }
-  if (
-    output.confirmationStatus !== undefined &&
-    output.confirmationStatus !== null
-  ) {
-    contents.confirmationStatus = output.confirmationStatus;
-  }
-  if (
-    output.dialogActionType !== undefined &&
-    output.dialogActionType !== null
-  ) {
-    contents.dialogActionType = output.dialogActionType;
-  }
-  if (
-    output.fulfillmentState !== undefined &&
-    output.fulfillmentState !== null
-  ) {
-    contents.fulfillmentState = output.fulfillmentState;
-  }
-  if (output.intentName !== undefined && output.intentName !== null) {
-    contents.intentName = output.intentName;
-  }
-  if (output.slotToElicit !== undefined && output.slotToElicit !== null) {
-    contents.slotToElicit = output.slotToElicit;
-  }
-  if (output.slots !== undefined && output.slots !== null) {
-    contents.slots = deserializeAws_restJson1_1StringMap(output.slots, context);
-  }
-  return contents;
+    checkpointLabel:
+      output.checkpointLabel !== undefined && output.checkpointLabel !== null
+        ? output.checkpointLabel
+        : undefined,
+    confirmationStatus:
+      output.confirmationStatus !== undefined &&
+      output.confirmationStatus !== null
+        ? output.confirmationStatus
+        : undefined,
+    dialogActionType:
+      output.dialogActionType !== undefined && output.dialogActionType !== null
+        ? output.dialogActionType
+        : undefined,
+    fulfillmentState:
+      output.fulfillmentState !== undefined && output.fulfillmentState !== null
+        ? output.fulfillmentState
+        : undefined,
+    intentName:
+      output.intentName !== undefined && output.intentName !== null
+        ? output.intentName
+        : undefined,
+    slotToElicit:
+      output.slotToElicit !== undefined && output.slotToElicit !== null
+        ? output.slotToElicit
+        : undefined,
+    slots:
+      output.slots !== undefined && output.slots !== null
+        ? deserializeAws_restJson1_1StringMap(output.slots, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1IntentSummaryList = (
@@ -1556,18 +1543,17 @@ const deserializeAws_restJson1_1SentimentResponse = (
   output: any,
   context: __SerdeContext
 ): SentimentResponse => {
-  let contents: any = {
+  return {
     __type: "SentimentResponse",
-    sentimentLabel: undefined,
-    sentimentScore: undefined
-  };
-  if (output.sentimentLabel !== undefined && output.sentimentLabel !== null) {
-    contents.sentimentLabel = output.sentimentLabel;
-  }
-  if (output.sentimentScore !== undefined && output.sentimentScore !== null) {
-    contents.sentimentScore = output.sentimentScore;
-  }
-  return contents;
+    sentimentLabel:
+      output.sentimentLabel !== undefined && output.sentimentLabel !== null
+        ? output.sentimentLabel
+        : undefined,
+    sentimentScore:
+      output.sentimentScore !== undefined && output.sentimentScore !== null
+        ? output.sentimentScore
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1StringMap = (
@@ -1584,82 +1570,72 @@ const deserializeAws_restJson1_1Button = (
   output: any,
   context: __SerdeContext
 ): Button => {
-  let contents: any = {
+  return {
     __type: "Button",
-    text: undefined,
-    value: undefined
-  };
-  if (output.text !== undefined && output.text !== null) {
-    contents.text = output.text;
-  }
-  if (output.value !== undefined && output.value !== null) {
-    contents.value = output.value;
-  }
-  return contents;
+    text:
+      output.text !== undefined && output.text !== null
+        ? output.text
+        : undefined,
+    value:
+      output.value !== undefined && output.value !== null
+        ? output.value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1GenericAttachment = (
   output: any,
   context: __SerdeContext
 ): GenericAttachment => {
-  let contents: any = {
+  return {
     __type: "GenericAttachment",
-    attachmentLinkUrl: undefined,
-    buttons: undefined,
-    imageUrl: undefined,
-    subTitle: undefined,
-    title: undefined
-  };
-  if (
-    output.attachmentLinkUrl !== undefined &&
-    output.attachmentLinkUrl !== null
-  ) {
-    contents.attachmentLinkUrl = output.attachmentLinkUrl;
-  }
-  if (output.buttons !== undefined && output.buttons !== null) {
-    contents.buttons = deserializeAws_restJson1_1listOfButtons(
-      output.buttons,
-      context
-    );
-  }
-  if (output.imageUrl !== undefined && output.imageUrl !== null) {
-    contents.imageUrl = output.imageUrl;
-  }
-  if (output.subTitle !== undefined && output.subTitle !== null) {
-    contents.subTitle = output.subTitle;
-  }
-  if (output.title !== undefined && output.title !== null) {
-    contents.title = output.title;
-  }
-  return contents;
+    attachmentLinkUrl:
+      output.attachmentLinkUrl !== undefined &&
+      output.attachmentLinkUrl !== null
+        ? output.attachmentLinkUrl
+        : undefined,
+    buttons:
+      output.buttons !== undefined && output.buttons !== null
+        ? deserializeAws_restJson1_1listOfButtons(output.buttons, context)
+        : undefined,
+    imageUrl:
+      output.imageUrl !== undefined && output.imageUrl !== null
+        ? output.imageUrl
+        : undefined,
+    subTitle:
+      output.subTitle !== undefined && output.subTitle !== null
+        ? output.subTitle
+        : undefined,
+    title:
+      output.title !== undefined && output.title !== null
+        ? output.title
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ResponseCard = (
   output: any,
   context: __SerdeContext
 ): ResponseCard => {
-  let contents: any = {
+  return {
     __type: "ResponseCard",
-    contentType: undefined,
-    genericAttachments: undefined,
-    version: undefined
-  };
-  if (output.contentType !== undefined && output.contentType !== null) {
-    contents.contentType = output.contentType;
-  }
-  if (
-    output.genericAttachments !== undefined &&
-    output.genericAttachments !== null
-  ) {
-    contents.genericAttachments = deserializeAws_restJson1_1genericAttachmentList(
-      output.genericAttachments,
-      context
-    );
-  }
-  if (output.version !== undefined && output.version !== null) {
-    contents.version = output.version;
-  }
-  return contents;
+    contentType:
+      output.contentType !== undefined && output.contentType !== null
+        ? output.contentType
+        : undefined,
+    genericAttachments:
+      output.genericAttachments !== undefined &&
+      output.genericAttachments !== null
+        ? deserializeAws_restJson1_1genericAttachmentList(
+            output.genericAttachments,
+            context
+          )
+        : undefined,
+    version:
+      output.version !== undefined && output.version !== null
+        ? output.version
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1genericAttachmentList = (

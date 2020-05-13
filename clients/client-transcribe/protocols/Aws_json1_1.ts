@@ -1992,525 +1992,433 @@ const deserializeAws_json1_1BadRequestException = (
   output: any,
   context: __SerdeContext
 ): BadRequestException => {
-  let contents: any = {
+  return {
     __type: "BadRequestException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ConflictException = (
   output: any,
   context: __SerdeContext
 ): ConflictException => {
-  let contents: any = {
+  return {
     __type: "ConflictException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateVocabularyFilterResponse = (
   output: any,
   context: __SerdeContext
 ): CreateVocabularyFilterResponse => {
-  let contents: any = {
+  return {
     __type: "CreateVocabularyFilterResponse",
-    LanguageCode: undefined,
-    LastModifiedTime: undefined,
-    VocabularyFilterName: undefined
-  };
-  if (output.LanguageCode !== undefined && output.LanguageCode !== null) {
-    contents.LanguageCode = output.LanguageCode;
-  }
-  if (
-    output.LastModifiedTime !== undefined &&
-    output.LastModifiedTime !== null
-  ) {
-    contents.LastModifiedTime = new Date(
-      Math.round(output.LastModifiedTime * 1000)
-    );
-  }
-  if (
-    output.VocabularyFilterName !== undefined &&
-    output.VocabularyFilterName !== null
-  ) {
-    contents.VocabularyFilterName = output.VocabularyFilterName;
-  }
-  return contents;
+    LanguageCode:
+      output.LanguageCode !== undefined && output.LanguageCode !== null
+        ? output.LanguageCode
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        : undefined,
+    VocabularyFilterName:
+      output.VocabularyFilterName !== undefined &&
+      output.VocabularyFilterName !== null
+        ? output.VocabularyFilterName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateVocabularyResponse = (
   output: any,
   context: __SerdeContext
 ): CreateVocabularyResponse => {
-  let contents: any = {
+  return {
     __type: "CreateVocabularyResponse",
-    FailureReason: undefined,
-    LanguageCode: undefined,
-    LastModifiedTime: undefined,
-    VocabularyName: undefined,
-    VocabularyState: undefined
-  };
-  if (output.FailureReason !== undefined && output.FailureReason !== null) {
-    contents.FailureReason = output.FailureReason;
-  }
-  if (output.LanguageCode !== undefined && output.LanguageCode !== null) {
-    contents.LanguageCode = output.LanguageCode;
-  }
-  if (
-    output.LastModifiedTime !== undefined &&
-    output.LastModifiedTime !== null
-  ) {
-    contents.LastModifiedTime = new Date(
-      Math.round(output.LastModifiedTime * 1000)
-    );
-  }
-  if (output.VocabularyName !== undefined && output.VocabularyName !== null) {
-    contents.VocabularyName = output.VocabularyName;
-  }
-  if (output.VocabularyState !== undefined && output.VocabularyState !== null) {
-    contents.VocabularyState = output.VocabularyState;
-  }
-  return contents;
+    FailureReason:
+      output.FailureReason !== undefined && output.FailureReason !== null
+        ? output.FailureReason
+        : undefined,
+    LanguageCode:
+      output.LanguageCode !== undefined && output.LanguageCode !== null
+        ? output.LanguageCode
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        : undefined,
+    VocabularyName:
+      output.VocabularyName !== undefined && output.VocabularyName !== null
+        ? output.VocabularyName
+        : undefined,
+    VocabularyState:
+      output.VocabularyState !== undefined && output.VocabularyState !== null
+        ? output.VocabularyState
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetTranscriptionJobResponse = (
   output: any,
   context: __SerdeContext
 ): GetTranscriptionJobResponse => {
-  let contents: any = {
+  return {
     __type: "GetTranscriptionJobResponse",
-    TranscriptionJob: undefined
-  };
-  if (
-    output.TranscriptionJob !== undefined &&
-    output.TranscriptionJob !== null
-  ) {
-    contents.TranscriptionJob = deserializeAws_json1_1TranscriptionJob(
-      output.TranscriptionJob,
-      context
-    );
-  }
-  return contents;
+    TranscriptionJob:
+      output.TranscriptionJob !== undefined && output.TranscriptionJob !== null
+        ? deserializeAws_json1_1TranscriptionJob(
+            output.TranscriptionJob,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetVocabularyFilterResponse = (
   output: any,
   context: __SerdeContext
 ): GetVocabularyFilterResponse => {
-  let contents: any = {
+  return {
     __type: "GetVocabularyFilterResponse",
-    DownloadUri: undefined,
-    LanguageCode: undefined,
-    LastModifiedTime: undefined,
-    VocabularyFilterName: undefined
-  };
-  if (output.DownloadUri !== undefined && output.DownloadUri !== null) {
-    contents.DownloadUri = output.DownloadUri;
-  }
-  if (output.LanguageCode !== undefined && output.LanguageCode !== null) {
-    contents.LanguageCode = output.LanguageCode;
-  }
-  if (
-    output.LastModifiedTime !== undefined &&
-    output.LastModifiedTime !== null
-  ) {
-    contents.LastModifiedTime = new Date(
-      Math.round(output.LastModifiedTime * 1000)
-    );
-  }
-  if (
-    output.VocabularyFilterName !== undefined &&
-    output.VocabularyFilterName !== null
-  ) {
-    contents.VocabularyFilterName = output.VocabularyFilterName;
-  }
-  return contents;
+    DownloadUri:
+      output.DownloadUri !== undefined && output.DownloadUri !== null
+        ? output.DownloadUri
+        : undefined,
+    LanguageCode:
+      output.LanguageCode !== undefined && output.LanguageCode !== null
+        ? output.LanguageCode
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        : undefined,
+    VocabularyFilterName:
+      output.VocabularyFilterName !== undefined &&
+      output.VocabularyFilterName !== null
+        ? output.VocabularyFilterName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetVocabularyResponse = (
   output: any,
   context: __SerdeContext
 ): GetVocabularyResponse => {
-  let contents: any = {
+  return {
     __type: "GetVocabularyResponse",
-    DownloadUri: undefined,
-    FailureReason: undefined,
-    LanguageCode: undefined,
-    LastModifiedTime: undefined,
-    VocabularyName: undefined,
-    VocabularyState: undefined
-  };
-  if (output.DownloadUri !== undefined && output.DownloadUri !== null) {
-    contents.DownloadUri = output.DownloadUri;
-  }
-  if (output.FailureReason !== undefined && output.FailureReason !== null) {
-    contents.FailureReason = output.FailureReason;
-  }
-  if (output.LanguageCode !== undefined && output.LanguageCode !== null) {
-    contents.LanguageCode = output.LanguageCode;
-  }
-  if (
-    output.LastModifiedTime !== undefined &&
-    output.LastModifiedTime !== null
-  ) {
-    contents.LastModifiedTime = new Date(
-      Math.round(output.LastModifiedTime * 1000)
-    );
-  }
-  if (output.VocabularyName !== undefined && output.VocabularyName !== null) {
-    contents.VocabularyName = output.VocabularyName;
-  }
-  if (output.VocabularyState !== undefined && output.VocabularyState !== null) {
-    contents.VocabularyState = output.VocabularyState;
-  }
-  return contents;
+    DownloadUri:
+      output.DownloadUri !== undefined && output.DownloadUri !== null
+        ? output.DownloadUri
+        : undefined,
+    FailureReason:
+      output.FailureReason !== undefined && output.FailureReason !== null
+        ? output.FailureReason
+        : undefined,
+    LanguageCode:
+      output.LanguageCode !== undefined && output.LanguageCode !== null
+        ? output.LanguageCode
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        : undefined,
+    VocabularyName:
+      output.VocabularyName !== undefined && output.VocabularyName !== null
+        ? output.VocabularyName
+        : undefined,
+    VocabularyState:
+      output.VocabularyState !== undefined && output.VocabularyState !== null
+        ? output.VocabularyState
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InternalFailureException = (
   output: any,
   context: __SerdeContext
 ): InternalFailureException => {
-  let contents: any = {
+  return {
     __type: "InternalFailureException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1JobExecutionSettings = (
   output: any,
   context: __SerdeContext
 ): JobExecutionSettings => {
-  let contents: any = {
+  return {
     __type: "JobExecutionSettings",
-    AllowDeferredExecution: undefined,
-    DataAccessRoleArn: undefined
-  };
-  if (
-    output.AllowDeferredExecution !== undefined &&
-    output.AllowDeferredExecution !== null
-  ) {
-    contents.AllowDeferredExecution = output.AllowDeferredExecution;
-  }
-  if (
-    output.DataAccessRoleArn !== undefined &&
-    output.DataAccessRoleArn !== null
-  ) {
-    contents.DataAccessRoleArn = output.DataAccessRoleArn;
-  }
-  return contents;
+    AllowDeferredExecution:
+      output.AllowDeferredExecution !== undefined &&
+      output.AllowDeferredExecution !== null
+        ? output.AllowDeferredExecution
+        : undefined,
+    DataAccessRoleArn:
+      output.DataAccessRoleArn !== undefined &&
+      output.DataAccessRoleArn !== null
+        ? output.DataAccessRoleArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (
   output: any,
   context: __SerdeContext
 ): LimitExceededException => {
-  let contents: any = {
+  return {
     __type: "LimitExceededException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListTranscriptionJobsResponse = (
   output: any,
   context: __SerdeContext
 ): ListTranscriptionJobsResponse => {
-  let contents: any = {
+  return {
     __type: "ListTranscriptionJobsResponse",
-    NextToken: undefined,
-    Status: undefined,
-    TranscriptionJobSummaries: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (
-    output.TranscriptionJobSummaries !== undefined &&
-    output.TranscriptionJobSummaries !== null
-  ) {
-    contents.TranscriptionJobSummaries = deserializeAws_json1_1TranscriptionJobSummaries(
-      output.TranscriptionJobSummaries,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    TranscriptionJobSummaries:
+      output.TranscriptionJobSummaries !== undefined &&
+      output.TranscriptionJobSummaries !== null
+        ? deserializeAws_json1_1TranscriptionJobSummaries(
+            output.TranscriptionJobSummaries,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListVocabulariesResponse = (
   output: any,
   context: __SerdeContext
 ): ListVocabulariesResponse => {
-  let contents: any = {
+  return {
     __type: "ListVocabulariesResponse",
-    NextToken: undefined,
-    Status: undefined,
-    Vocabularies: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.Vocabularies !== undefined && output.Vocabularies !== null) {
-    contents.Vocabularies = deserializeAws_json1_1Vocabularies(
-      output.Vocabularies,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    Vocabularies:
+      output.Vocabularies !== undefined && output.Vocabularies !== null
+        ? deserializeAws_json1_1Vocabularies(output.Vocabularies, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListVocabularyFiltersResponse = (
   output: any,
   context: __SerdeContext
 ): ListVocabularyFiltersResponse => {
-  let contents: any = {
+  return {
     __type: "ListVocabularyFiltersResponse",
-    NextToken: undefined,
-    VocabularyFilters: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (
-    output.VocabularyFilters !== undefined &&
-    output.VocabularyFilters !== null
-  ) {
-    contents.VocabularyFilters = deserializeAws_json1_1VocabularyFilters(
-      output.VocabularyFilters,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    VocabularyFilters:
+      output.VocabularyFilters !== undefined &&
+      output.VocabularyFilters !== null
+        ? deserializeAws_json1_1VocabularyFilters(
+            output.VocabularyFilters,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Media = (
   output: any,
   context: __SerdeContext
 ): Media => {
-  let contents: any = {
+  return {
     __type: "Media",
-    MediaFileUri: undefined
-  };
-  if (output.MediaFileUri !== undefined && output.MediaFileUri !== null) {
-    contents.MediaFileUri = output.MediaFileUri;
-  }
-  return contents;
+    MediaFileUri:
+      output.MediaFileUri !== undefined && output.MediaFileUri !== null
+        ? output.MediaFileUri
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1NotFoundException = (
   output: any,
   context: __SerdeContext
 ): NotFoundException => {
-  let contents: any = {
+  return {
     __type: "NotFoundException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Settings = (
   output: any,
   context: __SerdeContext
 ): Settings => {
-  let contents: any = {
+  return {
     __type: "Settings",
-    ChannelIdentification: undefined,
-    MaxAlternatives: undefined,
-    MaxSpeakerLabels: undefined,
-    ShowAlternatives: undefined,
-    ShowSpeakerLabels: undefined,
-    VocabularyFilterMethod: undefined,
-    VocabularyFilterName: undefined,
-    VocabularyName: undefined
-  };
-  if (
-    output.ChannelIdentification !== undefined &&
-    output.ChannelIdentification !== null
-  ) {
-    contents.ChannelIdentification = output.ChannelIdentification;
-  }
-  if (output.MaxAlternatives !== undefined && output.MaxAlternatives !== null) {
-    contents.MaxAlternatives = output.MaxAlternatives;
-  }
-  if (
-    output.MaxSpeakerLabels !== undefined &&
-    output.MaxSpeakerLabels !== null
-  ) {
-    contents.MaxSpeakerLabels = output.MaxSpeakerLabels;
-  }
-  if (
-    output.ShowAlternatives !== undefined &&
-    output.ShowAlternatives !== null
-  ) {
-    contents.ShowAlternatives = output.ShowAlternatives;
-  }
-  if (
-    output.ShowSpeakerLabels !== undefined &&
-    output.ShowSpeakerLabels !== null
-  ) {
-    contents.ShowSpeakerLabels = output.ShowSpeakerLabels;
-  }
-  if (
-    output.VocabularyFilterMethod !== undefined &&
-    output.VocabularyFilterMethod !== null
-  ) {
-    contents.VocabularyFilterMethod = output.VocabularyFilterMethod;
-  }
-  if (
-    output.VocabularyFilterName !== undefined &&
-    output.VocabularyFilterName !== null
-  ) {
-    contents.VocabularyFilterName = output.VocabularyFilterName;
-  }
-  if (output.VocabularyName !== undefined && output.VocabularyName !== null) {
-    contents.VocabularyName = output.VocabularyName;
-  }
-  return contents;
+    ChannelIdentification:
+      output.ChannelIdentification !== undefined &&
+      output.ChannelIdentification !== null
+        ? output.ChannelIdentification
+        : undefined,
+    MaxAlternatives:
+      output.MaxAlternatives !== undefined && output.MaxAlternatives !== null
+        ? output.MaxAlternatives
+        : undefined,
+    MaxSpeakerLabels:
+      output.MaxSpeakerLabels !== undefined && output.MaxSpeakerLabels !== null
+        ? output.MaxSpeakerLabels
+        : undefined,
+    ShowAlternatives:
+      output.ShowAlternatives !== undefined && output.ShowAlternatives !== null
+        ? output.ShowAlternatives
+        : undefined,
+    ShowSpeakerLabels:
+      output.ShowSpeakerLabels !== undefined &&
+      output.ShowSpeakerLabels !== null
+        ? output.ShowSpeakerLabels
+        : undefined,
+    VocabularyFilterMethod:
+      output.VocabularyFilterMethod !== undefined &&
+      output.VocabularyFilterMethod !== null
+        ? output.VocabularyFilterMethod
+        : undefined,
+    VocabularyFilterName:
+      output.VocabularyFilterName !== undefined &&
+      output.VocabularyFilterName !== null
+        ? output.VocabularyFilterName
+        : undefined,
+    VocabularyName:
+      output.VocabularyName !== undefined && output.VocabularyName !== null
+        ? output.VocabularyName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StartTranscriptionJobResponse = (
   output: any,
   context: __SerdeContext
 ): StartTranscriptionJobResponse => {
-  let contents: any = {
+  return {
     __type: "StartTranscriptionJobResponse",
-    TranscriptionJob: undefined
-  };
-  if (
-    output.TranscriptionJob !== undefined &&
-    output.TranscriptionJob !== null
-  ) {
-    contents.TranscriptionJob = deserializeAws_json1_1TranscriptionJob(
-      output.TranscriptionJob,
-      context
-    );
-  }
-  return contents;
+    TranscriptionJob:
+      output.TranscriptionJob !== undefined && output.TranscriptionJob !== null
+        ? deserializeAws_json1_1TranscriptionJob(
+            output.TranscriptionJob,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Transcript = (
   output: any,
   context: __SerdeContext
 ): Transcript => {
-  let contents: any = {
+  return {
     __type: "Transcript",
-    TranscriptFileUri: undefined
-  };
-  if (
-    output.TranscriptFileUri !== undefined &&
-    output.TranscriptFileUri !== null
-  ) {
-    contents.TranscriptFileUri = output.TranscriptFileUri;
-  }
-  return contents;
+    TranscriptFileUri:
+      output.TranscriptFileUri !== undefined &&
+      output.TranscriptFileUri !== null
+        ? output.TranscriptFileUri
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TranscriptionJob = (
   output: any,
   context: __SerdeContext
 ): TranscriptionJob => {
-  let contents: any = {
+  return {
     __type: "TranscriptionJob",
-    CompletionTime: undefined,
-    CreationTime: undefined,
-    FailureReason: undefined,
-    JobExecutionSettings: undefined,
-    LanguageCode: undefined,
-    Media: undefined,
-    MediaFormat: undefined,
-    MediaSampleRateHertz: undefined,
-    Settings: undefined,
-    StartTime: undefined,
-    Transcript: undefined,
-    TranscriptionJobName: undefined,
-    TranscriptionJobStatus: undefined
-  };
-  if (output.CompletionTime !== undefined && output.CompletionTime !== null) {
-    contents.CompletionTime = new Date(
-      Math.round(output.CompletionTime * 1000)
-    );
-  }
-  if (output.CreationTime !== undefined && output.CreationTime !== null) {
-    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
-  }
-  if (output.FailureReason !== undefined && output.FailureReason !== null) {
-    contents.FailureReason = output.FailureReason;
-  }
-  if (
-    output.JobExecutionSettings !== undefined &&
-    output.JobExecutionSettings !== null
-  ) {
-    contents.JobExecutionSettings = deserializeAws_json1_1JobExecutionSettings(
-      output.JobExecutionSettings,
-      context
-    );
-  }
-  if (output.LanguageCode !== undefined && output.LanguageCode !== null) {
-    contents.LanguageCode = output.LanguageCode;
-  }
-  if (output.Media !== undefined && output.Media !== null) {
-    contents.Media = deserializeAws_json1_1Media(output.Media, context);
-  }
-  if (output.MediaFormat !== undefined && output.MediaFormat !== null) {
-    contents.MediaFormat = output.MediaFormat;
-  }
-  if (
-    output.MediaSampleRateHertz !== undefined &&
-    output.MediaSampleRateHertz !== null
-  ) {
-    contents.MediaSampleRateHertz = output.MediaSampleRateHertz;
-  }
-  if (output.Settings !== undefined && output.Settings !== null) {
-    contents.Settings = deserializeAws_json1_1Settings(
-      output.Settings,
-      context
-    );
-  }
-  if (output.StartTime !== undefined && output.StartTime !== null) {
-    contents.StartTime = new Date(Math.round(output.StartTime * 1000));
-  }
-  if (output.Transcript !== undefined && output.Transcript !== null) {
-    contents.Transcript = deserializeAws_json1_1Transcript(
-      output.Transcript,
-      context
-    );
-  }
-  if (
-    output.TranscriptionJobName !== undefined &&
-    output.TranscriptionJobName !== null
-  ) {
-    contents.TranscriptionJobName = output.TranscriptionJobName;
-  }
-  if (
-    output.TranscriptionJobStatus !== undefined &&
-    output.TranscriptionJobStatus !== null
-  ) {
-    contents.TranscriptionJobStatus = output.TranscriptionJobStatus;
-  }
-  return contents;
+    CompletionTime:
+      output.CompletionTime !== undefined && output.CompletionTime !== null
+        ? new Date(Math.round(output.CompletionTime * 1000))
+        : undefined,
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    FailureReason:
+      output.FailureReason !== undefined && output.FailureReason !== null
+        ? output.FailureReason
+        : undefined,
+    JobExecutionSettings:
+      output.JobExecutionSettings !== undefined &&
+      output.JobExecutionSettings !== null
+        ? deserializeAws_json1_1JobExecutionSettings(
+            output.JobExecutionSettings,
+            context
+          )
+        : undefined,
+    LanguageCode:
+      output.LanguageCode !== undefined && output.LanguageCode !== null
+        ? output.LanguageCode
+        : undefined,
+    Media:
+      output.Media !== undefined && output.Media !== null
+        ? deserializeAws_json1_1Media(output.Media, context)
+        : undefined,
+    MediaFormat:
+      output.MediaFormat !== undefined && output.MediaFormat !== null
+        ? output.MediaFormat
+        : undefined,
+    MediaSampleRateHertz:
+      output.MediaSampleRateHertz !== undefined &&
+      output.MediaSampleRateHertz !== null
+        ? output.MediaSampleRateHertz
+        : undefined,
+    Settings:
+      output.Settings !== undefined && output.Settings !== null
+        ? deserializeAws_json1_1Settings(output.Settings, context)
+        : undefined,
+    StartTime:
+      output.StartTime !== undefined && output.StartTime !== null
+        ? new Date(Math.round(output.StartTime * 1000))
+        : undefined,
+    Transcript:
+      output.Transcript !== undefined && output.Transcript !== null
+        ? deserializeAws_json1_1Transcript(output.Transcript, context)
+        : undefined,
+    TranscriptionJobName:
+      output.TranscriptionJobName !== undefined &&
+      output.TranscriptionJobName !== null
+        ? output.TranscriptionJobName
+        : undefined,
+    TranscriptionJobStatus:
+      output.TranscriptionJobStatus !== undefined &&
+      output.TranscriptionJobStatus !== null
+        ? output.TranscriptionJobStatus
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TranscriptionJobSummaries = (
@@ -2526,114 +2434,91 @@ const deserializeAws_json1_1TranscriptionJobSummary = (
   output: any,
   context: __SerdeContext
 ): TranscriptionJobSummary => {
-  let contents: any = {
+  return {
     __type: "TranscriptionJobSummary",
-    CompletionTime: undefined,
-    CreationTime: undefined,
-    FailureReason: undefined,
-    LanguageCode: undefined,
-    OutputLocationType: undefined,
-    StartTime: undefined,
-    TranscriptionJobName: undefined,
-    TranscriptionJobStatus: undefined
-  };
-  if (output.CompletionTime !== undefined && output.CompletionTime !== null) {
-    contents.CompletionTime = new Date(
-      Math.round(output.CompletionTime * 1000)
-    );
-  }
-  if (output.CreationTime !== undefined && output.CreationTime !== null) {
-    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
-  }
-  if (output.FailureReason !== undefined && output.FailureReason !== null) {
-    contents.FailureReason = output.FailureReason;
-  }
-  if (output.LanguageCode !== undefined && output.LanguageCode !== null) {
-    contents.LanguageCode = output.LanguageCode;
-  }
-  if (
-    output.OutputLocationType !== undefined &&
-    output.OutputLocationType !== null
-  ) {
-    contents.OutputLocationType = output.OutputLocationType;
-  }
-  if (output.StartTime !== undefined && output.StartTime !== null) {
-    contents.StartTime = new Date(Math.round(output.StartTime * 1000));
-  }
-  if (
-    output.TranscriptionJobName !== undefined &&
-    output.TranscriptionJobName !== null
-  ) {
-    contents.TranscriptionJobName = output.TranscriptionJobName;
-  }
-  if (
-    output.TranscriptionJobStatus !== undefined &&
-    output.TranscriptionJobStatus !== null
-  ) {
-    contents.TranscriptionJobStatus = output.TranscriptionJobStatus;
-  }
-  return contents;
+    CompletionTime:
+      output.CompletionTime !== undefined && output.CompletionTime !== null
+        ? new Date(Math.round(output.CompletionTime * 1000))
+        : undefined,
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    FailureReason:
+      output.FailureReason !== undefined && output.FailureReason !== null
+        ? output.FailureReason
+        : undefined,
+    LanguageCode:
+      output.LanguageCode !== undefined && output.LanguageCode !== null
+        ? output.LanguageCode
+        : undefined,
+    OutputLocationType:
+      output.OutputLocationType !== undefined &&
+      output.OutputLocationType !== null
+        ? output.OutputLocationType
+        : undefined,
+    StartTime:
+      output.StartTime !== undefined && output.StartTime !== null
+        ? new Date(Math.round(output.StartTime * 1000))
+        : undefined,
+    TranscriptionJobName:
+      output.TranscriptionJobName !== undefined &&
+      output.TranscriptionJobName !== null
+        ? output.TranscriptionJobName
+        : undefined,
+    TranscriptionJobStatus:
+      output.TranscriptionJobStatus !== undefined &&
+      output.TranscriptionJobStatus !== null
+        ? output.TranscriptionJobStatus
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateVocabularyFilterResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateVocabularyFilterResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateVocabularyFilterResponse",
-    LanguageCode: undefined,
-    LastModifiedTime: undefined,
-    VocabularyFilterName: undefined
-  };
-  if (output.LanguageCode !== undefined && output.LanguageCode !== null) {
-    contents.LanguageCode = output.LanguageCode;
-  }
-  if (
-    output.LastModifiedTime !== undefined &&
-    output.LastModifiedTime !== null
-  ) {
-    contents.LastModifiedTime = new Date(
-      Math.round(output.LastModifiedTime * 1000)
-    );
-  }
-  if (
-    output.VocabularyFilterName !== undefined &&
-    output.VocabularyFilterName !== null
-  ) {
-    contents.VocabularyFilterName = output.VocabularyFilterName;
-  }
-  return contents;
+    LanguageCode:
+      output.LanguageCode !== undefined && output.LanguageCode !== null
+        ? output.LanguageCode
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        : undefined,
+    VocabularyFilterName:
+      output.VocabularyFilterName !== undefined &&
+      output.VocabularyFilterName !== null
+        ? output.VocabularyFilterName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateVocabularyResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateVocabularyResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateVocabularyResponse",
-    LanguageCode: undefined,
-    LastModifiedTime: undefined,
-    VocabularyName: undefined,
-    VocabularyState: undefined
-  };
-  if (output.LanguageCode !== undefined && output.LanguageCode !== null) {
-    contents.LanguageCode = output.LanguageCode;
-  }
-  if (
-    output.LastModifiedTime !== undefined &&
-    output.LastModifiedTime !== null
-  ) {
-    contents.LastModifiedTime = new Date(
-      Math.round(output.LastModifiedTime * 1000)
-    );
-  }
-  if (output.VocabularyName !== undefined && output.VocabularyName !== null) {
-    contents.VocabularyName = output.VocabularyName;
-  }
-  if (output.VocabularyState !== undefined && output.VocabularyState !== null) {
-    contents.VocabularyState = output.VocabularyState;
-  }
-  return contents;
+    LanguageCode:
+      output.LanguageCode !== undefined && output.LanguageCode !== null
+        ? output.LanguageCode
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        : undefined,
+    VocabularyName:
+      output.VocabularyName !== undefined && output.VocabularyName !== null
+        ? output.VocabularyName
+        : undefined,
+    VocabularyState:
+      output.VocabularyState !== undefined && output.VocabularyState !== null
+        ? output.VocabularyState
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Vocabularies = (
@@ -2649,30 +2534,22 @@ const deserializeAws_json1_1VocabularyFilterInfo = (
   output: any,
   context: __SerdeContext
 ): VocabularyFilterInfo => {
-  let contents: any = {
+  return {
     __type: "VocabularyFilterInfo",
-    LanguageCode: undefined,
-    LastModifiedTime: undefined,
-    VocabularyFilterName: undefined
-  };
-  if (output.LanguageCode !== undefined && output.LanguageCode !== null) {
-    contents.LanguageCode = output.LanguageCode;
-  }
-  if (
-    output.LastModifiedTime !== undefined &&
-    output.LastModifiedTime !== null
-  ) {
-    contents.LastModifiedTime = new Date(
-      Math.round(output.LastModifiedTime * 1000)
-    );
-  }
-  if (
-    output.VocabularyFilterName !== undefined &&
-    output.VocabularyFilterName !== null
-  ) {
-    contents.VocabularyFilterName = output.VocabularyFilterName;
-  }
-  return contents;
+    LanguageCode:
+      output.LanguageCode !== undefined && output.LanguageCode !== null
+        ? output.LanguageCode
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        : undefined,
+    VocabularyFilterName:
+      output.VocabularyFilterName !== undefined &&
+      output.VocabularyFilterName !== null
+        ? output.VocabularyFilterName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1VocabularyFilters = (
@@ -2688,31 +2565,25 @@ const deserializeAws_json1_1VocabularyInfo = (
   output: any,
   context: __SerdeContext
 ): VocabularyInfo => {
-  let contents: any = {
+  return {
     __type: "VocabularyInfo",
-    LanguageCode: undefined,
-    LastModifiedTime: undefined,
-    VocabularyName: undefined,
-    VocabularyState: undefined
-  };
-  if (output.LanguageCode !== undefined && output.LanguageCode !== null) {
-    contents.LanguageCode = output.LanguageCode;
-  }
-  if (
-    output.LastModifiedTime !== undefined &&
-    output.LastModifiedTime !== null
-  ) {
-    contents.LastModifiedTime = new Date(
-      Math.round(output.LastModifiedTime * 1000)
-    );
-  }
-  if (output.VocabularyName !== undefined && output.VocabularyName !== null) {
-    contents.VocabularyName = output.VocabularyName;
-  }
-  if (output.VocabularyState !== undefined && output.VocabularyState !== null) {
-    contents.VocabularyState = output.VocabularyState;
-  }
-  return contents;
+    LanguageCode:
+      output.LanguageCode !== undefined && output.LanguageCode !== null
+        ? output.LanguageCode
+        : undefined,
+    LastModifiedTime:
+      output.LastModifiedTime !== undefined && output.LastModifiedTime !== null
+        ? new Date(Math.round(output.LastModifiedTime * 1000))
+        : undefined,
+    VocabularyName:
+      output.VocabularyName !== undefined && output.VocabularyName !== null
+        ? output.VocabularyName
+        : undefined,
+    VocabularyState:
+      output.VocabularyState !== undefined && output.VocabularyState !== null
+        ? output.VocabularyState
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

@@ -5847,18 +5847,15 @@ const deserializeAws_restJson1_1AwsCloudMapInstanceAttribute = (
   output: any,
   context: __SerdeContext
 ): AwsCloudMapInstanceAttribute => {
-  let contents: any = {
+  return {
     __type: "AwsCloudMapInstanceAttribute",
-    key: undefined,
-    value: undefined
-  };
-  if (output.key !== undefined && output.key !== null) {
-    contents.key = output.key;
-  }
-  if (output.value !== undefined && output.value !== null) {
-    contents.value = output.value;
-  }
-  return contents;
+    key:
+      output.key !== undefined && output.key !== null ? output.key : undefined,
+    value:
+      output.value !== undefined && output.value !== null
+        ? output.value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1AwsCloudMapInstanceAttributes = (
@@ -5874,25 +5871,24 @@ const deserializeAws_restJson1_1AwsCloudMapServiceDiscovery = (
   output: any,
   context: __SerdeContext
 ): AwsCloudMapServiceDiscovery => {
-  let contents: any = {
+  return {
     __type: "AwsCloudMapServiceDiscovery",
-    attributes: undefined,
-    namespaceName: undefined,
-    serviceName: undefined
-  };
-  if (output.attributes !== undefined && output.attributes !== null) {
-    contents.attributes = deserializeAws_restJson1_1AwsCloudMapInstanceAttributes(
-      output.attributes,
-      context
-    );
-  }
-  if (output.namespaceName !== undefined && output.namespaceName !== null) {
-    contents.namespaceName = output.namespaceName;
-  }
-  if (output.serviceName !== undefined && output.serviceName !== null) {
-    contents.serviceName = output.serviceName;
-  }
-  return contents;
+    attributes:
+      output.attributes !== undefined && output.attributes !== null
+        ? deserializeAws_restJson1_1AwsCloudMapInstanceAttributes(
+            output.attributes,
+            context
+          )
+        : undefined,
+    namespaceName:
+      output.namespaceName !== undefined && output.namespaceName !== null
+        ? output.namespaceName
+        : undefined,
+    serviceName:
+      output.serviceName !== undefined && output.serviceName !== null
+        ? output.serviceName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Backend = (
@@ -5924,102 +5920,94 @@ const deserializeAws_restJson1_1DnsServiceDiscovery = (
   output: any,
   context: __SerdeContext
 ): DnsServiceDiscovery => {
-  let contents: any = {
+  return {
     __type: "DnsServiceDiscovery",
-    hostname: undefined
-  };
-  if (output.hostname !== undefined && output.hostname !== null) {
-    contents.hostname = output.hostname;
-  }
-  return contents;
+    hostname:
+      output.hostname !== undefined && output.hostname !== null
+        ? output.hostname
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Duration = (
   output: any,
   context: __SerdeContext
 ): Duration => {
-  let contents: any = {
+  return {
     __type: "Duration",
-    unit: undefined,
-    value: undefined
-  };
-  if (output.unit !== undefined && output.unit !== null) {
-    contents.unit = output.unit;
-  }
-  if (output.value !== undefined && output.value !== null) {
-    contents.value = output.value;
-  }
-  return contents;
+    unit:
+      output.unit !== undefined && output.unit !== null
+        ? output.unit
+        : undefined,
+    value:
+      output.value !== undefined && output.value !== null
+        ? output.value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1EgressFilter = (
   output: any,
   context: __SerdeContext
 ): EgressFilter => {
-  let contents: any = {
+  return {
     __type: "EgressFilter",
-    type: undefined
-  };
-  if (output.type !== undefined && output.type !== null) {
-    contents.type = output.type;
-  }
-  return contents;
+    type:
+      output.type !== undefined && output.type !== null
+        ? output.type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1FileAccessLog = (
   output: any,
   context: __SerdeContext
 ): FileAccessLog => {
-  let contents: any = {
+  return {
     __type: "FileAccessLog",
-    path: undefined
-  };
-  if (output.path !== undefined && output.path !== null) {
-    contents.path = output.path;
-  }
-  return contents;
+    path:
+      output.path !== undefined && output.path !== null
+        ? output.path
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1GrpcRetryPolicy = (
   output: any,
   context: __SerdeContext
 ): GrpcRetryPolicy => {
-  let contents: any = {
+  return {
     __type: "GrpcRetryPolicy",
-    grpcRetryEvents: undefined,
-    httpRetryEvents: undefined,
-    maxRetries: undefined,
-    perRetryTimeout: undefined,
-    tcpRetryEvents: undefined
-  };
-  if (output.grpcRetryEvents !== undefined && output.grpcRetryEvents !== null) {
-    contents.grpcRetryEvents = deserializeAws_restJson1_1GrpcRetryPolicyEvents(
-      output.grpcRetryEvents,
-      context
-    );
-  }
-  if (output.httpRetryEvents !== undefined && output.httpRetryEvents !== null) {
-    contents.httpRetryEvents = deserializeAws_restJson1_1HttpRetryPolicyEvents(
-      output.httpRetryEvents,
-      context
-    );
-  }
-  if (output.maxRetries !== undefined && output.maxRetries !== null) {
-    contents.maxRetries = output.maxRetries;
-  }
-  if (output.perRetryTimeout !== undefined && output.perRetryTimeout !== null) {
-    contents.perRetryTimeout = deserializeAws_restJson1_1Duration(
-      output.perRetryTimeout,
-      context
-    );
-  }
-  if (output.tcpRetryEvents !== undefined && output.tcpRetryEvents !== null) {
-    contents.tcpRetryEvents = deserializeAws_restJson1_1TcpRetryPolicyEvents(
-      output.tcpRetryEvents,
-      context
-    );
-  }
-  return contents;
+    grpcRetryEvents:
+      output.grpcRetryEvents !== undefined && output.grpcRetryEvents !== null
+        ? deserializeAws_restJson1_1GrpcRetryPolicyEvents(
+            output.grpcRetryEvents,
+            context
+          )
+        : undefined,
+    httpRetryEvents:
+      output.httpRetryEvents !== undefined && output.httpRetryEvents !== null
+        ? deserializeAws_restJson1_1HttpRetryPolicyEvents(
+            output.httpRetryEvents,
+            context
+          )
+        : undefined,
+    maxRetries:
+      output.maxRetries !== undefined && output.maxRetries !== null
+        ? output.maxRetries
+        : undefined,
+    perRetryTimeout:
+      output.perRetryTimeout !== undefined && output.perRetryTimeout !== null
+        ? deserializeAws_restJson1_1Duration(output.perRetryTimeout, context)
+        : undefined,
+    tcpRetryEvents:
+      output.tcpRetryEvents !== undefined && output.tcpRetryEvents !== null
+        ? deserializeAws_restJson1_1TcpRetryPolicyEvents(
+            output.tcpRetryEvents,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1GrpcRetryPolicyEvents = (
@@ -6033,98 +6021,85 @@ const deserializeAws_restJson1_1GrpcRoute = (
   output: any,
   context: __SerdeContext
 ): GrpcRoute => {
-  let contents: any = {
+  return {
     __type: "GrpcRoute",
-    action: undefined,
-    match: undefined,
-    retryPolicy: undefined
-  };
-  if (output.action !== undefined && output.action !== null) {
-    contents.action = deserializeAws_restJson1_1GrpcRouteAction(
-      output.action,
-      context
-    );
-  }
-  if (output.match !== undefined && output.match !== null) {
-    contents.match = deserializeAws_restJson1_1GrpcRouteMatch(
-      output.match,
-      context
-    );
-  }
-  if (output.retryPolicy !== undefined && output.retryPolicy !== null) {
-    contents.retryPolicy = deserializeAws_restJson1_1GrpcRetryPolicy(
-      output.retryPolicy,
-      context
-    );
-  }
-  return contents;
+    action:
+      output.action !== undefined && output.action !== null
+        ? deserializeAws_restJson1_1GrpcRouteAction(output.action, context)
+        : undefined,
+    match:
+      output.match !== undefined && output.match !== null
+        ? deserializeAws_restJson1_1GrpcRouteMatch(output.match, context)
+        : undefined,
+    retryPolicy:
+      output.retryPolicy !== undefined && output.retryPolicy !== null
+        ? deserializeAws_restJson1_1GrpcRetryPolicy(output.retryPolicy, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1GrpcRouteAction = (
   output: any,
   context: __SerdeContext
 ): GrpcRouteAction => {
-  let contents: any = {
+  return {
     __type: "GrpcRouteAction",
-    weightedTargets: undefined
-  };
-  if (output.weightedTargets !== undefined && output.weightedTargets !== null) {
-    contents.weightedTargets = deserializeAws_restJson1_1WeightedTargets(
-      output.weightedTargets,
-      context
-    );
-  }
-  return contents;
+    weightedTargets:
+      output.weightedTargets !== undefined && output.weightedTargets !== null
+        ? deserializeAws_restJson1_1WeightedTargets(
+            output.weightedTargets,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1GrpcRouteMatch = (
   output: any,
   context: __SerdeContext
 ): GrpcRouteMatch => {
-  let contents: any = {
+  return {
     __type: "GrpcRouteMatch",
-    metadata: undefined,
-    methodName: undefined,
-    serviceName: undefined
-  };
-  if (output.metadata !== undefined && output.metadata !== null) {
-    contents.metadata = deserializeAws_restJson1_1GrpcRouteMetadataList(
-      output.metadata,
-      context
-    );
-  }
-  if (output.methodName !== undefined && output.methodName !== null) {
-    contents.methodName = output.methodName;
-  }
-  if (output.serviceName !== undefined && output.serviceName !== null) {
-    contents.serviceName = output.serviceName;
-  }
-  return contents;
+    metadata:
+      output.metadata !== undefined && output.metadata !== null
+        ? deserializeAws_restJson1_1GrpcRouteMetadataList(
+            output.metadata,
+            context
+          )
+        : undefined,
+    methodName:
+      output.methodName !== undefined && output.methodName !== null
+        ? output.methodName
+        : undefined,
+    serviceName:
+      output.serviceName !== undefined && output.serviceName !== null
+        ? output.serviceName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1GrpcRouteMetadata = (
   output: any,
   context: __SerdeContext
 ): GrpcRouteMetadata => {
-  let contents: any = {
+  return {
     __type: "GrpcRouteMetadata",
-    invert: undefined,
-    match: undefined,
-    name: undefined
-  };
-  if (output.invert !== undefined && output.invert !== null) {
-    contents.invert = output.invert;
-  }
-  if (output.match !== undefined && output.match !== null) {
-    contents.match = deserializeAws_restJson1_1GrpcRouteMetadataMatchMethod(
-      output.match,
-      context
-    );
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  return contents;
+    invert:
+      output.invert !== undefined && output.invert !== null
+        ? output.invert
+        : undefined,
+    match:
+      output.match !== undefined && output.match !== null
+        ? deserializeAws_restJson1_1GrpcRouteMetadataMatchMethod(
+            output.match,
+            context
+          )
+        : undefined,
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1GrpcRouteMetadataList = (
@@ -6206,79 +6181,69 @@ const deserializeAws_restJson1_1HealthCheckPolicy = (
   output: any,
   context: __SerdeContext
 ): HealthCheckPolicy => {
-  let contents: any = {
+  return {
     __type: "HealthCheckPolicy",
-    healthyThreshold: undefined,
-    intervalMillis: undefined,
-    path: undefined,
-    port: undefined,
-    protocol: undefined,
-    timeoutMillis: undefined,
-    unhealthyThreshold: undefined
-  };
-  if (
-    output.healthyThreshold !== undefined &&
-    output.healthyThreshold !== null
-  ) {
-    contents.healthyThreshold = output.healthyThreshold;
-  }
-  if (output.intervalMillis !== undefined && output.intervalMillis !== null) {
-    contents.intervalMillis = output.intervalMillis;
-  }
-  if (output.path !== undefined && output.path !== null) {
-    contents.path = output.path;
-  }
-  if (output.port !== undefined && output.port !== null) {
-    contents.port = output.port;
-  }
-  if (output.protocol !== undefined && output.protocol !== null) {
-    contents.protocol = output.protocol;
-  }
-  if (output.timeoutMillis !== undefined && output.timeoutMillis !== null) {
-    contents.timeoutMillis = output.timeoutMillis;
-  }
-  if (
-    output.unhealthyThreshold !== undefined &&
-    output.unhealthyThreshold !== null
-  ) {
-    contents.unhealthyThreshold = output.unhealthyThreshold;
-  }
-  return contents;
+    healthyThreshold:
+      output.healthyThreshold !== undefined && output.healthyThreshold !== null
+        ? output.healthyThreshold
+        : undefined,
+    intervalMillis:
+      output.intervalMillis !== undefined && output.intervalMillis !== null
+        ? output.intervalMillis
+        : undefined,
+    path:
+      output.path !== undefined && output.path !== null
+        ? output.path
+        : undefined,
+    port:
+      output.port !== undefined && output.port !== null
+        ? output.port
+        : undefined,
+    protocol:
+      output.protocol !== undefined && output.protocol !== null
+        ? output.protocol
+        : undefined,
+    timeoutMillis:
+      output.timeoutMillis !== undefined && output.timeoutMillis !== null
+        ? output.timeoutMillis
+        : undefined,
+    unhealthyThreshold:
+      output.unhealthyThreshold !== undefined &&
+      output.unhealthyThreshold !== null
+        ? output.unhealthyThreshold
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1HttpRetryPolicy = (
   output: any,
   context: __SerdeContext
 ): HttpRetryPolicy => {
-  let contents: any = {
+  return {
     __type: "HttpRetryPolicy",
-    httpRetryEvents: undefined,
-    maxRetries: undefined,
-    perRetryTimeout: undefined,
-    tcpRetryEvents: undefined
-  };
-  if (output.httpRetryEvents !== undefined && output.httpRetryEvents !== null) {
-    contents.httpRetryEvents = deserializeAws_restJson1_1HttpRetryPolicyEvents(
-      output.httpRetryEvents,
-      context
-    );
-  }
-  if (output.maxRetries !== undefined && output.maxRetries !== null) {
-    contents.maxRetries = output.maxRetries;
-  }
-  if (output.perRetryTimeout !== undefined && output.perRetryTimeout !== null) {
-    contents.perRetryTimeout = deserializeAws_restJson1_1Duration(
-      output.perRetryTimeout,
-      context
-    );
-  }
-  if (output.tcpRetryEvents !== undefined && output.tcpRetryEvents !== null) {
-    contents.tcpRetryEvents = deserializeAws_restJson1_1TcpRetryPolicyEvents(
-      output.tcpRetryEvents,
-      context
-    );
-  }
-  return contents;
+    httpRetryEvents:
+      output.httpRetryEvents !== undefined && output.httpRetryEvents !== null
+        ? deserializeAws_restJson1_1HttpRetryPolicyEvents(
+            output.httpRetryEvents,
+            context
+          )
+        : undefined,
+    maxRetries:
+      output.maxRetries !== undefined && output.maxRetries !== null
+        ? output.maxRetries
+        : undefined,
+    perRetryTimeout:
+      output.perRetryTimeout !== undefined && output.perRetryTimeout !== null
+        ? deserializeAws_restJson1_1Duration(output.perRetryTimeout, context)
+        : undefined,
+    tcpRetryEvents:
+      output.tcpRetryEvents !== undefined && output.tcpRetryEvents !== null
+        ? deserializeAws_restJson1_1TcpRetryPolicyEvents(
+            output.tcpRetryEvents,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1HttpRetryPolicyEvents = (
@@ -6292,73 +6257,58 @@ const deserializeAws_restJson1_1HttpRoute = (
   output: any,
   context: __SerdeContext
 ): HttpRoute => {
-  let contents: any = {
+  return {
     __type: "HttpRoute",
-    action: undefined,
-    match: undefined,
-    retryPolicy: undefined
-  };
-  if (output.action !== undefined && output.action !== null) {
-    contents.action = deserializeAws_restJson1_1HttpRouteAction(
-      output.action,
-      context
-    );
-  }
-  if (output.match !== undefined && output.match !== null) {
-    contents.match = deserializeAws_restJson1_1HttpRouteMatch(
-      output.match,
-      context
-    );
-  }
-  if (output.retryPolicy !== undefined && output.retryPolicy !== null) {
-    contents.retryPolicy = deserializeAws_restJson1_1HttpRetryPolicy(
-      output.retryPolicy,
-      context
-    );
-  }
-  return contents;
+    action:
+      output.action !== undefined && output.action !== null
+        ? deserializeAws_restJson1_1HttpRouteAction(output.action, context)
+        : undefined,
+    match:
+      output.match !== undefined && output.match !== null
+        ? deserializeAws_restJson1_1HttpRouteMatch(output.match, context)
+        : undefined,
+    retryPolicy:
+      output.retryPolicy !== undefined && output.retryPolicy !== null
+        ? deserializeAws_restJson1_1HttpRetryPolicy(output.retryPolicy, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1HttpRouteAction = (
   output: any,
   context: __SerdeContext
 ): HttpRouteAction => {
-  let contents: any = {
+  return {
     __type: "HttpRouteAction",
-    weightedTargets: undefined
-  };
-  if (output.weightedTargets !== undefined && output.weightedTargets !== null) {
-    contents.weightedTargets = deserializeAws_restJson1_1WeightedTargets(
-      output.weightedTargets,
-      context
-    );
-  }
-  return contents;
+    weightedTargets:
+      output.weightedTargets !== undefined && output.weightedTargets !== null
+        ? deserializeAws_restJson1_1WeightedTargets(
+            output.weightedTargets,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1HttpRouteHeader = (
   output: any,
   context: __SerdeContext
 ): HttpRouteHeader => {
-  let contents: any = {
+  return {
     __type: "HttpRouteHeader",
-    invert: undefined,
-    match: undefined,
-    name: undefined
-  };
-  if (output.invert !== undefined && output.invert !== null) {
-    contents.invert = output.invert;
-  }
-  if (output.match !== undefined && output.match !== null) {
-    contents.match = deserializeAws_restJson1_1HeaderMatchMethod(
-      output.match,
-      context
-    );
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  return contents;
+    invert:
+      output.invert !== undefined && output.invert !== null
+        ? output.invert
+        : undefined,
+    match:
+      output.match !== undefined && output.match !== null
+        ? deserializeAws_restJson1_1HeaderMatchMethod(output.match, context)
+        : undefined,
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1HttpRouteHeaders = (
@@ -6374,53 +6324,45 @@ const deserializeAws_restJson1_1HttpRouteMatch = (
   output: any,
   context: __SerdeContext
 ): HttpRouteMatch => {
-  let contents: any = {
+  return {
     __type: "HttpRouteMatch",
-    headers: undefined,
-    method: undefined,
-    prefix: undefined,
-    scheme: undefined
-  };
-  if (output.headers !== undefined && output.headers !== null) {
-    contents.headers = deserializeAws_restJson1_1HttpRouteHeaders(
-      output.headers,
-      context
-    );
-  }
-  if (output.method !== undefined && output.method !== null) {
-    contents.method = output.method;
-  }
-  if (output.prefix !== undefined && output.prefix !== null) {
-    contents.prefix = output.prefix;
-  }
-  if (output.scheme !== undefined && output.scheme !== null) {
-    contents.scheme = output.scheme;
-  }
-  return contents;
+    headers:
+      output.headers !== undefined && output.headers !== null
+        ? deserializeAws_restJson1_1HttpRouteHeaders(output.headers, context)
+        : undefined,
+    method:
+      output.method !== undefined && output.method !== null
+        ? output.method
+        : undefined,
+    prefix:
+      output.prefix !== undefined && output.prefix !== null
+        ? output.prefix
+        : undefined,
+    scheme:
+      output.scheme !== undefined && output.scheme !== null
+        ? output.scheme
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Listener = (
   output: any,
   context: __SerdeContext
 ): Listener => {
-  let contents: any = {
+  return {
     __type: "Listener",
-    healthCheck: undefined,
-    portMapping: undefined
-  };
-  if (output.healthCheck !== undefined && output.healthCheck !== null) {
-    contents.healthCheck = deserializeAws_restJson1_1HealthCheckPolicy(
-      output.healthCheck,
-      context
-    );
-  }
-  if (output.portMapping !== undefined && output.portMapping !== null) {
-    contents.portMapping = deserializeAws_restJson1_1PortMapping(
-      output.portMapping,
-      context
-    );
-  }
-  return contents;
+    healthCheck:
+      output.healthCheck !== undefined && output.healthCheck !== null
+        ? deserializeAws_restJson1_1HealthCheckPolicy(
+            output.healthCheck,
+            context
+          )
+        : undefined,
+    portMapping:
+      output.portMapping !== undefined && output.portMapping !== null
+        ? deserializeAws_restJson1_1PortMapping(output.portMapping, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Listeners = (
@@ -6436,67 +6378,53 @@ const deserializeAws_restJson1_1Logging = (
   output: any,
   context: __SerdeContext
 ): Logging => {
-  let contents: any = {
+  return {
     __type: "Logging",
-    accessLog: undefined
-  };
-  if (output.accessLog !== undefined && output.accessLog !== null) {
-    contents.accessLog = deserializeAws_restJson1_1AccessLog(
-      output.accessLog,
-      context
-    );
-  }
-  return contents;
+    accessLog:
+      output.accessLog !== undefined && output.accessLog !== null
+        ? deserializeAws_restJson1_1AccessLog(output.accessLog, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1MatchRange = (
   output: any,
   context: __SerdeContext
 ): MatchRange => {
-  let contents: any = {
+  return {
     __type: "MatchRange",
-    end: undefined,
-    start: undefined
-  };
-  if (output.end !== undefined && output.end !== null) {
-    contents.end = output.end;
-  }
-  if (output.start !== undefined && output.start !== null) {
-    contents.start = output.start;
-  }
-  return contents;
+    end:
+      output.end !== undefined && output.end !== null ? output.end : undefined,
+    start:
+      output.start !== undefined && output.start !== null
+        ? output.start
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1MeshData = (
   output: any,
   context: __SerdeContext
 ): MeshData => {
-  let contents: any = {
+  return {
     __type: "MeshData",
-    meshName: undefined,
-    metadata: undefined,
-    spec: undefined,
-    status: undefined
-  };
-  if (output.meshName !== undefined && output.meshName !== null) {
-    contents.meshName = output.meshName;
-  }
-  if (output.metadata !== undefined && output.metadata !== null) {
-    contents.metadata = deserializeAws_restJson1_1ResourceMetadata(
-      output.metadata,
-      context
-    );
-  }
-  if (output.spec !== undefined && output.spec !== null) {
-    contents.spec = deserializeAws_restJson1_1MeshSpec(output.spec, context);
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = deserializeAws_restJson1_1MeshStatus(
-      output.status,
-      context
-    );
-  }
-  return contents;
+    meshName:
+      output.meshName !== undefined && output.meshName !== null
+        ? output.meshName
+        : undefined,
+    metadata:
+      output.metadata !== undefined && output.metadata !== null
+        ? deserializeAws_restJson1_1ResourceMetadata(output.metadata, context)
+        : undefined,
+    spec:
+      output.spec !== undefined && output.spec !== null
+        ? deserializeAws_restJson1_1MeshSpec(output.spec, context)
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? deserializeAws_restJson1_1MeshStatus(output.status, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1MeshList = (
@@ -6512,140 +6440,117 @@ const deserializeAws_restJson1_1MeshRef = (
   output: any,
   context: __SerdeContext
 ): MeshRef => {
-  let contents: any = {
+  return {
     __type: "MeshRef",
-    arn: undefined,
-    meshName: undefined
-  };
-  if (output.arn !== undefined && output.arn !== null) {
-    contents.arn = output.arn;
-  }
-  if (output.meshName !== undefined && output.meshName !== null) {
-    contents.meshName = output.meshName;
-  }
-  return contents;
+    arn:
+      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    meshName:
+      output.meshName !== undefined && output.meshName !== null
+        ? output.meshName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1MeshSpec = (
   output: any,
   context: __SerdeContext
 ): MeshSpec => {
-  let contents: any = {
+  return {
     __type: "MeshSpec",
-    egressFilter: undefined
-  };
-  if (output.egressFilter !== undefined && output.egressFilter !== null) {
-    contents.egressFilter = deserializeAws_restJson1_1EgressFilter(
-      output.egressFilter,
-      context
-    );
-  }
-  return contents;
+    egressFilter:
+      output.egressFilter !== undefined && output.egressFilter !== null
+        ? deserializeAws_restJson1_1EgressFilter(output.egressFilter, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1MeshStatus = (
   output: any,
   context: __SerdeContext
 ): MeshStatus => {
-  let contents: any = {
+  return {
     __type: "MeshStatus",
-    status: undefined
-  };
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  return contents;
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1PortMapping = (
   output: any,
   context: __SerdeContext
 ): PortMapping => {
-  let contents: any = {
+  return {
     __type: "PortMapping",
-    port: undefined,
-    protocol: undefined
-  };
-  if (output.port !== undefined && output.port !== null) {
-    contents.port = output.port;
-  }
-  if (output.protocol !== undefined && output.protocol !== null) {
-    contents.protocol = output.protocol;
-  }
-  return contents;
+    port:
+      output.port !== undefined && output.port !== null
+        ? output.port
+        : undefined,
+    protocol:
+      output.protocol !== undefined && output.protocol !== null
+        ? output.protocol
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ResourceMetadata = (
   output: any,
   context: __SerdeContext
 ): ResourceMetadata => {
-  let contents: any = {
+  return {
     __type: "ResourceMetadata",
-    arn: undefined,
-    createdAt: undefined,
-    lastUpdatedAt: undefined,
-    uid: undefined,
-    version: undefined
-  };
-  if (output.arn !== undefined && output.arn !== null) {
-    contents.arn = output.arn;
-  }
-  if (output.createdAt !== undefined && output.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(output.createdAt * 1000));
-  }
-  if (output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null) {
-    contents.lastUpdatedAt = new Date(Math.round(output.lastUpdatedAt * 1000));
-  }
-  if (output.uid !== undefined && output.uid !== null) {
-    contents.uid = output.uid;
-  }
-  if (output.version !== undefined && output.version !== null) {
-    contents.version = output.version;
-  }
-  return contents;
+    arn:
+      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
+    lastUpdatedAt:
+      output.lastUpdatedAt !== undefined && output.lastUpdatedAt !== null
+        ? new Date(Math.round(output.lastUpdatedAt * 1000))
+        : undefined,
+    uid:
+      output.uid !== undefined && output.uid !== null ? output.uid : undefined,
+    version:
+      output.version !== undefined && output.version !== null
+        ? output.version
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1RouteData = (
   output: any,
   context: __SerdeContext
 ): RouteData => {
-  let contents: any = {
+  return {
     __type: "RouteData",
-    meshName: undefined,
-    metadata: undefined,
-    routeName: undefined,
-    spec: undefined,
-    status: undefined,
-    virtualRouterName: undefined
-  };
-  if (output.meshName !== undefined && output.meshName !== null) {
-    contents.meshName = output.meshName;
-  }
-  if (output.metadata !== undefined && output.metadata !== null) {
-    contents.metadata = deserializeAws_restJson1_1ResourceMetadata(
-      output.metadata,
-      context
-    );
-  }
-  if (output.routeName !== undefined && output.routeName !== null) {
-    contents.routeName = output.routeName;
-  }
-  if (output.spec !== undefined && output.spec !== null) {
-    contents.spec = deserializeAws_restJson1_1RouteSpec(output.spec, context);
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = deserializeAws_restJson1_1RouteStatus(
-      output.status,
-      context
-    );
-  }
-  if (
-    output.virtualRouterName !== undefined &&
-    output.virtualRouterName !== null
-  ) {
-    contents.virtualRouterName = output.virtualRouterName;
-  }
-  return contents;
+    meshName:
+      output.meshName !== undefined && output.meshName !== null
+        ? output.meshName
+        : undefined,
+    metadata:
+      output.metadata !== undefined && output.metadata !== null
+        ? deserializeAws_restJson1_1ResourceMetadata(output.metadata, context)
+        : undefined,
+    routeName:
+      output.routeName !== undefined && output.routeName !== null
+        ? output.routeName
+        : undefined,
+    spec:
+      output.spec !== undefined && output.spec !== null
+        ? deserializeAws_restJson1_1RouteSpec(output.spec, context)
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? deserializeAws_restJson1_1RouteStatus(output.status, context)
+        : undefined,
+    virtualRouterName:
+      output.virtualRouterName !== undefined &&
+      output.virtualRouterName !== null
+        ? output.virtualRouterName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1RouteList = (
@@ -6661,85 +6566,66 @@ const deserializeAws_restJson1_1RouteRef = (
   output: any,
   context: __SerdeContext
 ): RouteRef => {
-  let contents: any = {
+  return {
     __type: "RouteRef",
-    arn: undefined,
-    meshName: undefined,
-    routeName: undefined,
-    virtualRouterName: undefined
-  };
-  if (output.arn !== undefined && output.arn !== null) {
-    contents.arn = output.arn;
-  }
-  if (output.meshName !== undefined && output.meshName !== null) {
-    contents.meshName = output.meshName;
-  }
-  if (output.routeName !== undefined && output.routeName !== null) {
-    contents.routeName = output.routeName;
-  }
-  if (
-    output.virtualRouterName !== undefined &&
-    output.virtualRouterName !== null
-  ) {
-    contents.virtualRouterName = output.virtualRouterName;
-  }
-  return contents;
+    arn:
+      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    meshName:
+      output.meshName !== undefined && output.meshName !== null
+        ? output.meshName
+        : undefined,
+    routeName:
+      output.routeName !== undefined && output.routeName !== null
+        ? output.routeName
+        : undefined,
+    virtualRouterName:
+      output.virtualRouterName !== undefined &&
+      output.virtualRouterName !== null
+        ? output.virtualRouterName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1RouteSpec = (
   output: any,
   context: __SerdeContext
 ): RouteSpec => {
-  let contents: any = {
+  return {
     __type: "RouteSpec",
-    grpcRoute: undefined,
-    http2Route: undefined,
-    httpRoute: undefined,
-    priority: undefined,
-    tcpRoute: undefined
-  };
-  if (output.grpcRoute !== undefined && output.grpcRoute !== null) {
-    contents.grpcRoute = deserializeAws_restJson1_1GrpcRoute(
-      output.grpcRoute,
-      context
-    );
-  }
-  if (output.http2Route !== undefined && output.http2Route !== null) {
-    contents.http2Route = deserializeAws_restJson1_1HttpRoute(
-      output.http2Route,
-      context
-    );
-  }
-  if (output.httpRoute !== undefined && output.httpRoute !== null) {
-    contents.httpRoute = deserializeAws_restJson1_1HttpRoute(
-      output.httpRoute,
-      context
-    );
-  }
-  if (output.priority !== undefined && output.priority !== null) {
-    contents.priority = output.priority;
-  }
-  if (output.tcpRoute !== undefined && output.tcpRoute !== null) {
-    contents.tcpRoute = deserializeAws_restJson1_1TcpRoute(
-      output.tcpRoute,
-      context
-    );
-  }
-  return contents;
+    grpcRoute:
+      output.grpcRoute !== undefined && output.grpcRoute !== null
+        ? deserializeAws_restJson1_1GrpcRoute(output.grpcRoute, context)
+        : undefined,
+    http2Route:
+      output.http2Route !== undefined && output.http2Route !== null
+        ? deserializeAws_restJson1_1HttpRoute(output.http2Route, context)
+        : undefined,
+    httpRoute:
+      output.httpRoute !== undefined && output.httpRoute !== null
+        ? deserializeAws_restJson1_1HttpRoute(output.httpRoute, context)
+        : undefined,
+    priority:
+      output.priority !== undefined && output.priority !== null
+        ? output.priority
+        : undefined,
+    tcpRoute:
+      output.tcpRoute !== undefined && output.tcpRoute !== null
+        ? deserializeAws_restJson1_1TcpRoute(output.tcpRoute, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1RouteStatus = (
   output: any,
   context: __SerdeContext
 ): RouteStatus => {
-  let contents: any = {
+  return {
     __type: "RouteStatus",
-    status: undefined
-  };
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  return contents;
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ServiceDiscovery = (
@@ -6776,18 +6662,15 @@ const deserializeAws_restJson1_1TagRef = (
   output: any,
   context: __SerdeContext
 ): TagRef => {
-  let contents: any = {
+  return {
     __type: "TagRef",
-    key: undefined,
-    value: undefined
-  };
-  if (output.key !== undefined && output.key !== null) {
-    contents.key = output.key;
-  }
-  if (output.value !== undefined && output.value !== null) {
-    contents.value = output.value;
-  }
-  return contents;
+    key:
+      output.key !== undefined && output.key !== null ? output.key : undefined,
+    value:
+      output.value !== undefined && output.value !== null
+        ? output.value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1TcpRetryPolicyEvents = (
@@ -6801,73 +6684,58 @@ const deserializeAws_restJson1_1TcpRoute = (
   output: any,
   context: __SerdeContext
 ): TcpRoute => {
-  let contents: any = {
+  return {
     __type: "TcpRoute",
-    action: undefined
-  };
-  if (output.action !== undefined && output.action !== null) {
-    contents.action = deserializeAws_restJson1_1TcpRouteAction(
-      output.action,
-      context
-    );
-  }
-  return contents;
+    action:
+      output.action !== undefined && output.action !== null
+        ? deserializeAws_restJson1_1TcpRouteAction(output.action, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1TcpRouteAction = (
   output: any,
   context: __SerdeContext
 ): TcpRouteAction => {
-  let contents: any = {
+  return {
     __type: "TcpRouteAction",
-    weightedTargets: undefined
-  };
-  if (output.weightedTargets !== undefined && output.weightedTargets !== null) {
-    contents.weightedTargets = deserializeAws_restJson1_1WeightedTargets(
-      output.weightedTargets,
-      context
-    );
-  }
-  return contents;
+    weightedTargets:
+      output.weightedTargets !== undefined && output.weightedTargets !== null
+        ? deserializeAws_restJson1_1WeightedTargets(
+            output.weightedTargets,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1VirtualNodeData = (
   output: any,
   context: __SerdeContext
 ): VirtualNodeData => {
-  let contents: any = {
+  return {
     __type: "VirtualNodeData",
-    meshName: undefined,
-    metadata: undefined,
-    spec: undefined,
-    status: undefined,
-    virtualNodeName: undefined
-  };
-  if (output.meshName !== undefined && output.meshName !== null) {
-    contents.meshName = output.meshName;
-  }
-  if (output.metadata !== undefined && output.metadata !== null) {
-    contents.metadata = deserializeAws_restJson1_1ResourceMetadata(
-      output.metadata,
-      context
-    );
-  }
-  if (output.spec !== undefined && output.spec !== null) {
-    contents.spec = deserializeAws_restJson1_1VirtualNodeSpec(
-      output.spec,
-      context
-    );
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = deserializeAws_restJson1_1VirtualNodeStatus(
-      output.status,
-      context
-    );
-  }
-  if (output.virtualNodeName !== undefined && output.virtualNodeName !== null) {
-    contents.virtualNodeName = output.virtualNodeName;
-  }
-  return contents;
+    meshName:
+      output.meshName !== undefined && output.meshName !== null
+        ? output.meshName
+        : undefined,
+    metadata:
+      output.metadata !== undefined && output.metadata !== null
+        ? deserializeAws_restJson1_1ResourceMetadata(output.metadata, context)
+        : undefined,
+    spec:
+      output.spec !== undefined && output.spec !== null
+        ? deserializeAws_restJson1_1VirtualNodeSpec(output.spec, context)
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? deserializeAws_restJson1_1VirtualNodeStatus(output.status, context)
+        : undefined,
+    virtualNodeName:
+      output.virtualNodeName !== undefined && output.virtualNodeName !== null
+        ? output.virtualNodeName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1VirtualNodeList = (
@@ -6883,133 +6751,103 @@ const deserializeAws_restJson1_1VirtualNodeRef = (
   output: any,
   context: __SerdeContext
 ): VirtualNodeRef => {
-  let contents: any = {
+  return {
     __type: "VirtualNodeRef",
-    arn: undefined,
-    meshName: undefined,
-    virtualNodeName: undefined
-  };
-  if (output.arn !== undefined && output.arn !== null) {
-    contents.arn = output.arn;
-  }
-  if (output.meshName !== undefined && output.meshName !== null) {
-    contents.meshName = output.meshName;
-  }
-  if (output.virtualNodeName !== undefined && output.virtualNodeName !== null) {
-    contents.virtualNodeName = output.virtualNodeName;
-  }
-  return contents;
+    arn:
+      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    meshName:
+      output.meshName !== undefined && output.meshName !== null
+        ? output.meshName
+        : undefined,
+    virtualNodeName:
+      output.virtualNodeName !== undefined && output.virtualNodeName !== null
+        ? output.virtualNodeName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1VirtualNodeServiceProvider = (
   output: any,
   context: __SerdeContext
 ): VirtualNodeServiceProvider => {
-  let contents: any = {
+  return {
     __type: "VirtualNodeServiceProvider",
-    virtualNodeName: undefined
-  };
-  if (output.virtualNodeName !== undefined && output.virtualNodeName !== null) {
-    contents.virtualNodeName = output.virtualNodeName;
-  }
-  return contents;
+    virtualNodeName:
+      output.virtualNodeName !== undefined && output.virtualNodeName !== null
+        ? output.virtualNodeName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1VirtualNodeSpec = (
   output: any,
   context: __SerdeContext
 ): VirtualNodeSpec => {
-  let contents: any = {
+  return {
     __type: "VirtualNodeSpec",
-    backends: undefined,
-    listeners: undefined,
-    logging: undefined,
-    serviceDiscovery: undefined
-  };
-  if (output.backends !== undefined && output.backends !== null) {
-    contents.backends = deserializeAws_restJson1_1Backends(
-      output.backends,
-      context
-    );
-  }
-  if (output.listeners !== undefined && output.listeners !== null) {
-    contents.listeners = deserializeAws_restJson1_1Listeners(
-      output.listeners,
-      context
-    );
-  }
-  if (output.logging !== undefined && output.logging !== null) {
-    contents.logging = deserializeAws_restJson1_1Logging(
-      output.logging,
-      context
-    );
-  }
-  if (
-    output.serviceDiscovery !== undefined &&
-    output.serviceDiscovery !== null
-  ) {
-    contents.serviceDiscovery = deserializeAws_restJson1_1ServiceDiscovery(
-      output.serviceDiscovery,
-      context
-    );
-  }
-  return contents;
+    backends:
+      output.backends !== undefined && output.backends !== null
+        ? deserializeAws_restJson1_1Backends(output.backends, context)
+        : undefined,
+    listeners:
+      output.listeners !== undefined && output.listeners !== null
+        ? deserializeAws_restJson1_1Listeners(output.listeners, context)
+        : undefined,
+    logging:
+      output.logging !== undefined && output.logging !== null
+        ? deserializeAws_restJson1_1Logging(output.logging, context)
+        : undefined,
+    serviceDiscovery:
+      output.serviceDiscovery !== undefined && output.serviceDiscovery !== null
+        ? deserializeAws_restJson1_1ServiceDiscovery(
+            output.serviceDiscovery,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1VirtualNodeStatus = (
   output: any,
   context: __SerdeContext
 ): VirtualNodeStatus => {
-  let contents: any = {
+  return {
     __type: "VirtualNodeStatus",
-    status: undefined
-  };
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  return contents;
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1VirtualRouterData = (
   output: any,
   context: __SerdeContext
 ): VirtualRouterData => {
-  let contents: any = {
+  return {
     __type: "VirtualRouterData",
-    meshName: undefined,
-    metadata: undefined,
-    spec: undefined,
-    status: undefined,
-    virtualRouterName: undefined
-  };
-  if (output.meshName !== undefined && output.meshName !== null) {
-    contents.meshName = output.meshName;
-  }
-  if (output.metadata !== undefined && output.metadata !== null) {
-    contents.metadata = deserializeAws_restJson1_1ResourceMetadata(
-      output.metadata,
-      context
-    );
-  }
-  if (output.spec !== undefined && output.spec !== null) {
-    contents.spec = deserializeAws_restJson1_1VirtualRouterSpec(
-      output.spec,
-      context
-    );
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = deserializeAws_restJson1_1VirtualRouterStatus(
-      output.status,
-      context
-    );
-  }
-  if (
-    output.virtualRouterName !== undefined &&
-    output.virtualRouterName !== null
-  ) {
-    contents.virtualRouterName = output.virtualRouterName;
-  }
-  return contents;
+    meshName:
+      output.meshName !== undefined && output.meshName !== null
+        ? output.meshName
+        : undefined,
+    metadata:
+      output.metadata !== undefined && output.metadata !== null
+        ? deserializeAws_restJson1_1ResourceMetadata(output.metadata, context)
+        : undefined,
+    spec:
+      output.spec !== undefined && output.spec !== null
+        ? deserializeAws_restJson1_1VirtualRouterSpec(output.spec, context)
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? deserializeAws_restJson1_1VirtualRouterStatus(output.status, context)
+        : undefined,
+    virtualRouterName:
+      output.virtualRouterName !== undefined &&
+      output.virtualRouterName !== null
+        ? output.virtualRouterName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1VirtualRouterList = (
@@ -7025,17 +6863,13 @@ const deserializeAws_restJson1_1VirtualRouterListener = (
   output: any,
   context: __SerdeContext
 ): VirtualRouterListener => {
-  let contents: any = {
+  return {
     __type: "VirtualRouterListener",
-    portMapping: undefined
-  };
-  if (output.portMapping !== undefined && output.portMapping !== null) {
-    contents.portMapping = deserializeAws_restJson1_1PortMapping(
-      output.portMapping,
-      context
-    );
-  }
-  return contents;
+    portMapping:
+      output.portMapping !== undefined && output.portMapping !== null
+        ? deserializeAws_restJson1_1PortMapping(output.portMapping, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1VirtualRouterListeners = (
@@ -7051,132 +6885,107 @@ const deserializeAws_restJson1_1VirtualRouterRef = (
   output: any,
   context: __SerdeContext
 ): VirtualRouterRef => {
-  let contents: any = {
+  return {
     __type: "VirtualRouterRef",
-    arn: undefined,
-    meshName: undefined,
-    virtualRouterName: undefined
-  };
-  if (output.arn !== undefined && output.arn !== null) {
-    contents.arn = output.arn;
-  }
-  if (output.meshName !== undefined && output.meshName !== null) {
-    contents.meshName = output.meshName;
-  }
-  if (
-    output.virtualRouterName !== undefined &&
-    output.virtualRouterName !== null
-  ) {
-    contents.virtualRouterName = output.virtualRouterName;
-  }
-  return contents;
+    arn:
+      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    meshName:
+      output.meshName !== undefined && output.meshName !== null
+        ? output.meshName
+        : undefined,
+    virtualRouterName:
+      output.virtualRouterName !== undefined &&
+      output.virtualRouterName !== null
+        ? output.virtualRouterName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1VirtualRouterServiceProvider = (
   output: any,
   context: __SerdeContext
 ): VirtualRouterServiceProvider => {
-  let contents: any = {
+  return {
     __type: "VirtualRouterServiceProvider",
-    virtualRouterName: undefined
-  };
-  if (
-    output.virtualRouterName !== undefined &&
-    output.virtualRouterName !== null
-  ) {
-    contents.virtualRouterName = output.virtualRouterName;
-  }
-  return contents;
+    virtualRouterName:
+      output.virtualRouterName !== undefined &&
+      output.virtualRouterName !== null
+        ? output.virtualRouterName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1VirtualRouterSpec = (
   output: any,
   context: __SerdeContext
 ): VirtualRouterSpec => {
-  let contents: any = {
+  return {
     __type: "VirtualRouterSpec",
-    listeners: undefined
-  };
-  if (output.listeners !== undefined && output.listeners !== null) {
-    contents.listeners = deserializeAws_restJson1_1VirtualRouterListeners(
-      output.listeners,
-      context
-    );
-  }
-  return contents;
+    listeners:
+      output.listeners !== undefined && output.listeners !== null
+        ? deserializeAws_restJson1_1VirtualRouterListeners(
+            output.listeners,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1VirtualRouterStatus = (
   output: any,
   context: __SerdeContext
 ): VirtualRouterStatus => {
-  let contents: any = {
+  return {
     __type: "VirtualRouterStatus",
-    status: undefined
-  };
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  return contents;
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1VirtualServiceBackend = (
   output: any,
   context: __SerdeContext
 ): VirtualServiceBackend => {
-  let contents: any = {
+  return {
     __type: "VirtualServiceBackend",
-    virtualServiceName: undefined
-  };
-  if (
-    output.virtualServiceName !== undefined &&
-    output.virtualServiceName !== null
-  ) {
-    contents.virtualServiceName = output.virtualServiceName;
-  }
-  return contents;
+    virtualServiceName:
+      output.virtualServiceName !== undefined &&
+      output.virtualServiceName !== null
+        ? output.virtualServiceName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1VirtualServiceData = (
   output: any,
   context: __SerdeContext
 ): VirtualServiceData => {
-  let contents: any = {
+  return {
     __type: "VirtualServiceData",
-    meshName: undefined,
-    metadata: undefined,
-    spec: undefined,
-    status: undefined,
-    virtualServiceName: undefined
-  };
-  if (output.meshName !== undefined && output.meshName !== null) {
-    contents.meshName = output.meshName;
-  }
-  if (output.metadata !== undefined && output.metadata !== null) {
-    contents.metadata = deserializeAws_restJson1_1ResourceMetadata(
-      output.metadata,
-      context
-    );
-  }
-  if (output.spec !== undefined && output.spec !== null) {
-    contents.spec = deserializeAws_restJson1_1VirtualServiceSpec(
-      output.spec,
-      context
-    );
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = deserializeAws_restJson1_1VirtualServiceStatus(
-      output.status,
-      context
-    );
-  }
-  if (
-    output.virtualServiceName !== undefined &&
-    output.virtualServiceName !== null
-  ) {
-    contents.virtualServiceName = output.virtualServiceName;
-  }
-  return contents;
+    meshName:
+      output.meshName !== undefined && output.meshName !== null
+        ? output.meshName
+        : undefined,
+    metadata:
+      output.metadata !== undefined && output.metadata !== null
+        ? deserializeAws_restJson1_1ResourceMetadata(output.metadata, context)
+        : undefined,
+    spec:
+      output.spec !== undefined && output.spec !== null
+        ? deserializeAws_restJson1_1VirtualServiceSpec(output.spec, context)
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? deserializeAws_restJson1_1VirtualServiceStatus(output.status, context)
+        : undefined,
+    virtualServiceName:
+      output.virtualServiceName !== undefined &&
+      output.virtualServiceName !== null
+        ? output.virtualServiceName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1VirtualServiceList = (
@@ -7216,74 +7025,66 @@ const deserializeAws_restJson1_1VirtualServiceRef = (
   output: any,
   context: __SerdeContext
 ): VirtualServiceRef => {
-  let contents: any = {
+  return {
     __type: "VirtualServiceRef",
-    arn: undefined,
-    meshName: undefined,
-    virtualServiceName: undefined
-  };
-  if (output.arn !== undefined && output.arn !== null) {
-    contents.arn = output.arn;
-  }
-  if (output.meshName !== undefined && output.meshName !== null) {
-    contents.meshName = output.meshName;
-  }
-  if (
-    output.virtualServiceName !== undefined &&
-    output.virtualServiceName !== null
-  ) {
-    contents.virtualServiceName = output.virtualServiceName;
-  }
-  return contents;
+    arn:
+      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    meshName:
+      output.meshName !== undefined && output.meshName !== null
+        ? output.meshName
+        : undefined,
+    virtualServiceName:
+      output.virtualServiceName !== undefined &&
+      output.virtualServiceName !== null
+        ? output.virtualServiceName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1VirtualServiceSpec = (
   output: any,
   context: __SerdeContext
 ): VirtualServiceSpec => {
-  let contents: any = {
+  return {
     __type: "VirtualServiceSpec",
-    provider: undefined
-  };
-  if (output.provider !== undefined && output.provider !== null) {
-    contents.provider = deserializeAws_restJson1_1VirtualServiceProvider(
-      output.provider,
-      context
-    );
-  }
-  return contents;
+    provider:
+      output.provider !== undefined && output.provider !== null
+        ? deserializeAws_restJson1_1VirtualServiceProvider(
+            output.provider,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1VirtualServiceStatus = (
   output: any,
   context: __SerdeContext
 ): VirtualServiceStatus => {
-  let contents: any = {
+  return {
     __type: "VirtualServiceStatus",
-    status: undefined
-  };
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  return contents;
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1WeightedTarget = (
   output: any,
   context: __SerdeContext
 ): WeightedTarget => {
-  let contents: any = {
+  return {
     __type: "WeightedTarget",
-    virtualNode: undefined,
-    weight: undefined
-  };
-  if (output.virtualNode !== undefined && output.virtualNode !== null) {
-    contents.virtualNode = output.virtualNode;
-  }
-  if (output.weight !== undefined && output.weight !== null) {
-    contents.weight = output.weight;
-  }
-  return contents;
+    virtualNode:
+      output.virtualNode !== undefined && output.virtualNode !== null
+        ? output.virtualNode
+        : undefined,
+    weight:
+      output.weight !== undefined && output.weight !== null
+        ? output.weight
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1WeightedTargets = (

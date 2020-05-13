@@ -17075,57 +17075,49 @@ const deserializeAws_restJson1_1Account = (
   output: any,
   context: __SerdeContext
 ): Account => {
-  let contents: any = {
+  return {
     __type: "Account",
-    AccountId: undefined,
-    AccountType: undefined,
-    AwsAccountId: undefined,
-    CreatedTimestamp: undefined,
-    DefaultLicense: undefined,
-    Name: undefined,
-    SigninDelegateGroups: undefined,
-    SupportedLicenses: undefined
-  };
-  if (output.AccountId !== undefined && output.AccountId !== null) {
-    contents.AccountId = output.AccountId;
-  }
-  if (output.AccountType !== undefined && output.AccountType !== null) {
-    contents.AccountType = output.AccountType;
-  }
-  if (output.AwsAccountId !== undefined && output.AwsAccountId !== null) {
-    contents.AwsAccountId = output.AwsAccountId;
-  }
-  if (
-    output.CreatedTimestamp !== undefined &&
-    output.CreatedTimestamp !== null
-  ) {
-    contents.CreatedTimestamp = new Date(output.CreatedTimestamp);
-  }
-  if (output.DefaultLicense !== undefined && output.DefaultLicense !== null) {
-    contents.DefaultLicense = output.DefaultLicense;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (
-    output.SigninDelegateGroups !== undefined &&
-    output.SigninDelegateGroups !== null
-  ) {
-    contents.SigninDelegateGroups = deserializeAws_restJson1_1SigninDelegateGroupList(
-      output.SigninDelegateGroups,
-      context
-    );
-  }
-  if (
-    output.SupportedLicenses !== undefined &&
-    output.SupportedLicenses !== null
-  ) {
-    contents.SupportedLicenses = deserializeAws_restJson1_1LicenseList(
-      output.SupportedLicenses,
-      context
-    );
-  }
-  return contents;
+    AccountId:
+      output.AccountId !== undefined && output.AccountId !== null
+        ? output.AccountId
+        : undefined,
+    AccountType:
+      output.AccountType !== undefined && output.AccountType !== null
+        ? output.AccountType
+        : undefined,
+    AwsAccountId:
+      output.AwsAccountId !== undefined && output.AwsAccountId !== null
+        ? output.AwsAccountId
+        : undefined,
+    CreatedTimestamp:
+      output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
+        ? new Date(output.CreatedTimestamp)
+        : undefined,
+    DefaultLicense:
+      output.DefaultLicense !== undefined && output.DefaultLicense !== null
+        ? output.DefaultLicense
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    SigninDelegateGroups:
+      output.SigninDelegateGroups !== undefined &&
+      output.SigninDelegateGroups !== null
+        ? deserializeAws_restJson1_1SigninDelegateGroupList(
+            output.SigninDelegateGroups,
+            context
+          )
+        : undefined,
+    SupportedLicenses:
+      output.SupportedLicenses !== undefined &&
+      output.SupportedLicenses !== null
+        ? deserializeAws_restJson1_1LicenseList(
+            output.SupportedLicenses,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1AccountList = (
@@ -17141,67 +17133,58 @@ const deserializeAws_restJson1_1AccountSettings = (
   output: any,
   context: __SerdeContext
 ): AccountSettings => {
-  let contents: any = {
+  return {
     __type: "AccountSettings",
-    DisableRemoteControl: undefined,
-    EnableDialOut: undefined
-  };
-  if (
-    output.DisableRemoteControl !== undefined &&
-    output.DisableRemoteControl !== null
-  ) {
-    contents.DisableRemoteControl = output.DisableRemoteControl;
-  }
-  if (output.EnableDialOut !== undefined && output.EnableDialOut !== null) {
-    contents.EnableDialOut = output.EnableDialOut;
-  }
-  return contents;
+    DisableRemoteControl:
+      output.DisableRemoteControl !== undefined &&
+      output.DisableRemoteControl !== null
+        ? output.DisableRemoteControl
+        : undefined,
+    EnableDialOut:
+      output.EnableDialOut !== undefined && output.EnableDialOut !== null
+        ? output.EnableDialOut
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1AlexaForBusinessMetadata = (
   output: any,
   context: __SerdeContext
 ): AlexaForBusinessMetadata => {
-  let contents: any = {
+  return {
     __type: "AlexaForBusinessMetadata",
-    AlexaForBusinessRoomArn: undefined,
-    IsAlexaForBusinessEnabled: undefined
-  };
-  if (
-    output.AlexaForBusinessRoomArn !== undefined &&
-    output.AlexaForBusinessRoomArn !== null
-  ) {
-    contents.AlexaForBusinessRoomArn = output.AlexaForBusinessRoomArn;
-  }
-  if (
-    output.IsAlexaForBusinessEnabled !== undefined &&
-    output.IsAlexaForBusinessEnabled !== null
-  ) {
-    contents.IsAlexaForBusinessEnabled = output.IsAlexaForBusinessEnabled;
-  }
-  return contents;
+    AlexaForBusinessRoomArn:
+      output.AlexaForBusinessRoomArn !== undefined &&
+      output.AlexaForBusinessRoomArn !== null
+        ? output.AlexaForBusinessRoomArn
+        : undefined,
+    IsAlexaForBusinessEnabled:
+      output.IsAlexaForBusinessEnabled !== undefined &&
+      output.IsAlexaForBusinessEnabled !== null
+        ? output.IsAlexaForBusinessEnabled
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Attendee = (
   output: any,
   context: __SerdeContext
 ): Attendee => {
-  let contents: any = {
+  return {
     __type: "Attendee",
-    AttendeeId: undefined,
-    ExternalUserId: undefined,
-    JoinToken: undefined
-  };
-  if (output.AttendeeId !== undefined && output.AttendeeId !== null) {
-    contents.AttendeeId = output.AttendeeId;
-  }
-  if (output.ExternalUserId !== undefined && output.ExternalUserId !== null) {
-    contents.ExternalUserId = output.ExternalUserId;
-  }
-  if (output.JoinToken !== undefined && output.JoinToken !== null) {
-    contents.JoinToken = output.JoinToken;
-  }
-  return contents;
+    AttendeeId:
+      output.AttendeeId !== undefined && output.AttendeeId !== null
+        ? output.AttendeeId
+        : undefined,
+    ExternalUserId:
+      output.ExternalUserId !== undefined && output.ExternalUserId !== null
+        ? output.ExternalUserId
+        : undefined,
+    JoinToken:
+      output.JoinToken !== undefined && output.JoinToken !== null
+        ? output.JoinToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1AttendeeList = (
@@ -17226,52 +17209,45 @@ const deserializeAws_restJson1_1Bot = (
   output: any,
   context: __SerdeContext
 ): Bot => {
-  let contents: any = {
+  return {
     __type: "Bot",
-    BotEmail: undefined,
-    BotId: undefined,
-    BotType: undefined,
-    CreatedTimestamp: undefined,
-    Disabled: undefined,
-    DisplayName: undefined,
-    SecurityToken: undefined,
-    UpdatedTimestamp: undefined,
-    UserId: undefined
-  };
-  if (output.BotEmail !== undefined && output.BotEmail !== null) {
-    contents.BotEmail = output.BotEmail;
-  }
-  if (output.BotId !== undefined && output.BotId !== null) {
-    contents.BotId = output.BotId;
-  }
-  if (output.BotType !== undefined && output.BotType !== null) {
-    contents.BotType = output.BotType;
-  }
-  if (
-    output.CreatedTimestamp !== undefined &&
-    output.CreatedTimestamp !== null
-  ) {
-    contents.CreatedTimestamp = new Date(output.CreatedTimestamp);
-  }
-  if (output.Disabled !== undefined && output.Disabled !== null) {
-    contents.Disabled = output.Disabled;
-  }
-  if (output.DisplayName !== undefined && output.DisplayName !== null) {
-    contents.DisplayName = output.DisplayName;
-  }
-  if (output.SecurityToken !== undefined && output.SecurityToken !== null) {
-    contents.SecurityToken = output.SecurityToken;
-  }
-  if (
-    output.UpdatedTimestamp !== undefined &&
-    output.UpdatedTimestamp !== null
-  ) {
-    contents.UpdatedTimestamp = new Date(output.UpdatedTimestamp);
-  }
-  if (output.UserId !== undefined && output.UserId !== null) {
-    contents.UserId = output.UserId;
-  }
-  return contents;
+    BotEmail:
+      output.BotEmail !== undefined && output.BotEmail !== null
+        ? output.BotEmail
+        : undefined,
+    BotId:
+      output.BotId !== undefined && output.BotId !== null
+        ? output.BotId
+        : undefined,
+    BotType:
+      output.BotType !== undefined && output.BotType !== null
+        ? output.BotType
+        : undefined,
+    CreatedTimestamp:
+      output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
+        ? new Date(output.CreatedTimestamp)
+        : undefined,
+    Disabled:
+      output.Disabled !== undefined && output.Disabled !== null
+        ? output.Disabled
+        : undefined,
+    DisplayName:
+      output.DisplayName !== undefined && output.DisplayName !== null
+        ? output.DisplayName
+        : undefined,
+    SecurityToken:
+      output.SecurityToken !== undefined && output.SecurityToken !== null
+        ? output.SecurityToken
+        : undefined,
+    UpdatedTimestamp:
+      output.UpdatedTimestamp !== undefined && output.UpdatedTimestamp !== null
+        ? new Date(output.UpdatedTimestamp)
+        : undefined,
+    UserId:
+      output.UserId !== undefined && output.UserId !== null
+        ? output.UserId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1BotList = (
@@ -17287,14 +17263,13 @@ const deserializeAws_restJson1_1BusinessCallingSettings = (
   output: any,
   context: __SerdeContext
 ): BusinessCallingSettings => {
-  let contents: any = {
+  return {
     __type: "BusinessCallingSettings",
-    CdrBucket: undefined
-  };
-  if (output.CdrBucket !== undefined && output.CdrBucket !== null) {
-    contents.CdrBucket = output.CdrBucket;
-  }
-  return contents;
+    CdrBucket:
+      output.CdrBucket !== undefined && output.CdrBucket !== null
+        ? output.CdrBucket
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1CallingRegionList = (
@@ -17308,22 +17283,21 @@ const deserializeAws_restJson1_1CreateAttendeeError = (
   output: any,
   context: __SerdeContext
 ): CreateAttendeeError => {
-  let contents: any = {
+  return {
     __type: "CreateAttendeeError",
-    ErrorCode: undefined,
-    ErrorMessage: undefined,
-    ExternalUserId: undefined
-  };
-  if (output.ErrorCode !== undefined && output.ErrorCode !== null) {
-    contents.ErrorCode = output.ErrorCode;
-  }
-  if (output.ErrorMessage !== undefined && output.ErrorMessage !== null) {
-    contents.ErrorMessage = output.ErrorMessage;
-  }
-  if (output.ExternalUserId !== undefined && output.ExternalUserId !== null) {
-    contents.ExternalUserId = output.ExternalUserId;
-  }
-  return contents;
+    ErrorCode:
+      output.ErrorCode !== undefined && output.ErrorCode !== null
+        ? output.ErrorCode
+        : undefined,
+    ErrorMessage:
+      output.ErrorMessage !== undefined && output.ErrorMessage !== null
+        ? output.ErrorMessage
+        : undefined,
+    ExternalUserId:
+      output.ExternalUserId !== undefined && output.ExternalUserId !== null
+        ? output.ExternalUserId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1E164PhoneNumberList = (
@@ -17337,54 +17311,48 @@ const deserializeAws_restJson1_1EventsConfiguration = (
   output: any,
   context: __SerdeContext
 ): EventsConfiguration => {
-  let contents: any = {
+  return {
     __type: "EventsConfiguration",
-    BotId: undefined,
-    LambdaFunctionArn: undefined,
-    OutboundEventsHTTPSEndpoint: undefined
-  };
-  if (output.BotId !== undefined && output.BotId !== null) {
-    contents.BotId = output.BotId;
-  }
-  if (
-    output.LambdaFunctionArn !== undefined &&
-    output.LambdaFunctionArn !== null
-  ) {
-    contents.LambdaFunctionArn = output.LambdaFunctionArn;
-  }
-  if (
-    output.OutboundEventsHTTPSEndpoint !== undefined &&
-    output.OutboundEventsHTTPSEndpoint !== null
-  ) {
-    contents.OutboundEventsHTTPSEndpoint = output.OutboundEventsHTTPSEndpoint;
-  }
-  return contents;
+    BotId:
+      output.BotId !== undefined && output.BotId !== null
+        ? output.BotId
+        : undefined,
+    LambdaFunctionArn:
+      output.LambdaFunctionArn !== undefined &&
+      output.LambdaFunctionArn !== null
+        ? output.LambdaFunctionArn
+        : undefined,
+    OutboundEventsHTTPSEndpoint:
+      output.OutboundEventsHTTPSEndpoint !== undefined &&
+      output.OutboundEventsHTTPSEndpoint !== null
+        ? output.OutboundEventsHTTPSEndpoint
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Invite = (
   output: any,
   context: __SerdeContext
 ): Invite => {
-  let contents: any = {
+  return {
     __type: "Invite",
-    EmailAddress: undefined,
-    EmailStatus: undefined,
-    InviteId: undefined,
-    Status: undefined
-  };
-  if (output.EmailAddress !== undefined && output.EmailAddress !== null) {
-    contents.EmailAddress = output.EmailAddress;
-  }
-  if (output.EmailStatus !== undefined && output.EmailStatus !== null) {
-    contents.EmailStatus = output.EmailStatus;
-  }
-  if (output.InviteId !== undefined && output.InviteId !== null) {
-    contents.InviteId = output.InviteId;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  return contents;
+    EmailAddress:
+      output.EmailAddress !== undefined && output.EmailAddress !== null
+        ? output.EmailAddress
+        : undefined,
+    EmailStatus:
+      output.EmailStatus !== undefined && output.EmailStatus !== null
+        ? output.EmailStatus
+        : undefined,
+    InviteId:
+      output.InviteId !== undefined && output.InviteId !== null
+        ? output.InviteId
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1InviteList = (
@@ -17407,79 +17375,70 @@ const deserializeAws_restJson1_1LoggingConfiguration = (
   output: any,
   context: __SerdeContext
 ): LoggingConfiguration => {
-  let contents: any = {
+  return {
     __type: "LoggingConfiguration",
-    EnableSIPLogs: undefined
-  };
-  if (output.EnableSIPLogs !== undefined && output.EnableSIPLogs !== null) {
-    contents.EnableSIPLogs = output.EnableSIPLogs;
-  }
-  return contents;
+    EnableSIPLogs:
+      output.EnableSIPLogs !== undefined && output.EnableSIPLogs !== null
+        ? output.EnableSIPLogs
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1MediaPlacement = (
   output: any,
   context: __SerdeContext
 ): MediaPlacement => {
-  let contents: any = {
+  return {
     __type: "MediaPlacement",
-    AudioHostUrl: undefined,
-    ScreenDataUrl: undefined,
-    ScreenSharingUrl: undefined,
-    ScreenViewingUrl: undefined,
-    SignalingUrl: undefined,
-    TurnControlUrl: undefined
-  };
-  if (output.AudioHostUrl !== undefined && output.AudioHostUrl !== null) {
-    contents.AudioHostUrl = output.AudioHostUrl;
-  }
-  if (output.ScreenDataUrl !== undefined && output.ScreenDataUrl !== null) {
-    contents.ScreenDataUrl = output.ScreenDataUrl;
-  }
-  if (
-    output.ScreenSharingUrl !== undefined &&
-    output.ScreenSharingUrl !== null
-  ) {
-    contents.ScreenSharingUrl = output.ScreenSharingUrl;
-  }
-  if (
-    output.ScreenViewingUrl !== undefined &&
-    output.ScreenViewingUrl !== null
-  ) {
-    contents.ScreenViewingUrl = output.ScreenViewingUrl;
-  }
-  if (output.SignalingUrl !== undefined && output.SignalingUrl !== null) {
-    contents.SignalingUrl = output.SignalingUrl;
-  }
-  if (output.TurnControlUrl !== undefined && output.TurnControlUrl !== null) {
-    contents.TurnControlUrl = output.TurnControlUrl;
-  }
-  return contents;
+    AudioHostUrl:
+      output.AudioHostUrl !== undefined && output.AudioHostUrl !== null
+        ? output.AudioHostUrl
+        : undefined,
+    ScreenDataUrl:
+      output.ScreenDataUrl !== undefined && output.ScreenDataUrl !== null
+        ? output.ScreenDataUrl
+        : undefined,
+    ScreenSharingUrl:
+      output.ScreenSharingUrl !== undefined && output.ScreenSharingUrl !== null
+        ? output.ScreenSharingUrl
+        : undefined,
+    ScreenViewingUrl:
+      output.ScreenViewingUrl !== undefined && output.ScreenViewingUrl !== null
+        ? output.ScreenViewingUrl
+        : undefined,
+    SignalingUrl:
+      output.SignalingUrl !== undefined && output.SignalingUrl !== null
+        ? output.SignalingUrl
+        : undefined,
+    TurnControlUrl:
+      output.TurnControlUrl !== undefined && output.TurnControlUrl !== null
+        ? output.TurnControlUrl
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Meeting = (
   output: any,
   context: __SerdeContext
 ): Meeting => {
-  let contents: any = {
+  return {
     __type: "Meeting",
-    MediaPlacement: undefined,
-    MediaRegion: undefined,
-    MeetingId: undefined
-  };
-  if (output.MediaPlacement !== undefined && output.MediaPlacement !== null) {
-    contents.MediaPlacement = deserializeAws_restJson1_1MediaPlacement(
-      output.MediaPlacement,
-      context
-    );
-  }
-  if (output.MediaRegion !== undefined && output.MediaRegion !== null) {
-    contents.MediaRegion = output.MediaRegion;
-  }
-  if (output.MeetingId !== undefined && output.MeetingId !== null) {
-    contents.MeetingId = output.MeetingId;
-  }
-  return contents;
+    MediaPlacement:
+      output.MediaPlacement !== undefined && output.MediaPlacement !== null
+        ? deserializeAws_restJson1_1MediaPlacement(
+            output.MediaPlacement,
+            context
+          )
+        : undefined,
+    MediaRegion:
+      output.MediaRegion !== undefined && output.MediaRegion !== null
+        ? output.MediaRegion
+        : undefined,
+    MeetingId:
+      output.MeetingId !== undefined && output.MeetingId !== null
+        ? output.MeetingId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1MeetingList = (
@@ -17495,52 +17454,50 @@ const deserializeAws_restJson1_1Member = (
   output: any,
   context: __SerdeContext
 ): Member => {
-  let contents: any = {
+  return {
     __type: "Member",
-    AccountId: undefined,
-    Email: undefined,
-    FullName: undefined,
-    MemberId: undefined,
-    MemberType: undefined
-  };
-  if (output.AccountId !== undefined && output.AccountId !== null) {
-    contents.AccountId = output.AccountId;
-  }
-  if (output.Email !== undefined && output.Email !== null) {
-    contents.Email = output.Email;
-  }
-  if (output.FullName !== undefined && output.FullName !== null) {
-    contents.FullName = output.FullName;
-  }
-  if (output.MemberId !== undefined && output.MemberId !== null) {
-    contents.MemberId = output.MemberId;
-  }
-  if (output.MemberType !== undefined && output.MemberType !== null) {
-    contents.MemberType = output.MemberType;
-  }
-  return contents;
+    AccountId:
+      output.AccountId !== undefined && output.AccountId !== null
+        ? output.AccountId
+        : undefined,
+    Email:
+      output.Email !== undefined && output.Email !== null
+        ? output.Email
+        : undefined,
+    FullName:
+      output.FullName !== undefined && output.FullName !== null
+        ? output.FullName
+        : undefined,
+    MemberId:
+      output.MemberId !== undefined && output.MemberId !== null
+        ? output.MemberId
+        : undefined,
+    MemberType:
+      output.MemberType !== undefined && output.MemberType !== null
+        ? output.MemberType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1MemberError = (
   output: any,
   context: __SerdeContext
 ): MemberError => {
-  let contents: any = {
+  return {
     __type: "MemberError",
-    ErrorCode: undefined,
-    ErrorMessage: undefined,
-    MemberId: undefined
-  };
-  if (output.ErrorCode !== undefined && output.ErrorCode !== null) {
-    contents.ErrorCode = output.ErrorCode;
-  }
-  if (output.ErrorMessage !== undefined && output.ErrorMessage !== null) {
-    contents.ErrorMessage = output.ErrorMessage;
-  }
-  if (output.MemberId !== undefined && output.MemberId !== null) {
-    contents.MemberId = output.MemberId;
-  }
-  return contents;
+    ErrorCode:
+      output.ErrorCode !== undefined && output.ErrorCode !== null
+        ? output.ErrorCode
+        : undefined,
+    ErrorMessage:
+      output.ErrorMessage !== undefined && output.ErrorMessage !== null
+        ? output.ErrorMessage
+        : undefined,
+    MemberId:
+      output.MemberId !== undefined && output.MemberId !== null
+        ? output.MemberId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1MemberErrorList = (
@@ -17556,18 +17513,17 @@ const deserializeAws_restJson1_1OrderedPhoneNumber = (
   output: any,
   context: __SerdeContext
 ): OrderedPhoneNumber => {
-  let contents: any = {
+  return {
     __type: "OrderedPhoneNumber",
-    E164PhoneNumber: undefined,
-    Status: undefined
-  };
-  if (output.E164PhoneNumber !== undefined && output.E164PhoneNumber !== null) {
-    contents.E164PhoneNumber = output.E164PhoneNumber;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  return contents;
+    E164PhoneNumber:
+      output.E164PhoneNumber !== undefined && output.E164PhoneNumber !== null
+        ? output.E164PhoneNumber
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1OrderedPhoneNumberList = (
@@ -17583,51 +17539,46 @@ const deserializeAws_restJson1_1Origination = (
   output: any,
   context: __SerdeContext
 ): Origination => {
-  let contents: any = {
+  return {
     __type: "Origination",
-    Disabled: undefined,
-    Routes: undefined
-  };
-  if (output.Disabled !== undefined && output.Disabled !== null) {
-    contents.Disabled = output.Disabled;
-  }
-  if (output.Routes !== undefined && output.Routes !== null) {
-    contents.Routes = deserializeAws_restJson1_1OriginationRouteList(
-      output.Routes,
-      context
-    );
-  }
-  return contents;
+    Disabled:
+      output.Disabled !== undefined && output.Disabled !== null
+        ? output.Disabled
+        : undefined,
+    Routes:
+      output.Routes !== undefined && output.Routes !== null
+        ? deserializeAws_restJson1_1OriginationRouteList(output.Routes, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1OriginationRoute = (
   output: any,
   context: __SerdeContext
 ): OriginationRoute => {
-  let contents: any = {
+  return {
     __type: "OriginationRoute",
-    Host: undefined,
-    Port: undefined,
-    Priority: undefined,
-    Protocol: undefined,
-    Weight: undefined
-  };
-  if (output.Host !== undefined && output.Host !== null) {
-    contents.Host = output.Host;
-  }
-  if (output.Port !== undefined && output.Port !== null) {
-    contents.Port = output.Port;
-  }
-  if (output.Priority !== undefined && output.Priority !== null) {
-    contents.Priority = output.Priority;
-  }
-  if (output.Protocol !== undefined && output.Protocol !== null) {
-    contents.Protocol = output.Protocol;
-  }
-  if (output.Weight !== undefined && output.Weight !== null) {
-    contents.Weight = output.Weight;
-  }
-  return contents;
+    Host:
+      output.Host !== undefined && output.Host !== null
+        ? output.Host
+        : undefined,
+    Port:
+      output.Port !== undefined && output.Port !== null
+        ? output.Port
+        : undefined,
+    Priority:
+      output.Priority !== undefined && output.Priority !== null
+        ? output.Priority
+        : undefined,
+    Protocol:
+      output.Protocol !== undefined && output.Protocol !== null
+        ? output.Protocol
+        : undefined,
+    Weight:
+      output.Weight !== undefined && output.Weight !== null
+        ? output.Weight
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1OriginationRouteList = (
@@ -17643,101 +17594,87 @@ const deserializeAws_restJson1_1PhoneNumber = (
   output: any,
   context: __SerdeContext
 ): PhoneNumber => {
-  let contents: any = {
+  return {
     __type: "PhoneNumber",
-    Associations: undefined,
-    CallingName: undefined,
-    CallingNameStatus: undefined,
-    Capabilities: undefined,
-    CreatedTimestamp: undefined,
-    DeletionTimestamp: undefined,
-    E164PhoneNumber: undefined,
-    PhoneNumberId: undefined,
-    ProductType: undefined,
-    Status: undefined,
-    Type: undefined,
-    UpdatedTimestamp: undefined
-  };
-  if (output.Associations !== undefined && output.Associations !== null) {
-    contents.Associations = deserializeAws_restJson1_1PhoneNumberAssociationList(
-      output.Associations,
-      context
-    );
-  }
-  if (output.CallingName !== undefined && output.CallingName !== null) {
-    contents.CallingName = output.CallingName;
-  }
-  if (
-    output.CallingNameStatus !== undefined &&
-    output.CallingNameStatus !== null
-  ) {
-    contents.CallingNameStatus = output.CallingNameStatus;
-  }
-  if (output.Capabilities !== undefined && output.Capabilities !== null) {
-    contents.Capabilities = deserializeAws_restJson1_1PhoneNumberCapabilities(
-      output.Capabilities,
-      context
-    );
-  }
-  if (
-    output.CreatedTimestamp !== undefined &&
-    output.CreatedTimestamp !== null
-  ) {
-    contents.CreatedTimestamp = new Date(output.CreatedTimestamp);
-  }
-  if (
-    output.DeletionTimestamp !== undefined &&
-    output.DeletionTimestamp !== null
-  ) {
-    contents.DeletionTimestamp = new Date(output.DeletionTimestamp);
-  }
-  if (output.E164PhoneNumber !== undefined && output.E164PhoneNumber !== null) {
-    contents.E164PhoneNumber = output.E164PhoneNumber;
-  }
-  if (output.PhoneNumberId !== undefined && output.PhoneNumberId !== null) {
-    contents.PhoneNumberId = output.PhoneNumberId;
-  }
-  if (output.ProductType !== undefined && output.ProductType !== null) {
-    contents.ProductType = output.ProductType;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  if (
-    output.UpdatedTimestamp !== undefined &&
-    output.UpdatedTimestamp !== null
-  ) {
-    contents.UpdatedTimestamp = new Date(output.UpdatedTimestamp);
-  }
-  return contents;
+    Associations:
+      output.Associations !== undefined && output.Associations !== null
+        ? deserializeAws_restJson1_1PhoneNumberAssociationList(
+            output.Associations,
+            context
+          )
+        : undefined,
+    CallingName:
+      output.CallingName !== undefined && output.CallingName !== null
+        ? output.CallingName
+        : undefined,
+    CallingNameStatus:
+      output.CallingNameStatus !== undefined &&
+      output.CallingNameStatus !== null
+        ? output.CallingNameStatus
+        : undefined,
+    Capabilities:
+      output.Capabilities !== undefined && output.Capabilities !== null
+        ? deserializeAws_restJson1_1PhoneNumberCapabilities(
+            output.Capabilities,
+            context
+          )
+        : undefined,
+    CreatedTimestamp:
+      output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
+        ? new Date(output.CreatedTimestamp)
+        : undefined,
+    DeletionTimestamp:
+      output.DeletionTimestamp !== undefined &&
+      output.DeletionTimestamp !== null
+        ? new Date(output.DeletionTimestamp)
+        : undefined,
+    E164PhoneNumber:
+      output.E164PhoneNumber !== undefined && output.E164PhoneNumber !== null
+        ? output.E164PhoneNumber
+        : undefined,
+    PhoneNumberId:
+      output.PhoneNumberId !== undefined && output.PhoneNumberId !== null
+        ? output.PhoneNumberId
+        : undefined,
+    ProductType:
+      output.ProductType !== undefined && output.ProductType !== null
+        ? output.ProductType
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined,
+    UpdatedTimestamp:
+      output.UpdatedTimestamp !== undefined && output.UpdatedTimestamp !== null
+        ? new Date(output.UpdatedTimestamp)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1PhoneNumberAssociation = (
   output: any,
   context: __SerdeContext
 ): PhoneNumberAssociation => {
-  let contents: any = {
+  return {
     __type: "PhoneNumberAssociation",
-    AssociatedTimestamp: undefined,
-    Name: undefined,
-    Value: undefined
-  };
-  if (
-    output.AssociatedTimestamp !== undefined &&
-    output.AssociatedTimestamp !== null
-  ) {
-    contents.AssociatedTimestamp = new Date(output.AssociatedTimestamp);
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    AssociatedTimestamp:
+      output.AssociatedTimestamp !== undefined &&
+      output.AssociatedTimestamp !== null
+        ? new Date(output.AssociatedTimestamp)
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1PhoneNumberAssociationList = (
@@ -17753,56 +17690,54 @@ const deserializeAws_restJson1_1PhoneNumberCapabilities = (
   output: any,
   context: __SerdeContext
 ): PhoneNumberCapabilities => {
-  let contents: any = {
+  return {
     __type: "PhoneNumberCapabilities",
-    InboundCall: undefined,
-    InboundMMS: undefined,
-    InboundSMS: undefined,
-    OutboundCall: undefined,
-    OutboundMMS: undefined,
-    OutboundSMS: undefined
-  };
-  if (output.InboundCall !== undefined && output.InboundCall !== null) {
-    contents.InboundCall = output.InboundCall;
-  }
-  if (output.InboundMMS !== undefined && output.InboundMMS !== null) {
-    contents.InboundMMS = output.InboundMMS;
-  }
-  if (output.InboundSMS !== undefined && output.InboundSMS !== null) {
-    contents.InboundSMS = output.InboundSMS;
-  }
-  if (output.OutboundCall !== undefined && output.OutboundCall !== null) {
-    contents.OutboundCall = output.OutboundCall;
-  }
-  if (output.OutboundMMS !== undefined && output.OutboundMMS !== null) {
-    contents.OutboundMMS = output.OutboundMMS;
-  }
-  if (output.OutboundSMS !== undefined && output.OutboundSMS !== null) {
-    contents.OutboundSMS = output.OutboundSMS;
-  }
-  return contents;
+    InboundCall:
+      output.InboundCall !== undefined && output.InboundCall !== null
+        ? output.InboundCall
+        : undefined,
+    InboundMMS:
+      output.InboundMMS !== undefined && output.InboundMMS !== null
+        ? output.InboundMMS
+        : undefined,
+    InboundSMS:
+      output.InboundSMS !== undefined && output.InboundSMS !== null
+        ? output.InboundSMS
+        : undefined,
+    OutboundCall:
+      output.OutboundCall !== undefined && output.OutboundCall !== null
+        ? output.OutboundCall
+        : undefined,
+    OutboundMMS:
+      output.OutboundMMS !== undefined && output.OutboundMMS !== null
+        ? output.OutboundMMS
+        : undefined,
+    OutboundSMS:
+      output.OutboundSMS !== undefined && output.OutboundSMS !== null
+        ? output.OutboundSMS
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1PhoneNumberError = (
   output: any,
   context: __SerdeContext
 ): PhoneNumberError => {
-  let contents: any = {
+  return {
     __type: "PhoneNumberError",
-    ErrorCode: undefined,
-    ErrorMessage: undefined,
-    PhoneNumberId: undefined
-  };
-  if (output.ErrorCode !== undefined && output.ErrorCode !== null) {
-    contents.ErrorCode = output.ErrorCode;
-  }
-  if (output.ErrorMessage !== undefined && output.ErrorMessage !== null) {
-    contents.ErrorMessage = output.ErrorMessage;
-  }
-  if (output.PhoneNumberId !== undefined && output.PhoneNumberId !== null) {
-    contents.PhoneNumberId = output.PhoneNumberId;
-  }
-  return contents;
+    ErrorCode:
+      output.ErrorCode !== undefined && output.ErrorCode !== null
+        ? output.ErrorCode
+        : undefined,
+    ErrorMessage:
+      output.ErrorMessage !== undefined && output.ErrorMessage !== null
+        ? output.ErrorMessage
+        : undefined,
+    PhoneNumberId:
+      output.PhoneNumberId !== undefined && output.PhoneNumberId !== null
+        ? output.PhoneNumberId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1PhoneNumberErrorList = (
@@ -17827,49 +17762,38 @@ const deserializeAws_restJson1_1PhoneNumberOrder = (
   output: any,
   context: __SerdeContext
 ): PhoneNumberOrder => {
-  let contents: any = {
+  return {
     __type: "PhoneNumberOrder",
-    CreatedTimestamp: undefined,
-    OrderedPhoneNumbers: undefined,
-    PhoneNumberOrderId: undefined,
-    ProductType: undefined,
-    Status: undefined,
-    UpdatedTimestamp: undefined
-  };
-  if (
-    output.CreatedTimestamp !== undefined &&
-    output.CreatedTimestamp !== null
-  ) {
-    contents.CreatedTimestamp = new Date(output.CreatedTimestamp);
-  }
-  if (
-    output.OrderedPhoneNumbers !== undefined &&
-    output.OrderedPhoneNumbers !== null
-  ) {
-    contents.OrderedPhoneNumbers = deserializeAws_restJson1_1OrderedPhoneNumberList(
-      output.OrderedPhoneNumbers,
-      context
-    );
-  }
-  if (
-    output.PhoneNumberOrderId !== undefined &&
-    output.PhoneNumberOrderId !== null
-  ) {
-    contents.PhoneNumberOrderId = output.PhoneNumberOrderId;
-  }
-  if (output.ProductType !== undefined && output.ProductType !== null) {
-    contents.ProductType = output.ProductType;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (
-    output.UpdatedTimestamp !== undefined &&
-    output.UpdatedTimestamp !== null
-  ) {
-    contents.UpdatedTimestamp = new Date(output.UpdatedTimestamp);
-  }
-  return contents;
+    CreatedTimestamp:
+      output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
+        ? new Date(output.CreatedTimestamp)
+        : undefined,
+    OrderedPhoneNumbers:
+      output.OrderedPhoneNumbers !== undefined &&
+      output.OrderedPhoneNumbers !== null
+        ? deserializeAws_restJson1_1OrderedPhoneNumberList(
+            output.OrderedPhoneNumbers,
+            context
+          )
+        : undefined,
+    PhoneNumberOrderId:
+      output.PhoneNumberOrderId !== undefined &&
+      output.PhoneNumberOrderId !== null
+        ? output.PhoneNumberOrderId
+        : undefined,
+    ProductType:
+      output.ProductType !== undefined && output.ProductType !== null
+        ? output.ProductType
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    UpdatedTimestamp:
+      output.UpdatedTimestamp !== undefined && output.UpdatedTimestamp !== null
+        ? new Date(output.UpdatedTimestamp)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1PhoneNumberOrderList = (
@@ -17885,40 +17809,33 @@ const deserializeAws_restJson1_1Room = (
   output: any,
   context: __SerdeContext
 ): Room => {
-  let contents: any = {
+  return {
     __type: "Room",
-    AccountId: undefined,
-    CreatedBy: undefined,
-    CreatedTimestamp: undefined,
-    Name: undefined,
-    RoomId: undefined,
-    UpdatedTimestamp: undefined
-  };
-  if (output.AccountId !== undefined && output.AccountId !== null) {
-    contents.AccountId = output.AccountId;
-  }
-  if (output.CreatedBy !== undefined && output.CreatedBy !== null) {
-    contents.CreatedBy = output.CreatedBy;
-  }
-  if (
-    output.CreatedTimestamp !== undefined &&
-    output.CreatedTimestamp !== null
-  ) {
-    contents.CreatedTimestamp = new Date(output.CreatedTimestamp);
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.RoomId !== undefined && output.RoomId !== null) {
-    contents.RoomId = output.RoomId;
-  }
-  if (
-    output.UpdatedTimestamp !== undefined &&
-    output.UpdatedTimestamp !== null
-  ) {
-    contents.UpdatedTimestamp = new Date(output.UpdatedTimestamp);
-  }
-  return contents;
+    AccountId:
+      output.AccountId !== undefined && output.AccountId !== null
+        ? output.AccountId
+        : undefined,
+    CreatedBy:
+      output.CreatedBy !== undefined && output.CreatedBy !== null
+        ? output.CreatedBy
+        : undefined,
+    CreatedTimestamp:
+      output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
+        ? new Date(output.CreatedTimestamp)
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    RoomId:
+      output.RoomId !== undefined && output.RoomId !== null
+        ? output.RoomId
+        : undefined,
+    UpdatedTimestamp:
+      output.UpdatedTimestamp !== undefined && output.UpdatedTimestamp !== null
+        ? new Date(output.UpdatedTimestamp)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1RoomList = (
@@ -17934,33 +17851,29 @@ const deserializeAws_restJson1_1RoomMembership = (
   output: any,
   context: __SerdeContext
 ): RoomMembership => {
-  let contents: any = {
+  return {
     __type: "RoomMembership",
-    InvitedBy: undefined,
-    Member: undefined,
-    Role: undefined,
-    RoomId: undefined,
-    UpdatedTimestamp: undefined
-  };
-  if (output.InvitedBy !== undefined && output.InvitedBy !== null) {
-    contents.InvitedBy = output.InvitedBy;
-  }
-  if (output.Member !== undefined && output.Member !== null) {
-    contents.Member = deserializeAws_restJson1_1Member(output.Member, context);
-  }
-  if (output.Role !== undefined && output.Role !== null) {
-    contents.Role = output.Role;
-  }
-  if (output.RoomId !== undefined && output.RoomId !== null) {
-    contents.RoomId = output.RoomId;
-  }
-  if (
-    output.UpdatedTimestamp !== undefined &&
-    output.UpdatedTimestamp !== null
-  ) {
-    contents.UpdatedTimestamp = new Date(output.UpdatedTimestamp);
-  }
-  return contents;
+    InvitedBy:
+      output.InvitedBy !== undefined && output.InvitedBy !== null
+        ? output.InvitedBy
+        : undefined,
+    Member:
+      output.Member !== undefined && output.Member !== null
+        ? deserializeAws_restJson1_1Member(output.Member, context)
+        : undefined,
+    Role:
+      output.Role !== undefined && output.Role !== null
+        ? output.Role
+        : undefined,
+    RoomId:
+      output.RoomId !== undefined && output.RoomId !== null
+        ? output.RoomId
+        : undefined,
+    UpdatedTimestamp:
+      output.UpdatedTimestamp !== undefined && output.UpdatedTimestamp !== null
+        ? new Date(output.UpdatedTimestamp)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1RoomMembershipList = (
@@ -17983,14 +17896,13 @@ const deserializeAws_restJson1_1SigninDelegateGroup = (
   output: any,
   context: __SerdeContext
 ): SigninDelegateGroup => {
-  let contents: any = {
+  return {
     __type: "SigninDelegateGroup",
-    GroupName: undefined
-  };
-  if (output.GroupName !== undefined && output.GroupName !== null) {
-    contents.GroupName = output.GroupName;
-  }
-  return contents;
+    GroupName:
+      output.GroupName !== undefined && output.GroupName !== null
+        ? output.GroupName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SigninDelegateGroupList = (
@@ -18006,21 +17918,18 @@ const deserializeAws_restJson1_1StreamingConfiguration = (
   output: any,
   context: __SerdeContext
 ): StreamingConfiguration => {
-  let contents: any = {
+  return {
     __type: "StreamingConfiguration",
-    DataRetentionInHours: undefined,
-    Disabled: undefined
-  };
-  if (
-    output.DataRetentionInHours !== undefined &&
-    output.DataRetentionInHours !== null
-  ) {
-    contents.DataRetentionInHours = output.DataRetentionInHours;
-  }
-  if (output.Disabled !== undefined && output.Disabled !== null) {
-    contents.Disabled = output.Disabled;
-  }
-  return contents;
+    DataRetentionInHours:
+      output.DataRetentionInHours !== undefined &&
+      output.DataRetentionInHours !== null
+        ? output.DataRetentionInHours
+        : undefined,
+    Disabled:
+      output.Disabled !== undefined && output.Disabled !== null
+        ? output.Disabled
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1StringList = (
@@ -18034,178 +17943,158 @@ const deserializeAws_restJson1_1TelephonySettings = (
   output: any,
   context: __SerdeContext
 ): TelephonySettings => {
-  let contents: any = {
+  return {
     __type: "TelephonySettings",
-    InboundCalling: undefined,
-    OutboundCalling: undefined,
-    SMS: undefined
-  };
-  if (output.InboundCalling !== undefined && output.InboundCalling !== null) {
-    contents.InboundCalling = output.InboundCalling;
-  }
-  if (output.OutboundCalling !== undefined && output.OutboundCalling !== null) {
-    contents.OutboundCalling = output.OutboundCalling;
-  }
-  if (output.SMS !== undefined && output.SMS !== null) {
-    contents.SMS = output.SMS;
-  }
-  return contents;
+    InboundCalling:
+      output.InboundCalling !== undefined && output.InboundCalling !== null
+        ? output.InboundCalling
+        : undefined,
+    OutboundCalling:
+      output.OutboundCalling !== undefined && output.OutboundCalling !== null
+        ? output.OutboundCalling
+        : undefined,
+    SMS:
+      output.SMS !== undefined && output.SMS !== null ? output.SMS : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Termination = (
   output: any,
   context: __SerdeContext
 ): Termination => {
-  let contents: any = {
+  return {
     __type: "Termination",
-    CallingRegions: undefined,
-    CidrAllowedList: undefined,
-    CpsLimit: undefined,
-    DefaultPhoneNumber: undefined,
-    Disabled: undefined
-  };
-  if (output.CallingRegions !== undefined && output.CallingRegions !== null) {
-    contents.CallingRegions = deserializeAws_restJson1_1CallingRegionList(
-      output.CallingRegions,
-      context
-    );
-  }
-  if (output.CidrAllowedList !== undefined && output.CidrAllowedList !== null) {
-    contents.CidrAllowedList = deserializeAws_restJson1_1StringList(
-      output.CidrAllowedList,
-      context
-    );
-  }
-  if (output.CpsLimit !== undefined && output.CpsLimit !== null) {
-    contents.CpsLimit = output.CpsLimit;
-  }
-  if (
-    output.DefaultPhoneNumber !== undefined &&
-    output.DefaultPhoneNumber !== null
-  ) {
-    contents.DefaultPhoneNumber = output.DefaultPhoneNumber;
-  }
-  if (output.Disabled !== undefined && output.Disabled !== null) {
-    contents.Disabled = output.Disabled;
-  }
-  return contents;
+    CallingRegions:
+      output.CallingRegions !== undefined && output.CallingRegions !== null
+        ? deserializeAws_restJson1_1CallingRegionList(
+            output.CallingRegions,
+            context
+          )
+        : undefined,
+    CidrAllowedList:
+      output.CidrAllowedList !== undefined && output.CidrAllowedList !== null
+        ? deserializeAws_restJson1_1StringList(output.CidrAllowedList, context)
+        : undefined,
+    CpsLimit:
+      output.CpsLimit !== undefined && output.CpsLimit !== null
+        ? output.CpsLimit
+        : undefined,
+    DefaultPhoneNumber:
+      output.DefaultPhoneNumber !== undefined &&
+      output.DefaultPhoneNumber !== null
+        ? output.DefaultPhoneNumber
+        : undefined,
+    Disabled:
+      output.Disabled !== undefined && output.Disabled !== null
+        ? output.Disabled
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1TerminationHealth = (
   output: any,
   context: __SerdeContext
 ): TerminationHealth => {
-  let contents: any = {
+  return {
     __type: "TerminationHealth",
-    Source: undefined,
-    Timestamp: undefined
-  };
-  if (output.Source !== undefined && output.Source !== null) {
-    contents.Source = output.Source;
-  }
-  if (output.Timestamp !== undefined && output.Timestamp !== null) {
-    contents.Timestamp = new Date(output.Timestamp);
-  }
-  return contents;
+    Source:
+      output.Source !== undefined && output.Source !== null
+        ? output.Source
+        : undefined,
+    Timestamp:
+      output.Timestamp !== undefined && output.Timestamp !== null
+        ? new Date(output.Timestamp)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1User = (
   output: any,
   context: __SerdeContext
 ): User => {
-  let contents: any = {
+  return {
     __type: "User",
-    AccountId: undefined,
-    AlexaForBusinessMetadata: undefined,
-    DisplayName: undefined,
-    InvitedOn: undefined,
-    LicenseType: undefined,
-    PersonalPIN: undefined,
-    PrimaryEmail: undefined,
-    PrimaryProvisionedNumber: undefined,
-    RegisteredOn: undefined,
-    UserId: undefined,
-    UserInvitationStatus: undefined,
-    UserRegistrationStatus: undefined,
-    UserType: undefined
-  };
-  if (output.AccountId !== undefined && output.AccountId !== null) {
-    contents.AccountId = output.AccountId;
-  }
-  if (
-    output.AlexaForBusinessMetadata !== undefined &&
-    output.AlexaForBusinessMetadata !== null
-  ) {
-    contents.AlexaForBusinessMetadata = deserializeAws_restJson1_1AlexaForBusinessMetadata(
-      output.AlexaForBusinessMetadata,
-      context
-    );
-  }
-  if (output.DisplayName !== undefined && output.DisplayName !== null) {
-    contents.DisplayName = output.DisplayName;
-  }
-  if (output.InvitedOn !== undefined && output.InvitedOn !== null) {
-    contents.InvitedOn = new Date(output.InvitedOn);
-  }
-  if (output.LicenseType !== undefined && output.LicenseType !== null) {
-    contents.LicenseType = output.LicenseType;
-  }
-  if (output.PersonalPIN !== undefined && output.PersonalPIN !== null) {
-    contents.PersonalPIN = output.PersonalPIN;
-  }
-  if (output.PrimaryEmail !== undefined && output.PrimaryEmail !== null) {
-    contents.PrimaryEmail = output.PrimaryEmail;
-  }
-  if (
-    output.PrimaryProvisionedNumber !== undefined &&
-    output.PrimaryProvisionedNumber !== null
-  ) {
-    contents.PrimaryProvisionedNumber = output.PrimaryProvisionedNumber;
-  }
-  if (output.RegisteredOn !== undefined && output.RegisteredOn !== null) {
-    contents.RegisteredOn = new Date(output.RegisteredOn);
-  }
-  if (output.UserId !== undefined && output.UserId !== null) {
-    contents.UserId = output.UserId;
-  }
-  if (
-    output.UserInvitationStatus !== undefined &&
-    output.UserInvitationStatus !== null
-  ) {
-    contents.UserInvitationStatus = output.UserInvitationStatus;
-  }
-  if (
-    output.UserRegistrationStatus !== undefined &&
-    output.UserRegistrationStatus !== null
-  ) {
-    contents.UserRegistrationStatus = output.UserRegistrationStatus;
-  }
-  if (output.UserType !== undefined && output.UserType !== null) {
-    contents.UserType = output.UserType;
-  }
-  return contents;
+    AccountId:
+      output.AccountId !== undefined && output.AccountId !== null
+        ? output.AccountId
+        : undefined,
+    AlexaForBusinessMetadata:
+      output.AlexaForBusinessMetadata !== undefined &&
+      output.AlexaForBusinessMetadata !== null
+        ? deserializeAws_restJson1_1AlexaForBusinessMetadata(
+            output.AlexaForBusinessMetadata,
+            context
+          )
+        : undefined,
+    DisplayName:
+      output.DisplayName !== undefined && output.DisplayName !== null
+        ? output.DisplayName
+        : undefined,
+    InvitedOn:
+      output.InvitedOn !== undefined && output.InvitedOn !== null
+        ? new Date(output.InvitedOn)
+        : undefined,
+    LicenseType:
+      output.LicenseType !== undefined && output.LicenseType !== null
+        ? output.LicenseType
+        : undefined,
+    PersonalPIN:
+      output.PersonalPIN !== undefined && output.PersonalPIN !== null
+        ? output.PersonalPIN
+        : undefined,
+    PrimaryEmail:
+      output.PrimaryEmail !== undefined && output.PrimaryEmail !== null
+        ? output.PrimaryEmail
+        : undefined,
+    PrimaryProvisionedNumber:
+      output.PrimaryProvisionedNumber !== undefined &&
+      output.PrimaryProvisionedNumber !== null
+        ? output.PrimaryProvisionedNumber
+        : undefined,
+    RegisteredOn:
+      output.RegisteredOn !== undefined && output.RegisteredOn !== null
+        ? new Date(output.RegisteredOn)
+        : undefined,
+    UserId:
+      output.UserId !== undefined && output.UserId !== null
+        ? output.UserId
+        : undefined,
+    UserInvitationStatus:
+      output.UserInvitationStatus !== undefined &&
+      output.UserInvitationStatus !== null
+        ? output.UserInvitationStatus
+        : undefined,
+    UserRegistrationStatus:
+      output.UserRegistrationStatus !== undefined &&
+      output.UserRegistrationStatus !== null
+        ? output.UserRegistrationStatus
+        : undefined,
+    UserType:
+      output.UserType !== undefined && output.UserType !== null
+        ? output.UserType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1UserError = (
   output: any,
   context: __SerdeContext
 ): UserError => {
-  let contents: any = {
+  return {
     __type: "UserError",
-    ErrorCode: undefined,
-    ErrorMessage: undefined,
-    UserId: undefined
-  };
-  if (output.ErrorCode !== undefined && output.ErrorCode !== null) {
-    contents.ErrorCode = output.ErrorCode;
-  }
-  if (output.ErrorMessage !== undefined && output.ErrorMessage !== null) {
-    contents.ErrorMessage = output.ErrorMessage;
-  }
-  if (output.UserId !== undefined && output.UserId !== null) {
-    contents.UserId = output.UserId;
-  }
-  return contents;
+    ErrorCode:
+      output.ErrorCode !== undefined && output.ErrorCode !== null
+        ? output.ErrorCode
+        : undefined,
+    ErrorMessage:
+      output.ErrorMessage !== undefined && output.ErrorMessage !== null
+        ? output.ErrorMessage
+        : undefined,
+    UserId:
+      output.UserId !== undefined && output.UserId !== null
+        ? output.UserId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1UserErrorList = (
@@ -18230,115 +18119,85 @@ const deserializeAws_restJson1_1UserSettings = (
   output: any,
   context: __SerdeContext
 ): UserSettings => {
-  let contents: any = {
+  return {
     __type: "UserSettings",
-    Telephony: undefined
-  };
-  if (output.Telephony !== undefined && output.Telephony !== null) {
-    contents.Telephony = deserializeAws_restJson1_1TelephonySettings(
-      output.Telephony,
-      context
-    );
-  }
-  return contents;
+    Telephony:
+      output.Telephony !== undefined && output.Telephony !== null
+        ? deserializeAws_restJson1_1TelephonySettings(output.Telephony, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1VoiceConnector = (
   output: any,
   context: __SerdeContext
 ): VoiceConnector => {
-  let contents: any = {
+  return {
     __type: "VoiceConnector",
-    AwsRegion: undefined,
-    CreatedTimestamp: undefined,
-    Name: undefined,
-    OutboundHostName: undefined,
-    RequireEncryption: undefined,
-    UpdatedTimestamp: undefined,
-    VoiceConnectorId: undefined
-  };
-  if (output.AwsRegion !== undefined && output.AwsRegion !== null) {
-    contents.AwsRegion = output.AwsRegion;
-  }
-  if (
-    output.CreatedTimestamp !== undefined &&
-    output.CreatedTimestamp !== null
-  ) {
-    contents.CreatedTimestamp = new Date(output.CreatedTimestamp);
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (
-    output.OutboundHostName !== undefined &&
-    output.OutboundHostName !== null
-  ) {
-    contents.OutboundHostName = output.OutboundHostName;
-  }
-  if (
-    output.RequireEncryption !== undefined &&
-    output.RequireEncryption !== null
-  ) {
-    contents.RequireEncryption = output.RequireEncryption;
-  }
-  if (
-    output.UpdatedTimestamp !== undefined &&
-    output.UpdatedTimestamp !== null
-  ) {
-    contents.UpdatedTimestamp = new Date(output.UpdatedTimestamp);
-  }
-  if (
-    output.VoiceConnectorId !== undefined &&
-    output.VoiceConnectorId !== null
-  ) {
-    contents.VoiceConnectorId = output.VoiceConnectorId;
-  }
-  return contents;
+    AwsRegion:
+      output.AwsRegion !== undefined && output.AwsRegion !== null
+        ? output.AwsRegion
+        : undefined,
+    CreatedTimestamp:
+      output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
+        ? new Date(output.CreatedTimestamp)
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    OutboundHostName:
+      output.OutboundHostName !== undefined && output.OutboundHostName !== null
+        ? output.OutboundHostName
+        : undefined,
+    RequireEncryption:
+      output.RequireEncryption !== undefined &&
+      output.RequireEncryption !== null
+        ? output.RequireEncryption
+        : undefined,
+    UpdatedTimestamp:
+      output.UpdatedTimestamp !== undefined && output.UpdatedTimestamp !== null
+        ? new Date(output.UpdatedTimestamp)
+        : undefined,
+    VoiceConnectorId:
+      output.VoiceConnectorId !== undefined && output.VoiceConnectorId !== null
+        ? output.VoiceConnectorId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1VoiceConnectorGroup = (
   output: any,
   context: __SerdeContext
 ): VoiceConnectorGroup => {
-  let contents: any = {
+  return {
     __type: "VoiceConnectorGroup",
-    CreatedTimestamp: undefined,
-    Name: undefined,
-    UpdatedTimestamp: undefined,
-    VoiceConnectorGroupId: undefined,
-    VoiceConnectorItems: undefined
-  };
-  if (
-    output.CreatedTimestamp !== undefined &&
-    output.CreatedTimestamp !== null
-  ) {
-    contents.CreatedTimestamp = new Date(output.CreatedTimestamp);
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (
-    output.UpdatedTimestamp !== undefined &&
-    output.UpdatedTimestamp !== null
-  ) {
-    contents.UpdatedTimestamp = new Date(output.UpdatedTimestamp);
-  }
-  if (
-    output.VoiceConnectorGroupId !== undefined &&
-    output.VoiceConnectorGroupId !== null
-  ) {
-    contents.VoiceConnectorGroupId = output.VoiceConnectorGroupId;
-  }
-  if (
-    output.VoiceConnectorItems !== undefined &&
-    output.VoiceConnectorItems !== null
-  ) {
-    contents.VoiceConnectorItems = deserializeAws_restJson1_1VoiceConnectorItemList(
-      output.VoiceConnectorItems,
-      context
-    );
-  }
-  return contents;
+    CreatedTimestamp:
+      output.CreatedTimestamp !== undefined && output.CreatedTimestamp !== null
+        ? new Date(output.CreatedTimestamp)
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    UpdatedTimestamp:
+      output.UpdatedTimestamp !== undefined && output.UpdatedTimestamp !== null
+        ? new Date(output.UpdatedTimestamp)
+        : undefined,
+    VoiceConnectorGroupId:
+      output.VoiceConnectorGroupId !== undefined &&
+      output.VoiceConnectorGroupId !== null
+        ? output.VoiceConnectorGroupId
+        : undefined,
+    VoiceConnectorItems:
+      output.VoiceConnectorItems !== undefined &&
+      output.VoiceConnectorItems !== null
+        ? deserializeAws_restJson1_1VoiceConnectorItemList(
+            output.VoiceConnectorItems,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1VoiceConnectorGroupList = (
@@ -18354,21 +18213,17 @@ const deserializeAws_restJson1_1VoiceConnectorItem = (
   output: any,
   context: __SerdeContext
 ): VoiceConnectorItem => {
-  let contents: any = {
+  return {
     __type: "VoiceConnectorItem",
-    Priority: undefined,
-    VoiceConnectorId: undefined
-  };
-  if (output.Priority !== undefined && output.Priority !== null) {
-    contents.Priority = output.Priority;
-  }
-  if (
-    output.VoiceConnectorId !== undefined &&
-    output.VoiceConnectorId !== null
-  ) {
-    contents.VoiceConnectorId = output.VoiceConnectorId;
-  }
-  return contents;
+    Priority:
+      output.Priority !== undefined && output.Priority !== null
+        ? output.Priority
+        : undefined,
+    VoiceConnectorId:
+      output.VoiceConnectorId !== undefined && output.VoiceConnectorId !== null
+        ? output.VoiceConnectorId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1VoiceConnectorItemList = (
@@ -18393,14 +18248,13 @@ const deserializeAws_restJson1_1VoiceConnectorSettings = (
   output: any,
   context: __SerdeContext
 ): VoiceConnectorSettings => {
-  let contents: any = {
+  return {
     __type: "VoiceConnectorSettings",
-    CdrBucket: undefined
-  };
-  if (output.CdrBucket !== undefined && output.CdrBucket !== null) {
-    contents.CdrBucket = output.CdrBucket;
-  }
-  return contents;
+    CdrBucket:
+      output.CdrBucket !== undefined && output.CdrBucket !== null
+        ? output.CdrBucket
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

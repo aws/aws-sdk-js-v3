@@ -448,18 +448,17 @@ const deserializeAws_restJson1_1Alternative = (
   output: any,
   context: __SerdeContext
 ): Alternative => {
-  let contents: any = {
+  return {
     __type: "Alternative",
-    Items: undefined,
-    Transcript: undefined
-  };
-  if (output.Items !== undefined && output.Items !== null) {
-    contents.Items = deserializeAws_restJson1_1ItemList(output.Items, context);
-  }
-  if (output.Transcript !== undefined && output.Transcript !== null) {
-    contents.Transcript = output.Transcript;
-  }
-  return contents;
+    Items:
+      output.Items !== undefined && output.Items !== null
+        ? deserializeAws_restJson1_1ItemList(output.Items, context)
+        : undefined,
+    Transcript:
+      output.Transcript !== undefined && output.Transcript !== null
+        ? output.Transcript
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1AlternativeList = (
@@ -475,26 +474,25 @@ const deserializeAws_restJson1_1Item = (
   output: any,
   context: __SerdeContext
 ): Item => {
-  let contents: any = {
+  return {
     __type: "Item",
-    Content: undefined,
-    EndTime: undefined,
-    StartTime: undefined,
-    Type: undefined
-  };
-  if (output.Content !== undefined && output.Content !== null) {
-    contents.Content = output.Content;
-  }
-  if (output.EndTime !== undefined && output.EndTime !== null) {
-    contents.EndTime = output.EndTime;
-  }
-  if (output.StartTime !== undefined && output.StartTime !== null) {
-    contents.StartTime = output.StartTime;
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    Content:
+      output.Content !== undefined && output.Content !== null
+        ? output.Content
+        : undefined,
+    EndTime:
+      output.EndTime !== undefined && output.EndTime !== null
+        ? output.EndTime
+        : undefined,
+    StartTime:
+      output.StartTime !== undefined && output.StartTime !== null
+        ? output.StartTime
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ItemList = (
@@ -510,33 +508,32 @@ const deserializeAws_restJson1_1Result = (
   output: any,
   context: __SerdeContext
 ): Result => {
-  let contents: any = {
+  return {
     __type: "Result",
-    Alternatives: undefined,
-    EndTime: undefined,
-    IsPartial: undefined,
-    ResultId: undefined,
-    StartTime: undefined
-  };
-  if (output.Alternatives !== undefined && output.Alternatives !== null) {
-    contents.Alternatives = deserializeAws_restJson1_1AlternativeList(
-      output.Alternatives,
-      context
-    );
-  }
-  if (output.EndTime !== undefined && output.EndTime !== null) {
-    contents.EndTime = output.EndTime;
-  }
-  if (output.IsPartial !== undefined && output.IsPartial !== null) {
-    contents.IsPartial = output.IsPartial;
-  }
-  if (output.ResultId !== undefined && output.ResultId !== null) {
-    contents.ResultId = output.ResultId;
-  }
-  if (output.StartTime !== undefined && output.StartTime !== null) {
-    contents.StartTime = output.StartTime;
-  }
-  return contents;
+    Alternatives:
+      output.Alternatives !== undefined && output.Alternatives !== null
+        ? deserializeAws_restJson1_1AlternativeList(
+            output.Alternatives,
+            context
+          )
+        : undefined,
+    EndTime:
+      output.EndTime !== undefined && output.EndTime !== null
+        ? output.EndTime
+        : undefined,
+    IsPartial:
+      output.IsPartial !== undefined && output.IsPartial !== null
+        ? output.IsPartial
+        : undefined,
+    ResultId:
+      output.ResultId !== undefined && output.ResultId !== null
+        ? output.ResultId
+        : undefined,
+    StartTime:
+      output.StartTime !== undefined && output.StartTime !== null
+        ? output.StartTime
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ResultList = (
@@ -552,34 +549,26 @@ const deserializeAws_restJson1_1Transcript = (
   output: any,
   context: __SerdeContext
 ): Transcript => {
-  let contents: any = {
+  return {
     __type: "Transcript",
-    Results: undefined
-  };
-  if (output.Results !== undefined && output.Results !== null) {
-    contents.Results = deserializeAws_restJson1_1ResultList(
-      output.Results,
-      context
-    );
-  }
-  return contents;
+    Results:
+      output.Results !== undefined && output.Results !== null
+        ? deserializeAws_restJson1_1ResultList(output.Results, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1TranscriptEvent = (
   output: any,
   context: __SerdeContext
 ): TranscriptEvent => {
-  let contents: any = {
+  return {
     __type: "TranscriptEvent",
-    Transcript: undefined
-  };
-  if (output.Transcript !== undefined && output.Transcript !== null) {
-    contents.Transcript = deserializeAws_restJson1_1Transcript(
-      output.Transcript,
-      context
-    );
-  }
-  return contents;
+    Transcript:
+      output.Transcript !== undefined && output.Transcript !== null
+        ? deserializeAws_restJson1_1Transcript(output.Transcript, context)
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

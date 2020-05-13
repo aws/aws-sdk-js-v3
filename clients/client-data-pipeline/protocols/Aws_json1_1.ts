@@ -2693,233 +2693,206 @@ const deserializeAws_json1_1ActivatePipelineOutput = (
   output: any,
   context: __SerdeContext
 ): ActivatePipelineOutput => {
-  let contents: any = {
+  return {
     __type: "ActivatePipelineOutput"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1AddTagsOutput = (
   output: any,
   context: __SerdeContext
 ): AddTagsOutput => {
-  let contents: any = {
+  return {
     __type: "AddTagsOutput"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1CreatePipelineOutput = (
   output: any,
   context: __SerdeContext
 ): CreatePipelineOutput => {
-  let contents: any = {
+  return {
     __type: "CreatePipelineOutput",
-    pipelineId: undefined
-  };
-  if (output.pipelineId !== undefined && output.pipelineId !== null) {
-    contents.pipelineId = output.pipelineId;
-  }
-  return contents;
+    pipelineId:
+      output.pipelineId !== undefined && output.pipelineId !== null
+        ? output.pipelineId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeactivatePipelineOutput = (
   output: any,
   context: __SerdeContext
 ): DeactivatePipelineOutput => {
-  let contents: any = {
+  return {
     __type: "DeactivatePipelineOutput"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeObjectsOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeObjectsOutput => {
-  let contents: any = {
+  return {
     __type: "DescribeObjectsOutput",
-    hasMoreResults: undefined,
-    marker: undefined,
-    pipelineObjects: undefined
-  };
-  if (output.hasMoreResults !== undefined && output.hasMoreResults !== null) {
-    contents.hasMoreResults = output.hasMoreResults;
-  }
-  if (output.marker !== undefined && output.marker !== null) {
-    contents.marker = output.marker;
-  }
-  if (output.pipelineObjects !== undefined && output.pipelineObjects !== null) {
-    contents.pipelineObjects = deserializeAws_json1_1PipelineObjectList(
-      output.pipelineObjects,
-      context
-    );
-  }
-  return contents;
+    hasMoreResults:
+      output.hasMoreResults !== undefined && output.hasMoreResults !== null
+        ? output.hasMoreResults
+        : undefined,
+    marker:
+      output.marker !== undefined && output.marker !== null
+        ? output.marker
+        : undefined,
+    pipelineObjects:
+      output.pipelineObjects !== undefined && output.pipelineObjects !== null
+        ? deserializeAws_json1_1PipelineObjectList(
+            output.pipelineObjects,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribePipelinesOutput = (
   output: any,
   context: __SerdeContext
 ): DescribePipelinesOutput => {
-  let contents: any = {
+  return {
     __type: "DescribePipelinesOutput",
-    pipelineDescriptionList: undefined
-  };
-  if (
-    output.pipelineDescriptionList !== undefined &&
-    output.pipelineDescriptionList !== null
-  ) {
-    contents.pipelineDescriptionList = deserializeAws_json1_1PipelineDescriptionList(
-      output.pipelineDescriptionList,
-      context
-    );
-  }
-  return contents;
+    pipelineDescriptionList:
+      output.pipelineDescriptionList !== undefined &&
+      output.pipelineDescriptionList !== null
+        ? deserializeAws_json1_1PipelineDescriptionList(
+            output.pipelineDescriptionList,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EvaluateExpressionOutput = (
   output: any,
   context: __SerdeContext
 ): EvaluateExpressionOutput => {
-  let contents: any = {
+  return {
     __type: "EvaluateExpressionOutput",
-    evaluatedExpression: undefined
-  };
-  if (
-    output.evaluatedExpression !== undefined &&
-    output.evaluatedExpression !== null
-  ) {
-    contents.evaluatedExpression = output.evaluatedExpression;
-  }
-  return contents;
+    evaluatedExpression:
+      output.evaluatedExpression !== undefined &&
+      output.evaluatedExpression !== null
+        ? output.evaluatedExpression
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Field = (
   output: any,
   context: __SerdeContext
 ): Field => {
-  let contents: any = {
+  return {
     __type: "Field",
-    key: undefined,
-    refValue: undefined,
-    stringValue: undefined
-  };
-  if (output.key !== undefined && output.key !== null) {
-    contents.key = output.key;
-  }
-  if (output.refValue !== undefined && output.refValue !== null) {
-    contents.refValue = output.refValue;
-  }
-  if (output.stringValue !== undefined && output.stringValue !== null) {
-    contents.stringValue = output.stringValue;
-  }
-  return contents;
+    key:
+      output.key !== undefined && output.key !== null ? output.key : undefined,
+    refValue:
+      output.refValue !== undefined && output.refValue !== null
+        ? output.refValue
+        : undefined,
+    stringValue:
+      output.stringValue !== undefined && output.stringValue !== null
+        ? output.stringValue
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetPipelineDefinitionOutput = (
   output: any,
   context: __SerdeContext
 ): GetPipelineDefinitionOutput => {
-  let contents: any = {
+  return {
     __type: "GetPipelineDefinitionOutput",
-    parameterObjects: undefined,
-    parameterValues: undefined,
-    pipelineObjects: undefined
-  };
-  if (
-    output.parameterObjects !== undefined &&
-    output.parameterObjects !== null
-  ) {
-    contents.parameterObjects = deserializeAws_json1_1ParameterObjectList(
-      output.parameterObjects,
-      context
-    );
-  }
-  if (output.parameterValues !== undefined && output.parameterValues !== null) {
-    contents.parameterValues = deserializeAws_json1_1ParameterValueList(
-      output.parameterValues,
-      context
-    );
-  }
-  if (output.pipelineObjects !== undefined && output.pipelineObjects !== null) {
-    contents.pipelineObjects = deserializeAws_json1_1PipelineObjectList(
-      output.pipelineObjects,
-      context
-    );
-  }
-  return contents;
+    parameterObjects:
+      output.parameterObjects !== undefined && output.parameterObjects !== null
+        ? deserializeAws_json1_1ParameterObjectList(
+            output.parameterObjects,
+            context
+          )
+        : undefined,
+    parameterValues:
+      output.parameterValues !== undefined && output.parameterValues !== null
+        ? deserializeAws_json1_1ParameterValueList(
+            output.parameterValues,
+            context
+          )
+        : undefined,
+    pipelineObjects:
+      output.pipelineObjects !== undefined && output.pipelineObjects !== null
+        ? deserializeAws_json1_1PipelineObjectList(
+            output.pipelineObjects,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InternalServiceError = (
   output: any,
   context: __SerdeContext
 ): InternalServiceError => {
-  let contents: any = {
+  return {
     __type: "InternalServiceError",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidRequestException = (
   output: any,
   context: __SerdeContext
 ): InvalidRequestException => {
-  let contents: any = {
+  return {
     __type: "InvalidRequestException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListPipelinesOutput = (
   output: any,
   context: __SerdeContext
 ): ListPipelinesOutput => {
-  let contents: any = {
+  return {
     __type: "ListPipelinesOutput",
-    hasMoreResults: undefined,
-    marker: undefined,
-    pipelineIdList: undefined
-  };
-  if (output.hasMoreResults !== undefined && output.hasMoreResults !== null) {
-    contents.hasMoreResults = output.hasMoreResults;
-  }
-  if (output.marker !== undefined && output.marker !== null) {
-    contents.marker = output.marker;
-  }
-  if (output.pipelineIdList !== undefined && output.pipelineIdList !== null) {
-    contents.pipelineIdList = deserializeAws_json1_1pipelineList(
-      output.pipelineIdList,
-      context
-    );
-  }
-  return contents;
+    hasMoreResults:
+      output.hasMoreResults !== undefined && output.hasMoreResults !== null
+        ? output.hasMoreResults
+        : undefined,
+    marker:
+      output.marker !== undefined && output.marker !== null
+        ? output.marker
+        : undefined,
+    pipelineIdList:
+      output.pipelineIdList !== undefined && output.pipelineIdList !== null
+        ? deserializeAws_json1_1pipelineList(output.pipelineIdList, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ParameterAttribute = (
   output: any,
   context: __SerdeContext
 ): ParameterAttribute => {
-  let contents: any = {
+  return {
     __type: "ParameterAttribute",
-    key: undefined,
-    stringValue: undefined
-  };
-  if (output.key !== undefined && output.key !== null) {
-    contents.key = output.key;
-  }
-  if (output.stringValue !== undefined && output.stringValue !== null) {
-    contents.stringValue = output.stringValue;
-  }
-  return contents;
+    key:
+      output.key !== undefined && output.key !== null ? output.key : undefined,
+    stringValue:
+      output.stringValue !== undefined && output.stringValue !== null
+        ? output.stringValue
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ParameterAttributeList = (
@@ -2935,21 +2908,17 @@ const deserializeAws_json1_1ParameterObject = (
   output: any,
   context: __SerdeContext
 ): ParameterObject => {
-  let contents: any = {
+  return {
     __type: "ParameterObject",
-    attributes: undefined,
-    id: undefined
-  };
-  if (output.attributes !== undefined && output.attributes !== null) {
-    contents.attributes = deserializeAws_json1_1ParameterAttributeList(
-      output.attributes,
-      context
-    );
-  }
-  if (output.id !== undefined && output.id !== null) {
-    contents.id = output.id;
-  }
-  return contents;
+    attributes:
+      output.attributes !== undefined && output.attributes !== null
+        ? deserializeAws_json1_1ParameterAttributeList(
+            output.attributes,
+            context
+          )
+        : undefined,
+    id: output.id !== undefined && output.id !== null ? output.id : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ParameterObjectList = (
@@ -2965,18 +2934,14 @@ const deserializeAws_json1_1ParameterValue = (
   output: any,
   context: __SerdeContext
 ): ParameterValue => {
-  let contents: any = {
+  return {
     __type: "ParameterValue",
-    id: undefined,
-    stringValue: undefined
-  };
-  if (output.id !== undefined && output.id !== null) {
-    contents.id = output.id;
-  }
-  if (output.stringValue !== undefined && output.stringValue !== null) {
-    contents.stringValue = output.stringValue;
-  }
-  return contents;
+    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    stringValue:
+      output.stringValue !== undefined && output.stringValue !== null
+        ? output.stringValue
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ParameterValueList = (
@@ -2992,44 +2957,42 @@ const deserializeAws_json1_1PipelineDeletedException = (
   output: any,
   context: __SerdeContext
 ): PipelineDeletedException => {
-  let contents: any = {
+  return {
     __type: "PipelineDeletedException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PipelineDescription = (
   output: any,
   context: __SerdeContext
 ): PipelineDescription => {
-  let contents: any = {
+  return {
     __type: "PipelineDescription",
-    description: undefined,
-    fields: undefined,
-    name: undefined,
-    pipelineId: undefined,
-    tags: undefined
-  };
-  if (output.description !== undefined && output.description !== null) {
-    contents.description = output.description;
-  }
-  if (output.fields !== undefined && output.fields !== null) {
-    contents.fields = deserializeAws_json1_1fieldList(output.fields, context);
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (output.pipelineId !== undefined && output.pipelineId !== null) {
-    contents.pipelineId = output.pipelineId;
-  }
-  if (output.tags !== undefined && output.tags !== null) {
-    contents.tags = deserializeAws_json1_1tagList(output.tags, context);
-  }
-  return contents;
+    description:
+      output.description !== undefined && output.description !== null
+        ? output.description
+        : undefined,
+    fields:
+      output.fields !== undefined && output.fields !== null
+        ? deserializeAws_json1_1fieldList(output.fields, context)
+        : undefined,
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    pipelineId:
+      output.pipelineId !== undefined && output.pipelineId !== null
+        ? output.pipelineId
+        : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_json1_1tagList(output.tags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PipelineDescriptionList = (
@@ -3045,54 +3008,45 @@ const deserializeAws_json1_1PipelineIdName = (
   output: any,
   context: __SerdeContext
 ): PipelineIdName => {
-  let contents: any = {
+  return {
     __type: "PipelineIdName",
-    id: undefined,
-    name: undefined
-  };
-  if (output.id !== undefined && output.id !== null) {
-    contents.id = output.id;
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  return contents;
+    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PipelineNotFoundException = (
   output: any,
   context: __SerdeContext
 ): PipelineNotFoundException => {
-  let contents: any = {
+  return {
     __type: "PipelineNotFoundException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PipelineObject = (
   output: any,
   context: __SerdeContext
 ): PipelineObject => {
-  let contents: any = {
+  return {
     __type: "PipelineObject",
-    fields: undefined,
-    id: undefined,
-    name: undefined
-  };
-  if (output.fields !== undefined && output.fields !== null) {
-    contents.fields = deserializeAws_json1_1fieldList(output.fields, context);
-  }
-  if (output.id !== undefined && output.id !== null) {
-    contents.id = output.id;
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  return contents;
+    fields:
+      output.fields !== undefined && output.fields !== null
+        ? deserializeAws_json1_1fieldList(output.fields, context)
+        : undefined,
+    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PipelineObjectList = (
@@ -3118,237 +3072,201 @@ const deserializeAws_json1_1PollForTaskOutput = (
   output: any,
   context: __SerdeContext
 ): PollForTaskOutput => {
-  let contents: any = {
+  return {
     __type: "PollForTaskOutput",
-    taskObject: undefined
-  };
-  if (output.taskObject !== undefined && output.taskObject !== null) {
-    contents.taskObject = deserializeAws_json1_1TaskObject(
-      output.taskObject,
-      context
-    );
-  }
-  return contents;
+    taskObject:
+      output.taskObject !== undefined && output.taskObject !== null
+        ? deserializeAws_json1_1TaskObject(output.taskObject, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PutPipelineDefinitionOutput = (
   output: any,
   context: __SerdeContext
 ): PutPipelineDefinitionOutput => {
-  let contents: any = {
+  return {
     __type: "PutPipelineDefinitionOutput",
-    errored: undefined,
-    validationErrors: undefined,
-    validationWarnings: undefined
-  };
-  if (output.errored !== undefined && output.errored !== null) {
-    contents.errored = output.errored;
-  }
-  if (
-    output.validationErrors !== undefined &&
-    output.validationErrors !== null
-  ) {
-    contents.validationErrors = deserializeAws_json1_1ValidationErrors(
-      output.validationErrors,
-      context
-    );
-  }
-  if (
-    output.validationWarnings !== undefined &&
-    output.validationWarnings !== null
-  ) {
-    contents.validationWarnings = deserializeAws_json1_1ValidationWarnings(
-      output.validationWarnings,
-      context
-    );
-  }
-  return contents;
+    errored:
+      output.errored !== undefined && output.errored !== null
+        ? output.errored
+        : undefined,
+    validationErrors:
+      output.validationErrors !== undefined && output.validationErrors !== null
+        ? deserializeAws_json1_1ValidationErrors(
+            output.validationErrors,
+            context
+          )
+        : undefined,
+    validationWarnings:
+      output.validationWarnings !== undefined &&
+      output.validationWarnings !== null
+        ? deserializeAws_json1_1ValidationWarnings(
+            output.validationWarnings,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1QueryObjectsOutput = (
   output: any,
   context: __SerdeContext
 ): QueryObjectsOutput => {
-  let contents: any = {
+  return {
     __type: "QueryObjectsOutput",
-    hasMoreResults: undefined,
-    ids: undefined,
-    marker: undefined
-  };
-  if (output.hasMoreResults !== undefined && output.hasMoreResults !== null) {
-    contents.hasMoreResults = output.hasMoreResults;
-  }
-  if (output.ids !== undefined && output.ids !== null) {
-    contents.ids = deserializeAws_json1_1idList(output.ids, context);
-  }
-  if (output.marker !== undefined && output.marker !== null) {
-    contents.marker = output.marker;
-  }
-  return contents;
+    hasMoreResults:
+      output.hasMoreResults !== undefined && output.hasMoreResults !== null
+        ? output.hasMoreResults
+        : undefined,
+    ids:
+      output.ids !== undefined && output.ids !== null
+        ? deserializeAws_json1_1idList(output.ids, context)
+        : undefined,
+    marker:
+      output.marker !== undefined && output.marker !== null
+        ? output.marker
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RemoveTagsOutput = (
   output: any,
   context: __SerdeContext
 ): RemoveTagsOutput => {
-  let contents: any = {
+  return {
     __type: "RemoveTagsOutput"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1ReportTaskProgressOutput = (
   output: any,
   context: __SerdeContext
 ): ReportTaskProgressOutput => {
-  let contents: any = {
+  return {
     __type: "ReportTaskProgressOutput",
-    canceled: undefined
-  };
-  if (output.canceled !== undefined && output.canceled !== null) {
-    contents.canceled = output.canceled;
-  }
-  return contents;
+    canceled:
+      output.canceled !== undefined && output.canceled !== null
+        ? output.canceled
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ReportTaskRunnerHeartbeatOutput = (
   output: any,
   context: __SerdeContext
 ): ReportTaskRunnerHeartbeatOutput => {
-  let contents: any = {
+  return {
     __type: "ReportTaskRunnerHeartbeatOutput",
-    terminate: undefined
-  };
-  if (output.terminate !== undefined && output.terminate !== null) {
-    contents.terminate = output.terminate;
-  }
-  return contents;
+    terminate:
+      output.terminate !== undefined && output.terminate !== null
+        ? output.terminate
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SetTaskStatusOutput = (
   output: any,
   context: __SerdeContext
 ): SetTaskStatusOutput => {
-  let contents: any = {
+  return {
     __type: "SetTaskStatusOutput"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1Tag = (
   output: any,
   context: __SerdeContext
 ): Tag => {
-  let contents: any = {
+  return {
     __type: "Tag",
-    key: undefined,
-    value: undefined
-  };
-  if (output.key !== undefined && output.key !== null) {
-    contents.key = output.key;
-  }
-  if (output.value !== undefined && output.value !== null) {
-    contents.value = output.value;
-  }
-  return contents;
+    key:
+      output.key !== undefined && output.key !== null ? output.key : undefined,
+    value:
+      output.value !== undefined && output.value !== null
+        ? output.value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TaskNotFoundException = (
   output: any,
   context: __SerdeContext
 ): TaskNotFoundException => {
-  let contents: any = {
+  return {
     __type: "TaskNotFoundException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TaskObject = (
   output: any,
   context: __SerdeContext
 ): TaskObject => {
-  let contents: any = {
+  return {
     __type: "TaskObject",
-    attemptId: undefined,
-    objects: undefined,
-    pipelineId: undefined,
-    taskId: undefined
-  };
-  if (output.attemptId !== undefined && output.attemptId !== null) {
-    contents.attemptId = output.attemptId;
-  }
-  if (output.objects !== undefined && output.objects !== null) {
-    contents.objects = deserializeAws_json1_1PipelineObjectMap(
-      output.objects,
-      context
-    );
-  }
-  if (output.pipelineId !== undefined && output.pipelineId !== null) {
-    contents.pipelineId = output.pipelineId;
-  }
-  if (output.taskId !== undefined && output.taskId !== null) {
-    contents.taskId = output.taskId;
-  }
-  return contents;
+    attemptId:
+      output.attemptId !== undefined && output.attemptId !== null
+        ? output.attemptId
+        : undefined,
+    objects:
+      output.objects !== undefined && output.objects !== null
+        ? deserializeAws_json1_1PipelineObjectMap(output.objects, context)
+        : undefined,
+    pipelineId:
+      output.pipelineId !== undefined && output.pipelineId !== null
+        ? output.pipelineId
+        : undefined,
+    taskId:
+      output.taskId !== undefined && output.taskId !== null
+        ? output.taskId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ValidatePipelineDefinitionOutput = (
   output: any,
   context: __SerdeContext
 ): ValidatePipelineDefinitionOutput => {
-  let contents: any = {
+  return {
     __type: "ValidatePipelineDefinitionOutput",
-    errored: undefined,
-    validationErrors: undefined,
-    validationWarnings: undefined
-  };
-  if (output.errored !== undefined && output.errored !== null) {
-    contents.errored = output.errored;
-  }
-  if (
-    output.validationErrors !== undefined &&
-    output.validationErrors !== null
-  ) {
-    contents.validationErrors = deserializeAws_json1_1ValidationErrors(
-      output.validationErrors,
-      context
-    );
-  }
-  if (
-    output.validationWarnings !== undefined &&
-    output.validationWarnings !== null
-  ) {
-    contents.validationWarnings = deserializeAws_json1_1ValidationWarnings(
-      output.validationWarnings,
-      context
-    );
-  }
-  return contents;
+    errored:
+      output.errored !== undefined && output.errored !== null
+        ? output.errored
+        : undefined,
+    validationErrors:
+      output.validationErrors !== undefined && output.validationErrors !== null
+        ? deserializeAws_json1_1ValidationErrors(
+            output.validationErrors,
+            context
+          )
+        : undefined,
+    validationWarnings:
+      output.validationWarnings !== undefined &&
+      output.validationWarnings !== null
+        ? deserializeAws_json1_1ValidationWarnings(
+            output.validationWarnings,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ValidationError = (
   output: any,
   context: __SerdeContext
 ): ValidationError => {
-  let contents: any = {
+  return {
     __type: "ValidationError",
-    errors: undefined,
-    id: undefined
-  };
-  if (output.errors !== undefined && output.errors !== null) {
-    contents.errors = deserializeAws_json1_1validationMessages(
-      output.errors,
-      context
-    );
-  }
-  if (output.id !== undefined && output.id !== null) {
-    contents.id = output.id;
-  }
-  return contents;
+    errors:
+      output.errors !== undefined && output.errors !== null
+        ? deserializeAws_json1_1validationMessages(output.errors, context)
+        : undefined,
+    id: output.id !== undefined && output.id !== null ? output.id : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ValidationErrors = (
@@ -3364,21 +3282,14 @@ const deserializeAws_json1_1ValidationWarning = (
   output: any,
   context: __SerdeContext
 ): ValidationWarning => {
-  let contents: any = {
+  return {
     __type: "ValidationWarning",
-    id: undefined,
-    warnings: undefined
-  };
-  if (output.id !== undefined && output.id !== null) {
-    contents.id = output.id;
-  }
-  if (output.warnings !== undefined && output.warnings !== null) {
-    contents.warnings = deserializeAws_json1_1validationMessages(
-      output.warnings,
-      context
-    );
-  }
-  return contents;
+    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    warnings:
+      output.warnings !== undefined && output.warnings !== null
+        ? deserializeAws_json1_1validationMessages(output.warnings, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ValidationWarnings = (

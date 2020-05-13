@@ -4948,39 +4948,34 @@ const deserializeAws_restJson1_1CurrentMetric = (
   output: any,
   context: __SerdeContext
 ): CurrentMetric => {
-  let contents: any = {
+  return {
     __type: "CurrentMetric",
-    Name: undefined,
-    Unit: undefined
-  };
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Unit !== undefined && output.Unit !== null) {
-    contents.Unit = output.Unit;
-  }
-  return contents;
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Unit:
+      output.Unit !== undefined && output.Unit !== null
+        ? output.Unit
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1CurrentMetricData = (
   output: any,
   context: __SerdeContext
 ): CurrentMetricData => {
-  let contents: any = {
+  return {
     __type: "CurrentMetricData",
-    Metric: undefined,
-    Value: undefined
-  };
-  if (output.Metric !== undefined && output.Metric !== null) {
-    contents.Metric = deserializeAws_restJson1_1CurrentMetric(
-      output.Metric,
-      context
-    );
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Metric:
+      output.Metric !== undefined && output.Metric !== null
+        ? deserializeAws_restJson1_1CurrentMetric(output.Metric, context)
+        : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1CurrentMetricDataCollections = (
@@ -4996,24 +4991,20 @@ const deserializeAws_restJson1_1CurrentMetricResult = (
   output: any,
   context: __SerdeContext
 ): CurrentMetricResult => {
-  let contents: any = {
+  return {
     __type: "CurrentMetricResult",
-    Collections: undefined,
-    Dimensions: undefined
-  };
-  if (output.Collections !== undefined && output.Collections !== null) {
-    contents.Collections = deserializeAws_restJson1_1CurrentMetricDataCollections(
-      output.Collections,
-      context
-    );
-  }
-  if (output.Dimensions !== undefined && output.Dimensions !== null) {
-    contents.Dimensions = deserializeAws_restJson1_1Dimensions(
-      output.Dimensions,
-      context
-    );
-  }
-  return contents;
+    Collections:
+      output.Collections !== undefined && output.Collections !== null
+        ? deserializeAws_restJson1_1CurrentMetricDataCollections(
+            output.Collections,
+            context
+          )
+        : undefined,
+    Dimensions:
+      output.Dimensions !== undefined && output.Dimensions !== null
+        ? deserializeAws_restJson1_1Dimensions(output.Dimensions, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1CurrentMetricResults = (
@@ -5029,71 +5020,59 @@ const deserializeAws_restJson1_1Dimensions = (
   output: any,
   context: __SerdeContext
 ): Dimensions => {
-  let contents: any = {
+  return {
     __type: "Dimensions",
-    Channel: undefined,
-    Queue: undefined
-  };
-  if (output.Channel !== undefined && output.Channel !== null) {
-    contents.Channel = output.Channel;
-  }
-  if (output.Queue !== undefined && output.Queue !== null) {
-    contents.Queue = deserializeAws_restJson1_1QueueReference(
-      output.Queue,
-      context
-    );
-  }
-  return contents;
+    Channel:
+      output.Channel !== undefined && output.Channel !== null
+        ? output.Channel
+        : undefined,
+    Queue:
+      output.Queue !== undefined && output.Queue !== null
+        ? deserializeAws_restJson1_1QueueReference(output.Queue, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1HistoricalMetric = (
   output: any,
   context: __SerdeContext
 ): HistoricalMetric => {
-  let contents: any = {
+  return {
     __type: "HistoricalMetric",
-    Name: undefined,
-    Statistic: undefined,
-    Threshold: undefined,
-    Unit: undefined
-  };
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Statistic !== undefined && output.Statistic !== null) {
-    contents.Statistic = output.Statistic;
-  }
-  if (output.Threshold !== undefined && output.Threshold !== null) {
-    contents.Threshold = deserializeAws_restJson1_1Threshold(
-      output.Threshold,
-      context
-    );
-  }
-  if (output.Unit !== undefined && output.Unit !== null) {
-    contents.Unit = output.Unit;
-  }
-  return contents;
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Statistic:
+      output.Statistic !== undefined && output.Statistic !== null
+        ? output.Statistic
+        : undefined,
+    Threshold:
+      output.Threshold !== undefined && output.Threshold !== null
+        ? deserializeAws_restJson1_1Threshold(output.Threshold, context)
+        : undefined,
+    Unit:
+      output.Unit !== undefined && output.Unit !== null
+        ? output.Unit
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1HistoricalMetricData = (
   output: any,
   context: __SerdeContext
 ): HistoricalMetricData => {
-  let contents: any = {
+  return {
     __type: "HistoricalMetricData",
-    Metric: undefined,
-    Value: undefined
-  };
-  if (output.Metric !== undefined && output.Metric !== null) {
-    contents.Metric = deserializeAws_restJson1_1HistoricalMetric(
-      output.Metric,
-      context
-    );
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Metric:
+      output.Metric !== undefined && output.Metric !== null
+        ? deserializeAws_restJson1_1HistoricalMetric(output.Metric, context)
+        : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1HistoricalMetricDataCollections = (
@@ -5109,24 +5088,20 @@ const deserializeAws_restJson1_1HistoricalMetricResult = (
   output: any,
   context: __SerdeContext
 ): HistoricalMetricResult => {
-  let contents: any = {
+  return {
     __type: "HistoricalMetricResult",
-    Collections: undefined,
-    Dimensions: undefined
-  };
-  if (output.Collections !== undefined && output.Collections !== null) {
-    contents.Collections = deserializeAws_restJson1_1HistoricalMetricDataCollections(
-      output.Collections,
-      context
-    );
-  }
-  if (output.Dimensions !== undefined && output.Dimensions !== null) {
-    contents.Dimensions = deserializeAws_restJson1_1Dimensions(
-      output.Dimensions,
-      context
-    );
-  }
-  return contents;
+    Collections:
+      output.Collections !== undefined && output.Collections !== null
+        ? deserializeAws_restJson1_1HistoricalMetricDataCollections(
+            output.Collections,
+            context
+          )
+        : undefined,
+    Dimensions:
+      output.Dimensions !== undefined && output.Dimensions !== null
+        ? deserializeAws_restJson1_1Dimensions(output.Dimensions, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1HistoricalMetricResults = (
@@ -5142,62 +5117,49 @@ const deserializeAws_restJson1_1QueueReference = (
   output: any,
   context: __SerdeContext
 ): QueueReference => {
-  let contents: any = {
+  return {
     __type: "QueueReference",
-    Arn: undefined,
-    Id: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Threshold = (
   output: any,
   context: __SerdeContext
 ): Threshold => {
-  let contents: any = {
+  return {
     __type: "Threshold",
-    Comparison: undefined,
-    ThresholdValue: undefined
-  };
-  if (output.Comparison !== undefined && output.Comparison !== null) {
-    contents.Comparison = output.Comparison;
-  }
-  if (output.ThresholdValue !== undefined && output.ThresholdValue !== null) {
-    contents.ThresholdValue = output.ThresholdValue;
-  }
-  return contents;
+    Comparison:
+      output.Comparison !== undefined && output.Comparison !== null
+        ? output.Comparison
+        : undefined,
+    ThresholdValue:
+      output.ThresholdValue !== undefined && output.ThresholdValue !== null
+        ? output.ThresholdValue
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ContactFlowSummary = (
   output: any,
   context: __SerdeContext
 ): ContactFlowSummary => {
-  let contents: any = {
+  return {
     __type: "ContactFlowSummary",
-    Arn: undefined,
-    ContactFlowType: undefined,
-    Id: undefined,
-    Name: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (output.ContactFlowType !== undefined && output.ContactFlowType !== null) {
-    contents.ContactFlowType = output.ContactFlowType;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    ContactFlowType:
+      output.ContactFlowType !== undefined && output.ContactFlowType !== null
+        ? output.ContactFlowType
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ContactFlowSummaryList = (
@@ -5213,91 +5175,67 @@ const deserializeAws_restJson1_1Credentials = (
   output: any,
   context: __SerdeContext
 ): Credentials => {
-  let contents: any = {
+  return {
     __type: "Credentials",
-    AccessToken: undefined,
-    AccessTokenExpiration: undefined,
-    RefreshToken: undefined,
-    RefreshTokenExpiration: undefined
-  };
-  if (output.AccessToken !== undefined && output.AccessToken !== null) {
-    contents.AccessToken = output.AccessToken;
-  }
-  if (
-    output.AccessTokenExpiration !== undefined &&
-    output.AccessTokenExpiration !== null
-  ) {
-    contents.AccessTokenExpiration = new Date(
-      Math.round(output.AccessTokenExpiration * 1000)
-    );
-  }
-  if (output.RefreshToken !== undefined && output.RefreshToken !== null) {
-    contents.RefreshToken = output.RefreshToken;
-  }
-  if (
-    output.RefreshTokenExpiration !== undefined &&
-    output.RefreshTokenExpiration !== null
-  ) {
-    contents.RefreshTokenExpiration = new Date(
-      Math.round(output.RefreshTokenExpiration * 1000)
-    );
-  }
-  return contents;
+    AccessToken:
+      output.AccessToken !== undefined && output.AccessToken !== null
+        ? output.AccessToken
+        : undefined,
+    AccessTokenExpiration:
+      output.AccessTokenExpiration !== undefined &&
+      output.AccessTokenExpiration !== null
+        ? new Date(Math.round(output.AccessTokenExpiration * 1000))
+        : undefined,
+    RefreshToken:
+      output.RefreshToken !== undefined && output.RefreshToken !== null
+        ? output.RefreshToken
+        : undefined,
+    RefreshTokenExpiration:
+      output.RefreshTokenExpiration !== undefined &&
+      output.RefreshTokenExpiration !== null
+        ? new Date(Math.round(output.RefreshTokenExpiration * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1HierarchyGroup = (
   output: any,
   context: __SerdeContext
 ): HierarchyGroup => {
-  let contents: any = {
+  return {
     __type: "HierarchyGroup",
-    Arn: undefined,
-    HierarchyPath: undefined,
-    Id: undefined,
-    LevelId: undefined,
-    Name: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (output.HierarchyPath !== undefined && output.HierarchyPath !== null) {
-    contents.HierarchyPath = deserializeAws_restJson1_1HierarchyPath(
-      output.HierarchyPath,
-      context
-    );
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.LevelId !== undefined && output.LevelId !== null) {
-    contents.LevelId = output.LevelId;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    HierarchyPath:
+      output.HierarchyPath !== undefined && output.HierarchyPath !== null
+        ? deserializeAws_restJson1_1HierarchyPath(output.HierarchyPath, context)
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    LevelId:
+      output.LevelId !== undefined && output.LevelId !== null
+        ? output.LevelId
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1HierarchyGroupSummary = (
   output: any,
   context: __SerdeContext
 ): HierarchyGroupSummary => {
-  let contents: any = {
+  return {
     __type: "HierarchyGroupSummary",
-    Arn: undefined,
-    Id: undefined,
-    Name: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1HierarchyGroupSummaryList = (
@@ -5313,134 +5251,105 @@ const deserializeAws_restJson1_1HierarchyLevel = (
   output: any,
   context: __SerdeContext
 ): HierarchyLevel => {
-  let contents: any = {
+  return {
     __type: "HierarchyLevel",
-    Arn: undefined,
-    Id: undefined,
-    Name: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1HierarchyPath = (
   output: any,
   context: __SerdeContext
 ): HierarchyPath => {
-  let contents: any = {
+  return {
     __type: "HierarchyPath",
-    LevelFive: undefined,
-    LevelFour: undefined,
-    LevelOne: undefined,
-    LevelThree: undefined,
-    LevelTwo: undefined
-  };
-  if (output.LevelFive !== undefined && output.LevelFive !== null) {
-    contents.LevelFive = deserializeAws_restJson1_1HierarchyGroupSummary(
-      output.LevelFive,
-      context
-    );
-  }
-  if (output.LevelFour !== undefined && output.LevelFour !== null) {
-    contents.LevelFour = deserializeAws_restJson1_1HierarchyGroupSummary(
-      output.LevelFour,
-      context
-    );
-  }
-  if (output.LevelOne !== undefined && output.LevelOne !== null) {
-    contents.LevelOne = deserializeAws_restJson1_1HierarchyGroupSummary(
-      output.LevelOne,
-      context
-    );
-  }
-  if (output.LevelThree !== undefined && output.LevelThree !== null) {
-    contents.LevelThree = deserializeAws_restJson1_1HierarchyGroupSummary(
-      output.LevelThree,
-      context
-    );
-  }
-  if (output.LevelTwo !== undefined && output.LevelTwo !== null) {
-    contents.LevelTwo = deserializeAws_restJson1_1HierarchyGroupSummary(
-      output.LevelTwo,
-      context
-    );
-  }
-  return contents;
+    LevelFive:
+      output.LevelFive !== undefined && output.LevelFive !== null
+        ? deserializeAws_restJson1_1HierarchyGroupSummary(
+            output.LevelFive,
+            context
+          )
+        : undefined,
+    LevelFour:
+      output.LevelFour !== undefined && output.LevelFour !== null
+        ? deserializeAws_restJson1_1HierarchyGroupSummary(
+            output.LevelFour,
+            context
+          )
+        : undefined,
+    LevelOne:
+      output.LevelOne !== undefined && output.LevelOne !== null
+        ? deserializeAws_restJson1_1HierarchyGroupSummary(
+            output.LevelOne,
+            context
+          )
+        : undefined,
+    LevelThree:
+      output.LevelThree !== undefined && output.LevelThree !== null
+        ? deserializeAws_restJson1_1HierarchyGroupSummary(
+            output.LevelThree,
+            context
+          )
+        : undefined,
+    LevelTwo:
+      output.LevelTwo !== undefined && output.LevelTwo !== null
+        ? deserializeAws_restJson1_1HierarchyGroupSummary(
+            output.LevelTwo,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1HierarchyStructure = (
   output: any,
   context: __SerdeContext
 ): HierarchyStructure => {
-  let contents: any = {
+  return {
     __type: "HierarchyStructure",
-    LevelFive: undefined,
-    LevelFour: undefined,
-    LevelOne: undefined,
-    LevelThree: undefined,
-    LevelTwo: undefined
-  };
-  if (output.LevelFive !== undefined && output.LevelFive !== null) {
-    contents.LevelFive = deserializeAws_restJson1_1HierarchyLevel(
-      output.LevelFive,
-      context
-    );
-  }
-  if (output.LevelFour !== undefined && output.LevelFour !== null) {
-    contents.LevelFour = deserializeAws_restJson1_1HierarchyLevel(
-      output.LevelFour,
-      context
-    );
-  }
-  if (output.LevelOne !== undefined && output.LevelOne !== null) {
-    contents.LevelOne = deserializeAws_restJson1_1HierarchyLevel(
-      output.LevelOne,
-      context
-    );
-  }
-  if (output.LevelThree !== undefined && output.LevelThree !== null) {
-    contents.LevelThree = deserializeAws_restJson1_1HierarchyLevel(
-      output.LevelThree,
-      context
-    );
-  }
-  if (output.LevelTwo !== undefined && output.LevelTwo !== null) {
-    contents.LevelTwo = deserializeAws_restJson1_1HierarchyLevel(
-      output.LevelTwo,
-      context
-    );
-  }
-  return contents;
+    LevelFive:
+      output.LevelFive !== undefined && output.LevelFive !== null
+        ? deserializeAws_restJson1_1HierarchyLevel(output.LevelFive, context)
+        : undefined,
+    LevelFour:
+      output.LevelFour !== undefined && output.LevelFour !== null
+        ? deserializeAws_restJson1_1HierarchyLevel(output.LevelFour, context)
+        : undefined,
+    LevelOne:
+      output.LevelOne !== undefined && output.LevelOne !== null
+        ? deserializeAws_restJson1_1HierarchyLevel(output.LevelOne, context)
+        : undefined,
+    LevelThree:
+      output.LevelThree !== undefined && output.LevelThree !== null
+        ? deserializeAws_restJson1_1HierarchyLevel(output.LevelThree, context)
+        : undefined,
+    LevelTwo:
+      output.LevelTwo !== undefined && output.LevelTwo !== null
+        ? deserializeAws_restJson1_1HierarchyLevel(output.LevelTwo, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1HoursOfOperationSummary = (
   output: any,
   context: __SerdeContext
 ): HoursOfOperationSummary => {
-  let contents: any = {
+  return {
     __type: "HoursOfOperationSummary",
-    Arn: undefined,
-    Id: undefined,
-    Name: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1HoursOfOperationSummaryList = (
@@ -5456,33 +5365,25 @@ const deserializeAws_restJson1_1PhoneNumberSummary = (
   output: any,
   context: __SerdeContext
 ): PhoneNumberSummary => {
-  let contents: any = {
+  return {
     __type: "PhoneNumberSummary",
-    Arn: undefined,
-    Id: undefined,
-    PhoneNumber: undefined,
-    PhoneNumberCountryCode: undefined,
-    PhoneNumberType: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.PhoneNumber !== undefined && output.PhoneNumber !== null) {
-    contents.PhoneNumber = output.PhoneNumber;
-  }
-  if (
-    output.PhoneNumberCountryCode !== undefined &&
-    output.PhoneNumberCountryCode !== null
-  ) {
-    contents.PhoneNumberCountryCode = output.PhoneNumberCountryCode;
-  }
-  if (output.PhoneNumberType !== undefined && output.PhoneNumberType !== null) {
-    contents.PhoneNumberType = output.PhoneNumberType;
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    PhoneNumber:
+      output.PhoneNumber !== undefined && output.PhoneNumber !== null
+        ? output.PhoneNumber
+        : undefined,
+    PhoneNumberCountryCode:
+      output.PhoneNumberCountryCode !== undefined &&
+      output.PhoneNumberCountryCode !== null
+        ? output.PhoneNumberCountryCode
+        : undefined,
+    PhoneNumberType:
+      output.PhoneNumberType !== undefined && output.PhoneNumberType !== null
+        ? output.PhoneNumberType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1PhoneNumberSummaryList = (
@@ -5498,26 +5399,20 @@ const deserializeAws_restJson1_1QueueSummary = (
   output: any,
   context: __SerdeContext
 ): QueueSummary => {
-  let contents: any = {
+  return {
     __type: "QueueSummary",
-    Arn: undefined,
-    Id: undefined,
-    Name: undefined,
-    QueueType: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.QueueType !== undefined && output.QueueType !== null) {
-    contents.QueueType = output.QueueType;
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    QueueType:
+      output.QueueType !== undefined && output.QueueType !== null
+        ? output.QueueType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1QueueSummaryList = (
@@ -5533,22 +5428,16 @@ const deserializeAws_restJson1_1RoutingProfileSummary = (
   output: any,
   context: __SerdeContext
 ): RoutingProfileSummary => {
-  let contents: any = {
+  return {
     __type: "RoutingProfileSummary",
-    Arn: undefined,
-    Id: undefined,
-    Name: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1RoutingProfileSummaryList = (
@@ -5571,22 +5460,16 @@ const deserializeAws_restJson1_1SecurityProfileSummary = (
   output: any,
   context: __SerdeContext
 ): SecurityProfileSummary => {
-  let contents: any = {
+  return {
     __type: "SecurityProfileSummary",
-    Arn: undefined,
-    Id: undefined,
-    Name: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SecurityProfileSummaryList = (
@@ -5612,141 +5495,114 @@ const deserializeAws_restJson1_1User = (
   output: any,
   context: __SerdeContext
 ): User => {
-  let contents: any = {
+  return {
     __type: "User",
-    Arn: undefined,
-    DirectoryUserId: undefined,
-    HierarchyGroupId: undefined,
-    Id: undefined,
-    IdentityInfo: undefined,
-    PhoneConfig: undefined,
-    RoutingProfileId: undefined,
-    SecurityProfileIds: undefined,
-    Tags: undefined,
-    Username: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (output.DirectoryUserId !== undefined && output.DirectoryUserId !== null) {
-    contents.DirectoryUserId = output.DirectoryUserId;
-  }
-  if (
-    output.HierarchyGroupId !== undefined &&
-    output.HierarchyGroupId !== null
-  ) {
-    contents.HierarchyGroupId = output.HierarchyGroupId;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.IdentityInfo !== undefined && output.IdentityInfo !== null) {
-    contents.IdentityInfo = deserializeAws_restJson1_1UserIdentityInfo(
-      output.IdentityInfo,
-      context
-    );
-  }
-  if (output.PhoneConfig !== undefined && output.PhoneConfig !== null) {
-    contents.PhoneConfig = deserializeAws_restJson1_1UserPhoneConfig(
-      output.PhoneConfig,
-      context
-    );
-  }
-  if (
-    output.RoutingProfileId !== undefined &&
-    output.RoutingProfileId !== null
-  ) {
-    contents.RoutingProfileId = output.RoutingProfileId;
-  }
-  if (
-    output.SecurityProfileIds !== undefined &&
-    output.SecurityProfileIds !== null
-  ) {
-    contents.SecurityProfileIds = deserializeAws_restJson1_1SecurityProfileIds(
-      output.SecurityProfileIds,
-      context
-    );
-  }
-  if (output.Tags !== undefined && output.Tags !== null) {
-    contents.Tags = deserializeAws_restJson1_1TagMap(output.Tags, context);
-  }
-  if (output.Username !== undefined && output.Username !== null) {
-    contents.Username = output.Username;
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    DirectoryUserId:
+      output.DirectoryUserId !== undefined && output.DirectoryUserId !== null
+        ? output.DirectoryUserId
+        : undefined,
+    HierarchyGroupId:
+      output.HierarchyGroupId !== undefined && output.HierarchyGroupId !== null
+        ? output.HierarchyGroupId
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    IdentityInfo:
+      output.IdentityInfo !== undefined && output.IdentityInfo !== null
+        ? deserializeAws_restJson1_1UserIdentityInfo(
+            output.IdentityInfo,
+            context
+          )
+        : undefined,
+    PhoneConfig:
+      output.PhoneConfig !== undefined && output.PhoneConfig !== null
+        ? deserializeAws_restJson1_1UserPhoneConfig(output.PhoneConfig, context)
+        : undefined,
+    RoutingProfileId:
+      output.RoutingProfileId !== undefined && output.RoutingProfileId !== null
+        ? output.RoutingProfileId
+        : undefined,
+    SecurityProfileIds:
+      output.SecurityProfileIds !== undefined &&
+      output.SecurityProfileIds !== null
+        ? deserializeAws_restJson1_1SecurityProfileIds(
+            output.SecurityProfileIds,
+            context
+          )
+        : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_restJson1_1TagMap(output.Tags, context)
+        : undefined,
+    Username:
+      output.Username !== undefined && output.Username !== null
+        ? output.Username
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1UserIdentityInfo = (
   output: any,
   context: __SerdeContext
 ): UserIdentityInfo => {
-  let contents: any = {
+  return {
     __type: "UserIdentityInfo",
-    Email: undefined,
-    FirstName: undefined,
-    LastName: undefined
-  };
-  if (output.Email !== undefined && output.Email !== null) {
-    contents.Email = output.Email;
-  }
-  if (output.FirstName !== undefined && output.FirstName !== null) {
-    contents.FirstName = output.FirstName;
-  }
-  if (output.LastName !== undefined && output.LastName !== null) {
-    contents.LastName = output.LastName;
-  }
-  return contents;
+    Email:
+      output.Email !== undefined && output.Email !== null
+        ? output.Email
+        : undefined,
+    FirstName:
+      output.FirstName !== undefined && output.FirstName !== null
+        ? output.FirstName
+        : undefined,
+    LastName:
+      output.LastName !== undefined && output.LastName !== null
+        ? output.LastName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1UserPhoneConfig = (
   output: any,
   context: __SerdeContext
 ): UserPhoneConfig => {
-  let contents: any = {
+  return {
     __type: "UserPhoneConfig",
-    AfterContactWorkTimeLimit: undefined,
-    AutoAccept: undefined,
-    DeskPhoneNumber: undefined,
-    PhoneType: undefined
-  };
-  if (
-    output.AfterContactWorkTimeLimit !== undefined &&
-    output.AfterContactWorkTimeLimit !== null
-  ) {
-    contents.AfterContactWorkTimeLimit = output.AfterContactWorkTimeLimit;
-  }
-  if (output.AutoAccept !== undefined && output.AutoAccept !== null) {
-    contents.AutoAccept = output.AutoAccept;
-  }
-  if (output.DeskPhoneNumber !== undefined && output.DeskPhoneNumber !== null) {
-    contents.DeskPhoneNumber = output.DeskPhoneNumber;
-  }
-  if (output.PhoneType !== undefined && output.PhoneType !== null) {
-    contents.PhoneType = output.PhoneType;
-  }
-  return contents;
+    AfterContactWorkTimeLimit:
+      output.AfterContactWorkTimeLimit !== undefined &&
+      output.AfterContactWorkTimeLimit !== null
+        ? output.AfterContactWorkTimeLimit
+        : undefined,
+    AutoAccept:
+      output.AutoAccept !== undefined && output.AutoAccept !== null
+        ? output.AutoAccept
+        : undefined,
+    DeskPhoneNumber:
+      output.DeskPhoneNumber !== undefined && output.DeskPhoneNumber !== null
+        ? output.DeskPhoneNumber
+        : undefined,
+    PhoneType:
+      output.PhoneType !== undefined && output.PhoneType !== null
+        ? output.PhoneType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1UserSummary = (
   output: any,
   context: __SerdeContext
 ): UserSummary => {
-  let contents: any = {
+  return {
     __type: "UserSummary",
-    Arn: undefined,
-    Id: undefined,
-    Username: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Username !== undefined && output.Username !== null) {
-    contents.Username = output.Username;
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Username:
+      output.Username !== undefined && output.Username !== null
+        ? output.Username
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1UserSummaryList = (

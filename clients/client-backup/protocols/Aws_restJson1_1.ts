@@ -7324,97 +7324,82 @@ const deserializeAws_restJson1_1BackupJob = (
   output: any,
   context: __SerdeContext
 ): BackupJob => {
-  let contents: any = {
+  return {
     __type: "BackupJob",
-    BackupJobId: undefined,
-    BackupSizeInBytes: undefined,
-    BackupVaultArn: undefined,
-    BackupVaultName: undefined,
-    BytesTransferred: undefined,
-    CompletionDate: undefined,
-    CreatedBy: undefined,
-    CreationDate: undefined,
-    ExpectedCompletionDate: undefined,
-    IamRoleArn: undefined,
-    PercentDone: undefined,
-    RecoveryPointArn: undefined,
-    ResourceArn: undefined,
-    ResourceType: undefined,
-    StartBy: undefined,
-    State: undefined,
-    StatusMessage: undefined
-  };
-  if (output.BackupJobId !== undefined && output.BackupJobId !== null) {
-    contents.BackupJobId = output.BackupJobId;
-  }
-  if (
-    output.BackupSizeInBytes !== undefined &&
-    output.BackupSizeInBytes !== null
-  ) {
-    contents.BackupSizeInBytes = output.BackupSizeInBytes;
-  }
-  if (output.BackupVaultArn !== undefined && output.BackupVaultArn !== null) {
-    contents.BackupVaultArn = output.BackupVaultArn;
-  }
-  if (output.BackupVaultName !== undefined && output.BackupVaultName !== null) {
-    contents.BackupVaultName = output.BackupVaultName;
-  }
-  if (
-    output.BytesTransferred !== undefined &&
-    output.BytesTransferred !== null
-  ) {
-    contents.BytesTransferred = output.BytesTransferred;
-  }
-  if (output.CompletionDate !== undefined && output.CompletionDate !== null) {
-    contents.CompletionDate = new Date(
-      Math.round(output.CompletionDate * 1000)
-    );
-  }
-  if (output.CreatedBy !== undefined && output.CreatedBy !== null) {
-    contents.CreatedBy = deserializeAws_restJson1_1RecoveryPointCreator(
-      output.CreatedBy,
-      context
-    );
-  }
-  if (output.CreationDate !== undefined && output.CreationDate !== null) {
-    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
-  }
-  if (
-    output.ExpectedCompletionDate !== undefined &&
-    output.ExpectedCompletionDate !== null
-  ) {
-    contents.ExpectedCompletionDate = new Date(
-      Math.round(output.ExpectedCompletionDate * 1000)
-    );
-  }
-  if (output.IamRoleArn !== undefined && output.IamRoleArn !== null) {
-    contents.IamRoleArn = output.IamRoleArn;
-  }
-  if (output.PercentDone !== undefined && output.PercentDone !== null) {
-    contents.PercentDone = output.PercentDone;
-  }
-  if (
-    output.RecoveryPointArn !== undefined &&
-    output.RecoveryPointArn !== null
-  ) {
-    contents.RecoveryPointArn = output.RecoveryPointArn;
-  }
-  if (output.ResourceArn !== undefined && output.ResourceArn !== null) {
-    contents.ResourceArn = output.ResourceArn;
-  }
-  if (output.ResourceType !== undefined && output.ResourceType !== null) {
-    contents.ResourceType = output.ResourceType;
-  }
-  if (output.StartBy !== undefined && output.StartBy !== null) {
-    contents.StartBy = new Date(Math.round(output.StartBy * 1000));
-  }
-  if (output.State !== undefined && output.State !== null) {
-    contents.State = output.State;
-  }
-  if (output.StatusMessage !== undefined && output.StatusMessage !== null) {
-    contents.StatusMessage = output.StatusMessage;
-  }
-  return contents;
+    BackupJobId:
+      output.BackupJobId !== undefined && output.BackupJobId !== null
+        ? output.BackupJobId
+        : undefined,
+    BackupSizeInBytes:
+      output.BackupSizeInBytes !== undefined &&
+      output.BackupSizeInBytes !== null
+        ? output.BackupSizeInBytes
+        : undefined,
+    BackupVaultArn:
+      output.BackupVaultArn !== undefined && output.BackupVaultArn !== null
+        ? output.BackupVaultArn
+        : undefined,
+    BackupVaultName:
+      output.BackupVaultName !== undefined && output.BackupVaultName !== null
+        ? output.BackupVaultName
+        : undefined,
+    BytesTransferred:
+      output.BytesTransferred !== undefined && output.BytesTransferred !== null
+        ? output.BytesTransferred
+        : undefined,
+    CompletionDate:
+      output.CompletionDate !== undefined && output.CompletionDate !== null
+        ? new Date(Math.round(output.CompletionDate * 1000))
+        : undefined,
+    CreatedBy:
+      output.CreatedBy !== undefined && output.CreatedBy !== null
+        ? deserializeAws_restJson1_1RecoveryPointCreator(
+            output.CreatedBy,
+            context
+          )
+        : undefined,
+    CreationDate:
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? new Date(Math.round(output.CreationDate * 1000))
+        : undefined,
+    ExpectedCompletionDate:
+      output.ExpectedCompletionDate !== undefined &&
+      output.ExpectedCompletionDate !== null
+        ? new Date(Math.round(output.ExpectedCompletionDate * 1000))
+        : undefined,
+    IamRoleArn:
+      output.IamRoleArn !== undefined && output.IamRoleArn !== null
+        ? output.IamRoleArn
+        : undefined,
+    PercentDone:
+      output.PercentDone !== undefined && output.PercentDone !== null
+        ? output.PercentDone
+        : undefined,
+    RecoveryPointArn:
+      output.RecoveryPointArn !== undefined && output.RecoveryPointArn !== null
+        ? output.RecoveryPointArn
+        : undefined,
+    ResourceArn:
+      output.ResourceArn !== undefined && output.ResourceArn !== null
+        ? output.ResourceArn
+        : undefined,
+    ResourceType:
+      output.ResourceType !== undefined && output.ResourceType !== null
+        ? output.ResourceType
+        : undefined,
+    StartBy:
+      output.StartBy !== undefined && output.StartBy !== null
+        ? new Date(Math.round(output.StartBy * 1000))
+        : undefined,
+    State:
+      output.State !== undefined && output.State !== null
+        ? output.State
+        : undefined,
+    StatusMessage:
+      output.StatusMessage !== undefined && output.StatusMessage !== null
+        ? output.StatusMessage
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1BackupJobsList = (
@@ -7430,21 +7415,17 @@ const deserializeAws_restJson1_1BackupPlan = (
   output: any,
   context: __SerdeContext
 ): BackupPlan => {
-  let contents: any = {
+  return {
     __type: "BackupPlan",
-    BackupPlanName: undefined,
-    Rules: undefined
-  };
-  if (output.BackupPlanName !== undefined && output.BackupPlanName !== null) {
-    contents.BackupPlanName = output.BackupPlanName;
-  }
-  if (output.Rules !== undefined && output.Rules !== null) {
-    contents.Rules = deserializeAws_restJson1_1BackupRules(
-      output.Rules,
-      context
-    );
-  }
-  return contents;
+    BackupPlanName:
+      output.BackupPlanName !== undefined && output.BackupPlanName !== null
+        ? output.BackupPlanName
+        : undefined,
+    Rules:
+      output.Rules !== undefined && output.Rules !== null
+        ? deserializeAws_restJson1_1BackupRules(output.Rules, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1BackupPlanTemplatesList = (
@@ -7460,24 +7441,19 @@ const deserializeAws_restJson1_1BackupPlanTemplatesListMember = (
   output: any,
   context: __SerdeContext
 ): BackupPlanTemplatesListMember => {
-  let contents: any = {
+  return {
     __type: "BackupPlanTemplatesListMember",
-    BackupPlanTemplateId: undefined,
-    BackupPlanTemplateName: undefined
-  };
-  if (
-    output.BackupPlanTemplateId !== undefined &&
-    output.BackupPlanTemplateId !== null
-  ) {
-    contents.BackupPlanTemplateId = output.BackupPlanTemplateId;
-  }
-  if (
-    output.BackupPlanTemplateName !== undefined &&
-    output.BackupPlanTemplateName !== null
-  ) {
-    contents.BackupPlanTemplateName = output.BackupPlanTemplateName;
-  }
-  return contents;
+    BackupPlanTemplateId:
+      output.BackupPlanTemplateId !== undefined &&
+      output.BackupPlanTemplateId !== null
+        ? output.BackupPlanTemplateId
+        : undefined,
+    BackupPlanTemplateName:
+      output.BackupPlanTemplateName !== undefined &&
+      output.BackupPlanTemplateName !== null
+        ? output.BackupPlanTemplateName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1BackupPlanVersionsList = (
@@ -7502,120 +7478,92 @@ const deserializeAws_restJson1_1BackupPlansListMember = (
   output: any,
   context: __SerdeContext
 ): BackupPlansListMember => {
-  let contents: any = {
+  return {
     __type: "BackupPlansListMember",
-    BackupPlanArn: undefined,
-    BackupPlanId: undefined,
-    BackupPlanName: undefined,
-    CreationDate: undefined,
-    CreatorRequestId: undefined,
-    DeletionDate: undefined,
-    LastExecutionDate: undefined,
-    VersionId: undefined
-  };
-  if (output.BackupPlanArn !== undefined && output.BackupPlanArn !== null) {
-    contents.BackupPlanArn = output.BackupPlanArn;
-  }
-  if (output.BackupPlanId !== undefined && output.BackupPlanId !== null) {
-    contents.BackupPlanId = output.BackupPlanId;
-  }
-  if (output.BackupPlanName !== undefined && output.BackupPlanName !== null) {
-    contents.BackupPlanName = output.BackupPlanName;
-  }
-  if (output.CreationDate !== undefined && output.CreationDate !== null) {
-    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
-  }
-  if (
-    output.CreatorRequestId !== undefined &&
-    output.CreatorRequestId !== null
-  ) {
-    contents.CreatorRequestId = output.CreatorRequestId;
-  }
-  if (output.DeletionDate !== undefined && output.DeletionDate !== null) {
-    contents.DeletionDate = new Date(Math.round(output.DeletionDate * 1000));
-  }
-  if (
-    output.LastExecutionDate !== undefined &&
-    output.LastExecutionDate !== null
-  ) {
-    contents.LastExecutionDate = new Date(
-      Math.round(output.LastExecutionDate * 1000)
-    );
-  }
-  if (output.VersionId !== undefined && output.VersionId !== null) {
-    contents.VersionId = output.VersionId;
-  }
-  return contents;
+    BackupPlanArn:
+      output.BackupPlanArn !== undefined && output.BackupPlanArn !== null
+        ? output.BackupPlanArn
+        : undefined,
+    BackupPlanId:
+      output.BackupPlanId !== undefined && output.BackupPlanId !== null
+        ? output.BackupPlanId
+        : undefined,
+    BackupPlanName:
+      output.BackupPlanName !== undefined && output.BackupPlanName !== null
+        ? output.BackupPlanName
+        : undefined,
+    CreationDate:
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? new Date(Math.round(output.CreationDate * 1000))
+        : undefined,
+    CreatorRequestId:
+      output.CreatorRequestId !== undefined && output.CreatorRequestId !== null
+        ? output.CreatorRequestId
+        : undefined,
+    DeletionDate:
+      output.DeletionDate !== undefined && output.DeletionDate !== null
+        ? new Date(Math.round(output.DeletionDate * 1000))
+        : undefined,
+    LastExecutionDate:
+      output.LastExecutionDate !== undefined &&
+      output.LastExecutionDate !== null
+        ? new Date(Math.round(output.LastExecutionDate * 1000))
+        : undefined,
+    VersionId:
+      output.VersionId !== undefined && output.VersionId !== null
+        ? output.VersionId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1BackupRule = (
   output: any,
   context: __SerdeContext
 ): BackupRule => {
-  let contents: any = {
+  return {
     __type: "BackupRule",
-    CompletionWindowMinutes: undefined,
-    CopyActions: undefined,
-    Lifecycle: undefined,
-    RecoveryPointTags: undefined,
-    RuleId: undefined,
-    RuleName: undefined,
-    ScheduleExpression: undefined,
-    StartWindowMinutes: undefined,
-    TargetBackupVaultName: undefined
-  };
-  if (
-    output.CompletionWindowMinutes !== undefined &&
-    output.CompletionWindowMinutes !== null
-  ) {
-    contents.CompletionWindowMinutes = output.CompletionWindowMinutes;
-  }
-  if (output.CopyActions !== undefined && output.CopyActions !== null) {
-    contents.CopyActions = deserializeAws_restJson1_1CopyActions(
-      output.CopyActions,
-      context
-    );
-  }
-  if (output.Lifecycle !== undefined && output.Lifecycle !== null) {
-    contents.Lifecycle = deserializeAws_restJson1_1Lifecycle(
-      output.Lifecycle,
-      context
-    );
-  }
-  if (
-    output.RecoveryPointTags !== undefined &&
-    output.RecoveryPointTags !== null
-  ) {
-    contents.RecoveryPointTags = deserializeAws_restJson1_1Tags(
-      output.RecoveryPointTags,
-      context
-    );
-  }
-  if (output.RuleId !== undefined && output.RuleId !== null) {
-    contents.RuleId = output.RuleId;
-  }
-  if (output.RuleName !== undefined && output.RuleName !== null) {
-    contents.RuleName = output.RuleName;
-  }
-  if (
-    output.ScheduleExpression !== undefined &&
-    output.ScheduleExpression !== null
-  ) {
-    contents.ScheduleExpression = output.ScheduleExpression;
-  }
-  if (
-    output.StartWindowMinutes !== undefined &&
-    output.StartWindowMinutes !== null
-  ) {
-    contents.StartWindowMinutes = output.StartWindowMinutes;
-  }
-  if (
-    output.TargetBackupVaultName !== undefined &&
-    output.TargetBackupVaultName !== null
-  ) {
-    contents.TargetBackupVaultName = output.TargetBackupVaultName;
-  }
-  return contents;
+    CompletionWindowMinutes:
+      output.CompletionWindowMinutes !== undefined &&
+      output.CompletionWindowMinutes !== null
+        ? output.CompletionWindowMinutes
+        : undefined,
+    CopyActions:
+      output.CopyActions !== undefined && output.CopyActions !== null
+        ? deserializeAws_restJson1_1CopyActions(output.CopyActions, context)
+        : undefined,
+    Lifecycle:
+      output.Lifecycle !== undefined && output.Lifecycle !== null
+        ? deserializeAws_restJson1_1Lifecycle(output.Lifecycle, context)
+        : undefined,
+    RecoveryPointTags:
+      output.RecoveryPointTags !== undefined &&
+      output.RecoveryPointTags !== null
+        ? deserializeAws_restJson1_1Tags(output.RecoveryPointTags, context)
+        : undefined,
+    RuleId:
+      output.RuleId !== undefined && output.RuleId !== null
+        ? output.RuleId
+        : undefined,
+    RuleName:
+      output.RuleName !== undefined && output.RuleName !== null
+        ? output.RuleName
+        : undefined,
+    ScheduleExpression:
+      output.ScheduleExpression !== undefined &&
+      output.ScheduleExpression !== null
+        ? output.ScheduleExpression
+        : undefined,
+    StartWindowMinutes:
+      output.StartWindowMinutes !== undefined &&
+      output.StartWindowMinutes !== null
+        ? output.StartWindowMinutes
+        : undefined,
+    TargetBackupVaultName:
+      output.TargetBackupVaultName !== undefined &&
+      output.TargetBackupVaultName !== null
+        ? output.TargetBackupVaultName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1BackupRules = (
@@ -7631,32 +7579,25 @@ const deserializeAws_restJson1_1BackupSelection = (
   output: any,
   context: __SerdeContext
 ): BackupSelection => {
-  let contents: any = {
+  return {
     __type: "BackupSelection",
-    IamRoleArn: undefined,
-    ListOfTags: undefined,
-    Resources: undefined,
-    SelectionName: undefined
-  };
-  if (output.IamRoleArn !== undefined && output.IamRoleArn !== null) {
-    contents.IamRoleArn = output.IamRoleArn;
-  }
-  if (output.ListOfTags !== undefined && output.ListOfTags !== null) {
-    contents.ListOfTags = deserializeAws_restJson1_1ListOfTags(
-      output.ListOfTags,
-      context
-    );
-  }
-  if (output.Resources !== undefined && output.Resources !== null) {
-    contents.Resources = deserializeAws_restJson1_1ResourceArns(
-      output.Resources,
-      context
-    );
-  }
-  if (output.SelectionName !== undefined && output.SelectionName !== null) {
-    contents.SelectionName = output.SelectionName;
-  }
-  return contents;
+    IamRoleArn:
+      output.IamRoleArn !== undefined && output.IamRoleArn !== null
+        ? output.IamRoleArn
+        : undefined,
+    ListOfTags:
+      output.ListOfTags !== undefined && output.ListOfTags !== null
+        ? deserializeAws_restJson1_1ListOfTags(output.ListOfTags, context)
+        : undefined,
+    Resources:
+      output.Resources !== undefined && output.Resources !== null
+        ? deserializeAws_restJson1_1ResourceArns(output.Resources, context)
+        : undefined,
+    SelectionName:
+      output.SelectionName !== undefined && output.SelectionName !== null
+        ? output.SelectionName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1BackupSelectionsList = (
@@ -7672,37 +7613,33 @@ const deserializeAws_restJson1_1BackupSelectionsListMember = (
   output: any,
   context: __SerdeContext
 ): BackupSelectionsListMember => {
-  let contents: any = {
+  return {
     __type: "BackupSelectionsListMember",
-    BackupPlanId: undefined,
-    CreationDate: undefined,
-    CreatorRequestId: undefined,
-    IamRoleArn: undefined,
-    SelectionId: undefined,
-    SelectionName: undefined
-  };
-  if (output.BackupPlanId !== undefined && output.BackupPlanId !== null) {
-    contents.BackupPlanId = output.BackupPlanId;
-  }
-  if (output.CreationDate !== undefined && output.CreationDate !== null) {
-    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
-  }
-  if (
-    output.CreatorRequestId !== undefined &&
-    output.CreatorRequestId !== null
-  ) {
-    contents.CreatorRequestId = output.CreatorRequestId;
-  }
-  if (output.IamRoleArn !== undefined && output.IamRoleArn !== null) {
-    contents.IamRoleArn = output.IamRoleArn;
-  }
-  if (output.SelectionId !== undefined && output.SelectionId !== null) {
-    contents.SelectionId = output.SelectionId;
-  }
-  if (output.SelectionName !== undefined && output.SelectionName !== null) {
-    contents.SelectionName = output.SelectionName;
-  }
-  return contents;
+    BackupPlanId:
+      output.BackupPlanId !== undefined && output.BackupPlanId !== null
+        ? output.BackupPlanId
+        : undefined,
+    CreationDate:
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? new Date(Math.round(output.CreationDate * 1000))
+        : undefined,
+    CreatorRequestId:
+      output.CreatorRequestId !== undefined && output.CreatorRequestId !== null
+        ? output.CreatorRequestId
+        : undefined,
+    IamRoleArn:
+      output.IamRoleArn !== undefined && output.IamRoleArn !== null
+        ? output.IamRoleArn
+        : undefined,
+    SelectionId:
+      output.SelectionId !== undefined && output.SelectionId !== null
+        ? output.SelectionId
+        : undefined,
+    SelectionName:
+      output.SelectionName !== undefined && output.SelectionName !== null
+        ? output.SelectionName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1BackupVaultEvents = (
@@ -7725,112 +7662,91 @@ const deserializeAws_restJson1_1BackupVaultListMember = (
   output: any,
   context: __SerdeContext
 ): BackupVaultListMember => {
-  let contents: any = {
+  return {
     __type: "BackupVaultListMember",
-    BackupVaultArn: undefined,
-    BackupVaultName: undefined,
-    CreationDate: undefined,
-    CreatorRequestId: undefined,
-    EncryptionKeyArn: undefined,
-    NumberOfRecoveryPoints: undefined
-  };
-  if (output.BackupVaultArn !== undefined && output.BackupVaultArn !== null) {
-    contents.BackupVaultArn = output.BackupVaultArn;
-  }
-  if (output.BackupVaultName !== undefined && output.BackupVaultName !== null) {
-    contents.BackupVaultName = output.BackupVaultName;
-  }
-  if (output.CreationDate !== undefined && output.CreationDate !== null) {
-    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
-  }
-  if (
-    output.CreatorRequestId !== undefined &&
-    output.CreatorRequestId !== null
-  ) {
-    contents.CreatorRequestId = output.CreatorRequestId;
-  }
-  if (
-    output.EncryptionKeyArn !== undefined &&
-    output.EncryptionKeyArn !== null
-  ) {
-    contents.EncryptionKeyArn = output.EncryptionKeyArn;
-  }
-  if (
-    output.NumberOfRecoveryPoints !== undefined &&
-    output.NumberOfRecoveryPoints !== null
-  ) {
-    contents.NumberOfRecoveryPoints = output.NumberOfRecoveryPoints;
-  }
-  return contents;
+    BackupVaultArn:
+      output.BackupVaultArn !== undefined && output.BackupVaultArn !== null
+        ? output.BackupVaultArn
+        : undefined,
+    BackupVaultName:
+      output.BackupVaultName !== undefined && output.BackupVaultName !== null
+        ? output.BackupVaultName
+        : undefined,
+    CreationDate:
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? new Date(Math.round(output.CreationDate * 1000))
+        : undefined,
+    CreatorRequestId:
+      output.CreatorRequestId !== undefined && output.CreatorRequestId !== null
+        ? output.CreatorRequestId
+        : undefined,
+    EncryptionKeyArn:
+      output.EncryptionKeyArn !== undefined && output.EncryptionKeyArn !== null
+        ? output.EncryptionKeyArn
+        : undefined,
+    NumberOfRecoveryPoints:
+      output.NumberOfRecoveryPoints !== undefined &&
+      output.NumberOfRecoveryPoints !== null
+        ? output.NumberOfRecoveryPoints
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1CalculatedLifecycle = (
   output: any,
   context: __SerdeContext
 ): CalculatedLifecycle => {
-  let contents: any = {
+  return {
     __type: "CalculatedLifecycle",
-    DeleteAt: undefined,
-    MoveToColdStorageAt: undefined
-  };
-  if (output.DeleteAt !== undefined && output.DeleteAt !== null) {
-    contents.DeleteAt = new Date(Math.round(output.DeleteAt * 1000));
-  }
-  if (
-    output.MoveToColdStorageAt !== undefined &&
-    output.MoveToColdStorageAt !== null
-  ) {
-    contents.MoveToColdStorageAt = new Date(
-      Math.round(output.MoveToColdStorageAt * 1000)
-    );
-  }
-  return contents;
+    DeleteAt:
+      output.DeleteAt !== undefined && output.DeleteAt !== null
+        ? new Date(Math.round(output.DeleteAt * 1000))
+        : undefined,
+    MoveToColdStorageAt:
+      output.MoveToColdStorageAt !== undefined &&
+      output.MoveToColdStorageAt !== null
+        ? new Date(Math.round(output.MoveToColdStorageAt * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Condition = (
   output: any,
   context: __SerdeContext
 ): Condition => {
-  let contents: any = {
+  return {
     __type: "Condition",
-    ConditionKey: undefined,
-    ConditionType: undefined,
-    ConditionValue: undefined
-  };
-  if (output.ConditionKey !== undefined && output.ConditionKey !== null) {
-    contents.ConditionKey = output.ConditionKey;
-  }
-  if (output.ConditionType !== undefined && output.ConditionType !== null) {
-    contents.ConditionType = output.ConditionType;
-  }
-  if (output.ConditionValue !== undefined && output.ConditionValue !== null) {
-    contents.ConditionValue = output.ConditionValue;
-  }
-  return contents;
+    ConditionKey:
+      output.ConditionKey !== undefined && output.ConditionKey !== null
+        ? output.ConditionKey
+        : undefined,
+    ConditionType:
+      output.ConditionType !== undefined && output.ConditionType !== null
+        ? output.ConditionType
+        : undefined,
+    ConditionValue:
+      output.ConditionValue !== undefined && output.ConditionValue !== null
+        ? output.ConditionValue
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1CopyAction = (
   output: any,
   context: __SerdeContext
 ): CopyAction => {
-  let contents: any = {
+  return {
     __type: "CopyAction",
-    DestinationBackupVaultArn: undefined,
-    Lifecycle: undefined
-  };
-  if (
-    output.DestinationBackupVaultArn !== undefined &&
-    output.DestinationBackupVaultArn !== null
-  ) {
-    contents.DestinationBackupVaultArn = output.DestinationBackupVaultArn;
-  }
-  if (output.Lifecycle !== undefined && output.Lifecycle !== null) {
-    contents.Lifecycle = deserializeAws_restJson1_1Lifecycle(
-      output.Lifecycle,
-      context
-    );
-  }
-  return contents;
+    DestinationBackupVaultArn:
+      output.DestinationBackupVaultArn !== undefined &&
+      output.DestinationBackupVaultArn !== null
+        ? output.DestinationBackupVaultArn
+        : undefined,
+    Lifecycle:
+      output.Lifecycle !== undefined && output.Lifecycle !== null
+        ? deserializeAws_restJson1_1Lifecycle(output.Lifecycle, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1CopyActions = (
@@ -7846,86 +7762,73 @@ const deserializeAws_restJson1_1CopyJob = (
   output: any,
   context: __SerdeContext
 ): CopyJob => {
-  let contents: any = {
+  return {
     __type: "CopyJob",
-    BackupSizeInBytes: undefined,
-    CompletionDate: undefined,
-    CopyJobId: undefined,
-    CreatedBy: undefined,
-    CreationDate: undefined,
-    DestinationBackupVaultArn: undefined,
-    DestinationRecoveryPointArn: undefined,
-    IamRoleArn: undefined,
-    ResourceArn: undefined,
-    ResourceType: undefined,
-    SourceBackupVaultArn: undefined,
-    SourceRecoveryPointArn: undefined,
-    State: undefined,
-    StatusMessage: undefined
-  };
-  if (
-    output.BackupSizeInBytes !== undefined &&
-    output.BackupSizeInBytes !== null
-  ) {
-    contents.BackupSizeInBytes = output.BackupSizeInBytes;
-  }
-  if (output.CompletionDate !== undefined && output.CompletionDate !== null) {
-    contents.CompletionDate = new Date(
-      Math.round(output.CompletionDate * 1000)
-    );
-  }
-  if (output.CopyJobId !== undefined && output.CopyJobId !== null) {
-    contents.CopyJobId = output.CopyJobId;
-  }
-  if (output.CreatedBy !== undefined && output.CreatedBy !== null) {
-    contents.CreatedBy = deserializeAws_restJson1_1RecoveryPointCreator(
-      output.CreatedBy,
-      context
-    );
-  }
-  if (output.CreationDate !== undefined && output.CreationDate !== null) {
-    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
-  }
-  if (
-    output.DestinationBackupVaultArn !== undefined &&
-    output.DestinationBackupVaultArn !== null
-  ) {
-    contents.DestinationBackupVaultArn = output.DestinationBackupVaultArn;
-  }
-  if (
-    output.DestinationRecoveryPointArn !== undefined &&
-    output.DestinationRecoveryPointArn !== null
-  ) {
-    contents.DestinationRecoveryPointArn = output.DestinationRecoveryPointArn;
-  }
-  if (output.IamRoleArn !== undefined && output.IamRoleArn !== null) {
-    contents.IamRoleArn = output.IamRoleArn;
-  }
-  if (output.ResourceArn !== undefined && output.ResourceArn !== null) {
-    contents.ResourceArn = output.ResourceArn;
-  }
-  if (output.ResourceType !== undefined && output.ResourceType !== null) {
-    contents.ResourceType = output.ResourceType;
-  }
-  if (
-    output.SourceBackupVaultArn !== undefined &&
-    output.SourceBackupVaultArn !== null
-  ) {
-    contents.SourceBackupVaultArn = output.SourceBackupVaultArn;
-  }
-  if (
-    output.SourceRecoveryPointArn !== undefined &&
-    output.SourceRecoveryPointArn !== null
-  ) {
-    contents.SourceRecoveryPointArn = output.SourceRecoveryPointArn;
-  }
-  if (output.State !== undefined && output.State !== null) {
-    contents.State = output.State;
-  }
-  if (output.StatusMessage !== undefined && output.StatusMessage !== null) {
-    contents.StatusMessage = output.StatusMessage;
-  }
-  return contents;
+    BackupSizeInBytes:
+      output.BackupSizeInBytes !== undefined &&
+      output.BackupSizeInBytes !== null
+        ? output.BackupSizeInBytes
+        : undefined,
+    CompletionDate:
+      output.CompletionDate !== undefined && output.CompletionDate !== null
+        ? new Date(Math.round(output.CompletionDate * 1000))
+        : undefined,
+    CopyJobId:
+      output.CopyJobId !== undefined && output.CopyJobId !== null
+        ? output.CopyJobId
+        : undefined,
+    CreatedBy:
+      output.CreatedBy !== undefined && output.CreatedBy !== null
+        ? deserializeAws_restJson1_1RecoveryPointCreator(
+            output.CreatedBy,
+            context
+          )
+        : undefined,
+    CreationDate:
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? new Date(Math.round(output.CreationDate * 1000))
+        : undefined,
+    DestinationBackupVaultArn:
+      output.DestinationBackupVaultArn !== undefined &&
+      output.DestinationBackupVaultArn !== null
+        ? output.DestinationBackupVaultArn
+        : undefined,
+    DestinationRecoveryPointArn:
+      output.DestinationRecoveryPointArn !== undefined &&
+      output.DestinationRecoveryPointArn !== null
+        ? output.DestinationRecoveryPointArn
+        : undefined,
+    IamRoleArn:
+      output.IamRoleArn !== undefined && output.IamRoleArn !== null
+        ? output.IamRoleArn
+        : undefined,
+    ResourceArn:
+      output.ResourceArn !== undefined && output.ResourceArn !== null
+        ? output.ResourceArn
+        : undefined,
+    ResourceType:
+      output.ResourceType !== undefined && output.ResourceType !== null
+        ? output.ResourceType
+        : undefined,
+    SourceBackupVaultArn:
+      output.SourceBackupVaultArn !== undefined &&
+      output.SourceBackupVaultArn !== null
+        ? output.SourceBackupVaultArn
+        : undefined,
+    SourceRecoveryPointArn:
+      output.SourceRecoveryPointArn !== undefined &&
+      output.SourceRecoveryPointArn !== null
+        ? output.SourceRecoveryPointArn
+        : undefined,
+    State:
+      output.State !== undefined && output.State !== null
+        ? output.State
+        : undefined,
+    StatusMessage:
+      output.StatusMessage !== undefined && output.StatusMessage !== null
+        ? output.StatusMessage
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1CopyJobsList = (
@@ -7941,21 +7844,18 @@ const deserializeAws_restJson1_1Lifecycle = (
   output: any,
   context: __SerdeContext
 ): Lifecycle => {
-  let contents: any = {
+  return {
     __type: "Lifecycle",
-    DeleteAfterDays: undefined,
-    MoveToColdStorageAfterDays: undefined
-  };
-  if (output.DeleteAfterDays !== undefined && output.DeleteAfterDays !== null) {
-    contents.DeleteAfterDays = output.DeleteAfterDays;
-  }
-  if (
-    output.MoveToColdStorageAfterDays !== undefined &&
-    output.MoveToColdStorageAfterDays !== null
-  ) {
-    contents.MoveToColdStorageAfterDays = output.MoveToColdStorageAfterDays;
-  }
-  return contents;
+    DeleteAfterDays:
+      output.DeleteAfterDays !== undefined && output.DeleteAfterDays !== null
+        ? output.DeleteAfterDays
+        : undefined,
+    MoveToColdStorageAfterDays:
+      output.MoveToColdStorageAfterDays !== undefined &&
+      output.MoveToColdStorageAfterDays !== null
+        ? output.MoveToColdStorageAfterDays
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ListOfTags = (
@@ -7981,24 +7881,21 @@ const deserializeAws_restJson1_1ProtectedResource = (
   output: any,
   context: __SerdeContext
 ): ProtectedResource => {
-  let contents: any = {
+  return {
     __type: "ProtectedResource",
-    LastBackupTime: undefined,
-    ResourceArn: undefined,
-    ResourceType: undefined
-  };
-  if (output.LastBackupTime !== undefined && output.LastBackupTime !== null) {
-    contents.LastBackupTime = new Date(
-      Math.round(output.LastBackupTime * 1000)
-    );
-  }
-  if (output.ResourceArn !== undefined && output.ResourceArn !== null) {
-    contents.ResourceArn = output.ResourceArn;
-  }
-  if (output.ResourceType !== undefined && output.ResourceType !== null) {
-    contents.ResourceType = output.ResourceType;
-  }
-  return contents;
+    LastBackupTime:
+      output.LastBackupTime !== undefined && output.LastBackupTime !== null
+        ? new Date(Math.round(output.LastBackupTime * 1000))
+        : undefined,
+    ResourceArn:
+      output.ResourceArn !== undefined && output.ResourceArn !== null
+        ? output.ResourceArn
+        : undefined,
+    ResourceType:
+      output.ResourceType !== undefined && output.ResourceType !== null
+        ? output.ResourceType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ProtectedResourcesList = (
@@ -8014,99 +7911,81 @@ const deserializeAws_restJson1_1RecoveryPointByBackupVault = (
   output: any,
   context: __SerdeContext
 ): RecoveryPointByBackupVault => {
-  let contents: any = {
+  return {
     __type: "RecoveryPointByBackupVault",
-    BackupSizeInBytes: undefined,
-    BackupVaultArn: undefined,
-    BackupVaultName: undefined,
-    CalculatedLifecycle: undefined,
-    CompletionDate: undefined,
-    CreatedBy: undefined,
-    CreationDate: undefined,
-    EncryptionKeyArn: undefined,
-    IamRoleArn: undefined,
-    IsEncrypted: undefined,
-    LastRestoreTime: undefined,
-    Lifecycle: undefined,
-    RecoveryPointArn: undefined,
-    ResourceArn: undefined,
-    ResourceType: undefined,
-    Status: undefined
-  };
-  if (
-    output.BackupSizeInBytes !== undefined &&
-    output.BackupSizeInBytes !== null
-  ) {
-    contents.BackupSizeInBytes = output.BackupSizeInBytes;
-  }
-  if (output.BackupVaultArn !== undefined && output.BackupVaultArn !== null) {
-    contents.BackupVaultArn = output.BackupVaultArn;
-  }
-  if (output.BackupVaultName !== undefined && output.BackupVaultName !== null) {
-    contents.BackupVaultName = output.BackupVaultName;
-  }
-  if (
-    output.CalculatedLifecycle !== undefined &&
-    output.CalculatedLifecycle !== null
-  ) {
-    contents.CalculatedLifecycle = deserializeAws_restJson1_1CalculatedLifecycle(
-      output.CalculatedLifecycle,
-      context
-    );
-  }
-  if (output.CompletionDate !== undefined && output.CompletionDate !== null) {
-    contents.CompletionDate = new Date(
-      Math.round(output.CompletionDate * 1000)
-    );
-  }
-  if (output.CreatedBy !== undefined && output.CreatedBy !== null) {
-    contents.CreatedBy = deserializeAws_restJson1_1RecoveryPointCreator(
-      output.CreatedBy,
-      context
-    );
-  }
-  if (output.CreationDate !== undefined && output.CreationDate !== null) {
-    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
-  }
-  if (
-    output.EncryptionKeyArn !== undefined &&
-    output.EncryptionKeyArn !== null
-  ) {
-    contents.EncryptionKeyArn = output.EncryptionKeyArn;
-  }
-  if (output.IamRoleArn !== undefined && output.IamRoleArn !== null) {
-    contents.IamRoleArn = output.IamRoleArn;
-  }
-  if (output.IsEncrypted !== undefined && output.IsEncrypted !== null) {
-    contents.IsEncrypted = output.IsEncrypted;
-  }
-  if (output.LastRestoreTime !== undefined && output.LastRestoreTime !== null) {
-    contents.LastRestoreTime = new Date(
-      Math.round(output.LastRestoreTime * 1000)
-    );
-  }
-  if (output.Lifecycle !== undefined && output.Lifecycle !== null) {
-    contents.Lifecycle = deserializeAws_restJson1_1Lifecycle(
-      output.Lifecycle,
-      context
-    );
-  }
-  if (
-    output.RecoveryPointArn !== undefined &&
-    output.RecoveryPointArn !== null
-  ) {
-    contents.RecoveryPointArn = output.RecoveryPointArn;
-  }
-  if (output.ResourceArn !== undefined && output.ResourceArn !== null) {
-    contents.ResourceArn = output.ResourceArn;
-  }
-  if (output.ResourceType !== undefined && output.ResourceType !== null) {
-    contents.ResourceType = output.ResourceType;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  return contents;
+    BackupSizeInBytes:
+      output.BackupSizeInBytes !== undefined &&
+      output.BackupSizeInBytes !== null
+        ? output.BackupSizeInBytes
+        : undefined,
+    BackupVaultArn:
+      output.BackupVaultArn !== undefined && output.BackupVaultArn !== null
+        ? output.BackupVaultArn
+        : undefined,
+    BackupVaultName:
+      output.BackupVaultName !== undefined && output.BackupVaultName !== null
+        ? output.BackupVaultName
+        : undefined,
+    CalculatedLifecycle:
+      output.CalculatedLifecycle !== undefined &&
+      output.CalculatedLifecycle !== null
+        ? deserializeAws_restJson1_1CalculatedLifecycle(
+            output.CalculatedLifecycle,
+            context
+          )
+        : undefined,
+    CompletionDate:
+      output.CompletionDate !== undefined && output.CompletionDate !== null
+        ? new Date(Math.round(output.CompletionDate * 1000))
+        : undefined,
+    CreatedBy:
+      output.CreatedBy !== undefined && output.CreatedBy !== null
+        ? deserializeAws_restJson1_1RecoveryPointCreator(
+            output.CreatedBy,
+            context
+          )
+        : undefined,
+    CreationDate:
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? new Date(Math.round(output.CreationDate * 1000))
+        : undefined,
+    EncryptionKeyArn:
+      output.EncryptionKeyArn !== undefined && output.EncryptionKeyArn !== null
+        ? output.EncryptionKeyArn
+        : undefined,
+    IamRoleArn:
+      output.IamRoleArn !== undefined && output.IamRoleArn !== null
+        ? output.IamRoleArn
+        : undefined,
+    IsEncrypted:
+      output.IsEncrypted !== undefined && output.IsEncrypted !== null
+        ? output.IsEncrypted
+        : undefined,
+    LastRestoreTime:
+      output.LastRestoreTime !== undefined && output.LastRestoreTime !== null
+        ? new Date(Math.round(output.LastRestoreTime * 1000))
+        : undefined,
+    Lifecycle:
+      output.Lifecycle !== undefined && output.Lifecycle !== null
+        ? deserializeAws_restJson1_1Lifecycle(output.Lifecycle, context)
+        : undefined,
+    RecoveryPointArn:
+      output.RecoveryPointArn !== undefined && output.RecoveryPointArn !== null
+        ? output.RecoveryPointArn
+        : undefined,
+    ResourceArn:
+      output.ResourceArn !== undefined && output.ResourceArn !== null
+        ? output.ResourceArn
+        : undefined,
+    ResourceType:
+      output.ResourceType !== undefined && output.ResourceType !== null
+        ? output.ResourceType
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1RecoveryPointByBackupVaultList = (
@@ -8122,40 +8001,33 @@ const deserializeAws_restJson1_1RecoveryPointByResource = (
   output: any,
   context: __SerdeContext
 ): RecoveryPointByResource => {
-  let contents: any = {
+  return {
     __type: "RecoveryPointByResource",
-    BackupSizeBytes: undefined,
-    BackupVaultName: undefined,
-    CreationDate: undefined,
-    EncryptionKeyArn: undefined,
-    RecoveryPointArn: undefined,
-    Status: undefined
-  };
-  if (output.BackupSizeBytes !== undefined && output.BackupSizeBytes !== null) {
-    contents.BackupSizeBytes = output.BackupSizeBytes;
-  }
-  if (output.BackupVaultName !== undefined && output.BackupVaultName !== null) {
-    contents.BackupVaultName = output.BackupVaultName;
-  }
-  if (output.CreationDate !== undefined && output.CreationDate !== null) {
-    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
-  }
-  if (
-    output.EncryptionKeyArn !== undefined &&
-    output.EncryptionKeyArn !== null
-  ) {
-    contents.EncryptionKeyArn = output.EncryptionKeyArn;
-  }
-  if (
-    output.RecoveryPointArn !== undefined &&
-    output.RecoveryPointArn !== null
-  ) {
-    contents.RecoveryPointArn = output.RecoveryPointArn;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  return contents;
+    BackupSizeBytes:
+      output.BackupSizeBytes !== undefined && output.BackupSizeBytes !== null
+        ? output.BackupSizeBytes
+        : undefined,
+    BackupVaultName:
+      output.BackupVaultName !== undefined && output.BackupVaultName !== null
+        ? output.BackupVaultName
+        : undefined,
+    CreationDate:
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? new Date(Math.round(output.CreationDate * 1000))
+        : undefined,
+    EncryptionKeyArn:
+      output.EncryptionKeyArn !== undefined && output.EncryptionKeyArn !== null
+        ? output.EncryptionKeyArn
+        : undefined,
+    RecoveryPointArn:
+      output.RecoveryPointArn !== undefined && output.RecoveryPointArn !== null
+        ? output.RecoveryPointArn
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1RecoveryPointByResourceList = (
@@ -8171,29 +8043,26 @@ const deserializeAws_restJson1_1RecoveryPointCreator = (
   output: any,
   context: __SerdeContext
 ): RecoveryPointCreator => {
-  let contents: any = {
+  return {
     __type: "RecoveryPointCreator",
-    BackupPlanArn: undefined,
-    BackupPlanId: undefined,
-    BackupPlanVersion: undefined,
-    BackupRuleId: undefined
-  };
-  if (output.BackupPlanArn !== undefined && output.BackupPlanArn !== null) {
-    contents.BackupPlanArn = output.BackupPlanArn;
-  }
-  if (output.BackupPlanId !== undefined && output.BackupPlanId !== null) {
-    contents.BackupPlanId = output.BackupPlanId;
-  }
-  if (
-    output.BackupPlanVersion !== undefined &&
-    output.BackupPlanVersion !== null
-  ) {
-    contents.BackupPlanVersion = output.BackupPlanVersion;
-  }
-  if (output.BackupRuleId !== undefined && output.BackupRuleId !== null) {
-    contents.BackupRuleId = output.BackupRuleId;
-  }
-  return contents;
+    BackupPlanArn:
+      output.BackupPlanArn !== undefined && output.BackupPlanArn !== null
+        ? output.BackupPlanArn
+        : undefined,
+    BackupPlanId:
+      output.BackupPlanId !== undefined && output.BackupPlanId !== null
+        ? output.BackupPlanId
+        : undefined,
+    BackupPlanVersion:
+      output.BackupPlanVersion !== undefined &&
+      output.BackupPlanVersion !== null
+        ? output.BackupPlanVersion
+        : undefined,
+    BackupRuleId:
+      output.BackupRuleId !== undefined && output.BackupRuleId !== null
+        ? output.BackupRuleId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ResourceArns = (
@@ -8223,69 +8092,56 @@ const deserializeAws_restJson1_1RestoreJobsListMember = (
   output: any,
   context: __SerdeContext
 ): RestoreJobsListMember => {
-  let contents: any = {
+  return {
     __type: "RestoreJobsListMember",
-    BackupSizeInBytes: undefined,
-    CompletionDate: undefined,
-    CreatedResourceArn: undefined,
-    CreationDate: undefined,
-    ExpectedCompletionTimeMinutes: undefined,
-    IamRoleArn: undefined,
-    PercentDone: undefined,
-    RecoveryPointArn: undefined,
-    RestoreJobId: undefined,
-    Status: undefined,
-    StatusMessage: undefined
-  };
-  if (
-    output.BackupSizeInBytes !== undefined &&
-    output.BackupSizeInBytes !== null
-  ) {
-    contents.BackupSizeInBytes = output.BackupSizeInBytes;
-  }
-  if (output.CompletionDate !== undefined && output.CompletionDate !== null) {
-    contents.CompletionDate = new Date(
-      Math.round(output.CompletionDate * 1000)
-    );
-  }
-  if (
-    output.CreatedResourceArn !== undefined &&
-    output.CreatedResourceArn !== null
-  ) {
-    contents.CreatedResourceArn = output.CreatedResourceArn;
-  }
-  if (output.CreationDate !== undefined && output.CreationDate !== null) {
-    contents.CreationDate = new Date(Math.round(output.CreationDate * 1000));
-  }
-  if (
-    output.ExpectedCompletionTimeMinutes !== undefined &&
-    output.ExpectedCompletionTimeMinutes !== null
-  ) {
-    contents.ExpectedCompletionTimeMinutes =
-      output.ExpectedCompletionTimeMinutes;
-  }
-  if (output.IamRoleArn !== undefined && output.IamRoleArn !== null) {
-    contents.IamRoleArn = output.IamRoleArn;
-  }
-  if (output.PercentDone !== undefined && output.PercentDone !== null) {
-    contents.PercentDone = output.PercentDone;
-  }
-  if (
-    output.RecoveryPointArn !== undefined &&
-    output.RecoveryPointArn !== null
-  ) {
-    contents.RecoveryPointArn = output.RecoveryPointArn;
-  }
-  if (output.RestoreJobId !== undefined && output.RestoreJobId !== null) {
-    contents.RestoreJobId = output.RestoreJobId;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.StatusMessage !== undefined && output.StatusMessage !== null) {
-    contents.StatusMessage = output.StatusMessage;
-  }
-  return contents;
+    BackupSizeInBytes:
+      output.BackupSizeInBytes !== undefined &&
+      output.BackupSizeInBytes !== null
+        ? output.BackupSizeInBytes
+        : undefined,
+    CompletionDate:
+      output.CompletionDate !== undefined && output.CompletionDate !== null
+        ? new Date(Math.round(output.CompletionDate * 1000))
+        : undefined,
+    CreatedResourceArn:
+      output.CreatedResourceArn !== undefined &&
+      output.CreatedResourceArn !== null
+        ? output.CreatedResourceArn
+        : undefined,
+    CreationDate:
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? new Date(Math.round(output.CreationDate * 1000))
+        : undefined,
+    ExpectedCompletionTimeMinutes:
+      output.ExpectedCompletionTimeMinutes !== undefined &&
+      output.ExpectedCompletionTimeMinutes !== null
+        ? output.ExpectedCompletionTimeMinutes
+        : undefined,
+    IamRoleArn:
+      output.IamRoleArn !== undefined && output.IamRoleArn !== null
+        ? output.IamRoleArn
+        : undefined,
+    PercentDone:
+      output.PercentDone !== undefined && output.PercentDone !== null
+        ? output.PercentDone
+        : undefined,
+    RecoveryPointArn:
+      output.RecoveryPointArn !== undefined && output.RecoveryPointArn !== null
+        ? output.RecoveryPointArn
+        : undefined,
+    RestoreJobId:
+      output.RestoreJobId !== undefined && output.RestoreJobId !== null
+        ? output.RestoreJobId
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    StatusMessage:
+      output.StatusMessage !== undefined && output.StatusMessage !== null
+        ? output.StatusMessage
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Tags = (

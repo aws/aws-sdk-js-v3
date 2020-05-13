@@ -1735,66 +1735,59 @@ const deserializeAws_json1_1ConcurrentModificationException = (
   output: any,
   context: __SerdeContext
 ): ConcurrentModificationException => {
-  let contents: any = {
+  return {
     __type: "ConcurrentModificationException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidPaginationToken = (
   output: any,
   context: __SerdeContext
 ): InvalidPaginationToken => {
-  let contents: any = {
+  return {
     __type: "InvalidPaginationToken",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UnsupportedLocale = (
   output: any,
   context: __SerdeContext
 ): UnsupportedLocale => {
-  let contents: any = {
+  return {
     __type: "UnsupportedLocale",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeAffectedAccountsForOrganizationResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeAffectedAccountsForOrganizationResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeAffectedAccountsForOrganizationResponse",
-    affectedAccounts: undefined,
-    nextToken: undefined
-  };
-  if (
-    output.affectedAccounts !== undefined &&
-    output.affectedAccounts !== null
-  ) {
-    contents.affectedAccounts = deserializeAws_json1_1affectedAccountsList(
-      output.affectedAccounts,
-      context
-    );
-  }
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  return contents;
+    affectedAccounts:
+      output.affectedAccounts !== undefined && output.affectedAccounts !== null
+        ? deserializeAws_json1_1affectedAccountsList(
+            output.affectedAccounts,
+            context
+          )
+        : undefined,
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationFailedSet = (
@@ -1810,90 +1803,77 @@ const deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeAffectedEntitiesForOrganizationResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeAffectedEntitiesForOrganizationResponse",
-    entities: undefined,
-    failedSet: undefined,
-    nextToken: undefined
-  };
-  if (output.entities !== undefined && output.entities !== null) {
-    contents.entities = deserializeAws_json1_1EntityList(
-      output.entities,
-      context
-    );
-  }
-  if (output.failedSet !== undefined && output.failedSet !== null) {
-    contents.failedSet = deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationFailedSet(
-      output.failedSet,
-      context
-    );
-  }
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  return contents;
+    entities:
+      output.entities !== undefined && output.entities !== null
+        ? deserializeAws_json1_1EntityList(output.entities, context)
+        : undefined,
+    failedSet:
+      output.failedSet !== undefined && output.failedSet !== null
+        ? deserializeAws_json1_1DescribeAffectedEntitiesForOrganizationFailedSet(
+            output.failedSet,
+            context
+          )
+        : undefined,
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeAffectedEntitiesResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeAffectedEntitiesResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeAffectedEntitiesResponse",
-    entities: undefined,
-    nextToken: undefined
-  };
-  if (output.entities !== undefined && output.entities !== null) {
-    contents.entities = deserializeAws_json1_1EntityList(
-      output.entities,
-      context
-    );
-  }
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  return contents;
+    entities:
+      output.entities !== undefined && output.entities !== null
+        ? deserializeAws_json1_1EntityList(output.entities, context)
+        : undefined,
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeEntityAggregatesResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeEntityAggregatesResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeEntityAggregatesResponse",
-    entityAggregates: undefined
-  };
-  if (
-    output.entityAggregates !== undefined &&
-    output.entityAggregates !== null
-  ) {
-    contents.entityAggregates = deserializeAws_json1_1EntityAggregateList(
-      output.entityAggregates,
-      context
-    );
-  }
-  return contents;
+    entityAggregates:
+      output.entityAggregates !== undefined && output.entityAggregates !== null
+        ? deserializeAws_json1_1EntityAggregateList(
+            output.entityAggregates,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeEventAggregatesResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeEventAggregatesResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeEventAggregatesResponse",
-    eventAggregates: undefined,
-    nextToken: undefined
-  };
-  if (output.eventAggregates !== undefined && output.eventAggregates !== null) {
-    contents.eventAggregates = deserializeAws_json1_1EventAggregateList(
-      output.eventAggregates,
-      context
-    );
-  }
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  return contents;
+    eventAggregates:
+      output.eventAggregates !== undefined && output.eventAggregates !== null
+        ? deserializeAws_json1_1EventAggregateList(
+            output.eventAggregates,
+            context
+          )
+        : undefined,
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeEventDetailsFailedSet = (
@@ -1918,24 +1898,23 @@ const deserializeAws_json1_1DescribeEventDetailsForOrganizationResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeEventDetailsForOrganizationResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeEventDetailsForOrganizationResponse",
-    failedSet: undefined,
-    successfulSet: undefined
-  };
-  if (output.failedSet !== undefined && output.failedSet !== null) {
-    contents.failedSet = deserializeAws_json1_1DescribeEventDetailsForOrganizationFailedSet(
-      output.failedSet,
-      context
-    );
-  }
-  if (output.successfulSet !== undefined && output.successfulSet !== null) {
-    contents.successfulSet = deserializeAws_json1_1DescribeEventDetailsForOrganizationSuccessfulSet(
-      output.successfulSet,
-      context
-    );
-  }
-  return contents;
+    failedSet:
+      output.failedSet !== undefined && output.failedSet !== null
+        ? deserializeAws_json1_1DescribeEventDetailsForOrganizationFailedSet(
+            output.failedSet,
+            context
+          )
+        : undefined,
+    successfulSet:
+      output.successfulSet !== undefined && output.successfulSet !== null
+        ? deserializeAws_json1_1DescribeEventDetailsForOrganizationSuccessfulSet(
+            output.successfulSet,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeEventDetailsForOrganizationSuccessfulSet = (
@@ -1951,24 +1930,23 @@ const deserializeAws_json1_1DescribeEventDetailsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeEventDetailsResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeEventDetailsResponse",
-    failedSet: undefined,
-    successfulSet: undefined
-  };
-  if (output.failedSet !== undefined && output.failedSet !== null) {
-    contents.failedSet = deserializeAws_json1_1DescribeEventDetailsFailedSet(
-      output.failedSet,
-      context
-    );
-  }
-  if (output.successfulSet !== undefined && output.successfulSet !== null) {
-    contents.successfulSet = deserializeAws_json1_1DescribeEventDetailsSuccessfulSet(
-      output.successfulSet,
-      context
-    );
-  }
-  return contents;
+    failedSet:
+      output.failedSet !== undefined && output.failedSet !== null
+        ? deserializeAws_json1_1DescribeEventDetailsFailedSet(
+            output.failedSet,
+            context
+          )
+        : undefined,
+    successfulSet:
+      output.successfulSet !== undefined && output.successfulSet !== null
+        ? deserializeAws_json1_1DescribeEventDetailsSuccessfulSet(
+            output.successfulSet,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeEventDetailsSuccessfulSet = (
@@ -1984,78 +1962,65 @@ const deserializeAws_json1_1DescribeEventTypesResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeEventTypesResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeEventTypesResponse",
-    eventTypes: undefined,
-    nextToken: undefined
-  };
-  if (output.eventTypes !== undefined && output.eventTypes !== null) {
-    contents.eventTypes = deserializeAws_json1_1EventTypeList(
-      output.eventTypes,
-      context
-    );
-  }
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  return contents;
+    eventTypes:
+      output.eventTypes !== undefined && output.eventTypes !== null
+        ? deserializeAws_json1_1EventTypeList(output.eventTypes, context)
+        : undefined,
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeEventsForOrganizationResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeEventsForOrganizationResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeEventsForOrganizationResponse",
-    events: undefined,
-    nextToken: undefined
-  };
-  if (output.events !== undefined && output.events !== null) {
-    contents.events = deserializeAws_json1_1OrganizationEventList(
-      output.events,
-      context
-    );
-  }
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  return contents;
+    events:
+      output.events !== undefined && output.events !== null
+        ? deserializeAws_json1_1OrganizationEventList(output.events, context)
+        : undefined,
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeEventsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeEventsResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeEventsResponse",
-    events: undefined,
-    nextToken: undefined
-  };
-  if (output.events !== undefined && output.events !== null) {
-    contents.events = deserializeAws_json1_1EventList(output.events, context);
-  }
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  return contents;
+    events:
+      output.events !== undefined && output.events !== null
+        ? deserializeAws_json1_1EventList(output.events, context)
+        : undefined,
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeHealthServiceStatusForOrganizationResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeHealthServiceStatusForOrganizationResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeHealthServiceStatusForOrganizationResponse",
-    healthServiceAccessStatusForOrganization: undefined
-  };
-  if (
-    output.healthServiceAccessStatusForOrganization !== undefined &&
-    output.healthServiceAccessStatusForOrganization !== null
-  ) {
-    contents.healthServiceAccessStatusForOrganization =
-      output.healthServiceAccessStatusForOrganization;
-  }
-  return contents;
+    healthServiceAccessStatusForOrganization:
+      output.healthServiceAccessStatusForOrganization !== undefined &&
+      output.healthServiceAccessStatusForOrganization !== null
+        ? output.healthServiceAccessStatusForOrganization
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EntityAggregateList = (
@@ -2123,368 +2088,325 @@ const deserializeAws_json1_1AffectedEntity = (
   output: any,
   context: __SerdeContext
 ): AffectedEntity => {
-  let contents: any = {
+  return {
     __type: "AffectedEntity",
-    awsAccountId: undefined,
-    entityArn: undefined,
-    entityUrl: undefined,
-    entityValue: undefined,
-    eventArn: undefined,
-    lastUpdatedTime: undefined,
-    statusCode: undefined,
-    tags: undefined
-  };
-  if (output.awsAccountId !== undefined && output.awsAccountId !== null) {
-    contents.awsAccountId = output.awsAccountId;
-  }
-  if (output.entityArn !== undefined && output.entityArn !== null) {
-    contents.entityArn = output.entityArn;
-  }
-  if (output.entityUrl !== undefined && output.entityUrl !== null) {
-    contents.entityUrl = output.entityUrl;
-  }
-  if (output.entityValue !== undefined && output.entityValue !== null) {
-    contents.entityValue = output.entityValue;
-  }
-  if (output.eventArn !== undefined && output.eventArn !== null) {
-    contents.eventArn = output.eventArn;
-  }
-  if (output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null) {
-    contents.lastUpdatedTime = new Date(
-      Math.round(output.lastUpdatedTime * 1000)
-    );
-  }
-  if (output.statusCode !== undefined && output.statusCode !== null) {
-    contents.statusCode = output.statusCode;
-  }
-  if (output.tags !== undefined && output.tags !== null) {
-    contents.tags = deserializeAws_json1_1tagSet(output.tags, context);
-  }
-  return contents;
+    awsAccountId:
+      output.awsAccountId !== undefined && output.awsAccountId !== null
+        ? output.awsAccountId
+        : undefined,
+    entityArn:
+      output.entityArn !== undefined && output.entityArn !== null
+        ? output.entityArn
+        : undefined,
+    entityUrl:
+      output.entityUrl !== undefined && output.entityUrl !== null
+        ? output.entityUrl
+        : undefined,
+    entityValue:
+      output.entityValue !== undefined && output.entityValue !== null
+        ? output.entityValue
+        : undefined,
+    eventArn:
+      output.eventArn !== undefined && output.eventArn !== null
+        ? output.eventArn
+        : undefined,
+    lastUpdatedTime:
+      output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
+        ? new Date(Math.round(output.lastUpdatedTime * 1000))
+        : undefined,
+    statusCode:
+      output.statusCode !== undefined && output.statusCode !== null
+        ? output.statusCode
+        : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_json1_1tagSet(output.tags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EntityAggregate = (
   output: any,
   context: __SerdeContext
 ): EntityAggregate => {
-  let contents: any = {
+  return {
     __type: "EntityAggregate",
-    count: undefined,
-    eventArn: undefined
-  };
-  if (output.count !== undefined && output.count !== null) {
-    contents.count = output.count;
-  }
-  if (output.eventArn !== undefined && output.eventArn !== null) {
-    contents.eventArn = output.eventArn;
-  }
-  return contents;
+    count:
+      output.count !== undefined && output.count !== null
+        ? output.count
+        : undefined,
+    eventArn:
+      output.eventArn !== undefined && output.eventArn !== null
+        ? output.eventArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Event = (
   output: any,
   context: __SerdeContext
 ): Event => {
-  let contents: any = {
+  return {
     __type: "Event",
-    arn: undefined,
-    availabilityZone: undefined,
-    endTime: undefined,
-    eventTypeCategory: undefined,
-    eventTypeCode: undefined,
-    lastUpdatedTime: undefined,
-    region: undefined,
-    service: undefined,
-    startTime: undefined,
-    statusCode: undefined
-  };
-  if (output.arn !== undefined && output.arn !== null) {
-    contents.arn = output.arn;
-  }
-  if (
-    output.availabilityZone !== undefined &&
-    output.availabilityZone !== null
-  ) {
-    contents.availabilityZone = output.availabilityZone;
-  }
-  if (output.endTime !== undefined && output.endTime !== null) {
-    contents.endTime = new Date(Math.round(output.endTime * 1000));
-  }
-  if (
-    output.eventTypeCategory !== undefined &&
-    output.eventTypeCategory !== null
-  ) {
-    contents.eventTypeCategory = output.eventTypeCategory;
-  }
-  if (output.eventTypeCode !== undefined && output.eventTypeCode !== null) {
-    contents.eventTypeCode = output.eventTypeCode;
-  }
-  if (output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null) {
-    contents.lastUpdatedTime = new Date(
-      Math.round(output.lastUpdatedTime * 1000)
-    );
-  }
-  if (output.region !== undefined && output.region !== null) {
-    contents.region = output.region;
-  }
-  if (output.service !== undefined && output.service !== null) {
-    contents.service = output.service;
-  }
-  if (output.startTime !== undefined && output.startTime !== null) {
-    contents.startTime = new Date(Math.round(output.startTime * 1000));
-  }
-  if (output.statusCode !== undefined && output.statusCode !== null) {
-    contents.statusCode = output.statusCode;
-  }
-  return contents;
+    arn:
+      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    availabilityZone:
+      output.availabilityZone !== undefined && output.availabilityZone !== null
+        ? output.availabilityZone
+        : undefined,
+    endTime:
+      output.endTime !== undefined && output.endTime !== null
+        ? new Date(Math.round(output.endTime * 1000))
+        : undefined,
+    eventTypeCategory:
+      output.eventTypeCategory !== undefined &&
+      output.eventTypeCategory !== null
+        ? output.eventTypeCategory
+        : undefined,
+    eventTypeCode:
+      output.eventTypeCode !== undefined && output.eventTypeCode !== null
+        ? output.eventTypeCode
+        : undefined,
+    lastUpdatedTime:
+      output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
+        ? new Date(Math.round(output.lastUpdatedTime * 1000))
+        : undefined,
+    region:
+      output.region !== undefined && output.region !== null
+        ? output.region
+        : undefined,
+    service:
+      output.service !== undefined && output.service !== null
+        ? output.service
+        : undefined,
+    startTime:
+      output.startTime !== undefined && output.startTime !== null
+        ? new Date(Math.round(output.startTime * 1000))
+        : undefined,
+    statusCode:
+      output.statusCode !== undefined && output.statusCode !== null
+        ? output.statusCode
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EventAggregate = (
   output: any,
   context: __SerdeContext
 ): EventAggregate => {
-  let contents: any = {
+  return {
     __type: "EventAggregate",
-    aggregateValue: undefined,
-    count: undefined
-  };
-  if (output.aggregateValue !== undefined && output.aggregateValue !== null) {
-    contents.aggregateValue = output.aggregateValue;
-  }
-  if (output.count !== undefined && output.count !== null) {
-    contents.count = output.count;
-  }
-  return contents;
+    aggregateValue:
+      output.aggregateValue !== undefined && output.aggregateValue !== null
+        ? output.aggregateValue
+        : undefined,
+    count:
+      output.count !== undefined && output.count !== null
+        ? output.count
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EventDescription = (
   output: any,
   context: __SerdeContext
 ): EventDescription => {
-  let contents: any = {
+  return {
     __type: "EventDescription",
-    latestDescription: undefined
-  };
-  if (
-    output.latestDescription !== undefined &&
-    output.latestDescription !== null
-  ) {
-    contents.latestDescription = output.latestDescription;
-  }
-  return contents;
+    latestDescription:
+      output.latestDescription !== undefined &&
+      output.latestDescription !== null
+        ? output.latestDescription
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EventDetails = (
   output: any,
   context: __SerdeContext
 ): EventDetails => {
-  let contents: any = {
+  return {
     __type: "EventDetails",
-    event: undefined,
-    eventDescription: undefined,
-    eventMetadata: undefined
-  };
-  if (output.event !== undefined && output.event !== null) {
-    contents.event = deserializeAws_json1_1Event(output.event, context);
-  }
-  if (
-    output.eventDescription !== undefined &&
-    output.eventDescription !== null
-  ) {
-    contents.eventDescription = deserializeAws_json1_1EventDescription(
-      output.eventDescription,
-      context
-    );
-  }
-  if (output.eventMetadata !== undefined && output.eventMetadata !== null) {
-    contents.eventMetadata = deserializeAws_json1_1eventMetadata(
-      output.eventMetadata,
-      context
-    );
-  }
-  return contents;
+    event:
+      output.event !== undefined && output.event !== null
+        ? deserializeAws_json1_1Event(output.event, context)
+        : undefined,
+    eventDescription:
+      output.eventDescription !== undefined && output.eventDescription !== null
+        ? deserializeAws_json1_1EventDescription(
+            output.eventDescription,
+            context
+          )
+        : undefined,
+    eventMetadata:
+      output.eventMetadata !== undefined && output.eventMetadata !== null
+        ? deserializeAws_json1_1eventMetadata(output.eventMetadata, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EventDetailsErrorItem = (
   output: any,
   context: __SerdeContext
 ): EventDetailsErrorItem => {
-  let contents: any = {
+  return {
     __type: "EventDetailsErrorItem",
-    errorMessage: undefined,
-    errorName: undefined,
-    eventArn: undefined
-  };
-  if (output.errorMessage !== undefined && output.errorMessage !== null) {
-    contents.errorMessage = output.errorMessage;
-  }
-  if (output.errorName !== undefined && output.errorName !== null) {
-    contents.errorName = output.errorName;
-  }
-  if (output.eventArn !== undefined && output.eventArn !== null) {
-    contents.eventArn = output.eventArn;
-  }
-  return contents;
+    errorMessage:
+      output.errorMessage !== undefined && output.errorMessage !== null
+        ? output.errorMessage
+        : undefined,
+    errorName:
+      output.errorName !== undefined && output.errorName !== null
+        ? output.errorName
+        : undefined,
+    eventArn:
+      output.eventArn !== undefined && output.eventArn !== null
+        ? output.eventArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EventType = (
   output: any,
   context: __SerdeContext
 ): EventType => {
-  let contents: any = {
+  return {
     __type: "EventType",
-    category: undefined,
-    code: undefined,
-    service: undefined
-  };
-  if (output.category !== undefined && output.category !== null) {
-    contents.category = output.category;
-  }
-  if (output.code !== undefined && output.code !== null) {
-    contents.code = output.code;
-  }
-  if (output.service !== undefined && output.service !== null) {
-    contents.service = output.service;
-  }
-  return contents;
+    category:
+      output.category !== undefined && output.category !== null
+        ? output.category
+        : undefined,
+    code:
+      output.code !== undefined && output.code !== null
+        ? output.code
+        : undefined,
+    service:
+      output.service !== undefined && output.service !== null
+        ? output.service
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1OrganizationAffectedEntitiesErrorItem = (
   output: any,
   context: __SerdeContext
 ): OrganizationAffectedEntitiesErrorItem => {
-  let contents: any = {
+  return {
     __type: "OrganizationAffectedEntitiesErrorItem",
-    awsAccountId: undefined,
-    errorMessage: undefined,
-    errorName: undefined,
-    eventArn: undefined
-  };
-  if (output.awsAccountId !== undefined && output.awsAccountId !== null) {
-    contents.awsAccountId = output.awsAccountId;
-  }
-  if (output.errorMessage !== undefined && output.errorMessage !== null) {
-    contents.errorMessage = output.errorMessage;
-  }
-  if (output.errorName !== undefined && output.errorName !== null) {
-    contents.errorName = output.errorName;
-  }
-  if (output.eventArn !== undefined && output.eventArn !== null) {
-    contents.eventArn = output.eventArn;
-  }
-  return contents;
+    awsAccountId:
+      output.awsAccountId !== undefined && output.awsAccountId !== null
+        ? output.awsAccountId
+        : undefined,
+    errorMessage:
+      output.errorMessage !== undefined && output.errorMessage !== null
+        ? output.errorMessage
+        : undefined,
+    errorName:
+      output.errorName !== undefined && output.errorName !== null
+        ? output.errorName
+        : undefined,
+    eventArn:
+      output.eventArn !== undefined && output.eventArn !== null
+        ? output.eventArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1OrganizationEvent = (
   output: any,
   context: __SerdeContext
 ): OrganizationEvent => {
-  let contents: any = {
+  return {
     __type: "OrganizationEvent",
-    arn: undefined,
-    endTime: undefined,
-    eventTypeCategory: undefined,
-    eventTypeCode: undefined,
-    lastUpdatedTime: undefined,
-    region: undefined,
-    service: undefined,
-    startTime: undefined,
-    statusCode: undefined
-  };
-  if (output.arn !== undefined && output.arn !== null) {
-    contents.arn = output.arn;
-  }
-  if (output.endTime !== undefined && output.endTime !== null) {
-    contents.endTime = new Date(Math.round(output.endTime * 1000));
-  }
-  if (
-    output.eventTypeCategory !== undefined &&
-    output.eventTypeCategory !== null
-  ) {
-    contents.eventTypeCategory = output.eventTypeCategory;
-  }
-  if (output.eventTypeCode !== undefined && output.eventTypeCode !== null) {
-    contents.eventTypeCode = output.eventTypeCode;
-  }
-  if (output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null) {
-    contents.lastUpdatedTime = new Date(
-      Math.round(output.lastUpdatedTime * 1000)
-    );
-  }
-  if (output.region !== undefined && output.region !== null) {
-    contents.region = output.region;
-  }
-  if (output.service !== undefined && output.service !== null) {
-    contents.service = output.service;
-  }
-  if (output.startTime !== undefined && output.startTime !== null) {
-    contents.startTime = new Date(Math.round(output.startTime * 1000));
-  }
-  if (output.statusCode !== undefined && output.statusCode !== null) {
-    contents.statusCode = output.statusCode;
-  }
-  return contents;
+    arn:
+      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    endTime:
+      output.endTime !== undefined && output.endTime !== null
+        ? new Date(Math.round(output.endTime * 1000))
+        : undefined,
+    eventTypeCategory:
+      output.eventTypeCategory !== undefined &&
+      output.eventTypeCategory !== null
+        ? output.eventTypeCategory
+        : undefined,
+    eventTypeCode:
+      output.eventTypeCode !== undefined && output.eventTypeCode !== null
+        ? output.eventTypeCode
+        : undefined,
+    lastUpdatedTime:
+      output.lastUpdatedTime !== undefined && output.lastUpdatedTime !== null
+        ? new Date(Math.round(output.lastUpdatedTime * 1000))
+        : undefined,
+    region:
+      output.region !== undefined && output.region !== null
+        ? output.region
+        : undefined,
+    service:
+      output.service !== undefined && output.service !== null
+        ? output.service
+        : undefined,
+    startTime:
+      output.startTime !== undefined && output.startTime !== null
+        ? new Date(Math.round(output.startTime * 1000))
+        : undefined,
+    statusCode:
+      output.statusCode !== undefined && output.statusCode !== null
+        ? output.statusCode
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1OrganizationEventDetails = (
   output: any,
   context: __SerdeContext
 ): OrganizationEventDetails => {
-  let contents: any = {
+  return {
     __type: "OrganizationEventDetails",
-    awsAccountId: undefined,
-    event: undefined,
-    eventDescription: undefined,
-    eventMetadata: undefined
-  };
-  if (output.awsAccountId !== undefined && output.awsAccountId !== null) {
-    contents.awsAccountId = output.awsAccountId;
-  }
-  if (output.event !== undefined && output.event !== null) {
-    contents.event = deserializeAws_json1_1Event(output.event, context);
-  }
-  if (
-    output.eventDescription !== undefined &&
-    output.eventDescription !== null
-  ) {
-    contents.eventDescription = deserializeAws_json1_1EventDescription(
-      output.eventDescription,
-      context
-    );
-  }
-  if (output.eventMetadata !== undefined && output.eventMetadata !== null) {
-    contents.eventMetadata = deserializeAws_json1_1eventMetadata(
-      output.eventMetadata,
-      context
-    );
-  }
-  return contents;
+    awsAccountId:
+      output.awsAccountId !== undefined && output.awsAccountId !== null
+        ? output.awsAccountId
+        : undefined,
+    event:
+      output.event !== undefined && output.event !== null
+        ? deserializeAws_json1_1Event(output.event, context)
+        : undefined,
+    eventDescription:
+      output.eventDescription !== undefined && output.eventDescription !== null
+        ? deserializeAws_json1_1EventDescription(
+            output.eventDescription,
+            context
+          )
+        : undefined,
+    eventMetadata:
+      output.eventMetadata !== undefined && output.eventMetadata !== null
+        ? deserializeAws_json1_1eventMetadata(output.eventMetadata, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1OrganizationEventDetailsErrorItem = (
   output: any,
   context: __SerdeContext
 ): OrganizationEventDetailsErrorItem => {
-  let contents: any = {
+  return {
     __type: "OrganizationEventDetailsErrorItem",
-    awsAccountId: undefined,
-    errorMessage: undefined,
-    errorName: undefined,
-    eventArn: undefined
-  };
-  if (output.awsAccountId !== undefined && output.awsAccountId !== null) {
-    contents.awsAccountId = output.awsAccountId;
-  }
-  if (output.errorMessage !== undefined && output.errorMessage !== null) {
-    contents.errorMessage = output.errorMessage;
-  }
-  if (output.errorName !== undefined && output.errorName !== null) {
-    contents.errorName = output.errorName;
-  }
-  if (output.eventArn !== undefined && output.eventArn !== null) {
-    contents.eventArn = output.eventArn;
-  }
-  return contents;
+    awsAccountId:
+      output.awsAccountId !== undefined && output.awsAccountId !== null
+        ? output.awsAccountId
+        : undefined,
+    errorMessage:
+      output.errorMessage !== undefined && output.errorMessage !== null
+        ? output.errorMessage
+        : undefined,
+    errorName:
+      output.errorName !== undefined && output.errorName !== null
+        ? output.errorName
+        : undefined,
+    eventArn:
+      output.eventArn !== undefined && output.eventArn !== null
+        ? output.eventArn
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

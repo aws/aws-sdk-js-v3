@@ -479,18 +479,17 @@ const deserializeAws_restJson1_1Block = (
   output: any,
   context: __SerdeContext
 ): Block => {
-  let contents: any = {
+  return {
     __type: "Block",
-    BlockIndex: undefined,
-    BlockToken: undefined
-  };
-  if (output.BlockIndex !== undefined && output.BlockIndex !== null) {
-    contents.BlockIndex = output.BlockIndex;
-  }
-  if (output.BlockToken !== undefined && output.BlockToken !== null) {
-    contents.BlockToken = output.BlockToken;
-  }
-  return contents;
+    BlockIndex:
+      output.BlockIndex !== undefined && output.BlockIndex !== null
+        ? output.BlockIndex
+        : undefined,
+    BlockToken:
+      output.BlockToken !== undefined && output.BlockToken !== null
+        ? output.BlockToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Blocks = (
@@ -506,25 +505,21 @@ const deserializeAws_restJson1_1ChangedBlock = (
   output: any,
   context: __SerdeContext
 ): ChangedBlock => {
-  let contents: any = {
+  return {
     __type: "ChangedBlock",
-    BlockIndex: undefined,
-    FirstBlockToken: undefined,
-    SecondBlockToken: undefined
-  };
-  if (output.BlockIndex !== undefined && output.BlockIndex !== null) {
-    contents.BlockIndex = output.BlockIndex;
-  }
-  if (output.FirstBlockToken !== undefined && output.FirstBlockToken !== null) {
-    contents.FirstBlockToken = output.FirstBlockToken;
-  }
-  if (
-    output.SecondBlockToken !== undefined &&
-    output.SecondBlockToken !== null
-  ) {
-    contents.SecondBlockToken = output.SecondBlockToken;
-  }
-  return contents;
+    BlockIndex:
+      output.BlockIndex !== undefined && output.BlockIndex !== null
+        ? output.BlockIndex
+        : undefined,
+    FirstBlockToken:
+      output.FirstBlockToken !== undefined && output.FirstBlockToken !== null
+        ? output.FirstBlockToken
+        : undefined,
+    SecondBlockToken:
+      output.SecondBlockToken !== undefined && output.SecondBlockToken !== null
+        ? output.SecondBlockToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ChangedBlocks = (

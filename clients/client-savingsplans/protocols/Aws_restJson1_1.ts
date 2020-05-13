@@ -1382,112 +1382,109 @@ const deserializeAws_restJson1_1ParentSavingsPlanOffering = (
   output: any,
   context: __SerdeContext
 ): ParentSavingsPlanOffering => {
-  let contents: any = {
+  return {
     __type: "ParentSavingsPlanOffering",
-    currency: undefined,
-    durationSeconds: undefined,
-    offeringId: undefined,
-    paymentOption: undefined,
-    planDescription: undefined,
-    planType: undefined
-  };
-  if (output.currency !== undefined && output.currency !== null) {
-    contents.currency = output.currency;
-  }
-  if (output.durationSeconds !== undefined && output.durationSeconds !== null) {
-    contents.durationSeconds = output.durationSeconds;
-  }
-  if (output.offeringId !== undefined && output.offeringId !== null) {
-    contents.offeringId = output.offeringId;
-  }
-  if (output.paymentOption !== undefined && output.paymentOption !== null) {
-    contents.paymentOption = output.paymentOption;
-  }
-  if (output.planDescription !== undefined && output.planDescription !== null) {
-    contents.planDescription = output.planDescription;
-  }
-  if (output.planType !== undefined && output.planType !== null) {
-    contents.planType = output.planType;
-  }
-  return contents;
+    currency:
+      output.currency !== undefined && output.currency !== null
+        ? output.currency
+        : undefined,
+    durationSeconds:
+      output.durationSeconds !== undefined && output.durationSeconds !== null
+        ? output.durationSeconds
+        : undefined,
+    offeringId:
+      output.offeringId !== undefined && output.offeringId !== null
+        ? output.offeringId
+        : undefined,
+    paymentOption:
+      output.paymentOption !== undefined && output.paymentOption !== null
+        ? output.paymentOption
+        : undefined,
+    planDescription:
+      output.planDescription !== undefined && output.planDescription !== null
+        ? output.planDescription
+        : undefined,
+    planType:
+      output.planType !== undefined && output.planType !== null
+        ? output.planType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SavingsPlanOffering = (
   output: any,
   context: __SerdeContext
 ): SavingsPlanOffering => {
-  let contents: any = {
+  return {
     __type: "SavingsPlanOffering",
-    currency: undefined,
-    description: undefined,
-    durationSeconds: undefined,
-    offeringId: undefined,
-    operation: undefined,
-    paymentOption: undefined,
-    planType: undefined,
-    productTypes: undefined,
-    properties: undefined,
-    serviceCode: undefined,
-    usageType: undefined
-  };
-  if (output.currency !== undefined && output.currency !== null) {
-    contents.currency = output.currency;
-  }
-  if (output.description !== undefined && output.description !== null) {
-    contents.description = output.description;
-  }
-  if (output.durationSeconds !== undefined && output.durationSeconds !== null) {
-    contents.durationSeconds = output.durationSeconds;
-  }
-  if (output.offeringId !== undefined && output.offeringId !== null) {
-    contents.offeringId = output.offeringId;
-  }
-  if (output.operation !== undefined && output.operation !== null) {
-    contents.operation = output.operation;
-  }
-  if (output.paymentOption !== undefined && output.paymentOption !== null) {
-    contents.paymentOption = output.paymentOption;
-  }
-  if (output.planType !== undefined && output.planType !== null) {
-    contents.planType = output.planType;
-  }
-  if (output.productTypes !== undefined && output.productTypes !== null) {
-    contents.productTypes = deserializeAws_restJson1_1SavingsPlanProductTypeList(
-      output.productTypes,
-      context
-    );
-  }
-  if (output.properties !== undefined && output.properties !== null) {
-    contents.properties = deserializeAws_restJson1_1SavingsPlanOfferingPropertyList(
-      output.properties,
-      context
-    );
-  }
-  if (output.serviceCode !== undefined && output.serviceCode !== null) {
-    contents.serviceCode = output.serviceCode;
-  }
-  if (output.usageType !== undefined && output.usageType !== null) {
-    contents.usageType = output.usageType;
-  }
-  return contents;
+    currency:
+      output.currency !== undefined && output.currency !== null
+        ? output.currency
+        : undefined,
+    description:
+      output.description !== undefined && output.description !== null
+        ? output.description
+        : undefined,
+    durationSeconds:
+      output.durationSeconds !== undefined && output.durationSeconds !== null
+        ? output.durationSeconds
+        : undefined,
+    offeringId:
+      output.offeringId !== undefined && output.offeringId !== null
+        ? output.offeringId
+        : undefined,
+    operation:
+      output.operation !== undefined && output.operation !== null
+        ? output.operation
+        : undefined,
+    paymentOption:
+      output.paymentOption !== undefined && output.paymentOption !== null
+        ? output.paymentOption
+        : undefined,
+    planType:
+      output.planType !== undefined && output.planType !== null
+        ? output.planType
+        : undefined,
+    productTypes:
+      output.productTypes !== undefined && output.productTypes !== null
+        ? deserializeAws_restJson1_1SavingsPlanProductTypeList(
+            output.productTypes,
+            context
+          )
+        : undefined,
+    properties:
+      output.properties !== undefined && output.properties !== null
+        ? deserializeAws_restJson1_1SavingsPlanOfferingPropertyList(
+            output.properties,
+            context
+          )
+        : undefined,
+    serviceCode:
+      output.serviceCode !== undefined && output.serviceCode !== null
+        ? output.serviceCode
+        : undefined,
+    usageType:
+      output.usageType !== undefined && output.usageType !== null
+        ? output.usageType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SavingsPlanOfferingProperty = (
   output: any,
   context: __SerdeContext
 ): SavingsPlanOfferingProperty => {
-  let contents: any = {
+  return {
     __type: "SavingsPlanOfferingProperty",
-    name: undefined,
-    value: undefined
-  };
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (output.value !== undefined && output.value !== null) {
-    contents.value = output.value;
-  }
-  return contents;
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    value:
+      output.value !== undefined && output.value !== null
+        ? output.value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SavingsPlanOfferingPropertyList = (
@@ -1503,69 +1500,65 @@ const deserializeAws_restJson1_1SavingsPlanOfferingRate = (
   output: any,
   context: __SerdeContext
 ): SavingsPlanOfferingRate => {
-  let contents: any = {
+  return {
     __type: "SavingsPlanOfferingRate",
-    operation: undefined,
-    productType: undefined,
-    properties: undefined,
-    rate: undefined,
-    savingsPlanOffering: undefined,
-    serviceCode: undefined,
-    unit: undefined,
-    usageType: undefined
-  };
-  if (output.operation !== undefined && output.operation !== null) {
-    contents.operation = output.operation;
-  }
-  if (output.productType !== undefined && output.productType !== null) {
-    contents.productType = output.productType;
-  }
-  if (output.properties !== undefined && output.properties !== null) {
-    contents.properties = deserializeAws_restJson1_1SavingsPlanOfferingRatePropertyList(
-      output.properties,
-      context
-    );
-  }
-  if (output.rate !== undefined && output.rate !== null) {
-    contents.rate = output.rate;
-  }
-  if (
-    output.savingsPlanOffering !== undefined &&
-    output.savingsPlanOffering !== null
-  ) {
-    contents.savingsPlanOffering = deserializeAws_restJson1_1ParentSavingsPlanOffering(
-      output.savingsPlanOffering,
-      context
-    );
-  }
-  if (output.serviceCode !== undefined && output.serviceCode !== null) {
-    contents.serviceCode = output.serviceCode;
-  }
-  if (output.unit !== undefined && output.unit !== null) {
-    contents.unit = output.unit;
-  }
-  if (output.usageType !== undefined && output.usageType !== null) {
-    contents.usageType = output.usageType;
-  }
-  return contents;
+    operation:
+      output.operation !== undefined && output.operation !== null
+        ? output.operation
+        : undefined,
+    productType:
+      output.productType !== undefined && output.productType !== null
+        ? output.productType
+        : undefined,
+    properties:
+      output.properties !== undefined && output.properties !== null
+        ? deserializeAws_restJson1_1SavingsPlanOfferingRatePropertyList(
+            output.properties,
+            context
+          )
+        : undefined,
+    rate:
+      output.rate !== undefined && output.rate !== null
+        ? output.rate
+        : undefined,
+    savingsPlanOffering:
+      output.savingsPlanOffering !== undefined &&
+      output.savingsPlanOffering !== null
+        ? deserializeAws_restJson1_1ParentSavingsPlanOffering(
+            output.savingsPlanOffering,
+            context
+          )
+        : undefined,
+    serviceCode:
+      output.serviceCode !== undefined && output.serviceCode !== null
+        ? output.serviceCode
+        : undefined,
+    unit:
+      output.unit !== undefined && output.unit !== null
+        ? output.unit
+        : undefined,
+    usageType:
+      output.usageType !== undefined && output.usageType !== null
+        ? output.usageType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SavingsPlanOfferingRateProperty = (
   output: any,
   context: __SerdeContext
 ): SavingsPlanOfferingRateProperty => {
-  let contents: any = {
+  return {
     __type: "SavingsPlanOfferingRateProperty",
-    name: undefined,
-    value: undefined
-  };
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (output.value !== undefined && output.value !== null) {
-    contents.value = output.value;
-  }
-  return contents;
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    value:
+      output.value !== undefined && output.value !== null
+        ? output.value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SavingsPlanOfferingRatePropertyList = (
@@ -1606,18 +1599,17 @@ const deserializeAws_restJson1_1SavingsPlanRateProperty = (
   output: any,
   context: __SerdeContext
 ): SavingsPlanRateProperty => {
-  let contents: any = {
+  return {
     __type: "SavingsPlanRateProperty",
-    name: undefined,
-    value: undefined
-  };
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (output.value !== undefined && output.value !== null) {
-    contents.value = output.value;
-  }
-  return contents;
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    value:
+      output.value !== undefined && output.value !== null
+        ? output.value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SavingsPlanRatePropertyList = (
@@ -1633,97 +1625,86 @@ const deserializeAws_restJson1_1SavingsPlan = (
   output: any,
   context: __SerdeContext
 ): SavingsPlan => {
-  let contents: any = {
+  return {
     __type: "SavingsPlan",
-    commitment: undefined,
-    currency: undefined,
-    description: undefined,
-    ec2InstanceFamily: undefined,
-    end: undefined,
-    offeringId: undefined,
-    paymentOption: undefined,
-    productTypes: undefined,
-    recurringPaymentAmount: undefined,
-    region: undefined,
-    savingsPlanArn: undefined,
-    savingsPlanId: undefined,
-    savingsPlanType: undefined,
-    start: undefined,
-    state: undefined,
-    tags: undefined,
-    termDurationInSeconds: undefined,
-    upfrontPaymentAmount: undefined
-  };
-  if (output.commitment !== undefined && output.commitment !== null) {
-    contents.commitment = output.commitment;
-  }
-  if (output.currency !== undefined && output.currency !== null) {
-    contents.currency = output.currency;
-  }
-  if (output.description !== undefined && output.description !== null) {
-    contents.description = output.description;
-  }
-  if (
-    output.ec2InstanceFamily !== undefined &&
-    output.ec2InstanceFamily !== null
-  ) {
-    contents.ec2InstanceFamily = output.ec2InstanceFamily;
-  }
-  if (output.end !== undefined && output.end !== null) {
-    contents.end = output.end;
-  }
-  if (output.offeringId !== undefined && output.offeringId !== null) {
-    contents.offeringId = output.offeringId;
-  }
-  if (output.paymentOption !== undefined && output.paymentOption !== null) {
-    contents.paymentOption = output.paymentOption;
-  }
-  if (output.productTypes !== undefined && output.productTypes !== null) {
-    contents.productTypes = deserializeAws_restJson1_1SavingsPlanProductTypeList(
-      output.productTypes,
-      context
-    );
-  }
-  if (
-    output.recurringPaymentAmount !== undefined &&
-    output.recurringPaymentAmount !== null
-  ) {
-    contents.recurringPaymentAmount = output.recurringPaymentAmount;
-  }
-  if (output.region !== undefined && output.region !== null) {
-    contents.region = output.region;
-  }
-  if (output.savingsPlanArn !== undefined && output.savingsPlanArn !== null) {
-    contents.savingsPlanArn = output.savingsPlanArn;
-  }
-  if (output.savingsPlanId !== undefined && output.savingsPlanId !== null) {
-    contents.savingsPlanId = output.savingsPlanId;
-  }
-  if (output.savingsPlanType !== undefined && output.savingsPlanType !== null) {
-    contents.savingsPlanType = output.savingsPlanType;
-  }
-  if (output.start !== undefined && output.start !== null) {
-    contents.start = output.start;
-  }
-  if (output.state !== undefined && output.state !== null) {
-    contents.state = output.state;
-  }
-  if (output.tags !== undefined && output.tags !== null) {
-    contents.tags = deserializeAws_restJson1_1TagMap(output.tags, context);
-  }
-  if (
-    output.termDurationInSeconds !== undefined &&
-    output.termDurationInSeconds !== null
-  ) {
-    contents.termDurationInSeconds = output.termDurationInSeconds;
-  }
-  if (
-    output.upfrontPaymentAmount !== undefined &&
-    output.upfrontPaymentAmount !== null
-  ) {
-    contents.upfrontPaymentAmount = output.upfrontPaymentAmount;
-  }
-  return contents;
+    commitment:
+      output.commitment !== undefined && output.commitment !== null
+        ? output.commitment
+        : undefined,
+    currency:
+      output.currency !== undefined && output.currency !== null
+        ? output.currency
+        : undefined,
+    description:
+      output.description !== undefined && output.description !== null
+        ? output.description
+        : undefined,
+    ec2InstanceFamily:
+      output.ec2InstanceFamily !== undefined &&
+      output.ec2InstanceFamily !== null
+        ? output.ec2InstanceFamily
+        : undefined,
+    end:
+      output.end !== undefined && output.end !== null ? output.end : undefined,
+    offeringId:
+      output.offeringId !== undefined && output.offeringId !== null
+        ? output.offeringId
+        : undefined,
+    paymentOption:
+      output.paymentOption !== undefined && output.paymentOption !== null
+        ? output.paymentOption
+        : undefined,
+    productTypes:
+      output.productTypes !== undefined && output.productTypes !== null
+        ? deserializeAws_restJson1_1SavingsPlanProductTypeList(
+            output.productTypes,
+            context
+          )
+        : undefined,
+    recurringPaymentAmount:
+      output.recurringPaymentAmount !== undefined &&
+      output.recurringPaymentAmount !== null
+        ? output.recurringPaymentAmount
+        : undefined,
+    region:
+      output.region !== undefined && output.region !== null
+        ? output.region
+        : undefined,
+    savingsPlanArn:
+      output.savingsPlanArn !== undefined && output.savingsPlanArn !== null
+        ? output.savingsPlanArn
+        : undefined,
+    savingsPlanId:
+      output.savingsPlanId !== undefined && output.savingsPlanId !== null
+        ? output.savingsPlanId
+        : undefined,
+    savingsPlanType:
+      output.savingsPlanType !== undefined && output.savingsPlanType !== null
+        ? output.savingsPlanType
+        : undefined,
+    start:
+      output.start !== undefined && output.start !== null
+        ? output.start
+        : undefined,
+    state:
+      output.state !== undefined && output.state !== null
+        ? output.state
+        : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1_1TagMap(output.tags, context)
+        : undefined,
+    termDurationInSeconds:
+      output.termDurationInSeconds !== undefined &&
+      output.termDurationInSeconds !== null
+        ? output.termDurationInSeconds
+        : undefined,
+    upfrontPaymentAmount:
+      output.upfrontPaymentAmount !== undefined &&
+      output.upfrontPaymentAmount !== null
+        ? output.upfrontPaymentAmount
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SavingsPlanList = (
@@ -1739,45 +1720,44 @@ const deserializeAws_restJson1_1SavingsPlanRate = (
   output: any,
   context: __SerdeContext
 ): SavingsPlanRate => {
-  let contents: any = {
+  return {
     __type: "SavingsPlanRate",
-    currency: undefined,
-    operation: undefined,
-    productType: undefined,
-    properties: undefined,
-    rate: undefined,
-    serviceCode: undefined,
-    unit: undefined,
-    usageType: undefined
-  };
-  if (output.currency !== undefined && output.currency !== null) {
-    contents.currency = output.currency;
-  }
-  if (output.operation !== undefined && output.operation !== null) {
-    contents.operation = output.operation;
-  }
-  if (output.productType !== undefined && output.productType !== null) {
-    contents.productType = output.productType;
-  }
-  if (output.properties !== undefined && output.properties !== null) {
-    contents.properties = deserializeAws_restJson1_1SavingsPlanRatePropertyList(
-      output.properties,
-      context
-    );
-  }
-  if (output.rate !== undefined && output.rate !== null) {
-    contents.rate = output.rate;
-  }
-  if (output.serviceCode !== undefined && output.serviceCode !== null) {
-    contents.serviceCode = output.serviceCode;
-  }
-  if (output.unit !== undefined && output.unit !== null) {
-    contents.unit = output.unit;
-  }
-  if (output.usageType !== undefined && output.usageType !== null) {
-    contents.usageType = output.usageType;
-  }
-  return contents;
+    currency:
+      output.currency !== undefined && output.currency !== null
+        ? output.currency
+        : undefined,
+    operation:
+      output.operation !== undefined && output.operation !== null
+        ? output.operation
+        : undefined,
+    productType:
+      output.productType !== undefined && output.productType !== null
+        ? output.productType
+        : undefined,
+    properties:
+      output.properties !== undefined && output.properties !== null
+        ? deserializeAws_restJson1_1SavingsPlanRatePropertyList(
+            output.properties,
+            context
+          )
+        : undefined,
+    rate:
+      output.rate !== undefined && output.rate !== null
+        ? output.rate
+        : undefined,
+    serviceCode:
+      output.serviceCode !== undefined && output.serviceCode !== null
+        ? output.serviceCode
+        : undefined,
+    unit:
+      output.unit !== undefined && output.unit !== null
+        ? output.unit
+        : undefined,
+    usageType:
+      output.usageType !== undefined && output.usageType !== null
+        ? output.usageType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SavingsPlanRateList = (

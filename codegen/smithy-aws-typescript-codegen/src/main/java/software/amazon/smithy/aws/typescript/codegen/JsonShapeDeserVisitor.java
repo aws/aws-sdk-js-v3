@@ -90,28 +90,22 @@ final class JsonShapeDeserVisitor extends DocumentShapeDeserVisitor {
         // Prepare the document contents structure.
         // Use a TreeMap to sort the members.
         Map<String, MemberShape> members = new TreeMap<>(shape.getAllMembers());
-        writer.openBlock("let contents: any = {", "};", () -> {
+        writer.openBlock("return {", "} as any;", () -> {
             writer.write("__type: $S,", shape.getId().getName());
             // Set all the members to undefined to meet type constraints.
-            members.forEach((memberName, memberShape) -> writer.write("$L: undefined,", memberName));
-        });
-        members.forEach((memberName, memberShape) -> {
-            // Use the jsonName trait value if present, otherwise use the member name.
-            String locationName = memberShape.getTrait(JsonNameTrait.class)
-                    .map(JsonNameTrait::getValue)
-                    .orElse(memberName);
-            Shape target = context.getModel().expectShape(memberShape.getTarget());
+            members.forEach((memberName, memberShape) -> {
+                // Use the jsonName trait value if present, otherwise use the member name.
+                String locationName = memberShape.getTrait(JsonNameTrait.class)
+                        .map(JsonNameTrait::getValue)
+                        .orElse(memberName);
+                Shape target = context.getModel().expectShape(memberShape.getTarget());
 
-            // Generate an if statement to set the bodyParam if the member is set.
-            writer.openBlock("if (output.$L !== undefined && output.$L !== null) {", "}", locationName, locationName,
-                    () -> {
-                writer.write("contents.$L = $L;", memberName,
+                writer.write("$1L: (output.$2L !== undefined && output.$2L !== null)"
+                        + " ? $3L: undefined,", memberName, locationName,
                         // Dispatch to the output value provider for any additional handling.
                         target.accept(getMemberVisitor("output." + locationName)));
             });
         });
-
-        writer.write("return contents;");
     }
 
     @Override

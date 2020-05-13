@@ -8346,28 +8346,26 @@ const deserializeAws_json1_1ActivateGatewayOutput = (
   output: any,
   context: __SerdeContext
 ): ActivateGatewayOutput => {
-  let contents: any = {
+  return {
     __type: "ActivateGatewayOutput",
-    GatewayARN: undefined
-  };
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  return contents;
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1AddWorkingStorageOutput = (
   output: any,
   context: __SerdeContext
 ): AddWorkingStorageOutput => {
-  let contents: any = {
+  return {
     __type: "AddWorkingStorageOutput",
-    GatewayARN: undefined
-  };
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  return contents;
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ChapCredentials = (
@@ -8383,216 +8381,185 @@ const deserializeAws_json1_1ChapInfo = (
   output: any,
   context: __SerdeContext
 ): ChapInfo => {
-  let contents: any = {
+  return {
     __type: "ChapInfo",
-    InitiatorName: undefined,
-    SecretToAuthenticateInitiator: undefined,
-    SecretToAuthenticateTarget: undefined,
-    TargetARN: undefined
-  };
-  if (output.InitiatorName !== undefined && output.InitiatorName !== null) {
-    contents.InitiatorName = output.InitiatorName;
-  }
-  if (
-    output.SecretToAuthenticateInitiator !== undefined &&
-    output.SecretToAuthenticateInitiator !== null
-  ) {
-    contents.SecretToAuthenticateInitiator =
-      output.SecretToAuthenticateInitiator;
-  }
-  if (
-    output.SecretToAuthenticateTarget !== undefined &&
-    output.SecretToAuthenticateTarget !== null
-  ) {
-    contents.SecretToAuthenticateTarget = output.SecretToAuthenticateTarget;
-  }
-  if (output.TargetARN !== undefined && output.TargetARN !== null) {
-    contents.TargetARN = output.TargetARN;
-  }
-  return contents;
+    InitiatorName:
+      output.InitiatorName !== undefined && output.InitiatorName !== null
+        ? output.InitiatorName
+        : undefined,
+    SecretToAuthenticateInitiator:
+      output.SecretToAuthenticateInitiator !== undefined &&
+      output.SecretToAuthenticateInitiator !== null
+        ? output.SecretToAuthenticateInitiator
+        : undefined,
+    SecretToAuthenticateTarget:
+      output.SecretToAuthenticateTarget !== undefined &&
+      output.SecretToAuthenticateTarget !== null
+        ? output.SecretToAuthenticateTarget
+        : undefined,
+    TargetARN:
+      output.TargetARN !== undefined && output.TargetARN !== null
+        ? output.TargetARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateSnapshotOutput = (
   output: any,
   context: __SerdeContext
 ): CreateSnapshotOutput => {
-  let contents: any = {
+  return {
     __type: "CreateSnapshotOutput",
-    SnapshotId: undefined,
-    VolumeARN: undefined
-  };
-  if (output.SnapshotId !== undefined && output.SnapshotId !== null) {
-    contents.SnapshotId = output.SnapshotId;
-  }
-  if (output.VolumeARN !== undefined && output.VolumeARN !== null) {
-    contents.VolumeARN = output.VolumeARN;
-  }
-  return contents;
+    SnapshotId:
+      output.SnapshotId !== undefined && output.SnapshotId !== null
+        ? output.SnapshotId
+        : undefined,
+    VolumeARN:
+      output.VolumeARN !== undefined && output.VolumeARN !== null
+        ? output.VolumeARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateStorediSCSIVolumeOutput = (
   output: any,
   context: __SerdeContext
 ): CreateStorediSCSIVolumeOutput => {
-  let contents: any = {
+  return {
     __type: "CreateStorediSCSIVolumeOutput",
-    TargetARN: undefined,
-    VolumeARN: undefined,
-    VolumeSizeInBytes: undefined
-  };
-  if (output.TargetARN !== undefined && output.TargetARN !== null) {
-    contents.TargetARN = output.TargetARN;
-  }
-  if (output.VolumeARN !== undefined && output.VolumeARN !== null) {
-    contents.VolumeARN = output.VolumeARN;
-  }
-  if (
-    output.VolumeSizeInBytes !== undefined &&
-    output.VolumeSizeInBytes !== null
-  ) {
-    contents.VolumeSizeInBytes = output.VolumeSizeInBytes;
-  }
-  return contents;
+    TargetARN:
+      output.TargetARN !== undefined && output.TargetARN !== null
+        ? output.TargetARN
+        : undefined,
+    VolumeARN:
+      output.VolumeARN !== undefined && output.VolumeARN !== null
+        ? output.VolumeARN
+        : undefined,
+    VolumeSizeInBytes:
+      output.VolumeSizeInBytes !== undefined &&
+      output.VolumeSizeInBytes !== null
+        ? output.VolumeSizeInBytes
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteBandwidthRateLimitOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteBandwidthRateLimitOutput => {
-  let contents: any = {
+  return {
     __type: "DeleteBandwidthRateLimitOutput",
-    GatewayARN: undefined
-  };
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  return contents;
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteChapCredentialsOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteChapCredentialsOutput => {
-  let contents: any = {
+  return {
     __type: "DeleteChapCredentialsOutput",
-    InitiatorName: undefined,
-    TargetARN: undefined
-  };
-  if (output.InitiatorName !== undefined && output.InitiatorName !== null) {
-    contents.InitiatorName = output.InitiatorName;
-  }
-  if (output.TargetARN !== undefined && output.TargetARN !== null) {
-    contents.TargetARN = output.TargetARN;
-  }
-  return contents;
+    InitiatorName:
+      output.InitiatorName !== undefined && output.InitiatorName !== null
+        ? output.InitiatorName
+        : undefined,
+    TargetARN:
+      output.TargetARN !== undefined && output.TargetARN !== null
+        ? output.TargetARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteGatewayOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteGatewayOutput => {
-  let contents: any = {
+  return {
     __type: "DeleteGatewayOutput",
-    GatewayARN: undefined
-  };
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  return contents;
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteVolumeOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteVolumeOutput => {
-  let contents: any = {
+  return {
     __type: "DeleteVolumeOutput",
-    VolumeARN: undefined
-  };
-  if (output.VolumeARN !== undefined && output.VolumeARN !== null) {
-    contents.VolumeARN = output.VolumeARN;
-  }
-  return contents;
+    VolumeARN:
+      output.VolumeARN !== undefined && output.VolumeARN !== null
+        ? output.VolumeARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeBandwidthRateLimitOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeBandwidthRateLimitOutput => {
-  let contents: any = {
+  return {
     __type: "DescribeBandwidthRateLimitOutput",
-    AverageDownloadRateLimitInBitsPerSec: undefined,
-    AverageUploadRateLimitInBitsPerSec: undefined,
-    GatewayARN: undefined
-  };
-  if (
-    output.AverageDownloadRateLimitInBitsPerSec !== undefined &&
-    output.AverageDownloadRateLimitInBitsPerSec !== null
-  ) {
-    contents.AverageDownloadRateLimitInBitsPerSec =
-      output.AverageDownloadRateLimitInBitsPerSec;
-  }
-  if (
-    output.AverageUploadRateLimitInBitsPerSec !== undefined &&
-    output.AverageUploadRateLimitInBitsPerSec !== null
-  ) {
-    contents.AverageUploadRateLimitInBitsPerSec =
-      output.AverageUploadRateLimitInBitsPerSec;
-  }
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  return contents;
+    AverageDownloadRateLimitInBitsPerSec:
+      output.AverageDownloadRateLimitInBitsPerSec !== undefined &&
+      output.AverageDownloadRateLimitInBitsPerSec !== null
+        ? output.AverageDownloadRateLimitInBitsPerSec
+        : undefined,
+    AverageUploadRateLimitInBitsPerSec:
+      output.AverageUploadRateLimitInBitsPerSec !== undefined &&
+      output.AverageUploadRateLimitInBitsPerSec !== null
+        ? output.AverageUploadRateLimitInBitsPerSec
+        : undefined,
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeChapCredentialsOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeChapCredentialsOutput => {
-  let contents: any = {
+  return {
     __type: "DescribeChapCredentialsOutput",
-    ChapCredentials: undefined
-  };
-  if (output.ChapCredentials !== undefined && output.ChapCredentials !== null) {
-    contents.ChapCredentials = deserializeAws_json1_1ChapCredentials(
-      output.ChapCredentials,
-      context
-    );
-  }
-  return contents;
+    ChapCredentials:
+      output.ChapCredentials !== undefined && output.ChapCredentials !== null
+        ? deserializeAws_json1_1ChapCredentials(output.ChapCredentials, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeWorkingStorageOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeWorkingStorageOutput => {
-  let contents: any = {
+  return {
     __type: "DescribeWorkingStorageOutput",
-    DiskIds: undefined,
-    GatewayARN: undefined,
-    WorkingStorageAllocatedInBytes: undefined,
-    WorkingStorageUsedInBytes: undefined
-  };
-  if (output.DiskIds !== undefined && output.DiskIds !== null) {
-    contents.DiskIds = deserializeAws_json1_1DiskIds(output.DiskIds, context);
-  }
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  if (
-    output.WorkingStorageAllocatedInBytes !== undefined &&
-    output.WorkingStorageAllocatedInBytes !== null
-  ) {
-    contents.WorkingStorageAllocatedInBytes =
-      output.WorkingStorageAllocatedInBytes;
-  }
-  if (
-    output.WorkingStorageUsedInBytes !== undefined &&
-    output.WorkingStorageUsedInBytes !== null
-  ) {
-    contents.WorkingStorageUsedInBytes = output.WorkingStorageUsedInBytes;
-  }
-  return contents;
+    DiskIds:
+      output.DiskIds !== undefined && output.DiskIds !== null
+        ? deserializeAws_json1_1DiskIds(output.DiskIds, context)
+        : undefined,
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined,
+    WorkingStorageAllocatedInBytes:
+      output.WorkingStorageAllocatedInBytes !== undefined &&
+      output.WorkingStorageAllocatedInBytes !== null
+        ? output.WorkingStorageAllocatedInBytes
+        : undefined,
+    WorkingStorageUsedInBytes:
+      output.WorkingStorageUsedInBytes !== undefined &&
+      output.WorkingStorageUsedInBytes !== null
+        ? output.WorkingStorageUsedInBytes
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DiskIds = (
@@ -8615,262 +8582,232 @@ const deserializeAws_json1_1InternalServerError = (
   output: any,
   context: __SerdeContext
 ): InternalServerError => {
-  let contents: any = {
+  return {
     __type: "InternalServerError",
-    error: undefined,
-    message: undefined
-  };
-  if (output.error !== undefined && output.error !== null) {
-    contents.error = deserializeAws_json1_1StorageGatewayError(
-      output.error,
-      context
-    );
-  }
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    error:
+      output.error !== undefined && output.error !== null
+        ? deserializeAws_json1_1StorageGatewayError(output.error, context)
+        : undefined,
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidGatewayRequestException = (
   output: any,
   context: __SerdeContext
 ): InvalidGatewayRequestException => {
-  let contents: any = {
+  return {
     __type: "InvalidGatewayRequestException",
-    error: undefined,
-    message: undefined
-  };
-  if (output.error !== undefined && output.error !== null) {
-    contents.error = deserializeAws_json1_1StorageGatewayError(
-      output.error,
-      context
-    );
-  }
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    error:
+      output.error !== undefined && output.error !== null
+        ? deserializeAws_json1_1StorageGatewayError(output.error, context)
+        : undefined,
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1NetworkInterface = (
   output: any,
   context: __SerdeContext
 ): NetworkInterface => {
-  let contents: any = {
+  return {
     __type: "NetworkInterface",
-    Ipv4Address: undefined,
-    Ipv6Address: undefined,
-    MacAddress: undefined
-  };
-  if (output.Ipv4Address !== undefined && output.Ipv4Address !== null) {
-    contents.Ipv4Address = output.Ipv4Address;
-  }
-  if (output.Ipv6Address !== undefined && output.Ipv6Address !== null) {
-    contents.Ipv6Address = output.Ipv6Address;
-  }
-  if (output.MacAddress !== undefined && output.MacAddress !== null) {
-    contents.MacAddress = output.MacAddress;
-  }
-  return contents;
+    Ipv4Address:
+      output.Ipv4Address !== undefined && output.Ipv4Address !== null
+        ? output.Ipv4Address
+        : undefined,
+    Ipv6Address:
+      output.Ipv6Address !== undefined && output.Ipv6Address !== null
+        ? output.Ipv6Address
+        : undefined,
+    MacAddress:
+      output.MacAddress !== undefined && output.MacAddress !== null
+        ? output.MacAddress
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ServiceUnavailableError = (
   output: any,
   context: __SerdeContext
 ): ServiceUnavailableError => {
-  let contents: any = {
+  return {
     __type: "ServiceUnavailableError",
-    error: undefined,
-    message: undefined
-  };
-  if (output.error !== undefined && output.error !== null) {
-    contents.error = deserializeAws_json1_1StorageGatewayError(
-      output.error,
-      context
-    );
-  }
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    error:
+      output.error !== undefined && output.error !== null
+        ? deserializeAws_json1_1StorageGatewayError(output.error, context)
+        : undefined,
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ShutdownGatewayOutput = (
   output: any,
   context: __SerdeContext
 ): ShutdownGatewayOutput => {
-  let contents: any = {
+  return {
     __type: "ShutdownGatewayOutput",
-    GatewayARN: undefined
-  };
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  return contents;
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StartGatewayOutput = (
   output: any,
   context: __SerdeContext
 ): StartGatewayOutput => {
-  let contents: any = {
+  return {
     __type: "StartGatewayOutput",
-    GatewayARN: undefined
-  };
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  return contents;
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StorageGatewayError = (
   output: any,
   context: __SerdeContext
 ): StorageGatewayError => {
-  let contents: any = {
+  return {
     __type: "StorageGatewayError",
-    errorCode: undefined,
-    errorDetails: undefined
-  };
-  if (output.errorCode !== undefined && output.errorCode !== null) {
-    contents.errorCode = output.errorCode;
-  }
-  if (output.errorDetails !== undefined && output.errorDetails !== null) {
-    contents.errorDetails = deserializeAws_json1_1errorDetails(
-      output.errorDetails,
-      context
-    );
-  }
-  return contents;
+    errorCode:
+      output.errorCode !== undefined && output.errorCode !== null
+        ? output.errorCode
+        : undefined,
+    errorDetails:
+      output.errorDetails !== undefined && output.errorDetails !== null
+        ? deserializeAws_json1_1errorDetails(output.errorDetails, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateBandwidthRateLimitOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateBandwidthRateLimitOutput => {
-  let contents: any = {
+  return {
     __type: "UpdateBandwidthRateLimitOutput",
-    GatewayARN: undefined
-  };
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  return contents;
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateChapCredentialsOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateChapCredentialsOutput => {
-  let contents: any = {
+  return {
     __type: "UpdateChapCredentialsOutput",
-    InitiatorName: undefined,
-    TargetARN: undefined
-  };
-  if (output.InitiatorName !== undefined && output.InitiatorName !== null) {
-    contents.InitiatorName = output.InitiatorName;
-  }
-  if (output.TargetARN !== undefined && output.TargetARN !== null) {
-    contents.TargetARN = output.TargetARN;
-  }
-  return contents;
+    InitiatorName:
+      output.InitiatorName !== undefined && output.InitiatorName !== null
+        ? output.InitiatorName
+        : undefined,
+    TargetARN:
+      output.TargetARN !== undefined && output.TargetARN !== null
+        ? output.TargetARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateGatewayInformationOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateGatewayInformationOutput => {
-  let contents: any = {
+  return {
     __type: "UpdateGatewayInformationOutput",
-    GatewayARN: undefined,
-    GatewayName: undefined
-  };
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  if (output.GatewayName !== undefined && output.GatewayName !== null) {
-    contents.GatewayName = output.GatewayName;
-  }
-  return contents;
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined,
+    GatewayName:
+      output.GatewayName !== undefined && output.GatewayName !== null
+        ? output.GatewayName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateGatewaySoftwareNowOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateGatewaySoftwareNowOutput => {
-  let contents: any = {
+  return {
     __type: "UpdateGatewaySoftwareNowOutput",
-    GatewayARN: undefined
-  };
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  return contents;
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateMaintenanceStartTimeOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateMaintenanceStartTimeOutput => {
-  let contents: any = {
+  return {
     __type: "UpdateMaintenanceStartTimeOutput",
-    GatewayARN: undefined
-  };
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  return contents;
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateSnapshotScheduleOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateSnapshotScheduleOutput => {
-  let contents: any = {
+  return {
     __type: "UpdateSnapshotScheduleOutput",
-    VolumeARN: undefined
-  };
-  if (output.VolumeARN !== undefined && output.VolumeARN !== null) {
-    contents.VolumeARN = output.VolumeARN;
-  }
-  return contents;
+    VolumeARN:
+      output.VolumeARN !== undefined && output.VolumeARN !== null
+        ? output.VolumeARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1VolumeiSCSIAttributes = (
   output: any,
   context: __SerdeContext
 ): VolumeiSCSIAttributes => {
-  let contents: any = {
+  return {
     __type: "VolumeiSCSIAttributes",
-    ChapEnabled: undefined,
-    LunNumber: undefined,
-    NetworkInterfaceId: undefined,
-    NetworkInterfacePort: undefined,
-    TargetARN: undefined
-  };
-  if (output.ChapEnabled !== undefined && output.ChapEnabled !== null) {
-    contents.ChapEnabled = output.ChapEnabled;
-  }
-  if (output.LunNumber !== undefined && output.LunNumber !== null) {
-    contents.LunNumber = output.LunNumber;
-  }
-  if (
-    output.NetworkInterfaceId !== undefined &&
-    output.NetworkInterfaceId !== null
-  ) {
-    contents.NetworkInterfaceId = output.NetworkInterfaceId;
-  }
-  if (
-    output.NetworkInterfacePort !== undefined &&
-    output.NetworkInterfacePort !== null
-  ) {
-    contents.NetworkInterfacePort = output.NetworkInterfacePort;
-  }
-  if (output.TargetARN !== undefined && output.TargetARN !== null) {
-    contents.TargetARN = output.TargetARN;
-  }
-  return contents;
+    ChapEnabled:
+      output.ChapEnabled !== undefined && output.ChapEnabled !== null
+        ? output.ChapEnabled
+        : undefined,
+    LunNumber:
+      output.LunNumber !== undefined && output.LunNumber !== null
+        ? output.LunNumber
+        : undefined,
+    NetworkInterfaceId:
+      output.NetworkInterfaceId !== undefined &&
+      output.NetworkInterfaceId !== null
+        ? output.NetworkInterfaceId
+        : undefined,
+    NetworkInterfacePort:
+      output.NetworkInterfacePort !== undefined &&
+      output.NetworkInterfacePort !== null
+        ? output.NetworkInterfacePort
+        : undefined,
+    TargetARN:
+      output.TargetARN !== undefined && output.TargetARN !== null
+        ? output.TargetARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1errorDetails = (
@@ -8887,229 +8824,196 @@ const deserializeAws_json1_1AddCacheOutput = (
   output: any,
   context: __SerdeContext
 ): AddCacheOutput => {
-  let contents: any = {
+  return {
     __type: "AddCacheOutput",
-    GatewayARN: undefined
-  };
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  return contents;
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1AddUploadBufferOutput = (
   output: any,
   context: __SerdeContext
 ): AddUploadBufferOutput => {
-  let contents: any = {
+  return {
     __type: "AddUploadBufferOutput",
-    GatewayARN: undefined
-  };
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  return contents;
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateCachediSCSIVolumeOutput = (
   output: any,
   context: __SerdeContext
 ): CreateCachediSCSIVolumeOutput => {
-  let contents: any = {
+  return {
     __type: "CreateCachediSCSIVolumeOutput",
-    TargetARN: undefined,
-    VolumeARN: undefined
-  };
-  if (output.TargetARN !== undefined && output.TargetARN !== null) {
-    contents.TargetARN = output.TargetARN;
-  }
-  if (output.VolumeARN !== undefined && output.VolumeARN !== null) {
-    contents.VolumeARN = output.VolumeARN;
-  }
-  return contents;
+    TargetARN:
+      output.TargetARN !== undefined && output.TargetARN !== null
+        ? output.TargetARN
+        : undefined,
+    VolumeARN:
+      output.VolumeARN !== undefined && output.VolumeARN !== null
+        ? output.VolumeARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateSnapshotFromVolumeRecoveryPointOutput = (
   output: any,
   context: __SerdeContext
 ): CreateSnapshotFromVolumeRecoveryPointOutput => {
-  let contents: any = {
+  return {
     __type: "CreateSnapshotFromVolumeRecoveryPointOutput",
-    SnapshotId: undefined,
-    VolumeARN: undefined,
-    VolumeRecoveryPointTime: undefined
-  };
-  if (output.SnapshotId !== undefined && output.SnapshotId !== null) {
-    contents.SnapshotId = output.SnapshotId;
-  }
-  if (output.VolumeARN !== undefined && output.VolumeARN !== null) {
-    contents.VolumeARN = output.VolumeARN;
-  }
-  if (
-    output.VolumeRecoveryPointTime !== undefined &&
-    output.VolumeRecoveryPointTime !== null
-  ) {
-    contents.VolumeRecoveryPointTime = output.VolumeRecoveryPointTime;
-  }
-  return contents;
+    SnapshotId:
+      output.SnapshotId !== undefined && output.SnapshotId !== null
+        ? output.SnapshotId
+        : undefined,
+    VolumeARN:
+      output.VolumeARN !== undefined && output.VolumeARN !== null
+        ? output.VolumeARN
+        : undefined,
+    VolumeRecoveryPointTime:
+      output.VolumeRecoveryPointTime !== undefined &&
+      output.VolumeRecoveryPointTime !== null
+        ? output.VolumeRecoveryPointTime
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteSnapshotScheduleOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteSnapshotScheduleOutput => {
-  let contents: any = {
+  return {
     __type: "DeleteSnapshotScheduleOutput",
-    VolumeARN: undefined
-  };
-  if (output.VolumeARN !== undefined && output.VolumeARN !== null) {
-    contents.VolumeARN = output.VolumeARN;
-  }
-  return contents;
+    VolumeARN:
+      output.VolumeARN !== undefined && output.VolumeARN !== null
+        ? output.VolumeARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeCacheOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeCacheOutput => {
-  let contents: any = {
+  return {
     __type: "DescribeCacheOutput",
-    CacheAllocatedInBytes: undefined,
-    CacheDirtyPercentage: undefined,
-    CacheHitPercentage: undefined,
-    CacheMissPercentage: undefined,
-    CacheUsedPercentage: undefined,
-    DiskIds: undefined,
-    GatewayARN: undefined
-  };
-  if (
-    output.CacheAllocatedInBytes !== undefined &&
-    output.CacheAllocatedInBytes !== null
-  ) {
-    contents.CacheAllocatedInBytes = output.CacheAllocatedInBytes;
-  }
-  if (
-    output.CacheDirtyPercentage !== undefined &&
-    output.CacheDirtyPercentage !== null
-  ) {
-    contents.CacheDirtyPercentage = output.CacheDirtyPercentage;
-  }
-  if (
-    output.CacheHitPercentage !== undefined &&
-    output.CacheHitPercentage !== null
-  ) {
-    contents.CacheHitPercentage = output.CacheHitPercentage;
-  }
-  if (
-    output.CacheMissPercentage !== undefined &&
-    output.CacheMissPercentage !== null
-  ) {
-    contents.CacheMissPercentage = output.CacheMissPercentage;
-  }
-  if (
-    output.CacheUsedPercentage !== undefined &&
-    output.CacheUsedPercentage !== null
-  ) {
-    contents.CacheUsedPercentage = output.CacheUsedPercentage;
-  }
-  if (output.DiskIds !== undefined && output.DiskIds !== null) {
-    contents.DiskIds = deserializeAws_json1_1DiskIds(output.DiskIds, context);
-  }
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  return contents;
+    CacheAllocatedInBytes:
+      output.CacheAllocatedInBytes !== undefined &&
+      output.CacheAllocatedInBytes !== null
+        ? output.CacheAllocatedInBytes
+        : undefined,
+    CacheDirtyPercentage:
+      output.CacheDirtyPercentage !== undefined &&
+      output.CacheDirtyPercentage !== null
+        ? output.CacheDirtyPercentage
+        : undefined,
+    CacheHitPercentage:
+      output.CacheHitPercentage !== undefined &&
+      output.CacheHitPercentage !== null
+        ? output.CacheHitPercentage
+        : undefined,
+    CacheMissPercentage:
+      output.CacheMissPercentage !== undefined &&
+      output.CacheMissPercentage !== null
+        ? output.CacheMissPercentage
+        : undefined,
+    CacheUsedPercentage:
+      output.CacheUsedPercentage !== undefined &&
+      output.CacheUsedPercentage !== null
+        ? output.CacheUsedPercentage
+        : undefined,
+    DiskIds:
+      output.DiskIds !== undefined && output.DiskIds !== null
+        ? deserializeAws_json1_1DiskIds(output.DiskIds, context)
+        : undefined,
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeUploadBufferOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeUploadBufferOutput => {
-  let contents: any = {
+  return {
     __type: "DescribeUploadBufferOutput",
-    DiskIds: undefined,
-    GatewayARN: undefined,
-    UploadBufferAllocatedInBytes: undefined,
-    UploadBufferUsedInBytes: undefined
-  };
-  if (output.DiskIds !== undefined && output.DiskIds !== null) {
-    contents.DiskIds = deserializeAws_json1_1DiskIds(output.DiskIds, context);
-  }
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  if (
-    output.UploadBufferAllocatedInBytes !== undefined &&
-    output.UploadBufferAllocatedInBytes !== null
-  ) {
-    contents.UploadBufferAllocatedInBytes = output.UploadBufferAllocatedInBytes;
-  }
-  if (
-    output.UploadBufferUsedInBytes !== undefined &&
-    output.UploadBufferUsedInBytes !== null
-  ) {
-    contents.UploadBufferUsedInBytes = output.UploadBufferUsedInBytes;
-  }
-  return contents;
+    DiskIds:
+      output.DiskIds !== undefined && output.DiskIds !== null
+        ? deserializeAws_json1_1DiskIds(output.DiskIds, context)
+        : undefined,
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined,
+    UploadBufferAllocatedInBytes:
+      output.UploadBufferAllocatedInBytes !== undefined &&
+      output.UploadBufferAllocatedInBytes !== null
+        ? output.UploadBufferAllocatedInBytes
+        : undefined,
+    UploadBufferUsedInBytes:
+      output.UploadBufferUsedInBytes !== undefined &&
+      output.UploadBufferUsedInBytes !== null
+        ? output.UploadBufferUsedInBytes
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListVolumeRecoveryPointsOutput = (
   output: any,
   context: __SerdeContext
 ): ListVolumeRecoveryPointsOutput => {
-  let contents: any = {
+  return {
     __type: "ListVolumeRecoveryPointsOutput",
-    GatewayARN: undefined,
-    VolumeRecoveryPointInfos: undefined
-  };
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  if (
-    output.VolumeRecoveryPointInfos !== undefined &&
-    output.VolumeRecoveryPointInfos !== null
-  ) {
-    contents.VolumeRecoveryPointInfos = deserializeAws_json1_1VolumeRecoveryPointInfos(
-      output.VolumeRecoveryPointInfos,
-      context
-    );
-  }
-  return contents;
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined,
+    VolumeRecoveryPointInfos:
+      output.VolumeRecoveryPointInfos !== undefined &&
+      output.VolumeRecoveryPointInfos !== null
+        ? deserializeAws_json1_1VolumeRecoveryPointInfos(
+            output.VolumeRecoveryPointInfos,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1VolumeRecoveryPointInfo = (
   output: any,
   context: __SerdeContext
 ): VolumeRecoveryPointInfo => {
-  let contents: any = {
+  return {
     __type: "VolumeRecoveryPointInfo",
-    VolumeARN: undefined,
-    VolumeRecoveryPointTime: undefined,
-    VolumeSizeInBytes: undefined,
-    VolumeUsageInBytes: undefined
-  };
-  if (output.VolumeARN !== undefined && output.VolumeARN !== null) {
-    contents.VolumeARN = output.VolumeARN;
-  }
-  if (
-    output.VolumeRecoveryPointTime !== undefined &&
-    output.VolumeRecoveryPointTime !== null
-  ) {
-    contents.VolumeRecoveryPointTime = output.VolumeRecoveryPointTime;
-  }
-  if (
-    output.VolumeSizeInBytes !== undefined &&
-    output.VolumeSizeInBytes !== null
-  ) {
-    contents.VolumeSizeInBytes = output.VolumeSizeInBytes;
-  }
-  if (
-    output.VolumeUsageInBytes !== undefined &&
-    output.VolumeUsageInBytes !== null
-  ) {
-    contents.VolumeUsageInBytes = output.VolumeUsageInBytes;
-  }
-  return contents;
+    VolumeARN:
+      output.VolumeARN !== undefined && output.VolumeARN !== null
+        ? output.VolumeARN
+        : undefined,
+    VolumeRecoveryPointTime:
+      output.VolumeRecoveryPointTime !== undefined &&
+      output.VolumeRecoveryPointTime !== null
+        ? output.VolumeRecoveryPointTime
+        : undefined,
+    VolumeSizeInBytes:
+      output.VolumeSizeInBytes !== undefined &&
+      output.VolumeSizeInBytes !== null
+        ? output.VolumeSizeInBytes
+        : undefined,
+    VolumeUsageInBytes:
+      output.VolumeUsageInBytes !== undefined &&
+      output.VolumeUsageInBytes !== null
+        ? output.VolumeUsageInBytes
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1VolumeRecoveryPointInfos = (
@@ -9125,126 +9029,111 @@ const deserializeAws_json1_1AddTagsToResourceOutput = (
   output: any,
   context: __SerdeContext
 ): AddTagsToResourceOutput => {
-  let contents: any = {
+  return {
     __type: "AddTagsToResourceOutput",
-    ResourceARN: undefined
-  };
-  if (output.ResourceARN !== undefined && output.ResourceARN !== null) {
-    contents.ResourceARN = output.ResourceARN;
-  }
-  return contents;
+    ResourceARN:
+      output.ResourceARN !== undefined && output.ResourceARN !== null
+        ? output.ResourceARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1AssignTapePoolOutput = (
   output: any,
   context: __SerdeContext
 ): AssignTapePoolOutput => {
-  let contents: any = {
+  return {
     __type: "AssignTapePoolOutput",
-    TapeARN: undefined
-  };
-  if (output.TapeARN !== undefined && output.TapeARN !== null) {
-    contents.TapeARN = output.TapeARN;
-  }
-  return contents;
+    TapeARN:
+      output.TapeARN !== undefined && output.TapeARN !== null
+        ? output.TapeARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1AttachVolumeOutput = (
   output: any,
   context: __SerdeContext
 ): AttachVolumeOutput => {
-  let contents: any = {
+  return {
     __type: "AttachVolumeOutput",
-    TargetARN: undefined,
-    VolumeARN: undefined
-  };
-  if (output.TargetARN !== undefined && output.TargetARN !== null) {
-    contents.TargetARN = output.TargetARN;
-  }
-  if (output.VolumeARN !== undefined && output.VolumeARN !== null) {
-    contents.VolumeARN = output.VolumeARN;
-  }
-  return contents;
+    TargetARN:
+      output.TargetARN !== undefined && output.TargetARN !== null
+        ? output.TargetARN
+        : undefined,
+    VolumeARN:
+      output.VolumeARN !== undefined && output.VolumeARN !== null
+        ? output.VolumeARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CachediSCSIVolume = (
   output: any,
   context: __SerdeContext
 ): CachediSCSIVolume => {
-  let contents: any = {
+  return {
     __type: "CachediSCSIVolume",
-    CreatedDate: undefined,
-    KMSKey: undefined,
-    SourceSnapshotId: undefined,
-    TargetName: undefined,
-    VolumeARN: undefined,
-    VolumeAttachmentStatus: undefined,
-    VolumeId: undefined,
-    VolumeProgress: undefined,
-    VolumeSizeInBytes: undefined,
-    VolumeStatus: undefined,
-    VolumeType: undefined,
-    VolumeUsedInBytes: undefined,
-    VolumeiSCSIAttributes: undefined
-  };
-  if (output.CreatedDate !== undefined && output.CreatedDate !== null) {
-    contents.CreatedDate = new Date(Math.round(output.CreatedDate * 1000));
-  }
-  if (output.KMSKey !== undefined && output.KMSKey !== null) {
-    contents.KMSKey = output.KMSKey;
-  }
-  if (
-    output.SourceSnapshotId !== undefined &&
-    output.SourceSnapshotId !== null
-  ) {
-    contents.SourceSnapshotId = output.SourceSnapshotId;
-  }
-  if (output.TargetName !== undefined && output.TargetName !== null) {
-    contents.TargetName = output.TargetName;
-  }
-  if (output.VolumeARN !== undefined && output.VolumeARN !== null) {
-    contents.VolumeARN = output.VolumeARN;
-  }
-  if (
-    output.VolumeAttachmentStatus !== undefined &&
-    output.VolumeAttachmentStatus !== null
-  ) {
-    contents.VolumeAttachmentStatus = output.VolumeAttachmentStatus;
-  }
-  if (output.VolumeId !== undefined && output.VolumeId !== null) {
-    contents.VolumeId = output.VolumeId;
-  }
-  if (output.VolumeProgress !== undefined && output.VolumeProgress !== null) {
-    contents.VolumeProgress = output.VolumeProgress;
-  }
-  if (
-    output.VolumeSizeInBytes !== undefined &&
-    output.VolumeSizeInBytes !== null
-  ) {
-    contents.VolumeSizeInBytes = output.VolumeSizeInBytes;
-  }
-  if (output.VolumeStatus !== undefined && output.VolumeStatus !== null) {
-    contents.VolumeStatus = output.VolumeStatus;
-  }
-  if (output.VolumeType !== undefined && output.VolumeType !== null) {
-    contents.VolumeType = output.VolumeType;
-  }
-  if (
-    output.VolumeUsedInBytes !== undefined &&
-    output.VolumeUsedInBytes !== null
-  ) {
-    contents.VolumeUsedInBytes = output.VolumeUsedInBytes;
-  }
-  if (
-    output.VolumeiSCSIAttributes !== undefined &&
-    output.VolumeiSCSIAttributes !== null
-  ) {
-    contents.VolumeiSCSIAttributes = deserializeAws_json1_1VolumeiSCSIAttributes(
-      output.VolumeiSCSIAttributes,
-      context
-    );
-  }
-  return contents;
+    CreatedDate:
+      output.CreatedDate !== undefined && output.CreatedDate !== null
+        ? new Date(Math.round(output.CreatedDate * 1000))
+        : undefined,
+    KMSKey:
+      output.KMSKey !== undefined && output.KMSKey !== null
+        ? output.KMSKey
+        : undefined,
+    SourceSnapshotId:
+      output.SourceSnapshotId !== undefined && output.SourceSnapshotId !== null
+        ? output.SourceSnapshotId
+        : undefined,
+    TargetName:
+      output.TargetName !== undefined && output.TargetName !== null
+        ? output.TargetName
+        : undefined,
+    VolumeARN:
+      output.VolumeARN !== undefined && output.VolumeARN !== null
+        ? output.VolumeARN
+        : undefined,
+    VolumeAttachmentStatus:
+      output.VolumeAttachmentStatus !== undefined &&
+      output.VolumeAttachmentStatus !== null
+        ? output.VolumeAttachmentStatus
+        : undefined,
+    VolumeId:
+      output.VolumeId !== undefined && output.VolumeId !== null
+        ? output.VolumeId
+        : undefined,
+    VolumeProgress:
+      output.VolumeProgress !== undefined && output.VolumeProgress !== null
+        ? output.VolumeProgress
+        : undefined,
+    VolumeSizeInBytes:
+      output.VolumeSizeInBytes !== undefined &&
+      output.VolumeSizeInBytes !== null
+        ? output.VolumeSizeInBytes
+        : undefined,
+    VolumeStatus:
+      output.VolumeStatus !== undefined && output.VolumeStatus !== null
+        ? output.VolumeStatus
+        : undefined,
+    VolumeType:
+      output.VolumeType !== undefined && output.VolumeType !== null
+        ? output.VolumeType
+        : undefined,
+    VolumeUsedInBytes:
+      output.VolumeUsedInBytes !== undefined &&
+      output.VolumeUsedInBytes !== null
+        ? output.VolumeUsedInBytes
+        : undefined,
+    VolumeiSCSIAttributes:
+      output.VolumeiSCSIAttributes !== undefined &&
+      output.VolumeiSCSIAttributes !== null
+        ? deserializeAws_json1_1VolumeiSCSIAttributes(
+            output.VolumeiSCSIAttributes,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CachediSCSIVolumes = (
@@ -9260,635 +9149,562 @@ const deserializeAws_json1_1CancelArchivalOutput = (
   output: any,
   context: __SerdeContext
 ): CancelArchivalOutput => {
-  let contents: any = {
+  return {
     __type: "CancelArchivalOutput",
-    TapeARN: undefined
-  };
-  if (output.TapeARN !== undefined && output.TapeARN !== null) {
-    contents.TapeARN = output.TapeARN;
-  }
-  return contents;
+    TapeARN:
+      output.TapeARN !== undefined && output.TapeARN !== null
+        ? output.TapeARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CancelRetrievalOutput = (
   output: any,
   context: __SerdeContext
 ): CancelRetrievalOutput => {
-  let contents: any = {
+  return {
     __type: "CancelRetrievalOutput",
-    TapeARN: undefined
-  };
-  if (output.TapeARN !== undefined && output.TapeARN !== null) {
-    contents.TapeARN = output.TapeARN;
-  }
-  return contents;
+    TapeARN:
+      output.TapeARN !== undefined && output.TapeARN !== null
+        ? output.TapeARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateNFSFileShareOutput = (
   output: any,
   context: __SerdeContext
 ): CreateNFSFileShareOutput => {
-  let contents: any = {
+  return {
     __type: "CreateNFSFileShareOutput",
-    FileShareARN: undefined
-  };
-  if (output.FileShareARN !== undefined && output.FileShareARN !== null) {
-    contents.FileShareARN = output.FileShareARN;
-  }
-  return contents;
+    FileShareARN:
+      output.FileShareARN !== undefined && output.FileShareARN !== null
+        ? output.FileShareARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateSMBFileShareOutput = (
   output: any,
   context: __SerdeContext
 ): CreateSMBFileShareOutput => {
-  let contents: any = {
+  return {
     __type: "CreateSMBFileShareOutput",
-    FileShareARN: undefined
-  };
-  if (output.FileShareARN !== undefined && output.FileShareARN !== null) {
-    contents.FileShareARN = output.FileShareARN;
-  }
-  return contents;
+    FileShareARN:
+      output.FileShareARN !== undefined && output.FileShareARN !== null
+        ? output.FileShareARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateTapeWithBarcodeOutput = (
   output: any,
   context: __SerdeContext
 ): CreateTapeWithBarcodeOutput => {
-  let contents: any = {
+  return {
     __type: "CreateTapeWithBarcodeOutput",
-    TapeARN: undefined
-  };
-  if (output.TapeARN !== undefined && output.TapeARN !== null) {
-    contents.TapeARN = output.TapeARN;
-  }
-  return contents;
+    TapeARN:
+      output.TapeARN !== undefined && output.TapeARN !== null
+        ? output.TapeARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateTapesOutput = (
   output: any,
   context: __SerdeContext
 ): CreateTapesOutput => {
-  let contents: any = {
+  return {
     __type: "CreateTapesOutput",
-    TapeARNs: undefined
-  };
-  if (output.TapeARNs !== undefined && output.TapeARNs !== null) {
-    contents.TapeARNs = deserializeAws_json1_1TapeARNs(
-      output.TapeARNs,
-      context
-    );
-  }
-  return contents;
+    TapeARNs:
+      output.TapeARNs !== undefined && output.TapeARNs !== null
+        ? deserializeAws_json1_1TapeARNs(output.TapeARNs, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteFileShareOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteFileShareOutput => {
-  let contents: any = {
+  return {
     __type: "DeleteFileShareOutput",
-    FileShareARN: undefined
-  };
-  if (output.FileShareARN !== undefined && output.FileShareARN !== null) {
-    contents.FileShareARN = output.FileShareARN;
-  }
-  return contents;
+    FileShareARN:
+      output.FileShareARN !== undefined && output.FileShareARN !== null
+        ? output.FileShareARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteTapeArchiveOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteTapeArchiveOutput => {
-  let contents: any = {
+  return {
     __type: "DeleteTapeArchiveOutput",
-    TapeARN: undefined
-  };
-  if (output.TapeARN !== undefined && output.TapeARN !== null) {
-    contents.TapeARN = output.TapeARN;
-  }
-  return contents;
+    TapeARN:
+      output.TapeARN !== undefined && output.TapeARN !== null
+        ? output.TapeARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteTapeOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteTapeOutput => {
-  let contents: any = {
+  return {
     __type: "DeleteTapeOutput",
-    TapeARN: undefined
-  };
-  if (output.TapeARN !== undefined && output.TapeARN !== null) {
-    contents.TapeARN = output.TapeARN;
-  }
-  return contents;
+    TapeARN:
+      output.TapeARN !== undefined && output.TapeARN !== null
+        ? output.TapeARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeAvailabilityMonitorTestOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeAvailabilityMonitorTestOutput => {
-  let contents: any = {
+  return {
     __type: "DescribeAvailabilityMonitorTestOutput",
-    GatewayARN: undefined,
-    StartTime: undefined,
-    Status: undefined
-  };
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  if (output.StartTime !== undefined && output.StartTime !== null) {
-    contents.StartTime = new Date(Math.round(output.StartTime * 1000));
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  return contents;
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined,
+    StartTime:
+      output.StartTime !== undefined && output.StartTime !== null
+        ? new Date(Math.round(output.StartTime * 1000))
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeCachediSCSIVolumesOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeCachediSCSIVolumesOutput => {
-  let contents: any = {
+  return {
     __type: "DescribeCachediSCSIVolumesOutput",
-    CachediSCSIVolumes: undefined
-  };
-  if (
-    output.CachediSCSIVolumes !== undefined &&
-    output.CachediSCSIVolumes !== null
-  ) {
-    contents.CachediSCSIVolumes = deserializeAws_json1_1CachediSCSIVolumes(
-      output.CachediSCSIVolumes,
-      context
-    );
-  }
-  return contents;
+    CachediSCSIVolumes:
+      output.CachediSCSIVolumes !== undefined &&
+      output.CachediSCSIVolumes !== null
+        ? deserializeAws_json1_1CachediSCSIVolumes(
+            output.CachediSCSIVolumes,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeGatewayInformationOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeGatewayInformationOutput => {
-  let contents: any = {
+  return {
     __type: "DescribeGatewayInformationOutput",
-    CloudWatchLogGroupARN: undefined,
-    Ec2InstanceId: undefined,
-    Ec2InstanceRegion: undefined,
-    GatewayARN: undefined,
-    GatewayId: undefined,
-    GatewayName: undefined,
-    GatewayNetworkInterfaces: undefined,
-    GatewayState: undefined,
-    GatewayTimezone: undefined,
-    GatewayType: undefined,
-    HostEnvironment: undefined,
-    LastSoftwareUpdate: undefined,
-    NextUpdateAvailabilityDate: undefined,
-    Tags: undefined,
-    VPCEndpoint: undefined
-  };
-  if (
-    output.CloudWatchLogGroupARN !== undefined &&
-    output.CloudWatchLogGroupARN !== null
-  ) {
-    contents.CloudWatchLogGroupARN = output.CloudWatchLogGroupARN;
-  }
-  if (output.Ec2InstanceId !== undefined && output.Ec2InstanceId !== null) {
-    contents.Ec2InstanceId = output.Ec2InstanceId;
-  }
-  if (
-    output.Ec2InstanceRegion !== undefined &&
-    output.Ec2InstanceRegion !== null
-  ) {
-    contents.Ec2InstanceRegion = output.Ec2InstanceRegion;
-  }
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  if (output.GatewayId !== undefined && output.GatewayId !== null) {
-    contents.GatewayId = output.GatewayId;
-  }
-  if (output.GatewayName !== undefined && output.GatewayName !== null) {
-    contents.GatewayName = output.GatewayName;
-  }
-  if (
-    output.GatewayNetworkInterfaces !== undefined &&
-    output.GatewayNetworkInterfaces !== null
-  ) {
-    contents.GatewayNetworkInterfaces = deserializeAws_json1_1GatewayNetworkInterfaces(
-      output.GatewayNetworkInterfaces,
-      context
-    );
-  }
-  if (output.GatewayState !== undefined && output.GatewayState !== null) {
-    contents.GatewayState = output.GatewayState;
-  }
-  if (output.GatewayTimezone !== undefined && output.GatewayTimezone !== null) {
-    contents.GatewayTimezone = output.GatewayTimezone;
-  }
-  if (output.GatewayType !== undefined && output.GatewayType !== null) {
-    contents.GatewayType = output.GatewayType;
-  }
-  if (output.HostEnvironment !== undefined && output.HostEnvironment !== null) {
-    contents.HostEnvironment = output.HostEnvironment;
-  }
-  if (
-    output.LastSoftwareUpdate !== undefined &&
-    output.LastSoftwareUpdate !== null
-  ) {
-    contents.LastSoftwareUpdate = output.LastSoftwareUpdate;
-  }
-  if (
-    output.NextUpdateAvailabilityDate !== undefined &&
-    output.NextUpdateAvailabilityDate !== null
-  ) {
-    contents.NextUpdateAvailabilityDate = output.NextUpdateAvailabilityDate;
-  }
-  if (output.Tags !== undefined && output.Tags !== null) {
-    contents.Tags = deserializeAws_json1_1Tags(output.Tags, context);
-  }
-  if (output.VPCEndpoint !== undefined && output.VPCEndpoint !== null) {
-    contents.VPCEndpoint = output.VPCEndpoint;
-  }
-  return contents;
+    CloudWatchLogGroupARN:
+      output.CloudWatchLogGroupARN !== undefined &&
+      output.CloudWatchLogGroupARN !== null
+        ? output.CloudWatchLogGroupARN
+        : undefined,
+    Ec2InstanceId:
+      output.Ec2InstanceId !== undefined && output.Ec2InstanceId !== null
+        ? output.Ec2InstanceId
+        : undefined,
+    Ec2InstanceRegion:
+      output.Ec2InstanceRegion !== undefined &&
+      output.Ec2InstanceRegion !== null
+        ? output.Ec2InstanceRegion
+        : undefined,
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined,
+    GatewayId:
+      output.GatewayId !== undefined && output.GatewayId !== null
+        ? output.GatewayId
+        : undefined,
+    GatewayName:
+      output.GatewayName !== undefined && output.GatewayName !== null
+        ? output.GatewayName
+        : undefined,
+    GatewayNetworkInterfaces:
+      output.GatewayNetworkInterfaces !== undefined &&
+      output.GatewayNetworkInterfaces !== null
+        ? deserializeAws_json1_1GatewayNetworkInterfaces(
+            output.GatewayNetworkInterfaces,
+            context
+          )
+        : undefined,
+    GatewayState:
+      output.GatewayState !== undefined && output.GatewayState !== null
+        ? output.GatewayState
+        : undefined,
+    GatewayTimezone:
+      output.GatewayTimezone !== undefined && output.GatewayTimezone !== null
+        ? output.GatewayTimezone
+        : undefined,
+    GatewayType:
+      output.GatewayType !== undefined && output.GatewayType !== null
+        ? output.GatewayType
+        : undefined,
+    HostEnvironment:
+      output.HostEnvironment !== undefined && output.HostEnvironment !== null
+        ? output.HostEnvironment
+        : undefined,
+    LastSoftwareUpdate:
+      output.LastSoftwareUpdate !== undefined &&
+      output.LastSoftwareUpdate !== null
+        ? output.LastSoftwareUpdate
+        : undefined,
+    NextUpdateAvailabilityDate:
+      output.NextUpdateAvailabilityDate !== undefined &&
+      output.NextUpdateAvailabilityDate !== null
+        ? output.NextUpdateAvailabilityDate
+        : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1Tags(output.Tags, context)
+        : undefined,
+    VPCEndpoint:
+      output.VPCEndpoint !== undefined && output.VPCEndpoint !== null
+        ? output.VPCEndpoint
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeMaintenanceStartTimeOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeMaintenanceStartTimeOutput => {
-  let contents: any = {
+  return {
     __type: "DescribeMaintenanceStartTimeOutput",
-    DayOfMonth: undefined,
-    DayOfWeek: undefined,
-    GatewayARN: undefined,
-    HourOfDay: undefined,
-    MinuteOfHour: undefined,
-    Timezone: undefined
-  };
-  if (output.DayOfMonth !== undefined && output.DayOfMonth !== null) {
-    contents.DayOfMonth = output.DayOfMonth;
-  }
-  if (output.DayOfWeek !== undefined && output.DayOfWeek !== null) {
-    contents.DayOfWeek = output.DayOfWeek;
-  }
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  if (output.HourOfDay !== undefined && output.HourOfDay !== null) {
-    contents.HourOfDay = output.HourOfDay;
-  }
-  if (output.MinuteOfHour !== undefined && output.MinuteOfHour !== null) {
-    contents.MinuteOfHour = output.MinuteOfHour;
-  }
-  if (output.Timezone !== undefined && output.Timezone !== null) {
-    contents.Timezone = output.Timezone;
-  }
-  return contents;
+    DayOfMonth:
+      output.DayOfMonth !== undefined && output.DayOfMonth !== null
+        ? output.DayOfMonth
+        : undefined,
+    DayOfWeek:
+      output.DayOfWeek !== undefined && output.DayOfWeek !== null
+        ? output.DayOfWeek
+        : undefined,
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined,
+    HourOfDay:
+      output.HourOfDay !== undefined && output.HourOfDay !== null
+        ? output.HourOfDay
+        : undefined,
+    MinuteOfHour:
+      output.MinuteOfHour !== undefined && output.MinuteOfHour !== null
+        ? output.MinuteOfHour
+        : undefined,
+    Timezone:
+      output.Timezone !== undefined && output.Timezone !== null
+        ? output.Timezone
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeNFSFileSharesOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeNFSFileSharesOutput => {
-  let contents: any = {
+  return {
     __type: "DescribeNFSFileSharesOutput",
-    NFSFileShareInfoList: undefined
-  };
-  if (
-    output.NFSFileShareInfoList !== undefined &&
-    output.NFSFileShareInfoList !== null
-  ) {
-    contents.NFSFileShareInfoList = deserializeAws_json1_1NFSFileShareInfoList(
-      output.NFSFileShareInfoList,
-      context
-    );
-  }
-  return contents;
+    NFSFileShareInfoList:
+      output.NFSFileShareInfoList !== undefined &&
+      output.NFSFileShareInfoList !== null
+        ? deserializeAws_json1_1NFSFileShareInfoList(
+            output.NFSFileShareInfoList,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeSMBFileSharesOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeSMBFileSharesOutput => {
-  let contents: any = {
+  return {
     __type: "DescribeSMBFileSharesOutput",
-    SMBFileShareInfoList: undefined
-  };
-  if (
-    output.SMBFileShareInfoList !== undefined &&
-    output.SMBFileShareInfoList !== null
-  ) {
-    contents.SMBFileShareInfoList = deserializeAws_json1_1SMBFileShareInfoList(
-      output.SMBFileShareInfoList,
-      context
-    );
-  }
-  return contents;
+    SMBFileShareInfoList:
+      output.SMBFileShareInfoList !== undefined &&
+      output.SMBFileShareInfoList !== null
+        ? deserializeAws_json1_1SMBFileShareInfoList(
+            output.SMBFileShareInfoList,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeSMBSettingsOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeSMBSettingsOutput => {
-  let contents: any = {
+  return {
     __type: "DescribeSMBSettingsOutput",
-    ActiveDirectoryStatus: undefined,
-    DomainName: undefined,
-    GatewayARN: undefined,
-    SMBGuestPasswordSet: undefined,
-    SMBSecurityStrategy: undefined
-  };
-  if (
-    output.ActiveDirectoryStatus !== undefined &&
-    output.ActiveDirectoryStatus !== null
-  ) {
-    contents.ActiveDirectoryStatus = output.ActiveDirectoryStatus;
-  }
-  if (output.DomainName !== undefined && output.DomainName !== null) {
-    contents.DomainName = output.DomainName;
-  }
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  if (
-    output.SMBGuestPasswordSet !== undefined &&
-    output.SMBGuestPasswordSet !== null
-  ) {
-    contents.SMBGuestPasswordSet = output.SMBGuestPasswordSet;
-  }
-  if (
-    output.SMBSecurityStrategy !== undefined &&
-    output.SMBSecurityStrategy !== null
-  ) {
-    contents.SMBSecurityStrategy = output.SMBSecurityStrategy;
-  }
-  return contents;
+    ActiveDirectoryStatus:
+      output.ActiveDirectoryStatus !== undefined &&
+      output.ActiveDirectoryStatus !== null
+        ? output.ActiveDirectoryStatus
+        : undefined,
+    DomainName:
+      output.DomainName !== undefined && output.DomainName !== null
+        ? output.DomainName
+        : undefined,
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined,
+    SMBGuestPasswordSet:
+      output.SMBGuestPasswordSet !== undefined &&
+      output.SMBGuestPasswordSet !== null
+        ? output.SMBGuestPasswordSet
+        : undefined,
+    SMBSecurityStrategy:
+      output.SMBSecurityStrategy !== undefined &&
+      output.SMBSecurityStrategy !== null
+        ? output.SMBSecurityStrategy
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeSnapshotScheduleOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeSnapshotScheduleOutput => {
-  let contents: any = {
+  return {
     __type: "DescribeSnapshotScheduleOutput",
-    Description: undefined,
-    RecurrenceInHours: undefined,
-    StartAt: undefined,
-    Tags: undefined,
-    Timezone: undefined,
-    VolumeARN: undefined
-  };
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (
-    output.RecurrenceInHours !== undefined &&
-    output.RecurrenceInHours !== null
-  ) {
-    contents.RecurrenceInHours = output.RecurrenceInHours;
-  }
-  if (output.StartAt !== undefined && output.StartAt !== null) {
-    contents.StartAt = output.StartAt;
-  }
-  if (output.Tags !== undefined && output.Tags !== null) {
-    contents.Tags = deserializeAws_json1_1Tags(output.Tags, context);
-  }
-  if (output.Timezone !== undefined && output.Timezone !== null) {
-    contents.Timezone = output.Timezone;
-  }
-  if (output.VolumeARN !== undefined && output.VolumeARN !== null) {
-    contents.VolumeARN = output.VolumeARN;
-  }
-  return contents;
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    RecurrenceInHours:
+      output.RecurrenceInHours !== undefined &&
+      output.RecurrenceInHours !== null
+        ? output.RecurrenceInHours
+        : undefined,
+    StartAt:
+      output.StartAt !== undefined && output.StartAt !== null
+        ? output.StartAt
+        : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1Tags(output.Tags, context)
+        : undefined,
+    Timezone:
+      output.Timezone !== undefined && output.Timezone !== null
+        ? output.Timezone
+        : undefined,
+    VolumeARN:
+      output.VolumeARN !== undefined && output.VolumeARN !== null
+        ? output.VolumeARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeStorediSCSIVolumesOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeStorediSCSIVolumesOutput => {
-  let contents: any = {
+  return {
     __type: "DescribeStorediSCSIVolumesOutput",
-    StorediSCSIVolumes: undefined
-  };
-  if (
-    output.StorediSCSIVolumes !== undefined &&
-    output.StorediSCSIVolumes !== null
-  ) {
-    contents.StorediSCSIVolumes = deserializeAws_json1_1StorediSCSIVolumes(
-      output.StorediSCSIVolumes,
-      context
-    );
-  }
-  return contents;
+    StorediSCSIVolumes:
+      output.StorediSCSIVolumes !== undefined &&
+      output.StorediSCSIVolumes !== null
+        ? deserializeAws_json1_1StorediSCSIVolumes(
+            output.StorediSCSIVolumes,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeTapeArchivesOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeTapeArchivesOutput => {
-  let contents: any = {
+  return {
     __type: "DescribeTapeArchivesOutput",
-    Marker: undefined,
-    TapeArchives: undefined
-  };
-  if (output.Marker !== undefined && output.Marker !== null) {
-    contents.Marker = output.Marker;
-  }
-  if (output.TapeArchives !== undefined && output.TapeArchives !== null) {
-    contents.TapeArchives = deserializeAws_json1_1TapeArchives(
-      output.TapeArchives,
-      context
-    );
-  }
-  return contents;
+    Marker:
+      output.Marker !== undefined && output.Marker !== null
+        ? output.Marker
+        : undefined,
+    TapeArchives:
+      output.TapeArchives !== undefined && output.TapeArchives !== null
+        ? deserializeAws_json1_1TapeArchives(output.TapeArchives, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeTapeRecoveryPointsOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeTapeRecoveryPointsOutput => {
-  let contents: any = {
+  return {
     __type: "DescribeTapeRecoveryPointsOutput",
-    GatewayARN: undefined,
-    Marker: undefined,
-    TapeRecoveryPointInfos: undefined
-  };
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  if (output.Marker !== undefined && output.Marker !== null) {
-    contents.Marker = output.Marker;
-  }
-  if (
-    output.TapeRecoveryPointInfos !== undefined &&
-    output.TapeRecoveryPointInfos !== null
-  ) {
-    contents.TapeRecoveryPointInfos = deserializeAws_json1_1TapeRecoveryPointInfos(
-      output.TapeRecoveryPointInfos,
-      context
-    );
-  }
-  return contents;
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined,
+    Marker:
+      output.Marker !== undefined && output.Marker !== null
+        ? output.Marker
+        : undefined,
+    TapeRecoveryPointInfos:
+      output.TapeRecoveryPointInfos !== undefined &&
+      output.TapeRecoveryPointInfos !== null
+        ? deserializeAws_json1_1TapeRecoveryPointInfos(
+            output.TapeRecoveryPointInfos,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeTapesOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeTapesOutput => {
-  let contents: any = {
+  return {
     __type: "DescribeTapesOutput",
-    Marker: undefined,
-    Tapes: undefined
-  };
-  if (output.Marker !== undefined && output.Marker !== null) {
-    contents.Marker = output.Marker;
-  }
-  if (output.Tapes !== undefined && output.Tapes !== null) {
-    contents.Tapes = deserializeAws_json1_1Tapes(output.Tapes, context);
-  }
-  return contents;
+    Marker:
+      output.Marker !== undefined && output.Marker !== null
+        ? output.Marker
+        : undefined,
+    Tapes:
+      output.Tapes !== undefined && output.Tapes !== null
+        ? deserializeAws_json1_1Tapes(output.Tapes, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeVTLDevicesOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeVTLDevicesOutput => {
-  let contents: any = {
+  return {
     __type: "DescribeVTLDevicesOutput",
-    GatewayARN: undefined,
-    Marker: undefined,
-    VTLDevices: undefined
-  };
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  if (output.Marker !== undefined && output.Marker !== null) {
-    contents.Marker = output.Marker;
-  }
-  if (output.VTLDevices !== undefined && output.VTLDevices !== null) {
-    contents.VTLDevices = deserializeAws_json1_1VTLDevices(
-      output.VTLDevices,
-      context
-    );
-  }
-  return contents;
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined,
+    Marker:
+      output.Marker !== undefined && output.Marker !== null
+        ? output.Marker
+        : undefined,
+    VTLDevices:
+      output.VTLDevices !== undefined && output.VTLDevices !== null
+        ? deserializeAws_json1_1VTLDevices(output.VTLDevices, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DetachVolumeOutput = (
   output: any,
   context: __SerdeContext
 ): DetachVolumeOutput => {
-  let contents: any = {
+  return {
     __type: "DetachVolumeOutput",
-    VolumeARN: undefined
-  };
-  if (output.VolumeARN !== undefined && output.VolumeARN !== null) {
-    contents.VolumeARN = output.VolumeARN;
-  }
-  return contents;
+    VolumeARN:
+      output.VolumeARN !== undefined && output.VolumeARN !== null
+        ? output.VolumeARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeviceiSCSIAttributes = (
   output: any,
   context: __SerdeContext
 ): DeviceiSCSIAttributes => {
-  let contents: any = {
+  return {
     __type: "DeviceiSCSIAttributes",
-    ChapEnabled: undefined,
-    NetworkInterfaceId: undefined,
-    NetworkInterfacePort: undefined,
-    TargetARN: undefined
-  };
-  if (output.ChapEnabled !== undefined && output.ChapEnabled !== null) {
-    contents.ChapEnabled = output.ChapEnabled;
-  }
-  if (
-    output.NetworkInterfaceId !== undefined &&
-    output.NetworkInterfaceId !== null
-  ) {
-    contents.NetworkInterfaceId = output.NetworkInterfaceId;
-  }
-  if (
-    output.NetworkInterfacePort !== undefined &&
-    output.NetworkInterfacePort !== null
-  ) {
-    contents.NetworkInterfacePort = output.NetworkInterfacePort;
-  }
-  if (output.TargetARN !== undefined && output.TargetARN !== null) {
-    contents.TargetARN = output.TargetARN;
-  }
-  return contents;
+    ChapEnabled:
+      output.ChapEnabled !== undefined && output.ChapEnabled !== null
+        ? output.ChapEnabled
+        : undefined,
+    NetworkInterfaceId:
+      output.NetworkInterfaceId !== undefined &&
+      output.NetworkInterfaceId !== null
+        ? output.NetworkInterfaceId
+        : undefined,
+    NetworkInterfacePort:
+      output.NetworkInterfacePort !== undefined &&
+      output.NetworkInterfacePort !== null
+        ? output.NetworkInterfacePort
+        : undefined,
+    TargetARN:
+      output.TargetARN !== undefined && output.TargetARN !== null
+        ? output.TargetARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DisableGatewayOutput = (
   output: any,
   context: __SerdeContext
 ): DisableGatewayOutput => {
-  let contents: any = {
+  return {
     __type: "DisableGatewayOutput",
-    GatewayARN: undefined
-  };
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  return contents;
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Disk = (
   output: any,
   context: __SerdeContext
 ): Disk => {
-  let contents: any = {
+  return {
     __type: "Disk",
-    DiskAllocationResource: undefined,
-    DiskAllocationType: undefined,
-    DiskAttributeList: undefined,
-    DiskId: undefined,
-    DiskNode: undefined,
-    DiskPath: undefined,
-    DiskSizeInBytes: undefined,
-    DiskStatus: undefined
-  };
-  if (
-    output.DiskAllocationResource !== undefined &&
-    output.DiskAllocationResource !== null
-  ) {
-    contents.DiskAllocationResource = output.DiskAllocationResource;
-  }
-  if (
-    output.DiskAllocationType !== undefined &&
-    output.DiskAllocationType !== null
-  ) {
-    contents.DiskAllocationType = output.DiskAllocationType;
-  }
-  if (
-    output.DiskAttributeList !== undefined &&
-    output.DiskAttributeList !== null
-  ) {
-    contents.DiskAttributeList = deserializeAws_json1_1DiskAttributeList(
-      output.DiskAttributeList,
-      context
-    );
-  }
-  if (output.DiskId !== undefined && output.DiskId !== null) {
-    contents.DiskId = output.DiskId;
-  }
-  if (output.DiskNode !== undefined && output.DiskNode !== null) {
-    contents.DiskNode = output.DiskNode;
-  }
-  if (output.DiskPath !== undefined && output.DiskPath !== null) {
-    contents.DiskPath = output.DiskPath;
-  }
-  if (output.DiskSizeInBytes !== undefined && output.DiskSizeInBytes !== null) {
-    contents.DiskSizeInBytes = output.DiskSizeInBytes;
-  }
-  if (output.DiskStatus !== undefined && output.DiskStatus !== null) {
-    contents.DiskStatus = output.DiskStatus;
-  }
-  return contents;
+    DiskAllocationResource:
+      output.DiskAllocationResource !== undefined &&
+      output.DiskAllocationResource !== null
+        ? output.DiskAllocationResource
+        : undefined,
+    DiskAllocationType:
+      output.DiskAllocationType !== undefined &&
+      output.DiskAllocationType !== null
+        ? output.DiskAllocationType
+        : undefined,
+    DiskAttributeList:
+      output.DiskAttributeList !== undefined &&
+      output.DiskAttributeList !== null
+        ? deserializeAws_json1_1DiskAttributeList(
+            output.DiskAttributeList,
+            context
+          )
+        : undefined,
+    DiskId:
+      output.DiskId !== undefined && output.DiskId !== null
+        ? output.DiskId
+        : undefined,
+    DiskNode:
+      output.DiskNode !== undefined && output.DiskNode !== null
+        ? output.DiskNode
+        : undefined,
+    DiskPath:
+      output.DiskPath !== undefined && output.DiskPath !== null
+        ? output.DiskPath
+        : undefined,
+    DiskSizeInBytes:
+      output.DiskSizeInBytes !== undefined && output.DiskSizeInBytes !== null
+        ? output.DiskSizeInBytes
+        : undefined,
+    DiskStatus:
+      output.DiskStatus !== undefined && output.DiskStatus !== null
+        ? output.DiskStatus
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DiskAttributeList = (
@@ -9918,30 +9734,29 @@ const deserializeAws_json1_1FileShareInfo = (
   output: any,
   context: __SerdeContext
 ): FileShareInfo => {
-  let contents: any = {
+  return {
     __type: "FileShareInfo",
-    FileShareARN: undefined,
-    FileShareId: undefined,
-    FileShareStatus: undefined,
-    FileShareType: undefined,
-    GatewayARN: undefined
-  };
-  if (output.FileShareARN !== undefined && output.FileShareARN !== null) {
-    contents.FileShareARN = output.FileShareARN;
-  }
-  if (output.FileShareId !== undefined && output.FileShareId !== null) {
-    contents.FileShareId = output.FileShareId;
-  }
-  if (output.FileShareStatus !== undefined && output.FileShareStatus !== null) {
-    contents.FileShareStatus = output.FileShareStatus;
-  }
-  if (output.FileShareType !== undefined && output.FileShareType !== null) {
-    contents.FileShareType = output.FileShareType;
-  }
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  return contents;
+    FileShareARN:
+      output.FileShareARN !== undefined && output.FileShareARN !== null
+        ? output.FileShareARN
+        : undefined,
+    FileShareId:
+      output.FileShareId !== undefined && output.FileShareId !== null
+        ? output.FileShareId
+        : undefined,
+    FileShareStatus:
+      output.FileShareStatus !== undefined && output.FileShareStatus !== null
+        ? output.FileShareStatus
+        : undefined,
+    FileShareType:
+      output.FileShareType !== undefined && output.FileShareType !== null
+        ? output.FileShareType
+        : undefined,
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1FileShareInfoList = (
@@ -9964,44 +9779,39 @@ const deserializeAws_json1_1GatewayInfo = (
   output: any,
   context: __SerdeContext
 ): GatewayInfo => {
-  let contents: any = {
+  return {
     __type: "GatewayInfo",
-    Ec2InstanceId: undefined,
-    Ec2InstanceRegion: undefined,
-    GatewayARN: undefined,
-    GatewayId: undefined,
-    GatewayName: undefined,
-    GatewayOperationalState: undefined,
-    GatewayType: undefined
-  };
-  if (output.Ec2InstanceId !== undefined && output.Ec2InstanceId !== null) {
-    contents.Ec2InstanceId = output.Ec2InstanceId;
-  }
-  if (
-    output.Ec2InstanceRegion !== undefined &&
-    output.Ec2InstanceRegion !== null
-  ) {
-    contents.Ec2InstanceRegion = output.Ec2InstanceRegion;
-  }
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  if (output.GatewayId !== undefined && output.GatewayId !== null) {
-    contents.GatewayId = output.GatewayId;
-  }
-  if (output.GatewayName !== undefined && output.GatewayName !== null) {
-    contents.GatewayName = output.GatewayName;
-  }
-  if (
-    output.GatewayOperationalState !== undefined &&
-    output.GatewayOperationalState !== null
-  ) {
-    contents.GatewayOperationalState = output.GatewayOperationalState;
-  }
-  if (output.GatewayType !== undefined && output.GatewayType !== null) {
-    contents.GatewayType = output.GatewayType;
-  }
-  return contents;
+    Ec2InstanceId:
+      output.Ec2InstanceId !== undefined && output.Ec2InstanceId !== null
+        ? output.Ec2InstanceId
+        : undefined,
+    Ec2InstanceRegion:
+      output.Ec2InstanceRegion !== undefined &&
+      output.Ec2InstanceRegion !== null
+        ? output.Ec2InstanceRegion
+        : undefined,
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined,
+    GatewayId:
+      output.GatewayId !== undefined && output.GatewayId !== null
+        ? output.GatewayId
+        : undefined,
+    GatewayName:
+      output.GatewayName !== undefined && output.GatewayName !== null
+        ? output.GatewayName
+        : undefined,
+    GatewayOperationalState:
+      output.GatewayOperationalState !== undefined &&
+      output.GatewayOperationalState !== null
+        ? output.GatewayOperationalState
+        : undefined,
+    GatewayType:
+      output.GatewayType !== undefined && output.GatewayType !== null
+        ? output.GatewayType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Gateways = (
@@ -10024,296 +9834,261 @@ const deserializeAws_json1_1JoinDomainOutput = (
   output: any,
   context: __SerdeContext
 ): JoinDomainOutput => {
-  let contents: any = {
+  return {
     __type: "JoinDomainOutput",
-    ActiveDirectoryStatus: undefined,
-    GatewayARN: undefined
-  };
-  if (
-    output.ActiveDirectoryStatus !== undefined &&
-    output.ActiveDirectoryStatus !== null
-  ) {
-    contents.ActiveDirectoryStatus = output.ActiveDirectoryStatus;
-  }
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  return contents;
+    ActiveDirectoryStatus:
+      output.ActiveDirectoryStatus !== undefined &&
+      output.ActiveDirectoryStatus !== null
+        ? output.ActiveDirectoryStatus
+        : undefined,
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListFileSharesOutput = (
   output: any,
   context: __SerdeContext
 ): ListFileSharesOutput => {
-  let contents: any = {
+  return {
     __type: "ListFileSharesOutput",
-    FileShareInfoList: undefined,
-    Marker: undefined,
-    NextMarker: undefined
-  };
-  if (
-    output.FileShareInfoList !== undefined &&
-    output.FileShareInfoList !== null
-  ) {
-    contents.FileShareInfoList = deserializeAws_json1_1FileShareInfoList(
-      output.FileShareInfoList,
-      context
-    );
-  }
-  if (output.Marker !== undefined && output.Marker !== null) {
-    contents.Marker = output.Marker;
-  }
-  if (output.NextMarker !== undefined && output.NextMarker !== null) {
-    contents.NextMarker = output.NextMarker;
-  }
-  return contents;
+    FileShareInfoList:
+      output.FileShareInfoList !== undefined &&
+      output.FileShareInfoList !== null
+        ? deserializeAws_json1_1FileShareInfoList(
+            output.FileShareInfoList,
+            context
+          )
+        : undefined,
+    Marker:
+      output.Marker !== undefined && output.Marker !== null
+        ? output.Marker
+        : undefined,
+    NextMarker:
+      output.NextMarker !== undefined && output.NextMarker !== null
+        ? output.NextMarker
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListGatewaysOutput = (
   output: any,
   context: __SerdeContext
 ): ListGatewaysOutput => {
-  let contents: any = {
+  return {
     __type: "ListGatewaysOutput",
-    Gateways: undefined,
-    Marker: undefined
-  };
-  if (output.Gateways !== undefined && output.Gateways !== null) {
-    contents.Gateways = deserializeAws_json1_1Gateways(
-      output.Gateways,
-      context
-    );
-  }
-  if (output.Marker !== undefined && output.Marker !== null) {
-    contents.Marker = output.Marker;
-  }
-  return contents;
+    Gateways:
+      output.Gateways !== undefined && output.Gateways !== null
+        ? deserializeAws_json1_1Gateways(output.Gateways, context)
+        : undefined,
+    Marker:
+      output.Marker !== undefined && output.Marker !== null
+        ? output.Marker
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListLocalDisksOutput = (
   output: any,
   context: __SerdeContext
 ): ListLocalDisksOutput => {
-  let contents: any = {
+  return {
     __type: "ListLocalDisksOutput",
-    Disks: undefined,
-    GatewayARN: undefined
-  };
-  if (output.Disks !== undefined && output.Disks !== null) {
-    contents.Disks = deserializeAws_json1_1Disks(output.Disks, context);
-  }
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  return contents;
+    Disks:
+      output.Disks !== undefined && output.Disks !== null
+        ? deserializeAws_json1_1Disks(output.Disks, context)
+        : undefined,
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListTagsForResourceOutput = (
   output: any,
   context: __SerdeContext
 ): ListTagsForResourceOutput => {
-  let contents: any = {
+  return {
     __type: "ListTagsForResourceOutput",
-    Marker: undefined,
-    ResourceARN: undefined,
-    Tags: undefined
-  };
-  if (output.Marker !== undefined && output.Marker !== null) {
-    contents.Marker = output.Marker;
-  }
-  if (output.ResourceARN !== undefined && output.ResourceARN !== null) {
-    contents.ResourceARN = output.ResourceARN;
-  }
-  if (output.Tags !== undefined && output.Tags !== null) {
-    contents.Tags = deserializeAws_json1_1Tags(output.Tags, context);
-  }
-  return contents;
+    Marker:
+      output.Marker !== undefined && output.Marker !== null
+        ? output.Marker
+        : undefined,
+    ResourceARN:
+      output.ResourceARN !== undefined && output.ResourceARN !== null
+        ? output.ResourceARN
+        : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1Tags(output.Tags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListTapesOutput = (
   output: any,
   context: __SerdeContext
 ): ListTapesOutput => {
-  let contents: any = {
+  return {
     __type: "ListTapesOutput",
-    Marker: undefined,
-    TapeInfos: undefined
-  };
-  if (output.Marker !== undefined && output.Marker !== null) {
-    contents.Marker = output.Marker;
-  }
-  if (output.TapeInfos !== undefined && output.TapeInfos !== null) {
-    contents.TapeInfos = deserializeAws_json1_1TapeInfos(
-      output.TapeInfos,
-      context
-    );
-  }
-  return contents;
+    Marker:
+      output.Marker !== undefined && output.Marker !== null
+        ? output.Marker
+        : undefined,
+    TapeInfos:
+      output.TapeInfos !== undefined && output.TapeInfos !== null
+        ? deserializeAws_json1_1TapeInfos(output.TapeInfos, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListVolumeInitiatorsOutput = (
   output: any,
   context: __SerdeContext
 ): ListVolumeInitiatorsOutput => {
-  let contents: any = {
+  return {
     __type: "ListVolumeInitiatorsOutput",
-    Initiators: undefined
-  };
-  if (output.Initiators !== undefined && output.Initiators !== null) {
-    contents.Initiators = deserializeAws_json1_1Initiators(
-      output.Initiators,
-      context
-    );
-  }
-  return contents;
+    Initiators:
+      output.Initiators !== undefined && output.Initiators !== null
+        ? deserializeAws_json1_1Initiators(output.Initiators, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListVolumesOutput = (
   output: any,
   context: __SerdeContext
 ): ListVolumesOutput => {
-  let contents: any = {
+  return {
     __type: "ListVolumesOutput",
-    GatewayARN: undefined,
-    Marker: undefined,
-    VolumeInfos: undefined
-  };
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  if (output.Marker !== undefined && output.Marker !== null) {
-    contents.Marker = output.Marker;
-  }
-  if (output.VolumeInfos !== undefined && output.VolumeInfos !== null) {
-    contents.VolumeInfos = deserializeAws_json1_1VolumeInfos(
-      output.VolumeInfos,
-      context
-    );
-  }
-  return contents;
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined,
+    Marker:
+      output.Marker !== undefined && output.Marker !== null
+        ? output.Marker
+        : undefined,
+    VolumeInfos:
+      output.VolumeInfos !== undefined && output.VolumeInfos !== null
+        ? deserializeAws_json1_1VolumeInfos(output.VolumeInfos, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1NFSFileShareDefaults = (
   output: any,
   context: __SerdeContext
 ): NFSFileShareDefaults => {
-  let contents: any = {
+  return {
     __type: "NFSFileShareDefaults",
-    DirectoryMode: undefined,
-    FileMode: undefined,
-    GroupId: undefined,
-    OwnerId: undefined
-  };
-  if (output.DirectoryMode !== undefined && output.DirectoryMode !== null) {
-    contents.DirectoryMode = output.DirectoryMode;
-  }
-  if (output.FileMode !== undefined && output.FileMode !== null) {
-    contents.FileMode = output.FileMode;
-  }
-  if (output.GroupId !== undefined && output.GroupId !== null) {
-    contents.GroupId = output.GroupId;
-  }
-  if (output.OwnerId !== undefined && output.OwnerId !== null) {
-    contents.OwnerId = output.OwnerId;
-  }
-  return contents;
+    DirectoryMode:
+      output.DirectoryMode !== undefined && output.DirectoryMode !== null
+        ? output.DirectoryMode
+        : undefined,
+    FileMode:
+      output.FileMode !== undefined && output.FileMode !== null
+        ? output.FileMode
+        : undefined,
+    GroupId:
+      output.GroupId !== undefined && output.GroupId !== null
+        ? output.GroupId
+        : undefined,
+    OwnerId:
+      output.OwnerId !== undefined && output.OwnerId !== null
+        ? output.OwnerId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1NFSFileShareInfo = (
   output: any,
   context: __SerdeContext
 ): NFSFileShareInfo => {
-  let contents: any = {
+  return {
     __type: "NFSFileShareInfo",
-    ClientList: undefined,
-    DefaultStorageClass: undefined,
-    FileShareARN: undefined,
-    FileShareId: undefined,
-    FileShareStatus: undefined,
-    GatewayARN: undefined,
-    GuessMIMETypeEnabled: undefined,
-    KMSEncrypted: undefined,
-    KMSKey: undefined,
-    LocationARN: undefined,
-    NFSFileShareDefaults: undefined,
-    ObjectACL: undefined,
-    Path: undefined,
-    ReadOnly: undefined,
-    RequesterPays: undefined,
-    Role: undefined,
-    Squash: undefined,
-    Tags: undefined
-  };
-  if (output.ClientList !== undefined && output.ClientList !== null) {
-    contents.ClientList = deserializeAws_json1_1FileShareClientList(
-      output.ClientList,
-      context
-    );
-  }
-  if (
-    output.DefaultStorageClass !== undefined &&
-    output.DefaultStorageClass !== null
-  ) {
-    contents.DefaultStorageClass = output.DefaultStorageClass;
-  }
-  if (output.FileShareARN !== undefined && output.FileShareARN !== null) {
-    contents.FileShareARN = output.FileShareARN;
-  }
-  if (output.FileShareId !== undefined && output.FileShareId !== null) {
-    contents.FileShareId = output.FileShareId;
-  }
-  if (output.FileShareStatus !== undefined && output.FileShareStatus !== null) {
-    contents.FileShareStatus = output.FileShareStatus;
-  }
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  if (
-    output.GuessMIMETypeEnabled !== undefined &&
-    output.GuessMIMETypeEnabled !== null
-  ) {
-    contents.GuessMIMETypeEnabled = output.GuessMIMETypeEnabled;
-  }
-  if (output.KMSEncrypted !== undefined && output.KMSEncrypted !== null) {
-    contents.KMSEncrypted = output.KMSEncrypted;
-  }
-  if (output.KMSKey !== undefined && output.KMSKey !== null) {
-    contents.KMSKey = output.KMSKey;
-  }
-  if (output.LocationARN !== undefined && output.LocationARN !== null) {
-    contents.LocationARN = output.LocationARN;
-  }
-  if (
-    output.NFSFileShareDefaults !== undefined &&
-    output.NFSFileShareDefaults !== null
-  ) {
-    contents.NFSFileShareDefaults = deserializeAws_json1_1NFSFileShareDefaults(
-      output.NFSFileShareDefaults,
-      context
-    );
-  }
-  if (output.ObjectACL !== undefined && output.ObjectACL !== null) {
-    contents.ObjectACL = output.ObjectACL;
-  }
-  if (output.Path !== undefined && output.Path !== null) {
-    contents.Path = output.Path;
-  }
-  if (output.ReadOnly !== undefined && output.ReadOnly !== null) {
-    contents.ReadOnly = output.ReadOnly;
-  }
-  if (output.RequesterPays !== undefined && output.RequesterPays !== null) {
-    contents.RequesterPays = output.RequesterPays;
-  }
-  if (output.Role !== undefined && output.Role !== null) {
-    contents.Role = output.Role;
-  }
-  if (output.Squash !== undefined && output.Squash !== null) {
-    contents.Squash = output.Squash;
-  }
-  if (output.Tags !== undefined && output.Tags !== null) {
-    contents.Tags = deserializeAws_json1_1Tags(output.Tags, context);
-  }
-  return contents;
+    ClientList:
+      output.ClientList !== undefined && output.ClientList !== null
+        ? deserializeAws_json1_1FileShareClientList(output.ClientList, context)
+        : undefined,
+    DefaultStorageClass:
+      output.DefaultStorageClass !== undefined &&
+      output.DefaultStorageClass !== null
+        ? output.DefaultStorageClass
+        : undefined,
+    FileShareARN:
+      output.FileShareARN !== undefined && output.FileShareARN !== null
+        ? output.FileShareARN
+        : undefined,
+    FileShareId:
+      output.FileShareId !== undefined && output.FileShareId !== null
+        ? output.FileShareId
+        : undefined,
+    FileShareStatus:
+      output.FileShareStatus !== undefined && output.FileShareStatus !== null
+        ? output.FileShareStatus
+        : undefined,
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined,
+    GuessMIMETypeEnabled:
+      output.GuessMIMETypeEnabled !== undefined &&
+      output.GuessMIMETypeEnabled !== null
+        ? output.GuessMIMETypeEnabled
+        : undefined,
+    KMSEncrypted:
+      output.KMSEncrypted !== undefined && output.KMSEncrypted !== null
+        ? output.KMSEncrypted
+        : undefined,
+    KMSKey:
+      output.KMSKey !== undefined && output.KMSKey !== null
+        ? output.KMSKey
+        : undefined,
+    LocationARN:
+      output.LocationARN !== undefined && output.LocationARN !== null
+        ? output.LocationARN
+        : undefined,
+    NFSFileShareDefaults:
+      output.NFSFileShareDefaults !== undefined &&
+      output.NFSFileShareDefaults !== null
+        ? deserializeAws_json1_1NFSFileShareDefaults(
+            output.NFSFileShareDefaults,
+            context
+          )
+        : undefined,
+    ObjectACL:
+      output.ObjectACL !== undefined && output.ObjectACL !== null
+        ? output.ObjectACL
+        : undefined,
+    Path:
+      output.Path !== undefined && output.Path !== null
+        ? output.Path
+        : undefined,
+    ReadOnly:
+      output.ReadOnly !== undefined && output.ReadOnly !== null
+        ? output.ReadOnly
+        : undefined,
+    RequesterPays:
+      output.RequesterPays !== undefined && output.RequesterPays !== null
+        ? output.RequesterPays
+        : undefined,
+    Role:
+      output.Role !== undefined && output.Role !== null
+        ? output.Role
+        : undefined,
+    Squash:
+      output.Squash !== undefined && output.Squash !== null
+        ? output.Squash
+        : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1Tags(output.Tags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1NFSFileShareInfoList = (
@@ -10329,197 +10104,180 @@ const deserializeAws_json1_1NotifyWhenUploadedOutput = (
   output: any,
   context: __SerdeContext
 ): NotifyWhenUploadedOutput => {
-  let contents: any = {
+  return {
     __type: "NotifyWhenUploadedOutput",
-    FileShareARN: undefined,
-    NotificationId: undefined
-  };
-  if (output.FileShareARN !== undefined && output.FileShareARN !== null) {
-    contents.FileShareARN = output.FileShareARN;
-  }
-  if (output.NotificationId !== undefined && output.NotificationId !== null) {
-    contents.NotificationId = output.NotificationId;
-  }
-  return contents;
+    FileShareARN:
+      output.FileShareARN !== undefined && output.FileShareARN !== null
+        ? output.FileShareARN
+        : undefined,
+    NotificationId:
+      output.NotificationId !== undefined && output.NotificationId !== null
+        ? output.NotificationId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RefreshCacheOutput = (
   output: any,
   context: __SerdeContext
 ): RefreshCacheOutput => {
-  let contents: any = {
+  return {
     __type: "RefreshCacheOutput",
-    FileShareARN: undefined,
-    NotificationId: undefined
-  };
-  if (output.FileShareARN !== undefined && output.FileShareARN !== null) {
-    contents.FileShareARN = output.FileShareARN;
-  }
-  if (output.NotificationId !== undefined && output.NotificationId !== null) {
-    contents.NotificationId = output.NotificationId;
-  }
-  return contents;
+    FileShareARN:
+      output.FileShareARN !== undefined && output.FileShareARN !== null
+        ? output.FileShareARN
+        : undefined,
+    NotificationId:
+      output.NotificationId !== undefined && output.NotificationId !== null
+        ? output.NotificationId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RemoveTagsFromResourceOutput = (
   output: any,
   context: __SerdeContext
 ): RemoveTagsFromResourceOutput => {
-  let contents: any = {
+  return {
     __type: "RemoveTagsFromResourceOutput",
-    ResourceARN: undefined
-  };
-  if (output.ResourceARN !== undefined && output.ResourceARN !== null) {
-    contents.ResourceARN = output.ResourceARN;
-  }
-  return contents;
+    ResourceARN:
+      output.ResourceARN !== undefined && output.ResourceARN !== null
+        ? output.ResourceARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResetCacheOutput = (
   output: any,
   context: __SerdeContext
 ): ResetCacheOutput => {
-  let contents: any = {
+  return {
     __type: "ResetCacheOutput",
-    GatewayARN: undefined
-  };
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  return contents;
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RetrieveTapeArchiveOutput = (
   output: any,
   context: __SerdeContext
 ): RetrieveTapeArchiveOutput => {
-  let contents: any = {
+  return {
     __type: "RetrieveTapeArchiveOutput",
-    TapeARN: undefined
-  };
-  if (output.TapeARN !== undefined && output.TapeARN !== null) {
-    contents.TapeARN = output.TapeARN;
-  }
-  return contents;
+    TapeARN:
+      output.TapeARN !== undefined && output.TapeARN !== null
+        ? output.TapeARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RetrieveTapeRecoveryPointOutput = (
   output: any,
   context: __SerdeContext
 ): RetrieveTapeRecoveryPointOutput => {
-  let contents: any = {
+  return {
     __type: "RetrieveTapeRecoveryPointOutput",
-    TapeARN: undefined
-  };
-  if (output.TapeARN !== undefined && output.TapeARN !== null) {
-    contents.TapeARN = output.TapeARN;
-  }
-  return contents;
+    TapeARN:
+      output.TapeARN !== undefined && output.TapeARN !== null
+        ? output.TapeARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SMBFileShareInfo = (
   output: any,
   context: __SerdeContext
 ): SMBFileShareInfo => {
-  let contents: any = {
+  return {
     __type: "SMBFileShareInfo",
-    AdminUserList: undefined,
-    Authentication: undefined,
-    DefaultStorageClass: undefined,
-    FileShareARN: undefined,
-    FileShareId: undefined,
-    FileShareStatus: undefined,
-    GatewayARN: undefined,
-    GuessMIMETypeEnabled: undefined,
-    InvalidUserList: undefined,
-    KMSEncrypted: undefined,
-    KMSKey: undefined,
-    LocationARN: undefined,
-    ObjectACL: undefined,
-    Path: undefined,
-    ReadOnly: undefined,
-    RequesterPays: undefined,
-    Role: undefined,
-    SMBACLEnabled: undefined,
-    Tags: undefined,
-    ValidUserList: undefined
-  };
-  if (output.AdminUserList !== undefined && output.AdminUserList !== null) {
-    contents.AdminUserList = deserializeAws_json1_1FileShareUserList(
-      output.AdminUserList,
-      context
-    );
-  }
-  if (output.Authentication !== undefined && output.Authentication !== null) {
-    contents.Authentication = output.Authentication;
-  }
-  if (
-    output.DefaultStorageClass !== undefined &&
-    output.DefaultStorageClass !== null
-  ) {
-    contents.DefaultStorageClass = output.DefaultStorageClass;
-  }
-  if (output.FileShareARN !== undefined && output.FileShareARN !== null) {
-    contents.FileShareARN = output.FileShareARN;
-  }
-  if (output.FileShareId !== undefined && output.FileShareId !== null) {
-    contents.FileShareId = output.FileShareId;
-  }
-  if (output.FileShareStatus !== undefined && output.FileShareStatus !== null) {
-    contents.FileShareStatus = output.FileShareStatus;
-  }
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  if (
-    output.GuessMIMETypeEnabled !== undefined &&
-    output.GuessMIMETypeEnabled !== null
-  ) {
-    contents.GuessMIMETypeEnabled = output.GuessMIMETypeEnabled;
-  }
-  if (output.InvalidUserList !== undefined && output.InvalidUserList !== null) {
-    contents.InvalidUserList = deserializeAws_json1_1FileShareUserList(
-      output.InvalidUserList,
-      context
-    );
-  }
-  if (output.KMSEncrypted !== undefined && output.KMSEncrypted !== null) {
-    contents.KMSEncrypted = output.KMSEncrypted;
-  }
-  if (output.KMSKey !== undefined && output.KMSKey !== null) {
-    contents.KMSKey = output.KMSKey;
-  }
-  if (output.LocationARN !== undefined && output.LocationARN !== null) {
-    contents.LocationARN = output.LocationARN;
-  }
-  if (output.ObjectACL !== undefined && output.ObjectACL !== null) {
-    contents.ObjectACL = output.ObjectACL;
-  }
-  if (output.Path !== undefined && output.Path !== null) {
-    contents.Path = output.Path;
-  }
-  if (output.ReadOnly !== undefined && output.ReadOnly !== null) {
-    contents.ReadOnly = output.ReadOnly;
-  }
-  if (output.RequesterPays !== undefined && output.RequesterPays !== null) {
-    contents.RequesterPays = output.RequesterPays;
-  }
-  if (output.Role !== undefined && output.Role !== null) {
-    contents.Role = output.Role;
-  }
-  if (output.SMBACLEnabled !== undefined && output.SMBACLEnabled !== null) {
-    contents.SMBACLEnabled = output.SMBACLEnabled;
-  }
-  if (output.Tags !== undefined && output.Tags !== null) {
-    contents.Tags = deserializeAws_json1_1Tags(output.Tags, context);
-  }
-  if (output.ValidUserList !== undefined && output.ValidUserList !== null) {
-    contents.ValidUserList = deserializeAws_json1_1FileShareUserList(
-      output.ValidUserList,
-      context
-    );
-  }
-  return contents;
+    AdminUserList:
+      output.AdminUserList !== undefined && output.AdminUserList !== null
+        ? deserializeAws_json1_1FileShareUserList(output.AdminUserList, context)
+        : undefined,
+    Authentication:
+      output.Authentication !== undefined && output.Authentication !== null
+        ? output.Authentication
+        : undefined,
+    DefaultStorageClass:
+      output.DefaultStorageClass !== undefined &&
+      output.DefaultStorageClass !== null
+        ? output.DefaultStorageClass
+        : undefined,
+    FileShareARN:
+      output.FileShareARN !== undefined && output.FileShareARN !== null
+        ? output.FileShareARN
+        : undefined,
+    FileShareId:
+      output.FileShareId !== undefined && output.FileShareId !== null
+        ? output.FileShareId
+        : undefined,
+    FileShareStatus:
+      output.FileShareStatus !== undefined && output.FileShareStatus !== null
+        ? output.FileShareStatus
+        : undefined,
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined,
+    GuessMIMETypeEnabled:
+      output.GuessMIMETypeEnabled !== undefined &&
+      output.GuessMIMETypeEnabled !== null
+        ? output.GuessMIMETypeEnabled
+        : undefined,
+    InvalidUserList:
+      output.InvalidUserList !== undefined && output.InvalidUserList !== null
+        ? deserializeAws_json1_1FileShareUserList(
+            output.InvalidUserList,
+            context
+          )
+        : undefined,
+    KMSEncrypted:
+      output.KMSEncrypted !== undefined && output.KMSEncrypted !== null
+        ? output.KMSEncrypted
+        : undefined,
+    KMSKey:
+      output.KMSKey !== undefined && output.KMSKey !== null
+        ? output.KMSKey
+        : undefined,
+    LocationARN:
+      output.LocationARN !== undefined && output.LocationARN !== null
+        ? output.LocationARN
+        : undefined,
+    ObjectACL:
+      output.ObjectACL !== undefined && output.ObjectACL !== null
+        ? output.ObjectACL
+        : undefined,
+    Path:
+      output.Path !== undefined && output.Path !== null
+        ? output.Path
+        : undefined,
+    ReadOnly:
+      output.ReadOnly !== undefined && output.ReadOnly !== null
+        ? output.ReadOnly
+        : undefined,
+    RequesterPays:
+      output.RequesterPays !== undefined && output.RequesterPays !== null
+        ? output.RequesterPays
+        : undefined,
+    Role:
+      output.Role !== undefined && output.Role !== null
+        ? output.Role
+        : undefined,
+    SMBACLEnabled:
+      output.SMBACLEnabled !== undefined && output.SMBACLEnabled !== null
+        ? output.SMBACLEnabled
+        : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1Tags(output.Tags, context)
+        : undefined,
+    ValidUserList:
+      output.ValidUserList !== undefined && output.ValidUserList !== null
+        ? deserializeAws_json1_1FileShareUserList(output.ValidUserList, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SMBFileShareInfoList = (
@@ -10535,133 +10293,116 @@ const deserializeAws_json1_1SetLocalConsolePasswordOutput = (
   output: any,
   context: __SerdeContext
 ): SetLocalConsolePasswordOutput => {
-  let contents: any = {
+  return {
     __type: "SetLocalConsolePasswordOutput",
-    GatewayARN: undefined
-  };
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  return contents;
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SetSMBGuestPasswordOutput = (
   output: any,
   context: __SerdeContext
 ): SetSMBGuestPasswordOutput => {
-  let contents: any = {
+  return {
     __type: "SetSMBGuestPasswordOutput",
-    GatewayARN: undefined
-  };
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  return contents;
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StartAvailabilityMonitorTestOutput = (
   output: any,
   context: __SerdeContext
 ): StartAvailabilityMonitorTestOutput => {
-  let contents: any = {
+  return {
     __type: "StartAvailabilityMonitorTestOutput",
-    GatewayARN: undefined
-  };
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  return contents;
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StorediSCSIVolume = (
   output: any,
   context: __SerdeContext
 ): StorediSCSIVolume => {
-  let contents: any = {
+  return {
     __type: "StorediSCSIVolume",
-    CreatedDate: undefined,
-    KMSKey: undefined,
-    PreservedExistingData: undefined,
-    SourceSnapshotId: undefined,
-    TargetName: undefined,
-    VolumeARN: undefined,
-    VolumeAttachmentStatus: undefined,
-    VolumeDiskId: undefined,
-    VolumeId: undefined,
-    VolumeProgress: undefined,
-    VolumeSizeInBytes: undefined,
-    VolumeStatus: undefined,
-    VolumeType: undefined,
-    VolumeUsedInBytes: undefined,
-    VolumeiSCSIAttributes: undefined
-  };
-  if (output.CreatedDate !== undefined && output.CreatedDate !== null) {
-    contents.CreatedDate = new Date(Math.round(output.CreatedDate * 1000));
-  }
-  if (output.KMSKey !== undefined && output.KMSKey !== null) {
-    contents.KMSKey = output.KMSKey;
-  }
-  if (
-    output.PreservedExistingData !== undefined &&
-    output.PreservedExistingData !== null
-  ) {
-    contents.PreservedExistingData = output.PreservedExistingData;
-  }
-  if (
-    output.SourceSnapshotId !== undefined &&
-    output.SourceSnapshotId !== null
-  ) {
-    contents.SourceSnapshotId = output.SourceSnapshotId;
-  }
-  if (output.TargetName !== undefined && output.TargetName !== null) {
-    contents.TargetName = output.TargetName;
-  }
-  if (output.VolumeARN !== undefined && output.VolumeARN !== null) {
-    contents.VolumeARN = output.VolumeARN;
-  }
-  if (
-    output.VolumeAttachmentStatus !== undefined &&
-    output.VolumeAttachmentStatus !== null
-  ) {
-    contents.VolumeAttachmentStatus = output.VolumeAttachmentStatus;
-  }
-  if (output.VolumeDiskId !== undefined && output.VolumeDiskId !== null) {
-    contents.VolumeDiskId = output.VolumeDiskId;
-  }
-  if (output.VolumeId !== undefined && output.VolumeId !== null) {
-    contents.VolumeId = output.VolumeId;
-  }
-  if (output.VolumeProgress !== undefined && output.VolumeProgress !== null) {
-    contents.VolumeProgress = output.VolumeProgress;
-  }
-  if (
-    output.VolumeSizeInBytes !== undefined &&
-    output.VolumeSizeInBytes !== null
-  ) {
-    contents.VolumeSizeInBytes = output.VolumeSizeInBytes;
-  }
-  if (output.VolumeStatus !== undefined && output.VolumeStatus !== null) {
-    contents.VolumeStatus = output.VolumeStatus;
-  }
-  if (output.VolumeType !== undefined && output.VolumeType !== null) {
-    contents.VolumeType = output.VolumeType;
-  }
-  if (
-    output.VolumeUsedInBytes !== undefined &&
-    output.VolumeUsedInBytes !== null
-  ) {
-    contents.VolumeUsedInBytes = output.VolumeUsedInBytes;
-  }
-  if (
-    output.VolumeiSCSIAttributes !== undefined &&
-    output.VolumeiSCSIAttributes !== null
-  ) {
-    contents.VolumeiSCSIAttributes = deserializeAws_json1_1VolumeiSCSIAttributes(
-      output.VolumeiSCSIAttributes,
-      context
-    );
-  }
-  return contents;
+    CreatedDate:
+      output.CreatedDate !== undefined && output.CreatedDate !== null
+        ? new Date(Math.round(output.CreatedDate * 1000))
+        : undefined,
+    KMSKey:
+      output.KMSKey !== undefined && output.KMSKey !== null
+        ? output.KMSKey
+        : undefined,
+    PreservedExistingData:
+      output.PreservedExistingData !== undefined &&
+      output.PreservedExistingData !== null
+        ? output.PreservedExistingData
+        : undefined,
+    SourceSnapshotId:
+      output.SourceSnapshotId !== undefined && output.SourceSnapshotId !== null
+        ? output.SourceSnapshotId
+        : undefined,
+    TargetName:
+      output.TargetName !== undefined && output.TargetName !== null
+        ? output.TargetName
+        : undefined,
+    VolumeARN:
+      output.VolumeARN !== undefined && output.VolumeARN !== null
+        ? output.VolumeARN
+        : undefined,
+    VolumeAttachmentStatus:
+      output.VolumeAttachmentStatus !== undefined &&
+      output.VolumeAttachmentStatus !== null
+        ? output.VolumeAttachmentStatus
+        : undefined,
+    VolumeDiskId:
+      output.VolumeDiskId !== undefined && output.VolumeDiskId !== null
+        ? output.VolumeDiskId
+        : undefined,
+    VolumeId:
+      output.VolumeId !== undefined && output.VolumeId !== null
+        ? output.VolumeId
+        : undefined,
+    VolumeProgress:
+      output.VolumeProgress !== undefined && output.VolumeProgress !== null
+        ? output.VolumeProgress
+        : undefined,
+    VolumeSizeInBytes:
+      output.VolumeSizeInBytes !== undefined &&
+      output.VolumeSizeInBytes !== null
+        ? output.VolumeSizeInBytes
+        : undefined,
+    VolumeStatus:
+      output.VolumeStatus !== undefined && output.VolumeStatus !== null
+        ? output.VolumeStatus
+        : undefined,
+    VolumeType:
+      output.VolumeType !== undefined && output.VolumeType !== null
+        ? output.VolumeType
+        : undefined,
+    VolumeUsedInBytes:
+      output.VolumeUsedInBytes !== undefined &&
+      output.VolumeUsedInBytes !== null
+        ? output.VolumeUsedInBytes
+        : undefined,
+    VolumeiSCSIAttributes:
+      output.VolumeiSCSIAttributes !== undefined &&
+      output.VolumeiSCSIAttributes !== null
+        ? deserializeAws_json1_1VolumeiSCSIAttributes(
+            output.VolumeiSCSIAttributes,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StorediSCSIVolumes = (
@@ -10677,18 +10418,15 @@ const deserializeAws_json1_1Tag = (
   output: any,
   context: __SerdeContext
 ): Tag => {
-  let contents: any = {
+  return {
     __type: "Tag",
-    Key: undefined,
-    Value: undefined
-  };
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Tags = (
@@ -10704,52 +10442,49 @@ const deserializeAws_json1_1Tape = (
   output: any,
   context: __SerdeContext
 ): Tape => {
-  let contents: any = {
+  return {
     __type: "Tape",
-    KMSKey: undefined,
-    PoolId: undefined,
-    Progress: undefined,
-    TapeARN: undefined,
-    TapeBarcode: undefined,
-    TapeCreatedDate: undefined,
-    TapeSizeInBytes: undefined,
-    TapeStatus: undefined,
-    TapeUsedInBytes: undefined,
-    VTLDevice: undefined
-  };
-  if (output.KMSKey !== undefined && output.KMSKey !== null) {
-    contents.KMSKey = output.KMSKey;
-  }
-  if (output.PoolId !== undefined && output.PoolId !== null) {
-    contents.PoolId = output.PoolId;
-  }
-  if (output.Progress !== undefined && output.Progress !== null) {
-    contents.Progress = output.Progress;
-  }
-  if (output.TapeARN !== undefined && output.TapeARN !== null) {
-    contents.TapeARN = output.TapeARN;
-  }
-  if (output.TapeBarcode !== undefined && output.TapeBarcode !== null) {
-    contents.TapeBarcode = output.TapeBarcode;
-  }
-  if (output.TapeCreatedDate !== undefined && output.TapeCreatedDate !== null) {
-    contents.TapeCreatedDate = new Date(
-      Math.round(output.TapeCreatedDate * 1000)
-    );
-  }
-  if (output.TapeSizeInBytes !== undefined && output.TapeSizeInBytes !== null) {
-    contents.TapeSizeInBytes = output.TapeSizeInBytes;
-  }
-  if (output.TapeStatus !== undefined && output.TapeStatus !== null) {
-    contents.TapeStatus = output.TapeStatus;
-  }
-  if (output.TapeUsedInBytes !== undefined && output.TapeUsedInBytes !== null) {
-    contents.TapeUsedInBytes = output.TapeUsedInBytes;
-  }
-  if (output.VTLDevice !== undefined && output.VTLDevice !== null) {
-    contents.VTLDevice = output.VTLDevice;
-  }
-  return contents;
+    KMSKey:
+      output.KMSKey !== undefined && output.KMSKey !== null
+        ? output.KMSKey
+        : undefined,
+    PoolId:
+      output.PoolId !== undefined && output.PoolId !== null
+        ? output.PoolId
+        : undefined,
+    Progress:
+      output.Progress !== undefined && output.Progress !== null
+        ? output.Progress
+        : undefined,
+    TapeARN:
+      output.TapeARN !== undefined && output.TapeARN !== null
+        ? output.TapeARN
+        : undefined,
+    TapeBarcode:
+      output.TapeBarcode !== undefined && output.TapeBarcode !== null
+        ? output.TapeBarcode
+        : undefined,
+    TapeCreatedDate:
+      output.TapeCreatedDate !== undefined && output.TapeCreatedDate !== null
+        ? new Date(Math.round(output.TapeCreatedDate * 1000))
+        : undefined,
+    TapeSizeInBytes:
+      output.TapeSizeInBytes !== undefined && output.TapeSizeInBytes !== null
+        ? output.TapeSizeInBytes
+        : undefined,
+    TapeStatus:
+      output.TapeStatus !== undefined && output.TapeStatus !== null
+        ? output.TapeStatus
+        : undefined,
+    TapeUsedInBytes:
+      output.TapeUsedInBytes !== undefined && output.TapeUsedInBytes !== null
+        ? output.TapeUsedInBytes
+        : undefined,
+    VTLDevice:
+      output.VTLDevice !== undefined && output.VTLDevice !== null
+        ? output.VTLDevice
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TapeARNs = (
@@ -10763,54 +10498,49 @@ const deserializeAws_json1_1TapeArchive = (
   output: any,
   context: __SerdeContext
 ): TapeArchive => {
-  let contents: any = {
+  return {
     __type: "TapeArchive",
-    CompletionTime: undefined,
-    KMSKey: undefined,
-    PoolId: undefined,
-    RetrievedTo: undefined,
-    TapeARN: undefined,
-    TapeBarcode: undefined,
-    TapeCreatedDate: undefined,
-    TapeSizeInBytes: undefined,
-    TapeStatus: undefined,
-    TapeUsedInBytes: undefined
-  };
-  if (output.CompletionTime !== undefined && output.CompletionTime !== null) {
-    contents.CompletionTime = new Date(
-      Math.round(output.CompletionTime * 1000)
-    );
-  }
-  if (output.KMSKey !== undefined && output.KMSKey !== null) {
-    contents.KMSKey = output.KMSKey;
-  }
-  if (output.PoolId !== undefined && output.PoolId !== null) {
-    contents.PoolId = output.PoolId;
-  }
-  if (output.RetrievedTo !== undefined && output.RetrievedTo !== null) {
-    contents.RetrievedTo = output.RetrievedTo;
-  }
-  if (output.TapeARN !== undefined && output.TapeARN !== null) {
-    contents.TapeARN = output.TapeARN;
-  }
-  if (output.TapeBarcode !== undefined && output.TapeBarcode !== null) {
-    contents.TapeBarcode = output.TapeBarcode;
-  }
-  if (output.TapeCreatedDate !== undefined && output.TapeCreatedDate !== null) {
-    contents.TapeCreatedDate = new Date(
-      Math.round(output.TapeCreatedDate * 1000)
-    );
-  }
-  if (output.TapeSizeInBytes !== undefined && output.TapeSizeInBytes !== null) {
-    contents.TapeSizeInBytes = output.TapeSizeInBytes;
-  }
-  if (output.TapeStatus !== undefined && output.TapeStatus !== null) {
-    contents.TapeStatus = output.TapeStatus;
-  }
-  if (output.TapeUsedInBytes !== undefined && output.TapeUsedInBytes !== null) {
-    contents.TapeUsedInBytes = output.TapeUsedInBytes;
-  }
-  return contents;
+    CompletionTime:
+      output.CompletionTime !== undefined && output.CompletionTime !== null
+        ? new Date(Math.round(output.CompletionTime * 1000))
+        : undefined,
+    KMSKey:
+      output.KMSKey !== undefined && output.KMSKey !== null
+        ? output.KMSKey
+        : undefined,
+    PoolId:
+      output.PoolId !== undefined && output.PoolId !== null
+        ? output.PoolId
+        : undefined,
+    RetrievedTo:
+      output.RetrievedTo !== undefined && output.RetrievedTo !== null
+        ? output.RetrievedTo
+        : undefined,
+    TapeARN:
+      output.TapeARN !== undefined && output.TapeARN !== null
+        ? output.TapeARN
+        : undefined,
+    TapeBarcode:
+      output.TapeBarcode !== undefined && output.TapeBarcode !== null
+        ? output.TapeBarcode
+        : undefined,
+    TapeCreatedDate:
+      output.TapeCreatedDate !== undefined && output.TapeCreatedDate !== null
+        ? new Date(Math.round(output.TapeCreatedDate * 1000))
+        : undefined,
+    TapeSizeInBytes:
+      output.TapeSizeInBytes !== undefined && output.TapeSizeInBytes !== null
+        ? output.TapeSizeInBytes
+        : undefined,
+    TapeStatus:
+      output.TapeStatus !== undefined && output.TapeStatus !== null
+        ? output.TapeStatus
+        : undefined,
+    TapeUsedInBytes:
+      output.TapeUsedInBytes !== undefined && output.TapeUsedInBytes !== null
+        ? output.TapeUsedInBytes
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TapeArchives = (
@@ -10826,34 +10556,33 @@ const deserializeAws_json1_1TapeInfo = (
   output: any,
   context: __SerdeContext
 ): TapeInfo => {
-  let contents: any = {
+  return {
     __type: "TapeInfo",
-    GatewayARN: undefined,
-    PoolId: undefined,
-    TapeARN: undefined,
-    TapeBarcode: undefined,
-    TapeSizeInBytes: undefined,
-    TapeStatus: undefined
-  };
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  if (output.PoolId !== undefined && output.PoolId !== null) {
-    contents.PoolId = output.PoolId;
-  }
-  if (output.TapeARN !== undefined && output.TapeARN !== null) {
-    contents.TapeARN = output.TapeARN;
-  }
-  if (output.TapeBarcode !== undefined && output.TapeBarcode !== null) {
-    contents.TapeBarcode = output.TapeBarcode;
-  }
-  if (output.TapeSizeInBytes !== undefined && output.TapeSizeInBytes !== null) {
-    contents.TapeSizeInBytes = output.TapeSizeInBytes;
-  }
-  if (output.TapeStatus !== undefined && output.TapeStatus !== null) {
-    contents.TapeStatus = output.TapeStatus;
-  }
-  return contents;
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined,
+    PoolId:
+      output.PoolId !== undefined && output.PoolId !== null
+        ? output.PoolId
+        : undefined,
+    TapeARN:
+      output.TapeARN !== undefined && output.TapeARN !== null
+        ? output.TapeARN
+        : undefined,
+    TapeBarcode:
+      output.TapeBarcode !== undefined && output.TapeBarcode !== null
+        ? output.TapeBarcode
+        : undefined,
+    TapeSizeInBytes:
+      output.TapeSizeInBytes !== undefined && output.TapeSizeInBytes !== null
+        ? output.TapeSizeInBytes
+        : undefined,
+    TapeStatus:
+      output.TapeStatus !== undefined && output.TapeStatus !== null
+        ? output.TapeStatus
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TapeInfos = (
@@ -10869,31 +10598,26 @@ const deserializeAws_json1_1TapeRecoveryPointInfo = (
   output: any,
   context: __SerdeContext
 ): TapeRecoveryPointInfo => {
-  let contents: any = {
+  return {
     __type: "TapeRecoveryPointInfo",
-    TapeARN: undefined,
-    TapeRecoveryPointTime: undefined,
-    TapeSizeInBytes: undefined,
-    TapeStatus: undefined
-  };
-  if (output.TapeARN !== undefined && output.TapeARN !== null) {
-    contents.TapeARN = output.TapeARN;
-  }
-  if (
-    output.TapeRecoveryPointTime !== undefined &&
-    output.TapeRecoveryPointTime !== null
-  ) {
-    contents.TapeRecoveryPointTime = new Date(
-      Math.round(output.TapeRecoveryPointTime * 1000)
-    );
-  }
-  if (output.TapeSizeInBytes !== undefined && output.TapeSizeInBytes !== null) {
-    contents.TapeSizeInBytes = output.TapeSizeInBytes;
-  }
-  if (output.TapeStatus !== undefined && output.TapeStatus !== null) {
-    contents.TapeStatus = output.TapeStatus;
-  }
-  return contents;
+    TapeARN:
+      output.TapeARN !== undefined && output.TapeARN !== null
+        ? output.TapeARN
+        : undefined,
+    TapeRecoveryPointTime:
+      output.TapeRecoveryPointTime !== undefined &&
+      output.TapeRecoveryPointTime !== null
+        ? new Date(Math.round(output.TapeRecoveryPointTime * 1000))
+        : undefined,
+    TapeSizeInBytes:
+      output.TapeSizeInBytes !== undefined && output.TapeSizeInBytes !== null
+        ? output.TapeSizeInBytes
+        : undefined,
+    TapeStatus:
+      output.TapeStatus !== undefined && output.TapeStatus !== null
+        ? output.TapeStatus
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TapeRecoveryPointInfos = (
@@ -10918,95 +10642,86 @@ const deserializeAws_json1_1UpdateNFSFileShareOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateNFSFileShareOutput => {
-  let contents: any = {
+  return {
     __type: "UpdateNFSFileShareOutput",
-    FileShareARN: undefined
-  };
-  if (output.FileShareARN !== undefined && output.FileShareARN !== null) {
-    contents.FileShareARN = output.FileShareARN;
-  }
-  return contents;
+    FileShareARN:
+      output.FileShareARN !== undefined && output.FileShareARN !== null
+        ? output.FileShareARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateSMBFileShareOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateSMBFileShareOutput => {
-  let contents: any = {
+  return {
     __type: "UpdateSMBFileShareOutput",
-    FileShareARN: undefined
-  };
-  if (output.FileShareARN !== undefined && output.FileShareARN !== null) {
-    contents.FileShareARN = output.FileShareARN;
-  }
-  return contents;
+    FileShareARN:
+      output.FileShareARN !== undefined && output.FileShareARN !== null
+        ? output.FileShareARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateSMBSecurityStrategyOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateSMBSecurityStrategyOutput => {
-  let contents: any = {
+  return {
     __type: "UpdateSMBSecurityStrategyOutput",
-    GatewayARN: undefined
-  };
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  return contents;
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateVTLDeviceTypeOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateVTLDeviceTypeOutput => {
-  let contents: any = {
+  return {
     __type: "UpdateVTLDeviceTypeOutput",
-    VTLDeviceARN: undefined
-  };
-  if (output.VTLDeviceARN !== undefined && output.VTLDeviceARN !== null) {
-    contents.VTLDeviceARN = output.VTLDeviceARN;
-  }
-  return contents;
+    VTLDeviceARN:
+      output.VTLDeviceARN !== undefined && output.VTLDeviceARN !== null
+        ? output.VTLDeviceARN
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1VTLDevice = (
   output: any,
   context: __SerdeContext
 ): VTLDevice => {
-  let contents: any = {
+  return {
     __type: "VTLDevice",
-    DeviceiSCSIAttributes: undefined,
-    VTLDeviceARN: undefined,
-    VTLDeviceProductIdentifier: undefined,
-    VTLDeviceType: undefined,
-    VTLDeviceVendor: undefined
-  };
-  if (
-    output.DeviceiSCSIAttributes !== undefined &&
-    output.DeviceiSCSIAttributes !== null
-  ) {
-    contents.DeviceiSCSIAttributes = deserializeAws_json1_1DeviceiSCSIAttributes(
-      output.DeviceiSCSIAttributes,
-      context
-    );
-  }
-  if (output.VTLDeviceARN !== undefined && output.VTLDeviceARN !== null) {
-    contents.VTLDeviceARN = output.VTLDeviceARN;
-  }
-  if (
-    output.VTLDeviceProductIdentifier !== undefined &&
-    output.VTLDeviceProductIdentifier !== null
-  ) {
-    contents.VTLDeviceProductIdentifier = output.VTLDeviceProductIdentifier;
-  }
-  if (output.VTLDeviceType !== undefined && output.VTLDeviceType !== null) {
-    contents.VTLDeviceType = output.VTLDeviceType;
-  }
-  if (output.VTLDeviceVendor !== undefined && output.VTLDeviceVendor !== null) {
-    contents.VTLDeviceVendor = output.VTLDeviceVendor;
-  }
-  return contents;
+    DeviceiSCSIAttributes:
+      output.DeviceiSCSIAttributes !== undefined &&
+      output.DeviceiSCSIAttributes !== null
+        ? deserializeAws_json1_1DeviceiSCSIAttributes(
+            output.DeviceiSCSIAttributes,
+            context
+          )
+        : undefined,
+    VTLDeviceARN:
+      output.VTLDeviceARN !== undefined && output.VTLDeviceARN !== null
+        ? output.VTLDeviceARN
+        : undefined,
+    VTLDeviceProductIdentifier:
+      output.VTLDeviceProductIdentifier !== undefined &&
+      output.VTLDeviceProductIdentifier !== null
+        ? output.VTLDeviceProductIdentifier
+        : undefined,
+    VTLDeviceType:
+      output.VTLDeviceType !== undefined && output.VTLDeviceType !== null
+        ? output.VTLDeviceType
+        : undefined,
+    VTLDeviceVendor:
+      output.VTLDeviceVendor !== undefined && output.VTLDeviceVendor !== null
+        ? output.VTLDeviceVendor
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1VTLDevices = (
@@ -11022,44 +10737,39 @@ const deserializeAws_json1_1VolumeInfo = (
   output: any,
   context: __SerdeContext
 ): VolumeInfo => {
-  let contents: any = {
+  return {
     __type: "VolumeInfo",
-    GatewayARN: undefined,
-    GatewayId: undefined,
-    VolumeARN: undefined,
-    VolumeAttachmentStatus: undefined,
-    VolumeId: undefined,
-    VolumeSizeInBytes: undefined,
-    VolumeType: undefined
-  };
-  if (output.GatewayARN !== undefined && output.GatewayARN !== null) {
-    contents.GatewayARN = output.GatewayARN;
-  }
-  if (output.GatewayId !== undefined && output.GatewayId !== null) {
-    contents.GatewayId = output.GatewayId;
-  }
-  if (output.VolumeARN !== undefined && output.VolumeARN !== null) {
-    contents.VolumeARN = output.VolumeARN;
-  }
-  if (
-    output.VolumeAttachmentStatus !== undefined &&
-    output.VolumeAttachmentStatus !== null
-  ) {
-    contents.VolumeAttachmentStatus = output.VolumeAttachmentStatus;
-  }
-  if (output.VolumeId !== undefined && output.VolumeId !== null) {
-    contents.VolumeId = output.VolumeId;
-  }
-  if (
-    output.VolumeSizeInBytes !== undefined &&
-    output.VolumeSizeInBytes !== null
-  ) {
-    contents.VolumeSizeInBytes = output.VolumeSizeInBytes;
-  }
-  if (output.VolumeType !== undefined && output.VolumeType !== null) {
-    contents.VolumeType = output.VolumeType;
-  }
-  return contents;
+    GatewayARN:
+      output.GatewayARN !== undefined && output.GatewayARN !== null
+        ? output.GatewayARN
+        : undefined,
+    GatewayId:
+      output.GatewayId !== undefined && output.GatewayId !== null
+        ? output.GatewayId
+        : undefined,
+    VolumeARN:
+      output.VolumeARN !== undefined && output.VolumeARN !== null
+        ? output.VolumeARN
+        : undefined,
+    VolumeAttachmentStatus:
+      output.VolumeAttachmentStatus !== undefined &&
+      output.VolumeAttachmentStatus !== null
+        ? output.VolumeAttachmentStatus
+        : undefined,
+    VolumeId:
+      output.VolumeId !== undefined && output.VolumeId !== null
+        ? output.VolumeId
+        : undefined,
+    VolumeSizeInBytes:
+      output.VolumeSizeInBytes !== undefined &&
+      output.VolumeSizeInBytes !== null
+        ? output.VolumeSizeInBytes
+        : undefined,
+    VolumeType:
+      output.VolumeType !== undefined && output.VolumeType !== null
+        ? output.VolumeType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1VolumeInfos = (

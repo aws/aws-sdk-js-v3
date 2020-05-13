@@ -3229,75 +3229,68 @@ const deserializeAws_json1_1ASN1Subject = (
   output: any,
   context: __SerdeContext
 ): ASN1Subject => {
-  let contents: any = {
+  return {
     __type: "ASN1Subject",
-    CommonName: undefined,
-    Country: undefined,
-    DistinguishedNameQualifier: undefined,
-    GenerationQualifier: undefined,
-    GivenName: undefined,
-    Initials: undefined,
-    Locality: undefined,
-    Organization: undefined,
-    OrganizationalUnit: undefined,
-    Pseudonym: undefined,
-    SerialNumber: undefined,
-    State: undefined,
-    Surname: undefined,
-    Title: undefined
-  };
-  if (output.CommonName !== undefined && output.CommonName !== null) {
-    contents.CommonName = output.CommonName;
-  }
-  if (output.Country !== undefined && output.Country !== null) {
-    contents.Country = output.Country;
-  }
-  if (
-    output.DistinguishedNameQualifier !== undefined &&
-    output.DistinguishedNameQualifier !== null
-  ) {
-    contents.DistinguishedNameQualifier = output.DistinguishedNameQualifier;
-  }
-  if (
-    output.GenerationQualifier !== undefined &&
-    output.GenerationQualifier !== null
-  ) {
-    contents.GenerationQualifier = output.GenerationQualifier;
-  }
-  if (output.GivenName !== undefined && output.GivenName !== null) {
-    contents.GivenName = output.GivenName;
-  }
-  if (output.Initials !== undefined && output.Initials !== null) {
-    contents.Initials = output.Initials;
-  }
-  if (output.Locality !== undefined && output.Locality !== null) {
-    contents.Locality = output.Locality;
-  }
-  if (output.Organization !== undefined && output.Organization !== null) {
-    contents.Organization = output.Organization;
-  }
-  if (
-    output.OrganizationalUnit !== undefined &&
-    output.OrganizationalUnit !== null
-  ) {
-    contents.OrganizationalUnit = output.OrganizationalUnit;
-  }
-  if (output.Pseudonym !== undefined && output.Pseudonym !== null) {
-    contents.Pseudonym = output.Pseudonym;
-  }
-  if (output.SerialNumber !== undefined && output.SerialNumber !== null) {
-    contents.SerialNumber = output.SerialNumber;
-  }
-  if (output.State !== undefined && output.State !== null) {
-    contents.State = output.State;
-  }
-  if (output.Surname !== undefined && output.Surname !== null) {
-    contents.Surname = output.Surname;
-  }
-  if (output.Title !== undefined && output.Title !== null) {
-    contents.Title = output.Title;
-  }
-  return contents;
+    CommonName:
+      output.CommonName !== undefined && output.CommonName !== null
+        ? output.CommonName
+        : undefined,
+    Country:
+      output.Country !== undefined && output.Country !== null
+        ? output.Country
+        : undefined,
+    DistinguishedNameQualifier:
+      output.DistinguishedNameQualifier !== undefined &&
+      output.DistinguishedNameQualifier !== null
+        ? output.DistinguishedNameQualifier
+        : undefined,
+    GenerationQualifier:
+      output.GenerationQualifier !== undefined &&
+      output.GenerationQualifier !== null
+        ? output.GenerationQualifier
+        : undefined,
+    GivenName:
+      output.GivenName !== undefined && output.GivenName !== null
+        ? output.GivenName
+        : undefined,
+    Initials:
+      output.Initials !== undefined && output.Initials !== null
+        ? output.Initials
+        : undefined,
+    Locality:
+      output.Locality !== undefined && output.Locality !== null
+        ? output.Locality
+        : undefined,
+    Organization:
+      output.Organization !== undefined && output.Organization !== null
+        ? output.Organization
+        : undefined,
+    OrganizationalUnit:
+      output.OrganizationalUnit !== undefined &&
+      output.OrganizationalUnit !== null
+        ? output.OrganizationalUnit
+        : undefined,
+    Pseudonym:
+      output.Pseudonym !== undefined && output.Pseudonym !== null
+        ? output.Pseudonym
+        : undefined,
+    SerialNumber:
+      output.SerialNumber !== undefined && output.SerialNumber !== null
+        ? output.SerialNumber
+        : undefined,
+    State:
+      output.State !== undefined && output.State !== null
+        ? output.State
+        : undefined,
+    Surname:
+      output.Surname !== undefined && output.Surname !== null
+        ? output.Surname
+        : undefined,
+    Title:
+      output.Title !== undefined && output.Title !== null
+        ? output.Title
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ActionList = (
@@ -3320,573 +3313,500 @@ const deserializeAws_json1_1CertificateAuthority = (
   output: any,
   context: __SerdeContext
 ): CertificateAuthority => {
-  let contents: any = {
+  return {
     __type: "CertificateAuthority",
-    Arn: undefined,
-    CertificateAuthorityConfiguration: undefined,
-    CreatedAt: undefined,
-    FailureReason: undefined,
-    LastStateChangeAt: undefined,
-    NotAfter: undefined,
-    NotBefore: undefined,
-    RestorableUntil: undefined,
-    RevocationConfiguration: undefined,
-    Serial: undefined,
-    Status: undefined,
-    Type: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (
-    output.CertificateAuthorityConfiguration !== undefined &&
-    output.CertificateAuthorityConfiguration !== null
-  ) {
-    contents.CertificateAuthorityConfiguration = deserializeAws_json1_1CertificateAuthorityConfiguration(
-      output.CertificateAuthorityConfiguration,
-      context
-    );
-  }
-  if (output.CreatedAt !== undefined && output.CreatedAt !== null) {
-    contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
-  }
-  if (output.FailureReason !== undefined && output.FailureReason !== null) {
-    contents.FailureReason = output.FailureReason;
-  }
-  if (
-    output.LastStateChangeAt !== undefined &&
-    output.LastStateChangeAt !== null
-  ) {
-    contents.LastStateChangeAt = new Date(
-      Math.round(output.LastStateChangeAt * 1000)
-    );
-  }
-  if (output.NotAfter !== undefined && output.NotAfter !== null) {
-    contents.NotAfter = new Date(Math.round(output.NotAfter * 1000));
-  }
-  if (output.NotBefore !== undefined && output.NotBefore !== null) {
-    contents.NotBefore = new Date(Math.round(output.NotBefore * 1000));
-  }
-  if (output.RestorableUntil !== undefined && output.RestorableUntil !== null) {
-    contents.RestorableUntil = new Date(
-      Math.round(output.RestorableUntil * 1000)
-    );
-  }
-  if (
-    output.RevocationConfiguration !== undefined &&
-    output.RevocationConfiguration !== null
-  ) {
-    contents.RevocationConfiguration = deserializeAws_json1_1RevocationConfiguration(
-      output.RevocationConfiguration,
-      context
-    );
-  }
-  if (output.Serial !== undefined && output.Serial !== null) {
-    contents.Serial = output.Serial;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    CertificateAuthorityConfiguration:
+      output.CertificateAuthorityConfiguration !== undefined &&
+      output.CertificateAuthorityConfiguration !== null
+        ? deserializeAws_json1_1CertificateAuthorityConfiguration(
+            output.CertificateAuthorityConfiguration,
+            context
+          )
+        : undefined,
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? new Date(Math.round(output.CreatedAt * 1000))
+        : undefined,
+    FailureReason:
+      output.FailureReason !== undefined && output.FailureReason !== null
+        ? output.FailureReason
+        : undefined,
+    LastStateChangeAt:
+      output.LastStateChangeAt !== undefined &&
+      output.LastStateChangeAt !== null
+        ? new Date(Math.round(output.LastStateChangeAt * 1000))
+        : undefined,
+    NotAfter:
+      output.NotAfter !== undefined && output.NotAfter !== null
+        ? new Date(Math.round(output.NotAfter * 1000))
+        : undefined,
+    NotBefore:
+      output.NotBefore !== undefined && output.NotBefore !== null
+        ? new Date(Math.round(output.NotBefore * 1000))
+        : undefined,
+    RestorableUntil:
+      output.RestorableUntil !== undefined && output.RestorableUntil !== null
+        ? new Date(Math.round(output.RestorableUntil * 1000))
+        : undefined,
+    RevocationConfiguration:
+      output.RevocationConfiguration !== undefined &&
+      output.RevocationConfiguration !== null
+        ? deserializeAws_json1_1RevocationConfiguration(
+            output.RevocationConfiguration,
+            context
+          )
+        : undefined,
+    Serial:
+      output.Serial !== undefined && output.Serial !== null
+        ? output.Serial
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CertificateAuthorityConfiguration = (
   output: any,
   context: __SerdeContext
 ): CertificateAuthorityConfiguration => {
-  let contents: any = {
+  return {
     __type: "CertificateAuthorityConfiguration",
-    KeyAlgorithm: undefined,
-    SigningAlgorithm: undefined,
-    Subject: undefined
-  };
-  if (output.KeyAlgorithm !== undefined && output.KeyAlgorithm !== null) {
-    contents.KeyAlgorithm = output.KeyAlgorithm;
-  }
-  if (
-    output.SigningAlgorithm !== undefined &&
-    output.SigningAlgorithm !== null
-  ) {
-    contents.SigningAlgorithm = output.SigningAlgorithm;
-  }
-  if (output.Subject !== undefined && output.Subject !== null) {
-    contents.Subject = deserializeAws_json1_1ASN1Subject(
-      output.Subject,
-      context
-    );
-  }
-  return contents;
+    KeyAlgorithm:
+      output.KeyAlgorithm !== undefined && output.KeyAlgorithm !== null
+        ? output.KeyAlgorithm
+        : undefined,
+    SigningAlgorithm:
+      output.SigningAlgorithm !== undefined && output.SigningAlgorithm !== null
+        ? output.SigningAlgorithm
+        : undefined,
+    Subject:
+      output.Subject !== undefined && output.Subject !== null
+        ? deserializeAws_json1_1ASN1Subject(output.Subject, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CertificateMismatchException = (
   output: any,
   context: __SerdeContext
 ): CertificateMismatchException => {
-  let contents: any = {
+  return {
     __type: "CertificateMismatchException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ConcurrentModificationException = (
   output: any,
   context: __SerdeContext
 ): ConcurrentModificationException => {
-  let contents: any = {
+  return {
     __type: "ConcurrentModificationException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateCertificateAuthorityAuditReportResponse = (
   output: any,
   context: __SerdeContext
 ): CreateCertificateAuthorityAuditReportResponse => {
-  let contents: any = {
+  return {
     __type: "CreateCertificateAuthorityAuditReportResponse",
-    AuditReportId: undefined,
-    S3Key: undefined
-  };
-  if (output.AuditReportId !== undefined && output.AuditReportId !== null) {
-    contents.AuditReportId = output.AuditReportId;
-  }
-  if (output.S3Key !== undefined && output.S3Key !== null) {
-    contents.S3Key = output.S3Key;
-  }
-  return contents;
+    AuditReportId:
+      output.AuditReportId !== undefined && output.AuditReportId !== null
+        ? output.AuditReportId
+        : undefined,
+    S3Key:
+      output.S3Key !== undefined && output.S3Key !== null
+        ? output.S3Key
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateCertificateAuthorityResponse = (
   output: any,
   context: __SerdeContext
 ): CreateCertificateAuthorityResponse => {
-  let contents: any = {
+  return {
     __type: "CreateCertificateAuthorityResponse",
-    CertificateAuthorityArn: undefined
-  };
-  if (
-    output.CertificateAuthorityArn !== undefined &&
-    output.CertificateAuthorityArn !== null
-  ) {
-    contents.CertificateAuthorityArn = output.CertificateAuthorityArn;
-  }
-  return contents;
+    CertificateAuthorityArn:
+      output.CertificateAuthorityArn !== undefined &&
+      output.CertificateAuthorityArn !== null
+        ? output.CertificateAuthorityArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CrlConfiguration = (
   output: any,
   context: __SerdeContext
 ): CrlConfiguration => {
-  let contents: any = {
+  return {
     __type: "CrlConfiguration",
-    CustomCname: undefined,
-    Enabled: undefined,
-    ExpirationInDays: undefined,
-    S3BucketName: undefined
-  };
-  if (output.CustomCname !== undefined && output.CustomCname !== null) {
-    contents.CustomCname = output.CustomCname;
-  }
-  if (output.Enabled !== undefined && output.Enabled !== null) {
-    contents.Enabled = output.Enabled;
-  }
-  if (
-    output.ExpirationInDays !== undefined &&
-    output.ExpirationInDays !== null
-  ) {
-    contents.ExpirationInDays = output.ExpirationInDays;
-  }
-  if (output.S3BucketName !== undefined && output.S3BucketName !== null) {
-    contents.S3BucketName = output.S3BucketName;
-  }
-  return contents;
+    CustomCname:
+      output.CustomCname !== undefined && output.CustomCname !== null
+        ? output.CustomCname
+        : undefined,
+    Enabled:
+      output.Enabled !== undefined && output.Enabled !== null
+        ? output.Enabled
+        : undefined,
+    ExpirationInDays:
+      output.ExpirationInDays !== undefined && output.ExpirationInDays !== null
+        ? output.ExpirationInDays
+        : undefined,
+    S3BucketName:
+      output.S3BucketName !== undefined && output.S3BucketName !== null
+        ? output.S3BucketName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeCertificateAuthorityAuditReportResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeCertificateAuthorityAuditReportResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeCertificateAuthorityAuditReportResponse",
-    AuditReportStatus: undefined,
-    CreatedAt: undefined,
-    S3BucketName: undefined,
-    S3Key: undefined
-  };
-  if (
-    output.AuditReportStatus !== undefined &&
-    output.AuditReportStatus !== null
-  ) {
-    contents.AuditReportStatus = output.AuditReportStatus;
-  }
-  if (output.CreatedAt !== undefined && output.CreatedAt !== null) {
-    contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
-  }
-  if (output.S3BucketName !== undefined && output.S3BucketName !== null) {
-    contents.S3BucketName = output.S3BucketName;
-  }
-  if (output.S3Key !== undefined && output.S3Key !== null) {
-    contents.S3Key = output.S3Key;
-  }
-  return contents;
+    AuditReportStatus:
+      output.AuditReportStatus !== undefined &&
+      output.AuditReportStatus !== null
+        ? output.AuditReportStatus
+        : undefined,
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? new Date(Math.round(output.CreatedAt * 1000))
+        : undefined,
+    S3BucketName:
+      output.S3BucketName !== undefined && output.S3BucketName !== null
+        ? output.S3BucketName
+        : undefined,
+    S3Key:
+      output.S3Key !== undefined && output.S3Key !== null
+        ? output.S3Key
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeCertificateAuthorityResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeCertificateAuthorityResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeCertificateAuthorityResponse",
-    CertificateAuthority: undefined
-  };
-  if (
-    output.CertificateAuthority !== undefined &&
-    output.CertificateAuthority !== null
-  ) {
-    contents.CertificateAuthority = deserializeAws_json1_1CertificateAuthority(
-      output.CertificateAuthority,
-      context
-    );
-  }
-  return contents;
+    CertificateAuthority:
+      output.CertificateAuthority !== undefined &&
+      output.CertificateAuthority !== null
+        ? deserializeAws_json1_1CertificateAuthority(
+            output.CertificateAuthority,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetCertificateAuthorityCertificateResponse = (
   output: any,
   context: __SerdeContext
 ): GetCertificateAuthorityCertificateResponse => {
-  let contents: any = {
+  return {
     __type: "GetCertificateAuthorityCertificateResponse",
-    Certificate: undefined,
-    CertificateChain: undefined
-  };
-  if (output.Certificate !== undefined && output.Certificate !== null) {
-    contents.Certificate = output.Certificate;
-  }
-  if (
-    output.CertificateChain !== undefined &&
-    output.CertificateChain !== null
-  ) {
-    contents.CertificateChain = output.CertificateChain;
-  }
-  return contents;
+    Certificate:
+      output.Certificate !== undefined && output.Certificate !== null
+        ? output.Certificate
+        : undefined,
+    CertificateChain:
+      output.CertificateChain !== undefined && output.CertificateChain !== null
+        ? output.CertificateChain
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetCertificateAuthorityCsrResponse = (
   output: any,
   context: __SerdeContext
 ): GetCertificateAuthorityCsrResponse => {
-  let contents: any = {
+  return {
     __type: "GetCertificateAuthorityCsrResponse",
-    Csr: undefined
-  };
-  if (output.Csr !== undefined && output.Csr !== null) {
-    contents.Csr = output.Csr;
-  }
-  return contents;
+    Csr:
+      output.Csr !== undefined && output.Csr !== null ? output.Csr : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetCertificateResponse = (
   output: any,
   context: __SerdeContext
 ): GetCertificateResponse => {
-  let contents: any = {
+  return {
     __type: "GetCertificateResponse",
-    Certificate: undefined,
-    CertificateChain: undefined
-  };
-  if (output.Certificate !== undefined && output.Certificate !== null) {
-    contents.Certificate = output.Certificate;
-  }
-  if (
-    output.CertificateChain !== undefined &&
-    output.CertificateChain !== null
-  ) {
-    contents.CertificateChain = output.CertificateChain;
-  }
-  return contents;
+    Certificate:
+      output.Certificate !== undefined && output.Certificate !== null
+        ? output.Certificate
+        : undefined,
+    CertificateChain:
+      output.CertificateChain !== undefined && output.CertificateChain !== null
+        ? output.CertificateChain
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidArgsException = (
   output: any,
   context: __SerdeContext
 ): InvalidArgsException => {
-  let contents: any = {
+  return {
     __type: "InvalidArgsException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidArnException = (
   output: any,
   context: __SerdeContext
 ): InvalidArnException => {
-  let contents: any = {
+  return {
     __type: "InvalidArnException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidNextTokenException = (
   output: any,
   context: __SerdeContext
 ): InvalidNextTokenException => {
-  let contents: any = {
+  return {
     __type: "InvalidNextTokenException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidPolicyException = (
   output: any,
   context: __SerdeContext
 ): InvalidPolicyException => {
-  let contents: any = {
+  return {
     __type: "InvalidPolicyException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidRequestException = (
   output: any,
   context: __SerdeContext
 ): InvalidRequestException => {
-  let contents: any = {
+  return {
     __type: "InvalidRequestException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidStateException = (
   output: any,
   context: __SerdeContext
 ): InvalidStateException => {
-  let contents: any = {
+  return {
     __type: "InvalidStateException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidTagException = (
   output: any,
   context: __SerdeContext
 ): InvalidTagException => {
-  let contents: any = {
+  return {
     __type: "InvalidTagException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1IssueCertificateResponse = (
   output: any,
   context: __SerdeContext
 ): IssueCertificateResponse => {
-  let contents: any = {
+  return {
     __type: "IssueCertificateResponse",
-    CertificateArn: undefined
-  };
-  if (output.CertificateArn !== undefined && output.CertificateArn !== null) {
-    contents.CertificateArn = output.CertificateArn;
-  }
-  return contents;
+    CertificateArn:
+      output.CertificateArn !== undefined && output.CertificateArn !== null
+        ? output.CertificateArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (
   output: any,
   context: __SerdeContext
 ): LimitExceededException => {
-  let contents: any = {
+  return {
     __type: "LimitExceededException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListCertificateAuthoritiesResponse = (
   output: any,
   context: __SerdeContext
 ): ListCertificateAuthoritiesResponse => {
-  let contents: any = {
+  return {
     __type: "ListCertificateAuthoritiesResponse",
-    CertificateAuthorities: undefined,
-    NextToken: undefined
-  };
-  if (
-    output.CertificateAuthorities !== undefined &&
-    output.CertificateAuthorities !== null
-  ) {
-    contents.CertificateAuthorities = deserializeAws_json1_1CertificateAuthorities(
-      output.CertificateAuthorities,
-      context
-    );
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  return contents;
+    CertificateAuthorities:
+      output.CertificateAuthorities !== undefined &&
+      output.CertificateAuthorities !== null
+        ? deserializeAws_json1_1CertificateAuthorities(
+            output.CertificateAuthorities,
+            context
+          )
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListPermissionsResponse = (
   output: any,
   context: __SerdeContext
 ): ListPermissionsResponse => {
-  let contents: any = {
+  return {
     __type: "ListPermissionsResponse",
-    NextToken: undefined,
-    Permissions: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.Permissions !== undefined && output.Permissions !== null) {
-    contents.Permissions = deserializeAws_json1_1PermissionList(
-      output.Permissions,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Permissions:
+      output.Permissions !== undefined && output.Permissions !== null
+        ? deserializeAws_json1_1PermissionList(output.Permissions, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListTagsResponse = (
   output: any,
   context: __SerdeContext
 ): ListTagsResponse => {
-  let contents: any = {
+  return {
     __type: "ListTagsResponse",
-    NextToken: undefined,
-    Tags: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.Tags !== undefined && output.Tags !== null) {
-    contents.Tags = deserializeAws_json1_1TagList(output.Tags, context);
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1TagList(output.Tags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1MalformedCSRException = (
   output: any,
   context: __SerdeContext
 ): MalformedCSRException => {
-  let contents: any = {
+  return {
     __type: "MalformedCSRException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1MalformedCertificateException = (
   output: any,
   context: __SerdeContext
 ): MalformedCertificateException => {
-  let contents: any = {
+  return {
     __type: "MalformedCertificateException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Permission = (
   output: any,
   context: __SerdeContext
 ): Permission => {
-  let contents: any = {
+  return {
     __type: "Permission",
-    Actions: undefined,
-    CertificateAuthorityArn: undefined,
-    CreatedAt: undefined,
-    Policy: undefined,
-    Principal: undefined,
-    SourceAccount: undefined
-  };
-  if (output.Actions !== undefined && output.Actions !== null) {
-    contents.Actions = deserializeAws_json1_1ActionList(
-      output.Actions,
-      context
-    );
-  }
-  if (
-    output.CertificateAuthorityArn !== undefined &&
-    output.CertificateAuthorityArn !== null
-  ) {
-    contents.CertificateAuthorityArn = output.CertificateAuthorityArn;
-  }
-  if (output.CreatedAt !== undefined && output.CreatedAt !== null) {
-    contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
-  }
-  if (output.Policy !== undefined && output.Policy !== null) {
-    contents.Policy = output.Policy;
-  }
-  if (output.Principal !== undefined && output.Principal !== null) {
-    contents.Principal = output.Principal;
-  }
-  if (output.SourceAccount !== undefined && output.SourceAccount !== null) {
-    contents.SourceAccount = output.SourceAccount;
-  }
-  return contents;
+    Actions:
+      output.Actions !== undefined && output.Actions !== null
+        ? deserializeAws_json1_1ActionList(output.Actions, context)
+        : undefined,
+    CertificateAuthorityArn:
+      output.CertificateAuthorityArn !== undefined &&
+      output.CertificateAuthorityArn !== null
+        ? output.CertificateAuthorityArn
+        : undefined,
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? new Date(Math.round(output.CreatedAt * 1000))
+        : undefined,
+    Policy:
+      output.Policy !== undefined && output.Policy !== null
+        ? output.Policy
+        : undefined,
+    Principal:
+      output.Principal !== undefined && output.Principal !== null
+        ? output.Principal
+        : undefined,
+    SourceAccount:
+      output.SourceAccount !== undefined && output.SourceAccount !== null
+        ? output.SourceAccount
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PermissionAlreadyExistsException = (
   output: any,
   context: __SerdeContext
 ): PermissionAlreadyExistsException => {
-  let contents: any = {
+  return {
     __type: "PermissionAlreadyExistsException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PermissionList = (
@@ -3902,94 +3822,83 @@ const deserializeAws_json1_1RequestAlreadyProcessedException = (
   output: any,
   context: __SerdeContext
 ): RequestAlreadyProcessedException => {
-  let contents: any = {
+  return {
     __type: "RequestAlreadyProcessedException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RequestFailedException = (
   output: any,
   context: __SerdeContext
 ): RequestFailedException => {
-  let contents: any = {
+  return {
     __type: "RequestFailedException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RequestInProgressException = (
   output: any,
   context: __SerdeContext
 ): RequestInProgressException => {
-  let contents: any = {
+  return {
     __type: "RequestInProgressException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ResourceNotFoundException => {
-  let contents: any = {
+  return {
     __type: "ResourceNotFoundException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RevocationConfiguration = (
   output: any,
   context: __SerdeContext
 ): RevocationConfiguration => {
-  let contents: any = {
+  return {
     __type: "RevocationConfiguration",
-    CrlConfiguration: undefined
-  };
-  if (
-    output.CrlConfiguration !== undefined &&
-    output.CrlConfiguration !== null
-  ) {
-    contents.CrlConfiguration = deserializeAws_json1_1CrlConfiguration(
-      output.CrlConfiguration,
-      context
-    );
-  }
-  return contents;
+    CrlConfiguration:
+      output.CrlConfiguration !== undefined && output.CrlConfiguration !== null
+        ? deserializeAws_json1_1CrlConfiguration(
+            output.CrlConfiguration,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Tag = (
   output: any,
   context: __SerdeContext
 ): Tag => {
-  let contents: any = {
+  return {
     __type: "Tag",
-    Key: undefined,
-    Value: undefined
-  };
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TagList = (
@@ -4005,14 +3914,13 @@ const deserializeAws_json1_1TooManyTagsException = (
   output: any,
   context: __SerdeContext
 ): TooManyTagsException => {
-  let contents: any = {
+  return {
     __type: "TooManyTagsException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

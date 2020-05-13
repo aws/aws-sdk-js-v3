@@ -3656,467 +3656,411 @@ const deserializeAws_restJson1_1AvailabilityZone = (
   output: any,
   context: __SerdeContext
 ): AvailabilityZone => {
-  let contents: any = {
+  return {
     __type: "AvailabilityZone",
-    Name: undefined
-  };
-  if (output.name !== undefined && output.name !== null) {
-    contents.Name = output.name;
-  }
-  return contents;
+    Name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1BrokerEngineType = (
   output: any,
   context: __SerdeContext
 ): BrokerEngineType => {
-  let contents: any = {
+  return {
     __type: "BrokerEngineType",
-    EngineType: undefined,
-    EngineVersions: undefined
-  };
-  if (output.engineType !== undefined && output.engineType !== null) {
-    contents.EngineType = output.engineType;
-  }
-  if (output.engineVersions !== undefined && output.engineVersions !== null) {
-    contents.EngineVersions = deserializeAws_restJson1_1__listOfEngineVersion(
-      output.engineVersions,
-      context
-    );
-  }
-  return contents;
+    EngineType:
+      output.engineType !== undefined && output.engineType !== null
+        ? output.engineType
+        : undefined,
+    EngineVersions:
+      output.engineVersions !== undefined && output.engineVersions !== null
+        ? deserializeAws_restJson1_1__listOfEngineVersion(
+            output.engineVersions,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1BrokerInstance = (
   output: any,
   context: __SerdeContext
 ): BrokerInstance => {
-  let contents: any = {
+  return {
     __type: "BrokerInstance",
-    ConsoleURL: undefined,
-    Endpoints: undefined,
-    IpAddress: undefined
-  };
-  if (output.consoleURL !== undefined && output.consoleURL !== null) {
-    contents.ConsoleURL = output.consoleURL;
-  }
-  if (output.endpoints !== undefined && output.endpoints !== null) {
-    contents.Endpoints = deserializeAws_restJson1_1__listOf__string(
-      output.endpoints,
-      context
-    );
-  }
-  if (output.ipAddress !== undefined && output.ipAddress !== null) {
-    contents.IpAddress = output.ipAddress;
-  }
-  return contents;
+    ConsoleURL:
+      output.consoleURL !== undefined && output.consoleURL !== null
+        ? output.consoleURL
+        : undefined,
+    Endpoints:
+      output.endpoints !== undefined && output.endpoints !== null
+        ? deserializeAws_restJson1_1__listOf__string(output.endpoints, context)
+        : undefined,
+    IpAddress:
+      output.ipAddress !== undefined && output.ipAddress !== null
+        ? output.ipAddress
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1BrokerInstanceOption = (
   output: any,
   context: __SerdeContext
 ): BrokerInstanceOption => {
-  let contents: any = {
+  return {
     __type: "BrokerInstanceOption",
-    AvailabilityZones: undefined,
-    EngineType: undefined,
-    HostInstanceType: undefined,
-    StorageType: undefined,
-    SupportedDeploymentModes: undefined,
-    SupportedEngineVersions: undefined
-  };
-  if (
-    output.availabilityZones !== undefined &&
-    output.availabilityZones !== null
-  ) {
-    contents.AvailabilityZones = deserializeAws_restJson1_1__listOfAvailabilityZone(
-      output.availabilityZones,
-      context
-    );
-  }
-  if (output.engineType !== undefined && output.engineType !== null) {
-    contents.EngineType = output.engineType;
-  }
-  if (
-    output.hostInstanceType !== undefined &&
-    output.hostInstanceType !== null
-  ) {
-    contents.HostInstanceType = output.hostInstanceType;
-  }
-  if (output.storageType !== undefined && output.storageType !== null) {
-    contents.StorageType = output.storageType;
-  }
-  if (
-    output.supportedDeploymentModes !== undefined &&
-    output.supportedDeploymentModes !== null
-  ) {
-    contents.SupportedDeploymentModes = deserializeAws_restJson1_1__listOfDeploymentMode(
-      output.supportedDeploymentModes,
-      context
-    );
-  }
-  if (
-    output.supportedEngineVersions !== undefined &&
-    output.supportedEngineVersions !== null
-  ) {
-    contents.SupportedEngineVersions = deserializeAws_restJson1_1__listOf__string(
-      output.supportedEngineVersions,
-      context
-    );
-  }
-  return contents;
+    AvailabilityZones:
+      output.availabilityZones !== undefined &&
+      output.availabilityZones !== null
+        ? deserializeAws_restJson1_1__listOfAvailabilityZone(
+            output.availabilityZones,
+            context
+          )
+        : undefined,
+    EngineType:
+      output.engineType !== undefined && output.engineType !== null
+        ? output.engineType
+        : undefined,
+    HostInstanceType:
+      output.hostInstanceType !== undefined && output.hostInstanceType !== null
+        ? output.hostInstanceType
+        : undefined,
+    StorageType:
+      output.storageType !== undefined && output.storageType !== null
+        ? output.storageType
+        : undefined,
+    SupportedDeploymentModes:
+      output.supportedDeploymentModes !== undefined &&
+      output.supportedDeploymentModes !== null
+        ? deserializeAws_restJson1_1__listOfDeploymentMode(
+            output.supportedDeploymentModes,
+            context
+          )
+        : undefined,
+    SupportedEngineVersions:
+      output.supportedEngineVersions !== undefined &&
+      output.supportedEngineVersions !== null
+        ? deserializeAws_restJson1_1__listOf__string(
+            output.supportedEngineVersions,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1BrokerSummary = (
   output: any,
   context: __SerdeContext
 ): BrokerSummary => {
-  let contents: any = {
+  return {
     __type: "BrokerSummary",
-    BrokerArn: undefined,
-    BrokerId: undefined,
-    BrokerName: undefined,
-    BrokerState: undefined,
-    Created: undefined,
-    DeploymentMode: undefined,
-    HostInstanceType: undefined
-  };
-  if (output.brokerArn !== undefined && output.brokerArn !== null) {
-    contents.BrokerArn = output.brokerArn;
-  }
-  if (output.brokerId !== undefined && output.brokerId !== null) {
-    contents.BrokerId = output.brokerId;
-  }
-  if (output.brokerName !== undefined && output.brokerName !== null) {
-    contents.BrokerName = output.brokerName;
-  }
-  if (output.brokerState !== undefined && output.brokerState !== null) {
-    contents.BrokerState = output.brokerState;
-  }
-  if (output.created !== undefined && output.created !== null) {
-    contents.Created = new Date(output.created);
-  }
-  if (output.deploymentMode !== undefined && output.deploymentMode !== null) {
-    contents.DeploymentMode = output.deploymentMode;
-  }
-  if (
-    output.hostInstanceType !== undefined &&
-    output.hostInstanceType !== null
-  ) {
-    contents.HostInstanceType = output.hostInstanceType;
-  }
-  return contents;
+    BrokerArn:
+      output.brokerArn !== undefined && output.brokerArn !== null
+        ? output.brokerArn
+        : undefined,
+    BrokerId:
+      output.brokerId !== undefined && output.brokerId !== null
+        ? output.brokerId
+        : undefined,
+    BrokerName:
+      output.brokerName !== undefined && output.brokerName !== null
+        ? output.brokerName
+        : undefined,
+    BrokerState:
+      output.brokerState !== undefined && output.brokerState !== null
+        ? output.brokerState
+        : undefined,
+    Created:
+      output.created !== undefined && output.created !== null
+        ? new Date(output.created)
+        : undefined,
+    DeploymentMode:
+      output.deploymentMode !== undefined && output.deploymentMode !== null
+        ? output.deploymentMode
+        : undefined,
+    HostInstanceType:
+      output.hostInstanceType !== undefined && output.hostInstanceType !== null
+        ? output.hostInstanceType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Configuration = (
   output: any,
   context: __SerdeContext
 ): Configuration => {
-  let contents: any = {
+  return {
     __type: "Configuration",
-    Arn: undefined,
-    Created: undefined,
-    Description: undefined,
-    EngineType: undefined,
-    EngineVersion: undefined,
-    Id: undefined,
-    LatestRevision: undefined,
-    Name: undefined,
-    Tags: undefined
-  };
-  if (output.arn !== undefined && output.arn !== null) {
-    contents.Arn = output.arn;
-  }
-  if (output.created !== undefined && output.created !== null) {
-    contents.Created = new Date(output.created);
-  }
-  if (output.description !== undefined && output.description !== null) {
-    contents.Description = output.description;
-  }
-  if (output.engineType !== undefined && output.engineType !== null) {
-    contents.EngineType = output.engineType;
-  }
-  if (output.engineVersion !== undefined && output.engineVersion !== null) {
-    contents.EngineVersion = output.engineVersion;
-  }
-  if (output.id !== undefined && output.id !== null) {
-    contents.Id = output.id;
-  }
-  if (output.latestRevision !== undefined && output.latestRevision !== null) {
-    contents.LatestRevision = deserializeAws_restJson1_1ConfigurationRevision(
-      output.latestRevision,
-      context
-    );
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.Name = output.name;
-  }
-  if (output.tags !== undefined && output.tags !== null) {
-    contents.Tags = deserializeAws_restJson1_1__mapOf__string(
-      output.tags,
-      context
-    );
-  }
-  return contents;
+    Arn:
+      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    Created:
+      output.created !== undefined && output.created !== null
+        ? new Date(output.created)
+        : undefined,
+    Description:
+      output.description !== undefined && output.description !== null
+        ? output.description
+        : undefined,
+    EngineType:
+      output.engineType !== undefined && output.engineType !== null
+        ? output.engineType
+        : undefined,
+    EngineVersion:
+      output.engineVersion !== undefined && output.engineVersion !== null
+        ? output.engineVersion
+        : undefined,
+    Id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    LatestRevision:
+      output.latestRevision !== undefined && output.latestRevision !== null
+        ? deserializeAws_restJson1_1ConfigurationRevision(
+            output.latestRevision,
+            context
+          )
+        : undefined,
+    Name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    Tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1_1__mapOf__string(output.tags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ConfigurationId = (
   output: any,
   context: __SerdeContext
 ): ConfigurationId => {
-  let contents: any = {
+  return {
     __type: "ConfigurationId",
-    Id: undefined,
-    Revision: undefined
-  };
-  if (output.id !== undefined && output.id !== null) {
-    contents.Id = output.id;
-  }
-  if (output.revision !== undefined && output.revision !== null) {
-    contents.Revision = output.revision;
-  }
-  return contents;
+    Id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    Revision:
+      output.revision !== undefined && output.revision !== null
+        ? output.revision
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ConfigurationRevision = (
   output: any,
   context: __SerdeContext
 ): ConfigurationRevision => {
-  let contents: any = {
+  return {
     __type: "ConfigurationRevision",
-    Created: undefined,
-    Description: undefined,
-    Revision: undefined
-  };
-  if (output.created !== undefined && output.created !== null) {
-    contents.Created = new Date(output.created);
-  }
-  if (output.description !== undefined && output.description !== null) {
-    contents.Description = output.description;
-  }
-  if (output.revision !== undefined && output.revision !== null) {
-    contents.Revision = output.revision;
-  }
-  return contents;
+    Created:
+      output.created !== undefined && output.created !== null
+        ? new Date(output.created)
+        : undefined,
+    Description:
+      output.description !== undefined && output.description !== null
+        ? output.description
+        : undefined,
+    Revision:
+      output.revision !== undefined && output.revision !== null
+        ? output.revision
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Configurations = (
   output: any,
   context: __SerdeContext
 ): Configurations => {
-  let contents: any = {
+  return {
     __type: "Configurations",
-    Current: undefined,
-    History: undefined,
-    Pending: undefined
-  };
-  if (output.current !== undefined && output.current !== null) {
-    contents.Current = deserializeAws_restJson1_1ConfigurationId(
-      output.current,
-      context
-    );
-  }
-  if (output.history !== undefined && output.history !== null) {
-    contents.History = deserializeAws_restJson1_1__listOfConfigurationId(
-      output.history,
-      context
-    );
-  }
-  if (output.pending !== undefined && output.pending !== null) {
-    contents.Pending = deserializeAws_restJson1_1ConfigurationId(
-      output.pending,
-      context
-    );
-  }
-  return contents;
+    Current:
+      output.current !== undefined && output.current !== null
+        ? deserializeAws_restJson1_1ConfigurationId(output.current, context)
+        : undefined,
+    History:
+      output.history !== undefined && output.history !== null
+        ? deserializeAws_restJson1_1__listOfConfigurationId(
+            output.history,
+            context
+          )
+        : undefined,
+    Pending:
+      output.pending !== undefined && output.pending !== null
+        ? deserializeAws_restJson1_1ConfigurationId(output.pending, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1EncryptionOptions = (
   output: any,
   context: __SerdeContext
 ): EncryptionOptions => {
-  let contents: any = {
+  return {
     __type: "EncryptionOptions",
-    KmsKeyId: undefined,
-    UseAwsOwnedKey: undefined
-  };
-  if (output.kmsKeyId !== undefined && output.kmsKeyId !== null) {
-    contents.KmsKeyId = output.kmsKeyId;
-  }
-  if (output.useAwsOwnedKey !== undefined && output.useAwsOwnedKey !== null) {
-    contents.UseAwsOwnedKey = output.useAwsOwnedKey;
-  }
-  return contents;
+    KmsKeyId:
+      output.kmsKeyId !== undefined && output.kmsKeyId !== null
+        ? output.kmsKeyId
+        : undefined,
+    UseAwsOwnedKey:
+      output.useAwsOwnedKey !== undefined && output.useAwsOwnedKey !== null
+        ? output.useAwsOwnedKey
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1EngineVersion = (
   output: any,
   context: __SerdeContext
 ): EngineVersion => {
-  let contents: any = {
+  return {
     __type: "EngineVersion",
-    Name: undefined
-  };
-  if (output.name !== undefined && output.name !== null) {
-    contents.Name = output.name;
-  }
-  return contents;
+    Name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Logs = (
   output: any,
   context: __SerdeContext
 ): Logs => {
-  let contents: any = {
+  return {
     __type: "Logs",
-    Audit: undefined,
-    General: undefined
-  };
-  if (output.audit !== undefined && output.audit !== null) {
-    contents.Audit = output.audit;
-  }
-  if (output.general !== undefined && output.general !== null) {
-    contents.General = output.general;
-  }
-  return contents;
+    Audit:
+      output.audit !== undefined && output.audit !== null
+        ? output.audit
+        : undefined,
+    General:
+      output.general !== undefined && output.general !== null
+        ? output.general
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1LogsSummary = (
   output: any,
   context: __SerdeContext
 ): LogsSummary => {
-  let contents: any = {
+  return {
     __type: "LogsSummary",
-    Audit: undefined,
-    AuditLogGroup: undefined,
-    General: undefined,
-    GeneralLogGroup: undefined,
-    Pending: undefined
-  };
-  if (output.audit !== undefined && output.audit !== null) {
-    contents.Audit = output.audit;
-  }
-  if (output.auditLogGroup !== undefined && output.auditLogGroup !== null) {
-    contents.AuditLogGroup = output.auditLogGroup;
-  }
-  if (output.general !== undefined && output.general !== null) {
-    contents.General = output.general;
-  }
-  if (output.generalLogGroup !== undefined && output.generalLogGroup !== null) {
-    contents.GeneralLogGroup = output.generalLogGroup;
-  }
-  if (output.pending !== undefined && output.pending !== null) {
-    contents.Pending = deserializeAws_restJson1_1PendingLogs(
-      output.pending,
-      context
-    );
-  }
-  return contents;
+    Audit:
+      output.audit !== undefined && output.audit !== null
+        ? output.audit
+        : undefined,
+    AuditLogGroup:
+      output.auditLogGroup !== undefined && output.auditLogGroup !== null
+        ? output.auditLogGroup
+        : undefined,
+    General:
+      output.general !== undefined && output.general !== null
+        ? output.general
+        : undefined,
+    GeneralLogGroup:
+      output.generalLogGroup !== undefined && output.generalLogGroup !== null
+        ? output.generalLogGroup
+        : undefined,
+    Pending:
+      output.pending !== undefined && output.pending !== null
+        ? deserializeAws_restJson1_1PendingLogs(output.pending, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1PendingLogs = (
   output: any,
   context: __SerdeContext
 ): PendingLogs => {
-  let contents: any = {
+  return {
     __type: "PendingLogs",
-    Audit: undefined,
-    General: undefined
-  };
-  if (output.audit !== undefined && output.audit !== null) {
-    contents.Audit = output.audit;
-  }
-  if (output.general !== undefined && output.general !== null) {
-    contents.General = output.general;
-  }
-  return contents;
+    Audit:
+      output.audit !== undefined && output.audit !== null
+        ? output.audit
+        : undefined,
+    General:
+      output.general !== undefined && output.general !== null
+        ? output.general
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SanitizationWarning = (
   output: any,
   context: __SerdeContext
 ): SanitizationWarning => {
-  let contents: any = {
+  return {
     __type: "SanitizationWarning",
-    AttributeName: undefined,
-    ElementName: undefined,
-    Reason: undefined
-  };
-  if (output.attributeName !== undefined && output.attributeName !== null) {
-    contents.AttributeName = output.attributeName;
-  }
-  if (output.elementName !== undefined && output.elementName !== null) {
-    contents.ElementName = output.elementName;
-  }
-  if (output.reason !== undefined && output.reason !== null) {
-    contents.Reason = output.reason;
-  }
-  return contents;
+    AttributeName:
+      output.attributeName !== undefined && output.attributeName !== null
+        ? output.attributeName
+        : undefined,
+    ElementName:
+      output.elementName !== undefined && output.elementName !== null
+        ? output.elementName
+        : undefined,
+    Reason:
+      output.reason !== undefined && output.reason !== null
+        ? output.reason
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1UserPendingChanges = (
   output: any,
   context: __SerdeContext
 ): UserPendingChanges => {
-  let contents: any = {
+  return {
     __type: "UserPendingChanges",
-    ConsoleAccess: undefined,
-    Groups: undefined,
-    PendingChange: undefined
-  };
-  if (output.consoleAccess !== undefined && output.consoleAccess !== null) {
-    contents.ConsoleAccess = output.consoleAccess;
-  }
-  if (output.groups !== undefined && output.groups !== null) {
-    contents.Groups = deserializeAws_restJson1_1__listOf__string(
-      output.groups,
-      context
-    );
-  }
-  if (output.pendingChange !== undefined && output.pendingChange !== null) {
-    contents.PendingChange = output.pendingChange;
-  }
-  return contents;
+    ConsoleAccess:
+      output.consoleAccess !== undefined && output.consoleAccess !== null
+        ? output.consoleAccess
+        : undefined,
+    Groups:
+      output.groups !== undefined && output.groups !== null
+        ? deserializeAws_restJson1_1__listOf__string(output.groups, context)
+        : undefined,
+    PendingChange:
+      output.pendingChange !== undefined && output.pendingChange !== null
+        ? output.pendingChange
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1UserSummary = (
   output: any,
   context: __SerdeContext
 ): UserSummary => {
-  let contents: any = {
+  return {
     __type: "UserSummary",
-    PendingChange: undefined,
-    Username: undefined
-  };
-  if (output.pendingChange !== undefined && output.pendingChange !== null) {
-    contents.PendingChange = output.pendingChange;
-  }
-  if (output.username !== undefined && output.username !== null) {
-    contents.Username = output.username;
-  }
-  return contents;
+    PendingChange:
+      output.pendingChange !== undefined && output.pendingChange !== null
+        ? output.pendingChange
+        : undefined,
+    Username:
+      output.username !== undefined && output.username !== null
+        ? output.username
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1WeeklyStartTime = (
   output: any,
   context: __SerdeContext
 ): WeeklyStartTime => {
-  let contents: any = {
+  return {
     __type: "WeeklyStartTime",
-    DayOfWeek: undefined,
-    TimeOfDay: undefined,
-    TimeZone: undefined
-  };
-  if (output.dayOfWeek !== undefined && output.dayOfWeek !== null) {
-    contents.DayOfWeek = output.dayOfWeek;
-  }
-  if (output.timeOfDay !== undefined && output.timeOfDay !== null) {
-    contents.TimeOfDay = output.timeOfDay;
-  }
-  if (output.timeZone !== undefined && output.timeZone !== null) {
-    contents.TimeZone = output.timeZone;
-  }
-  return contents;
+    DayOfWeek:
+      output.dayOfWeek !== undefined && output.dayOfWeek !== null
+        ? output.dayOfWeek
+        : undefined,
+    TimeOfDay:
+      output.timeOfDay !== undefined && output.timeOfDay !== null
+        ? output.timeOfDay
+        : undefined,
+    TimeZone:
+      output.timeZone !== undefined && output.timeZone !== null
+        ? output.timeZone
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1__listOfAvailabilityZone = (

@@ -2009,63 +2009,47 @@ const deserializeAws_restJson1_1JournalS3ExportDescription = (
   output: any,
   context: __SerdeContext
 ): JournalS3ExportDescription => {
-  let contents: any = {
+  return {
     __type: "JournalS3ExportDescription",
-    ExclusiveEndTime: undefined,
-    ExportCreationTime: undefined,
-    ExportId: undefined,
-    InclusiveStartTime: undefined,
-    LedgerName: undefined,
-    RoleArn: undefined,
-    S3ExportConfiguration: undefined,
-    Status: undefined
-  };
-  if (
-    output.ExclusiveEndTime !== undefined &&
-    output.ExclusiveEndTime !== null
-  ) {
-    contents.ExclusiveEndTime = new Date(
-      Math.round(output.ExclusiveEndTime * 1000)
-    );
-  }
-  if (
-    output.ExportCreationTime !== undefined &&
-    output.ExportCreationTime !== null
-  ) {
-    contents.ExportCreationTime = new Date(
-      Math.round(output.ExportCreationTime * 1000)
-    );
-  }
-  if (output.ExportId !== undefined && output.ExportId !== null) {
-    contents.ExportId = output.ExportId;
-  }
-  if (
-    output.InclusiveStartTime !== undefined &&
-    output.InclusiveStartTime !== null
-  ) {
-    contents.InclusiveStartTime = new Date(
-      Math.round(output.InclusiveStartTime * 1000)
-    );
-  }
-  if (output.LedgerName !== undefined && output.LedgerName !== null) {
-    contents.LedgerName = output.LedgerName;
-  }
-  if (output.RoleArn !== undefined && output.RoleArn !== null) {
-    contents.RoleArn = output.RoleArn;
-  }
-  if (
-    output.S3ExportConfiguration !== undefined &&
-    output.S3ExportConfiguration !== null
-  ) {
-    contents.S3ExportConfiguration = deserializeAws_restJson1_1S3ExportConfiguration(
-      output.S3ExportConfiguration,
-      context
-    );
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  return contents;
+    ExclusiveEndTime:
+      output.ExclusiveEndTime !== undefined && output.ExclusiveEndTime !== null
+        ? new Date(Math.round(output.ExclusiveEndTime * 1000))
+        : undefined,
+    ExportCreationTime:
+      output.ExportCreationTime !== undefined &&
+      output.ExportCreationTime !== null
+        ? new Date(Math.round(output.ExportCreationTime * 1000))
+        : undefined,
+    ExportId:
+      output.ExportId !== undefined && output.ExportId !== null
+        ? output.ExportId
+        : undefined,
+    InclusiveStartTime:
+      output.InclusiveStartTime !== undefined &&
+      output.InclusiveStartTime !== null
+        ? new Date(Math.round(output.InclusiveStartTime * 1000))
+        : undefined,
+    LedgerName:
+      output.LedgerName !== undefined && output.LedgerName !== null
+        ? output.LedgerName
+        : undefined,
+    RoleArn:
+      output.RoleArn !== undefined && output.RoleArn !== null
+        ? output.RoleArn
+        : undefined,
+    S3ExportConfiguration:
+      output.S3ExportConfiguration !== undefined &&
+      output.S3ExportConfiguration !== null
+        ? deserializeAws_restJson1_1S3ExportConfiguration(
+            output.S3ExportConfiguration,
+            context
+          )
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1JournalS3ExportList = (
@@ -2090,76 +2074,64 @@ const deserializeAws_restJson1_1LedgerSummary = (
   output: any,
   context: __SerdeContext
 ): LedgerSummary => {
-  let contents: any = {
+  return {
     __type: "LedgerSummary",
-    CreationDateTime: undefined,
-    Name: undefined,
-    State: undefined
-  };
-  if (
-    output.CreationDateTime !== undefined &&
-    output.CreationDateTime !== null
-  ) {
-    contents.CreationDateTime = new Date(
-      Math.round(output.CreationDateTime * 1000)
-    );
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.State !== undefined && output.State !== null) {
-    contents.State = output.State;
-  }
-  return contents;
+    CreationDateTime:
+      output.CreationDateTime !== undefined && output.CreationDateTime !== null
+        ? new Date(Math.round(output.CreationDateTime * 1000))
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    State:
+      output.State !== undefined && output.State !== null
+        ? output.State
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1S3EncryptionConfiguration = (
   output: any,
   context: __SerdeContext
 ): S3EncryptionConfiguration => {
-  let contents: any = {
+  return {
     __type: "S3EncryptionConfiguration",
-    KmsKeyArn: undefined,
-    ObjectEncryptionType: undefined
-  };
-  if (output.KmsKeyArn !== undefined && output.KmsKeyArn !== null) {
-    contents.KmsKeyArn = output.KmsKeyArn;
-  }
-  if (
-    output.ObjectEncryptionType !== undefined &&
-    output.ObjectEncryptionType !== null
-  ) {
-    contents.ObjectEncryptionType = output.ObjectEncryptionType;
-  }
-  return contents;
+    KmsKeyArn:
+      output.KmsKeyArn !== undefined && output.KmsKeyArn !== null
+        ? output.KmsKeyArn
+        : undefined,
+    ObjectEncryptionType:
+      output.ObjectEncryptionType !== undefined &&
+      output.ObjectEncryptionType !== null
+        ? output.ObjectEncryptionType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1S3ExportConfiguration = (
   output: any,
   context: __SerdeContext
 ): S3ExportConfiguration => {
-  let contents: any = {
+  return {
     __type: "S3ExportConfiguration",
-    Bucket: undefined,
-    EncryptionConfiguration: undefined,
-    Prefix: undefined
-  };
-  if (output.Bucket !== undefined && output.Bucket !== null) {
-    contents.Bucket = output.Bucket;
-  }
-  if (
-    output.EncryptionConfiguration !== undefined &&
-    output.EncryptionConfiguration !== null
-  ) {
-    contents.EncryptionConfiguration = deserializeAws_restJson1_1S3EncryptionConfiguration(
-      output.EncryptionConfiguration,
-      context
-    );
-  }
-  if (output.Prefix !== undefined && output.Prefix !== null) {
-    contents.Prefix = output.Prefix;
-  }
-  return contents;
+    Bucket:
+      output.Bucket !== undefined && output.Bucket !== null
+        ? output.Bucket
+        : undefined,
+    EncryptionConfiguration:
+      output.EncryptionConfiguration !== undefined &&
+      output.EncryptionConfiguration !== null
+        ? deserializeAws_restJson1_1S3EncryptionConfiguration(
+            output.EncryptionConfiguration,
+            context
+          )
+        : undefined,
+    Prefix:
+      output.Prefix !== undefined && output.Prefix !== null
+        ? output.Prefix
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Tags = (
@@ -2176,14 +2148,13 @@ const deserializeAws_restJson1_1ValueHolder = (
   output: any,
   context: __SerdeContext
 ): ValueHolder => {
-  let contents: any = {
+  return {
     __type: "ValueHolder",
-    IonText: undefined
-  };
-  if (output.IonText !== undefined && output.IonText !== null) {
-    contents.IonText = output.IonText;
-  }
-  return contents;
+    IonText:
+      output.IonText !== undefined && output.IonText !== null
+        ? output.IonText
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

@@ -2357,51 +2357,45 @@ const deserializeAws_json1_1Container = (
   output: any,
   context: __SerdeContext
 ): Container => {
-  let contents: any = {
+  return {
     __type: "Container",
-    ARN: undefined,
-    AccessLoggingEnabled: undefined,
-    CreationTime: undefined,
-    Endpoint: undefined,
-    Name: undefined,
-    Status: undefined
-  };
-  if (output.ARN !== undefined && output.ARN !== null) {
-    contents.ARN = output.ARN;
-  }
-  if (
-    output.AccessLoggingEnabled !== undefined &&
-    output.AccessLoggingEnabled !== null
-  ) {
-    contents.AccessLoggingEnabled = output.AccessLoggingEnabled;
-  }
-  if (output.CreationTime !== undefined && output.CreationTime !== null) {
-    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
-  }
-  if (output.Endpoint !== undefined && output.Endpoint !== null) {
-    contents.Endpoint = output.Endpoint;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  return contents;
+    ARN:
+      output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined,
+    AccessLoggingEnabled:
+      output.AccessLoggingEnabled !== undefined &&
+      output.AccessLoggingEnabled !== null
+        ? output.AccessLoggingEnabled
+        : undefined,
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    Endpoint:
+      output.Endpoint !== undefined && output.Endpoint !== null
+        ? output.Endpoint
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ContainerInUseException = (
   output: any,
   context: __SerdeContext
 ): ContainerInUseException => {
-  let contents: any = {
+  return {
     __type: "ContainerInUseException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ContainerList = (
@@ -2417,14 +2411,13 @@ const deserializeAws_json1_1ContainerNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ContainerNotFoundException => {
-  let contents: any = {
+  return {
     __type: "ContainerNotFoundException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CorsPolicy = (
@@ -2440,130 +2433,104 @@ const deserializeAws_json1_1CorsPolicyNotFoundException = (
   output: any,
   context: __SerdeContext
 ): CorsPolicyNotFoundException => {
-  let contents: any = {
+  return {
     __type: "CorsPolicyNotFoundException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CorsRule = (
   output: any,
   context: __SerdeContext
 ): CorsRule => {
-  let contents: any = {
+  return {
     __type: "CorsRule",
-    AllowedHeaders: undefined,
-    AllowedMethods: undefined,
-    AllowedOrigins: undefined,
-    ExposeHeaders: undefined,
-    MaxAgeSeconds: undefined
-  };
-  if (output.AllowedHeaders !== undefined && output.AllowedHeaders !== null) {
-    contents.AllowedHeaders = deserializeAws_json1_1AllowedHeaders(
-      output.AllowedHeaders,
-      context
-    );
-  }
-  if (output.AllowedMethods !== undefined && output.AllowedMethods !== null) {
-    contents.AllowedMethods = deserializeAws_json1_1AllowedMethods(
-      output.AllowedMethods,
-      context
-    );
-  }
-  if (output.AllowedOrigins !== undefined && output.AllowedOrigins !== null) {
-    contents.AllowedOrigins = deserializeAws_json1_1AllowedOrigins(
-      output.AllowedOrigins,
-      context
-    );
-  }
-  if (output.ExposeHeaders !== undefined && output.ExposeHeaders !== null) {
-    contents.ExposeHeaders = deserializeAws_json1_1ExposeHeaders(
-      output.ExposeHeaders,
-      context
-    );
-  }
-  if (output.MaxAgeSeconds !== undefined && output.MaxAgeSeconds !== null) {
-    contents.MaxAgeSeconds = output.MaxAgeSeconds;
-  }
-  return contents;
+    AllowedHeaders:
+      output.AllowedHeaders !== undefined && output.AllowedHeaders !== null
+        ? deserializeAws_json1_1AllowedHeaders(output.AllowedHeaders, context)
+        : undefined,
+    AllowedMethods:
+      output.AllowedMethods !== undefined && output.AllowedMethods !== null
+        ? deserializeAws_json1_1AllowedMethods(output.AllowedMethods, context)
+        : undefined,
+    AllowedOrigins:
+      output.AllowedOrigins !== undefined && output.AllowedOrigins !== null
+        ? deserializeAws_json1_1AllowedOrigins(output.AllowedOrigins, context)
+        : undefined,
+    ExposeHeaders:
+      output.ExposeHeaders !== undefined && output.ExposeHeaders !== null
+        ? deserializeAws_json1_1ExposeHeaders(output.ExposeHeaders, context)
+        : undefined,
+    MaxAgeSeconds:
+      output.MaxAgeSeconds !== undefined && output.MaxAgeSeconds !== null
+        ? output.MaxAgeSeconds
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateContainerOutput = (
   output: any,
   context: __SerdeContext
 ): CreateContainerOutput => {
-  let contents: any = {
+  return {
     __type: "CreateContainerOutput",
-    Container: undefined
-  };
-  if (output.Container !== undefined && output.Container !== null) {
-    contents.Container = deserializeAws_json1_1Container(
-      output.Container,
-      context
-    );
-  }
-  return contents;
+    Container:
+      output.Container !== undefined && output.Container !== null
+        ? deserializeAws_json1_1Container(output.Container, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteContainerOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteContainerOutput => {
-  let contents: any = {
+  return {
     __type: "DeleteContainerOutput"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteContainerPolicyOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteContainerPolicyOutput => {
-  let contents: any = {
+  return {
     __type: "DeleteContainerPolicyOutput"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteCorsPolicyOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteCorsPolicyOutput => {
-  let contents: any = {
+  return {
     __type: "DeleteCorsPolicyOutput"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteLifecyclePolicyOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteLifecyclePolicyOutput => {
-  let contents: any = {
+  return {
     __type: "DeleteLifecyclePolicyOutput"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeContainerOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeContainerOutput => {
-  let contents: any = {
+  return {
     __type: "DescribeContainerOutput",
-    Container: undefined
-  };
-  if (output.Container !== undefined && output.Container !== null) {
-    contents.Container = deserializeAws_json1_1Container(
-      output.Container,
-      context
-    );
-  }
-  return contents;
+    Container:
+      output.Container !== undefined && output.Container !== null
+        ? deserializeAws_json1_1Container(output.Container, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ExposeHeaders = (
@@ -2577,190 +2544,168 @@ const deserializeAws_json1_1GetContainerPolicyOutput = (
   output: any,
   context: __SerdeContext
 ): GetContainerPolicyOutput => {
-  let contents: any = {
+  return {
     __type: "GetContainerPolicyOutput",
-    Policy: undefined
-  };
-  if (output.Policy !== undefined && output.Policy !== null) {
-    contents.Policy = output.Policy;
-  }
-  return contents;
+    Policy:
+      output.Policy !== undefined && output.Policy !== null
+        ? output.Policy
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetCorsPolicyOutput = (
   output: any,
   context: __SerdeContext
 ): GetCorsPolicyOutput => {
-  let contents: any = {
+  return {
     __type: "GetCorsPolicyOutput",
-    CorsPolicy: undefined
-  };
-  if (output.CorsPolicy !== undefined && output.CorsPolicy !== null) {
-    contents.CorsPolicy = deserializeAws_json1_1CorsPolicy(
-      output.CorsPolicy,
-      context
-    );
-  }
-  return contents;
+    CorsPolicy:
+      output.CorsPolicy !== undefined && output.CorsPolicy !== null
+        ? deserializeAws_json1_1CorsPolicy(output.CorsPolicy, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetLifecyclePolicyOutput = (
   output: any,
   context: __SerdeContext
 ): GetLifecyclePolicyOutput => {
-  let contents: any = {
+  return {
     __type: "GetLifecyclePolicyOutput",
-    LifecyclePolicy: undefined
-  };
-  if (output.LifecyclePolicy !== undefined && output.LifecyclePolicy !== null) {
-    contents.LifecyclePolicy = output.LifecyclePolicy;
-  }
-  return contents;
+    LifecyclePolicy:
+      output.LifecyclePolicy !== undefined && output.LifecyclePolicy !== null
+        ? output.LifecyclePolicy
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InternalServerError = (
   output: any,
   context: __SerdeContext
 ): InternalServerError => {
-  let contents: any = {
+  return {
     __type: "InternalServerError",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (
   output: any,
   context: __SerdeContext
 ): LimitExceededException => {
-  let contents: any = {
+  return {
     __type: "LimitExceededException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListContainersOutput = (
   output: any,
   context: __SerdeContext
 ): ListContainersOutput => {
-  let contents: any = {
+  return {
     __type: "ListContainersOutput",
-    Containers: undefined,
-    NextToken: undefined
-  };
-  if (output.Containers !== undefined && output.Containers !== null) {
-    contents.Containers = deserializeAws_json1_1ContainerList(
-      output.Containers,
-      context
-    );
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  return contents;
+    Containers:
+      output.Containers !== undefined && output.Containers !== null
+        ? deserializeAws_json1_1ContainerList(output.Containers, context)
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListTagsForResourceOutput = (
   output: any,
   context: __SerdeContext
 ): ListTagsForResourceOutput => {
-  let contents: any = {
+  return {
     __type: "ListTagsForResourceOutput",
-    Tags: undefined
-  };
-  if (output.Tags !== undefined && output.Tags !== null) {
-    contents.Tags = deserializeAws_json1_1TagList(output.Tags, context);
-  }
-  return contents;
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1TagList(output.Tags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PolicyNotFoundException = (
   output: any,
   context: __SerdeContext
 ): PolicyNotFoundException => {
-  let contents: any = {
+  return {
     __type: "PolicyNotFoundException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PutContainerPolicyOutput = (
   output: any,
   context: __SerdeContext
 ): PutContainerPolicyOutput => {
-  let contents: any = {
+  return {
     __type: "PutContainerPolicyOutput"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1PutCorsPolicyOutput = (
   output: any,
   context: __SerdeContext
 ): PutCorsPolicyOutput => {
-  let contents: any = {
+  return {
     __type: "PutCorsPolicyOutput"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1PutLifecyclePolicyOutput = (
   output: any,
   context: __SerdeContext
 ): PutLifecyclePolicyOutput => {
-  let contents: any = {
+  return {
     __type: "PutLifecyclePolicyOutput"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1StartAccessLoggingOutput = (
   output: any,
   context: __SerdeContext
 ): StartAccessLoggingOutput => {
-  let contents: any = {
+  return {
     __type: "StartAccessLoggingOutput"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1StopAccessLoggingOutput = (
   output: any,
   context: __SerdeContext
 ): StopAccessLoggingOutput => {
-  let contents: any = {
+  return {
     __type: "StopAccessLoggingOutput"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1Tag = (
   output: any,
   context: __SerdeContext
 ): Tag => {
-  let contents: any = {
+  return {
     __type: "Tag",
-    Key: undefined,
-    Value: undefined
-  };
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TagList = (
@@ -2776,20 +2721,18 @@ const deserializeAws_json1_1TagResourceOutput = (
   output: any,
   context: __SerdeContext
 ): TagResourceOutput => {
-  let contents: any = {
+  return {
     __type: "TagResourceOutput"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1UntagResourceOutput = (
   output: any,
   context: __SerdeContext
 ): UntagResourceOutput => {
-  let contents: any = {
+  return {
     __type: "UntagResourceOutput"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

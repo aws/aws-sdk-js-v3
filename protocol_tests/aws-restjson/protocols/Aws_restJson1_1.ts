@@ -3186,14 +3186,13 @@ const deserializeAws_restJson1_1ComplexNestedErrorData = (
   output: any,
   context: __SerdeContext
 ): ComplexNestedErrorData => {
-  let contents: any = {
+  return {
     __type: "ComplexNestedErrorData",
-    Foo: undefined
-  };
-  if (output.Fooooo !== undefined && output.Fooooo !== null) {
-    contents.Foo = output.Fooooo;
-  }
-  return contents;
+    Foo:
+      output.Fooooo !== undefined && output.Fooooo !== null
+        ? output.Fooooo
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1JsonMapsInputOutputMap = (
@@ -3210,60 +3209,53 @@ const deserializeAws_restJson1_1NestedPayload = (
   output: any,
   context: __SerdeContext
 ): NestedPayload => {
-  let contents: any = {
+  return {
     __type: "NestedPayload",
-    greeting: undefined,
-    name: undefined
-  };
-  if (output.greeting !== undefined && output.greeting !== null) {
-    contents.greeting = output.greeting;
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  return contents;
+    greeting:
+      output.greeting !== undefined && output.greeting !== null
+        ? output.greeting
+        : undefined,
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1RecursiveShapesInputOutputNested1 = (
   output: any,
   context: __SerdeContext
 ): RecursiveShapesInputOutputNested1 => {
-  let contents: any = {
+  return {
     __type: "RecursiveShapesInputOutputNested1",
-    foo: undefined,
-    nested: undefined
-  };
-  if (output.foo !== undefined && output.foo !== null) {
-    contents.foo = output.foo;
-  }
-  if (output.nested !== undefined && output.nested !== null) {
-    contents.nested = deserializeAws_restJson1_1RecursiveShapesInputOutputNested2(
-      output.nested,
-      context
-    );
-  }
-  return contents;
+    foo:
+      output.foo !== undefined && output.foo !== null ? output.foo : undefined,
+    nested:
+      output.nested !== undefined && output.nested !== null
+        ? deserializeAws_restJson1_1RecursiveShapesInputOutputNested2(
+            output.nested,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1RecursiveShapesInputOutputNested2 = (
   output: any,
   context: __SerdeContext
 ): RecursiveShapesInputOutputNested2 => {
-  let contents: any = {
+  return {
     __type: "RecursiveShapesInputOutputNested2",
-    bar: undefined,
-    recursiveMember: undefined
-  };
-  if (output.bar !== undefined && output.bar !== null) {
-    contents.bar = output.bar;
-  }
-  if (output.recursiveMember !== undefined && output.recursiveMember !== null) {
-    contents.recursiveMember = deserializeAws_restJson1_1RecursiveShapesInputOutputNested1(
-      output.recursiveMember,
-      context
-    );
-  }
-  return contents;
+    bar:
+      output.bar !== undefined && output.bar !== null ? output.bar : undefined,
+    recursiveMember:
+      output.recursiveMember !== undefined && output.recursiveMember !== null
+        ? deserializeAws_restJson1_1RecursiveShapesInputOutputNested1(
+            output.recursiveMember,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1StructureList = (
@@ -3279,18 +3271,17 @@ const deserializeAws_restJson1_1StructureListMember = (
   output: any,
   context: __SerdeContext
 ): StructureListMember => {
-  let contents: any = {
+  return {
     __type: "StructureListMember",
-    a: undefined,
-    b: undefined
-  };
-  if (output.value !== undefined && output.value !== null) {
-    contents.a = output.value;
-  }
-  if (output.other !== undefined && output.other !== null) {
-    contents.b = output.other;
-  }
-  return contents;
+    a:
+      output.value !== undefined && output.value !== null
+        ? output.value
+        : undefined,
+    b:
+      output.other !== undefined && output.other !== null
+        ? output.other
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1BooleanList = (
@@ -3328,14 +3319,10 @@ const deserializeAws_restJson1_1GreetingStruct = (
   output: any,
   context: __SerdeContext
 ): GreetingStruct => {
-  let contents: any = {
+  return {
     __type: "GreetingStruct",
-    hi: undefined
-  };
-  if (output.hi !== undefined && output.hi !== null) {
-    contents.hi = output.hi;
-  }
-  return contents;
+    hi: output.hi !== undefined && output.hi !== null ? output.hi : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1IntegerList = (

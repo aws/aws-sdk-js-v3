@@ -2409,24 +2409,21 @@ const deserializeAws_restJson1_1DeviceTemplate = (
   output: any,
   context: __SerdeContext
 ): DeviceTemplate => {
-  let contents: any = {
+  return {
     __type: "DeviceTemplate",
-    callbackOverrides: undefined,
-    deviceType: undefined
-  };
-  if (
-    output.callbackOverrides !== undefined &&
-    output.callbackOverrides !== null
-  ) {
-    contents.callbackOverrides = deserializeAws_restJson1_1DeviceCallbackOverrideMap(
-      output.callbackOverrides,
-      context
-    );
-  }
-  if (output.deviceType !== undefined && output.deviceType !== null) {
-    contents.deviceType = output.deviceType;
-  }
-  return contents;
+    callbackOverrides:
+      output.callbackOverrides !== undefined &&
+      output.callbackOverrides !== null
+        ? deserializeAws_restJson1_1DeviceCallbackOverrideMap(
+            output.callbackOverrides,
+            context
+          )
+        : undefined,
+    deviceType:
+      output.deviceType !== undefined && output.deviceType !== null
+        ? output.deviceType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DeviceTemplateMap = (
@@ -2453,59 +2450,57 @@ const deserializeAws_restJson1_1PlacementDescription = (
   output: any,
   context: __SerdeContext
 ): PlacementDescription => {
-  let contents: any = {
+  return {
     __type: "PlacementDescription",
-    attributes: undefined,
-    createdDate: undefined,
-    placementName: undefined,
-    projectName: undefined,
-    updatedDate: undefined
-  };
-  if (output.attributes !== undefined && output.attributes !== null) {
-    contents.attributes = deserializeAws_restJson1_1PlacementAttributeMap(
-      output.attributes,
-      context
-    );
-  }
-  if (output.createdDate !== undefined && output.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(output.createdDate * 1000));
-  }
-  if (output.placementName !== undefined && output.placementName !== null) {
-    contents.placementName = output.placementName;
-  }
-  if (output.projectName !== undefined && output.projectName !== null) {
-    contents.projectName = output.projectName;
-  }
-  if (output.updatedDate !== undefined && output.updatedDate !== null) {
-    contents.updatedDate = new Date(Math.round(output.updatedDate * 1000));
-  }
-  return contents;
+    attributes:
+      output.attributes !== undefined && output.attributes !== null
+        ? deserializeAws_restJson1_1PlacementAttributeMap(
+            output.attributes,
+            context
+          )
+        : undefined,
+    createdDate:
+      output.createdDate !== undefined && output.createdDate !== null
+        ? new Date(Math.round(output.createdDate * 1000))
+        : undefined,
+    placementName:
+      output.placementName !== undefined && output.placementName !== null
+        ? output.placementName
+        : undefined,
+    projectName:
+      output.projectName !== undefined && output.projectName !== null
+        ? output.projectName
+        : undefined,
+    updatedDate:
+      output.updatedDate !== undefined && output.updatedDate !== null
+        ? new Date(Math.round(output.updatedDate * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1PlacementSummary = (
   output: any,
   context: __SerdeContext
 ): PlacementSummary => {
-  let contents: any = {
+  return {
     __type: "PlacementSummary",
-    createdDate: undefined,
-    placementName: undefined,
-    projectName: undefined,
-    updatedDate: undefined
-  };
-  if (output.createdDate !== undefined && output.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(output.createdDate * 1000));
-  }
-  if (output.placementName !== undefined && output.placementName !== null) {
-    contents.placementName = output.placementName;
-  }
-  if (output.projectName !== undefined && output.projectName !== null) {
-    contents.projectName = output.projectName;
-  }
-  if (output.updatedDate !== undefined && output.updatedDate !== null) {
-    contents.updatedDate = new Date(Math.round(output.updatedDate * 1000));
-  }
-  return contents;
+    createdDate:
+      output.createdDate !== undefined && output.createdDate !== null
+        ? new Date(Math.round(output.createdDate * 1000))
+        : undefined,
+    placementName:
+      output.placementName !== undefined && output.placementName !== null
+        ? output.placementName
+        : undefined,
+    projectName:
+      output.projectName !== undefined && output.projectName !== null
+        ? output.projectName
+        : undefined,
+    updatedDate:
+      output.updatedDate !== undefined && output.updatedDate !== null
+        ? new Date(Math.round(output.updatedDate * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1PlacementSummaryList = (
@@ -2521,101 +2516,90 @@ const deserializeAws_restJson1_1PlacementTemplate = (
   output: any,
   context: __SerdeContext
 ): PlacementTemplate => {
-  let contents: any = {
+  return {
     __type: "PlacementTemplate",
-    defaultAttributes: undefined,
-    deviceTemplates: undefined
-  };
-  if (
-    output.defaultAttributes !== undefined &&
-    output.defaultAttributes !== null
-  ) {
-    contents.defaultAttributes = deserializeAws_restJson1_1DefaultPlacementAttributeMap(
-      output.defaultAttributes,
-      context
-    );
-  }
-  if (output.deviceTemplates !== undefined && output.deviceTemplates !== null) {
-    contents.deviceTemplates = deserializeAws_restJson1_1DeviceTemplateMap(
-      output.deviceTemplates,
-      context
-    );
-  }
-  return contents;
+    defaultAttributes:
+      output.defaultAttributes !== undefined &&
+      output.defaultAttributes !== null
+        ? deserializeAws_restJson1_1DefaultPlacementAttributeMap(
+            output.defaultAttributes,
+            context
+          )
+        : undefined,
+    deviceTemplates:
+      output.deviceTemplates !== undefined && output.deviceTemplates !== null
+        ? deserializeAws_restJson1_1DeviceTemplateMap(
+            output.deviceTemplates,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ProjectDescription = (
   output: any,
   context: __SerdeContext
 ): ProjectDescription => {
-  let contents: any = {
+  return {
     __type: "ProjectDescription",
-    arn: undefined,
-    createdDate: undefined,
-    description: undefined,
-    placementTemplate: undefined,
-    projectName: undefined,
-    tags: undefined,
-    updatedDate: undefined
-  };
-  if (output.arn !== undefined && output.arn !== null) {
-    contents.arn = output.arn;
-  }
-  if (output.createdDate !== undefined && output.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(output.createdDate * 1000));
-  }
-  if (output.description !== undefined && output.description !== null) {
-    contents.description = output.description;
-  }
-  if (
-    output.placementTemplate !== undefined &&
-    output.placementTemplate !== null
-  ) {
-    contents.placementTemplate = deserializeAws_restJson1_1PlacementTemplate(
-      output.placementTemplate,
-      context
-    );
-  }
-  if (output.projectName !== undefined && output.projectName !== null) {
-    contents.projectName = output.projectName;
-  }
-  if (output.tags !== undefined && output.tags !== null) {
-    contents.tags = deserializeAws_restJson1_1TagMap(output.tags, context);
-  }
-  if (output.updatedDate !== undefined && output.updatedDate !== null) {
-    contents.updatedDate = new Date(Math.round(output.updatedDate * 1000));
-  }
-  return contents;
+    arn:
+      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    createdDate:
+      output.createdDate !== undefined && output.createdDate !== null
+        ? new Date(Math.round(output.createdDate * 1000))
+        : undefined,
+    description:
+      output.description !== undefined && output.description !== null
+        ? output.description
+        : undefined,
+    placementTemplate:
+      output.placementTemplate !== undefined &&
+      output.placementTemplate !== null
+        ? deserializeAws_restJson1_1PlacementTemplate(
+            output.placementTemplate,
+            context
+          )
+        : undefined,
+    projectName:
+      output.projectName !== undefined && output.projectName !== null
+        ? output.projectName
+        : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1_1TagMap(output.tags, context)
+        : undefined,
+    updatedDate:
+      output.updatedDate !== undefined && output.updatedDate !== null
+        ? new Date(Math.round(output.updatedDate * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ProjectSummary = (
   output: any,
   context: __SerdeContext
 ): ProjectSummary => {
-  let contents: any = {
+  return {
     __type: "ProjectSummary",
-    arn: undefined,
-    createdDate: undefined,
-    projectName: undefined,
-    tags: undefined,
-    updatedDate: undefined
-  };
-  if (output.arn !== undefined && output.arn !== null) {
-    contents.arn = output.arn;
-  }
-  if (output.createdDate !== undefined && output.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(output.createdDate * 1000));
-  }
-  if (output.projectName !== undefined && output.projectName !== null) {
-    contents.projectName = output.projectName;
-  }
-  if (output.tags !== undefined && output.tags !== null) {
-    contents.tags = deserializeAws_restJson1_1TagMap(output.tags, context);
-  }
-  if (output.updatedDate !== undefined && output.updatedDate !== null) {
-    contents.updatedDate = new Date(Math.round(output.updatedDate * 1000));
-  }
-  return contents;
+    arn:
+      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    createdDate:
+      output.createdDate !== undefined && output.createdDate !== null
+        ? new Date(Math.round(output.createdDate * 1000))
+        : undefined,
+    projectName:
+      output.projectName !== undefined && output.projectName !== null
+        ? output.projectName
+        : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1_1TagMap(output.tags, context)
+        : undefined,
+    updatedDate:
+      output.updatedDate !== undefined && output.updatedDate !== null
+        ? new Date(Math.round(output.updatedDate * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ProjectSummaryList = (

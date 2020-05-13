@@ -264,77 +264,69 @@ const deserializeAws_json1_1DataPoint = (
   output: any,
   context: __SerdeContext
 ): DataPoint => {
-  let contents: any = {
+  return {
     __type: "DataPoint",
-    Timestamp: undefined,
-    Value: undefined
-  };
-  if (output.Timestamp !== undefined && output.Timestamp !== null) {
-    contents.Timestamp = output.Timestamp;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Timestamp:
+      output.Timestamp !== undefined && output.Timestamp !== null
+        ? output.Timestamp
+        : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Forecast = (
   output: any,
   context: __SerdeContext
 ): Forecast => {
-  let contents: any = {
+  return {
     __type: "Forecast",
-    Predictions: undefined
-  };
-  if (output.Predictions !== undefined && output.Predictions !== null) {
-    contents.Predictions = deserializeAws_json1_1Predictions(
-      output.Predictions,
-      context
-    );
-  }
-  return contents;
+    Predictions:
+      output.Predictions !== undefined && output.Predictions !== null
+        ? deserializeAws_json1_1Predictions(output.Predictions, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidInputException = (
   output: any,
   context: __SerdeContext
 ): InvalidInputException => {
-  let contents: any = {
+  return {
     __type: "InvalidInputException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidNextTokenException = (
   output: any,
   context: __SerdeContext
 ): InvalidNextTokenException => {
-  let contents: any = {
+  return {
     __type: "InvalidNextTokenException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (
   output: any,
   context: __SerdeContext
 ): LimitExceededException => {
-  let contents: any = {
+  return {
     __type: "LimitExceededException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Predictions = (
@@ -351,45 +343,39 @@ const deserializeAws_json1_1QueryForecastResponse = (
   output: any,
   context: __SerdeContext
 ): QueryForecastResponse => {
-  let contents: any = {
+  return {
     __type: "QueryForecastResponse",
-    Forecast: undefined
-  };
-  if (output.Forecast !== undefined && output.Forecast !== null) {
-    contents.Forecast = deserializeAws_json1_1Forecast(
-      output.Forecast,
-      context
-    );
-  }
-  return contents;
+    Forecast:
+      output.Forecast !== undefined && output.Forecast !== null
+        ? deserializeAws_json1_1Forecast(output.Forecast, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceInUseException = (
   output: any,
   context: __SerdeContext
 ): ResourceInUseException => {
-  let contents: any = {
+  return {
     __type: "ResourceInUseException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ResourceNotFoundException => {
-  let contents: any = {
+  return {
     __type: "ResourceNotFoundException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TimeSeries = (

@@ -303,14 +303,13 @@ const deserializeAws_restJson1_1PredictedItem = (
   output: any,
   context: __SerdeContext
 ): PredictedItem => {
-  let contents: any = {
+  return {
     __type: "PredictedItem",
-    itemId: undefined
-  };
-  if (output.itemId !== undefined && output.itemId !== null) {
-    contents.itemId = output.itemId;
-  }
-  return contents;
+    itemId:
+      output.itemId !== undefined && output.itemId !== null
+        ? output.itemId
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

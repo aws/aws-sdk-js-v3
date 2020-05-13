@@ -1176,69 +1176,66 @@ const deserializeAws_restJson1_1ColumnMetadata = (
   output: any,
   context: __SerdeContext
 ): ColumnMetadata => {
-  let contents: any = {
+  return {
     __type: "ColumnMetadata",
-    arrayBaseColumnType: undefined,
-    isAutoIncrement: undefined,
-    isCaseSensitive: undefined,
-    isCurrency: undefined,
-    isSigned: undefined,
-    label: undefined,
-    name: undefined,
-    nullable: undefined,
-    precision: undefined,
-    scale: undefined,
-    schemaName: undefined,
-    tableName: undefined,
-    type: undefined,
-    typeName: undefined
-  };
-  if (
-    output.arrayBaseColumnType !== undefined &&
-    output.arrayBaseColumnType !== null
-  ) {
-    contents.arrayBaseColumnType = output.arrayBaseColumnType;
-  }
-  if (output.isAutoIncrement !== undefined && output.isAutoIncrement !== null) {
-    contents.isAutoIncrement = output.isAutoIncrement;
-  }
-  if (output.isCaseSensitive !== undefined && output.isCaseSensitive !== null) {
-    contents.isCaseSensitive = output.isCaseSensitive;
-  }
-  if (output.isCurrency !== undefined && output.isCurrency !== null) {
-    contents.isCurrency = output.isCurrency;
-  }
-  if (output.isSigned !== undefined && output.isSigned !== null) {
-    contents.isSigned = output.isSigned;
-  }
-  if (output.label !== undefined && output.label !== null) {
-    contents.label = output.label;
-  }
-  if (output.name !== undefined && output.name !== null) {
-    contents.name = output.name;
-  }
-  if (output.nullable !== undefined && output.nullable !== null) {
-    contents.nullable = output.nullable;
-  }
-  if (output.precision !== undefined && output.precision !== null) {
-    contents.precision = output.precision;
-  }
-  if (output.scale !== undefined && output.scale !== null) {
-    contents.scale = output.scale;
-  }
-  if (output.schemaName !== undefined && output.schemaName !== null) {
-    contents.schemaName = output.schemaName;
-  }
-  if (output.tableName !== undefined && output.tableName !== null) {
-    contents.tableName = output.tableName;
-  }
-  if (output.type !== undefined && output.type !== null) {
-    contents.type = output.type;
-  }
-  if (output.typeName !== undefined && output.typeName !== null) {
-    contents.typeName = output.typeName;
-  }
-  return contents;
+    arrayBaseColumnType:
+      output.arrayBaseColumnType !== undefined &&
+      output.arrayBaseColumnType !== null
+        ? output.arrayBaseColumnType
+        : undefined,
+    isAutoIncrement:
+      output.isAutoIncrement !== undefined && output.isAutoIncrement !== null
+        ? output.isAutoIncrement
+        : undefined,
+    isCaseSensitive:
+      output.isCaseSensitive !== undefined && output.isCaseSensitive !== null
+        ? output.isCaseSensitive
+        : undefined,
+    isCurrency:
+      output.isCurrency !== undefined && output.isCurrency !== null
+        ? output.isCurrency
+        : undefined,
+    isSigned:
+      output.isSigned !== undefined && output.isSigned !== null
+        ? output.isSigned
+        : undefined,
+    label:
+      output.label !== undefined && output.label !== null
+        ? output.label
+        : undefined,
+    name:
+      output.name !== undefined && output.name !== null
+        ? output.name
+        : undefined,
+    nullable:
+      output.nullable !== undefined && output.nullable !== null
+        ? output.nullable
+        : undefined,
+    precision:
+      output.precision !== undefined && output.precision !== null
+        ? output.precision
+        : undefined,
+    scale:
+      output.scale !== undefined && output.scale !== null
+        ? output.scale
+        : undefined,
+    schemaName:
+      output.schemaName !== undefined && output.schemaName !== null
+        ? output.schemaName
+        : undefined,
+    tableName:
+      output.tableName !== undefined && output.tableName !== null
+        ? output.tableName
+        : undefined,
+    type:
+      output.type !== undefined && output.type !== null
+        ? output.type
+        : undefined,
+    typeName:
+      output.typeName !== undefined && output.typeName !== null
+        ? output.typeName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DoubleArray = (
@@ -1323,14 +1320,13 @@ const deserializeAws_restJson1_1_Record = (
   output: any,
   context: __SerdeContext
 ): _Record => {
-  let contents: any = {
+  return {
     __type: "Record",
-    values: undefined
-  };
-  if (output.values !== undefined && output.values !== null) {
-    contents.values = deserializeAws_restJson1_1Row(output.values, context);
-  }
-  return contents;
+    values:
+      output.values !== undefined && output.values !== null
+        ? deserializeAws_restJson1_1Row(output.values, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Records = (
@@ -1346,48 +1342,38 @@ const deserializeAws_restJson1_1ResultFrame = (
   output: any,
   context: __SerdeContext
 ): ResultFrame => {
-  let contents: any = {
+  return {
     __type: "ResultFrame",
-    records: undefined,
-    resultSetMetadata: undefined
-  };
-  if (output.records !== undefined && output.records !== null) {
-    contents.records = deserializeAws_restJson1_1Records(
-      output.records,
-      context
-    );
-  }
-  if (
-    output.resultSetMetadata !== undefined &&
-    output.resultSetMetadata !== null
-  ) {
-    contents.resultSetMetadata = deserializeAws_restJson1_1ResultSetMetadata(
-      output.resultSetMetadata,
-      context
-    );
-  }
-  return contents;
+    records:
+      output.records !== undefined && output.records !== null
+        ? deserializeAws_restJson1_1Records(output.records, context)
+        : undefined,
+    resultSetMetadata:
+      output.resultSetMetadata !== undefined &&
+      output.resultSetMetadata !== null
+        ? deserializeAws_restJson1_1ResultSetMetadata(
+            output.resultSetMetadata,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ResultSetMetadata = (
   output: any,
   context: __SerdeContext
 ): ResultSetMetadata => {
-  let contents: any = {
+  return {
     __type: "ResultSetMetadata",
-    columnCount: undefined,
-    columnMetadata: undefined
-  };
-  if (output.columnCount !== undefined && output.columnCount !== null) {
-    contents.columnCount = output.columnCount;
-  }
-  if (output.columnMetadata !== undefined && output.columnMetadata !== null) {
-    contents.columnMetadata = deserializeAws_restJson1_1Metadata(
-      output.columnMetadata,
-      context
-    );
-  }
-  return contents;
+    columnCount:
+      output.columnCount !== undefined && output.columnCount !== null
+        ? output.columnCount
+        : undefined,
+    columnMetadata:
+      output.columnMetadata !== undefined && output.columnMetadata !== null
+        ? deserializeAws_restJson1_1Metadata(output.columnMetadata, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Row = (
@@ -1412,24 +1398,18 @@ const deserializeAws_restJson1_1SqlStatementResult = (
   output: any,
   context: __SerdeContext
 ): SqlStatementResult => {
-  let contents: any = {
+  return {
     __type: "SqlStatementResult",
-    numberOfRecordsUpdated: undefined,
-    resultFrame: undefined
-  };
-  if (
-    output.numberOfRecordsUpdated !== undefined &&
-    output.numberOfRecordsUpdated !== null
-  ) {
-    contents.numberOfRecordsUpdated = output.numberOfRecordsUpdated;
-  }
-  if (output.resultFrame !== undefined && output.resultFrame !== null) {
-    contents.resultFrame = deserializeAws_restJson1_1ResultFrame(
-      output.resultFrame,
-      context
-    );
-  }
-  return contents;
+    numberOfRecordsUpdated:
+      output.numberOfRecordsUpdated !== undefined &&
+      output.numberOfRecordsUpdated !== null
+        ? output.numberOfRecordsUpdated
+        : undefined,
+    resultFrame:
+      output.resultFrame !== undefined && output.resultFrame !== null
+        ? deserializeAws_restJson1_1ResultFrame(output.resultFrame, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SqlStatementResults = (
@@ -1452,34 +1432,26 @@ const deserializeAws_restJson1_1StructValue = (
   output: any,
   context: __SerdeContext
 ): StructValue => {
-  let contents: any = {
+  return {
     __type: "StructValue",
-    attributes: undefined
-  };
-  if (output.attributes !== undefined && output.attributes !== null) {
-    contents.attributes = deserializeAws_restJson1_1ArrayValueList(
-      output.attributes,
-      context
-    );
-  }
-  return contents;
+    attributes:
+      output.attributes !== undefined && output.attributes !== null
+        ? deserializeAws_restJson1_1ArrayValueList(output.attributes, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1UpdateResult = (
   output: any,
   context: __SerdeContext
 ): UpdateResult => {
-  let contents: any = {
+  return {
     __type: "UpdateResult",
-    generatedFields: undefined
-  };
-  if (output.generatedFields !== undefined && output.generatedFields !== null) {
-    contents.generatedFields = deserializeAws_restJson1_1FieldList(
-      output.generatedFields,
-      context
-    );
-  }
-  return contents;
+    generatedFields:
+      output.generatedFields !== undefined && output.generatedFields !== null
+        ? deserializeAws_restJson1_1FieldList(output.generatedFields, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1UpdateResults = (

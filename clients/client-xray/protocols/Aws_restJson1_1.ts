@@ -2545,25 +2545,21 @@ const deserializeAws_restJson1_1Alias = (
   output: any,
   context: __SerdeContext
 ): Alias => {
-  let contents: any = {
+  return {
     __type: "Alias",
-    Name: undefined,
-    Names: undefined,
-    Type: undefined
-  };
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Names !== undefined && output.Names !== null) {
-    contents.Names = deserializeAws_restJson1_1AliasNames(
-      output.Names,
-      context
-    );
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Names:
+      output.Names !== undefined && output.Names !== null
+        ? deserializeAws_restJson1_1AliasNames(output.Names, context)
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1AliasList = (
@@ -2586,22 +2582,21 @@ const deserializeAws_restJson1_1AnnotationValue = (
   output: any,
   context: __SerdeContext
 ): AnnotationValue => {
-  let contents: any = {
+  return {
     __type: "AnnotationValue",
-    BooleanValue: undefined,
-    NumberValue: undefined,
-    StringValue: undefined
-  };
-  if (output.BooleanValue !== undefined && output.BooleanValue !== null) {
-    contents.BooleanValue = output.BooleanValue;
-  }
-  if (output.NumberValue !== undefined && output.NumberValue !== null) {
-    contents.NumberValue = output.NumberValue;
-  }
-  if (output.StringValue !== undefined && output.StringValue !== null) {
-    contents.StringValue = output.StringValue;
-  }
-  return contents;
+    BooleanValue:
+      output.BooleanValue !== undefined && output.BooleanValue !== null
+        ? output.BooleanValue
+        : undefined,
+    NumberValue:
+      output.NumberValue !== undefined && output.NumberValue !== null
+        ? output.NumberValue
+        : undefined,
+    StringValue:
+      output.StringValue !== undefined && output.StringValue !== null
+        ? output.StringValue
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Annotations = (
@@ -2631,63 +2626,54 @@ const deserializeAws_restJson1_1AvailabilityZoneDetail = (
   output: any,
   context: __SerdeContext
 ): AvailabilityZoneDetail => {
-  let contents: any = {
+  return {
     __type: "AvailabilityZoneDetail",
-    Name: undefined
-  };
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Edge = (
   output: any,
   context: __SerdeContext
 ): Edge => {
-  let contents: any = {
+  return {
     __type: "Edge",
-    Aliases: undefined,
-    EndTime: undefined,
-    ReferenceId: undefined,
-    ResponseTimeHistogram: undefined,
-    StartTime: undefined,
-    SummaryStatistics: undefined
-  };
-  if (output.Aliases !== undefined && output.Aliases !== null) {
-    contents.Aliases = deserializeAws_restJson1_1AliasList(
-      output.Aliases,
-      context
-    );
-  }
-  if (output.EndTime !== undefined && output.EndTime !== null) {
-    contents.EndTime = new Date(Math.round(output.EndTime * 1000));
-  }
-  if (output.ReferenceId !== undefined && output.ReferenceId !== null) {
-    contents.ReferenceId = output.ReferenceId;
-  }
-  if (
-    output.ResponseTimeHistogram !== undefined &&
-    output.ResponseTimeHistogram !== null
-  ) {
-    contents.ResponseTimeHistogram = deserializeAws_restJson1_1Histogram(
-      output.ResponseTimeHistogram,
-      context
-    );
-  }
-  if (output.StartTime !== undefined && output.StartTime !== null) {
-    contents.StartTime = new Date(Math.round(output.StartTime * 1000));
-  }
-  if (
-    output.SummaryStatistics !== undefined &&
-    output.SummaryStatistics !== null
-  ) {
-    contents.SummaryStatistics = deserializeAws_restJson1_1EdgeStatistics(
-      output.SummaryStatistics,
-      context
-    );
-  }
-  return contents;
+    Aliases:
+      output.Aliases !== undefined && output.Aliases !== null
+        ? deserializeAws_restJson1_1AliasList(output.Aliases, context)
+        : undefined,
+    EndTime:
+      output.EndTime !== undefined && output.EndTime !== null
+        ? new Date(Math.round(output.EndTime * 1000))
+        : undefined,
+    ReferenceId:
+      output.ReferenceId !== undefined && output.ReferenceId !== null
+        ? output.ReferenceId
+        : undefined,
+    ResponseTimeHistogram:
+      output.ResponseTimeHistogram !== undefined &&
+      output.ResponseTimeHistogram !== null
+        ? deserializeAws_restJson1_1Histogram(
+            output.ResponseTimeHistogram,
+            context
+          )
+        : undefined,
+    StartTime:
+      output.StartTime !== undefined && output.StartTime !== null
+        ? new Date(Math.round(output.StartTime * 1000))
+        : undefined,
+    SummaryStatistics:
+      output.SummaryStatistics !== undefined &&
+      output.SummaryStatistics !== null
+        ? deserializeAws_restJson1_1EdgeStatistics(
+            output.SummaryStatistics,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1EdgeList = (
@@ -2703,103 +2689,97 @@ const deserializeAws_restJson1_1EdgeStatistics = (
   output: any,
   context: __SerdeContext
 ): EdgeStatistics => {
-  let contents: any = {
+  return {
     __type: "EdgeStatistics",
-    ErrorStatistics: undefined,
-    FaultStatistics: undefined,
-    OkCount: undefined,
-    TotalCount: undefined,
-    TotalResponseTime: undefined
-  };
-  if (output.ErrorStatistics !== undefined && output.ErrorStatistics !== null) {
-    contents.ErrorStatistics = deserializeAws_restJson1_1ErrorStatistics(
-      output.ErrorStatistics,
-      context
-    );
-  }
-  if (output.FaultStatistics !== undefined && output.FaultStatistics !== null) {
-    contents.FaultStatistics = deserializeAws_restJson1_1FaultStatistics(
-      output.FaultStatistics,
-      context
-    );
-  }
-  if (output.OkCount !== undefined && output.OkCount !== null) {
-    contents.OkCount = output.OkCount;
-  }
-  if (output.TotalCount !== undefined && output.TotalCount !== null) {
-    contents.TotalCount = output.TotalCount;
-  }
-  if (
-    output.TotalResponseTime !== undefined &&
-    output.TotalResponseTime !== null
-  ) {
-    contents.TotalResponseTime = output.TotalResponseTime;
-  }
-  return contents;
+    ErrorStatistics:
+      output.ErrorStatistics !== undefined && output.ErrorStatistics !== null
+        ? deserializeAws_restJson1_1ErrorStatistics(
+            output.ErrorStatistics,
+            context
+          )
+        : undefined,
+    FaultStatistics:
+      output.FaultStatistics !== undefined && output.FaultStatistics !== null
+        ? deserializeAws_restJson1_1FaultStatistics(
+            output.FaultStatistics,
+            context
+          )
+        : undefined,
+    OkCount:
+      output.OkCount !== undefined && output.OkCount !== null
+        ? output.OkCount
+        : undefined,
+    TotalCount:
+      output.TotalCount !== undefined && output.TotalCount !== null
+        ? output.TotalCount
+        : undefined,
+    TotalResponseTime:
+      output.TotalResponseTime !== undefined &&
+      output.TotalResponseTime !== null
+        ? output.TotalResponseTime
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1EncryptionConfig = (
   output: any,
   context: __SerdeContext
 ): EncryptionConfig => {
-  let contents: any = {
+  return {
     __type: "EncryptionConfig",
-    KeyId: undefined,
-    Status: undefined,
-    Type: undefined
-  };
-  if (output.KeyId !== undefined && output.KeyId !== null) {
-    contents.KeyId = output.KeyId;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    KeyId:
+      output.KeyId !== undefined && output.KeyId !== null
+        ? output.KeyId
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ErrorRootCause = (
   output: any,
   context: __SerdeContext
 ): ErrorRootCause => {
-  let contents: any = {
+  return {
     __type: "ErrorRootCause",
-    Services: undefined
-  };
-  if (output.Services !== undefined && output.Services !== null) {
-    contents.Services = deserializeAws_restJson1_1ErrorRootCauseServices(
-      output.Services,
-      context
-    );
-  }
-  return contents;
+    Services:
+      output.Services !== undefined && output.Services !== null
+        ? deserializeAws_restJson1_1ErrorRootCauseServices(
+            output.Services,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ErrorRootCauseEntity = (
   output: any,
   context: __SerdeContext
 ): ErrorRootCauseEntity => {
-  let contents: any = {
+  return {
     __type: "ErrorRootCauseEntity",
-    Exceptions: undefined,
-    Name: undefined,
-    Remote: undefined
-  };
-  if (output.Exceptions !== undefined && output.Exceptions !== null) {
-    contents.Exceptions = deserializeAws_restJson1_1RootCauseExceptions(
-      output.Exceptions,
-      context
-    );
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Remote !== undefined && output.Remote !== null) {
-    contents.Remote = output.Remote;
-  }
-  return contents;
+    Exceptions:
+      output.Exceptions !== undefined && output.Exceptions !== null
+        ? deserializeAws_restJson1_1RootCauseExceptions(
+            output.Exceptions,
+            context
+          )
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Remote:
+      output.Remote !== undefined && output.Remote !== null
+        ? output.Remote
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ErrorRootCauseEntityPath = (
@@ -2815,40 +2795,36 @@ const deserializeAws_restJson1_1ErrorRootCauseService = (
   output: any,
   context: __SerdeContext
 ): ErrorRootCauseService => {
-  let contents: any = {
+  return {
     __type: "ErrorRootCauseService",
-    AccountId: undefined,
-    EntityPath: undefined,
-    Inferred: undefined,
-    Name: undefined,
-    Names: undefined,
-    Type: undefined
-  };
-  if (output.AccountId !== undefined && output.AccountId !== null) {
-    contents.AccountId = output.AccountId;
-  }
-  if (output.EntityPath !== undefined && output.EntityPath !== null) {
-    contents.EntityPath = deserializeAws_restJson1_1ErrorRootCauseEntityPath(
-      output.EntityPath,
-      context
-    );
-  }
-  if (output.Inferred !== undefined && output.Inferred !== null) {
-    contents.Inferred = output.Inferred;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Names !== undefined && output.Names !== null) {
-    contents.Names = deserializeAws_restJson1_1ServiceNames(
-      output.Names,
-      context
-    );
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    AccountId:
+      output.AccountId !== undefined && output.AccountId !== null
+        ? output.AccountId
+        : undefined,
+    EntityPath:
+      output.EntityPath !== undefined && output.EntityPath !== null
+        ? deserializeAws_restJson1_1ErrorRootCauseEntityPath(
+            output.EntityPath,
+            context
+          )
+        : undefined,
+    Inferred:
+      output.Inferred !== undefined && output.Inferred !== null
+        ? output.Inferred
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Names:
+      output.Names !== undefined && output.Names !== null
+        ? deserializeAws_restJson1_1ServiceNames(output.Names, context)
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ErrorRootCauseServices = (
@@ -2873,64 +2849,61 @@ const deserializeAws_restJson1_1ErrorStatistics = (
   output: any,
   context: __SerdeContext
 ): ErrorStatistics => {
-  let contents: any = {
+  return {
     __type: "ErrorStatistics",
-    OtherCount: undefined,
-    ThrottleCount: undefined,
-    TotalCount: undefined
-  };
-  if (output.OtherCount !== undefined && output.OtherCount !== null) {
-    contents.OtherCount = output.OtherCount;
-  }
-  if (output.ThrottleCount !== undefined && output.ThrottleCount !== null) {
-    contents.ThrottleCount = output.ThrottleCount;
-  }
-  if (output.TotalCount !== undefined && output.TotalCount !== null) {
-    contents.TotalCount = output.TotalCount;
-  }
-  return contents;
+    OtherCount:
+      output.OtherCount !== undefined && output.OtherCount !== null
+        ? output.OtherCount
+        : undefined,
+    ThrottleCount:
+      output.ThrottleCount !== undefined && output.ThrottleCount !== null
+        ? output.ThrottleCount
+        : undefined,
+    TotalCount:
+      output.TotalCount !== undefined && output.TotalCount !== null
+        ? output.TotalCount
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1FaultRootCause = (
   output: any,
   context: __SerdeContext
 ): FaultRootCause => {
-  let contents: any = {
+  return {
     __type: "FaultRootCause",
-    Services: undefined
-  };
-  if (output.Services !== undefined && output.Services !== null) {
-    contents.Services = deserializeAws_restJson1_1FaultRootCauseServices(
-      output.Services,
-      context
-    );
-  }
-  return contents;
+    Services:
+      output.Services !== undefined && output.Services !== null
+        ? deserializeAws_restJson1_1FaultRootCauseServices(
+            output.Services,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1FaultRootCauseEntity = (
   output: any,
   context: __SerdeContext
 ): FaultRootCauseEntity => {
-  let contents: any = {
+  return {
     __type: "FaultRootCauseEntity",
-    Exceptions: undefined,
-    Name: undefined,
-    Remote: undefined
-  };
-  if (output.Exceptions !== undefined && output.Exceptions !== null) {
-    contents.Exceptions = deserializeAws_restJson1_1RootCauseExceptions(
-      output.Exceptions,
-      context
-    );
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Remote !== undefined && output.Remote !== null) {
-    contents.Remote = output.Remote;
-  }
-  return contents;
+    Exceptions:
+      output.Exceptions !== undefined && output.Exceptions !== null
+        ? deserializeAws_restJson1_1RootCauseExceptions(
+            output.Exceptions,
+            context
+          )
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Remote:
+      output.Remote !== undefined && output.Remote !== null
+        ? output.Remote
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1FaultRootCauseEntityPath = (
@@ -2946,40 +2919,36 @@ const deserializeAws_restJson1_1FaultRootCauseService = (
   output: any,
   context: __SerdeContext
 ): FaultRootCauseService => {
-  let contents: any = {
+  return {
     __type: "FaultRootCauseService",
-    AccountId: undefined,
-    EntityPath: undefined,
-    Inferred: undefined,
-    Name: undefined,
-    Names: undefined,
-    Type: undefined
-  };
-  if (output.AccountId !== undefined && output.AccountId !== null) {
-    contents.AccountId = output.AccountId;
-  }
-  if (output.EntityPath !== undefined && output.EntityPath !== null) {
-    contents.EntityPath = deserializeAws_restJson1_1FaultRootCauseEntityPath(
-      output.EntityPath,
-      context
-    );
-  }
-  if (output.Inferred !== undefined && output.Inferred !== null) {
-    contents.Inferred = output.Inferred;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Names !== undefined && output.Names !== null) {
-    contents.Names = deserializeAws_restJson1_1ServiceNames(
-      output.Names,
-      context
-    );
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    AccountId:
+      output.AccountId !== undefined && output.AccountId !== null
+        ? output.AccountId
+        : undefined,
+    EntityPath:
+      output.EntityPath !== undefined && output.EntityPath !== null
+        ? deserializeAws_restJson1_1FaultRootCauseEntityPath(
+            output.EntityPath,
+            context
+          )
+        : undefined,
+    Inferred:
+      output.Inferred !== undefined && output.Inferred !== null
+        ? output.Inferred
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Names:
+      output.Names !== undefined && output.Names !== null
+        ? deserializeAws_restJson1_1ServiceNames(output.Names, context)
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1FaultRootCauseServices = (
@@ -3004,68 +2973,59 @@ const deserializeAws_restJson1_1FaultStatistics = (
   output: any,
   context: __SerdeContext
 ): FaultStatistics => {
-  let contents: any = {
+  return {
     __type: "FaultStatistics",
-    OtherCount: undefined,
-    TotalCount: undefined
-  };
-  if (output.OtherCount !== undefined && output.OtherCount !== null) {
-    contents.OtherCount = output.OtherCount;
-  }
-  if (output.TotalCount !== undefined && output.TotalCount !== null) {
-    contents.TotalCount = output.TotalCount;
-  }
-  return contents;
+    OtherCount:
+      output.OtherCount !== undefined && output.OtherCount !== null
+        ? output.OtherCount
+        : undefined,
+    TotalCount:
+      output.TotalCount !== undefined && output.TotalCount !== null
+        ? output.TotalCount
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Group = (
   output: any,
   context: __SerdeContext
 ): Group => {
-  let contents: any = {
+  return {
     __type: "Group",
-    FilterExpression: undefined,
-    GroupARN: undefined,
-    GroupName: undefined
-  };
-  if (
-    output.FilterExpression !== undefined &&
-    output.FilterExpression !== null
-  ) {
-    contents.FilterExpression = output.FilterExpression;
-  }
-  if (output.GroupARN !== undefined && output.GroupARN !== null) {
-    contents.GroupARN = output.GroupARN;
-  }
-  if (output.GroupName !== undefined && output.GroupName !== null) {
-    contents.GroupName = output.GroupName;
-  }
-  return contents;
+    FilterExpression:
+      output.FilterExpression !== undefined && output.FilterExpression !== null
+        ? output.FilterExpression
+        : undefined,
+    GroupARN:
+      output.GroupARN !== undefined && output.GroupARN !== null
+        ? output.GroupARN
+        : undefined,
+    GroupName:
+      output.GroupName !== undefined && output.GroupName !== null
+        ? output.GroupName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1GroupSummary = (
   output: any,
   context: __SerdeContext
 ): GroupSummary => {
-  let contents: any = {
+  return {
     __type: "GroupSummary",
-    FilterExpression: undefined,
-    GroupARN: undefined,
-    GroupName: undefined
-  };
-  if (
-    output.FilterExpression !== undefined &&
-    output.FilterExpression !== null
-  ) {
-    contents.FilterExpression = output.FilterExpression;
-  }
-  if (output.GroupARN !== undefined && output.GroupARN !== null) {
-    contents.GroupARN = output.GroupARN;
-  }
-  if (output.GroupName !== undefined && output.GroupName !== null) {
-    contents.GroupName = output.GroupName;
-  }
-  return contents;
+    FilterExpression:
+      output.FilterExpression !== undefined && output.FilterExpression !== null
+        ? output.FilterExpression
+        : undefined,
+    GroupARN:
+      output.GroupARN !== undefined && output.GroupARN !== null
+        ? output.GroupARN
+        : undefined,
+    GroupName:
+      output.GroupName !== undefined && output.GroupName !== null
+        ? output.GroupName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1GroupSummaryList = (
@@ -3090,115 +3050,104 @@ const deserializeAws_restJson1_1HistogramEntry = (
   output: any,
   context: __SerdeContext
 ): HistogramEntry => {
-  let contents: any = {
+  return {
     __type: "HistogramEntry",
-    Count: undefined,
-    Value: undefined
-  };
-  if (output.Count !== undefined && output.Count !== null) {
-    contents.Count = output.Count;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Count:
+      output.Count !== undefined && output.Count !== null
+        ? output.Count
+        : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Http = (
   output: any,
   context: __SerdeContext
 ): Http => {
-  let contents: any = {
+  return {
     __type: "Http",
-    ClientIp: undefined,
-    HttpMethod: undefined,
-    HttpStatus: undefined,
-    HttpURL: undefined,
-    UserAgent: undefined
-  };
-  if (output.ClientIp !== undefined && output.ClientIp !== null) {
-    contents.ClientIp = output.ClientIp;
-  }
-  if (output.HttpMethod !== undefined && output.HttpMethod !== null) {
-    contents.HttpMethod = output.HttpMethod;
-  }
-  if (output.HttpStatus !== undefined && output.HttpStatus !== null) {
-    contents.HttpStatus = output.HttpStatus;
-  }
-  if (output.HttpURL !== undefined && output.HttpURL !== null) {
-    contents.HttpURL = output.HttpURL;
-  }
-  if (output.UserAgent !== undefined && output.UserAgent !== null) {
-    contents.UserAgent = output.UserAgent;
-  }
-  return contents;
+    ClientIp:
+      output.ClientIp !== undefined && output.ClientIp !== null
+        ? output.ClientIp
+        : undefined,
+    HttpMethod:
+      output.HttpMethod !== undefined && output.HttpMethod !== null
+        ? output.HttpMethod
+        : undefined,
+    HttpStatus:
+      output.HttpStatus !== undefined && output.HttpStatus !== null
+        ? output.HttpStatus
+        : undefined,
+    HttpURL:
+      output.HttpURL !== undefined && output.HttpURL !== null
+        ? output.HttpURL
+        : undefined,
+    UserAgent:
+      output.UserAgent !== undefined && output.UserAgent !== null
+        ? output.UserAgent
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1InstanceIdDetail = (
   output: any,
   context: __SerdeContext
 ): InstanceIdDetail => {
-  let contents: any = {
+  return {
     __type: "InstanceIdDetail",
-    Id: undefined
-  };
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  return contents;
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ResourceARNDetail = (
   output: any,
   context: __SerdeContext
 ): ResourceARNDetail => {
-  let contents: any = {
+  return {
     __type: "ResourceARNDetail",
-    ARN: undefined
-  };
-  if (output.ARN !== undefined && output.ARN !== null) {
-    contents.ARN = output.ARN;
-  }
-  return contents;
+    ARN:
+      output.ARN !== undefined && output.ARN !== null ? output.ARN : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ResponseTimeRootCause = (
   output: any,
   context: __SerdeContext
 ): ResponseTimeRootCause => {
-  let contents: any = {
+  return {
     __type: "ResponseTimeRootCause",
-    Services: undefined
-  };
-  if (output.Services !== undefined && output.Services !== null) {
-    contents.Services = deserializeAws_restJson1_1ResponseTimeRootCauseServices(
-      output.Services,
-      context
-    );
-  }
-  return contents;
+    Services:
+      output.Services !== undefined && output.Services !== null
+        ? deserializeAws_restJson1_1ResponseTimeRootCauseServices(
+            output.Services,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ResponseTimeRootCauseEntity = (
   output: any,
   context: __SerdeContext
 ): ResponseTimeRootCauseEntity => {
-  let contents: any = {
+  return {
     __type: "ResponseTimeRootCauseEntity",
-    Coverage: undefined,
-    Name: undefined,
-    Remote: undefined
-  };
-  if (output.Coverage !== undefined && output.Coverage !== null) {
-    contents.Coverage = output.Coverage;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Remote !== undefined && output.Remote !== null) {
-    contents.Remote = output.Remote;
-  }
-  return contents;
+    Coverage:
+      output.Coverage !== undefined && output.Coverage !== null
+        ? output.Coverage
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Remote:
+      output.Remote !== undefined && output.Remote !== null
+        ? output.Remote
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ResponseTimeRootCauseEntityPath = (
@@ -3214,40 +3163,36 @@ const deserializeAws_restJson1_1ResponseTimeRootCauseService = (
   output: any,
   context: __SerdeContext
 ): ResponseTimeRootCauseService => {
-  let contents: any = {
+  return {
     __type: "ResponseTimeRootCauseService",
-    AccountId: undefined,
-    EntityPath: undefined,
-    Inferred: undefined,
-    Name: undefined,
-    Names: undefined,
-    Type: undefined
-  };
-  if (output.AccountId !== undefined && output.AccountId !== null) {
-    contents.AccountId = output.AccountId;
-  }
-  if (output.EntityPath !== undefined && output.EntityPath !== null) {
-    contents.EntityPath = deserializeAws_restJson1_1ResponseTimeRootCauseEntityPath(
-      output.EntityPath,
-      context
-    );
-  }
-  if (output.Inferred !== undefined && output.Inferred !== null) {
-    contents.Inferred = output.Inferred;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Names !== undefined && output.Names !== null) {
-    contents.Names = deserializeAws_restJson1_1ServiceNames(
-      output.Names,
-      context
-    );
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    AccountId:
+      output.AccountId !== undefined && output.AccountId !== null
+        ? output.AccountId
+        : undefined,
+    EntityPath:
+      output.EntityPath !== undefined && output.EntityPath !== null
+        ? deserializeAws_restJson1_1ResponseTimeRootCauseEntityPath(
+            output.EntityPath,
+            context
+          )
+        : undefined,
+    Inferred:
+      output.Inferred !== undefined && output.Inferred !== null
+        ? output.Inferred
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Names:
+      output.Names !== undefined && output.Names !== null
+        ? deserializeAws_restJson1_1ServiceNames(output.Names, context)
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ResponseTimeRootCauseServices = (
@@ -3272,18 +3217,17 @@ const deserializeAws_restJson1_1RootCauseException = (
   output: any,
   context: __SerdeContext
 ): RootCauseException => {
-  let contents: any = {
+  return {
     __type: "RootCauseException",
-    Message: undefined,
-    Name: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1RootCauseExceptions = (
@@ -3299,90 +3243,82 @@ const deserializeAws_restJson1_1SamplingRule = (
   output: any,
   context: __SerdeContext
 ): SamplingRule => {
-  let contents: any = {
+  return {
     __type: "SamplingRule",
-    Attributes: undefined,
-    FixedRate: undefined,
-    HTTPMethod: undefined,
-    Host: undefined,
-    Priority: undefined,
-    ReservoirSize: undefined,
-    ResourceARN: undefined,
-    RuleARN: undefined,
-    RuleName: undefined,
-    ServiceName: undefined,
-    ServiceType: undefined,
-    URLPath: undefined,
-    Version: undefined
-  };
-  if (output.Attributes !== undefined && output.Attributes !== null) {
-    contents.Attributes = deserializeAws_restJson1_1AttributeMap(
-      output.Attributes,
-      context
-    );
-  }
-  if (output.FixedRate !== undefined && output.FixedRate !== null) {
-    contents.FixedRate = output.FixedRate;
-  }
-  if (output.HTTPMethod !== undefined && output.HTTPMethod !== null) {
-    contents.HTTPMethod = output.HTTPMethod;
-  }
-  if (output.Host !== undefined && output.Host !== null) {
-    contents.Host = output.Host;
-  }
-  if (output.Priority !== undefined && output.Priority !== null) {
-    contents.Priority = output.Priority;
-  }
-  if (output.ReservoirSize !== undefined && output.ReservoirSize !== null) {
-    contents.ReservoirSize = output.ReservoirSize;
-  }
-  if (output.ResourceARN !== undefined && output.ResourceARN !== null) {
-    contents.ResourceARN = output.ResourceARN;
-  }
-  if (output.RuleARN !== undefined && output.RuleARN !== null) {
-    contents.RuleARN = output.RuleARN;
-  }
-  if (output.RuleName !== undefined && output.RuleName !== null) {
-    contents.RuleName = output.RuleName;
-  }
-  if (output.ServiceName !== undefined && output.ServiceName !== null) {
-    contents.ServiceName = output.ServiceName;
-  }
-  if (output.ServiceType !== undefined && output.ServiceType !== null) {
-    contents.ServiceType = output.ServiceType;
-  }
-  if (output.URLPath !== undefined && output.URLPath !== null) {
-    contents.URLPath = output.URLPath;
-  }
-  if (output.Version !== undefined && output.Version !== null) {
-    contents.Version = output.Version;
-  }
-  return contents;
+    Attributes:
+      output.Attributes !== undefined && output.Attributes !== null
+        ? deserializeAws_restJson1_1AttributeMap(output.Attributes, context)
+        : undefined,
+    FixedRate:
+      output.FixedRate !== undefined && output.FixedRate !== null
+        ? output.FixedRate
+        : undefined,
+    HTTPMethod:
+      output.HTTPMethod !== undefined && output.HTTPMethod !== null
+        ? output.HTTPMethod
+        : undefined,
+    Host:
+      output.Host !== undefined && output.Host !== null
+        ? output.Host
+        : undefined,
+    Priority:
+      output.Priority !== undefined && output.Priority !== null
+        ? output.Priority
+        : undefined,
+    ReservoirSize:
+      output.ReservoirSize !== undefined && output.ReservoirSize !== null
+        ? output.ReservoirSize
+        : undefined,
+    ResourceARN:
+      output.ResourceARN !== undefined && output.ResourceARN !== null
+        ? output.ResourceARN
+        : undefined,
+    RuleARN:
+      output.RuleARN !== undefined && output.RuleARN !== null
+        ? output.RuleARN
+        : undefined,
+    RuleName:
+      output.RuleName !== undefined && output.RuleName !== null
+        ? output.RuleName
+        : undefined,
+    ServiceName:
+      output.ServiceName !== undefined && output.ServiceName !== null
+        ? output.ServiceName
+        : undefined,
+    ServiceType:
+      output.ServiceType !== undefined && output.ServiceType !== null
+        ? output.ServiceType
+        : undefined,
+    URLPath:
+      output.URLPath !== undefined && output.URLPath !== null
+        ? output.URLPath
+        : undefined,
+    Version:
+      output.Version !== undefined && output.Version !== null
+        ? output.Version
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SamplingRuleRecord = (
   output: any,
   context: __SerdeContext
 ): SamplingRuleRecord => {
-  let contents: any = {
+  return {
     __type: "SamplingRuleRecord",
-    CreatedAt: undefined,
-    ModifiedAt: undefined,
-    SamplingRule: undefined
-  };
-  if (output.CreatedAt !== undefined && output.CreatedAt !== null) {
-    contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
-  }
-  if (output.ModifiedAt !== undefined && output.ModifiedAt !== null) {
-    contents.ModifiedAt = new Date(Math.round(output.ModifiedAt * 1000));
-  }
-  if (output.SamplingRule !== undefined && output.SamplingRule !== null) {
-    contents.SamplingRule = deserializeAws_restJson1_1SamplingRule(
-      output.SamplingRule,
-      context
-    );
-  }
-  return contents;
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? new Date(Math.round(output.CreatedAt * 1000))
+        : undefined,
+    ModifiedAt:
+      output.ModifiedAt !== undefined && output.ModifiedAt !== null
+        ? new Date(Math.round(output.ModifiedAt * 1000))
+        : undefined,
+    SamplingRule:
+      output.SamplingRule !== undefined && output.SamplingRule !== null
+        ? deserializeAws_restJson1_1SamplingRule(output.SamplingRule, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SamplingRuleRecordList = (
@@ -3398,30 +3334,29 @@ const deserializeAws_restJson1_1SamplingStatisticSummary = (
   output: any,
   context: __SerdeContext
 ): SamplingStatisticSummary => {
-  let contents: any = {
+  return {
     __type: "SamplingStatisticSummary",
-    BorrowCount: undefined,
-    RequestCount: undefined,
-    RuleName: undefined,
-    SampledCount: undefined,
-    Timestamp: undefined
-  };
-  if (output.BorrowCount !== undefined && output.BorrowCount !== null) {
-    contents.BorrowCount = output.BorrowCount;
-  }
-  if (output.RequestCount !== undefined && output.RequestCount !== null) {
-    contents.RequestCount = output.RequestCount;
-  }
-  if (output.RuleName !== undefined && output.RuleName !== null) {
-    contents.RuleName = output.RuleName;
-  }
-  if (output.SampledCount !== undefined && output.SampledCount !== null) {
-    contents.SampledCount = output.SampledCount;
-  }
-  if (output.Timestamp !== undefined && output.Timestamp !== null) {
-    contents.Timestamp = new Date(Math.round(output.Timestamp * 1000));
-  }
-  return contents;
+    BorrowCount:
+      output.BorrowCount !== undefined && output.BorrowCount !== null
+        ? output.BorrowCount
+        : undefined,
+    RequestCount:
+      output.RequestCount !== undefined && output.RequestCount !== null
+        ? output.RequestCount
+        : undefined,
+    RuleName:
+      output.RuleName !== undefined && output.RuleName !== null
+        ? output.RuleName
+        : undefined,
+    SampledCount:
+      output.SampledCount !== undefined && output.SampledCount !== null
+        ? output.SampledCount
+        : undefined,
+    Timestamp:
+      output.Timestamp !== undefined && output.Timestamp !== null
+        ? new Date(Math.round(output.Timestamp * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SamplingStatisticSummaryList = (
@@ -3437,35 +3372,30 @@ const deserializeAws_restJson1_1SamplingTargetDocument = (
   output: any,
   context: __SerdeContext
 ): SamplingTargetDocument => {
-  let contents: any = {
+  return {
     __type: "SamplingTargetDocument",
-    FixedRate: undefined,
-    Interval: undefined,
-    ReservoirQuota: undefined,
-    ReservoirQuotaTTL: undefined,
-    RuleName: undefined
-  };
-  if (output.FixedRate !== undefined && output.FixedRate !== null) {
-    contents.FixedRate = output.FixedRate;
-  }
-  if (output.Interval !== undefined && output.Interval !== null) {
-    contents.Interval = output.Interval;
-  }
-  if (output.ReservoirQuota !== undefined && output.ReservoirQuota !== null) {
-    contents.ReservoirQuota = output.ReservoirQuota;
-  }
-  if (
-    output.ReservoirQuotaTTL !== undefined &&
-    output.ReservoirQuotaTTL !== null
-  ) {
-    contents.ReservoirQuotaTTL = new Date(
-      Math.round(output.ReservoirQuotaTTL * 1000)
-    );
-  }
-  if (output.RuleName !== undefined && output.RuleName !== null) {
-    contents.RuleName = output.RuleName;
-  }
-  return contents;
+    FixedRate:
+      output.FixedRate !== undefined && output.FixedRate !== null
+        ? output.FixedRate
+        : undefined,
+    Interval:
+      output.Interval !== undefined && output.Interval !== null
+        ? output.Interval
+        : undefined,
+    ReservoirQuota:
+      output.ReservoirQuota !== undefined && output.ReservoirQuota !== null
+        ? output.ReservoirQuota
+        : undefined,
+    ReservoirQuotaTTL:
+      output.ReservoirQuotaTTL !== undefined &&
+      output.ReservoirQuotaTTL !== null
+        ? new Date(Math.round(output.ReservoirQuotaTTL * 1000))
+        : undefined,
+    RuleName:
+      output.RuleName !== undefined && output.RuleName !== null
+        ? output.RuleName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SamplingTargetDocumentList = (
@@ -3481,18 +3411,14 @@ const deserializeAws_restJson1_1Segment = (
   output: any,
   context: __SerdeContext
 ): Segment => {
-  let contents: any = {
+  return {
     __type: "Segment",
-    Document: undefined,
-    Id: undefined
-  };
-  if (output.Document !== undefined && output.Document !== null) {
-    contents.Document = output.Document;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  return contents;
+    Document:
+      output.Document !== undefined && output.Document !== null
+        ? output.Document
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SegmentList = (
@@ -3508,112 +3434,95 @@ const deserializeAws_restJson1_1Service = (
   output: any,
   context: __SerdeContext
 ): Service => {
-  let contents: any = {
+  return {
     __type: "Service",
-    AccountId: undefined,
-    DurationHistogram: undefined,
-    Edges: undefined,
-    EndTime: undefined,
-    Name: undefined,
-    Names: undefined,
-    ReferenceId: undefined,
-    ResponseTimeHistogram: undefined,
-    Root: undefined,
-    StartTime: undefined,
-    State: undefined,
-    SummaryStatistics: undefined,
-    Type: undefined
-  };
-  if (output.AccountId !== undefined && output.AccountId !== null) {
-    contents.AccountId = output.AccountId;
-  }
-  if (
-    output.DurationHistogram !== undefined &&
-    output.DurationHistogram !== null
-  ) {
-    contents.DurationHistogram = deserializeAws_restJson1_1Histogram(
-      output.DurationHistogram,
-      context
-    );
-  }
-  if (output.Edges !== undefined && output.Edges !== null) {
-    contents.Edges = deserializeAws_restJson1_1EdgeList(output.Edges, context);
-  }
-  if (output.EndTime !== undefined && output.EndTime !== null) {
-    contents.EndTime = new Date(Math.round(output.EndTime * 1000));
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Names !== undefined && output.Names !== null) {
-    contents.Names = deserializeAws_restJson1_1ServiceNames(
-      output.Names,
-      context
-    );
-  }
-  if (output.ReferenceId !== undefined && output.ReferenceId !== null) {
-    contents.ReferenceId = output.ReferenceId;
-  }
-  if (
-    output.ResponseTimeHistogram !== undefined &&
-    output.ResponseTimeHistogram !== null
-  ) {
-    contents.ResponseTimeHistogram = deserializeAws_restJson1_1Histogram(
-      output.ResponseTimeHistogram,
-      context
-    );
-  }
-  if (output.Root !== undefined && output.Root !== null) {
-    contents.Root = output.Root;
-  }
-  if (output.StartTime !== undefined && output.StartTime !== null) {
-    contents.StartTime = new Date(Math.round(output.StartTime * 1000));
-  }
-  if (output.State !== undefined && output.State !== null) {
-    contents.State = output.State;
-  }
-  if (
-    output.SummaryStatistics !== undefined &&
-    output.SummaryStatistics !== null
-  ) {
-    contents.SummaryStatistics = deserializeAws_restJson1_1ServiceStatistics(
-      output.SummaryStatistics,
-      context
-    );
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    AccountId:
+      output.AccountId !== undefined && output.AccountId !== null
+        ? output.AccountId
+        : undefined,
+    DurationHistogram:
+      output.DurationHistogram !== undefined &&
+      output.DurationHistogram !== null
+        ? deserializeAws_restJson1_1Histogram(output.DurationHistogram, context)
+        : undefined,
+    Edges:
+      output.Edges !== undefined && output.Edges !== null
+        ? deserializeAws_restJson1_1EdgeList(output.Edges, context)
+        : undefined,
+    EndTime:
+      output.EndTime !== undefined && output.EndTime !== null
+        ? new Date(Math.round(output.EndTime * 1000))
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Names:
+      output.Names !== undefined && output.Names !== null
+        ? deserializeAws_restJson1_1ServiceNames(output.Names, context)
+        : undefined,
+    ReferenceId:
+      output.ReferenceId !== undefined && output.ReferenceId !== null
+        ? output.ReferenceId
+        : undefined,
+    ResponseTimeHistogram:
+      output.ResponseTimeHistogram !== undefined &&
+      output.ResponseTimeHistogram !== null
+        ? deserializeAws_restJson1_1Histogram(
+            output.ResponseTimeHistogram,
+            context
+          )
+        : undefined,
+    Root:
+      output.Root !== undefined && output.Root !== null
+        ? output.Root
+        : undefined,
+    StartTime:
+      output.StartTime !== undefined && output.StartTime !== null
+        ? new Date(Math.round(output.StartTime * 1000))
+        : undefined,
+    State:
+      output.State !== undefined && output.State !== null
+        ? output.State
+        : undefined,
+    SummaryStatistics:
+      output.SummaryStatistics !== undefined &&
+      output.SummaryStatistics !== null
+        ? deserializeAws_restJson1_1ServiceStatistics(
+            output.SummaryStatistics,
+            context
+          )
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ServiceId = (
   output: any,
   context: __SerdeContext
 ): ServiceId => {
-  let contents: any = {
+  return {
     __type: "ServiceId",
-    AccountId: undefined,
-    Name: undefined,
-    Names: undefined,
-    Type: undefined
-  };
-  if (output.AccountId !== undefined && output.AccountId !== null) {
-    contents.AccountId = output.AccountId;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Names !== undefined && output.Names !== null) {
-    contents.Names = deserializeAws_restJson1_1ServiceNames(
-      output.Names,
-      context
-    );
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    AccountId:
+      output.AccountId !== undefined && output.AccountId !== null
+        ? output.AccountId
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Names:
+      output.Names !== undefined && output.Names !== null
+        ? deserializeAws_restJson1_1ServiceNames(output.Names, context)
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ServiceIds = (
@@ -3645,83 +3554,73 @@ const deserializeAws_restJson1_1ServiceStatistics = (
   output: any,
   context: __SerdeContext
 ): ServiceStatistics => {
-  let contents: any = {
+  return {
     __type: "ServiceStatistics",
-    ErrorStatistics: undefined,
-    FaultStatistics: undefined,
-    OkCount: undefined,
-    TotalCount: undefined,
-    TotalResponseTime: undefined
-  };
-  if (output.ErrorStatistics !== undefined && output.ErrorStatistics !== null) {
-    contents.ErrorStatistics = deserializeAws_restJson1_1ErrorStatistics(
-      output.ErrorStatistics,
-      context
-    );
-  }
-  if (output.FaultStatistics !== undefined && output.FaultStatistics !== null) {
-    contents.FaultStatistics = deserializeAws_restJson1_1FaultStatistics(
-      output.FaultStatistics,
-      context
-    );
-  }
-  if (output.OkCount !== undefined && output.OkCount !== null) {
-    contents.OkCount = output.OkCount;
-  }
-  if (output.TotalCount !== undefined && output.TotalCount !== null) {
-    contents.TotalCount = output.TotalCount;
-  }
-  if (
-    output.TotalResponseTime !== undefined &&
-    output.TotalResponseTime !== null
-  ) {
-    contents.TotalResponseTime = output.TotalResponseTime;
-  }
-  return contents;
+    ErrorStatistics:
+      output.ErrorStatistics !== undefined && output.ErrorStatistics !== null
+        ? deserializeAws_restJson1_1ErrorStatistics(
+            output.ErrorStatistics,
+            context
+          )
+        : undefined,
+    FaultStatistics:
+      output.FaultStatistics !== undefined && output.FaultStatistics !== null
+        ? deserializeAws_restJson1_1FaultStatistics(
+            output.FaultStatistics,
+            context
+          )
+        : undefined,
+    OkCount:
+      output.OkCount !== undefined && output.OkCount !== null
+        ? output.OkCount
+        : undefined,
+    TotalCount:
+      output.TotalCount !== undefined && output.TotalCount !== null
+        ? output.TotalCount
+        : undefined,
+    TotalResponseTime:
+      output.TotalResponseTime !== undefined &&
+      output.TotalResponseTime !== null
+        ? output.TotalResponseTime
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1TimeSeriesServiceStatistics = (
   output: any,
   context: __SerdeContext
 ): TimeSeriesServiceStatistics => {
-  let contents: any = {
+  return {
     __type: "TimeSeriesServiceStatistics",
-    EdgeSummaryStatistics: undefined,
-    ResponseTimeHistogram: undefined,
-    ServiceSummaryStatistics: undefined,
-    Timestamp: undefined
-  };
-  if (
-    output.EdgeSummaryStatistics !== undefined &&
-    output.EdgeSummaryStatistics !== null
-  ) {
-    contents.EdgeSummaryStatistics = deserializeAws_restJson1_1EdgeStatistics(
-      output.EdgeSummaryStatistics,
-      context
-    );
-  }
-  if (
-    output.ResponseTimeHistogram !== undefined &&
-    output.ResponseTimeHistogram !== null
-  ) {
-    contents.ResponseTimeHistogram = deserializeAws_restJson1_1Histogram(
-      output.ResponseTimeHistogram,
-      context
-    );
-  }
-  if (
-    output.ServiceSummaryStatistics !== undefined &&
-    output.ServiceSummaryStatistics !== null
-  ) {
-    contents.ServiceSummaryStatistics = deserializeAws_restJson1_1ServiceStatistics(
-      output.ServiceSummaryStatistics,
-      context
-    );
-  }
-  if (output.Timestamp !== undefined && output.Timestamp !== null) {
-    contents.Timestamp = new Date(Math.round(output.Timestamp * 1000));
-  }
-  return contents;
+    EdgeSummaryStatistics:
+      output.EdgeSummaryStatistics !== undefined &&
+      output.EdgeSummaryStatistics !== null
+        ? deserializeAws_restJson1_1EdgeStatistics(
+            output.EdgeSummaryStatistics,
+            context
+          )
+        : undefined,
+    ResponseTimeHistogram:
+      output.ResponseTimeHistogram !== undefined &&
+      output.ResponseTimeHistogram !== null
+        ? deserializeAws_restJson1_1Histogram(
+            output.ResponseTimeHistogram,
+            context
+          )
+        : undefined,
+    ServiceSummaryStatistics:
+      output.ServiceSummaryStatistics !== undefined &&
+      output.ServiceSummaryStatistics !== null
+        ? deserializeAws_restJson1_1ServiceStatistics(
+            output.ServiceSummaryStatistics,
+            context
+          )
+        : undefined,
+    Timestamp:
+      output.Timestamp !== undefined && output.Timestamp !== null
+        ? new Date(Math.round(output.Timestamp * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1TimeSeriesServiceStatisticsList = (
@@ -3737,25 +3636,18 @@ const deserializeAws_restJson1_1Trace = (
   output: any,
   context: __SerdeContext
 ): Trace => {
-  let contents: any = {
+  return {
     __type: "Trace",
-    Duration: undefined,
-    Id: undefined,
-    Segments: undefined
-  };
-  if (output.Duration !== undefined && output.Duration !== null) {
-    contents.Duration = output.Duration;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Segments !== undefined && output.Segments !== null) {
-    contents.Segments = deserializeAws_restJson1_1SegmentList(
-      output.Segments,
-      context
-    );
-  }
-  return contents;
+    Duration:
+      output.Duration !== undefined && output.Duration !== null
+        ? output.Duration
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Segments:
+      output.Segments !== undefined && output.Segments !== null
+        ? deserializeAws_restJson1_1SegmentList(output.Segments, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1TraceAvailabilityZones = (
@@ -3798,131 +3690,106 @@ const deserializeAws_restJson1_1TraceSummary = (
   output: any,
   context: __SerdeContext
 ): TraceSummary => {
-  let contents: any = {
+  return {
     __type: "TraceSummary",
-    Annotations: undefined,
-    AvailabilityZones: undefined,
-    Duration: undefined,
-    EntryPoint: undefined,
-    ErrorRootCauses: undefined,
-    FaultRootCauses: undefined,
-    HasError: undefined,
-    HasFault: undefined,
-    HasThrottle: undefined,
-    Http: undefined,
-    Id: undefined,
-    InstanceIds: undefined,
-    IsPartial: undefined,
-    MatchedEventTime: undefined,
-    ResourceARNs: undefined,
-    ResponseTime: undefined,
-    ResponseTimeRootCauses: undefined,
-    Revision: undefined,
-    ServiceIds: undefined,
-    Users: undefined
-  };
-  if (output.Annotations !== undefined && output.Annotations !== null) {
-    contents.Annotations = deserializeAws_restJson1_1Annotations(
-      output.Annotations,
-      context
-    );
-  }
-  if (
-    output.AvailabilityZones !== undefined &&
-    output.AvailabilityZones !== null
-  ) {
-    contents.AvailabilityZones = deserializeAws_restJson1_1TraceAvailabilityZones(
-      output.AvailabilityZones,
-      context
-    );
-  }
-  if (output.Duration !== undefined && output.Duration !== null) {
-    contents.Duration = output.Duration;
-  }
-  if (output.EntryPoint !== undefined && output.EntryPoint !== null) {
-    contents.EntryPoint = deserializeAws_restJson1_1ServiceId(
-      output.EntryPoint,
-      context
-    );
-  }
-  if (output.ErrorRootCauses !== undefined && output.ErrorRootCauses !== null) {
-    contents.ErrorRootCauses = deserializeAws_restJson1_1ErrorRootCauses(
-      output.ErrorRootCauses,
-      context
-    );
-  }
-  if (output.FaultRootCauses !== undefined && output.FaultRootCauses !== null) {
-    contents.FaultRootCauses = deserializeAws_restJson1_1FaultRootCauses(
-      output.FaultRootCauses,
-      context
-    );
-  }
-  if (output.HasError !== undefined && output.HasError !== null) {
-    contents.HasError = output.HasError;
-  }
-  if (output.HasFault !== undefined && output.HasFault !== null) {
-    contents.HasFault = output.HasFault;
-  }
-  if (output.HasThrottle !== undefined && output.HasThrottle !== null) {
-    contents.HasThrottle = output.HasThrottle;
-  }
-  if (output.Http !== undefined && output.Http !== null) {
-    contents.Http = deserializeAws_restJson1_1Http(output.Http, context);
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.InstanceIds !== undefined && output.InstanceIds !== null) {
-    contents.InstanceIds = deserializeAws_restJson1_1TraceInstanceIds(
-      output.InstanceIds,
-      context
-    );
-  }
-  if (output.IsPartial !== undefined && output.IsPartial !== null) {
-    contents.IsPartial = output.IsPartial;
-  }
-  if (
-    output.MatchedEventTime !== undefined &&
-    output.MatchedEventTime !== null
-  ) {
-    contents.MatchedEventTime = new Date(
-      Math.round(output.MatchedEventTime * 1000)
-    );
-  }
-  if (output.ResourceARNs !== undefined && output.ResourceARNs !== null) {
-    contents.ResourceARNs = deserializeAws_restJson1_1TraceResourceARNs(
-      output.ResourceARNs,
-      context
-    );
-  }
-  if (output.ResponseTime !== undefined && output.ResponseTime !== null) {
-    contents.ResponseTime = output.ResponseTime;
-  }
-  if (
-    output.ResponseTimeRootCauses !== undefined &&
-    output.ResponseTimeRootCauses !== null
-  ) {
-    contents.ResponseTimeRootCauses = deserializeAws_restJson1_1ResponseTimeRootCauses(
-      output.ResponseTimeRootCauses,
-      context
-    );
-  }
-  if (output.Revision !== undefined && output.Revision !== null) {
-    contents.Revision = output.Revision;
-  }
-  if (output.ServiceIds !== undefined && output.ServiceIds !== null) {
-    contents.ServiceIds = deserializeAws_restJson1_1ServiceIds(
-      output.ServiceIds,
-      context
-    );
-  }
-  if (output.Users !== undefined && output.Users !== null) {
-    contents.Users = deserializeAws_restJson1_1TraceUsers(
-      output.Users,
-      context
-    );
-  }
-  return contents;
+    Annotations:
+      output.Annotations !== undefined && output.Annotations !== null
+        ? deserializeAws_restJson1_1Annotations(output.Annotations, context)
+        : undefined,
+    AvailabilityZones:
+      output.AvailabilityZones !== undefined &&
+      output.AvailabilityZones !== null
+        ? deserializeAws_restJson1_1TraceAvailabilityZones(
+            output.AvailabilityZones,
+            context
+          )
+        : undefined,
+    Duration:
+      output.Duration !== undefined && output.Duration !== null
+        ? output.Duration
+        : undefined,
+    EntryPoint:
+      output.EntryPoint !== undefined && output.EntryPoint !== null
+        ? deserializeAws_restJson1_1ServiceId(output.EntryPoint, context)
+        : undefined,
+    ErrorRootCauses:
+      output.ErrorRootCauses !== undefined && output.ErrorRootCauses !== null
+        ? deserializeAws_restJson1_1ErrorRootCauses(
+            output.ErrorRootCauses,
+            context
+          )
+        : undefined,
+    FaultRootCauses:
+      output.FaultRootCauses !== undefined && output.FaultRootCauses !== null
+        ? deserializeAws_restJson1_1FaultRootCauses(
+            output.FaultRootCauses,
+            context
+          )
+        : undefined,
+    HasError:
+      output.HasError !== undefined && output.HasError !== null
+        ? output.HasError
+        : undefined,
+    HasFault:
+      output.HasFault !== undefined && output.HasFault !== null
+        ? output.HasFault
+        : undefined,
+    HasThrottle:
+      output.HasThrottle !== undefined && output.HasThrottle !== null
+        ? output.HasThrottle
+        : undefined,
+    Http:
+      output.Http !== undefined && output.Http !== null
+        ? deserializeAws_restJson1_1Http(output.Http, context)
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    InstanceIds:
+      output.InstanceIds !== undefined && output.InstanceIds !== null
+        ? deserializeAws_restJson1_1TraceInstanceIds(
+            output.InstanceIds,
+            context
+          )
+        : undefined,
+    IsPartial:
+      output.IsPartial !== undefined && output.IsPartial !== null
+        ? output.IsPartial
+        : undefined,
+    MatchedEventTime:
+      output.MatchedEventTime !== undefined && output.MatchedEventTime !== null
+        ? new Date(Math.round(output.MatchedEventTime * 1000))
+        : undefined,
+    ResourceARNs:
+      output.ResourceARNs !== undefined && output.ResourceARNs !== null
+        ? deserializeAws_restJson1_1TraceResourceARNs(
+            output.ResourceARNs,
+            context
+          )
+        : undefined,
+    ResponseTime:
+      output.ResponseTime !== undefined && output.ResponseTime !== null
+        ? output.ResponseTime
+        : undefined,
+    ResponseTimeRootCauses:
+      output.ResponseTimeRootCauses !== undefined &&
+      output.ResponseTimeRootCauses !== null
+        ? deserializeAws_restJson1_1ResponseTimeRootCauses(
+            output.ResponseTimeRootCauses,
+            context
+          )
+        : undefined,
+    Revision:
+      output.Revision !== undefined && output.Revision !== null
+        ? output.Revision
+        : undefined,
+    ServiceIds:
+      output.ServiceIds !== undefined && output.ServiceIds !== null
+        ? deserializeAws_restJson1_1ServiceIds(output.ServiceIds, context)
+        : undefined,
+    Users:
+      output.Users !== undefined && output.Users !== null
+        ? deserializeAws_restJson1_1TraceUsers(output.Users, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1TraceSummaryList = (
@@ -3938,21 +3805,17 @@ const deserializeAws_restJson1_1TraceUser = (
   output: any,
   context: __SerdeContext
 ): TraceUser => {
-  let contents: any = {
+  return {
     __type: "TraceUser",
-    ServiceIds: undefined,
-    UserName: undefined
-  };
-  if (output.ServiceIds !== undefined && output.ServiceIds !== null) {
-    contents.ServiceIds = deserializeAws_restJson1_1ServiceIds(
-      output.ServiceIds,
-      context
-    );
-  }
-  if (output.UserName !== undefined && output.UserName !== null) {
-    contents.UserName = output.UserName;
-  }
-  return contents;
+    ServiceIds:
+      output.ServiceIds !== undefined && output.ServiceIds !== null
+        ? deserializeAws_restJson1_1ServiceIds(output.ServiceIds, context)
+        : undefined,
+    UserName:
+      output.UserName !== undefined && output.UserName !== null
+        ? output.UserName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1TraceUsers = (
@@ -3968,22 +3831,21 @@ const deserializeAws_restJson1_1UnprocessedStatistics = (
   output: any,
   context: __SerdeContext
 ): UnprocessedStatistics => {
-  let contents: any = {
+  return {
     __type: "UnprocessedStatistics",
-    ErrorCode: undefined,
-    Message: undefined,
-    RuleName: undefined
-  };
-  if (output.ErrorCode !== undefined && output.ErrorCode !== null) {
-    contents.ErrorCode = output.ErrorCode;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.RuleName !== undefined && output.RuleName !== null) {
-    contents.RuleName = output.RuleName;
-  }
-  return contents;
+    ErrorCode:
+      output.ErrorCode !== undefined && output.ErrorCode !== null
+        ? output.ErrorCode
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    RuleName:
+      output.RuleName !== undefined && output.RuleName !== null
+        ? output.RuleName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1UnprocessedStatisticsList = (
@@ -4006,22 +3868,18 @@ const deserializeAws_restJson1_1UnprocessedTraceSegment = (
   output: any,
   context: __SerdeContext
 ): UnprocessedTraceSegment => {
-  let contents: any = {
+  return {
     __type: "UnprocessedTraceSegment",
-    ErrorCode: undefined,
-    Id: undefined,
-    Message: undefined
-  };
-  if (output.ErrorCode !== undefined && output.ErrorCode !== null) {
-    contents.ErrorCode = output.ErrorCode;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    ErrorCode:
+      output.ErrorCode !== undefined && output.ErrorCode !== null
+        ? output.ErrorCode
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1UnprocessedTraceSegmentList = (
@@ -4037,24 +3895,20 @@ const deserializeAws_restJson1_1ValueWithServiceIds = (
   output: any,
   context: __SerdeContext
 ): ValueWithServiceIds => {
-  let contents: any = {
+  return {
     __type: "ValueWithServiceIds",
-    AnnotationValue: undefined,
-    ServiceIds: undefined
-  };
-  if (output.AnnotationValue !== undefined && output.AnnotationValue !== null) {
-    contents.AnnotationValue = deserializeAws_restJson1_1AnnotationValue(
-      output.AnnotationValue,
-      context
-    );
-  }
-  if (output.ServiceIds !== undefined && output.ServiceIds !== null) {
-    contents.ServiceIds = deserializeAws_restJson1_1ServiceIds(
-      output.ServiceIds,
-      context
-    );
-  }
-  return contents;
+    AnnotationValue:
+      output.AnnotationValue !== undefined && output.AnnotationValue !== null
+        ? deserializeAws_restJson1_1AnnotationValue(
+            output.AnnotationValue,
+            context
+          )
+        : undefined,
+    ServiceIds:
+      output.ServiceIds !== undefined && output.ServiceIds !== null
+        ? deserializeAws_restJson1_1ServiceIds(output.ServiceIds, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ValuesWithServiceIds = (

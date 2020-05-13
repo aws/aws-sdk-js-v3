@@ -3715,110 +3715,94 @@ const deserializeAws_json1_1AddTagsOutput = (
   output: any,
   context: __SerdeContext
 ): AddTagsOutput => {
-  let contents: any = {
+  return {
     __type: "AddTagsOutput",
-    ResourceId: undefined,
-    ResourceType: undefined
-  };
-  if (output.ResourceId !== undefined && output.ResourceId !== null) {
-    contents.ResourceId = output.ResourceId;
-  }
-  if (output.ResourceType !== undefined && output.ResourceType !== null) {
-    contents.ResourceType = output.ResourceType;
-  }
-  return contents;
+    ResourceId:
+      output.ResourceId !== undefined && output.ResourceId !== null
+        ? output.ResourceId
+        : undefined,
+    ResourceType:
+      output.ResourceType !== undefined && output.ResourceType !== null
+        ? output.ResourceType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1BatchPrediction = (
   output: any,
   context: __SerdeContext
 ): BatchPrediction => {
-  let contents: any = {
+  return {
     __type: "BatchPrediction",
-    BatchPredictionDataSourceId: undefined,
-    BatchPredictionId: undefined,
-    ComputeTime: undefined,
-    CreatedAt: undefined,
-    CreatedByIamUser: undefined,
-    FinishedAt: undefined,
-    InputDataLocationS3: undefined,
-    InvalidRecordCount: undefined,
-    LastUpdatedAt: undefined,
-    MLModelId: undefined,
-    Message: undefined,
-    Name: undefined,
-    OutputUri: undefined,
-    StartedAt: undefined,
-    Status: undefined,
-    TotalRecordCount: undefined
-  };
-  if (
-    output.BatchPredictionDataSourceId !== undefined &&
-    output.BatchPredictionDataSourceId !== null
-  ) {
-    contents.BatchPredictionDataSourceId = output.BatchPredictionDataSourceId;
-  }
-  if (
-    output.BatchPredictionId !== undefined &&
-    output.BatchPredictionId !== null
-  ) {
-    contents.BatchPredictionId = output.BatchPredictionId;
-  }
-  if (output.ComputeTime !== undefined && output.ComputeTime !== null) {
-    contents.ComputeTime = output.ComputeTime;
-  }
-  if (output.CreatedAt !== undefined && output.CreatedAt !== null) {
-    contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
-  }
-  if (
-    output.CreatedByIamUser !== undefined &&
-    output.CreatedByIamUser !== null
-  ) {
-    contents.CreatedByIamUser = output.CreatedByIamUser;
-  }
-  if (output.FinishedAt !== undefined && output.FinishedAt !== null) {
-    contents.FinishedAt = new Date(Math.round(output.FinishedAt * 1000));
-  }
-  if (
-    output.InputDataLocationS3 !== undefined &&
-    output.InputDataLocationS3 !== null
-  ) {
-    contents.InputDataLocationS3 = output.InputDataLocationS3;
-  }
-  if (
-    output.InvalidRecordCount !== undefined &&
-    output.InvalidRecordCount !== null
-  ) {
-    contents.InvalidRecordCount = output.InvalidRecordCount;
-  }
-  if (output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null) {
-    contents.LastUpdatedAt = new Date(Math.round(output.LastUpdatedAt * 1000));
-  }
-  if (output.MLModelId !== undefined && output.MLModelId !== null) {
-    contents.MLModelId = output.MLModelId;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.OutputUri !== undefined && output.OutputUri !== null) {
-    contents.OutputUri = output.OutputUri;
-  }
-  if (output.StartedAt !== undefined && output.StartedAt !== null) {
-    contents.StartedAt = new Date(Math.round(output.StartedAt * 1000));
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (
-    output.TotalRecordCount !== undefined &&
-    output.TotalRecordCount !== null
-  ) {
-    contents.TotalRecordCount = output.TotalRecordCount;
-  }
-  return contents;
+    BatchPredictionDataSourceId:
+      output.BatchPredictionDataSourceId !== undefined &&
+      output.BatchPredictionDataSourceId !== null
+        ? output.BatchPredictionDataSourceId
+        : undefined,
+    BatchPredictionId:
+      output.BatchPredictionId !== undefined &&
+      output.BatchPredictionId !== null
+        ? output.BatchPredictionId
+        : undefined,
+    ComputeTime:
+      output.ComputeTime !== undefined && output.ComputeTime !== null
+        ? output.ComputeTime
+        : undefined,
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? new Date(Math.round(output.CreatedAt * 1000))
+        : undefined,
+    CreatedByIamUser:
+      output.CreatedByIamUser !== undefined && output.CreatedByIamUser !== null
+        ? output.CreatedByIamUser
+        : undefined,
+    FinishedAt:
+      output.FinishedAt !== undefined && output.FinishedAt !== null
+        ? new Date(Math.round(output.FinishedAt * 1000))
+        : undefined,
+    InputDataLocationS3:
+      output.InputDataLocationS3 !== undefined &&
+      output.InputDataLocationS3 !== null
+        ? output.InputDataLocationS3
+        : undefined,
+    InvalidRecordCount:
+      output.InvalidRecordCount !== undefined &&
+      output.InvalidRecordCount !== null
+        ? output.InvalidRecordCount
+        : undefined,
+    LastUpdatedAt:
+      output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
+        ? new Date(Math.round(output.LastUpdatedAt * 1000))
+        : undefined,
+    MLModelId:
+      output.MLModelId !== undefined && output.MLModelId !== null
+        ? output.MLModelId
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    OutputUri:
+      output.OutputUri !== undefined && output.OutputUri !== null
+        ? output.OutputUri
+        : undefined,
+    StartedAt:
+      output.StartedAt !== undefined && output.StartedAt !== null
+        ? new Date(Math.round(output.StartedAt * 1000))
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    TotalRecordCount:
+      output.TotalRecordCount !== undefined && output.TotalRecordCount !== null
+        ? output.TotalRecordCount
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1BatchPredictions = (
@@ -3834,211 +3818,186 @@ const deserializeAws_json1_1CreateBatchPredictionOutput = (
   output: any,
   context: __SerdeContext
 ): CreateBatchPredictionOutput => {
-  let contents: any = {
+  return {
     __type: "CreateBatchPredictionOutput",
-    BatchPredictionId: undefined
-  };
-  if (
-    output.BatchPredictionId !== undefined &&
-    output.BatchPredictionId !== null
-  ) {
-    contents.BatchPredictionId = output.BatchPredictionId;
-  }
-  return contents;
+    BatchPredictionId:
+      output.BatchPredictionId !== undefined &&
+      output.BatchPredictionId !== null
+        ? output.BatchPredictionId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateDataSourceFromRDSOutput = (
   output: any,
   context: __SerdeContext
 ): CreateDataSourceFromRDSOutput => {
-  let contents: any = {
+  return {
     __type: "CreateDataSourceFromRDSOutput",
-    DataSourceId: undefined
-  };
-  if (output.DataSourceId !== undefined && output.DataSourceId !== null) {
-    contents.DataSourceId = output.DataSourceId;
-  }
-  return contents;
+    DataSourceId:
+      output.DataSourceId !== undefined && output.DataSourceId !== null
+        ? output.DataSourceId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateDataSourceFromRedshiftOutput = (
   output: any,
   context: __SerdeContext
 ): CreateDataSourceFromRedshiftOutput => {
-  let contents: any = {
+  return {
     __type: "CreateDataSourceFromRedshiftOutput",
-    DataSourceId: undefined
-  };
-  if (output.DataSourceId !== undefined && output.DataSourceId !== null) {
-    contents.DataSourceId = output.DataSourceId;
-  }
-  return contents;
+    DataSourceId:
+      output.DataSourceId !== undefined && output.DataSourceId !== null
+        ? output.DataSourceId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateDataSourceFromS3Output = (
   output: any,
   context: __SerdeContext
 ): CreateDataSourceFromS3Output => {
-  let contents: any = {
+  return {
     __type: "CreateDataSourceFromS3Output",
-    DataSourceId: undefined
-  };
-  if (output.DataSourceId !== undefined && output.DataSourceId !== null) {
-    contents.DataSourceId = output.DataSourceId;
-  }
-  return contents;
+    DataSourceId:
+      output.DataSourceId !== undefined && output.DataSourceId !== null
+        ? output.DataSourceId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateEvaluationOutput = (
   output: any,
   context: __SerdeContext
 ): CreateEvaluationOutput => {
-  let contents: any = {
+  return {
     __type: "CreateEvaluationOutput",
-    EvaluationId: undefined
-  };
-  if (output.EvaluationId !== undefined && output.EvaluationId !== null) {
-    contents.EvaluationId = output.EvaluationId;
-  }
-  return contents;
+    EvaluationId:
+      output.EvaluationId !== undefined && output.EvaluationId !== null
+        ? output.EvaluationId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateMLModelOutput = (
   output: any,
   context: __SerdeContext
 ): CreateMLModelOutput => {
-  let contents: any = {
+  return {
     __type: "CreateMLModelOutput",
-    MLModelId: undefined
-  };
-  if (output.MLModelId !== undefined && output.MLModelId !== null) {
-    contents.MLModelId = output.MLModelId;
-  }
-  return contents;
+    MLModelId:
+      output.MLModelId !== undefined && output.MLModelId !== null
+        ? output.MLModelId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateRealtimeEndpointOutput = (
   output: any,
   context: __SerdeContext
 ): CreateRealtimeEndpointOutput => {
-  let contents: any = {
+  return {
     __type: "CreateRealtimeEndpointOutput",
-    MLModelId: undefined,
-    RealtimeEndpointInfo: undefined
-  };
-  if (output.MLModelId !== undefined && output.MLModelId !== null) {
-    contents.MLModelId = output.MLModelId;
-  }
-  if (
-    output.RealtimeEndpointInfo !== undefined &&
-    output.RealtimeEndpointInfo !== null
-  ) {
-    contents.RealtimeEndpointInfo = deserializeAws_json1_1RealtimeEndpointInfo(
-      output.RealtimeEndpointInfo,
-      context
-    );
-  }
-  return contents;
+    MLModelId:
+      output.MLModelId !== undefined && output.MLModelId !== null
+        ? output.MLModelId
+        : undefined,
+    RealtimeEndpointInfo:
+      output.RealtimeEndpointInfo !== undefined &&
+      output.RealtimeEndpointInfo !== null
+        ? deserializeAws_json1_1RealtimeEndpointInfo(
+            output.RealtimeEndpointInfo,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DataSource = (
   output: any,
   context: __SerdeContext
 ): DataSource => {
-  let contents: any = {
+  return {
     __type: "DataSource",
-    ComputeStatistics: undefined,
-    ComputeTime: undefined,
-    CreatedAt: undefined,
-    CreatedByIamUser: undefined,
-    DataLocationS3: undefined,
-    DataRearrangement: undefined,
-    DataSizeInBytes: undefined,
-    DataSourceId: undefined,
-    FinishedAt: undefined,
-    LastUpdatedAt: undefined,
-    Message: undefined,
-    Name: undefined,
-    NumberOfFiles: undefined,
-    RDSMetadata: undefined,
-    RedshiftMetadata: undefined,
-    RoleARN: undefined,
-    StartedAt: undefined,
-    Status: undefined
-  };
-  if (
-    output.ComputeStatistics !== undefined &&
-    output.ComputeStatistics !== null
-  ) {
-    contents.ComputeStatistics = output.ComputeStatistics;
-  }
-  if (output.ComputeTime !== undefined && output.ComputeTime !== null) {
-    contents.ComputeTime = output.ComputeTime;
-  }
-  if (output.CreatedAt !== undefined && output.CreatedAt !== null) {
-    contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
-  }
-  if (
-    output.CreatedByIamUser !== undefined &&
-    output.CreatedByIamUser !== null
-  ) {
-    contents.CreatedByIamUser = output.CreatedByIamUser;
-  }
-  if (output.DataLocationS3 !== undefined && output.DataLocationS3 !== null) {
-    contents.DataLocationS3 = output.DataLocationS3;
-  }
-  if (
-    output.DataRearrangement !== undefined &&
-    output.DataRearrangement !== null
-  ) {
-    contents.DataRearrangement = output.DataRearrangement;
-  }
-  if (output.DataSizeInBytes !== undefined && output.DataSizeInBytes !== null) {
-    contents.DataSizeInBytes = output.DataSizeInBytes;
-  }
-  if (output.DataSourceId !== undefined && output.DataSourceId !== null) {
-    contents.DataSourceId = output.DataSourceId;
-  }
-  if (output.FinishedAt !== undefined && output.FinishedAt !== null) {
-    contents.FinishedAt = new Date(Math.round(output.FinishedAt * 1000));
-  }
-  if (output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null) {
-    contents.LastUpdatedAt = new Date(Math.round(output.LastUpdatedAt * 1000));
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.NumberOfFiles !== undefined && output.NumberOfFiles !== null) {
-    contents.NumberOfFiles = output.NumberOfFiles;
-  }
-  if (output.RDSMetadata !== undefined && output.RDSMetadata !== null) {
-    contents.RDSMetadata = deserializeAws_json1_1RDSMetadata(
-      output.RDSMetadata,
-      context
-    );
-  }
-  if (
-    output.RedshiftMetadata !== undefined &&
-    output.RedshiftMetadata !== null
-  ) {
-    contents.RedshiftMetadata = deserializeAws_json1_1RedshiftMetadata(
-      output.RedshiftMetadata,
-      context
-    );
-  }
-  if (output.RoleARN !== undefined && output.RoleARN !== null) {
-    contents.RoleARN = output.RoleARN;
-  }
-  if (output.StartedAt !== undefined && output.StartedAt !== null) {
-    contents.StartedAt = new Date(Math.round(output.StartedAt * 1000));
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  return contents;
+    ComputeStatistics:
+      output.ComputeStatistics !== undefined &&
+      output.ComputeStatistics !== null
+        ? output.ComputeStatistics
+        : undefined,
+    ComputeTime:
+      output.ComputeTime !== undefined && output.ComputeTime !== null
+        ? output.ComputeTime
+        : undefined,
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? new Date(Math.round(output.CreatedAt * 1000))
+        : undefined,
+    CreatedByIamUser:
+      output.CreatedByIamUser !== undefined && output.CreatedByIamUser !== null
+        ? output.CreatedByIamUser
+        : undefined,
+    DataLocationS3:
+      output.DataLocationS3 !== undefined && output.DataLocationS3 !== null
+        ? output.DataLocationS3
+        : undefined,
+    DataRearrangement:
+      output.DataRearrangement !== undefined &&
+      output.DataRearrangement !== null
+        ? output.DataRearrangement
+        : undefined,
+    DataSizeInBytes:
+      output.DataSizeInBytes !== undefined && output.DataSizeInBytes !== null
+        ? output.DataSizeInBytes
+        : undefined,
+    DataSourceId:
+      output.DataSourceId !== undefined && output.DataSourceId !== null
+        ? output.DataSourceId
+        : undefined,
+    FinishedAt:
+      output.FinishedAt !== undefined && output.FinishedAt !== null
+        ? new Date(Math.round(output.FinishedAt * 1000))
+        : undefined,
+    LastUpdatedAt:
+      output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
+        ? new Date(Math.round(output.LastUpdatedAt * 1000))
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    NumberOfFiles:
+      output.NumberOfFiles !== undefined && output.NumberOfFiles !== null
+        ? output.NumberOfFiles
+        : undefined,
+    RDSMetadata:
+      output.RDSMetadata !== undefined && output.RDSMetadata !== null
+        ? deserializeAws_json1_1RDSMetadata(output.RDSMetadata, context)
+        : undefined,
+    RedshiftMetadata:
+      output.RedshiftMetadata !== undefined && output.RedshiftMetadata !== null
+        ? deserializeAws_json1_1RedshiftMetadata(
+            output.RedshiftMetadata,
+            context
+          )
+        : undefined,
+    RoleARN:
+      output.RoleARN !== undefined && output.RoleARN !== null
+        ? output.RoleARN
+        : undefined,
+    StartedAt:
+      output.StartedAt !== undefined && output.StartedAt !== null
+        ? new Date(Math.round(output.StartedAt * 1000))
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DataSources = (
@@ -4054,204 +4013,180 @@ const deserializeAws_json1_1DeleteBatchPredictionOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteBatchPredictionOutput => {
-  let contents: any = {
+  return {
     __type: "DeleteBatchPredictionOutput",
-    BatchPredictionId: undefined
-  };
-  if (
-    output.BatchPredictionId !== undefined &&
-    output.BatchPredictionId !== null
-  ) {
-    contents.BatchPredictionId = output.BatchPredictionId;
-  }
-  return contents;
+    BatchPredictionId:
+      output.BatchPredictionId !== undefined &&
+      output.BatchPredictionId !== null
+        ? output.BatchPredictionId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteDataSourceOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteDataSourceOutput => {
-  let contents: any = {
+  return {
     __type: "DeleteDataSourceOutput",
-    DataSourceId: undefined
-  };
-  if (output.DataSourceId !== undefined && output.DataSourceId !== null) {
-    contents.DataSourceId = output.DataSourceId;
-  }
-  return contents;
+    DataSourceId:
+      output.DataSourceId !== undefined && output.DataSourceId !== null
+        ? output.DataSourceId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteEvaluationOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteEvaluationOutput => {
-  let contents: any = {
+  return {
     __type: "DeleteEvaluationOutput",
-    EvaluationId: undefined
-  };
-  if (output.EvaluationId !== undefined && output.EvaluationId !== null) {
-    contents.EvaluationId = output.EvaluationId;
-  }
-  return contents;
+    EvaluationId:
+      output.EvaluationId !== undefined && output.EvaluationId !== null
+        ? output.EvaluationId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteMLModelOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteMLModelOutput => {
-  let contents: any = {
+  return {
     __type: "DeleteMLModelOutput",
-    MLModelId: undefined
-  };
-  if (output.MLModelId !== undefined && output.MLModelId !== null) {
-    contents.MLModelId = output.MLModelId;
-  }
-  return contents;
+    MLModelId:
+      output.MLModelId !== undefined && output.MLModelId !== null
+        ? output.MLModelId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteRealtimeEndpointOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteRealtimeEndpointOutput => {
-  let contents: any = {
+  return {
     __type: "DeleteRealtimeEndpointOutput",
-    MLModelId: undefined,
-    RealtimeEndpointInfo: undefined
-  };
-  if (output.MLModelId !== undefined && output.MLModelId !== null) {
-    contents.MLModelId = output.MLModelId;
-  }
-  if (
-    output.RealtimeEndpointInfo !== undefined &&
-    output.RealtimeEndpointInfo !== null
-  ) {
-    contents.RealtimeEndpointInfo = deserializeAws_json1_1RealtimeEndpointInfo(
-      output.RealtimeEndpointInfo,
-      context
-    );
-  }
-  return contents;
+    MLModelId:
+      output.MLModelId !== undefined && output.MLModelId !== null
+        ? output.MLModelId
+        : undefined,
+    RealtimeEndpointInfo:
+      output.RealtimeEndpointInfo !== undefined &&
+      output.RealtimeEndpointInfo !== null
+        ? deserializeAws_json1_1RealtimeEndpointInfo(
+            output.RealtimeEndpointInfo,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteTagsOutput = (
   output: any,
   context: __SerdeContext
 ): DeleteTagsOutput => {
-  let contents: any = {
+  return {
     __type: "DeleteTagsOutput",
-    ResourceId: undefined,
-    ResourceType: undefined
-  };
-  if (output.ResourceId !== undefined && output.ResourceId !== null) {
-    contents.ResourceId = output.ResourceId;
-  }
-  if (output.ResourceType !== undefined && output.ResourceType !== null) {
-    contents.ResourceType = output.ResourceType;
-  }
-  return contents;
+    ResourceId:
+      output.ResourceId !== undefined && output.ResourceId !== null
+        ? output.ResourceId
+        : undefined,
+    ResourceType:
+      output.ResourceType !== undefined && output.ResourceType !== null
+        ? output.ResourceType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeBatchPredictionsOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeBatchPredictionsOutput => {
-  let contents: any = {
+  return {
     __type: "DescribeBatchPredictionsOutput",
-    NextToken: undefined,
-    Results: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.Results !== undefined && output.Results !== null) {
-    contents.Results = deserializeAws_json1_1BatchPredictions(
-      output.Results,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Results:
+      output.Results !== undefined && output.Results !== null
+        ? deserializeAws_json1_1BatchPredictions(output.Results, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeDataSourcesOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeDataSourcesOutput => {
-  let contents: any = {
+  return {
     __type: "DescribeDataSourcesOutput",
-    NextToken: undefined,
-    Results: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.Results !== undefined && output.Results !== null) {
-    contents.Results = deserializeAws_json1_1DataSources(
-      output.Results,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Results:
+      output.Results !== undefined && output.Results !== null
+        ? deserializeAws_json1_1DataSources(output.Results, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeEvaluationsOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeEvaluationsOutput => {
-  let contents: any = {
+  return {
     __type: "DescribeEvaluationsOutput",
-    NextToken: undefined,
-    Results: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.Results !== undefined && output.Results !== null) {
-    contents.Results = deserializeAws_json1_1Evaluations(
-      output.Results,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Results:
+      output.Results !== undefined && output.Results !== null
+        ? deserializeAws_json1_1Evaluations(output.Results, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeMLModelsOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeMLModelsOutput => {
-  let contents: any = {
+  return {
     __type: "DescribeMLModelsOutput",
-    NextToken: undefined,
-    Results: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.Results !== undefined && output.Results !== null) {
-    contents.Results = deserializeAws_json1_1MLModels(output.Results, context);
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Results:
+      output.Results !== undefined && output.Results !== null
+        ? deserializeAws_json1_1MLModels(output.Results, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeTagsOutput = (
   output: any,
   context: __SerdeContext
 ): DescribeTagsOutput => {
-  let contents: any = {
+  return {
     __type: "DescribeTagsOutput",
-    ResourceId: undefined,
-    ResourceType: undefined,
-    Tags: undefined
-  };
-  if (output.ResourceId !== undefined && output.ResourceId !== null) {
-    contents.ResourceId = output.ResourceId;
-  }
-  if (output.ResourceType !== undefined && output.ResourceType !== null) {
-    contents.ResourceType = output.ResourceType;
-  }
-  if (output.Tags !== undefined && output.Tags !== null) {
-    contents.Tags = deserializeAws_json1_1TagList(output.Tags, context);
-  }
-  return contents;
+    ResourceId:
+      output.ResourceId !== undefined && output.ResourceId !== null
+        ? output.ResourceId
+        : undefined,
+    ResourceType:
+      output.ResourceType !== undefined && output.ResourceType !== null
+        ? output.ResourceType
+        : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1TagList(output.Tags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DetailsMap = (
@@ -4268,81 +4203,71 @@ const deserializeAws_json1_1Evaluation = (
   output: any,
   context: __SerdeContext
 ): Evaluation => {
-  let contents: any = {
+  return {
     __type: "Evaluation",
-    ComputeTime: undefined,
-    CreatedAt: undefined,
-    CreatedByIamUser: undefined,
-    EvaluationDataSourceId: undefined,
-    EvaluationId: undefined,
-    FinishedAt: undefined,
-    InputDataLocationS3: undefined,
-    LastUpdatedAt: undefined,
-    MLModelId: undefined,
-    Message: undefined,
-    Name: undefined,
-    PerformanceMetrics: undefined,
-    StartedAt: undefined,
-    Status: undefined
-  };
-  if (output.ComputeTime !== undefined && output.ComputeTime !== null) {
-    contents.ComputeTime = output.ComputeTime;
-  }
-  if (output.CreatedAt !== undefined && output.CreatedAt !== null) {
-    contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
-  }
-  if (
-    output.CreatedByIamUser !== undefined &&
-    output.CreatedByIamUser !== null
-  ) {
-    contents.CreatedByIamUser = output.CreatedByIamUser;
-  }
-  if (
-    output.EvaluationDataSourceId !== undefined &&
-    output.EvaluationDataSourceId !== null
-  ) {
-    contents.EvaluationDataSourceId = output.EvaluationDataSourceId;
-  }
-  if (output.EvaluationId !== undefined && output.EvaluationId !== null) {
-    contents.EvaluationId = output.EvaluationId;
-  }
-  if (output.FinishedAt !== undefined && output.FinishedAt !== null) {
-    contents.FinishedAt = new Date(Math.round(output.FinishedAt * 1000));
-  }
-  if (
-    output.InputDataLocationS3 !== undefined &&
-    output.InputDataLocationS3 !== null
-  ) {
-    contents.InputDataLocationS3 = output.InputDataLocationS3;
-  }
-  if (output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null) {
-    contents.LastUpdatedAt = new Date(Math.round(output.LastUpdatedAt * 1000));
-  }
-  if (output.MLModelId !== undefined && output.MLModelId !== null) {
-    contents.MLModelId = output.MLModelId;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (
-    output.PerformanceMetrics !== undefined &&
-    output.PerformanceMetrics !== null
-  ) {
-    contents.PerformanceMetrics = deserializeAws_json1_1PerformanceMetrics(
-      output.PerformanceMetrics,
-      context
-    );
-  }
-  if (output.StartedAt !== undefined && output.StartedAt !== null) {
-    contents.StartedAt = new Date(Math.round(output.StartedAt * 1000));
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  return contents;
+    ComputeTime:
+      output.ComputeTime !== undefined && output.ComputeTime !== null
+        ? output.ComputeTime
+        : undefined,
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? new Date(Math.round(output.CreatedAt * 1000))
+        : undefined,
+    CreatedByIamUser:
+      output.CreatedByIamUser !== undefined && output.CreatedByIamUser !== null
+        ? output.CreatedByIamUser
+        : undefined,
+    EvaluationDataSourceId:
+      output.EvaluationDataSourceId !== undefined &&
+      output.EvaluationDataSourceId !== null
+        ? output.EvaluationDataSourceId
+        : undefined,
+    EvaluationId:
+      output.EvaluationId !== undefined && output.EvaluationId !== null
+        ? output.EvaluationId
+        : undefined,
+    FinishedAt:
+      output.FinishedAt !== undefined && output.FinishedAt !== null
+        ? new Date(Math.round(output.FinishedAt * 1000))
+        : undefined,
+    InputDataLocationS3:
+      output.InputDataLocationS3 !== undefined &&
+      output.InputDataLocationS3 !== null
+        ? output.InputDataLocationS3
+        : undefined,
+    LastUpdatedAt:
+      output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
+        ? new Date(Math.round(output.LastUpdatedAt * 1000))
+        : undefined,
+    MLModelId:
+      output.MLModelId !== undefined && output.MLModelId !== null
+        ? output.MLModelId
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    PerformanceMetrics:
+      output.PerformanceMetrics !== undefined &&
+      output.PerformanceMetrics !== null
+        ? deserializeAws_json1_1PerformanceMetrics(
+            output.PerformanceMetrics,
+            context
+          )
+        : undefined,
+    StartedAt:
+      output.StartedAt !== undefined && output.StartedAt !== null
+        ? new Date(Math.round(output.StartedAt * 1000))
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Evaluations = (
@@ -4358,604 +4283,529 @@ const deserializeAws_json1_1GetBatchPredictionOutput = (
   output: any,
   context: __SerdeContext
 ): GetBatchPredictionOutput => {
-  let contents: any = {
+  return {
     __type: "GetBatchPredictionOutput",
-    BatchPredictionDataSourceId: undefined,
-    BatchPredictionId: undefined,
-    ComputeTime: undefined,
-    CreatedAt: undefined,
-    CreatedByIamUser: undefined,
-    FinishedAt: undefined,
-    InputDataLocationS3: undefined,
-    InvalidRecordCount: undefined,
-    LastUpdatedAt: undefined,
-    LogUri: undefined,
-    MLModelId: undefined,
-    Message: undefined,
-    Name: undefined,
-    OutputUri: undefined,
-    StartedAt: undefined,
-    Status: undefined,
-    TotalRecordCount: undefined
-  };
-  if (
-    output.BatchPredictionDataSourceId !== undefined &&
-    output.BatchPredictionDataSourceId !== null
-  ) {
-    contents.BatchPredictionDataSourceId = output.BatchPredictionDataSourceId;
-  }
-  if (
-    output.BatchPredictionId !== undefined &&
-    output.BatchPredictionId !== null
-  ) {
-    contents.BatchPredictionId = output.BatchPredictionId;
-  }
-  if (output.ComputeTime !== undefined && output.ComputeTime !== null) {
-    contents.ComputeTime = output.ComputeTime;
-  }
-  if (output.CreatedAt !== undefined && output.CreatedAt !== null) {
-    contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
-  }
-  if (
-    output.CreatedByIamUser !== undefined &&
-    output.CreatedByIamUser !== null
-  ) {
-    contents.CreatedByIamUser = output.CreatedByIamUser;
-  }
-  if (output.FinishedAt !== undefined && output.FinishedAt !== null) {
-    contents.FinishedAt = new Date(Math.round(output.FinishedAt * 1000));
-  }
-  if (
-    output.InputDataLocationS3 !== undefined &&
-    output.InputDataLocationS3 !== null
-  ) {
-    contents.InputDataLocationS3 = output.InputDataLocationS3;
-  }
-  if (
-    output.InvalidRecordCount !== undefined &&
-    output.InvalidRecordCount !== null
-  ) {
-    contents.InvalidRecordCount = output.InvalidRecordCount;
-  }
-  if (output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null) {
-    contents.LastUpdatedAt = new Date(Math.round(output.LastUpdatedAt * 1000));
-  }
-  if (output.LogUri !== undefined && output.LogUri !== null) {
-    contents.LogUri = output.LogUri;
-  }
-  if (output.MLModelId !== undefined && output.MLModelId !== null) {
-    contents.MLModelId = output.MLModelId;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.OutputUri !== undefined && output.OutputUri !== null) {
-    contents.OutputUri = output.OutputUri;
-  }
-  if (output.StartedAt !== undefined && output.StartedAt !== null) {
-    contents.StartedAt = new Date(Math.round(output.StartedAt * 1000));
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (
-    output.TotalRecordCount !== undefined &&
-    output.TotalRecordCount !== null
-  ) {
-    contents.TotalRecordCount = output.TotalRecordCount;
-  }
-  return contents;
+    BatchPredictionDataSourceId:
+      output.BatchPredictionDataSourceId !== undefined &&
+      output.BatchPredictionDataSourceId !== null
+        ? output.BatchPredictionDataSourceId
+        : undefined,
+    BatchPredictionId:
+      output.BatchPredictionId !== undefined &&
+      output.BatchPredictionId !== null
+        ? output.BatchPredictionId
+        : undefined,
+    ComputeTime:
+      output.ComputeTime !== undefined && output.ComputeTime !== null
+        ? output.ComputeTime
+        : undefined,
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? new Date(Math.round(output.CreatedAt * 1000))
+        : undefined,
+    CreatedByIamUser:
+      output.CreatedByIamUser !== undefined && output.CreatedByIamUser !== null
+        ? output.CreatedByIamUser
+        : undefined,
+    FinishedAt:
+      output.FinishedAt !== undefined && output.FinishedAt !== null
+        ? new Date(Math.round(output.FinishedAt * 1000))
+        : undefined,
+    InputDataLocationS3:
+      output.InputDataLocationS3 !== undefined &&
+      output.InputDataLocationS3 !== null
+        ? output.InputDataLocationS3
+        : undefined,
+    InvalidRecordCount:
+      output.InvalidRecordCount !== undefined &&
+      output.InvalidRecordCount !== null
+        ? output.InvalidRecordCount
+        : undefined,
+    LastUpdatedAt:
+      output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
+        ? new Date(Math.round(output.LastUpdatedAt * 1000))
+        : undefined,
+    LogUri:
+      output.LogUri !== undefined && output.LogUri !== null
+        ? output.LogUri
+        : undefined,
+    MLModelId:
+      output.MLModelId !== undefined && output.MLModelId !== null
+        ? output.MLModelId
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    OutputUri:
+      output.OutputUri !== undefined && output.OutputUri !== null
+        ? output.OutputUri
+        : undefined,
+    StartedAt:
+      output.StartedAt !== undefined && output.StartedAt !== null
+        ? new Date(Math.round(output.StartedAt * 1000))
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    TotalRecordCount:
+      output.TotalRecordCount !== undefined && output.TotalRecordCount !== null
+        ? output.TotalRecordCount
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetDataSourceOutput = (
   output: any,
   context: __SerdeContext
 ): GetDataSourceOutput => {
-  let contents: any = {
+  return {
     __type: "GetDataSourceOutput",
-    ComputeStatistics: undefined,
-    ComputeTime: undefined,
-    CreatedAt: undefined,
-    CreatedByIamUser: undefined,
-    DataLocationS3: undefined,
-    DataRearrangement: undefined,
-    DataSizeInBytes: undefined,
-    DataSourceId: undefined,
-    DataSourceSchema: undefined,
-    FinishedAt: undefined,
-    LastUpdatedAt: undefined,
-    LogUri: undefined,
-    Message: undefined,
-    Name: undefined,
-    NumberOfFiles: undefined,
-    RDSMetadata: undefined,
-    RedshiftMetadata: undefined,
-    RoleARN: undefined,
-    StartedAt: undefined,
-    Status: undefined
-  };
-  if (
-    output.ComputeStatistics !== undefined &&
-    output.ComputeStatistics !== null
-  ) {
-    contents.ComputeStatistics = output.ComputeStatistics;
-  }
-  if (output.ComputeTime !== undefined && output.ComputeTime !== null) {
-    contents.ComputeTime = output.ComputeTime;
-  }
-  if (output.CreatedAt !== undefined && output.CreatedAt !== null) {
-    contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
-  }
-  if (
-    output.CreatedByIamUser !== undefined &&
-    output.CreatedByIamUser !== null
-  ) {
-    contents.CreatedByIamUser = output.CreatedByIamUser;
-  }
-  if (output.DataLocationS3 !== undefined && output.DataLocationS3 !== null) {
-    contents.DataLocationS3 = output.DataLocationS3;
-  }
-  if (
-    output.DataRearrangement !== undefined &&
-    output.DataRearrangement !== null
-  ) {
-    contents.DataRearrangement = output.DataRearrangement;
-  }
-  if (output.DataSizeInBytes !== undefined && output.DataSizeInBytes !== null) {
-    contents.DataSizeInBytes = output.DataSizeInBytes;
-  }
-  if (output.DataSourceId !== undefined && output.DataSourceId !== null) {
-    contents.DataSourceId = output.DataSourceId;
-  }
-  if (
-    output.DataSourceSchema !== undefined &&
-    output.DataSourceSchema !== null
-  ) {
-    contents.DataSourceSchema = output.DataSourceSchema;
-  }
-  if (output.FinishedAt !== undefined && output.FinishedAt !== null) {
-    contents.FinishedAt = new Date(Math.round(output.FinishedAt * 1000));
-  }
-  if (output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null) {
-    contents.LastUpdatedAt = new Date(Math.round(output.LastUpdatedAt * 1000));
-  }
-  if (output.LogUri !== undefined && output.LogUri !== null) {
-    contents.LogUri = output.LogUri;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.NumberOfFiles !== undefined && output.NumberOfFiles !== null) {
-    contents.NumberOfFiles = output.NumberOfFiles;
-  }
-  if (output.RDSMetadata !== undefined && output.RDSMetadata !== null) {
-    contents.RDSMetadata = deserializeAws_json1_1RDSMetadata(
-      output.RDSMetadata,
-      context
-    );
-  }
-  if (
-    output.RedshiftMetadata !== undefined &&
-    output.RedshiftMetadata !== null
-  ) {
-    contents.RedshiftMetadata = deserializeAws_json1_1RedshiftMetadata(
-      output.RedshiftMetadata,
-      context
-    );
-  }
-  if (output.RoleARN !== undefined && output.RoleARN !== null) {
-    contents.RoleARN = output.RoleARN;
-  }
-  if (output.StartedAt !== undefined && output.StartedAt !== null) {
-    contents.StartedAt = new Date(Math.round(output.StartedAt * 1000));
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  return contents;
+    ComputeStatistics:
+      output.ComputeStatistics !== undefined &&
+      output.ComputeStatistics !== null
+        ? output.ComputeStatistics
+        : undefined,
+    ComputeTime:
+      output.ComputeTime !== undefined && output.ComputeTime !== null
+        ? output.ComputeTime
+        : undefined,
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? new Date(Math.round(output.CreatedAt * 1000))
+        : undefined,
+    CreatedByIamUser:
+      output.CreatedByIamUser !== undefined && output.CreatedByIamUser !== null
+        ? output.CreatedByIamUser
+        : undefined,
+    DataLocationS3:
+      output.DataLocationS3 !== undefined && output.DataLocationS3 !== null
+        ? output.DataLocationS3
+        : undefined,
+    DataRearrangement:
+      output.DataRearrangement !== undefined &&
+      output.DataRearrangement !== null
+        ? output.DataRearrangement
+        : undefined,
+    DataSizeInBytes:
+      output.DataSizeInBytes !== undefined && output.DataSizeInBytes !== null
+        ? output.DataSizeInBytes
+        : undefined,
+    DataSourceId:
+      output.DataSourceId !== undefined && output.DataSourceId !== null
+        ? output.DataSourceId
+        : undefined,
+    DataSourceSchema:
+      output.DataSourceSchema !== undefined && output.DataSourceSchema !== null
+        ? output.DataSourceSchema
+        : undefined,
+    FinishedAt:
+      output.FinishedAt !== undefined && output.FinishedAt !== null
+        ? new Date(Math.round(output.FinishedAt * 1000))
+        : undefined,
+    LastUpdatedAt:
+      output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
+        ? new Date(Math.round(output.LastUpdatedAt * 1000))
+        : undefined,
+    LogUri:
+      output.LogUri !== undefined && output.LogUri !== null
+        ? output.LogUri
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    NumberOfFiles:
+      output.NumberOfFiles !== undefined && output.NumberOfFiles !== null
+        ? output.NumberOfFiles
+        : undefined,
+    RDSMetadata:
+      output.RDSMetadata !== undefined && output.RDSMetadata !== null
+        ? deserializeAws_json1_1RDSMetadata(output.RDSMetadata, context)
+        : undefined,
+    RedshiftMetadata:
+      output.RedshiftMetadata !== undefined && output.RedshiftMetadata !== null
+        ? deserializeAws_json1_1RedshiftMetadata(
+            output.RedshiftMetadata,
+            context
+          )
+        : undefined,
+    RoleARN:
+      output.RoleARN !== undefined && output.RoleARN !== null
+        ? output.RoleARN
+        : undefined,
+    StartedAt:
+      output.StartedAt !== undefined && output.StartedAt !== null
+        ? new Date(Math.round(output.StartedAt * 1000))
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetEvaluationOutput = (
   output: any,
   context: __SerdeContext
 ): GetEvaluationOutput => {
-  let contents: any = {
+  return {
     __type: "GetEvaluationOutput",
-    ComputeTime: undefined,
-    CreatedAt: undefined,
-    CreatedByIamUser: undefined,
-    EvaluationDataSourceId: undefined,
-    EvaluationId: undefined,
-    FinishedAt: undefined,
-    InputDataLocationS3: undefined,
-    LastUpdatedAt: undefined,
-    LogUri: undefined,
-    MLModelId: undefined,
-    Message: undefined,
-    Name: undefined,
-    PerformanceMetrics: undefined,
-    StartedAt: undefined,
-    Status: undefined
-  };
-  if (output.ComputeTime !== undefined && output.ComputeTime !== null) {
-    contents.ComputeTime = output.ComputeTime;
-  }
-  if (output.CreatedAt !== undefined && output.CreatedAt !== null) {
-    contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
-  }
-  if (
-    output.CreatedByIamUser !== undefined &&
-    output.CreatedByIamUser !== null
-  ) {
-    contents.CreatedByIamUser = output.CreatedByIamUser;
-  }
-  if (
-    output.EvaluationDataSourceId !== undefined &&
-    output.EvaluationDataSourceId !== null
-  ) {
-    contents.EvaluationDataSourceId = output.EvaluationDataSourceId;
-  }
-  if (output.EvaluationId !== undefined && output.EvaluationId !== null) {
-    contents.EvaluationId = output.EvaluationId;
-  }
-  if (output.FinishedAt !== undefined && output.FinishedAt !== null) {
-    contents.FinishedAt = new Date(Math.round(output.FinishedAt * 1000));
-  }
-  if (
-    output.InputDataLocationS3 !== undefined &&
-    output.InputDataLocationS3 !== null
-  ) {
-    contents.InputDataLocationS3 = output.InputDataLocationS3;
-  }
-  if (output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null) {
-    contents.LastUpdatedAt = new Date(Math.round(output.LastUpdatedAt * 1000));
-  }
-  if (output.LogUri !== undefined && output.LogUri !== null) {
-    contents.LogUri = output.LogUri;
-  }
-  if (output.MLModelId !== undefined && output.MLModelId !== null) {
-    contents.MLModelId = output.MLModelId;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (
-    output.PerformanceMetrics !== undefined &&
-    output.PerformanceMetrics !== null
-  ) {
-    contents.PerformanceMetrics = deserializeAws_json1_1PerformanceMetrics(
-      output.PerformanceMetrics,
-      context
-    );
-  }
-  if (output.StartedAt !== undefined && output.StartedAt !== null) {
-    contents.StartedAt = new Date(Math.round(output.StartedAt * 1000));
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  return contents;
+    ComputeTime:
+      output.ComputeTime !== undefined && output.ComputeTime !== null
+        ? output.ComputeTime
+        : undefined,
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? new Date(Math.round(output.CreatedAt * 1000))
+        : undefined,
+    CreatedByIamUser:
+      output.CreatedByIamUser !== undefined && output.CreatedByIamUser !== null
+        ? output.CreatedByIamUser
+        : undefined,
+    EvaluationDataSourceId:
+      output.EvaluationDataSourceId !== undefined &&
+      output.EvaluationDataSourceId !== null
+        ? output.EvaluationDataSourceId
+        : undefined,
+    EvaluationId:
+      output.EvaluationId !== undefined && output.EvaluationId !== null
+        ? output.EvaluationId
+        : undefined,
+    FinishedAt:
+      output.FinishedAt !== undefined && output.FinishedAt !== null
+        ? new Date(Math.round(output.FinishedAt * 1000))
+        : undefined,
+    InputDataLocationS3:
+      output.InputDataLocationS3 !== undefined &&
+      output.InputDataLocationS3 !== null
+        ? output.InputDataLocationS3
+        : undefined,
+    LastUpdatedAt:
+      output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
+        ? new Date(Math.round(output.LastUpdatedAt * 1000))
+        : undefined,
+    LogUri:
+      output.LogUri !== undefined && output.LogUri !== null
+        ? output.LogUri
+        : undefined,
+    MLModelId:
+      output.MLModelId !== undefined && output.MLModelId !== null
+        ? output.MLModelId
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    PerformanceMetrics:
+      output.PerformanceMetrics !== undefined &&
+      output.PerformanceMetrics !== null
+        ? deserializeAws_json1_1PerformanceMetrics(
+            output.PerformanceMetrics,
+            context
+          )
+        : undefined,
+    StartedAt:
+      output.StartedAt !== undefined && output.StartedAt !== null
+        ? new Date(Math.round(output.StartedAt * 1000))
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetMLModelOutput = (
   output: any,
   context: __SerdeContext
 ): GetMLModelOutput => {
-  let contents: any = {
+  return {
     __type: "GetMLModelOutput",
-    ComputeTime: undefined,
-    CreatedAt: undefined,
-    CreatedByIamUser: undefined,
-    EndpointInfo: undefined,
-    FinishedAt: undefined,
-    InputDataLocationS3: undefined,
-    LastUpdatedAt: undefined,
-    LogUri: undefined,
-    MLModelId: undefined,
-    MLModelType: undefined,
-    Message: undefined,
-    Name: undefined,
-    Recipe: undefined,
-    Schema: undefined,
-    ScoreThreshold: undefined,
-    ScoreThresholdLastUpdatedAt: undefined,
-    SizeInBytes: undefined,
-    StartedAt: undefined,
-    Status: undefined,
-    TrainingDataSourceId: undefined,
-    TrainingParameters: undefined
-  };
-  if (output.ComputeTime !== undefined && output.ComputeTime !== null) {
-    contents.ComputeTime = output.ComputeTime;
-  }
-  if (output.CreatedAt !== undefined && output.CreatedAt !== null) {
-    contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
-  }
-  if (
-    output.CreatedByIamUser !== undefined &&
-    output.CreatedByIamUser !== null
-  ) {
-    contents.CreatedByIamUser = output.CreatedByIamUser;
-  }
-  if (output.EndpointInfo !== undefined && output.EndpointInfo !== null) {
-    contents.EndpointInfo = deserializeAws_json1_1RealtimeEndpointInfo(
-      output.EndpointInfo,
-      context
-    );
-  }
-  if (output.FinishedAt !== undefined && output.FinishedAt !== null) {
-    contents.FinishedAt = new Date(Math.round(output.FinishedAt * 1000));
-  }
-  if (
-    output.InputDataLocationS3 !== undefined &&
-    output.InputDataLocationS3 !== null
-  ) {
-    contents.InputDataLocationS3 = output.InputDataLocationS3;
-  }
-  if (output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null) {
-    contents.LastUpdatedAt = new Date(Math.round(output.LastUpdatedAt * 1000));
-  }
-  if (output.LogUri !== undefined && output.LogUri !== null) {
-    contents.LogUri = output.LogUri;
-  }
-  if (output.MLModelId !== undefined && output.MLModelId !== null) {
-    contents.MLModelId = output.MLModelId;
-  }
-  if (output.MLModelType !== undefined && output.MLModelType !== null) {
-    contents.MLModelType = output.MLModelType;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Recipe !== undefined && output.Recipe !== null) {
-    contents.Recipe = output.Recipe;
-  }
-  if (output.Schema !== undefined && output.Schema !== null) {
-    contents.Schema = output.Schema;
-  }
-  if (output.ScoreThreshold !== undefined && output.ScoreThreshold !== null) {
-    contents.ScoreThreshold = output.ScoreThreshold;
-  }
-  if (
-    output.ScoreThresholdLastUpdatedAt !== undefined &&
-    output.ScoreThresholdLastUpdatedAt !== null
-  ) {
-    contents.ScoreThresholdLastUpdatedAt = new Date(
-      Math.round(output.ScoreThresholdLastUpdatedAt * 1000)
-    );
-  }
-  if (output.SizeInBytes !== undefined && output.SizeInBytes !== null) {
-    contents.SizeInBytes = output.SizeInBytes;
-  }
-  if (output.StartedAt !== undefined && output.StartedAt !== null) {
-    contents.StartedAt = new Date(Math.round(output.StartedAt * 1000));
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (
-    output.TrainingDataSourceId !== undefined &&
-    output.TrainingDataSourceId !== null
-  ) {
-    contents.TrainingDataSourceId = output.TrainingDataSourceId;
-  }
-  if (
-    output.TrainingParameters !== undefined &&
-    output.TrainingParameters !== null
-  ) {
-    contents.TrainingParameters = deserializeAws_json1_1TrainingParameters(
-      output.TrainingParameters,
-      context
-    );
-  }
-  return contents;
+    ComputeTime:
+      output.ComputeTime !== undefined && output.ComputeTime !== null
+        ? output.ComputeTime
+        : undefined,
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? new Date(Math.round(output.CreatedAt * 1000))
+        : undefined,
+    CreatedByIamUser:
+      output.CreatedByIamUser !== undefined && output.CreatedByIamUser !== null
+        ? output.CreatedByIamUser
+        : undefined,
+    EndpointInfo:
+      output.EndpointInfo !== undefined && output.EndpointInfo !== null
+        ? deserializeAws_json1_1RealtimeEndpointInfo(
+            output.EndpointInfo,
+            context
+          )
+        : undefined,
+    FinishedAt:
+      output.FinishedAt !== undefined && output.FinishedAt !== null
+        ? new Date(Math.round(output.FinishedAt * 1000))
+        : undefined,
+    InputDataLocationS3:
+      output.InputDataLocationS3 !== undefined &&
+      output.InputDataLocationS3 !== null
+        ? output.InputDataLocationS3
+        : undefined,
+    LastUpdatedAt:
+      output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
+        ? new Date(Math.round(output.LastUpdatedAt * 1000))
+        : undefined,
+    LogUri:
+      output.LogUri !== undefined && output.LogUri !== null
+        ? output.LogUri
+        : undefined,
+    MLModelId:
+      output.MLModelId !== undefined && output.MLModelId !== null
+        ? output.MLModelId
+        : undefined,
+    MLModelType:
+      output.MLModelType !== undefined && output.MLModelType !== null
+        ? output.MLModelType
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Recipe:
+      output.Recipe !== undefined && output.Recipe !== null
+        ? output.Recipe
+        : undefined,
+    Schema:
+      output.Schema !== undefined && output.Schema !== null
+        ? output.Schema
+        : undefined,
+    ScoreThreshold:
+      output.ScoreThreshold !== undefined && output.ScoreThreshold !== null
+        ? output.ScoreThreshold
+        : undefined,
+    ScoreThresholdLastUpdatedAt:
+      output.ScoreThresholdLastUpdatedAt !== undefined &&
+      output.ScoreThresholdLastUpdatedAt !== null
+        ? new Date(Math.round(output.ScoreThresholdLastUpdatedAt * 1000))
+        : undefined,
+    SizeInBytes:
+      output.SizeInBytes !== undefined && output.SizeInBytes !== null
+        ? output.SizeInBytes
+        : undefined,
+    StartedAt:
+      output.StartedAt !== undefined && output.StartedAt !== null
+        ? new Date(Math.round(output.StartedAt * 1000))
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    TrainingDataSourceId:
+      output.TrainingDataSourceId !== undefined &&
+      output.TrainingDataSourceId !== null
+        ? output.TrainingDataSourceId
+        : undefined,
+    TrainingParameters:
+      output.TrainingParameters !== undefined &&
+      output.TrainingParameters !== null
+        ? deserializeAws_json1_1TrainingParameters(
+            output.TrainingParameters,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1IdempotentParameterMismatchException = (
   output: any,
   context: __SerdeContext
 ): IdempotentParameterMismatchException => {
-  let contents: any = {
+  return {
     __type: "IdempotentParameterMismatchException",
-    code: undefined,
-    message: undefined
-  };
-  if (output.code !== undefined && output.code !== null) {
-    contents.code = output.code;
-  }
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    code:
+      output.code !== undefined && output.code !== null
+        ? output.code
+        : undefined,
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InternalServerException = (
   output: any,
   context: __SerdeContext
 ): InternalServerException => {
-  let contents: any = {
+  return {
     __type: "InternalServerException",
-    code: undefined,
-    message: undefined
-  };
-  if (output.code !== undefined && output.code !== null) {
-    contents.code = output.code;
-  }
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    code:
+      output.code !== undefined && output.code !== null
+        ? output.code
+        : undefined,
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidInputException = (
   output: any,
   context: __SerdeContext
 ): InvalidInputException => {
-  let contents: any = {
+  return {
     __type: "InvalidInputException",
-    code: undefined,
-    message: undefined
-  };
-  if (output.code !== undefined && output.code !== null) {
-    contents.code = output.code;
-  }
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    code:
+      output.code !== undefined && output.code !== null
+        ? output.code
+        : undefined,
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidTagException = (
   output: any,
   context: __SerdeContext
 ): InvalidTagException => {
-  let contents: any = {
+  return {
     __type: "InvalidTagException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (
   output: any,
   context: __SerdeContext
 ): LimitExceededException => {
-  let contents: any = {
+  return {
     __type: "LimitExceededException",
-    code: undefined,
-    message: undefined
-  };
-  if (output.code !== undefined && output.code !== null) {
-    contents.code = output.code;
-  }
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    code:
+      output.code !== undefined && output.code !== null
+        ? output.code
+        : undefined,
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1MLModel = (
   output: any,
   context: __SerdeContext
 ): MLModel => {
-  let contents: any = {
+  return {
     __type: "MLModel",
-    Algorithm: undefined,
-    ComputeTime: undefined,
-    CreatedAt: undefined,
-    CreatedByIamUser: undefined,
-    EndpointInfo: undefined,
-    FinishedAt: undefined,
-    InputDataLocationS3: undefined,
-    LastUpdatedAt: undefined,
-    MLModelId: undefined,
-    MLModelType: undefined,
-    Message: undefined,
-    Name: undefined,
-    ScoreThreshold: undefined,
-    ScoreThresholdLastUpdatedAt: undefined,
-    SizeInBytes: undefined,
-    StartedAt: undefined,
-    Status: undefined,
-    TrainingDataSourceId: undefined,
-    TrainingParameters: undefined
-  };
-  if (output.Algorithm !== undefined && output.Algorithm !== null) {
-    contents.Algorithm = output.Algorithm;
-  }
-  if (output.ComputeTime !== undefined && output.ComputeTime !== null) {
-    contents.ComputeTime = output.ComputeTime;
-  }
-  if (output.CreatedAt !== undefined && output.CreatedAt !== null) {
-    contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
-  }
-  if (
-    output.CreatedByIamUser !== undefined &&
-    output.CreatedByIamUser !== null
-  ) {
-    contents.CreatedByIamUser = output.CreatedByIamUser;
-  }
-  if (output.EndpointInfo !== undefined && output.EndpointInfo !== null) {
-    contents.EndpointInfo = deserializeAws_json1_1RealtimeEndpointInfo(
-      output.EndpointInfo,
-      context
-    );
-  }
-  if (output.FinishedAt !== undefined && output.FinishedAt !== null) {
-    contents.FinishedAt = new Date(Math.round(output.FinishedAt * 1000));
-  }
-  if (
-    output.InputDataLocationS3 !== undefined &&
-    output.InputDataLocationS3 !== null
-  ) {
-    contents.InputDataLocationS3 = output.InputDataLocationS3;
-  }
-  if (output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null) {
-    contents.LastUpdatedAt = new Date(Math.round(output.LastUpdatedAt * 1000));
-  }
-  if (output.MLModelId !== undefined && output.MLModelId !== null) {
-    contents.MLModelId = output.MLModelId;
-  }
-  if (output.MLModelType !== undefined && output.MLModelType !== null) {
-    contents.MLModelType = output.MLModelType;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.ScoreThreshold !== undefined && output.ScoreThreshold !== null) {
-    contents.ScoreThreshold = output.ScoreThreshold;
-  }
-  if (
-    output.ScoreThresholdLastUpdatedAt !== undefined &&
-    output.ScoreThresholdLastUpdatedAt !== null
-  ) {
-    contents.ScoreThresholdLastUpdatedAt = new Date(
-      Math.round(output.ScoreThresholdLastUpdatedAt * 1000)
-    );
-  }
-  if (output.SizeInBytes !== undefined && output.SizeInBytes !== null) {
-    contents.SizeInBytes = output.SizeInBytes;
-  }
-  if (output.StartedAt !== undefined && output.StartedAt !== null) {
-    contents.StartedAt = new Date(Math.round(output.StartedAt * 1000));
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (
-    output.TrainingDataSourceId !== undefined &&
-    output.TrainingDataSourceId !== null
-  ) {
-    contents.TrainingDataSourceId = output.TrainingDataSourceId;
-  }
-  if (
-    output.TrainingParameters !== undefined &&
-    output.TrainingParameters !== null
-  ) {
-    contents.TrainingParameters = deserializeAws_json1_1TrainingParameters(
-      output.TrainingParameters,
-      context
-    );
-  }
-  return contents;
+    Algorithm:
+      output.Algorithm !== undefined && output.Algorithm !== null
+        ? output.Algorithm
+        : undefined,
+    ComputeTime:
+      output.ComputeTime !== undefined && output.ComputeTime !== null
+        ? output.ComputeTime
+        : undefined,
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? new Date(Math.round(output.CreatedAt * 1000))
+        : undefined,
+    CreatedByIamUser:
+      output.CreatedByIamUser !== undefined && output.CreatedByIamUser !== null
+        ? output.CreatedByIamUser
+        : undefined,
+    EndpointInfo:
+      output.EndpointInfo !== undefined && output.EndpointInfo !== null
+        ? deserializeAws_json1_1RealtimeEndpointInfo(
+            output.EndpointInfo,
+            context
+          )
+        : undefined,
+    FinishedAt:
+      output.FinishedAt !== undefined && output.FinishedAt !== null
+        ? new Date(Math.round(output.FinishedAt * 1000))
+        : undefined,
+    InputDataLocationS3:
+      output.InputDataLocationS3 !== undefined &&
+      output.InputDataLocationS3 !== null
+        ? output.InputDataLocationS3
+        : undefined,
+    LastUpdatedAt:
+      output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
+        ? new Date(Math.round(output.LastUpdatedAt * 1000))
+        : undefined,
+    MLModelId:
+      output.MLModelId !== undefined && output.MLModelId !== null
+        ? output.MLModelId
+        : undefined,
+    MLModelType:
+      output.MLModelType !== undefined && output.MLModelType !== null
+        ? output.MLModelType
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    ScoreThreshold:
+      output.ScoreThreshold !== undefined && output.ScoreThreshold !== null
+        ? output.ScoreThreshold
+        : undefined,
+    ScoreThresholdLastUpdatedAt:
+      output.ScoreThresholdLastUpdatedAt !== undefined &&
+      output.ScoreThresholdLastUpdatedAt !== null
+        ? new Date(Math.round(output.ScoreThresholdLastUpdatedAt * 1000))
+        : undefined,
+    SizeInBytes:
+      output.SizeInBytes !== undefined && output.SizeInBytes !== null
+        ? output.SizeInBytes
+        : undefined,
+    StartedAt:
+      output.StartedAt !== undefined && output.StartedAt !== null
+        ? new Date(Math.round(output.StartedAt * 1000))
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    TrainingDataSourceId:
+      output.TrainingDataSourceId !== undefined &&
+      output.TrainingDataSourceId !== null
+        ? output.TrainingDataSourceId
+        : undefined,
+    TrainingParameters:
+      output.TrainingParameters !== undefined &&
+      output.TrainingParameters !== null
+        ? deserializeAws_json1_1TrainingParameters(
+            output.TrainingParameters,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1MLModels = (
@@ -4971,17 +4821,16 @@ const deserializeAws_json1_1PerformanceMetrics = (
   output: any,
   context: __SerdeContext
 ): PerformanceMetrics => {
-  let contents: any = {
+  return {
     __type: "PerformanceMetrics",
-    Properties: undefined
-  };
-  if (output.Properties !== undefined && output.Properties !== null) {
-    contents.Properties = deserializeAws_json1_1PerformanceMetricsProperties(
-      output.Properties,
-      context
-    );
-  }
-  return contents;
+    Properties:
+      output.Properties !== undefined && output.Properties !== null
+        ? deserializeAws_json1_1PerformanceMetricsProperties(
+            output.Properties,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PerformanceMetricsProperties = (
@@ -4998,223 +4847,190 @@ const deserializeAws_json1_1PredictOutput = (
   output: any,
   context: __SerdeContext
 ): PredictOutput => {
-  let contents: any = {
+  return {
     __type: "PredictOutput",
-    Prediction: undefined
-  };
-  if (output.Prediction !== undefined && output.Prediction !== null) {
-    contents.Prediction = deserializeAws_json1_1Prediction(
-      output.Prediction,
-      context
-    );
-  }
-  return contents;
+    Prediction:
+      output.Prediction !== undefined && output.Prediction !== null
+        ? deserializeAws_json1_1Prediction(output.Prediction, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Prediction = (
   output: any,
   context: __SerdeContext
 ): Prediction => {
-  let contents: any = {
+  return {
     __type: "Prediction",
-    details: undefined,
-    predictedLabel: undefined,
-    predictedScores: undefined,
-    predictedValue: undefined
-  };
-  if (output.details !== undefined && output.details !== null) {
-    contents.details = deserializeAws_json1_1DetailsMap(
-      output.details,
-      context
-    );
-  }
-  if (output.predictedLabel !== undefined && output.predictedLabel !== null) {
-    contents.predictedLabel = output.predictedLabel;
-  }
-  if (output.predictedScores !== undefined && output.predictedScores !== null) {
-    contents.predictedScores = deserializeAws_json1_1ScoreValuePerLabelMap(
-      output.predictedScores,
-      context
-    );
-  }
-  if (output.predictedValue !== undefined && output.predictedValue !== null) {
-    contents.predictedValue = output.predictedValue;
-  }
-  return contents;
+    details:
+      output.details !== undefined && output.details !== null
+        ? deserializeAws_json1_1DetailsMap(output.details, context)
+        : undefined,
+    predictedLabel:
+      output.predictedLabel !== undefined && output.predictedLabel !== null
+        ? output.predictedLabel
+        : undefined,
+    predictedScores:
+      output.predictedScores !== undefined && output.predictedScores !== null
+        ? deserializeAws_json1_1ScoreValuePerLabelMap(
+            output.predictedScores,
+            context
+          )
+        : undefined,
+    predictedValue:
+      output.predictedValue !== undefined && output.predictedValue !== null
+        ? output.predictedValue
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PredictorNotMountedException = (
   output: any,
   context: __SerdeContext
 ): PredictorNotMountedException => {
-  let contents: any = {
+  return {
     __type: "PredictorNotMountedException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RDSDatabase = (
   output: any,
   context: __SerdeContext
 ): RDSDatabase => {
-  let contents: any = {
+  return {
     __type: "RDSDatabase",
-    DatabaseName: undefined,
-    InstanceIdentifier: undefined
-  };
-  if (output.DatabaseName !== undefined && output.DatabaseName !== null) {
-    contents.DatabaseName = output.DatabaseName;
-  }
-  if (
-    output.InstanceIdentifier !== undefined &&
-    output.InstanceIdentifier !== null
-  ) {
-    contents.InstanceIdentifier = output.InstanceIdentifier;
-  }
-  return contents;
+    DatabaseName:
+      output.DatabaseName !== undefined && output.DatabaseName !== null
+        ? output.DatabaseName
+        : undefined,
+    InstanceIdentifier:
+      output.InstanceIdentifier !== undefined &&
+      output.InstanceIdentifier !== null
+        ? output.InstanceIdentifier
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RDSMetadata = (
   output: any,
   context: __SerdeContext
 ): RDSMetadata => {
-  let contents: any = {
+  return {
     __type: "RDSMetadata",
-    DataPipelineId: undefined,
-    Database: undefined,
-    DatabaseUserName: undefined,
-    ResourceRole: undefined,
-    SelectSqlQuery: undefined,
-    ServiceRole: undefined
-  };
-  if (output.DataPipelineId !== undefined && output.DataPipelineId !== null) {
-    contents.DataPipelineId = output.DataPipelineId;
-  }
-  if (output.Database !== undefined && output.Database !== null) {
-    contents.Database = deserializeAws_json1_1RDSDatabase(
-      output.Database,
-      context
-    );
-  }
-  if (
-    output.DatabaseUserName !== undefined &&
-    output.DatabaseUserName !== null
-  ) {
-    contents.DatabaseUserName = output.DatabaseUserName;
-  }
-  if (output.ResourceRole !== undefined && output.ResourceRole !== null) {
-    contents.ResourceRole = output.ResourceRole;
-  }
-  if (output.SelectSqlQuery !== undefined && output.SelectSqlQuery !== null) {
-    contents.SelectSqlQuery = output.SelectSqlQuery;
-  }
-  if (output.ServiceRole !== undefined && output.ServiceRole !== null) {
-    contents.ServiceRole = output.ServiceRole;
-  }
-  return contents;
+    DataPipelineId:
+      output.DataPipelineId !== undefined && output.DataPipelineId !== null
+        ? output.DataPipelineId
+        : undefined,
+    Database:
+      output.Database !== undefined && output.Database !== null
+        ? deserializeAws_json1_1RDSDatabase(output.Database, context)
+        : undefined,
+    DatabaseUserName:
+      output.DatabaseUserName !== undefined && output.DatabaseUserName !== null
+        ? output.DatabaseUserName
+        : undefined,
+    ResourceRole:
+      output.ResourceRole !== undefined && output.ResourceRole !== null
+        ? output.ResourceRole
+        : undefined,
+    SelectSqlQuery:
+      output.SelectSqlQuery !== undefined && output.SelectSqlQuery !== null
+        ? output.SelectSqlQuery
+        : undefined,
+    ServiceRole:
+      output.ServiceRole !== undefined && output.ServiceRole !== null
+        ? output.ServiceRole
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RealtimeEndpointInfo = (
   output: any,
   context: __SerdeContext
 ): RealtimeEndpointInfo => {
-  let contents: any = {
+  return {
     __type: "RealtimeEndpointInfo",
-    CreatedAt: undefined,
-    EndpointStatus: undefined,
-    EndpointUrl: undefined,
-    PeakRequestsPerSecond: undefined
-  };
-  if (output.CreatedAt !== undefined && output.CreatedAt !== null) {
-    contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
-  }
-  if (output.EndpointStatus !== undefined && output.EndpointStatus !== null) {
-    contents.EndpointStatus = output.EndpointStatus;
-  }
-  if (output.EndpointUrl !== undefined && output.EndpointUrl !== null) {
-    contents.EndpointUrl = output.EndpointUrl;
-  }
-  if (
-    output.PeakRequestsPerSecond !== undefined &&
-    output.PeakRequestsPerSecond !== null
-  ) {
-    contents.PeakRequestsPerSecond = output.PeakRequestsPerSecond;
-  }
-  return contents;
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? new Date(Math.round(output.CreatedAt * 1000))
+        : undefined,
+    EndpointStatus:
+      output.EndpointStatus !== undefined && output.EndpointStatus !== null
+        ? output.EndpointStatus
+        : undefined,
+    EndpointUrl:
+      output.EndpointUrl !== undefined && output.EndpointUrl !== null
+        ? output.EndpointUrl
+        : undefined,
+    PeakRequestsPerSecond:
+      output.PeakRequestsPerSecond !== undefined &&
+      output.PeakRequestsPerSecond !== null
+        ? output.PeakRequestsPerSecond
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RedshiftDatabase = (
   output: any,
   context: __SerdeContext
 ): RedshiftDatabase => {
-  let contents: any = {
+  return {
     __type: "RedshiftDatabase",
-    ClusterIdentifier: undefined,
-    DatabaseName: undefined
-  };
-  if (
-    output.ClusterIdentifier !== undefined &&
-    output.ClusterIdentifier !== null
-  ) {
-    contents.ClusterIdentifier = output.ClusterIdentifier;
-  }
-  if (output.DatabaseName !== undefined && output.DatabaseName !== null) {
-    contents.DatabaseName = output.DatabaseName;
-  }
-  return contents;
+    ClusterIdentifier:
+      output.ClusterIdentifier !== undefined &&
+      output.ClusterIdentifier !== null
+        ? output.ClusterIdentifier
+        : undefined,
+    DatabaseName:
+      output.DatabaseName !== undefined && output.DatabaseName !== null
+        ? output.DatabaseName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RedshiftMetadata = (
   output: any,
   context: __SerdeContext
 ): RedshiftMetadata => {
-  let contents: any = {
+  return {
     __type: "RedshiftMetadata",
-    DatabaseUserName: undefined,
-    RedshiftDatabase: undefined,
-    SelectSqlQuery: undefined
-  };
-  if (
-    output.DatabaseUserName !== undefined &&
-    output.DatabaseUserName !== null
-  ) {
-    contents.DatabaseUserName = output.DatabaseUserName;
-  }
-  if (
-    output.RedshiftDatabase !== undefined &&
-    output.RedshiftDatabase !== null
-  ) {
-    contents.RedshiftDatabase = deserializeAws_json1_1RedshiftDatabase(
-      output.RedshiftDatabase,
-      context
-    );
-  }
-  if (output.SelectSqlQuery !== undefined && output.SelectSqlQuery !== null) {
-    contents.SelectSqlQuery = output.SelectSqlQuery;
-  }
-  return contents;
+    DatabaseUserName:
+      output.DatabaseUserName !== undefined && output.DatabaseUserName !== null
+        ? output.DatabaseUserName
+        : undefined,
+    RedshiftDatabase:
+      output.RedshiftDatabase !== undefined && output.RedshiftDatabase !== null
+        ? deserializeAws_json1_1RedshiftDatabase(
+            output.RedshiftDatabase,
+            context
+          )
+        : undefined,
+    SelectSqlQuery:
+      output.SelectSqlQuery !== undefined && output.SelectSqlQuery !== null
+        ? output.SelectSqlQuery
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ResourceNotFoundException => {
-  let contents: any = {
+  return {
     __type: "ResourceNotFoundException",
-    code: undefined,
-    message: undefined
-  };
-  if (output.code !== undefined && output.code !== null) {
-    contents.code = output.code;
-  }
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    code:
+      output.code !== undefined && output.code !== null
+        ? output.code
+        : undefined,
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ScoreValuePerLabelMap = (
@@ -5231,32 +5047,28 @@ const deserializeAws_json1_1Tag = (
   output: any,
   context: __SerdeContext
 ): Tag => {
-  let contents: any = {
+  return {
     __type: "Tag",
-    Key: undefined,
-    Value: undefined
-  };
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TagLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): TagLimitExceededException => {
-  let contents: any = {
+  return {
     __type: "TagLimitExceededException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TagList = (
@@ -5282,59 +5094,53 @@ const deserializeAws_json1_1UpdateBatchPredictionOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateBatchPredictionOutput => {
-  let contents: any = {
+  return {
     __type: "UpdateBatchPredictionOutput",
-    BatchPredictionId: undefined
-  };
-  if (
-    output.BatchPredictionId !== undefined &&
-    output.BatchPredictionId !== null
-  ) {
-    contents.BatchPredictionId = output.BatchPredictionId;
-  }
-  return contents;
+    BatchPredictionId:
+      output.BatchPredictionId !== undefined &&
+      output.BatchPredictionId !== null
+        ? output.BatchPredictionId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateDataSourceOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateDataSourceOutput => {
-  let contents: any = {
+  return {
     __type: "UpdateDataSourceOutput",
-    DataSourceId: undefined
-  };
-  if (output.DataSourceId !== undefined && output.DataSourceId !== null) {
-    contents.DataSourceId = output.DataSourceId;
-  }
-  return contents;
+    DataSourceId:
+      output.DataSourceId !== undefined && output.DataSourceId !== null
+        ? output.DataSourceId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateEvaluationOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateEvaluationOutput => {
-  let contents: any = {
+  return {
     __type: "UpdateEvaluationOutput",
-    EvaluationId: undefined
-  };
-  if (output.EvaluationId !== undefined && output.EvaluationId !== null) {
-    contents.EvaluationId = output.EvaluationId;
-  }
-  return contents;
+    EvaluationId:
+      output.EvaluationId !== undefined && output.EvaluationId !== null
+        ? output.EvaluationId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateMLModelOutput = (
   output: any,
   context: __SerdeContext
 ): UpdateMLModelOutput => {
-  let contents: any = {
+  return {
     __type: "UpdateMLModelOutput",
-    MLModelId: undefined
-  };
-  if (output.MLModelId !== undefined && output.MLModelId !== null) {
-    contents.MLModelId = output.MLModelId;
-  }
-  return contents;
+    MLModelId:
+      output.MLModelId !== undefined && output.MLModelId !== null
+        ? output.MLModelId
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

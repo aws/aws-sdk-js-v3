@@ -1199,121 +1199,111 @@ const deserializeAws_restJson1_1ChangeSetSummaryListItem = (
   output: any,
   context: __SerdeContext
 ): ChangeSetSummaryListItem => {
-  let contents: any = {
+  return {
     __type: "ChangeSetSummaryListItem",
-    ChangeSetArn: undefined,
-    ChangeSetId: undefined,
-    ChangeSetName: undefined,
-    EndTime: undefined,
-    EntityIdList: undefined,
-    StartTime: undefined,
-    Status: undefined
-  };
-  if (output.ChangeSetArn !== undefined && output.ChangeSetArn !== null) {
-    contents.ChangeSetArn = output.ChangeSetArn;
-  }
-  if (output.ChangeSetId !== undefined && output.ChangeSetId !== null) {
-    contents.ChangeSetId = output.ChangeSetId;
-  }
-  if (output.ChangeSetName !== undefined && output.ChangeSetName !== null) {
-    contents.ChangeSetName = output.ChangeSetName;
-  }
-  if (output.EndTime !== undefined && output.EndTime !== null) {
-    contents.EndTime = output.EndTime;
-  }
-  if (output.EntityIdList !== undefined && output.EntityIdList !== null) {
-    contents.EntityIdList = deserializeAws_restJson1_1ResourceIdList(
-      output.EntityIdList,
-      context
-    );
-  }
-  if (output.StartTime !== undefined && output.StartTime !== null) {
-    contents.StartTime = output.StartTime;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  return contents;
+    ChangeSetArn:
+      output.ChangeSetArn !== undefined && output.ChangeSetArn !== null
+        ? output.ChangeSetArn
+        : undefined,
+    ChangeSetId:
+      output.ChangeSetId !== undefined && output.ChangeSetId !== null
+        ? output.ChangeSetId
+        : undefined,
+    ChangeSetName:
+      output.ChangeSetName !== undefined && output.ChangeSetName !== null
+        ? output.ChangeSetName
+        : undefined,
+    EndTime:
+      output.EndTime !== undefined && output.EndTime !== null
+        ? output.EndTime
+        : undefined,
+    EntityIdList:
+      output.EntityIdList !== undefined && output.EntityIdList !== null
+        ? deserializeAws_restJson1_1ResourceIdList(output.EntityIdList, context)
+        : undefined,
+    StartTime:
+      output.StartTime !== undefined && output.StartTime !== null
+        ? output.StartTime
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ChangeSummary = (
   output: any,
   context: __SerdeContext
 ): ChangeSummary => {
-  let contents: any = {
+  return {
     __type: "ChangeSummary",
-    ChangeType: undefined,
-    Entity: undefined,
-    ErrorDetailList: undefined
-  };
-  if (output.ChangeType !== undefined && output.ChangeType !== null) {
-    contents.ChangeType = output.ChangeType;
-  }
-  if (output.Entity !== undefined && output.Entity !== null) {
-    contents.Entity = deserializeAws_restJson1_1Entity(output.Entity, context);
-  }
-  if (output.ErrorDetailList !== undefined && output.ErrorDetailList !== null) {
-    contents.ErrorDetailList = deserializeAws_restJson1_1ErrorDetailList(
-      output.ErrorDetailList,
-      context
-    );
-  }
-  return contents;
+    ChangeType:
+      output.ChangeType !== undefined && output.ChangeType !== null
+        ? output.ChangeType
+        : undefined,
+    Entity:
+      output.Entity !== undefined && output.Entity !== null
+        ? deserializeAws_restJson1_1Entity(output.Entity, context)
+        : undefined,
+    ErrorDetailList:
+      output.ErrorDetailList !== undefined && output.ErrorDetailList !== null
+        ? deserializeAws_restJson1_1ErrorDetailList(
+            output.ErrorDetailList,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Entity = (
   output: any,
   context: __SerdeContext
 ): Entity => {
-  let contents: any = {
+  return {
     __type: "Entity",
-    Identifier: undefined,
-    Type: undefined
-  };
-  if (output.Identifier !== undefined && output.Identifier !== null) {
-    contents.Identifier = output.Identifier;
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    Identifier:
+      output.Identifier !== undefined && output.Identifier !== null
+        ? output.Identifier
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1EntitySummary = (
   output: any,
   context: __SerdeContext
 ): EntitySummary => {
-  let contents: any = {
+  return {
     __type: "EntitySummary",
-    EntityArn: undefined,
-    EntityId: undefined,
-    EntityType: undefined,
-    LastModifiedDate: undefined,
-    Name: undefined,
-    Visibility: undefined
-  };
-  if (output.EntityArn !== undefined && output.EntityArn !== null) {
-    contents.EntityArn = output.EntityArn;
-  }
-  if (output.EntityId !== undefined && output.EntityId !== null) {
-    contents.EntityId = output.EntityId;
-  }
-  if (output.EntityType !== undefined && output.EntityType !== null) {
-    contents.EntityType = output.EntityType;
-  }
-  if (
-    output.LastModifiedDate !== undefined &&
-    output.LastModifiedDate !== null
-  ) {
-    contents.LastModifiedDate = output.LastModifiedDate;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Visibility !== undefined && output.Visibility !== null) {
-    contents.Visibility = output.Visibility;
-  }
-  return contents;
+    EntityArn:
+      output.EntityArn !== undefined && output.EntityArn !== null
+        ? output.EntityArn
+        : undefined,
+    EntityId:
+      output.EntityId !== undefined && output.EntityId !== null
+        ? output.EntityId
+        : undefined,
+    EntityType:
+      output.EntityType !== undefined && output.EntityType !== null
+        ? output.EntityType
+        : undefined,
+    LastModifiedDate:
+      output.LastModifiedDate !== undefined && output.LastModifiedDate !== null
+        ? output.LastModifiedDate
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Visibility:
+      output.Visibility !== undefined && output.Visibility !== null
+        ? output.Visibility
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1EntitySummaryList = (
@@ -1329,18 +1319,17 @@ const deserializeAws_restJson1_1ErrorDetail = (
   output: any,
   context: __SerdeContext
 ): ErrorDetail => {
-  let contents: any = {
+  return {
     __type: "ErrorDetail",
-    ErrorCode: undefined,
-    ErrorMessage: undefined
-  };
-  if (output.ErrorCode !== undefined && output.ErrorCode !== null) {
-    contents.ErrorCode = output.ErrorCode;
-  }
-  if (output.ErrorMessage !== undefined && output.ErrorMessage !== null) {
-    contents.ErrorMessage = output.ErrorMessage;
-  }
-  return contents;
+    ErrorCode:
+      output.ErrorCode !== undefined && output.ErrorCode !== null
+        ? output.ErrorCode
+        : undefined,
+    ErrorMessage:
+      output.ErrorMessage !== undefined && output.ErrorMessage !== null
+        ? output.ErrorMessage
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ErrorDetailList = (

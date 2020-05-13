@@ -2155,40 +2155,38 @@ const deserializeAws_restJson1_1Group = (
   output: any,
   context: __SerdeContext
 ): Group => {
-  let contents: any = {
+  return {
     __type: "Group",
-    Description: undefined,
-    GroupArn: undefined,
-    Name: undefined
-  };
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (output.GroupArn !== undefined && output.GroupArn !== null) {
-    contents.GroupArn = output.GroupArn;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    GroupArn:
+      output.GroupArn !== undefined && output.GroupArn !== null
+        ? output.GroupArn
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1GroupIdentifier = (
   output: any,
   context: __SerdeContext
 ): GroupIdentifier => {
-  let contents: any = {
+  return {
     __type: "GroupIdentifier",
-    GroupArn: undefined,
-    GroupName: undefined
-  };
-  if (output.GroupArn !== undefined && output.GroupArn !== null) {
-    contents.GroupArn = output.GroupArn;
-  }
-  if (output.GroupName !== undefined && output.GroupName !== null) {
-    contents.GroupName = output.GroupName;
-  }
-  return contents;
+    GroupArn:
+      output.GroupArn !== undefined && output.GroupArn !== null
+        ? output.GroupArn
+        : undefined,
+    GroupName:
+      output.GroupName !== undefined && output.GroupName !== null
+        ? output.GroupName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1GroupIdentifierList = (
@@ -2213,39 +2211,34 @@ const deserializeAws_restJson1_1GroupQuery = (
   output: any,
   context: __SerdeContext
 ): GroupQuery => {
-  let contents: any = {
+  return {
     __type: "GroupQuery",
-    GroupName: undefined,
-    ResourceQuery: undefined
-  };
-  if (output.GroupName !== undefined && output.GroupName !== null) {
-    contents.GroupName = output.GroupName;
-  }
-  if (output.ResourceQuery !== undefined && output.ResourceQuery !== null) {
-    contents.ResourceQuery = deserializeAws_restJson1_1ResourceQuery(
-      output.ResourceQuery,
-      context
-    );
-  }
-  return contents;
+    GroupName:
+      output.GroupName !== undefined && output.GroupName !== null
+        ? output.GroupName
+        : undefined,
+    ResourceQuery:
+      output.ResourceQuery !== undefined && output.ResourceQuery !== null
+        ? deserializeAws_restJson1_1ResourceQuery(output.ResourceQuery, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1QueryError = (
   output: any,
   context: __SerdeContext
 ): QueryError => {
-  let contents: any = {
+  return {
     __type: "QueryError",
-    ErrorCode: undefined,
-    Message: undefined
-  };
-  if (output.ErrorCode !== undefined && output.ErrorCode !== null) {
-    contents.ErrorCode = output.ErrorCode;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    ErrorCode:
+      output.ErrorCode !== undefined && output.ErrorCode !== null
+        ? output.ErrorCode
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1QueryErrorList = (
@@ -2261,18 +2254,17 @@ const deserializeAws_restJson1_1ResourceIdentifier = (
   output: any,
   context: __SerdeContext
 ): ResourceIdentifier => {
-  let contents: any = {
+  return {
     __type: "ResourceIdentifier",
-    ResourceArn: undefined,
-    ResourceType: undefined
-  };
-  if (output.ResourceArn !== undefined && output.ResourceArn !== null) {
-    contents.ResourceArn = output.ResourceArn;
-  }
-  if (output.ResourceType !== undefined && output.ResourceType !== null) {
-    contents.ResourceType = output.ResourceType;
-  }
-  return contents;
+    ResourceArn:
+      output.ResourceArn !== undefined && output.ResourceArn !== null
+        ? output.ResourceArn
+        : undefined,
+    ResourceType:
+      output.ResourceType !== undefined && output.ResourceType !== null
+        ? output.ResourceType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ResourceIdentifierList = (
@@ -2288,18 +2280,17 @@ const deserializeAws_restJson1_1ResourceQuery = (
   output: any,
   context: __SerdeContext
 ): ResourceQuery => {
-  let contents: any = {
+  return {
     __type: "ResourceQuery",
-    Query: undefined,
-    Type: undefined
-  };
-  if (output.Query !== undefined && output.Query !== null) {
-    contents.Query = output.Query;
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    Query:
+      output.Query !== undefined && output.Query !== null
+        ? output.Query
+        : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1TagKeyList = (

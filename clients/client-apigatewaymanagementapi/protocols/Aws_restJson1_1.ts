@@ -461,18 +461,17 @@ const deserializeAws_restJson1_1Identity = (
   output: any,
   context: __SerdeContext
 ): Identity => {
-  let contents: any = {
+  return {
     __type: "Identity",
-    SourceIp: undefined,
-    UserAgent: undefined
-  };
-  if (output.sourceIp !== undefined && output.sourceIp !== null) {
-    contents.SourceIp = output.sourceIp;
-  }
-  if (output.userAgent !== undefined && output.userAgent !== null) {
-    contents.UserAgent = output.userAgent;
-  }
-  return contents;
+    SourceIp:
+      output.sourceIp !== undefined && output.sourceIp !== null
+        ? output.sourceIp
+        : undefined,
+    UserAgent:
+      output.userAgent !== undefined && output.userAgent !== null
+        ? output.userAgent
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

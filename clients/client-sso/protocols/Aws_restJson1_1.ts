@@ -601,22 +601,21 @@ const deserializeAws_restJson1_1AccountInfo = (
   output: any,
   context: __SerdeContext
 ): AccountInfo => {
-  let contents: any = {
+  return {
     __type: "AccountInfo",
-    accountId: undefined,
-    accountName: undefined,
-    emailAddress: undefined
-  };
-  if (output.accountId !== undefined && output.accountId !== null) {
-    contents.accountId = output.accountId;
-  }
-  if (output.accountName !== undefined && output.accountName !== null) {
-    contents.accountName = output.accountName;
-  }
-  if (output.emailAddress !== undefined && output.emailAddress !== null) {
-    contents.emailAddress = output.emailAddress;
-  }
-  return contents;
+    accountId:
+      output.accountId !== undefined && output.accountId !== null
+        ? output.accountId
+        : undefined,
+    accountName:
+      output.accountName !== undefined && output.accountName !== null
+        ? output.accountName
+        : undefined,
+    emailAddress:
+      output.emailAddress !== undefined && output.emailAddress !== null
+        ? output.emailAddress
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1AccountListType = (
@@ -632,44 +631,42 @@ const deserializeAws_restJson1_1RoleCredentials = (
   output: any,
   context: __SerdeContext
 ): RoleCredentials => {
-  let contents: any = {
+  return {
     __type: "RoleCredentials",
-    accessKeyId: undefined,
-    expiration: undefined,
-    secretAccessKey: undefined,
-    sessionToken: undefined
-  };
-  if (output.accessKeyId !== undefined && output.accessKeyId !== null) {
-    contents.accessKeyId = output.accessKeyId;
-  }
-  if (output.expiration !== undefined && output.expiration !== null) {
-    contents.expiration = output.expiration;
-  }
-  if (output.secretAccessKey !== undefined && output.secretAccessKey !== null) {
-    contents.secretAccessKey = output.secretAccessKey;
-  }
-  if (output.sessionToken !== undefined && output.sessionToken !== null) {
-    contents.sessionToken = output.sessionToken;
-  }
-  return contents;
+    accessKeyId:
+      output.accessKeyId !== undefined && output.accessKeyId !== null
+        ? output.accessKeyId
+        : undefined,
+    expiration:
+      output.expiration !== undefined && output.expiration !== null
+        ? output.expiration
+        : undefined,
+    secretAccessKey:
+      output.secretAccessKey !== undefined && output.secretAccessKey !== null
+        ? output.secretAccessKey
+        : undefined,
+    sessionToken:
+      output.sessionToken !== undefined && output.sessionToken !== null
+        ? output.sessionToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1RoleInfo = (
   output: any,
   context: __SerdeContext
 ): RoleInfo => {
-  let contents: any = {
+  return {
     __type: "RoleInfo",
-    accountId: undefined,
-    roleName: undefined
-  };
-  if (output.accountId !== undefined && output.accountId !== null) {
-    contents.accountId = output.accountId;
-  }
-  if (output.roleName !== undefined && output.roleName !== null) {
-    contents.roleName = output.roleName;
-  }
-  return contents;
+    accountId:
+      output.accountId !== undefined && output.accountId !== null
+        ? output.accountId
+        : undefined,
+    roleName:
+      output.roleName !== undefined && output.roleName !== null
+        ? output.roleName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1RoleListType = (

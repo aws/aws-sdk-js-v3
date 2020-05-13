@@ -3241,64 +3241,56 @@ const deserializeAws_restJson1_1ApprovalThresholdPolicy = (
   output: any,
   context: __SerdeContext
 ): ApprovalThresholdPolicy => {
-  let contents: any = {
+  return {
     __type: "ApprovalThresholdPolicy",
-    ProposalDurationInHours: undefined,
-    ThresholdComparator: undefined,
-    ThresholdPercentage: undefined
-  };
-  if (
-    output.ProposalDurationInHours !== undefined &&
-    output.ProposalDurationInHours !== null
-  ) {
-    contents.ProposalDurationInHours = output.ProposalDurationInHours;
-  }
-  if (
-    output.ThresholdComparator !== undefined &&
-    output.ThresholdComparator !== null
-  ) {
-    contents.ThresholdComparator = output.ThresholdComparator;
-  }
-  if (
-    output.ThresholdPercentage !== undefined &&
-    output.ThresholdPercentage !== null
-  ) {
-    contents.ThresholdPercentage = output.ThresholdPercentage;
-  }
-  return contents;
+    ProposalDurationInHours:
+      output.ProposalDurationInHours !== undefined &&
+      output.ProposalDurationInHours !== null
+        ? output.ProposalDurationInHours
+        : undefined,
+    ThresholdComparator:
+      output.ThresholdComparator !== undefined &&
+      output.ThresholdComparator !== null
+        ? output.ThresholdComparator
+        : undefined,
+    ThresholdPercentage:
+      output.ThresholdPercentage !== undefined &&
+      output.ThresholdPercentage !== null
+        ? output.ThresholdPercentage
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Invitation = (
   output: any,
   context: __SerdeContext
 ): Invitation => {
-  let contents: any = {
+  return {
     __type: "Invitation",
-    CreationDate: undefined,
-    ExpirationDate: undefined,
-    InvitationId: undefined,
-    NetworkSummary: undefined,
-    Status: undefined
-  };
-  if (output.CreationDate !== undefined && output.CreationDate !== null) {
-    contents.CreationDate = new Date(output.CreationDate);
-  }
-  if (output.ExpirationDate !== undefined && output.ExpirationDate !== null) {
-    contents.ExpirationDate = new Date(output.ExpirationDate);
-  }
-  if (output.InvitationId !== undefined && output.InvitationId !== null) {
-    contents.InvitationId = output.InvitationId;
-  }
-  if (output.NetworkSummary !== undefined && output.NetworkSummary !== null) {
-    contents.NetworkSummary = deserializeAws_restJson1_1NetworkSummary(
-      output.NetworkSummary,
-      context
-    );
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  return contents;
+    CreationDate:
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? new Date(output.CreationDate)
+        : undefined,
+    ExpirationDate:
+      output.ExpirationDate !== undefined && output.ExpirationDate !== null
+        ? new Date(output.ExpirationDate)
+        : undefined,
+    InvitationId:
+      output.InvitationId !== undefined && output.InvitationId !== null
+        ? output.InvitationId
+        : undefined,
+    NetworkSummary:
+      output.NetworkSummary !== undefined && output.NetworkSummary !== null
+        ? deserializeAws_restJson1_1NetworkSummary(
+            output.NetworkSummary,
+            context
+          )
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1InvitationList = (
@@ -3314,14 +3306,13 @@ const deserializeAws_restJson1_1InviteAction = (
   output: any,
   context: __SerdeContext
 ): InviteAction => {
-  let contents: any = {
+  return {
     __type: "InviteAction",
-    Principal: undefined
-  };
-  if (output.Principal !== undefined && output.Principal !== null) {
-    contents.Principal = output.Principal;
-  }
-  return contents;
+    Principal:
+      output.Principal !== undefined && output.Principal !== null
+        ? output.Principal
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1InviteActionList = (
@@ -3337,113 +3328,101 @@ const deserializeAws_restJson1_1Member = (
   output: any,
   context: __SerdeContext
 ): Member => {
-  let contents: any = {
+  return {
     __type: "Member",
-    CreationDate: undefined,
-    Description: undefined,
-    FrameworkAttributes: undefined,
-    Id: undefined,
-    Name: undefined,
-    NetworkId: undefined,
-    Status: undefined
-  };
-  if (output.CreationDate !== undefined && output.CreationDate !== null) {
-    contents.CreationDate = new Date(output.CreationDate);
-  }
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (
-    output.FrameworkAttributes !== undefined &&
-    output.FrameworkAttributes !== null
-  ) {
-    contents.FrameworkAttributes = deserializeAws_restJson1_1MemberFrameworkAttributes(
-      output.FrameworkAttributes,
-      context
-    );
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.NetworkId !== undefined && output.NetworkId !== null) {
-    contents.NetworkId = output.NetworkId;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  return contents;
+    CreationDate:
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? new Date(output.CreationDate)
+        : undefined,
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    FrameworkAttributes:
+      output.FrameworkAttributes !== undefined &&
+      output.FrameworkAttributes !== null
+        ? deserializeAws_restJson1_1MemberFrameworkAttributes(
+            output.FrameworkAttributes,
+            context
+          )
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    NetworkId:
+      output.NetworkId !== undefined && output.NetworkId !== null
+        ? output.NetworkId
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1MemberFabricAttributes = (
   output: any,
   context: __SerdeContext
 ): MemberFabricAttributes => {
-  let contents: any = {
+  return {
     __type: "MemberFabricAttributes",
-    AdminUsername: undefined,
-    CaEndpoint: undefined
-  };
-  if (output.AdminUsername !== undefined && output.AdminUsername !== null) {
-    contents.AdminUsername = output.AdminUsername;
-  }
-  if (output.CaEndpoint !== undefined && output.CaEndpoint !== null) {
-    contents.CaEndpoint = output.CaEndpoint;
-  }
-  return contents;
+    AdminUsername:
+      output.AdminUsername !== undefined && output.AdminUsername !== null
+        ? output.AdminUsername
+        : undefined,
+    CaEndpoint:
+      output.CaEndpoint !== undefined && output.CaEndpoint !== null
+        ? output.CaEndpoint
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1MemberFrameworkAttributes = (
   output: any,
   context: __SerdeContext
 ): MemberFrameworkAttributes => {
-  let contents: any = {
+  return {
     __type: "MemberFrameworkAttributes",
-    Fabric: undefined
-  };
-  if (output.Fabric !== undefined && output.Fabric !== null) {
-    contents.Fabric = deserializeAws_restJson1_1MemberFabricAttributes(
-      output.Fabric,
-      context
-    );
-  }
-  return contents;
+    Fabric:
+      output.Fabric !== undefined && output.Fabric !== null
+        ? deserializeAws_restJson1_1MemberFabricAttributes(
+            output.Fabric,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1MemberSummary = (
   output: any,
   context: __SerdeContext
 ): MemberSummary => {
-  let contents: any = {
+  return {
     __type: "MemberSummary",
-    CreationDate: undefined,
-    Description: undefined,
-    Id: undefined,
-    IsOwned: undefined,
-    Name: undefined,
-    Status: undefined
-  };
-  if (output.CreationDate !== undefined && output.CreationDate !== null) {
-    contents.CreationDate = new Date(output.CreationDate);
-  }
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.IsOwned !== undefined && output.IsOwned !== null) {
-    contents.IsOwned = output.IsOwned;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  return contents;
+    CreationDate:
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? new Date(output.CreationDate)
+        : undefined,
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    IsOwned:
+      output.IsOwned !== undefined && output.IsOwned !== null
+        ? output.IsOwned
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1MemberSummaryList = (
@@ -3459,144 +3438,119 @@ const deserializeAws_restJson1_1Network = (
   output: any,
   context: __SerdeContext
 ): Network => {
-  let contents: any = {
+  return {
     __type: "Network",
-    CreationDate: undefined,
-    Description: undefined,
-    Framework: undefined,
-    FrameworkAttributes: undefined,
-    FrameworkVersion: undefined,
-    Id: undefined,
-    Name: undefined,
-    Status: undefined,
-    VotingPolicy: undefined,
-    VpcEndpointServiceName: undefined
-  };
-  if (output.CreationDate !== undefined && output.CreationDate !== null) {
-    contents.CreationDate = new Date(output.CreationDate);
-  }
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (output.Framework !== undefined && output.Framework !== null) {
-    contents.Framework = output.Framework;
-  }
-  if (
-    output.FrameworkAttributes !== undefined &&
-    output.FrameworkAttributes !== null
-  ) {
-    contents.FrameworkAttributes = deserializeAws_restJson1_1NetworkFrameworkAttributes(
-      output.FrameworkAttributes,
-      context
-    );
-  }
-  if (
-    output.FrameworkVersion !== undefined &&
-    output.FrameworkVersion !== null
-  ) {
-    contents.FrameworkVersion = output.FrameworkVersion;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.VotingPolicy !== undefined && output.VotingPolicy !== null) {
-    contents.VotingPolicy = deserializeAws_restJson1_1VotingPolicy(
-      output.VotingPolicy,
-      context
-    );
-  }
-  if (
-    output.VpcEndpointServiceName !== undefined &&
-    output.VpcEndpointServiceName !== null
-  ) {
-    contents.VpcEndpointServiceName = output.VpcEndpointServiceName;
-  }
-  return contents;
+    CreationDate:
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? new Date(output.CreationDate)
+        : undefined,
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    Framework:
+      output.Framework !== undefined && output.Framework !== null
+        ? output.Framework
+        : undefined,
+    FrameworkAttributes:
+      output.FrameworkAttributes !== undefined &&
+      output.FrameworkAttributes !== null
+        ? deserializeAws_restJson1_1NetworkFrameworkAttributes(
+            output.FrameworkAttributes,
+            context
+          )
+        : undefined,
+    FrameworkVersion:
+      output.FrameworkVersion !== undefined && output.FrameworkVersion !== null
+        ? output.FrameworkVersion
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    VotingPolicy:
+      output.VotingPolicy !== undefined && output.VotingPolicy !== null
+        ? deserializeAws_restJson1_1VotingPolicy(output.VotingPolicy, context)
+        : undefined,
+    VpcEndpointServiceName:
+      output.VpcEndpointServiceName !== undefined &&
+      output.VpcEndpointServiceName !== null
+        ? output.VpcEndpointServiceName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1NetworkFabricAttributes = (
   output: any,
   context: __SerdeContext
 ): NetworkFabricAttributes => {
-  let contents: any = {
+  return {
     __type: "NetworkFabricAttributes",
-    Edition: undefined,
-    OrderingServiceEndpoint: undefined
-  };
-  if (output.Edition !== undefined && output.Edition !== null) {
-    contents.Edition = output.Edition;
-  }
-  if (
-    output.OrderingServiceEndpoint !== undefined &&
-    output.OrderingServiceEndpoint !== null
-  ) {
-    contents.OrderingServiceEndpoint = output.OrderingServiceEndpoint;
-  }
-  return contents;
+    Edition:
+      output.Edition !== undefined && output.Edition !== null
+        ? output.Edition
+        : undefined,
+    OrderingServiceEndpoint:
+      output.OrderingServiceEndpoint !== undefined &&
+      output.OrderingServiceEndpoint !== null
+        ? output.OrderingServiceEndpoint
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1NetworkFrameworkAttributes = (
   output: any,
   context: __SerdeContext
 ): NetworkFrameworkAttributes => {
-  let contents: any = {
+  return {
     __type: "NetworkFrameworkAttributes",
-    Fabric: undefined
-  };
-  if (output.Fabric !== undefined && output.Fabric !== null) {
-    contents.Fabric = deserializeAws_restJson1_1NetworkFabricAttributes(
-      output.Fabric,
-      context
-    );
-  }
-  return contents;
+    Fabric:
+      output.Fabric !== undefined && output.Fabric !== null
+        ? deserializeAws_restJson1_1NetworkFabricAttributes(
+            output.Fabric,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1NetworkSummary = (
   output: any,
   context: __SerdeContext
 ): NetworkSummary => {
-  let contents: any = {
+  return {
     __type: "NetworkSummary",
-    CreationDate: undefined,
-    Description: undefined,
-    Framework: undefined,
-    FrameworkVersion: undefined,
-    Id: undefined,
-    Name: undefined,
-    Status: undefined
-  };
-  if (output.CreationDate !== undefined && output.CreationDate !== null) {
-    contents.CreationDate = new Date(output.CreationDate);
-  }
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (output.Framework !== undefined && output.Framework !== null) {
-    contents.Framework = output.Framework;
-  }
-  if (
-    output.FrameworkVersion !== undefined &&
-    output.FrameworkVersion !== null
-  ) {
-    contents.FrameworkVersion = output.FrameworkVersion;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  return contents;
+    CreationDate:
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? new Date(output.CreationDate)
+        : undefined,
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    Framework:
+      output.Framework !== undefined && output.Framework !== null
+        ? output.Framework
+        : undefined,
+    FrameworkVersion:
+      output.FrameworkVersion !== undefined && output.FrameworkVersion !== null
+        ? output.FrameworkVersion
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1NetworkSummaryList = (
@@ -3612,122 +3566,99 @@ const deserializeAws_restJson1_1Node = (
   output: any,
   context: __SerdeContext
 ): Node => {
-  let contents: any = {
+  return {
     __type: "Node",
-    AvailabilityZone: undefined,
-    CreationDate: undefined,
-    FrameworkAttributes: undefined,
-    Id: undefined,
-    InstanceType: undefined,
-    MemberId: undefined,
-    NetworkId: undefined,
-    Status: undefined
-  };
-  if (
-    output.AvailabilityZone !== undefined &&
-    output.AvailabilityZone !== null
-  ) {
-    contents.AvailabilityZone = output.AvailabilityZone;
-  }
-  if (output.CreationDate !== undefined && output.CreationDate !== null) {
-    contents.CreationDate = new Date(output.CreationDate);
-  }
-  if (
-    output.FrameworkAttributes !== undefined &&
-    output.FrameworkAttributes !== null
-  ) {
-    contents.FrameworkAttributes = deserializeAws_restJson1_1NodeFrameworkAttributes(
-      output.FrameworkAttributes,
-      context
-    );
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.InstanceType !== undefined && output.InstanceType !== null) {
-    contents.InstanceType = output.InstanceType;
-  }
-  if (output.MemberId !== undefined && output.MemberId !== null) {
-    contents.MemberId = output.MemberId;
-  }
-  if (output.NetworkId !== undefined && output.NetworkId !== null) {
-    contents.NetworkId = output.NetworkId;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  return contents;
+    AvailabilityZone:
+      output.AvailabilityZone !== undefined && output.AvailabilityZone !== null
+        ? output.AvailabilityZone
+        : undefined,
+    CreationDate:
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? new Date(output.CreationDate)
+        : undefined,
+    FrameworkAttributes:
+      output.FrameworkAttributes !== undefined &&
+      output.FrameworkAttributes !== null
+        ? deserializeAws_restJson1_1NodeFrameworkAttributes(
+            output.FrameworkAttributes,
+            context
+          )
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    InstanceType:
+      output.InstanceType !== undefined && output.InstanceType !== null
+        ? output.InstanceType
+        : undefined,
+    MemberId:
+      output.MemberId !== undefined && output.MemberId !== null
+        ? output.MemberId
+        : undefined,
+    NetworkId:
+      output.NetworkId !== undefined && output.NetworkId !== null
+        ? output.NetworkId
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1NodeFabricAttributes = (
   output: any,
   context: __SerdeContext
 ): NodeFabricAttributes => {
-  let contents: any = {
+  return {
     __type: "NodeFabricAttributes",
-    PeerEndpoint: undefined,
-    PeerEventEndpoint: undefined
-  };
-  if (output.PeerEndpoint !== undefined && output.PeerEndpoint !== null) {
-    contents.PeerEndpoint = output.PeerEndpoint;
-  }
-  if (
-    output.PeerEventEndpoint !== undefined &&
-    output.PeerEventEndpoint !== null
-  ) {
-    contents.PeerEventEndpoint = output.PeerEventEndpoint;
-  }
-  return contents;
+    PeerEndpoint:
+      output.PeerEndpoint !== undefined && output.PeerEndpoint !== null
+        ? output.PeerEndpoint
+        : undefined,
+    PeerEventEndpoint:
+      output.PeerEventEndpoint !== undefined &&
+      output.PeerEventEndpoint !== null
+        ? output.PeerEventEndpoint
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1NodeFrameworkAttributes = (
   output: any,
   context: __SerdeContext
 ): NodeFrameworkAttributes => {
-  let contents: any = {
+  return {
     __type: "NodeFrameworkAttributes",
-    Fabric: undefined
-  };
-  if (output.Fabric !== undefined && output.Fabric !== null) {
-    contents.Fabric = deserializeAws_restJson1_1NodeFabricAttributes(
-      output.Fabric,
-      context
-    );
-  }
-  return contents;
+    Fabric:
+      output.Fabric !== undefined && output.Fabric !== null
+        ? deserializeAws_restJson1_1NodeFabricAttributes(output.Fabric, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1NodeSummary = (
   output: any,
   context: __SerdeContext
 ): NodeSummary => {
-  let contents: any = {
+  return {
     __type: "NodeSummary",
-    AvailabilityZone: undefined,
-    CreationDate: undefined,
-    Id: undefined,
-    InstanceType: undefined,
-    Status: undefined
-  };
-  if (
-    output.AvailabilityZone !== undefined &&
-    output.AvailabilityZone !== null
-  ) {
-    contents.AvailabilityZone = output.AvailabilityZone;
-  }
-  if (output.CreationDate !== undefined && output.CreationDate !== null) {
-    contents.CreationDate = new Date(output.CreationDate);
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.InstanceType !== undefined && output.InstanceType !== null) {
-    contents.InstanceType = output.InstanceType;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  return contents;
+    AvailabilityZone:
+      output.AvailabilityZone !== undefined && output.AvailabilityZone !== null
+        ? output.AvailabilityZone
+        : undefined,
+    CreationDate:
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? new Date(output.CreationDate)
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    InstanceType:
+      output.InstanceType !== undefined && output.InstanceType !== null
+        ? output.InstanceType
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1NodeSummaryList = (
@@ -3743,138 +3674,119 @@ const deserializeAws_restJson1_1Proposal = (
   output: any,
   context: __SerdeContext
 ): Proposal => {
-  let contents: any = {
+  return {
     __type: "Proposal",
-    Actions: undefined,
-    CreationDate: undefined,
-    Description: undefined,
-    ExpirationDate: undefined,
-    NetworkId: undefined,
-    NoVoteCount: undefined,
-    OutstandingVoteCount: undefined,
-    ProposalId: undefined,
-    ProposedByMemberId: undefined,
-    ProposedByMemberName: undefined,
-    Status: undefined,
-    YesVoteCount: undefined
-  };
-  if (output.Actions !== undefined && output.Actions !== null) {
-    contents.Actions = deserializeAws_restJson1_1ProposalActions(
-      output.Actions,
-      context
-    );
-  }
-  if (output.CreationDate !== undefined && output.CreationDate !== null) {
-    contents.CreationDate = new Date(output.CreationDate);
-  }
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (output.ExpirationDate !== undefined && output.ExpirationDate !== null) {
-    contents.ExpirationDate = new Date(output.ExpirationDate);
-  }
-  if (output.NetworkId !== undefined && output.NetworkId !== null) {
-    contents.NetworkId = output.NetworkId;
-  }
-  if (output.NoVoteCount !== undefined && output.NoVoteCount !== null) {
-    contents.NoVoteCount = output.NoVoteCount;
-  }
-  if (
-    output.OutstandingVoteCount !== undefined &&
-    output.OutstandingVoteCount !== null
-  ) {
-    contents.OutstandingVoteCount = output.OutstandingVoteCount;
-  }
-  if (output.ProposalId !== undefined && output.ProposalId !== null) {
-    contents.ProposalId = output.ProposalId;
-  }
-  if (
-    output.ProposedByMemberId !== undefined &&
-    output.ProposedByMemberId !== null
-  ) {
-    contents.ProposedByMemberId = output.ProposedByMemberId;
-  }
-  if (
-    output.ProposedByMemberName !== undefined &&
-    output.ProposedByMemberName !== null
-  ) {
-    contents.ProposedByMemberName = output.ProposedByMemberName;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.YesVoteCount !== undefined && output.YesVoteCount !== null) {
-    contents.YesVoteCount = output.YesVoteCount;
-  }
-  return contents;
+    Actions:
+      output.Actions !== undefined && output.Actions !== null
+        ? deserializeAws_restJson1_1ProposalActions(output.Actions, context)
+        : undefined,
+    CreationDate:
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? new Date(output.CreationDate)
+        : undefined,
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    ExpirationDate:
+      output.ExpirationDate !== undefined && output.ExpirationDate !== null
+        ? new Date(output.ExpirationDate)
+        : undefined,
+    NetworkId:
+      output.NetworkId !== undefined && output.NetworkId !== null
+        ? output.NetworkId
+        : undefined,
+    NoVoteCount:
+      output.NoVoteCount !== undefined && output.NoVoteCount !== null
+        ? output.NoVoteCount
+        : undefined,
+    OutstandingVoteCount:
+      output.OutstandingVoteCount !== undefined &&
+      output.OutstandingVoteCount !== null
+        ? output.OutstandingVoteCount
+        : undefined,
+    ProposalId:
+      output.ProposalId !== undefined && output.ProposalId !== null
+        ? output.ProposalId
+        : undefined,
+    ProposedByMemberId:
+      output.ProposedByMemberId !== undefined &&
+      output.ProposedByMemberId !== null
+        ? output.ProposedByMemberId
+        : undefined,
+    ProposedByMemberName:
+      output.ProposedByMemberName !== undefined &&
+      output.ProposedByMemberName !== null
+        ? output.ProposedByMemberName
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    YesVoteCount:
+      output.YesVoteCount !== undefined && output.YesVoteCount !== null
+        ? output.YesVoteCount
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ProposalActions = (
   output: any,
   context: __SerdeContext
 ): ProposalActions => {
-  let contents: any = {
+  return {
     __type: "ProposalActions",
-    Invitations: undefined,
-    Removals: undefined
-  };
-  if (output.Invitations !== undefined && output.Invitations !== null) {
-    contents.Invitations = deserializeAws_restJson1_1InviteActionList(
-      output.Invitations,
-      context
-    );
-  }
-  if (output.Removals !== undefined && output.Removals !== null) {
-    contents.Removals = deserializeAws_restJson1_1RemoveActionList(
-      output.Removals,
-      context
-    );
-  }
-  return contents;
+    Invitations:
+      output.Invitations !== undefined && output.Invitations !== null
+        ? deserializeAws_restJson1_1InviteActionList(
+            output.Invitations,
+            context
+          )
+        : undefined,
+    Removals:
+      output.Removals !== undefined && output.Removals !== null
+        ? deserializeAws_restJson1_1RemoveActionList(output.Removals, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ProposalSummary = (
   output: any,
   context: __SerdeContext
 ): ProposalSummary => {
-  let contents: any = {
+  return {
     __type: "ProposalSummary",
-    CreationDate: undefined,
-    Description: undefined,
-    ExpirationDate: undefined,
-    ProposalId: undefined,
-    ProposedByMemberId: undefined,
-    ProposedByMemberName: undefined,
-    Status: undefined
-  };
-  if (output.CreationDate !== undefined && output.CreationDate !== null) {
-    contents.CreationDate = new Date(output.CreationDate);
-  }
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (output.ExpirationDate !== undefined && output.ExpirationDate !== null) {
-    contents.ExpirationDate = new Date(output.ExpirationDate);
-  }
-  if (output.ProposalId !== undefined && output.ProposalId !== null) {
-    contents.ProposalId = output.ProposalId;
-  }
-  if (
-    output.ProposedByMemberId !== undefined &&
-    output.ProposedByMemberId !== null
-  ) {
-    contents.ProposedByMemberId = output.ProposedByMemberId;
-  }
-  if (
-    output.ProposedByMemberName !== undefined &&
-    output.ProposedByMemberName !== null
-  ) {
-    contents.ProposedByMemberName = output.ProposedByMemberName;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  return contents;
+    CreationDate:
+      output.CreationDate !== undefined && output.CreationDate !== null
+        ? new Date(output.CreationDate)
+        : undefined,
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    ExpirationDate:
+      output.ExpirationDate !== undefined && output.ExpirationDate !== null
+        ? new Date(output.ExpirationDate)
+        : undefined,
+    ProposalId:
+      output.ProposalId !== undefined && output.ProposalId !== null
+        ? output.ProposalId
+        : undefined,
+    ProposedByMemberId:
+      output.ProposedByMemberId !== undefined &&
+      output.ProposedByMemberId !== null
+        ? output.ProposedByMemberId
+        : undefined,
+    ProposedByMemberName:
+      output.ProposedByMemberName !== undefined &&
+      output.ProposedByMemberName !== null
+        ? output.ProposedByMemberName
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ProposalSummaryList = (
@@ -3899,14 +3811,13 @@ const deserializeAws_restJson1_1RemoveAction = (
   output: any,
   context: __SerdeContext
 ): RemoveAction => {
-  let contents: any = {
+  return {
     __type: "RemoveAction",
-    MemberId: undefined
-  };
-  if (output.MemberId !== undefined && output.MemberId !== null) {
-    contents.MemberId = output.MemberId;
-  }
-  return contents;
+    MemberId:
+      output.MemberId !== undefined && output.MemberId !== null
+        ? output.MemberId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1RemoveActionList = (
@@ -3922,42 +3833,38 @@ const deserializeAws_restJson1_1VoteSummary = (
   output: any,
   context: __SerdeContext
 ): VoteSummary => {
-  let contents: any = {
+  return {
     __type: "VoteSummary",
-    MemberId: undefined,
-    MemberName: undefined,
-    Vote: undefined
-  };
-  if (output.MemberId !== undefined && output.MemberId !== null) {
-    contents.MemberId = output.MemberId;
-  }
-  if (output.MemberName !== undefined && output.MemberName !== null) {
-    contents.MemberName = output.MemberName;
-  }
-  if (output.Vote !== undefined && output.Vote !== null) {
-    contents.Vote = output.Vote;
-  }
-  return contents;
+    MemberId:
+      output.MemberId !== undefined && output.MemberId !== null
+        ? output.MemberId
+        : undefined,
+    MemberName:
+      output.MemberName !== undefined && output.MemberName !== null
+        ? output.MemberName
+        : undefined,
+    Vote:
+      output.Vote !== undefined && output.Vote !== null
+        ? output.Vote
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1VotingPolicy = (
   output: any,
   context: __SerdeContext
 ): VotingPolicy => {
-  let contents: any = {
+  return {
     __type: "VotingPolicy",
-    ApprovalThresholdPolicy: undefined
-  };
-  if (
-    output.ApprovalThresholdPolicy !== undefined &&
-    output.ApprovalThresholdPolicy !== null
-  ) {
-    contents.ApprovalThresholdPolicy = deserializeAws_restJson1_1ApprovalThresholdPolicy(
-      output.ApprovalThresholdPolicy,
-      context
-    );
-  }
-  return contents;
+    ApprovalThresholdPolicy:
+      output.ApprovalThresholdPolicy !== undefined &&
+      output.ApprovalThresholdPolicy !== null
+        ? deserializeAws_restJson1_1ApprovalThresholdPolicy(
+            output.ApprovalThresholdPolicy,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

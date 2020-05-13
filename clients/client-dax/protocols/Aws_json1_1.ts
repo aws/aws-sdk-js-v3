@@ -3757,133 +3757,121 @@ const deserializeAws_json1_1InvalidParameterCombinationException = (
   output: any,
   context: __SerdeContext
 ): InvalidParameterCombinationException => {
-  let contents: any = {
+  return {
     __type: "InvalidParameterCombinationException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidParameterValueException = (
   output: any,
   context: __SerdeContext
 ): InvalidParameterValueException => {
-  let contents: any = {
+  return {
     __type: "InvalidParameterValueException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Cluster = (
   output: any,
   context: __SerdeContext
 ): Cluster => {
-  let contents: any = {
+  return {
     __type: "Cluster",
-    ActiveNodes: undefined,
-    ClusterArn: undefined,
-    ClusterDiscoveryEndpoint: undefined,
-    ClusterName: undefined,
-    Description: undefined,
-    IamRoleArn: undefined,
-    NodeIdsToRemove: undefined,
-    NodeType: undefined,
-    Nodes: undefined,
-    NotificationConfiguration: undefined,
-    ParameterGroup: undefined,
-    PreferredMaintenanceWindow: undefined,
-    SSEDescription: undefined,
-    SecurityGroups: undefined,
-    Status: undefined,
-    SubnetGroup: undefined,
-    TotalNodes: undefined
-  };
-  if (output.ActiveNodes !== undefined && output.ActiveNodes !== null) {
-    contents.ActiveNodes = output.ActiveNodes;
-  }
-  if (output.ClusterArn !== undefined && output.ClusterArn !== null) {
-    contents.ClusterArn = output.ClusterArn;
-  }
-  if (
-    output.ClusterDiscoveryEndpoint !== undefined &&
-    output.ClusterDiscoveryEndpoint !== null
-  ) {
-    contents.ClusterDiscoveryEndpoint = deserializeAws_json1_1Endpoint(
-      output.ClusterDiscoveryEndpoint,
-      context
-    );
-  }
-  if (output.ClusterName !== undefined && output.ClusterName !== null) {
-    contents.ClusterName = output.ClusterName;
-  }
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (output.IamRoleArn !== undefined && output.IamRoleArn !== null) {
-    contents.IamRoleArn = output.IamRoleArn;
-  }
-  if (output.NodeIdsToRemove !== undefined && output.NodeIdsToRemove !== null) {
-    contents.NodeIdsToRemove = deserializeAws_json1_1NodeIdentifierList(
-      output.NodeIdsToRemove,
-      context
-    );
-  }
-  if (output.NodeType !== undefined && output.NodeType !== null) {
-    contents.NodeType = output.NodeType;
-  }
-  if (output.Nodes !== undefined && output.Nodes !== null) {
-    contents.Nodes = deserializeAws_json1_1NodeList(output.Nodes, context);
-  }
-  if (
-    output.NotificationConfiguration !== undefined &&
-    output.NotificationConfiguration !== null
-  ) {
-    contents.NotificationConfiguration = deserializeAws_json1_1NotificationConfiguration(
-      output.NotificationConfiguration,
-      context
-    );
-  }
-  if (output.ParameterGroup !== undefined && output.ParameterGroup !== null) {
-    contents.ParameterGroup = deserializeAws_json1_1ParameterGroupStatus(
-      output.ParameterGroup,
-      context
-    );
-  }
-  if (
-    output.PreferredMaintenanceWindow !== undefined &&
-    output.PreferredMaintenanceWindow !== null
-  ) {
-    contents.PreferredMaintenanceWindow = output.PreferredMaintenanceWindow;
-  }
-  if (output.SSEDescription !== undefined && output.SSEDescription !== null) {
-    contents.SSEDescription = deserializeAws_json1_1SSEDescription(
-      output.SSEDescription,
-      context
-    );
-  }
-  if (output.SecurityGroups !== undefined && output.SecurityGroups !== null) {
-    contents.SecurityGroups = deserializeAws_json1_1SecurityGroupMembershipList(
-      output.SecurityGroups,
-      context
-    );
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.SubnetGroup !== undefined && output.SubnetGroup !== null) {
-    contents.SubnetGroup = output.SubnetGroup;
-  }
-  if (output.TotalNodes !== undefined && output.TotalNodes !== null) {
-    contents.TotalNodes = output.TotalNodes;
-  }
-  return contents;
+    ActiveNodes:
+      output.ActiveNodes !== undefined && output.ActiveNodes !== null
+        ? output.ActiveNodes
+        : undefined,
+    ClusterArn:
+      output.ClusterArn !== undefined && output.ClusterArn !== null
+        ? output.ClusterArn
+        : undefined,
+    ClusterDiscoveryEndpoint:
+      output.ClusterDiscoveryEndpoint !== undefined &&
+      output.ClusterDiscoveryEndpoint !== null
+        ? deserializeAws_json1_1Endpoint(
+            output.ClusterDiscoveryEndpoint,
+            context
+          )
+        : undefined,
+    ClusterName:
+      output.ClusterName !== undefined && output.ClusterName !== null
+        ? output.ClusterName
+        : undefined,
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    IamRoleArn:
+      output.IamRoleArn !== undefined && output.IamRoleArn !== null
+        ? output.IamRoleArn
+        : undefined,
+    NodeIdsToRemove:
+      output.NodeIdsToRemove !== undefined && output.NodeIdsToRemove !== null
+        ? deserializeAws_json1_1NodeIdentifierList(
+            output.NodeIdsToRemove,
+            context
+          )
+        : undefined,
+    NodeType:
+      output.NodeType !== undefined && output.NodeType !== null
+        ? output.NodeType
+        : undefined,
+    Nodes:
+      output.Nodes !== undefined && output.Nodes !== null
+        ? deserializeAws_json1_1NodeList(output.Nodes, context)
+        : undefined,
+    NotificationConfiguration:
+      output.NotificationConfiguration !== undefined &&
+      output.NotificationConfiguration !== null
+        ? deserializeAws_json1_1NotificationConfiguration(
+            output.NotificationConfiguration,
+            context
+          )
+        : undefined,
+    ParameterGroup:
+      output.ParameterGroup !== undefined && output.ParameterGroup !== null
+        ? deserializeAws_json1_1ParameterGroupStatus(
+            output.ParameterGroup,
+            context
+          )
+        : undefined,
+    PreferredMaintenanceWindow:
+      output.PreferredMaintenanceWindow !== undefined &&
+      output.PreferredMaintenanceWindow !== null
+        ? output.PreferredMaintenanceWindow
+        : undefined,
+    SSEDescription:
+      output.SSEDescription !== undefined && output.SSEDescription !== null
+        ? deserializeAws_json1_1SSEDescription(output.SSEDescription, context)
+        : undefined,
+    SecurityGroups:
+      output.SecurityGroups !== undefined && output.SecurityGroups !== null
+        ? deserializeAws_json1_1SecurityGroupMembershipList(
+            output.SecurityGroups,
+            context
+          )
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    SubnetGroup:
+      output.SubnetGroup !== undefined && output.SubnetGroup !== null
+        ? output.SubnetGroup
+        : undefined,
+    TotalNodes:
+      output.TotalNodes !== undefined && output.TotalNodes !== null
+        ? output.TotalNodes
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ClusterList = (
@@ -3899,271 +3887,238 @@ const deserializeAws_json1_1CreateClusterResponse = (
   output: any,
   context: __SerdeContext
 ): CreateClusterResponse => {
-  let contents: any = {
+  return {
     __type: "CreateClusterResponse",
-    Cluster: undefined
-  };
-  if (output.Cluster !== undefined && output.Cluster !== null) {
-    contents.Cluster = deserializeAws_json1_1Cluster(output.Cluster, context);
-  }
-  return contents;
+    Cluster:
+      output.Cluster !== undefined && output.Cluster !== null
+        ? deserializeAws_json1_1Cluster(output.Cluster, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateParameterGroupResponse = (
   output: any,
   context: __SerdeContext
 ): CreateParameterGroupResponse => {
-  let contents: any = {
+  return {
     __type: "CreateParameterGroupResponse",
-    ParameterGroup: undefined
-  };
-  if (output.ParameterGroup !== undefined && output.ParameterGroup !== null) {
-    contents.ParameterGroup = deserializeAws_json1_1ParameterGroup(
-      output.ParameterGroup,
-      context
-    );
-  }
-  return contents;
+    ParameterGroup:
+      output.ParameterGroup !== undefined && output.ParameterGroup !== null
+        ? deserializeAws_json1_1ParameterGroup(output.ParameterGroup, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateSubnetGroupResponse = (
   output: any,
   context: __SerdeContext
 ): CreateSubnetGroupResponse => {
-  let contents: any = {
+  return {
     __type: "CreateSubnetGroupResponse",
-    SubnetGroup: undefined
-  };
-  if (output.SubnetGroup !== undefined && output.SubnetGroup !== null) {
-    contents.SubnetGroup = deserializeAws_json1_1SubnetGroup(
-      output.SubnetGroup,
-      context
-    );
-  }
-  return contents;
+    SubnetGroup:
+      output.SubnetGroup !== undefined && output.SubnetGroup !== null
+        ? deserializeAws_json1_1SubnetGroup(output.SubnetGroup, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DecreaseReplicationFactorResponse = (
   output: any,
   context: __SerdeContext
 ): DecreaseReplicationFactorResponse => {
-  let contents: any = {
+  return {
     __type: "DecreaseReplicationFactorResponse",
-    Cluster: undefined
-  };
-  if (output.Cluster !== undefined && output.Cluster !== null) {
-    contents.Cluster = deserializeAws_json1_1Cluster(output.Cluster, context);
-  }
-  return contents;
+    Cluster:
+      output.Cluster !== undefined && output.Cluster !== null
+        ? deserializeAws_json1_1Cluster(output.Cluster, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteClusterResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteClusterResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteClusterResponse",
-    Cluster: undefined
-  };
-  if (output.Cluster !== undefined && output.Cluster !== null) {
-    contents.Cluster = deserializeAws_json1_1Cluster(output.Cluster, context);
-  }
-  return contents;
+    Cluster:
+      output.Cluster !== undefined && output.Cluster !== null
+        ? deserializeAws_json1_1Cluster(output.Cluster, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteParameterGroupResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteParameterGroupResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteParameterGroupResponse",
-    DeletionMessage: undefined
-  };
-  if (output.DeletionMessage !== undefined && output.DeletionMessage !== null) {
-    contents.DeletionMessage = output.DeletionMessage;
-  }
-  return contents;
+    DeletionMessage:
+      output.DeletionMessage !== undefined && output.DeletionMessage !== null
+        ? output.DeletionMessage
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteSubnetGroupResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteSubnetGroupResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteSubnetGroupResponse",
-    DeletionMessage: undefined
-  };
-  if (output.DeletionMessage !== undefined && output.DeletionMessage !== null) {
-    contents.DeletionMessage = output.DeletionMessage;
-  }
-  return contents;
+    DeletionMessage:
+      output.DeletionMessage !== undefined && output.DeletionMessage !== null
+        ? output.DeletionMessage
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeClustersResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeClustersResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeClustersResponse",
-    Clusters: undefined,
-    NextToken: undefined
-  };
-  if (output.Clusters !== undefined && output.Clusters !== null) {
-    contents.Clusters = deserializeAws_json1_1ClusterList(
-      output.Clusters,
-      context
-    );
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  return contents;
+    Clusters:
+      output.Clusters !== undefined && output.Clusters !== null
+        ? deserializeAws_json1_1ClusterList(output.Clusters, context)
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeDefaultParametersResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeDefaultParametersResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeDefaultParametersResponse",
-    NextToken: undefined,
-    Parameters: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.Parameters !== undefined && output.Parameters !== null) {
-    contents.Parameters = deserializeAws_json1_1ParameterList(
-      output.Parameters,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Parameters:
+      output.Parameters !== undefined && output.Parameters !== null
+        ? deserializeAws_json1_1ParameterList(output.Parameters, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeEventsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeEventsResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeEventsResponse",
-    Events: undefined,
-    NextToken: undefined
-  };
-  if (output.Events !== undefined && output.Events !== null) {
-    contents.Events = deserializeAws_json1_1EventList(output.Events, context);
-  }
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  return contents;
+    Events:
+      output.Events !== undefined && output.Events !== null
+        ? deserializeAws_json1_1EventList(output.Events, context)
+        : undefined,
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeParameterGroupsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeParameterGroupsResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeParameterGroupsResponse",
-    NextToken: undefined,
-    ParameterGroups: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.ParameterGroups !== undefined && output.ParameterGroups !== null) {
-    contents.ParameterGroups = deserializeAws_json1_1ParameterGroupList(
-      output.ParameterGroups,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    ParameterGroups:
+      output.ParameterGroups !== undefined && output.ParameterGroups !== null
+        ? deserializeAws_json1_1ParameterGroupList(
+            output.ParameterGroups,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeParametersResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeParametersResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeParametersResponse",
-    NextToken: undefined,
-    Parameters: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.Parameters !== undefined && output.Parameters !== null) {
-    contents.Parameters = deserializeAws_json1_1ParameterList(
-      output.Parameters,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Parameters:
+      output.Parameters !== undefined && output.Parameters !== null
+        ? deserializeAws_json1_1ParameterList(output.Parameters, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeSubnetGroupsResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeSubnetGroupsResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeSubnetGroupsResponse",
-    NextToken: undefined,
-    SubnetGroups: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.SubnetGroups !== undefined && output.SubnetGroups !== null) {
-    contents.SubnetGroups = deserializeAws_json1_1SubnetGroupList(
-      output.SubnetGroups,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    SubnetGroups:
+      output.SubnetGroups !== undefined && output.SubnetGroups !== null
+        ? deserializeAws_json1_1SubnetGroupList(output.SubnetGroups, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Endpoint = (
   output: any,
   context: __SerdeContext
 ): Endpoint => {
-  let contents: any = {
+  return {
     __type: "Endpoint",
-    Address: undefined,
-    Port: undefined
-  };
-  if (output.Address !== undefined && output.Address !== null) {
-    contents.Address = output.Address;
-  }
-  if (output.Port !== undefined && output.Port !== null) {
-    contents.Port = output.Port;
-  }
-  return contents;
+    Address:
+      output.Address !== undefined && output.Address !== null
+        ? output.Address
+        : undefined,
+    Port:
+      output.Port !== undefined && output.Port !== null
+        ? output.Port
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Event = (
   output: any,
   context: __SerdeContext
 ): Event => {
-  let contents: any = {
+  return {
     __type: "Event",
-    Date: undefined,
-    Message: undefined,
-    SourceName: undefined,
-    SourceType: undefined
-  };
-  if (output.Date !== undefined && output.Date !== null) {
-    contents.Date = new Date(Math.round(output.Date * 1000));
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (output.SourceName !== undefined && output.SourceName !== null) {
-    contents.SourceName = output.SourceName;
-  }
-  if (output.SourceType !== undefined && output.SourceType !== null) {
-    contents.SourceType = output.SourceType;
-  }
-  return contents;
+    Date:
+      output.Date !== undefined && output.Date !== null
+        ? new Date(Math.round(output.Date * 1000))
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    SourceName:
+      output.SourceName !== undefined && output.SourceName !== null
+        ? output.SourceName
+        : undefined,
+    SourceType:
+      output.SourceType !== undefined && output.SourceType !== null
+        ? output.SourceType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EventList = (
@@ -4179,77 +4134,64 @@ const deserializeAws_json1_1IncreaseReplicationFactorResponse = (
   output: any,
   context: __SerdeContext
 ): IncreaseReplicationFactorResponse => {
-  let contents: any = {
+  return {
     __type: "IncreaseReplicationFactorResponse",
-    Cluster: undefined
-  };
-  if (output.Cluster !== undefined && output.Cluster !== null) {
-    contents.Cluster = deserializeAws_json1_1Cluster(output.Cluster, context);
-  }
-  return contents;
+    Cluster:
+      output.Cluster !== undefined && output.Cluster !== null
+        ? deserializeAws_json1_1Cluster(output.Cluster, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListTagsResponse = (
   output: any,
   context: __SerdeContext
 ): ListTagsResponse => {
-  let contents: any = {
+  return {
     __type: "ListTagsResponse",
-    NextToken: undefined,
-    Tags: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.Tags !== undefined && output.Tags !== null) {
-    contents.Tags = deserializeAws_json1_1TagList(output.Tags, context);
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1TagList(output.Tags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Node = (
   output: any,
   context: __SerdeContext
 ): Node => {
-  let contents: any = {
+  return {
     __type: "Node",
-    AvailabilityZone: undefined,
-    Endpoint: undefined,
-    NodeCreateTime: undefined,
-    NodeId: undefined,
-    NodeStatus: undefined,
-    ParameterGroupStatus: undefined
-  };
-  if (
-    output.AvailabilityZone !== undefined &&
-    output.AvailabilityZone !== null
-  ) {
-    contents.AvailabilityZone = output.AvailabilityZone;
-  }
-  if (output.Endpoint !== undefined && output.Endpoint !== null) {
-    contents.Endpoint = deserializeAws_json1_1Endpoint(
-      output.Endpoint,
-      context
-    );
-  }
-  if (output.NodeCreateTime !== undefined && output.NodeCreateTime !== null) {
-    contents.NodeCreateTime = new Date(
-      Math.round(output.NodeCreateTime * 1000)
-    );
-  }
-  if (output.NodeId !== undefined && output.NodeId !== null) {
-    contents.NodeId = output.NodeId;
-  }
-  if (output.NodeStatus !== undefined && output.NodeStatus !== null) {
-    contents.NodeStatus = output.NodeStatus;
-  }
-  if (
-    output.ParameterGroupStatus !== undefined &&
-    output.ParameterGroupStatus !== null
-  ) {
-    contents.ParameterGroupStatus = output.ParameterGroupStatus;
-  }
-  return contents;
+    AvailabilityZone:
+      output.AvailabilityZone !== undefined && output.AvailabilityZone !== null
+        ? output.AvailabilityZone
+        : undefined,
+    Endpoint:
+      output.Endpoint !== undefined && output.Endpoint !== null
+        ? deserializeAws_json1_1Endpoint(output.Endpoint, context)
+        : undefined,
+    NodeCreateTime:
+      output.NodeCreateTime !== undefined && output.NodeCreateTime !== null
+        ? new Date(Math.round(output.NodeCreateTime * 1000))
+        : undefined,
+    NodeId:
+      output.NodeId !== undefined && output.NodeId !== null
+        ? output.NodeId
+        : undefined,
+    NodeStatus:
+      output.NodeStatus !== undefined && output.NodeStatus !== null
+        ? output.NodeStatus
+        : undefined,
+    ParameterGroupStatus:
+      output.ParameterGroupStatus !== undefined &&
+      output.ParameterGroupStatus !== null
+        ? output.ParameterGroupStatus
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1NodeIdentifierList = (
@@ -4272,18 +4214,17 @@ const deserializeAws_json1_1NodeTypeSpecificValue = (
   output: any,
   context: __SerdeContext
 ): NodeTypeSpecificValue => {
-  let contents: any = {
+  return {
     __type: "NodeTypeSpecificValue",
-    NodeType: undefined,
-    Value: undefined
-  };
-  if (output.NodeType !== undefined && output.NodeType !== null) {
-    contents.NodeType = output.NodeType;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    NodeType:
+      output.NodeType !== undefined && output.NodeType !== null
+        ? output.NodeType
+        : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1NodeTypeSpecificValueList = (
@@ -4299,95 +4240,88 @@ const deserializeAws_json1_1NotificationConfiguration = (
   output: any,
   context: __SerdeContext
 ): NotificationConfiguration => {
-  let contents: any = {
+  return {
     __type: "NotificationConfiguration",
-    TopicArn: undefined,
-    TopicStatus: undefined
-  };
-  if (output.TopicArn !== undefined && output.TopicArn !== null) {
-    contents.TopicArn = output.TopicArn;
-  }
-  if (output.TopicStatus !== undefined && output.TopicStatus !== null) {
-    contents.TopicStatus = output.TopicStatus;
-  }
-  return contents;
+    TopicArn:
+      output.TopicArn !== undefined && output.TopicArn !== null
+        ? output.TopicArn
+        : undefined,
+    TopicStatus:
+      output.TopicStatus !== undefined && output.TopicStatus !== null
+        ? output.TopicStatus
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Parameter = (
   output: any,
   context: __SerdeContext
 ): Parameter => {
-  let contents: any = {
+  return {
     __type: "Parameter",
-    AllowedValues: undefined,
-    ChangeType: undefined,
-    DataType: undefined,
-    Description: undefined,
-    IsModifiable: undefined,
-    NodeTypeSpecificValues: undefined,
-    ParameterName: undefined,
-    ParameterType: undefined,
-    ParameterValue: undefined,
-    Source: undefined
-  };
-  if (output.AllowedValues !== undefined && output.AllowedValues !== null) {
-    contents.AllowedValues = output.AllowedValues;
-  }
-  if (output.ChangeType !== undefined && output.ChangeType !== null) {
-    contents.ChangeType = output.ChangeType;
-  }
-  if (output.DataType !== undefined && output.DataType !== null) {
-    contents.DataType = output.DataType;
-  }
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (output.IsModifiable !== undefined && output.IsModifiable !== null) {
-    contents.IsModifiable = output.IsModifiable;
-  }
-  if (
-    output.NodeTypeSpecificValues !== undefined &&
-    output.NodeTypeSpecificValues !== null
-  ) {
-    contents.NodeTypeSpecificValues = deserializeAws_json1_1NodeTypeSpecificValueList(
-      output.NodeTypeSpecificValues,
-      context
-    );
-  }
-  if (output.ParameterName !== undefined && output.ParameterName !== null) {
-    contents.ParameterName = output.ParameterName;
-  }
-  if (output.ParameterType !== undefined && output.ParameterType !== null) {
-    contents.ParameterType = output.ParameterType;
-  }
-  if (output.ParameterValue !== undefined && output.ParameterValue !== null) {
-    contents.ParameterValue = output.ParameterValue;
-  }
-  if (output.Source !== undefined && output.Source !== null) {
-    contents.Source = output.Source;
-  }
-  return contents;
+    AllowedValues:
+      output.AllowedValues !== undefined && output.AllowedValues !== null
+        ? output.AllowedValues
+        : undefined,
+    ChangeType:
+      output.ChangeType !== undefined && output.ChangeType !== null
+        ? output.ChangeType
+        : undefined,
+    DataType:
+      output.DataType !== undefined && output.DataType !== null
+        ? output.DataType
+        : undefined,
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    IsModifiable:
+      output.IsModifiable !== undefined && output.IsModifiable !== null
+        ? output.IsModifiable
+        : undefined,
+    NodeTypeSpecificValues:
+      output.NodeTypeSpecificValues !== undefined &&
+      output.NodeTypeSpecificValues !== null
+        ? deserializeAws_json1_1NodeTypeSpecificValueList(
+            output.NodeTypeSpecificValues,
+            context
+          )
+        : undefined,
+    ParameterName:
+      output.ParameterName !== undefined && output.ParameterName !== null
+        ? output.ParameterName
+        : undefined,
+    ParameterType:
+      output.ParameterType !== undefined && output.ParameterType !== null
+        ? output.ParameterType
+        : undefined,
+    ParameterValue:
+      output.ParameterValue !== undefined && output.ParameterValue !== null
+        ? output.ParameterValue
+        : undefined,
+    Source:
+      output.Source !== undefined && output.Source !== null
+        ? output.Source
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ParameterGroup = (
   output: any,
   context: __SerdeContext
 ): ParameterGroup => {
-  let contents: any = {
+  return {
     __type: "ParameterGroup",
-    Description: undefined,
-    ParameterGroupName: undefined
-  };
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (
-    output.ParameterGroupName !== undefined &&
-    output.ParameterGroupName !== null
-  ) {
-    contents.ParameterGroupName = output.ParameterGroupName;
-  }
-  return contents;
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    ParameterGroupName:
+      output.ParameterGroupName !== undefined &&
+      output.ParameterGroupName !== null
+        ? output.ParameterGroupName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ParameterGroupList = (
@@ -4403,31 +4337,26 @@ const deserializeAws_json1_1ParameterGroupStatus = (
   output: any,
   context: __SerdeContext
 ): ParameterGroupStatus => {
-  let contents: any = {
+  return {
     __type: "ParameterGroupStatus",
-    NodeIdsToReboot: undefined,
-    ParameterApplyStatus: undefined,
-    ParameterGroupName: undefined
-  };
-  if (output.NodeIdsToReboot !== undefined && output.NodeIdsToReboot !== null) {
-    contents.NodeIdsToReboot = deserializeAws_json1_1NodeIdentifierList(
-      output.NodeIdsToReboot,
-      context
-    );
-  }
-  if (
-    output.ParameterApplyStatus !== undefined &&
-    output.ParameterApplyStatus !== null
-  ) {
-    contents.ParameterApplyStatus = output.ParameterApplyStatus;
-  }
-  if (
-    output.ParameterGroupName !== undefined &&
-    output.ParameterGroupName !== null
-  ) {
-    contents.ParameterGroupName = output.ParameterGroupName;
-  }
-  return contents;
+    NodeIdsToReboot:
+      output.NodeIdsToReboot !== undefined && output.NodeIdsToReboot !== null
+        ? deserializeAws_json1_1NodeIdentifierList(
+            output.NodeIdsToReboot,
+            context
+          )
+        : undefined,
+    ParameterApplyStatus:
+      output.ParameterApplyStatus !== undefined &&
+      output.ParameterApplyStatus !== null
+        ? output.ParameterApplyStatus
+        : undefined,
+    ParameterGroupName:
+      output.ParameterGroupName !== undefined &&
+      output.ParameterGroupName !== null
+        ? output.ParameterGroupName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ParameterList = (
@@ -4443,49 +4372,44 @@ const deserializeAws_json1_1RebootNodeResponse = (
   output: any,
   context: __SerdeContext
 ): RebootNodeResponse => {
-  let contents: any = {
+  return {
     __type: "RebootNodeResponse",
-    Cluster: undefined
-  };
-  if (output.Cluster !== undefined && output.Cluster !== null) {
-    contents.Cluster = deserializeAws_json1_1Cluster(output.Cluster, context);
-  }
-  return contents;
+    Cluster:
+      output.Cluster !== undefined && output.Cluster !== null
+        ? deserializeAws_json1_1Cluster(output.Cluster, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SSEDescription = (
   output: any,
   context: __SerdeContext
 ): SSEDescription => {
-  let contents: any = {
+  return {
     __type: "SSEDescription",
-    Status: undefined
-  };
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  return contents;
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SecurityGroupMembership = (
   output: any,
   context: __SerdeContext
 ): SecurityGroupMembership => {
-  let contents: any = {
+  return {
     __type: "SecurityGroupMembership",
-    SecurityGroupIdentifier: undefined,
-    Status: undefined
-  };
-  if (
-    output.SecurityGroupIdentifier !== undefined &&
-    output.SecurityGroupIdentifier !== null
-  ) {
-    contents.SecurityGroupIdentifier = output.SecurityGroupIdentifier;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  return contents;
+    SecurityGroupIdentifier:
+      output.SecurityGroupIdentifier !== undefined &&
+      output.SecurityGroupIdentifier !== null
+        ? output.SecurityGroupIdentifier
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SecurityGroupMembershipList = (
@@ -4501,53 +4425,43 @@ const deserializeAws_json1_1Subnet = (
   output: any,
   context: __SerdeContext
 ): Subnet => {
-  let contents: any = {
+  return {
     __type: "Subnet",
-    SubnetAvailabilityZone: undefined,
-    SubnetIdentifier: undefined
-  };
-  if (
-    output.SubnetAvailabilityZone !== undefined &&
-    output.SubnetAvailabilityZone !== null
-  ) {
-    contents.SubnetAvailabilityZone = output.SubnetAvailabilityZone;
-  }
-  if (
-    output.SubnetIdentifier !== undefined &&
-    output.SubnetIdentifier !== null
-  ) {
-    contents.SubnetIdentifier = output.SubnetIdentifier;
-  }
-  return contents;
+    SubnetAvailabilityZone:
+      output.SubnetAvailabilityZone !== undefined &&
+      output.SubnetAvailabilityZone !== null
+        ? output.SubnetAvailabilityZone
+        : undefined,
+    SubnetIdentifier:
+      output.SubnetIdentifier !== undefined && output.SubnetIdentifier !== null
+        ? output.SubnetIdentifier
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SubnetGroup = (
   output: any,
   context: __SerdeContext
 ): SubnetGroup => {
-  let contents: any = {
+  return {
     __type: "SubnetGroup",
-    Description: undefined,
-    SubnetGroupName: undefined,
-    Subnets: undefined,
-    VpcId: undefined
-  };
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (output.SubnetGroupName !== undefined && output.SubnetGroupName !== null) {
-    contents.SubnetGroupName = output.SubnetGroupName;
-  }
-  if (output.Subnets !== undefined && output.Subnets !== null) {
-    contents.Subnets = deserializeAws_json1_1SubnetList(
-      output.Subnets,
-      context
-    );
-  }
-  if (output.VpcId !== undefined && output.VpcId !== null) {
-    contents.VpcId = output.VpcId;
-  }
-  return contents;
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    SubnetGroupName:
+      output.SubnetGroupName !== undefined && output.SubnetGroupName !== null
+        ? output.SubnetGroupName
+        : undefined,
+    Subnets:
+      output.Subnets !== undefined && output.Subnets !== null
+        ? deserializeAws_json1_1SubnetList(output.Subnets, context)
+        : undefined,
+    VpcId:
+      output.VpcId !== undefined && output.VpcId !== null
+        ? output.VpcId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SubnetGroupList = (
@@ -4572,18 +4486,15 @@ const deserializeAws_json1_1Tag = (
   output: any,
   context: __SerdeContext
 ): Tag => {
-  let contents: any = {
+  return {
     __type: "Tag",
-    Key: undefined,
-    Value: undefined
-  };
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TagList = (
@@ -4599,412 +4510,377 @@ const deserializeAws_json1_1TagResourceResponse = (
   output: any,
   context: __SerdeContext
 ): TagResourceResponse => {
-  let contents: any = {
+  return {
     __type: "TagResourceResponse",
-    Tags: undefined
-  };
-  if (output.Tags !== undefined && output.Tags !== null) {
-    contents.Tags = deserializeAws_json1_1TagList(output.Tags, context);
-  }
-  return contents;
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1TagList(output.Tags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (
   output: any,
   context: __SerdeContext
 ): UntagResourceResponse => {
-  let contents: any = {
+  return {
     __type: "UntagResourceResponse",
-    Tags: undefined
-  };
-  if (output.Tags !== undefined && output.Tags !== null) {
-    contents.Tags = deserializeAws_json1_1TagList(output.Tags, context);
-  }
-  return contents;
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_json1_1TagList(output.Tags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateClusterResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateClusterResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateClusterResponse",
-    Cluster: undefined
-  };
-  if (output.Cluster !== undefined && output.Cluster !== null) {
-    contents.Cluster = deserializeAws_json1_1Cluster(output.Cluster, context);
-  }
-  return contents;
+    Cluster:
+      output.Cluster !== undefined && output.Cluster !== null
+        ? deserializeAws_json1_1Cluster(output.Cluster, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateParameterGroupResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateParameterGroupResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateParameterGroupResponse",
-    ParameterGroup: undefined
-  };
-  if (output.ParameterGroup !== undefined && output.ParameterGroup !== null) {
-    contents.ParameterGroup = deserializeAws_json1_1ParameterGroup(
-      output.ParameterGroup,
-      context
-    );
-  }
-  return contents;
+    ParameterGroup:
+      output.ParameterGroup !== undefined && output.ParameterGroup !== null
+        ? deserializeAws_json1_1ParameterGroup(output.ParameterGroup, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateSubnetGroupResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateSubnetGroupResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateSubnetGroupResponse",
-    SubnetGroup: undefined
-  };
-  if (output.SubnetGroup !== undefined && output.SubnetGroup !== null) {
-    contents.SubnetGroup = deserializeAws_json1_1SubnetGroup(
-      output.SubnetGroup,
-      context
-    );
-  }
-  return contents;
+    SubnetGroup:
+      output.SubnetGroup !== undefined && output.SubnetGroup !== null
+        ? deserializeAws_json1_1SubnetGroup(output.SubnetGroup, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ClusterAlreadyExistsFault = (
   output: any,
   context: __SerdeContext
 ): ClusterAlreadyExistsFault => {
-  let contents: any = {
+  return {
     __type: "ClusterAlreadyExistsFault",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ClusterNotFoundFault = (
   output: any,
   context: __SerdeContext
 ): ClusterNotFoundFault => {
-  let contents: any = {
+  return {
     __type: "ClusterNotFoundFault",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ClusterQuotaForCustomerExceededFault = (
   output: any,
   context: __SerdeContext
 ): ClusterQuotaForCustomerExceededFault => {
-  let contents: any = {
+  return {
     __type: "ClusterQuotaForCustomerExceededFault",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InsufficientClusterCapacityFault = (
   output: any,
   context: __SerdeContext
 ): InsufficientClusterCapacityFault => {
-  let contents: any = {
+  return {
     __type: "InsufficientClusterCapacityFault",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidARNFault = (
   output: any,
   context: __SerdeContext
 ): InvalidARNFault => {
-  let contents: any = {
+  return {
     __type: "InvalidARNFault",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidClusterStateFault = (
   output: any,
   context: __SerdeContext
 ): InvalidClusterStateFault => {
-  let contents: any = {
+  return {
     __type: "InvalidClusterStateFault",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidParameterGroupStateFault = (
   output: any,
   context: __SerdeContext
 ): InvalidParameterGroupStateFault => {
-  let contents: any = {
+  return {
     __type: "InvalidParameterGroupStateFault",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidSubnet = (
   output: any,
   context: __SerdeContext
 ): InvalidSubnet => {
-  let contents: any = {
+  return {
     __type: "InvalidSubnet",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidVPCNetworkStateFault = (
   output: any,
   context: __SerdeContext
 ): InvalidVPCNetworkStateFault => {
-  let contents: any = {
+  return {
     __type: "InvalidVPCNetworkStateFault",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1NodeNotFoundFault = (
   output: any,
   context: __SerdeContext
 ): NodeNotFoundFault => {
-  let contents: any = {
+  return {
     __type: "NodeNotFoundFault",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1NodeQuotaForClusterExceededFault = (
   output: any,
   context: __SerdeContext
 ): NodeQuotaForClusterExceededFault => {
-  let contents: any = {
+  return {
     __type: "NodeQuotaForClusterExceededFault",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1NodeQuotaForCustomerExceededFault = (
   output: any,
   context: __SerdeContext
 ): NodeQuotaForCustomerExceededFault => {
-  let contents: any = {
+  return {
     __type: "NodeQuotaForCustomerExceededFault",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ParameterGroupAlreadyExistsFault = (
   output: any,
   context: __SerdeContext
 ): ParameterGroupAlreadyExistsFault => {
-  let contents: any = {
+  return {
     __type: "ParameterGroupAlreadyExistsFault",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ParameterGroupNotFoundFault = (
   output: any,
   context: __SerdeContext
 ): ParameterGroupNotFoundFault => {
-  let contents: any = {
+  return {
     __type: "ParameterGroupNotFoundFault",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ParameterGroupQuotaExceededFault = (
   output: any,
   context: __SerdeContext
 ): ParameterGroupQuotaExceededFault => {
-  let contents: any = {
+  return {
     __type: "ParameterGroupQuotaExceededFault",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ServiceLinkedRoleNotFoundFault = (
   output: any,
   context: __SerdeContext
 ): ServiceLinkedRoleNotFoundFault => {
-  let contents: any = {
+  return {
     __type: "ServiceLinkedRoleNotFoundFault",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SubnetGroupAlreadyExistsFault = (
   output: any,
   context: __SerdeContext
 ): SubnetGroupAlreadyExistsFault => {
-  let contents: any = {
+  return {
     __type: "SubnetGroupAlreadyExistsFault",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SubnetGroupInUseFault = (
   output: any,
   context: __SerdeContext
 ): SubnetGroupInUseFault => {
-  let contents: any = {
+  return {
     __type: "SubnetGroupInUseFault",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SubnetGroupNotFoundFault = (
   output: any,
   context: __SerdeContext
 ): SubnetGroupNotFoundFault => {
-  let contents: any = {
+  return {
     __type: "SubnetGroupNotFoundFault",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SubnetGroupQuotaExceededFault = (
   output: any,
   context: __SerdeContext
 ): SubnetGroupQuotaExceededFault => {
-  let contents: any = {
+  return {
     __type: "SubnetGroupQuotaExceededFault",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SubnetInUse = (
   output: any,
   context: __SerdeContext
 ): SubnetInUse => {
-  let contents: any = {
+  return {
     __type: "SubnetInUse",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SubnetQuotaExceededFault = (
   output: any,
   context: __SerdeContext
 ): SubnetQuotaExceededFault => {
-  let contents: any = {
+  return {
     __type: "SubnetQuotaExceededFault",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TagNotFoundFault = (
   output: any,
   context: __SerdeContext
 ): TagNotFoundFault => {
-  let contents: any = {
+  return {
     __type: "TagNotFoundFault",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TagQuotaPerResourceExceeded = (
   output: any,
   context: __SerdeContext
 ): TagQuotaPerResourceExceeded => {
-  let contents: any = {
+  return {
     __type: "TagQuotaPerResourceExceeded",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

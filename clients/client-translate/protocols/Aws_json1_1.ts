@@ -1519,18 +1519,17 @@ const deserializeAws_json1_1AppliedTerminology = (
   output: any,
   context: __SerdeContext
 ): AppliedTerminology => {
-  let contents: any = {
+  return {
     __type: "AppliedTerminology",
-    Name: undefined,
-    Terms: undefined
-  };
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Terms !== undefined && output.Terms !== null) {
-    contents.Terms = deserializeAws_json1_1TermList(output.Terms, context);
-  }
-  return contents;
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Terms:
+      output.Terms !== undefined && output.Terms !== null
+        ? deserializeAws_json1_1TermList(output.Terms, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1AppliedTerminologyList = (
@@ -1546,214 +1545,184 @@ const deserializeAws_json1_1DescribeTextTranslationJobResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeTextTranslationJobResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeTextTranslationJobResponse",
-    TextTranslationJobProperties: undefined
-  };
-  if (
-    output.TextTranslationJobProperties !== undefined &&
-    output.TextTranslationJobProperties !== null
-  ) {
-    contents.TextTranslationJobProperties = deserializeAws_json1_1TextTranslationJobProperties(
-      output.TextTranslationJobProperties,
-      context
-    );
-  }
-  return contents;
+    TextTranslationJobProperties:
+      output.TextTranslationJobProperties !== undefined &&
+      output.TextTranslationJobProperties !== null
+        ? deserializeAws_json1_1TextTranslationJobProperties(
+            output.TextTranslationJobProperties,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DetectedLanguageLowConfidenceException = (
   output: any,
   context: __SerdeContext
 ): DetectedLanguageLowConfidenceException => {
-  let contents: any = {
+  return {
     __type: "DetectedLanguageLowConfidenceException",
-    DetectedLanguageCode: undefined,
-    Message: undefined
-  };
-  if (
-    output.DetectedLanguageCode !== undefined &&
-    output.DetectedLanguageCode !== null
-  ) {
-    contents.DetectedLanguageCode = output.DetectedLanguageCode;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    DetectedLanguageCode:
+      output.DetectedLanguageCode !== undefined &&
+      output.DetectedLanguageCode !== null
+        ? output.DetectedLanguageCode
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EncryptionKey = (
   output: any,
   context: __SerdeContext
 ): EncryptionKey => {
-  let contents: any = {
+  return {
     __type: "EncryptionKey",
-    Id: undefined,
-    Type: undefined
-  };
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.Type !== undefined && output.Type !== null) {
-    contents.Type = output.Type;
-  }
-  return contents;
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    Type:
+      output.Type !== undefined && output.Type !== null
+        ? output.Type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetTerminologyResponse = (
   output: any,
   context: __SerdeContext
 ): GetTerminologyResponse => {
-  let contents: any = {
+  return {
     __type: "GetTerminologyResponse",
-    TerminologyDataLocation: undefined,
-    TerminologyProperties: undefined
-  };
-  if (
-    output.TerminologyDataLocation !== undefined &&
-    output.TerminologyDataLocation !== null
-  ) {
-    contents.TerminologyDataLocation = deserializeAws_json1_1TerminologyDataLocation(
-      output.TerminologyDataLocation,
-      context
-    );
-  }
-  if (
-    output.TerminologyProperties !== undefined &&
-    output.TerminologyProperties !== null
-  ) {
-    contents.TerminologyProperties = deserializeAws_json1_1TerminologyProperties(
-      output.TerminologyProperties,
-      context
-    );
-  }
-  return contents;
+    TerminologyDataLocation:
+      output.TerminologyDataLocation !== undefined &&
+      output.TerminologyDataLocation !== null
+        ? deserializeAws_json1_1TerminologyDataLocation(
+            output.TerminologyDataLocation,
+            context
+          )
+        : undefined,
+    TerminologyProperties:
+      output.TerminologyProperties !== undefined &&
+      output.TerminologyProperties !== null
+        ? deserializeAws_json1_1TerminologyProperties(
+            output.TerminologyProperties,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ImportTerminologyResponse = (
   output: any,
   context: __SerdeContext
 ): ImportTerminologyResponse => {
-  let contents: any = {
+  return {
     __type: "ImportTerminologyResponse",
-    TerminologyProperties: undefined
-  };
-  if (
-    output.TerminologyProperties !== undefined &&
-    output.TerminologyProperties !== null
-  ) {
-    contents.TerminologyProperties = deserializeAws_json1_1TerminologyProperties(
-      output.TerminologyProperties,
-      context
-    );
-  }
-  return contents;
+    TerminologyProperties:
+      output.TerminologyProperties !== undefined &&
+      output.TerminologyProperties !== null
+        ? deserializeAws_json1_1TerminologyProperties(
+            output.TerminologyProperties,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InputDataConfig = (
   output: any,
   context: __SerdeContext
 ): InputDataConfig => {
-  let contents: any = {
+  return {
     __type: "InputDataConfig",
-    ContentType: undefined,
-    S3Uri: undefined
-  };
-  if (output.ContentType !== undefined && output.ContentType !== null) {
-    contents.ContentType = output.ContentType;
-  }
-  if (output.S3Uri !== undefined && output.S3Uri !== null) {
-    contents.S3Uri = output.S3Uri;
-  }
-  return contents;
+    ContentType:
+      output.ContentType !== undefined && output.ContentType !== null
+        ? output.ContentType
+        : undefined,
+    S3Uri:
+      output.S3Uri !== undefined && output.S3Uri !== null
+        ? output.S3Uri
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InternalServerException = (
   output: any,
   context: __SerdeContext
 ): InternalServerException => {
-  let contents: any = {
+  return {
     __type: "InternalServerException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidFilterException = (
   output: any,
   context: __SerdeContext
 ): InvalidFilterException => {
-  let contents: any = {
+  return {
     __type: "InvalidFilterException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidParameterValueException = (
   output: any,
   context: __SerdeContext
 ): InvalidParameterValueException => {
-  let contents: any = {
+  return {
     __type: "InvalidParameterValueException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidRequestException = (
   output: any,
   context: __SerdeContext
 ): InvalidRequestException => {
-  let contents: any = {
+  return {
     __type: "InvalidRequestException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1JobDetails = (
   output: any,
   context: __SerdeContext
 ): JobDetails => {
-  let contents: any = {
+  return {
     __type: "JobDetails",
-    DocumentsWithErrorsCount: undefined,
-    InputDocumentsCount: undefined,
-    TranslatedDocumentsCount: undefined
-  };
-  if (
-    output.DocumentsWithErrorsCount !== undefined &&
-    output.DocumentsWithErrorsCount !== null
-  ) {
-    contents.DocumentsWithErrorsCount = output.DocumentsWithErrorsCount;
-  }
-  if (
-    output.InputDocumentsCount !== undefined &&
-    output.InputDocumentsCount !== null
-  ) {
-    contents.InputDocumentsCount = output.InputDocumentsCount;
-  }
-  if (
-    output.TranslatedDocumentsCount !== undefined &&
-    output.TranslatedDocumentsCount !== null
-  ) {
-    contents.TranslatedDocumentsCount = output.TranslatedDocumentsCount;
-  }
-  return contents;
+    DocumentsWithErrorsCount:
+      output.DocumentsWithErrorsCount !== undefined &&
+      output.DocumentsWithErrorsCount !== null
+        ? output.DocumentsWithErrorsCount
+        : undefined,
+    InputDocumentsCount:
+      output.InputDocumentsCount !== undefined &&
+      output.InputDocumentsCount !== null
+        ? output.InputDocumentsCount
+        : undefined,
+    TranslatedDocumentsCount:
+      output.TranslatedDocumentsCount !== undefined &&
+      output.TranslatedDocumentsCount !== null
+        ? output.TranslatedDocumentsCount
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LanguageCodeStringList = (
@@ -1767,76 +1736,68 @@ const deserializeAws_json1_1LimitExceededException = (
   output: any,
   context: __SerdeContext
 ): LimitExceededException => {
-  let contents: any = {
+  return {
     __type: "LimitExceededException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListTerminologiesResponse = (
   output: any,
   context: __SerdeContext
 ): ListTerminologiesResponse => {
-  let contents: any = {
+  return {
     __type: "ListTerminologiesResponse",
-    NextToken: undefined,
-    TerminologyPropertiesList: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (
-    output.TerminologyPropertiesList !== undefined &&
-    output.TerminologyPropertiesList !== null
-  ) {
-    contents.TerminologyPropertiesList = deserializeAws_json1_1TerminologyPropertiesList(
-      output.TerminologyPropertiesList,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    TerminologyPropertiesList:
+      output.TerminologyPropertiesList !== undefined &&
+      output.TerminologyPropertiesList !== null
+        ? deserializeAws_json1_1TerminologyPropertiesList(
+            output.TerminologyPropertiesList,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListTextTranslationJobsResponse = (
   output: any,
   context: __SerdeContext
 ): ListTextTranslationJobsResponse => {
-  let contents: any = {
+  return {
     __type: "ListTextTranslationJobsResponse",
-    NextToken: undefined,
-    TextTranslationJobPropertiesList: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (
-    output.TextTranslationJobPropertiesList !== undefined &&
-    output.TextTranslationJobPropertiesList !== null
-  ) {
-    contents.TextTranslationJobPropertiesList = deserializeAws_json1_1TextTranslationJobPropertiesList(
-      output.TextTranslationJobPropertiesList,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    TextTranslationJobPropertiesList:
+      output.TextTranslationJobPropertiesList !== undefined &&
+      output.TextTranslationJobPropertiesList !== null
+        ? deserializeAws_json1_1TextTranslationJobPropertiesList(
+            output.TextTranslationJobPropertiesList,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1OutputDataConfig = (
   output: any,
   context: __SerdeContext
 ): OutputDataConfig => {
-  let contents: any = {
+  return {
     __type: "OutputDataConfig",
-    S3Uri: undefined
-  };
-  if (output.S3Uri !== undefined && output.S3Uri !== null) {
-    contents.S3Uri = output.S3Uri;
-  }
-  return contents;
+    S3Uri:
+      output.S3Uri !== undefined && output.S3Uri !== null
+        ? output.S3Uri
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceNameList = (
@@ -1850,64 +1811,60 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ResourceNotFoundException => {
-  let contents: any = {
+  return {
     __type: "ResourceNotFoundException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ServiceUnavailableException = (
   output: any,
   context: __SerdeContext
 ): ServiceUnavailableException => {
-  let contents: any = {
+  return {
     __type: "ServiceUnavailableException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StartTextTranslationJobResponse = (
   output: any,
   context: __SerdeContext
 ): StartTextTranslationJobResponse => {
-  let contents: any = {
+  return {
     __type: "StartTextTranslationJobResponse",
-    JobId: undefined,
-    JobStatus: undefined
-  };
-  if (output.JobId !== undefined && output.JobId !== null) {
-    contents.JobId = output.JobId;
-  }
-  if (output.JobStatus !== undefined && output.JobStatus !== null) {
-    contents.JobStatus = output.JobStatus;
-  }
-  return contents;
+    JobId:
+      output.JobId !== undefined && output.JobId !== null
+        ? output.JobId
+        : undefined,
+    JobStatus:
+      output.JobStatus !== undefined && output.JobStatus !== null
+        ? output.JobStatus
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StopTextTranslationJobResponse = (
   output: any,
   context: __SerdeContext
 ): StopTextTranslationJobResponse => {
-  let contents: any = {
+  return {
     __type: "StopTextTranslationJobResponse",
-    JobId: undefined,
-    JobStatus: undefined
-  };
-  if (output.JobId !== undefined && output.JobId !== null) {
-    contents.JobId = output.JobId;
-  }
-  if (output.JobStatus !== undefined && output.JobStatus !== null) {
-    contents.JobStatus = output.JobStatus;
-  }
-  return contents;
+    JobId:
+      output.JobId !== undefined && output.JobId !== null
+        ? output.JobId
+        : undefined,
+    JobStatus:
+      output.JobStatus !== undefined && output.JobStatus !== null
+        ? output.JobStatus
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TargetLanguageCodeStringList = (
@@ -1921,18 +1878,17 @@ const deserializeAws_json1_1Term = (
   output: any,
   context: __SerdeContext
 ): Term => {
-  let contents: any = {
+  return {
     __type: "Term",
-    SourceText: undefined,
-    TargetText: undefined
-  };
-  if (output.SourceText !== undefined && output.SourceText !== null) {
-    contents.SourceText = output.SourceText;
-  }
-  if (output.TargetText !== undefined && output.TargetText !== null) {
-    contents.TargetText = output.TargetText;
-  }
-  return contents;
+    SourceText:
+      output.SourceText !== undefined && output.SourceText !== null
+        ? output.SourceText
+        : undefined,
+    TargetText:
+      output.TargetText !== undefined && output.TargetText !== null
+        ? output.TargetText
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TermList = (
@@ -1948,80 +1904,69 @@ const deserializeAws_json1_1TerminologyDataLocation = (
   output: any,
   context: __SerdeContext
 ): TerminologyDataLocation => {
-  let contents: any = {
+  return {
     __type: "TerminologyDataLocation",
-    Location: undefined,
-    RepositoryType: undefined
-  };
-  if (output.Location !== undefined && output.Location !== null) {
-    contents.Location = output.Location;
-  }
-  if (output.RepositoryType !== undefined && output.RepositoryType !== null) {
-    contents.RepositoryType = output.RepositoryType;
-  }
-  return contents;
+    Location:
+      output.Location !== undefined && output.Location !== null
+        ? output.Location
+        : undefined,
+    RepositoryType:
+      output.RepositoryType !== undefined && output.RepositoryType !== null
+        ? output.RepositoryType
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TerminologyProperties = (
   output: any,
   context: __SerdeContext
 ): TerminologyProperties => {
-  let contents: any = {
+  return {
     __type: "TerminologyProperties",
-    Arn: undefined,
-    CreatedAt: undefined,
-    Description: undefined,
-    EncryptionKey: undefined,
-    LastUpdatedAt: undefined,
-    Name: undefined,
-    SizeBytes: undefined,
-    SourceLanguageCode: undefined,
-    TargetLanguageCodes: undefined,
-    TermCount: undefined
-  };
-  if (output.Arn !== undefined && output.Arn !== null) {
-    contents.Arn = output.Arn;
-  }
-  if (output.CreatedAt !== undefined && output.CreatedAt !== null) {
-    contents.CreatedAt = new Date(Math.round(output.CreatedAt * 1000));
-  }
-  if (output.Description !== undefined && output.Description !== null) {
-    contents.Description = output.Description;
-  }
-  if (output.EncryptionKey !== undefined && output.EncryptionKey !== null) {
-    contents.EncryptionKey = deserializeAws_json1_1EncryptionKey(
-      output.EncryptionKey,
-      context
-    );
-  }
-  if (output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null) {
-    contents.LastUpdatedAt = new Date(Math.round(output.LastUpdatedAt * 1000));
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.SizeBytes !== undefined && output.SizeBytes !== null) {
-    contents.SizeBytes = output.SizeBytes;
-  }
-  if (
-    output.SourceLanguageCode !== undefined &&
-    output.SourceLanguageCode !== null
-  ) {
-    contents.SourceLanguageCode = output.SourceLanguageCode;
-  }
-  if (
-    output.TargetLanguageCodes !== undefined &&
-    output.TargetLanguageCodes !== null
-  ) {
-    contents.TargetLanguageCodes = deserializeAws_json1_1LanguageCodeStringList(
-      output.TargetLanguageCodes,
-      context
-    );
-  }
-  if (output.TermCount !== undefined && output.TermCount !== null) {
-    contents.TermCount = output.TermCount;
-  }
-  return contents;
+    Arn:
+      output.Arn !== undefined && output.Arn !== null ? output.Arn : undefined,
+    CreatedAt:
+      output.CreatedAt !== undefined && output.CreatedAt !== null
+        ? new Date(Math.round(output.CreatedAt * 1000))
+        : undefined,
+    Description:
+      output.Description !== undefined && output.Description !== null
+        ? output.Description
+        : undefined,
+    EncryptionKey:
+      output.EncryptionKey !== undefined && output.EncryptionKey !== null
+        ? deserializeAws_json1_1EncryptionKey(output.EncryptionKey, context)
+        : undefined,
+    LastUpdatedAt:
+      output.LastUpdatedAt !== undefined && output.LastUpdatedAt !== null
+        ? new Date(Math.round(output.LastUpdatedAt * 1000))
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    SizeBytes:
+      output.SizeBytes !== undefined && output.SizeBytes !== null
+        ? output.SizeBytes
+        : undefined,
+    SourceLanguageCode:
+      output.SourceLanguageCode !== undefined &&
+      output.SourceLanguageCode !== null
+        ? output.SourceLanguageCode
+        : undefined,
+    TargetLanguageCodes:
+      output.TargetLanguageCodes !== undefined &&
+      output.TargetLanguageCodes !== null
+        ? deserializeAws_json1_1LanguageCodeStringList(
+            output.TargetLanguageCodes,
+            context
+          )
+        : undefined,
+    TermCount:
+      output.TermCount !== undefined && output.TermCount !== null
+        ? output.TermCount
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TerminologyPropertiesList = (
@@ -2037,106 +1982,86 @@ const deserializeAws_json1_1TextSizeLimitExceededException = (
   output: any,
   context: __SerdeContext
 ): TextSizeLimitExceededException => {
-  let contents: any = {
+  return {
     __type: "TextSizeLimitExceededException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TextTranslationJobProperties = (
   output: any,
   context: __SerdeContext
 ): TextTranslationJobProperties => {
-  let contents: any = {
+  return {
     __type: "TextTranslationJobProperties",
-    DataAccessRoleArn: undefined,
-    EndTime: undefined,
-    InputDataConfig: undefined,
-    JobDetails: undefined,
-    JobId: undefined,
-    JobName: undefined,
-    JobStatus: undefined,
-    Message: undefined,
-    OutputDataConfig: undefined,
-    SourceLanguageCode: undefined,
-    SubmittedTime: undefined,
-    TargetLanguageCodes: undefined,
-    TerminologyNames: undefined
-  };
-  if (
-    output.DataAccessRoleArn !== undefined &&
-    output.DataAccessRoleArn !== null
-  ) {
-    contents.DataAccessRoleArn = output.DataAccessRoleArn;
-  }
-  if (output.EndTime !== undefined && output.EndTime !== null) {
-    contents.EndTime = new Date(Math.round(output.EndTime * 1000));
-  }
-  if (output.InputDataConfig !== undefined && output.InputDataConfig !== null) {
-    contents.InputDataConfig = deserializeAws_json1_1InputDataConfig(
-      output.InputDataConfig,
-      context
-    );
-  }
-  if (output.JobDetails !== undefined && output.JobDetails !== null) {
-    contents.JobDetails = deserializeAws_json1_1JobDetails(
-      output.JobDetails,
-      context
-    );
-  }
-  if (output.JobId !== undefined && output.JobId !== null) {
-    contents.JobId = output.JobId;
-  }
-  if (output.JobName !== undefined && output.JobName !== null) {
-    contents.JobName = output.JobName;
-  }
-  if (output.JobStatus !== undefined && output.JobStatus !== null) {
-    contents.JobStatus = output.JobStatus;
-  }
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (
-    output.OutputDataConfig !== undefined &&
-    output.OutputDataConfig !== null
-  ) {
-    contents.OutputDataConfig = deserializeAws_json1_1OutputDataConfig(
-      output.OutputDataConfig,
-      context
-    );
-  }
-  if (
-    output.SourceLanguageCode !== undefined &&
-    output.SourceLanguageCode !== null
-  ) {
-    contents.SourceLanguageCode = output.SourceLanguageCode;
-  }
-  if (output.SubmittedTime !== undefined && output.SubmittedTime !== null) {
-    contents.SubmittedTime = new Date(Math.round(output.SubmittedTime * 1000));
-  }
-  if (
-    output.TargetLanguageCodes !== undefined &&
-    output.TargetLanguageCodes !== null
-  ) {
-    contents.TargetLanguageCodes = deserializeAws_json1_1TargetLanguageCodeStringList(
-      output.TargetLanguageCodes,
-      context
-    );
-  }
-  if (
-    output.TerminologyNames !== undefined &&
-    output.TerminologyNames !== null
-  ) {
-    contents.TerminologyNames = deserializeAws_json1_1ResourceNameList(
-      output.TerminologyNames,
-      context
-    );
-  }
-  return contents;
+    DataAccessRoleArn:
+      output.DataAccessRoleArn !== undefined &&
+      output.DataAccessRoleArn !== null
+        ? output.DataAccessRoleArn
+        : undefined,
+    EndTime:
+      output.EndTime !== undefined && output.EndTime !== null
+        ? new Date(Math.round(output.EndTime * 1000))
+        : undefined,
+    InputDataConfig:
+      output.InputDataConfig !== undefined && output.InputDataConfig !== null
+        ? deserializeAws_json1_1InputDataConfig(output.InputDataConfig, context)
+        : undefined,
+    JobDetails:
+      output.JobDetails !== undefined && output.JobDetails !== null
+        ? deserializeAws_json1_1JobDetails(output.JobDetails, context)
+        : undefined,
+    JobId:
+      output.JobId !== undefined && output.JobId !== null
+        ? output.JobId
+        : undefined,
+    JobName:
+      output.JobName !== undefined && output.JobName !== null
+        ? output.JobName
+        : undefined,
+    JobStatus:
+      output.JobStatus !== undefined && output.JobStatus !== null
+        ? output.JobStatus
+        : undefined,
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    OutputDataConfig:
+      output.OutputDataConfig !== undefined && output.OutputDataConfig !== null
+        ? deserializeAws_json1_1OutputDataConfig(
+            output.OutputDataConfig,
+            context
+          )
+        : undefined,
+    SourceLanguageCode:
+      output.SourceLanguageCode !== undefined &&
+      output.SourceLanguageCode !== null
+        ? output.SourceLanguageCode
+        : undefined,
+    SubmittedTime:
+      output.SubmittedTime !== undefined && output.SubmittedTime !== null
+        ? new Date(Math.round(output.SubmittedTime * 1000))
+        : undefined,
+    TargetLanguageCodes:
+      output.TargetLanguageCodes !== undefined &&
+      output.TargetLanguageCodes !== null
+        ? deserializeAws_json1_1TargetLanguageCodeStringList(
+            output.TargetLanguageCodes,
+            context
+          )
+        : undefined,
+    TerminologyNames:
+      output.TerminologyNames !== undefined && output.TerminologyNames !== null
+        ? deserializeAws_json1_1ResourceNameList(
+            output.TerminologyNames,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TextTranslationJobPropertiesList = (
@@ -2152,80 +2077,67 @@ const deserializeAws_json1_1TooManyRequestsException = (
   output: any,
   context: __SerdeContext
 ): TooManyRequestsException => {
-  let contents: any = {
+  return {
     __type: "TooManyRequestsException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TranslateTextResponse = (
   output: any,
   context: __SerdeContext
 ): TranslateTextResponse => {
-  let contents: any = {
+  return {
     __type: "TranslateTextResponse",
-    AppliedTerminologies: undefined,
-    SourceLanguageCode: undefined,
-    TargetLanguageCode: undefined,
-    TranslatedText: undefined
-  };
-  if (
-    output.AppliedTerminologies !== undefined &&
-    output.AppliedTerminologies !== null
-  ) {
-    contents.AppliedTerminologies = deserializeAws_json1_1AppliedTerminologyList(
-      output.AppliedTerminologies,
-      context
-    );
-  }
-  if (
-    output.SourceLanguageCode !== undefined &&
-    output.SourceLanguageCode !== null
-  ) {
-    contents.SourceLanguageCode = output.SourceLanguageCode;
-  }
-  if (
-    output.TargetLanguageCode !== undefined &&
-    output.TargetLanguageCode !== null
-  ) {
-    contents.TargetLanguageCode = output.TargetLanguageCode;
-  }
-  if (output.TranslatedText !== undefined && output.TranslatedText !== null) {
-    contents.TranslatedText = output.TranslatedText;
-  }
-  return contents;
+    AppliedTerminologies:
+      output.AppliedTerminologies !== undefined &&
+      output.AppliedTerminologies !== null
+        ? deserializeAws_json1_1AppliedTerminologyList(
+            output.AppliedTerminologies,
+            context
+          )
+        : undefined,
+    SourceLanguageCode:
+      output.SourceLanguageCode !== undefined &&
+      output.SourceLanguageCode !== null
+        ? output.SourceLanguageCode
+        : undefined,
+    TargetLanguageCode:
+      output.TargetLanguageCode !== undefined &&
+      output.TargetLanguageCode !== null
+        ? output.TargetLanguageCode
+        : undefined,
+    TranslatedText:
+      output.TranslatedText !== undefined && output.TranslatedText !== null
+        ? output.TranslatedText
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UnsupportedLanguagePairException = (
   output: any,
   context: __SerdeContext
 ): UnsupportedLanguagePairException => {
-  let contents: any = {
+  return {
     __type: "UnsupportedLanguagePairException",
-    Message: undefined,
-    SourceLanguageCode: undefined,
-    TargetLanguageCode: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  if (
-    output.SourceLanguageCode !== undefined &&
-    output.SourceLanguageCode !== null
-  ) {
-    contents.SourceLanguageCode = output.SourceLanguageCode;
-  }
-  if (
-    output.TargetLanguageCode !== undefined &&
-    output.TargetLanguageCode !== null
-  ) {
-    contents.TargetLanguageCode = output.TargetLanguageCode;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined,
+    SourceLanguageCode:
+      output.SourceLanguageCode !== undefined &&
+      output.SourceLanguageCode !== null
+        ? output.SourceLanguageCode
+        : undefined,
+    TargetLanguageCode:
+      output.TargetLanguageCode !== undefined &&
+      output.TargetLanguageCode !== null
+        ? output.TargetLanguageCode
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

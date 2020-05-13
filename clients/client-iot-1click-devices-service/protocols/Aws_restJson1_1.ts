@@ -1890,35 +1890,30 @@ const deserializeAws_restJson1_1Attributes = (
   output: any,
   context: __SerdeContext
 ): Attributes => {
-  let contents: any = {
+  return {
     __type: "Attributes"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_restJson1_1Device = (
   output: any,
   context: __SerdeContext
 ): Device => {
-  let contents: any = {
+  return {
     __type: "Device",
-    Attributes: undefined,
-    DeviceId: undefined,
-    Type: undefined
-  };
-  if (output.attributes !== undefined && output.attributes !== null) {
-    contents.Attributes = deserializeAws_restJson1_1Attributes(
-      output.attributes,
-      context
-    );
-  }
-  if (output.deviceId !== undefined && output.deviceId !== null) {
-    contents.DeviceId = output.deviceId;
-  }
-  if (output.type !== undefined && output.type !== null) {
-    contents.Type = output.type;
-  }
-  return contents;
+    Attributes:
+      output.attributes !== undefined && output.attributes !== null
+        ? deserializeAws_restJson1_1Attributes(output.attributes, context)
+        : undefined,
+    DeviceId:
+      output.deviceId !== undefined && output.deviceId !== null
+        ? output.deviceId
+        : undefined,
+    Type:
+      output.type !== undefined && output.type !== null
+        ? output.type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DeviceAttributes = (
@@ -1935,80 +1930,69 @@ const deserializeAws_restJson1_1DeviceDescription = (
   output: any,
   context: __SerdeContext
 ): DeviceDescription => {
-  let contents: any = {
+  return {
     __type: "DeviceDescription",
-    Arn: undefined,
-    Attributes: undefined,
-    DeviceId: undefined,
-    Enabled: undefined,
-    RemainingLife: undefined,
-    Tags: undefined,
-    Type: undefined
-  };
-  if (output.arn !== undefined && output.arn !== null) {
-    contents.Arn = output.arn;
-  }
-  if (output.attributes !== undefined && output.attributes !== null) {
-    contents.Attributes = deserializeAws_restJson1_1DeviceAttributes(
-      output.attributes,
-      context
-    );
-  }
-  if (output.deviceId !== undefined && output.deviceId !== null) {
-    contents.DeviceId = output.deviceId;
-  }
-  if (output.enabled !== undefined && output.enabled !== null) {
-    contents.Enabled = output.enabled;
-  }
-  if (output.remainingLife !== undefined && output.remainingLife !== null) {
-    contents.RemainingLife = output.remainingLife;
-  }
-  if (output.tags !== undefined && output.tags !== null) {
-    contents.Tags = deserializeAws_restJson1_1__mapOf__string(
-      output.tags,
-      context
-    );
-  }
-  if (output.type !== undefined && output.type !== null) {
-    contents.Type = output.type;
-  }
-  return contents;
+    Arn:
+      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    Attributes:
+      output.attributes !== undefined && output.attributes !== null
+        ? deserializeAws_restJson1_1DeviceAttributes(output.attributes, context)
+        : undefined,
+    DeviceId:
+      output.deviceId !== undefined && output.deviceId !== null
+        ? output.deviceId
+        : undefined,
+    Enabled:
+      output.enabled !== undefined && output.enabled !== null
+        ? output.enabled
+        : undefined,
+    RemainingLife:
+      output.remainingLife !== undefined && output.remainingLife !== null
+        ? output.remainingLife
+        : undefined,
+    Tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_restJson1_1__mapOf__string(output.tags, context)
+        : undefined,
+    Type:
+      output.type !== undefined && output.type !== null
+        ? output.type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DeviceEvent = (
   output: any,
   context: __SerdeContext
 ): DeviceEvent => {
-  let contents: any = {
+  return {
     __type: "DeviceEvent",
-    Device: undefined,
-    StdEvent: undefined
-  };
-  if (output.device !== undefined && output.device !== null) {
-    contents.Device = deserializeAws_restJson1_1Device(output.device, context);
-  }
-  if (output.stdEvent !== undefined && output.stdEvent !== null) {
-    contents.StdEvent = output.stdEvent;
-  }
-  return contents;
+    Device:
+      output.device !== undefined && output.device !== null
+        ? deserializeAws_restJson1_1Device(output.device, context)
+        : undefined,
+    StdEvent:
+      output.stdEvent !== undefined && output.stdEvent !== null
+        ? output.stdEvent
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1DeviceMethod = (
   output: any,
   context: __SerdeContext
 ): DeviceMethod => {
-  let contents: any = {
+  return {
     __type: "DeviceMethod",
-    DeviceType: undefined,
-    MethodName: undefined
-  };
-  if (output.deviceType !== undefined && output.deviceType !== null) {
-    contents.DeviceType = output.deviceType;
-  }
-  if (output.methodName !== undefined && output.methodName !== null) {
-    contents.MethodName = output.methodName;
-  }
-  return contents;
+    DeviceType:
+      output.deviceType !== undefined && output.deviceType !== null
+        ? output.deviceType
+        : undefined,
+    MethodName:
+      output.methodName !== undefined && output.methodName !== null
+        ? output.methodName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1__listOfDeviceDescription = (

@@ -749,56 +749,46 @@ const deserializeAws_restJson1_1RepositoryAssociation = (
   output: any,
   context: __SerdeContext
 ): RepositoryAssociation => {
-  let contents: any = {
+  return {
     __type: "RepositoryAssociation",
-    AssociationArn: undefined,
-    AssociationId: undefined,
-    CreatedTimeStamp: undefined,
-    LastUpdatedTimeStamp: undefined,
-    Name: undefined,
-    Owner: undefined,
-    ProviderType: undefined,
-    State: undefined,
-    StateReason: undefined
-  };
-  if (output.AssociationArn !== undefined && output.AssociationArn !== null) {
-    contents.AssociationArn = output.AssociationArn;
-  }
-  if (output.AssociationId !== undefined && output.AssociationId !== null) {
-    contents.AssociationId = output.AssociationId;
-  }
-  if (
-    output.CreatedTimeStamp !== undefined &&
-    output.CreatedTimeStamp !== null
-  ) {
-    contents.CreatedTimeStamp = new Date(
-      Math.round(output.CreatedTimeStamp * 1000)
-    );
-  }
-  if (
-    output.LastUpdatedTimeStamp !== undefined &&
-    output.LastUpdatedTimeStamp !== null
-  ) {
-    contents.LastUpdatedTimeStamp = new Date(
-      Math.round(output.LastUpdatedTimeStamp * 1000)
-    );
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Owner !== undefined && output.Owner !== null) {
-    contents.Owner = output.Owner;
-  }
-  if (output.ProviderType !== undefined && output.ProviderType !== null) {
-    contents.ProviderType = output.ProviderType;
-  }
-  if (output.State !== undefined && output.State !== null) {
-    contents.State = output.State;
-  }
-  if (output.StateReason !== undefined && output.StateReason !== null) {
-    contents.StateReason = output.StateReason;
-  }
-  return contents;
+    AssociationArn:
+      output.AssociationArn !== undefined && output.AssociationArn !== null
+        ? output.AssociationArn
+        : undefined,
+    AssociationId:
+      output.AssociationId !== undefined && output.AssociationId !== null
+        ? output.AssociationId
+        : undefined,
+    CreatedTimeStamp:
+      output.CreatedTimeStamp !== undefined && output.CreatedTimeStamp !== null
+        ? new Date(Math.round(output.CreatedTimeStamp * 1000))
+        : undefined,
+    LastUpdatedTimeStamp:
+      output.LastUpdatedTimeStamp !== undefined &&
+      output.LastUpdatedTimeStamp !== null
+        ? new Date(Math.round(output.LastUpdatedTimeStamp * 1000))
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Owner:
+      output.Owner !== undefined && output.Owner !== null
+        ? output.Owner
+        : undefined,
+    ProviderType:
+      output.ProviderType !== undefined && output.ProviderType !== null
+        ? output.ProviderType
+        : undefined,
+    State:
+      output.State !== undefined && output.State !== null
+        ? output.State
+        : undefined,
+    StateReason:
+      output.StateReason !== undefined && output.StateReason !== null
+        ? output.StateReason
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1RepositoryAssociationSummaries = (
@@ -814,43 +804,38 @@ const deserializeAws_restJson1_1RepositoryAssociationSummary = (
   output: any,
   context: __SerdeContext
 ): RepositoryAssociationSummary => {
-  let contents: any = {
+  return {
     __type: "RepositoryAssociationSummary",
-    AssociationArn: undefined,
-    AssociationId: undefined,
-    LastUpdatedTimeStamp: undefined,
-    Name: undefined,
-    Owner: undefined,
-    ProviderType: undefined,
-    State: undefined
-  };
-  if (output.AssociationArn !== undefined && output.AssociationArn !== null) {
-    contents.AssociationArn = output.AssociationArn;
-  }
-  if (output.AssociationId !== undefined && output.AssociationId !== null) {
-    contents.AssociationId = output.AssociationId;
-  }
-  if (
-    output.LastUpdatedTimeStamp !== undefined &&
-    output.LastUpdatedTimeStamp !== null
-  ) {
-    contents.LastUpdatedTimeStamp = new Date(
-      Math.round(output.LastUpdatedTimeStamp * 1000)
-    );
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.Owner !== undefined && output.Owner !== null) {
-    contents.Owner = output.Owner;
-  }
-  if (output.ProviderType !== undefined && output.ProviderType !== null) {
-    contents.ProviderType = output.ProviderType;
-  }
-  if (output.State !== undefined && output.State !== null) {
-    contents.State = output.State;
-  }
-  return contents;
+    AssociationArn:
+      output.AssociationArn !== undefined && output.AssociationArn !== null
+        ? output.AssociationArn
+        : undefined,
+    AssociationId:
+      output.AssociationId !== undefined && output.AssociationId !== null
+        ? output.AssociationId
+        : undefined,
+    LastUpdatedTimeStamp:
+      output.LastUpdatedTimeStamp !== undefined &&
+      output.LastUpdatedTimeStamp !== null
+        ? new Date(Math.round(output.LastUpdatedTimeStamp * 1000))
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    Owner:
+      output.Owner !== undefined && output.Owner !== null
+        ? output.Owner
+        : undefined,
+    ProviderType:
+      output.ProviderType !== undefined && output.ProviderType !== null
+        ? output.ProviderType
+        : undefined,
+    State:
+      output.State !== undefined && output.State !== null
+        ? output.State
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

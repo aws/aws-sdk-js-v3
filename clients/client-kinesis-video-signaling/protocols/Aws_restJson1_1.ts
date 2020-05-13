@@ -405,26 +405,23 @@ const deserializeAws_restJson1_1IceServer = (
   output: any,
   context: __SerdeContext
 ): IceServer => {
-  let contents: any = {
+  return {
     __type: "IceServer",
-    Password: undefined,
-    Ttl: undefined,
-    Uris: undefined,
-    Username: undefined
-  };
-  if (output.Password !== undefined && output.Password !== null) {
-    contents.Password = output.Password;
-  }
-  if (output.Ttl !== undefined && output.Ttl !== null) {
-    contents.Ttl = output.Ttl;
-  }
-  if (output.Uris !== undefined && output.Uris !== null) {
-    contents.Uris = deserializeAws_restJson1_1Uris(output.Uris, context);
-  }
-  if (output.Username !== undefined && output.Username !== null) {
-    contents.Username = output.Username;
-  }
-  return contents;
+    Password:
+      output.Password !== undefined && output.Password !== null
+        ? output.Password
+        : undefined,
+    Ttl:
+      output.Ttl !== undefined && output.Ttl !== null ? output.Ttl : undefined,
+    Uris:
+      output.Uris !== undefined && output.Uris !== null
+        ? deserializeAws_restJson1_1Uris(output.Uris, context)
+        : undefined,
+    Username:
+      output.Username !== undefined && output.Username !== null
+        ? output.Username
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1IceServerList = (

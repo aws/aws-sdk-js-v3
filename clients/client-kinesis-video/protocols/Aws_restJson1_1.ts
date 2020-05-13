@@ -2937,44 +2937,41 @@ const deserializeAws_restJson1_1ChannelInfo = (
   output: any,
   context: __SerdeContext
 ): ChannelInfo => {
-  let contents: any = {
+  return {
     __type: "ChannelInfo",
-    ChannelARN: undefined,
-    ChannelName: undefined,
-    ChannelStatus: undefined,
-    ChannelType: undefined,
-    CreationTime: undefined,
-    SingleMasterConfiguration: undefined,
-    Version: undefined
-  };
-  if (output.ChannelARN !== undefined && output.ChannelARN !== null) {
-    contents.ChannelARN = output.ChannelARN;
-  }
-  if (output.ChannelName !== undefined && output.ChannelName !== null) {
-    contents.ChannelName = output.ChannelName;
-  }
-  if (output.ChannelStatus !== undefined && output.ChannelStatus !== null) {
-    contents.ChannelStatus = output.ChannelStatus;
-  }
-  if (output.ChannelType !== undefined && output.ChannelType !== null) {
-    contents.ChannelType = output.ChannelType;
-  }
-  if (output.CreationTime !== undefined && output.CreationTime !== null) {
-    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
-  }
-  if (
-    output.SingleMasterConfiguration !== undefined &&
-    output.SingleMasterConfiguration !== null
-  ) {
-    contents.SingleMasterConfiguration = deserializeAws_restJson1_1SingleMasterConfiguration(
-      output.SingleMasterConfiguration,
-      context
-    );
-  }
-  if (output.Version !== undefined && output.Version !== null) {
-    contents.Version = output.Version;
-  }
-  return contents;
+    ChannelARN:
+      output.ChannelARN !== undefined && output.ChannelARN !== null
+        ? output.ChannelARN
+        : undefined,
+    ChannelName:
+      output.ChannelName !== undefined && output.ChannelName !== null
+        ? output.ChannelName
+        : undefined,
+    ChannelStatus:
+      output.ChannelStatus !== undefined && output.ChannelStatus !== null
+        ? output.ChannelStatus
+        : undefined,
+    ChannelType:
+      output.ChannelType !== undefined && output.ChannelType !== null
+        ? output.ChannelType
+        : undefined,
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    SingleMasterConfiguration:
+      output.SingleMasterConfiguration !== undefined &&
+      output.SingleMasterConfiguration !== null
+        ? deserializeAws_restJson1_1SingleMasterConfiguration(
+            output.SingleMasterConfiguration,
+            context
+          )
+        : undefined,
+    Version:
+      output.Version !== undefined && output.Version !== null
+        ? output.Version
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ChannelInfoList = (
@@ -2999,21 +2996,17 @@ const deserializeAws_restJson1_1ResourceEndpointListItem = (
   output: any,
   context: __SerdeContext
 ): ResourceEndpointListItem => {
-  let contents: any = {
+  return {
     __type: "ResourceEndpointListItem",
-    Protocol: undefined,
-    ResourceEndpoint: undefined
-  };
-  if (output.Protocol !== undefined && output.Protocol !== null) {
-    contents.Protocol = output.Protocol;
-  }
-  if (
-    output.ResourceEndpoint !== undefined &&
-    output.ResourceEndpoint !== null
-  ) {
-    contents.ResourceEndpoint = output.ResourceEndpoint;
-  }
-  return contents;
+    Protocol:
+      output.Protocol !== undefined && output.Protocol !== null
+        ? output.Protocol
+        : undefined,
+    ResourceEndpoint:
+      output.ResourceEndpoint !== undefined && output.ResourceEndpoint !== null
+        ? output.ResourceEndpoint
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1ResourceTags = (
@@ -3030,66 +3023,60 @@ const deserializeAws_restJson1_1SingleMasterConfiguration = (
   output: any,
   context: __SerdeContext
 ): SingleMasterConfiguration => {
-  let contents: any = {
+  return {
     __type: "SingleMasterConfiguration",
-    MessageTtlSeconds: undefined
-  };
-  if (
-    output.MessageTtlSeconds !== undefined &&
-    output.MessageTtlSeconds !== null
-  ) {
-    contents.MessageTtlSeconds = output.MessageTtlSeconds;
-  }
-  return contents;
+    MessageTtlSeconds:
+      output.MessageTtlSeconds !== undefined &&
+      output.MessageTtlSeconds !== null
+        ? output.MessageTtlSeconds
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1StreamInfo = (
   output: any,
   context: __SerdeContext
 ): StreamInfo => {
-  let contents: any = {
+  return {
     __type: "StreamInfo",
-    CreationTime: undefined,
-    DataRetentionInHours: undefined,
-    DeviceName: undefined,
-    KmsKeyId: undefined,
-    MediaType: undefined,
-    Status: undefined,
-    StreamARN: undefined,
-    StreamName: undefined,
-    Version: undefined
-  };
-  if (output.CreationTime !== undefined && output.CreationTime !== null) {
-    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
-  }
-  if (
-    output.DataRetentionInHours !== undefined &&
-    output.DataRetentionInHours !== null
-  ) {
-    contents.DataRetentionInHours = output.DataRetentionInHours;
-  }
-  if (output.DeviceName !== undefined && output.DeviceName !== null) {
-    contents.DeviceName = output.DeviceName;
-  }
-  if (output.KmsKeyId !== undefined && output.KmsKeyId !== null) {
-    contents.KmsKeyId = output.KmsKeyId;
-  }
-  if (output.MediaType !== undefined && output.MediaType !== null) {
-    contents.MediaType = output.MediaType;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.StreamARN !== undefined && output.StreamARN !== null) {
-    contents.StreamARN = output.StreamARN;
-  }
-  if (output.StreamName !== undefined && output.StreamName !== null) {
-    contents.StreamName = output.StreamName;
-  }
-  if (output.Version !== undefined && output.Version !== null) {
-    contents.Version = output.Version;
-  }
-  return contents;
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    DataRetentionInHours:
+      output.DataRetentionInHours !== undefined &&
+      output.DataRetentionInHours !== null
+        ? output.DataRetentionInHours
+        : undefined,
+    DeviceName:
+      output.DeviceName !== undefined && output.DeviceName !== null
+        ? output.DeviceName
+        : undefined,
+    KmsKeyId:
+      output.KmsKeyId !== undefined && output.KmsKeyId !== null
+        ? output.KmsKeyId
+        : undefined,
+    MediaType:
+      output.MediaType !== undefined && output.MediaType !== null
+        ? output.MediaType
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    StreamARN:
+      output.StreamARN !== undefined && output.StreamARN !== null
+        ? output.StreamARN
+        : undefined,
+    StreamName:
+      output.StreamName !== undefined && output.StreamName !== null
+        ? output.StreamName
+        : undefined,
+    Version:
+      output.Version !== undefined && output.Version !== null
+        ? output.Version
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1StreamInfoList = (

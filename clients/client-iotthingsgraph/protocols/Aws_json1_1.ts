@@ -4836,651 +4836,562 @@ const deserializeAws_json1_1AssociateEntityToThingResponse = (
   output: any,
   context: __SerdeContext
 ): AssociateEntityToThingResponse => {
-  let contents: any = {
+  return {
     __type: "AssociateEntityToThingResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1CreateFlowTemplateResponse = (
   output: any,
   context: __SerdeContext
 ): CreateFlowTemplateResponse => {
-  let contents: any = {
+  return {
     __type: "CreateFlowTemplateResponse",
-    summary: undefined
-  };
-  if (output.summary !== undefined && output.summary !== null) {
-    contents.summary = deserializeAws_json1_1FlowTemplateSummary(
-      output.summary,
-      context
-    );
-  }
-  return contents;
+    summary:
+      output.summary !== undefined && output.summary !== null
+        ? deserializeAws_json1_1FlowTemplateSummary(output.summary, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateSystemInstanceResponse = (
   output: any,
   context: __SerdeContext
 ): CreateSystemInstanceResponse => {
-  let contents: any = {
+  return {
     __type: "CreateSystemInstanceResponse",
-    summary: undefined
-  };
-  if (output.summary !== undefined && output.summary !== null) {
-    contents.summary = deserializeAws_json1_1SystemInstanceSummary(
-      output.summary,
-      context
-    );
-  }
-  return contents;
+    summary:
+      output.summary !== undefined && output.summary !== null
+        ? deserializeAws_json1_1SystemInstanceSummary(output.summary, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1CreateSystemTemplateResponse = (
   output: any,
   context: __SerdeContext
 ): CreateSystemTemplateResponse => {
-  let contents: any = {
+  return {
     __type: "CreateSystemTemplateResponse",
-    summary: undefined
-  };
-  if (output.summary !== undefined && output.summary !== null) {
-    contents.summary = deserializeAws_json1_1SystemTemplateSummary(
-      output.summary,
-      context
-    );
-  }
-  return contents;
+    summary:
+      output.summary !== undefined && output.summary !== null
+        ? deserializeAws_json1_1SystemTemplateSummary(output.summary, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteFlowTemplateResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteFlowTemplateResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteFlowTemplateResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteNamespaceResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteNamespaceResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteNamespaceResponse",
-    namespaceArn: undefined,
-    namespaceName: undefined
-  };
-  if (output.namespaceArn !== undefined && output.namespaceArn !== null) {
-    contents.namespaceArn = output.namespaceArn;
-  }
-  if (output.namespaceName !== undefined && output.namespaceName !== null) {
-    contents.namespaceName = output.namespaceName;
-  }
-  return contents;
+    namespaceArn:
+      output.namespaceArn !== undefined && output.namespaceArn !== null
+        ? output.namespaceArn
+        : undefined,
+    namespaceName:
+      output.namespaceName !== undefined && output.namespaceName !== null
+        ? output.namespaceName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteSystemInstanceResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteSystemInstanceResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteSystemInstanceResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteSystemTemplateResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteSystemTemplateResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteSystemTemplateResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DeploySystemInstanceResponse = (
   output: any,
   context: __SerdeContext
 ): DeploySystemInstanceResponse => {
-  let contents: any = {
+  return {
     __type: "DeploySystemInstanceResponse",
-    greengrassDeploymentId: undefined,
-    summary: undefined
-  };
-  if (
-    output.greengrassDeploymentId !== undefined &&
-    output.greengrassDeploymentId !== null
-  ) {
-    contents.greengrassDeploymentId = output.greengrassDeploymentId;
-  }
-  if (output.summary !== undefined && output.summary !== null) {
-    contents.summary = deserializeAws_json1_1SystemInstanceSummary(
-      output.summary,
-      context
-    );
-  }
-  return contents;
+    greengrassDeploymentId:
+      output.greengrassDeploymentId !== undefined &&
+      output.greengrassDeploymentId !== null
+        ? output.greengrassDeploymentId
+        : undefined,
+    summary:
+      output.summary !== undefined && output.summary !== null
+        ? deserializeAws_json1_1SystemInstanceSummary(output.summary, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DeprecateFlowTemplateResponse = (
   output: any,
   context: __SerdeContext
 ): DeprecateFlowTemplateResponse => {
-  let contents: any = {
+  return {
     __type: "DeprecateFlowTemplateResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DeprecateSystemTemplateResponse = (
   output: any,
   context: __SerdeContext
 ): DeprecateSystemTemplateResponse => {
-  let contents: any = {
+  return {
     __type: "DeprecateSystemTemplateResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DescribeNamespaceResponse = (
   output: any,
   context: __SerdeContext
 ): DescribeNamespaceResponse => {
-  let contents: any = {
+  return {
     __type: "DescribeNamespaceResponse",
-    namespaceArn: undefined,
-    namespaceName: undefined,
-    namespaceVersion: undefined,
-    trackingNamespaceName: undefined,
-    trackingNamespaceVersion: undefined
-  };
-  if (output.namespaceArn !== undefined && output.namespaceArn !== null) {
-    contents.namespaceArn = output.namespaceArn;
-  }
-  if (output.namespaceName !== undefined && output.namespaceName !== null) {
-    contents.namespaceName = output.namespaceName;
-  }
-  if (
-    output.namespaceVersion !== undefined &&
-    output.namespaceVersion !== null
-  ) {
-    contents.namespaceVersion = output.namespaceVersion;
-  }
-  if (
-    output.trackingNamespaceName !== undefined &&
-    output.trackingNamespaceName !== null
-  ) {
-    contents.trackingNamespaceName = output.trackingNamespaceName;
-  }
-  if (
-    output.trackingNamespaceVersion !== undefined &&
-    output.trackingNamespaceVersion !== null
-  ) {
-    contents.trackingNamespaceVersion = output.trackingNamespaceVersion;
-  }
-  return contents;
+    namespaceArn:
+      output.namespaceArn !== undefined && output.namespaceArn !== null
+        ? output.namespaceArn
+        : undefined,
+    namespaceName:
+      output.namespaceName !== undefined && output.namespaceName !== null
+        ? output.namespaceName
+        : undefined,
+    namespaceVersion:
+      output.namespaceVersion !== undefined && output.namespaceVersion !== null
+        ? output.namespaceVersion
+        : undefined,
+    trackingNamespaceName:
+      output.trackingNamespaceName !== undefined &&
+      output.trackingNamespaceName !== null
+        ? output.trackingNamespaceName
+        : undefined,
+    trackingNamespaceVersion:
+      output.trackingNamespaceVersion !== undefined &&
+      output.trackingNamespaceVersion !== null
+        ? output.trackingNamespaceVersion
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DissociateEntityFromThingResponse = (
   output: any,
   context: __SerdeContext
 ): DissociateEntityFromThingResponse => {
-  let contents: any = {
+  return {
     __type: "DissociateEntityFromThingResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1GetEntitiesResponse = (
   output: any,
   context: __SerdeContext
 ): GetEntitiesResponse => {
-  let contents: any = {
+  return {
     __type: "GetEntitiesResponse",
-    descriptions: undefined
-  };
-  if (output.descriptions !== undefined && output.descriptions !== null) {
-    contents.descriptions = deserializeAws_json1_1EntityDescriptions(
-      output.descriptions,
-      context
-    );
-  }
-  return contents;
+    descriptions:
+      output.descriptions !== undefined && output.descriptions !== null
+        ? deserializeAws_json1_1EntityDescriptions(output.descriptions, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetFlowTemplateResponse = (
   output: any,
   context: __SerdeContext
 ): GetFlowTemplateResponse => {
-  let contents: any = {
+  return {
     __type: "GetFlowTemplateResponse",
-    description: undefined
-  };
-  if (output.description !== undefined && output.description !== null) {
-    contents.description = deserializeAws_json1_1FlowTemplateDescription(
-      output.description,
-      context
-    );
-  }
-  return contents;
+    description:
+      output.description !== undefined && output.description !== null
+        ? deserializeAws_json1_1FlowTemplateDescription(
+            output.description,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetFlowTemplateRevisionsResponse = (
   output: any,
   context: __SerdeContext
 ): GetFlowTemplateRevisionsResponse => {
-  let contents: any = {
+  return {
     __type: "GetFlowTemplateRevisionsResponse",
-    nextToken: undefined,
-    summaries: undefined
-  };
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  if (output.summaries !== undefined && output.summaries !== null) {
-    contents.summaries = deserializeAws_json1_1FlowTemplateSummaries(
-      output.summaries,
-      context
-    );
-  }
-  return contents;
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined,
+    summaries:
+      output.summaries !== undefined && output.summaries !== null
+        ? deserializeAws_json1_1FlowTemplateSummaries(output.summaries, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetNamespaceDeletionStatusResponse = (
   output: any,
   context: __SerdeContext
 ): GetNamespaceDeletionStatusResponse => {
-  let contents: any = {
+  return {
     __type: "GetNamespaceDeletionStatusResponse",
-    errorCode: undefined,
-    errorMessage: undefined,
-    namespaceArn: undefined,
-    namespaceName: undefined,
-    status: undefined
-  };
-  if (output.errorCode !== undefined && output.errorCode !== null) {
-    contents.errorCode = output.errorCode;
-  }
-  if (output.errorMessage !== undefined && output.errorMessage !== null) {
-    contents.errorMessage = output.errorMessage;
-  }
-  if (output.namespaceArn !== undefined && output.namespaceArn !== null) {
-    contents.namespaceArn = output.namespaceArn;
-  }
-  if (output.namespaceName !== undefined && output.namespaceName !== null) {
-    contents.namespaceName = output.namespaceName;
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  return contents;
+    errorCode:
+      output.errorCode !== undefined && output.errorCode !== null
+        ? output.errorCode
+        : undefined,
+    errorMessage:
+      output.errorMessage !== undefined && output.errorMessage !== null
+        ? output.errorMessage
+        : undefined,
+    namespaceArn:
+      output.namespaceArn !== undefined && output.namespaceArn !== null
+        ? output.namespaceArn
+        : undefined,
+    namespaceName:
+      output.namespaceName !== undefined && output.namespaceName !== null
+        ? output.namespaceName
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetSystemInstanceResponse = (
   output: any,
   context: __SerdeContext
 ): GetSystemInstanceResponse => {
-  let contents: any = {
+  return {
     __type: "GetSystemInstanceResponse",
-    description: undefined
-  };
-  if (output.description !== undefined && output.description !== null) {
-    contents.description = deserializeAws_json1_1SystemInstanceDescription(
-      output.description,
-      context
-    );
-  }
-  return contents;
+    description:
+      output.description !== undefined && output.description !== null
+        ? deserializeAws_json1_1SystemInstanceDescription(
+            output.description,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetSystemTemplateResponse = (
   output: any,
   context: __SerdeContext
 ): GetSystemTemplateResponse => {
-  let contents: any = {
+  return {
     __type: "GetSystemTemplateResponse",
-    description: undefined
-  };
-  if (output.description !== undefined && output.description !== null) {
-    contents.description = deserializeAws_json1_1SystemTemplateDescription(
-      output.description,
-      context
-    );
-  }
-  return contents;
+    description:
+      output.description !== undefined && output.description !== null
+        ? deserializeAws_json1_1SystemTemplateDescription(
+            output.description,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetSystemTemplateRevisionsResponse = (
   output: any,
   context: __SerdeContext
 ): GetSystemTemplateRevisionsResponse => {
-  let contents: any = {
+  return {
     __type: "GetSystemTemplateRevisionsResponse",
-    nextToken: undefined,
-    summaries: undefined
-  };
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  if (output.summaries !== undefined && output.summaries !== null) {
-    contents.summaries = deserializeAws_json1_1SystemTemplateSummaries(
-      output.summaries,
-      context
-    );
-  }
-  return contents;
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined,
+    summaries:
+      output.summaries !== undefined && output.summaries !== null
+        ? deserializeAws_json1_1SystemTemplateSummaries(
+            output.summaries,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetUploadStatusResponse = (
   output: any,
   context: __SerdeContext
 ): GetUploadStatusResponse => {
-  let contents: any = {
+  return {
     __type: "GetUploadStatusResponse",
-    createdDate: undefined,
-    failureReason: undefined,
-    namespaceArn: undefined,
-    namespaceName: undefined,
-    namespaceVersion: undefined,
-    uploadId: undefined,
-    uploadStatus: undefined
-  };
-  if (output.createdDate !== undefined && output.createdDate !== null) {
-    contents.createdDate = new Date(Math.round(output.createdDate * 1000));
-  }
-  if (output.failureReason !== undefined && output.failureReason !== null) {
-    contents.failureReason = deserializeAws_json1_1StringList(
-      output.failureReason,
-      context
-    );
-  }
-  if (output.namespaceArn !== undefined && output.namespaceArn !== null) {
-    contents.namespaceArn = output.namespaceArn;
-  }
-  if (output.namespaceName !== undefined && output.namespaceName !== null) {
-    contents.namespaceName = output.namespaceName;
-  }
-  if (
-    output.namespaceVersion !== undefined &&
-    output.namespaceVersion !== null
-  ) {
-    contents.namespaceVersion = output.namespaceVersion;
-  }
-  if (output.uploadId !== undefined && output.uploadId !== null) {
-    contents.uploadId = output.uploadId;
-  }
-  if (output.uploadStatus !== undefined && output.uploadStatus !== null) {
-    contents.uploadStatus = output.uploadStatus;
-  }
-  return contents;
+    createdDate:
+      output.createdDate !== undefined && output.createdDate !== null
+        ? new Date(Math.round(output.createdDate * 1000))
+        : undefined,
+    failureReason:
+      output.failureReason !== undefined && output.failureReason !== null
+        ? deserializeAws_json1_1StringList(output.failureReason, context)
+        : undefined,
+    namespaceArn:
+      output.namespaceArn !== undefined && output.namespaceArn !== null
+        ? output.namespaceArn
+        : undefined,
+    namespaceName:
+      output.namespaceName !== undefined && output.namespaceName !== null
+        ? output.namespaceName
+        : undefined,
+    namespaceVersion:
+      output.namespaceVersion !== undefined && output.namespaceVersion !== null
+        ? output.namespaceVersion
+        : undefined,
+    uploadId:
+      output.uploadId !== undefined && output.uploadId !== null
+        ? output.uploadId
+        : undefined,
+    uploadStatus:
+      output.uploadStatus !== undefined && output.uploadStatus !== null
+        ? output.uploadStatus
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListFlowExecutionMessagesResponse = (
   output: any,
   context: __SerdeContext
 ): ListFlowExecutionMessagesResponse => {
-  let contents: any = {
+  return {
     __type: "ListFlowExecutionMessagesResponse",
-    messages: undefined,
-    nextToken: undefined
-  };
-  if (output.messages !== undefined && output.messages !== null) {
-    contents.messages = deserializeAws_json1_1FlowExecutionMessages(
-      output.messages,
-      context
-    );
-  }
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  return contents;
+    messages:
+      output.messages !== undefined && output.messages !== null
+        ? deserializeAws_json1_1FlowExecutionMessages(output.messages, context)
+        : undefined,
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListTagsForResourceResponse = (
   output: any,
   context: __SerdeContext
 ): ListTagsForResourceResponse => {
-  let contents: any = {
+  return {
     __type: "ListTagsForResourceResponse",
-    nextToken: undefined,
-    tags: undefined
-  };
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  if (output.tags !== undefined && output.tags !== null) {
-    contents.tags = deserializeAws_json1_1TagList(output.tags, context);
-  }
-  return contents;
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined,
+    tags:
+      output.tags !== undefined && output.tags !== null
+        ? deserializeAws_json1_1TagList(output.tags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SearchEntitiesResponse = (
   output: any,
   context: __SerdeContext
 ): SearchEntitiesResponse => {
-  let contents: any = {
+  return {
     __type: "SearchEntitiesResponse",
-    descriptions: undefined,
-    nextToken: undefined
-  };
-  if (output.descriptions !== undefined && output.descriptions !== null) {
-    contents.descriptions = deserializeAws_json1_1EntityDescriptions(
-      output.descriptions,
-      context
-    );
-  }
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  return contents;
+    descriptions:
+      output.descriptions !== undefined && output.descriptions !== null
+        ? deserializeAws_json1_1EntityDescriptions(output.descriptions, context)
+        : undefined,
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SearchFlowExecutionsResponse = (
   output: any,
   context: __SerdeContext
 ): SearchFlowExecutionsResponse => {
-  let contents: any = {
+  return {
     __type: "SearchFlowExecutionsResponse",
-    nextToken: undefined,
-    summaries: undefined
-  };
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  if (output.summaries !== undefined && output.summaries !== null) {
-    contents.summaries = deserializeAws_json1_1FlowExecutionSummaries(
-      output.summaries,
-      context
-    );
-  }
-  return contents;
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined,
+    summaries:
+      output.summaries !== undefined && output.summaries !== null
+        ? deserializeAws_json1_1FlowExecutionSummaries(
+            output.summaries,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SearchFlowTemplatesResponse = (
   output: any,
   context: __SerdeContext
 ): SearchFlowTemplatesResponse => {
-  let contents: any = {
+  return {
     __type: "SearchFlowTemplatesResponse",
-    nextToken: undefined,
-    summaries: undefined
-  };
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  if (output.summaries !== undefined && output.summaries !== null) {
-    contents.summaries = deserializeAws_json1_1FlowTemplateSummaries(
-      output.summaries,
-      context
-    );
-  }
-  return contents;
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined,
+    summaries:
+      output.summaries !== undefined && output.summaries !== null
+        ? deserializeAws_json1_1FlowTemplateSummaries(output.summaries, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SearchSystemInstancesResponse = (
   output: any,
   context: __SerdeContext
 ): SearchSystemInstancesResponse => {
-  let contents: any = {
+  return {
     __type: "SearchSystemInstancesResponse",
-    nextToken: undefined,
-    summaries: undefined
-  };
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  if (output.summaries !== undefined && output.summaries !== null) {
-    contents.summaries = deserializeAws_json1_1SystemInstanceSummaries(
-      output.summaries,
-      context
-    );
-  }
-  return contents;
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined,
+    summaries:
+      output.summaries !== undefined && output.summaries !== null
+        ? deserializeAws_json1_1SystemInstanceSummaries(
+            output.summaries,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SearchSystemTemplatesResponse = (
   output: any,
   context: __SerdeContext
 ): SearchSystemTemplatesResponse => {
-  let contents: any = {
+  return {
     __type: "SearchSystemTemplatesResponse",
-    nextToken: undefined,
-    summaries: undefined
-  };
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  if (output.summaries !== undefined && output.summaries !== null) {
-    contents.summaries = deserializeAws_json1_1SystemTemplateSummaries(
-      output.summaries,
-      context
-    );
-  }
-  return contents;
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined,
+    summaries:
+      output.summaries !== undefined && output.summaries !== null
+        ? deserializeAws_json1_1SystemTemplateSummaries(
+            output.summaries,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SearchThingsResponse = (
   output: any,
   context: __SerdeContext
 ): SearchThingsResponse => {
-  let contents: any = {
+  return {
     __type: "SearchThingsResponse",
-    nextToken: undefined,
-    things: undefined
-  };
-  if (output.nextToken !== undefined && output.nextToken !== null) {
-    contents.nextToken = output.nextToken;
-  }
-  if (output.things !== undefined && output.things !== null) {
-    contents.things = deserializeAws_json1_1Things(output.things, context);
-  }
-  return contents;
+    nextToken:
+      output.nextToken !== undefined && output.nextToken !== null
+        ? output.nextToken
+        : undefined,
+    things:
+      output.things !== undefined && output.things !== null
+        ? deserializeAws_json1_1Things(output.things, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TagResourceResponse = (
   output: any,
   context: __SerdeContext
 ): TagResourceResponse => {
-  let contents: any = {
+  return {
     __type: "TagResourceResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1UndeploySystemInstanceResponse = (
   output: any,
   context: __SerdeContext
 ): UndeploySystemInstanceResponse => {
-  let contents: any = {
+  return {
     __type: "UndeploySystemInstanceResponse",
-    summary: undefined
-  };
-  if (output.summary !== undefined && output.summary !== null) {
-    contents.summary = deserializeAws_json1_1SystemInstanceSummary(
-      output.summary,
-      context
-    );
-  }
-  return contents;
+    summary:
+      output.summary !== undefined && output.summary !== null
+        ? deserializeAws_json1_1SystemInstanceSummary(output.summary, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UntagResourceResponse = (
   output: any,
   context: __SerdeContext
 ): UntagResourceResponse => {
-  let contents: any = {
+  return {
     __type: "UntagResourceResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateFlowTemplateResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateFlowTemplateResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateFlowTemplateResponse",
-    summary: undefined
-  };
-  if (output.summary !== undefined && output.summary !== null) {
-    contents.summary = deserializeAws_json1_1FlowTemplateSummary(
-      output.summary,
-      context
-    );
-  }
-  return contents;
+    summary:
+      output.summary !== undefined && output.summary !== null
+        ? deserializeAws_json1_1FlowTemplateSummary(output.summary, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UpdateSystemTemplateResponse = (
   output: any,
   context: __SerdeContext
 ): UpdateSystemTemplateResponse => {
-  let contents: any = {
+  return {
     __type: "UpdateSystemTemplateResponse",
-    summary: undefined
-  };
-  if (output.summary !== undefined && output.summary !== null) {
-    contents.summary = deserializeAws_json1_1SystemTemplateSummary(
-      output.summary,
-      context
-    );
-  }
-  return contents;
+    summary:
+      output.summary !== undefined && output.summary !== null
+        ? deserializeAws_json1_1SystemTemplateSummary(output.summary, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1UploadEntityDefinitionsResponse = (
   output: any,
   context: __SerdeContext
 ): UploadEntityDefinitionsResponse => {
-  let contents: any = {
+  return {
     __type: "UploadEntityDefinitionsResponse",
-    uploadId: undefined
-  };
-  if (output.uploadId !== undefined && output.uploadId !== null) {
-    contents.uploadId = output.uploadId;
-  }
-  return contents;
+    uploadId:
+      output.uploadId !== undefined && output.uploadId !== null
+        ? output.uploadId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Tag = (
   output: any,
   context: __SerdeContext
 ): Tag => {
-  let contents: any = {
+  return {
     __type: "Tag",
-    key: undefined,
-    value: undefined
-  };
-  if (output.key !== undefined && output.key !== null) {
-    contents.key = output.key;
-  }
-  if (output.value !== undefined && output.value !== null) {
-    contents.value = output.value;
-  }
-  return contents;
+    key:
+      output.key !== undefined && output.key !== null ? output.key : undefined,
+    value:
+      output.value !== undefined && output.value !== null
+        ? output.value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TagList = (
@@ -5496,102 +5407,95 @@ const deserializeAws_json1_1DefinitionDocument = (
   output: any,
   context: __SerdeContext
 ): DefinitionDocument => {
-  let contents: any = {
+  return {
     __type: "DefinitionDocument",
-    language: undefined,
-    text: undefined
-  };
-  if (output.language !== undefined && output.language !== null) {
-    contents.language = output.language;
-  }
-  if (output.text !== undefined && output.text !== null) {
-    contents.text = output.text;
-  }
-  return contents;
+    language:
+      output.language !== undefined && output.language !== null
+        ? output.language
+        : undefined,
+    text:
+      output.text !== undefined && output.text !== null
+        ? output.text
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InternalFailureException = (
   output: any,
   context: __SerdeContext
 ): InternalFailureException => {
-  let contents: any = {
+  return {
     __type: "InternalFailureException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidRequestException = (
   output: any,
   context: __SerdeContext
 ): InvalidRequestException => {
-  let contents: any = {
+  return {
     __type: "InvalidRequestException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1LimitExceededException = (
   output: any,
   context: __SerdeContext
 ): LimitExceededException => {
-  let contents: any = {
+  return {
     __type: "LimitExceededException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceAlreadyExistsException = (
   output: any,
   context: __SerdeContext
 ): ResourceAlreadyExistsException => {
-  let contents: any = {
+  return {
     __type: "ResourceAlreadyExistsException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceInUseException = (
   output: any,
   context: __SerdeContext
 ): ResourceInUseException => {
-  let contents: any = {
+  return {
     __type: "ResourceInUseException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ResourceNotFoundException = (
   output: any,
   context: __SerdeContext
 ): ResourceNotFoundException => {
-  let contents: any = {
+  return {
     __type: "ResourceNotFoundException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1StringList = (
@@ -5605,47 +5509,37 @@ const deserializeAws_json1_1ThrottlingException = (
   output: any,
   context: __SerdeContext
 ): ThrottlingException => {
-  let contents: any = {
+  return {
     __type: "ThrottlingException",
-    message: undefined
-  };
-  if (output.message !== undefined && output.message !== null) {
-    contents.message = output.message;
-  }
-  return contents;
+    message:
+      output.message !== undefined && output.message !== null
+        ? output.message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EntityDescription = (
   output: any,
   context: __SerdeContext
 ): EntityDescription => {
-  let contents: any = {
+  return {
     __type: "EntityDescription",
-    arn: undefined,
-    createdAt: undefined,
-    definition: undefined,
-    id: undefined,
-    type: undefined
-  };
-  if (output.arn !== undefined && output.arn !== null) {
-    contents.arn = output.arn;
-  }
-  if (output.createdAt !== undefined && output.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(output.createdAt * 1000));
-  }
-  if (output.definition !== undefined && output.definition !== null) {
-    contents.definition = deserializeAws_json1_1DefinitionDocument(
-      output.definition,
-      context
-    );
-  }
-  if (output.id !== undefined && output.id !== null) {
-    contents.id = output.id;
-  }
-  if (output.type !== undefined && output.type !== null) {
-    contents.type = output.type;
-  }
-  return contents;
+    arn:
+      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
+    definition:
+      output.definition !== undefined && output.definition !== null
+        ? deserializeAws_json1_1DefinitionDocument(output.definition, context)
+        : undefined,
+    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    type:
+      output.type !== undefined && output.type !== null
+        ? output.type
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1EntityDescriptions = (
@@ -5661,18 +5555,17 @@ const deserializeAws_json1_1Thing = (
   output: any,
   context: __SerdeContext
 ): Thing => {
-  let contents: any = {
+  return {
     __type: "Thing",
-    thingArn: undefined,
-    thingName: undefined
-  };
-  if (output.thingArn !== undefined && output.thingArn !== null) {
-    contents.thingArn = output.thingArn;
-  }
-  if (output.thingName !== undefined && output.thingName !== null) {
-    contents.thingName = output.thingName;
-  }
-  return contents;
+    thingArn:
+      output.thingArn !== undefined && output.thingArn !== null
+        ? output.thingArn
+        : undefined,
+    thingName:
+      output.thingName !== undefined && output.thingName !== null
+        ? output.thingName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1Things = (
@@ -5688,18 +5581,14 @@ const deserializeAws_json1_1DependencyRevision = (
   output: any,
   context: __SerdeContext
 ): DependencyRevision => {
-  let contents: any = {
+  return {
     __type: "DependencyRevision",
-    id: undefined,
-    revisionNumber: undefined
-  };
-  if (output.id !== undefined && output.id !== null) {
-    contents.id = output.id;
-  }
-  if (output.revisionNumber !== undefined && output.revisionNumber !== null) {
-    contents.revisionNumber = output.revisionNumber;
-  }
-  return contents;
+    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    revisionNumber:
+      output.revisionNumber !== undefined && output.revisionNumber !== null
+        ? output.revisionNumber
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DependencyRevisions = (
@@ -5715,26 +5604,25 @@ const deserializeAws_json1_1FlowExecutionMessage = (
   output: any,
   context: __SerdeContext
 ): FlowExecutionMessage => {
-  let contents: any = {
+  return {
     __type: "FlowExecutionMessage",
-    eventType: undefined,
-    messageId: undefined,
-    payload: undefined,
-    timestamp: undefined
-  };
-  if (output.eventType !== undefined && output.eventType !== null) {
-    contents.eventType = output.eventType;
-  }
-  if (output.messageId !== undefined && output.messageId !== null) {
-    contents.messageId = output.messageId;
-  }
-  if (output.payload !== undefined && output.payload !== null) {
-    contents.payload = output.payload;
-  }
-  if (output.timestamp !== undefined && output.timestamp !== null) {
-    contents.timestamp = new Date(Math.round(output.timestamp * 1000));
-  }
-  return contents;
+    eventType:
+      output.eventType !== undefined && output.eventType !== null
+        ? output.eventType
+        : undefined,
+    messageId:
+      output.messageId !== undefined && output.messageId !== null
+        ? output.messageId
+        : undefined,
+    payload:
+      output.payload !== undefined && output.payload !== null
+        ? output.payload
+        : undefined,
+    timestamp:
+      output.timestamp !== undefined && output.timestamp !== null
+        ? new Date(Math.round(output.timestamp * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1FlowExecutionMessages = (
@@ -5759,68 +5647,55 @@ const deserializeAws_json1_1FlowExecutionSummary = (
   output: any,
   context: __SerdeContext
 ): FlowExecutionSummary => {
-  let contents: any = {
+  return {
     __type: "FlowExecutionSummary",
-    createdAt: undefined,
-    flowExecutionId: undefined,
-    flowTemplateId: undefined,
-    status: undefined,
-    systemInstanceId: undefined,
-    updatedAt: undefined
-  };
-  if (output.createdAt !== undefined && output.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(output.createdAt * 1000));
-  }
-  if (output.flowExecutionId !== undefined && output.flowExecutionId !== null) {
-    contents.flowExecutionId = output.flowExecutionId;
-  }
-  if (output.flowTemplateId !== undefined && output.flowTemplateId !== null) {
-    contents.flowTemplateId = output.flowTemplateId;
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  if (
-    output.systemInstanceId !== undefined &&
-    output.systemInstanceId !== null
-  ) {
-    contents.systemInstanceId = output.systemInstanceId;
-  }
-  if (output.updatedAt !== undefined && output.updatedAt !== null) {
-    contents.updatedAt = new Date(Math.round(output.updatedAt * 1000));
-  }
-  return contents;
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
+    flowExecutionId:
+      output.flowExecutionId !== undefined && output.flowExecutionId !== null
+        ? output.flowExecutionId
+        : undefined,
+    flowTemplateId:
+      output.flowTemplateId !== undefined && output.flowTemplateId !== null
+        ? output.flowTemplateId
+        : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined,
+    systemInstanceId:
+      output.systemInstanceId !== undefined && output.systemInstanceId !== null
+        ? output.systemInstanceId
+        : undefined,
+    updatedAt:
+      output.updatedAt !== undefined && output.updatedAt !== null
+        ? new Date(Math.round(output.updatedAt * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1FlowTemplateDescription = (
   output: any,
   context: __SerdeContext
 ): FlowTemplateDescription => {
-  let contents: any = {
+  return {
     __type: "FlowTemplateDescription",
-    definition: undefined,
-    summary: undefined,
-    validatedNamespaceVersion: undefined
-  };
-  if (output.definition !== undefined && output.definition !== null) {
-    contents.definition = deserializeAws_json1_1DefinitionDocument(
-      output.definition,
-      context
-    );
-  }
-  if (output.summary !== undefined && output.summary !== null) {
-    contents.summary = deserializeAws_json1_1FlowTemplateSummary(
-      output.summary,
-      context
-    );
-  }
-  if (
-    output.validatedNamespaceVersion !== undefined &&
-    output.validatedNamespaceVersion !== null
-  ) {
-    contents.validatedNamespaceVersion = output.validatedNamespaceVersion;
-  }
-  return contents;
+    definition:
+      output.definition !== undefined && output.definition !== null
+        ? deserializeAws_json1_1DefinitionDocument(output.definition, context)
+        : undefined,
+    summary:
+      output.summary !== undefined && output.summary !== null
+        ? deserializeAws_json1_1FlowTemplateSummary(output.summary, context)
+        : undefined,
+    validatedNamespaceVersion:
+      output.validatedNamespaceVersion !== undefined &&
+      output.validatedNamespaceVersion !== null
+        ? output.validatedNamespaceVersion
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1FlowTemplateSummaries = (
@@ -5836,112 +5711,86 @@ const deserializeAws_json1_1FlowTemplateSummary = (
   output: any,
   context: __SerdeContext
 ): FlowTemplateSummary => {
-  let contents: any = {
+  return {
     __type: "FlowTemplateSummary",
-    arn: undefined,
-    createdAt: undefined,
-    id: undefined,
-    revisionNumber: undefined
-  };
-  if (output.arn !== undefined && output.arn !== null) {
-    contents.arn = output.arn;
-  }
-  if (output.createdAt !== undefined && output.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(output.createdAt * 1000));
-  }
-  if (output.id !== undefined && output.id !== null) {
-    contents.id = output.id;
-  }
-  if (output.revisionNumber !== undefined && output.revisionNumber !== null) {
-    contents.revisionNumber = output.revisionNumber;
-  }
-  return contents;
+    arn:
+      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
+    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    revisionNumber:
+      output.revisionNumber !== undefined && output.revisionNumber !== null
+        ? output.revisionNumber
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1MetricsConfiguration = (
   output: any,
   context: __SerdeContext
 ): MetricsConfiguration => {
-  let contents: any = {
+  return {
     __type: "MetricsConfiguration",
-    cloudMetricEnabled: undefined,
-    metricRuleRoleArn: undefined
-  };
-  if (
-    output.cloudMetricEnabled !== undefined &&
-    output.cloudMetricEnabled !== null
-  ) {
-    contents.cloudMetricEnabled = output.cloudMetricEnabled;
-  }
-  if (
-    output.metricRuleRoleArn !== undefined &&
-    output.metricRuleRoleArn !== null
-  ) {
-    contents.metricRuleRoleArn = output.metricRuleRoleArn;
-  }
-  return contents;
+    cloudMetricEnabled:
+      output.cloudMetricEnabled !== undefined &&
+      output.cloudMetricEnabled !== null
+        ? output.cloudMetricEnabled
+        : undefined,
+    metricRuleRoleArn:
+      output.metricRuleRoleArn !== undefined &&
+      output.metricRuleRoleArn !== null
+        ? output.metricRuleRoleArn
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SystemInstanceDescription = (
   output: any,
   context: __SerdeContext
 ): SystemInstanceDescription => {
-  let contents: any = {
+  return {
     __type: "SystemInstanceDescription",
-    definition: undefined,
-    flowActionsRoleArn: undefined,
-    metricsConfiguration: undefined,
-    s3BucketName: undefined,
-    summary: undefined,
-    validatedDependencyRevisions: undefined,
-    validatedNamespaceVersion: undefined
-  };
-  if (output.definition !== undefined && output.definition !== null) {
-    contents.definition = deserializeAws_json1_1DefinitionDocument(
-      output.definition,
-      context
-    );
-  }
-  if (
-    output.flowActionsRoleArn !== undefined &&
-    output.flowActionsRoleArn !== null
-  ) {
-    contents.flowActionsRoleArn = output.flowActionsRoleArn;
-  }
-  if (
-    output.metricsConfiguration !== undefined &&
-    output.metricsConfiguration !== null
-  ) {
-    contents.metricsConfiguration = deserializeAws_json1_1MetricsConfiguration(
-      output.metricsConfiguration,
-      context
-    );
-  }
-  if (output.s3BucketName !== undefined && output.s3BucketName !== null) {
-    contents.s3BucketName = output.s3BucketName;
-  }
-  if (output.summary !== undefined && output.summary !== null) {
-    contents.summary = deserializeAws_json1_1SystemInstanceSummary(
-      output.summary,
-      context
-    );
-  }
-  if (
-    output.validatedDependencyRevisions !== undefined &&
-    output.validatedDependencyRevisions !== null
-  ) {
-    contents.validatedDependencyRevisions = deserializeAws_json1_1DependencyRevisions(
-      output.validatedDependencyRevisions,
-      context
-    );
-  }
-  if (
-    output.validatedNamespaceVersion !== undefined &&
-    output.validatedNamespaceVersion !== null
-  ) {
-    contents.validatedNamespaceVersion = output.validatedNamespaceVersion;
-  }
-  return contents;
+    definition:
+      output.definition !== undefined && output.definition !== null
+        ? deserializeAws_json1_1DefinitionDocument(output.definition, context)
+        : undefined,
+    flowActionsRoleArn:
+      output.flowActionsRoleArn !== undefined &&
+      output.flowActionsRoleArn !== null
+        ? output.flowActionsRoleArn
+        : undefined,
+    metricsConfiguration:
+      output.metricsConfiguration !== undefined &&
+      output.metricsConfiguration !== null
+        ? deserializeAws_json1_1MetricsConfiguration(
+            output.metricsConfiguration,
+            context
+          )
+        : undefined,
+    s3BucketName:
+      output.s3BucketName !== undefined && output.s3BucketName !== null
+        ? output.s3BucketName
+        : undefined,
+    summary:
+      output.summary !== undefined && output.summary !== null
+        ? deserializeAws_json1_1SystemInstanceSummary(output.summary, context)
+        : undefined,
+    validatedDependencyRevisions:
+      output.validatedDependencyRevisions !== undefined &&
+      output.validatedDependencyRevisions !== null
+        ? deserializeAws_json1_1DependencyRevisions(
+            output.validatedDependencyRevisions,
+            context
+          )
+        : undefined,
+    validatedNamespaceVersion:
+      output.validatedNamespaceVersion !== undefined &&
+      output.validatedNamespaceVersion !== null
+        ? output.validatedNamespaceVersion
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SystemInstanceSummaries = (
@@ -5957,86 +5806,65 @@ const deserializeAws_json1_1SystemInstanceSummary = (
   output: any,
   context: __SerdeContext
 ): SystemInstanceSummary => {
-  let contents: any = {
+  return {
     __type: "SystemInstanceSummary",
-    arn: undefined,
-    createdAt: undefined,
-    greengrassGroupId: undefined,
-    greengrassGroupName: undefined,
-    greengrassGroupVersionId: undefined,
-    id: undefined,
-    status: undefined,
-    target: undefined,
-    updatedAt: undefined
-  };
-  if (output.arn !== undefined && output.arn !== null) {
-    contents.arn = output.arn;
-  }
-  if (output.createdAt !== undefined && output.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(output.createdAt * 1000));
-  }
-  if (
-    output.greengrassGroupId !== undefined &&
-    output.greengrassGroupId !== null
-  ) {
-    contents.greengrassGroupId = output.greengrassGroupId;
-  }
-  if (
-    output.greengrassGroupName !== undefined &&
-    output.greengrassGroupName !== null
-  ) {
-    contents.greengrassGroupName = output.greengrassGroupName;
-  }
-  if (
-    output.greengrassGroupVersionId !== undefined &&
-    output.greengrassGroupVersionId !== null
-  ) {
-    contents.greengrassGroupVersionId = output.greengrassGroupVersionId;
-  }
-  if (output.id !== undefined && output.id !== null) {
-    contents.id = output.id;
-  }
-  if (output.status !== undefined && output.status !== null) {
-    contents.status = output.status;
-  }
-  if (output.target !== undefined && output.target !== null) {
-    contents.target = output.target;
-  }
-  if (output.updatedAt !== undefined && output.updatedAt !== null) {
-    contents.updatedAt = new Date(Math.round(output.updatedAt * 1000));
-  }
-  return contents;
+    arn:
+      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
+    greengrassGroupId:
+      output.greengrassGroupId !== undefined &&
+      output.greengrassGroupId !== null
+        ? output.greengrassGroupId
+        : undefined,
+    greengrassGroupName:
+      output.greengrassGroupName !== undefined &&
+      output.greengrassGroupName !== null
+        ? output.greengrassGroupName
+        : undefined,
+    greengrassGroupVersionId:
+      output.greengrassGroupVersionId !== undefined &&
+      output.greengrassGroupVersionId !== null
+        ? output.greengrassGroupVersionId
+        : undefined,
+    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    status:
+      output.status !== undefined && output.status !== null
+        ? output.status
+        : undefined,
+    target:
+      output.target !== undefined && output.target !== null
+        ? output.target
+        : undefined,
+    updatedAt:
+      output.updatedAt !== undefined && output.updatedAt !== null
+        ? new Date(Math.round(output.updatedAt * 1000))
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SystemTemplateDescription = (
   output: any,
   context: __SerdeContext
 ): SystemTemplateDescription => {
-  let contents: any = {
+  return {
     __type: "SystemTemplateDescription",
-    definition: undefined,
-    summary: undefined,
-    validatedNamespaceVersion: undefined
-  };
-  if (output.definition !== undefined && output.definition !== null) {
-    contents.definition = deserializeAws_json1_1DefinitionDocument(
-      output.definition,
-      context
-    );
-  }
-  if (output.summary !== undefined && output.summary !== null) {
-    contents.summary = deserializeAws_json1_1SystemTemplateSummary(
-      output.summary,
-      context
-    );
-  }
-  if (
-    output.validatedNamespaceVersion !== undefined &&
-    output.validatedNamespaceVersion !== null
-  ) {
-    contents.validatedNamespaceVersion = output.validatedNamespaceVersion;
-  }
-  return contents;
+    definition:
+      output.definition !== undefined && output.definition !== null
+        ? deserializeAws_json1_1DefinitionDocument(output.definition, context)
+        : undefined,
+    summary:
+      output.summary !== undefined && output.summary !== null
+        ? deserializeAws_json1_1SystemTemplateSummary(output.summary, context)
+        : undefined,
+    validatedNamespaceVersion:
+      output.validatedNamespaceVersion !== undefined &&
+      output.validatedNamespaceVersion !== null
+        ? output.validatedNamespaceVersion
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1SystemTemplateSummaries = (
@@ -6052,26 +5880,20 @@ const deserializeAws_json1_1SystemTemplateSummary = (
   output: any,
   context: __SerdeContext
 ): SystemTemplateSummary => {
-  let contents: any = {
+  return {
     __type: "SystemTemplateSummary",
-    arn: undefined,
-    createdAt: undefined,
-    id: undefined,
-    revisionNumber: undefined
-  };
-  if (output.arn !== undefined && output.arn !== null) {
-    contents.arn = output.arn;
-  }
-  if (output.createdAt !== undefined && output.createdAt !== null) {
-    contents.createdAt = new Date(Math.round(output.createdAt * 1000));
-  }
-  if (output.id !== undefined && output.id !== null) {
-    contents.id = output.id;
-  }
-  if (output.revisionNumber !== undefined && output.revisionNumber !== null) {
-    contents.revisionNumber = output.revisionNumber;
-  }
-  return contents;
+    arn:
+      output.arn !== undefined && output.arn !== null ? output.arn : undefined,
+    createdAt:
+      output.createdAt !== undefined && output.createdAt !== null
+        ? new Date(Math.round(output.createdAt * 1000))
+        : undefined,
+    id: output.id !== undefined && output.id !== null ? output.id : undefined,
+    revisionNumber:
+      output.revisionNumber !== undefined && output.revisionNumber !== null
+        ? output.revisionNumber
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

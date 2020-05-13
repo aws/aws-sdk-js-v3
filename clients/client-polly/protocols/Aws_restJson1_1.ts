@@ -1719,73 +1719,70 @@ const deserializeAws_restJson1_1Lexicon = (
   output: any,
   context: __SerdeContext
 ): Lexicon => {
-  let contents: any = {
+  return {
     __type: "Lexicon",
-    Content: undefined,
-    Name: undefined
-  };
-  if (output.Content !== undefined && output.Content !== null) {
-    contents.Content = output.Content;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    Content:
+      output.Content !== undefined && output.Content !== null
+        ? output.Content
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1LexiconAttributes = (
   output: any,
   context: __SerdeContext
 ): LexiconAttributes => {
-  let contents: any = {
+  return {
     __type: "LexiconAttributes",
-    Alphabet: undefined,
-    LanguageCode: undefined,
-    LastModified: undefined,
-    LexemesCount: undefined,
-    LexiconArn: undefined,
-    Size: undefined
-  };
-  if (output.Alphabet !== undefined && output.Alphabet !== null) {
-    contents.Alphabet = output.Alphabet;
-  }
-  if (output.LanguageCode !== undefined && output.LanguageCode !== null) {
-    contents.LanguageCode = output.LanguageCode;
-  }
-  if (output.LastModified !== undefined && output.LastModified !== null) {
-    contents.LastModified = new Date(Math.round(output.LastModified * 1000));
-  }
-  if (output.LexemesCount !== undefined && output.LexemesCount !== null) {
-    contents.LexemesCount = output.LexemesCount;
-  }
-  if (output.LexiconArn !== undefined && output.LexiconArn !== null) {
-    contents.LexiconArn = output.LexiconArn;
-  }
-  if (output.Size !== undefined && output.Size !== null) {
-    contents.Size = output.Size;
-  }
-  return contents;
+    Alphabet:
+      output.Alphabet !== undefined && output.Alphabet !== null
+        ? output.Alphabet
+        : undefined,
+    LanguageCode:
+      output.LanguageCode !== undefined && output.LanguageCode !== null
+        ? output.LanguageCode
+        : undefined,
+    LastModified:
+      output.LastModified !== undefined && output.LastModified !== null
+        ? new Date(Math.round(output.LastModified * 1000))
+        : undefined,
+    LexemesCount:
+      output.LexemesCount !== undefined && output.LexemesCount !== null
+        ? output.LexemesCount
+        : undefined,
+    LexiconArn:
+      output.LexiconArn !== undefined && output.LexiconArn !== null
+        ? output.LexiconArn
+        : undefined,
+    Size:
+      output.Size !== undefined && output.Size !== null
+        ? output.Size
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1LexiconDescription = (
   output: any,
   context: __SerdeContext
 ): LexiconDescription => {
-  let contents: any = {
+  return {
     __type: "LexiconDescription",
-    Attributes: undefined,
-    Name: undefined
-  };
-  if (output.Attributes !== undefined && output.Attributes !== null) {
-    contents.Attributes = deserializeAws_restJson1_1LexiconAttributes(
-      output.Attributes,
-      context
-    );
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  return contents;
+    Attributes:
+      output.Attributes !== undefined && output.Attributes !== null
+        ? deserializeAws_restJson1_1LexiconAttributes(
+            output.Attributes,
+            context
+          )
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1LexiconDescriptionList = (
@@ -1815,82 +1812,76 @@ const deserializeAws_restJson1_1SynthesisTask = (
   output: any,
   context: __SerdeContext
 ): SynthesisTask => {
-  let contents: any = {
+  return {
     __type: "SynthesisTask",
-    CreationTime: undefined,
-    Engine: undefined,
-    LanguageCode: undefined,
-    LexiconNames: undefined,
-    OutputFormat: undefined,
-    OutputUri: undefined,
-    RequestCharacters: undefined,
-    SampleRate: undefined,
-    SnsTopicArn: undefined,
-    SpeechMarkTypes: undefined,
-    TaskId: undefined,
-    TaskStatus: undefined,
-    TaskStatusReason: undefined,
-    TextType: undefined,
-    VoiceId: undefined
-  };
-  if (output.CreationTime !== undefined && output.CreationTime !== null) {
-    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
-  }
-  if (output.Engine !== undefined && output.Engine !== null) {
-    contents.Engine = output.Engine;
-  }
-  if (output.LanguageCode !== undefined && output.LanguageCode !== null) {
-    contents.LanguageCode = output.LanguageCode;
-  }
-  if (output.LexiconNames !== undefined && output.LexiconNames !== null) {
-    contents.LexiconNames = deserializeAws_restJson1_1LexiconNameList(
-      output.LexiconNames,
-      context
-    );
-  }
-  if (output.OutputFormat !== undefined && output.OutputFormat !== null) {
-    contents.OutputFormat = output.OutputFormat;
-  }
-  if (output.OutputUri !== undefined && output.OutputUri !== null) {
-    contents.OutputUri = output.OutputUri;
-  }
-  if (
-    output.RequestCharacters !== undefined &&
-    output.RequestCharacters !== null
-  ) {
-    contents.RequestCharacters = output.RequestCharacters;
-  }
-  if (output.SampleRate !== undefined && output.SampleRate !== null) {
-    contents.SampleRate = output.SampleRate;
-  }
-  if (output.SnsTopicArn !== undefined && output.SnsTopicArn !== null) {
-    contents.SnsTopicArn = output.SnsTopicArn;
-  }
-  if (output.SpeechMarkTypes !== undefined && output.SpeechMarkTypes !== null) {
-    contents.SpeechMarkTypes = deserializeAws_restJson1_1SpeechMarkTypeList(
-      output.SpeechMarkTypes,
-      context
-    );
-  }
-  if (output.TaskId !== undefined && output.TaskId !== null) {
-    contents.TaskId = output.TaskId;
-  }
-  if (output.TaskStatus !== undefined && output.TaskStatus !== null) {
-    contents.TaskStatus = output.TaskStatus;
-  }
-  if (
-    output.TaskStatusReason !== undefined &&
-    output.TaskStatusReason !== null
-  ) {
-    contents.TaskStatusReason = output.TaskStatusReason;
-  }
-  if (output.TextType !== undefined && output.TextType !== null) {
-    contents.TextType = output.TextType;
-  }
-  if (output.VoiceId !== undefined && output.VoiceId !== null) {
-    contents.VoiceId = output.VoiceId;
-  }
-  return contents;
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    Engine:
+      output.Engine !== undefined && output.Engine !== null
+        ? output.Engine
+        : undefined,
+    LanguageCode:
+      output.LanguageCode !== undefined && output.LanguageCode !== null
+        ? output.LanguageCode
+        : undefined,
+    LexiconNames:
+      output.LexiconNames !== undefined && output.LexiconNames !== null
+        ? deserializeAws_restJson1_1LexiconNameList(
+            output.LexiconNames,
+            context
+          )
+        : undefined,
+    OutputFormat:
+      output.OutputFormat !== undefined && output.OutputFormat !== null
+        ? output.OutputFormat
+        : undefined,
+    OutputUri:
+      output.OutputUri !== undefined && output.OutputUri !== null
+        ? output.OutputUri
+        : undefined,
+    RequestCharacters:
+      output.RequestCharacters !== undefined &&
+      output.RequestCharacters !== null
+        ? output.RequestCharacters
+        : undefined,
+    SampleRate:
+      output.SampleRate !== undefined && output.SampleRate !== null
+        ? output.SampleRate
+        : undefined,
+    SnsTopicArn:
+      output.SnsTopicArn !== undefined && output.SnsTopicArn !== null
+        ? output.SnsTopicArn
+        : undefined,
+    SpeechMarkTypes:
+      output.SpeechMarkTypes !== undefined && output.SpeechMarkTypes !== null
+        ? deserializeAws_restJson1_1SpeechMarkTypeList(
+            output.SpeechMarkTypes,
+            context
+          )
+        : undefined,
+    TaskId:
+      output.TaskId !== undefined && output.TaskId !== null
+        ? output.TaskId
+        : undefined,
+    TaskStatus:
+      output.TaskStatus !== undefined && output.TaskStatus !== null
+        ? output.TaskStatus
+        : undefined,
+    TaskStatusReason:
+      output.TaskStatusReason !== undefined && output.TaskStatusReason !== null
+        ? output.TaskStatusReason
+        : undefined,
+    TextType:
+      output.TextType !== undefined && output.TextType !== null
+        ? output.TextType
+        : undefined,
+    VoiceId:
+      output.VoiceId !== undefined && output.VoiceId !== null
+        ? output.VoiceId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SynthesisTasks = (
@@ -1906,50 +1897,38 @@ const deserializeAws_restJson1_1Voice = (
   output: any,
   context: __SerdeContext
 ): Voice => {
-  let contents: any = {
+  return {
     __type: "Voice",
-    AdditionalLanguageCodes: undefined,
-    Gender: undefined,
-    Id: undefined,
-    LanguageCode: undefined,
-    LanguageName: undefined,
-    Name: undefined,
-    SupportedEngines: undefined
-  };
-  if (
-    output.AdditionalLanguageCodes !== undefined &&
-    output.AdditionalLanguageCodes !== null
-  ) {
-    contents.AdditionalLanguageCodes = deserializeAws_restJson1_1LanguageCodeList(
-      output.AdditionalLanguageCodes,
-      context
-    );
-  }
-  if (output.Gender !== undefined && output.Gender !== null) {
-    contents.Gender = output.Gender;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.LanguageCode !== undefined && output.LanguageCode !== null) {
-    contents.LanguageCode = output.LanguageCode;
-  }
-  if (output.LanguageName !== undefined && output.LanguageName !== null) {
-    contents.LanguageName = output.LanguageName;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (
-    output.SupportedEngines !== undefined &&
-    output.SupportedEngines !== null
-  ) {
-    contents.SupportedEngines = deserializeAws_restJson1_1EngineList(
-      output.SupportedEngines,
-      context
-    );
-  }
-  return contents;
+    AdditionalLanguageCodes:
+      output.AdditionalLanguageCodes !== undefined &&
+      output.AdditionalLanguageCodes !== null
+        ? deserializeAws_restJson1_1LanguageCodeList(
+            output.AdditionalLanguageCodes,
+            context
+          )
+        : undefined,
+    Gender:
+      output.Gender !== undefined && output.Gender !== null
+        ? output.Gender
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    LanguageCode:
+      output.LanguageCode !== undefined && output.LanguageCode !== null
+        ? output.LanguageCode
+        : undefined,
+    LanguageName:
+      output.LanguageName !== undefined && output.LanguageName !== null
+        ? output.LanguageName
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    SupportedEngines:
+      output.SupportedEngines !== undefined && output.SupportedEngines !== null
+        ? deserializeAws_restJson1_1EngineList(output.SupportedEngines, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1VoiceList = (

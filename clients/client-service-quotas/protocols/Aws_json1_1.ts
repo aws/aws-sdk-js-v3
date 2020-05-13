@@ -2946,344 +2946,316 @@ const deserializeAws_json1_1AWSServiceAccessNotEnabledException = (
   output: any,
   context: __SerdeContext
 ): AWSServiceAccessNotEnabledException => {
-  let contents: any = {
+  return {
     __type: "AWSServiceAccessNotEnabledException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1AccessDeniedException = (
   output: any,
   context: __SerdeContext
 ): AccessDeniedException => {
-  let contents: any = {
+  return {
     __type: "AccessDeniedException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1AssociateServiceQuotaTemplateResponse = (
   output: any,
   context: __SerdeContext
 ): AssociateServiceQuotaTemplateResponse => {
-  let contents: any = {
+  return {
     __type: "AssociateServiceQuotaTemplateResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DeleteServiceQuotaIncreaseRequestFromTemplateResponse = (
   output: any,
   context: __SerdeContext
 ): DeleteServiceQuotaIncreaseRequestFromTemplateResponse => {
-  let contents: any = {
+  return {
     __type: "DeleteServiceQuotaIncreaseRequestFromTemplateResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1DependencyAccessDeniedException = (
   output: any,
   context: __SerdeContext
 ): DependencyAccessDeniedException => {
-  let contents: any = {
+  return {
     __type: "DependencyAccessDeniedException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1DisassociateServiceQuotaTemplateResponse = (
   output: any,
   context: __SerdeContext
 ): DisassociateServiceQuotaTemplateResponse => {
-  let contents: any = {
+  return {
     __type: "DisassociateServiceQuotaTemplateResponse"
-  };
-  return contents;
+  } as any;
 };
 
 const deserializeAws_json1_1ErrorReason = (
   output: any,
   context: __SerdeContext
 ): ErrorReason => {
-  let contents: any = {
+  return {
     __type: "ErrorReason",
-    ErrorCode: undefined,
-    ErrorMessage: undefined
-  };
-  if (output.ErrorCode !== undefined && output.ErrorCode !== null) {
-    contents.ErrorCode = output.ErrorCode;
-  }
-  if (output.ErrorMessage !== undefined && output.ErrorMessage !== null) {
-    contents.ErrorMessage = output.ErrorMessage;
-  }
-  return contents;
+    ErrorCode:
+      output.ErrorCode !== undefined && output.ErrorCode !== null
+        ? output.ErrorCode
+        : undefined,
+    ErrorMessage:
+      output.ErrorMessage !== undefined && output.ErrorMessage !== null
+        ? output.ErrorMessage
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetAWSDefaultServiceQuotaResponse = (
   output: any,
   context: __SerdeContext
 ): GetAWSDefaultServiceQuotaResponse => {
-  let contents: any = {
+  return {
     __type: "GetAWSDefaultServiceQuotaResponse",
-    Quota: undefined
-  };
-  if (output.Quota !== undefined && output.Quota !== null) {
-    contents.Quota = deserializeAws_json1_1ServiceQuota(output.Quota, context);
-  }
-  return contents;
+    Quota:
+      output.Quota !== undefined && output.Quota !== null
+        ? deserializeAws_json1_1ServiceQuota(output.Quota, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetAssociationForServiceQuotaTemplateResponse = (
   output: any,
   context: __SerdeContext
 ): GetAssociationForServiceQuotaTemplateResponse => {
-  let contents: any = {
+  return {
     __type: "GetAssociationForServiceQuotaTemplateResponse",
-    ServiceQuotaTemplateAssociationStatus: undefined
-  };
-  if (
-    output.ServiceQuotaTemplateAssociationStatus !== undefined &&
-    output.ServiceQuotaTemplateAssociationStatus !== null
-  ) {
-    contents.ServiceQuotaTemplateAssociationStatus =
-      output.ServiceQuotaTemplateAssociationStatus;
-  }
-  return contents;
+    ServiceQuotaTemplateAssociationStatus:
+      output.ServiceQuotaTemplateAssociationStatus !== undefined &&
+      output.ServiceQuotaTemplateAssociationStatus !== null
+        ? output.ServiceQuotaTemplateAssociationStatus
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetRequestedServiceQuotaChangeResponse = (
   output: any,
   context: __SerdeContext
 ): GetRequestedServiceQuotaChangeResponse => {
-  let contents: any = {
+  return {
     __type: "GetRequestedServiceQuotaChangeResponse",
-    RequestedQuota: undefined
-  };
-  if (output.RequestedQuota !== undefined && output.RequestedQuota !== null) {
-    contents.RequestedQuota = deserializeAws_json1_1RequestedServiceQuotaChange(
-      output.RequestedQuota,
-      context
-    );
-  }
-  return contents;
+    RequestedQuota:
+      output.RequestedQuota !== undefined && output.RequestedQuota !== null
+        ? deserializeAws_json1_1RequestedServiceQuotaChange(
+            output.RequestedQuota,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetServiceQuotaIncreaseRequestFromTemplateResponse = (
   output: any,
   context: __SerdeContext
 ): GetServiceQuotaIncreaseRequestFromTemplateResponse => {
-  let contents: any = {
+  return {
     __type: "GetServiceQuotaIncreaseRequestFromTemplateResponse",
-    ServiceQuotaIncreaseRequestInTemplate: undefined
-  };
-  if (
-    output.ServiceQuotaIncreaseRequestInTemplate !== undefined &&
-    output.ServiceQuotaIncreaseRequestInTemplate !== null
-  ) {
-    contents.ServiceQuotaIncreaseRequestInTemplate = deserializeAws_json1_1ServiceQuotaIncreaseRequestInTemplate(
-      output.ServiceQuotaIncreaseRequestInTemplate,
-      context
-    );
-  }
-  return contents;
+    ServiceQuotaIncreaseRequestInTemplate:
+      output.ServiceQuotaIncreaseRequestInTemplate !== undefined &&
+      output.ServiceQuotaIncreaseRequestInTemplate !== null
+        ? deserializeAws_json1_1ServiceQuotaIncreaseRequestInTemplate(
+            output.ServiceQuotaIncreaseRequestInTemplate,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1GetServiceQuotaResponse = (
   output: any,
   context: __SerdeContext
 ): GetServiceQuotaResponse => {
-  let contents: any = {
+  return {
     __type: "GetServiceQuotaResponse",
-    Quota: undefined
-  };
-  if (output.Quota !== undefined && output.Quota !== null) {
-    contents.Quota = deserializeAws_json1_1ServiceQuota(output.Quota, context);
-  }
-  return contents;
+    Quota:
+      output.Quota !== undefined && output.Quota !== null
+        ? deserializeAws_json1_1ServiceQuota(output.Quota, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1IllegalArgumentException = (
   output: any,
   context: __SerdeContext
 ): IllegalArgumentException => {
-  let contents: any = {
+  return {
     __type: "IllegalArgumentException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidPaginationTokenException = (
   output: any,
   context: __SerdeContext
 ): InvalidPaginationTokenException => {
-  let contents: any = {
+  return {
     __type: "InvalidPaginationTokenException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1InvalidResourceStateException = (
   output: any,
   context: __SerdeContext
 ): InvalidResourceStateException => {
-  let contents: any = {
+  return {
     __type: "InvalidResourceStateException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListAWSDefaultServiceQuotasResponse = (
   output: any,
   context: __SerdeContext
 ): ListAWSDefaultServiceQuotasResponse => {
-  let contents: any = {
+  return {
     __type: "ListAWSDefaultServiceQuotasResponse",
-    NextToken: undefined,
-    Quotas: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.Quotas !== undefined && output.Quotas !== null) {
-    contents.Quotas = deserializeAws_json1_1ServiceQuotaListDefinition(
-      output.Quotas,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Quotas:
+      output.Quotas !== undefined && output.Quotas !== null
+        ? deserializeAws_json1_1ServiceQuotaListDefinition(
+            output.Quotas,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryByQuotaResponse = (
   output: any,
   context: __SerdeContext
 ): ListRequestedServiceQuotaChangeHistoryByQuotaResponse => {
-  let contents: any = {
+  return {
     __type: "ListRequestedServiceQuotaChangeHistoryByQuotaResponse",
-    NextToken: undefined,
-    RequestedQuotas: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.RequestedQuotas !== undefined && output.RequestedQuotas !== null) {
-    contents.RequestedQuotas = deserializeAws_json1_1RequestedServiceQuotaChangeHistoryListDefinition(
-      output.RequestedQuotas,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    RequestedQuotas:
+      output.RequestedQuotas !== undefined && output.RequestedQuotas !== null
+        ? deserializeAws_json1_1RequestedServiceQuotaChangeHistoryListDefinition(
+            output.RequestedQuotas,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListRequestedServiceQuotaChangeHistoryResponse = (
   output: any,
   context: __SerdeContext
 ): ListRequestedServiceQuotaChangeHistoryResponse => {
-  let contents: any = {
+  return {
     __type: "ListRequestedServiceQuotaChangeHistoryResponse",
-    NextToken: undefined,
-    RequestedQuotas: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.RequestedQuotas !== undefined && output.RequestedQuotas !== null) {
-    contents.RequestedQuotas = deserializeAws_json1_1RequestedServiceQuotaChangeHistoryListDefinition(
-      output.RequestedQuotas,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    RequestedQuotas:
+      output.RequestedQuotas !== undefined && output.RequestedQuotas !== null
+        ? deserializeAws_json1_1RequestedServiceQuotaChangeHistoryListDefinition(
+            output.RequestedQuotas,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListServiceQuotaIncreaseRequestsInTemplateResponse = (
   output: any,
   context: __SerdeContext
 ): ListServiceQuotaIncreaseRequestsInTemplateResponse => {
-  let contents: any = {
+  return {
     __type: "ListServiceQuotaIncreaseRequestsInTemplateResponse",
-    NextToken: undefined,
-    ServiceQuotaIncreaseRequestInTemplateList: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (
-    output.ServiceQuotaIncreaseRequestInTemplateList !== undefined &&
-    output.ServiceQuotaIncreaseRequestInTemplateList !== null
-  ) {
-    contents.ServiceQuotaIncreaseRequestInTemplateList = deserializeAws_json1_1ServiceQuotaIncreaseRequestInTemplateList(
-      output.ServiceQuotaIncreaseRequestInTemplateList,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    ServiceQuotaIncreaseRequestInTemplateList:
+      output.ServiceQuotaIncreaseRequestInTemplateList !== undefined &&
+      output.ServiceQuotaIncreaseRequestInTemplateList !== null
+        ? deserializeAws_json1_1ServiceQuotaIncreaseRequestInTemplateList(
+            output.ServiceQuotaIncreaseRequestInTemplateList,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListServiceQuotasResponse = (
   output: any,
   context: __SerdeContext
 ): ListServiceQuotasResponse => {
-  let contents: any = {
+  return {
     __type: "ListServiceQuotasResponse",
-    NextToken: undefined,
-    Quotas: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.Quotas !== undefined && output.Quotas !== null) {
-    contents.Quotas = deserializeAws_json1_1ServiceQuotaListDefinition(
-      output.Quotas,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Quotas:
+      output.Quotas !== undefined && output.Quotas !== null
+        ? deserializeAws_json1_1ServiceQuotaListDefinition(
+            output.Quotas,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ListServicesResponse = (
   output: any,
   context: __SerdeContext
 ): ListServicesResponse => {
-  let contents: any = {
+  return {
     __type: "ListServicesResponse",
-    NextToken: undefined,
-    Services: undefined
-  };
-  if (output.NextToken !== undefined && output.NextToken !== null) {
-    contents.NextToken = output.NextToken;
-  }
-  if (output.Services !== undefined && output.Services !== null) {
-    contents.Services = deserializeAws_json1_1ServiceInfoListDefinition(
-      output.Services,
-      context
-    );
-  }
-  return contents;
+    NextToken:
+      output.NextToken !== undefined && output.NextToken !== null
+        ? output.NextToken
+        : undefined,
+    Services:
+      output.Services !== undefined && output.Services !== null
+        ? deserializeAws_json1_1ServiceInfoListDefinition(
+            output.Services,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1MetricDimensionsMapDefinition = (
@@ -3300,213 +3272,193 @@ const deserializeAws_json1_1MetricInfo = (
   output: any,
   context: __SerdeContext
 ): MetricInfo => {
-  let contents: any = {
+  return {
     __type: "MetricInfo",
-    MetricDimensions: undefined,
-    MetricName: undefined,
-    MetricNamespace: undefined,
-    MetricStatisticRecommendation: undefined
-  };
-  if (
-    output.MetricDimensions !== undefined &&
-    output.MetricDimensions !== null
-  ) {
-    contents.MetricDimensions = deserializeAws_json1_1MetricDimensionsMapDefinition(
-      output.MetricDimensions,
-      context
-    );
-  }
-  if (output.MetricName !== undefined && output.MetricName !== null) {
-    contents.MetricName = output.MetricName;
-  }
-  if (output.MetricNamespace !== undefined && output.MetricNamespace !== null) {
-    contents.MetricNamespace = output.MetricNamespace;
-  }
-  if (
-    output.MetricStatisticRecommendation !== undefined &&
-    output.MetricStatisticRecommendation !== null
-  ) {
-    contents.MetricStatisticRecommendation =
-      output.MetricStatisticRecommendation;
-  }
-  return contents;
+    MetricDimensions:
+      output.MetricDimensions !== undefined && output.MetricDimensions !== null
+        ? deserializeAws_json1_1MetricDimensionsMapDefinition(
+            output.MetricDimensions,
+            context
+          )
+        : undefined,
+    MetricName:
+      output.MetricName !== undefined && output.MetricName !== null
+        ? output.MetricName
+        : undefined,
+    MetricNamespace:
+      output.MetricNamespace !== undefined && output.MetricNamespace !== null
+        ? output.MetricNamespace
+        : undefined,
+    MetricStatisticRecommendation:
+      output.MetricStatisticRecommendation !== undefined &&
+      output.MetricStatisticRecommendation !== null
+        ? output.MetricStatisticRecommendation
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1NoAvailableOrganizationException = (
   output: any,
   context: __SerdeContext
 ): NoAvailableOrganizationException => {
-  let contents: any = {
+  return {
     __type: "NoAvailableOrganizationException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1NoSuchResourceException = (
   output: any,
   context: __SerdeContext
 ): NoSuchResourceException => {
-  let contents: any = {
+  return {
     __type: "NoSuchResourceException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1OrganizationNotInAllFeaturesModeException = (
   output: any,
   context: __SerdeContext
 ): OrganizationNotInAllFeaturesModeException => {
-  let contents: any = {
+  return {
     __type: "OrganizationNotInAllFeaturesModeException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1PutServiceQuotaIncreaseRequestIntoTemplateResponse = (
   output: any,
   context: __SerdeContext
 ): PutServiceQuotaIncreaseRequestIntoTemplateResponse => {
-  let contents: any = {
+  return {
     __type: "PutServiceQuotaIncreaseRequestIntoTemplateResponse",
-    ServiceQuotaIncreaseRequestInTemplate: undefined
-  };
-  if (
-    output.ServiceQuotaIncreaseRequestInTemplate !== undefined &&
-    output.ServiceQuotaIncreaseRequestInTemplate !== null
-  ) {
-    contents.ServiceQuotaIncreaseRequestInTemplate = deserializeAws_json1_1ServiceQuotaIncreaseRequestInTemplate(
-      output.ServiceQuotaIncreaseRequestInTemplate,
-      context
-    );
-  }
-  return contents;
+    ServiceQuotaIncreaseRequestInTemplate:
+      output.ServiceQuotaIncreaseRequestInTemplate !== undefined &&
+      output.ServiceQuotaIncreaseRequestInTemplate !== null
+        ? deserializeAws_json1_1ServiceQuotaIncreaseRequestInTemplate(
+            output.ServiceQuotaIncreaseRequestInTemplate,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1QuotaExceededException = (
   output: any,
   context: __SerdeContext
 ): QuotaExceededException => {
-  let contents: any = {
+  return {
     __type: "QuotaExceededException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1QuotaPeriod = (
   output: any,
   context: __SerdeContext
 ): QuotaPeriod => {
-  let contents: any = {
+  return {
     __type: "QuotaPeriod",
-    PeriodUnit: undefined,
-    PeriodValue: undefined
-  };
-  if (output.PeriodUnit !== undefined && output.PeriodUnit !== null) {
-    contents.PeriodUnit = output.PeriodUnit;
-  }
-  if (output.PeriodValue !== undefined && output.PeriodValue !== null) {
-    contents.PeriodValue = output.PeriodValue;
-  }
-  return contents;
+    PeriodUnit:
+      output.PeriodUnit !== undefined && output.PeriodUnit !== null
+        ? output.PeriodUnit
+        : undefined,
+    PeriodValue:
+      output.PeriodValue !== undefined && output.PeriodValue !== null
+        ? output.PeriodValue
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RequestServiceQuotaIncreaseResponse = (
   output: any,
   context: __SerdeContext
 ): RequestServiceQuotaIncreaseResponse => {
-  let contents: any = {
+  return {
     __type: "RequestServiceQuotaIncreaseResponse",
-    RequestedQuota: undefined
-  };
-  if (output.RequestedQuota !== undefined && output.RequestedQuota !== null) {
-    contents.RequestedQuota = deserializeAws_json1_1RequestedServiceQuotaChange(
-      output.RequestedQuota,
-      context
-    );
-  }
-  return contents;
+    RequestedQuota:
+      output.RequestedQuota !== undefined && output.RequestedQuota !== null
+        ? deserializeAws_json1_1RequestedServiceQuotaChange(
+            output.RequestedQuota,
+            context
+          )
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RequestedServiceQuotaChange = (
   output: any,
   context: __SerdeContext
 ): RequestedServiceQuotaChange => {
-  let contents: any = {
+  return {
     __type: "RequestedServiceQuotaChange",
-    CaseId: undefined,
-    Created: undefined,
-    DesiredValue: undefined,
-    GlobalQuota: undefined,
-    Id: undefined,
-    LastUpdated: undefined,
-    QuotaArn: undefined,
-    QuotaCode: undefined,
-    QuotaName: undefined,
-    Requester: undefined,
-    ServiceCode: undefined,
-    ServiceName: undefined,
-    Status: undefined,
-    Unit: undefined
-  };
-  if (output.CaseId !== undefined && output.CaseId !== null) {
-    contents.CaseId = output.CaseId;
-  }
-  if (output.Created !== undefined && output.Created !== null) {
-    contents.Created = new Date(Math.round(output.Created * 1000));
-  }
-  if (output.DesiredValue !== undefined && output.DesiredValue !== null) {
-    contents.DesiredValue = output.DesiredValue;
-  }
-  if (output.GlobalQuota !== undefined && output.GlobalQuota !== null) {
-    contents.GlobalQuota = output.GlobalQuota;
-  }
-  if (output.Id !== undefined && output.Id !== null) {
-    contents.Id = output.Id;
-  }
-  if (output.LastUpdated !== undefined && output.LastUpdated !== null) {
-    contents.LastUpdated = new Date(Math.round(output.LastUpdated * 1000));
-  }
-  if (output.QuotaArn !== undefined && output.QuotaArn !== null) {
-    contents.QuotaArn = output.QuotaArn;
-  }
-  if (output.QuotaCode !== undefined && output.QuotaCode !== null) {
-    contents.QuotaCode = output.QuotaCode;
-  }
-  if (output.QuotaName !== undefined && output.QuotaName !== null) {
-    contents.QuotaName = output.QuotaName;
-  }
-  if (output.Requester !== undefined && output.Requester !== null) {
-    contents.Requester = output.Requester;
-  }
-  if (output.ServiceCode !== undefined && output.ServiceCode !== null) {
-    contents.ServiceCode = output.ServiceCode;
-  }
-  if (output.ServiceName !== undefined && output.ServiceName !== null) {
-    contents.ServiceName = output.ServiceName;
-  }
-  if (output.Status !== undefined && output.Status !== null) {
-    contents.Status = output.Status;
-  }
-  if (output.Unit !== undefined && output.Unit !== null) {
-    contents.Unit = output.Unit;
-  }
-  return contents;
+    CaseId:
+      output.CaseId !== undefined && output.CaseId !== null
+        ? output.CaseId
+        : undefined,
+    Created:
+      output.Created !== undefined && output.Created !== null
+        ? new Date(Math.round(output.Created * 1000))
+        : undefined,
+    DesiredValue:
+      output.DesiredValue !== undefined && output.DesiredValue !== null
+        ? output.DesiredValue
+        : undefined,
+    GlobalQuota:
+      output.GlobalQuota !== undefined && output.GlobalQuota !== null
+        ? output.GlobalQuota
+        : undefined,
+    Id: output.Id !== undefined && output.Id !== null ? output.Id : undefined,
+    LastUpdated:
+      output.LastUpdated !== undefined && output.LastUpdated !== null
+        ? new Date(Math.round(output.LastUpdated * 1000))
+        : undefined,
+    QuotaArn:
+      output.QuotaArn !== undefined && output.QuotaArn !== null
+        ? output.QuotaArn
+        : undefined,
+    QuotaCode:
+      output.QuotaCode !== undefined && output.QuotaCode !== null
+        ? output.QuotaCode
+        : undefined,
+    QuotaName:
+      output.QuotaName !== undefined && output.QuotaName !== null
+        ? output.QuotaName
+        : undefined,
+    Requester:
+      output.Requester !== undefined && output.Requester !== null
+        ? output.Requester
+        : undefined,
+    ServiceCode:
+      output.ServiceCode !== undefined && output.ServiceCode !== null
+        ? output.ServiceCode
+        : undefined,
+    ServiceName:
+      output.ServiceName !== undefined && output.ServiceName !== null
+        ? output.ServiceName
+        : undefined,
+    Status:
+      output.Status !== undefined && output.Status !== null
+        ? output.Status
+        : undefined,
+    Unit:
+      output.Unit !== undefined && output.Unit !== null
+        ? output.Unit
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1RequestedServiceQuotaChangeHistoryListDefinition = (
@@ -3522,46 +3474,43 @@ const deserializeAws_json1_1ResourceAlreadyExistsException = (
   output: any,
   context: __SerdeContext
 ): ResourceAlreadyExistsException => {
-  let contents: any = {
+  return {
     __type: "ResourceAlreadyExistsException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ServiceException = (
   output: any,
   context: __SerdeContext
 ): ServiceException => {
-  let contents: any = {
+  return {
     __type: "ServiceException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ServiceInfo = (
   output: any,
   context: __SerdeContext
 ): ServiceInfo => {
-  let contents: any = {
+  return {
     __type: "ServiceInfo",
-    ServiceCode: undefined,
-    ServiceName: undefined
-  };
-  if (output.ServiceCode !== undefined && output.ServiceCode !== null) {
-    contents.ServiceCode = output.ServiceCode;
-  }
-  if (output.ServiceName !== undefined && output.ServiceName !== null) {
-    contents.ServiceName = output.ServiceName;
-  }
-  return contents;
+    ServiceCode:
+      output.ServiceCode !== undefined && output.ServiceCode !== null
+        ? output.ServiceCode
+        : undefined,
+    ServiceName:
+      output.ServiceName !== undefined && output.ServiceName !== null
+        ? output.ServiceName
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ServiceInfoListDefinition = (
@@ -3577,106 +3526,98 @@ const deserializeAws_json1_1ServiceQuota = (
   output: any,
   context: __SerdeContext
 ): ServiceQuota => {
-  let contents: any = {
+  return {
     __type: "ServiceQuota",
-    Adjustable: undefined,
-    ErrorReason: undefined,
-    GlobalQuota: undefined,
-    Period: undefined,
-    QuotaArn: undefined,
-    QuotaCode: undefined,
-    QuotaName: undefined,
-    ServiceCode: undefined,
-    ServiceName: undefined,
-    Unit: undefined,
-    UsageMetric: undefined,
-    Value: undefined
-  };
-  if (output.Adjustable !== undefined && output.Adjustable !== null) {
-    contents.Adjustable = output.Adjustable;
-  }
-  if (output.ErrorReason !== undefined && output.ErrorReason !== null) {
-    contents.ErrorReason = deserializeAws_json1_1ErrorReason(
-      output.ErrorReason,
-      context
-    );
-  }
-  if (output.GlobalQuota !== undefined && output.GlobalQuota !== null) {
-    contents.GlobalQuota = output.GlobalQuota;
-  }
-  if (output.Period !== undefined && output.Period !== null) {
-    contents.Period = deserializeAws_json1_1QuotaPeriod(output.Period, context);
-  }
-  if (output.QuotaArn !== undefined && output.QuotaArn !== null) {
-    contents.QuotaArn = output.QuotaArn;
-  }
-  if (output.QuotaCode !== undefined && output.QuotaCode !== null) {
-    contents.QuotaCode = output.QuotaCode;
-  }
-  if (output.QuotaName !== undefined && output.QuotaName !== null) {
-    contents.QuotaName = output.QuotaName;
-  }
-  if (output.ServiceCode !== undefined && output.ServiceCode !== null) {
-    contents.ServiceCode = output.ServiceCode;
-  }
-  if (output.ServiceName !== undefined && output.ServiceName !== null) {
-    contents.ServiceName = output.ServiceName;
-  }
-  if (output.Unit !== undefined && output.Unit !== null) {
-    contents.Unit = output.Unit;
-  }
-  if (output.UsageMetric !== undefined && output.UsageMetric !== null) {
-    contents.UsageMetric = deserializeAws_json1_1MetricInfo(
-      output.UsageMetric,
-      context
-    );
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Adjustable:
+      output.Adjustable !== undefined && output.Adjustable !== null
+        ? output.Adjustable
+        : undefined,
+    ErrorReason:
+      output.ErrorReason !== undefined && output.ErrorReason !== null
+        ? deserializeAws_json1_1ErrorReason(output.ErrorReason, context)
+        : undefined,
+    GlobalQuota:
+      output.GlobalQuota !== undefined && output.GlobalQuota !== null
+        ? output.GlobalQuota
+        : undefined,
+    Period:
+      output.Period !== undefined && output.Period !== null
+        ? deserializeAws_json1_1QuotaPeriod(output.Period, context)
+        : undefined,
+    QuotaArn:
+      output.QuotaArn !== undefined && output.QuotaArn !== null
+        ? output.QuotaArn
+        : undefined,
+    QuotaCode:
+      output.QuotaCode !== undefined && output.QuotaCode !== null
+        ? output.QuotaCode
+        : undefined,
+    QuotaName:
+      output.QuotaName !== undefined && output.QuotaName !== null
+        ? output.QuotaName
+        : undefined,
+    ServiceCode:
+      output.ServiceCode !== undefined && output.ServiceCode !== null
+        ? output.ServiceCode
+        : undefined,
+    ServiceName:
+      output.ServiceName !== undefined && output.ServiceName !== null
+        ? output.ServiceName
+        : undefined,
+    Unit:
+      output.Unit !== undefined && output.Unit !== null
+        ? output.Unit
+        : undefined,
+    UsageMetric:
+      output.UsageMetric !== undefined && output.UsageMetric !== null
+        ? deserializeAws_json1_1MetricInfo(output.UsageMetric, context)
+        : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ServiceQuotaIncreaseRequestInTemplate = (
   output: any,
   context: __SerdeContext
 ): ServiceQuotaIncreaseRequestInTemplate => {
-  let contents: any = {
+  return {
     __type: "ServiceQuotaIncreaseRequestInTemplate",
-    AwsRegion: undefined,
-    DesiredValue: undefined,
-    GlobalQuota: undefined,
-    QuotaCode: undefined,
-    QuotaName: undefined,
-    ServiceCode: undefined,
-    ServiceName: undefined,
-    Unit: undefined
-  };
-  if (output.AwsRegion !== undefined && output.AwsRegion !== null) {
-    contents.AwsRegion = output.AwsRegion;
-  }
-  if (output.DesiredValue !== undefined && output.DesiredValue !== null) {
-    contents.DesiredValue = output.DesiredValue;
-  }
-  if (output.GlobalQuota !== undefined && output.GlobalQuota !== null) {
-    contents.GlobalQuota = output.GlobalQuota;
-  }
-  if (output.QuotaCode !== undefined && output.QuotaCode !== null) {
-    contents.QuotaCode = output.QuotaCode;
-  }
-  if (output.QuotaName !== undefined && output.QuotaName !== null) {
-    contents.QuotaName = output.QuotaName;
-  }
-  if (output.ServiceCode !== undefined && output.ServiceCode !== null) {
-    contents.ServiceCode = output.ServiceCode;
-  }
-  if (output.ServiceName !== undefined && output.ServiceName !== null) {
-    contents.ServiceName = output.ServiceName;
-  }
-  if (output.Unit !== undefined && output.Unit !== null) {
-    contents.Unit = output.Unit;
-  }
-  return contents;
+    AwsRegion:
+      output.AwsRegion !== undefined && output.AwsRegion !== null
+        ? output.AwsRegion
+        : undefined,
+    DesiredValue:
+      output.DesiredValue !== undefined && output.DesiredValue !== null
+        ? output.DesiredValue
+        : undefined,
+    GlobalQuota:
+      output.GlobalQuota !== undefined && output.GlobalQuota !== null
+        ? output.GlobalQuota
+        : undefined,
+    QuotaCode:
+      output.QuotaCode !== undefined && output.QuotaCode !== null
+        ? output.QuotaCode
+        : undefined,
+    QuotaName:
+      output.QuotaName !== undefined && output.QuotaName !== null
+        ? output.QuotaName
+        : undefined,
+    ServiceCode:
+      output.ServiceCode !== undefined && output.ServiceCode !== null
+        ? output.ServiceCode
+        : undefined,
+    ServiceName:
+      output.ServiceName !== undefined && output.ServiceName !== null
+        ? output.ServiceName
+        : undefined,
+    Unit:
+      output.Unit !== undefined && output.Unit !== null
+        ? output.Unit
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1ServiceQuotaIncreaseRequestInTemplateList = (
@@ -3701,42 +3642,39 @@ const deserializeAws_json1_1ServiceQuotaTemplateNotInUseException = (
   output: any,
   context: __SerdeContext
 ): ServiceQuotaTemplateNotInUseException => {
-  let contents: any = {
+  return {
     __type: "ServiceQuotaTemplateNotInUseException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TemplatesNotAvailableInRegionException = (
   output: any,
   context: __SerdeContext
 ): TemplatesNotAvailableInRegionException => {
-  let contents: any = {
+  return {
     __type: "TemplatesNotAvailableInRegionException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeAws_json1_1TooManyRequestsException = (
   output: any,
   context: __SerdeContext
 ): TooManyRequestsException => {
-  let contents: any = {
+  return {
     __type: "TooManyRequestsException",
-    Message: undefined
-  };
-  if (output.Message !== undefined && output.Message !== null) {
-    contents.Message = output.Message;
-  }
-  return contents;
+    Message:
+      output.Message !== undefined && output.Message !== null
+        ? output.Message
+        : undefined
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

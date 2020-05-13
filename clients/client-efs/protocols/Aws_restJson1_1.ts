@@ -4157,56 +4157,49 @@ const deserializeAws_restJson1_1AccessPointDescription = (
   output: any,
   context: __SerdeContext
 ): AccessPointDescription => {
-  let contents: any = {
+  return {
     __type: "AccessPointDescription",
-    AccessPointArn: undefined,
-    AccessPointId: undefined,
-    ClientToken: undefined,
-    FileSystemId: undefined,
-    LifeCycleState: undefined,
-    Name: undefined,
-    OwnerId: undefined,
-    PosixUser: undefined,
-    RootDirectory: undefined,
-    Tags: undefined
-  };
-  if (output.AccessPointArn !== undefined && output.AccessPointArn !== null) {
-    contents.AccessPointArn = output.AccessPointArn;
-  }
-  if (output.AccessPointId !== undefined && output.AccessPointId !== null) {
-    contents.AccessPointId = output.AccessPointId;
-  }
-  if (output.ClientToken !== undefined && output.ClientToken !== null) {
-    contents.ClientToken = output.ClientToken;
-  }
-  if (output.FileSystemId !== undefined && output.FileSystemId !== null) {
-    contents.FileSystemId = output.FileSystemId;
-  }
-  if (output.LifeCycleState !== undefined && output.LifeCycleState !== null) {
-    contents.LifeCycleState = output.LifeCycleState;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (output.OwnerId !== undefined && output.OwnerId !== null) {
-    contents.OwnerId = output.OwnerId;
-  }
-  if (output.PosixUser !== undefined && output.PosixUser !== null) {
-    contents.PosixUser = deserializeAws_restJson1_1PosixUser(
-      output.PosixUser,
-      context
-    );
-  }
-  if (output.RootDirectory !== undefined && output.RootDirectory !== null) {
-    contents.RootDirectory = deserializeAws_restJson1_1RootDirectory(
-      output.RootDirectory,
-      context
-    );
-  }
-  if (output.Tags !== undefined && output.Tags !== null) {
-    contents.Tags = deserializeAws_restJson1_1Tags(output.Tags, context);
-  }
-  return contents;
+    AccessPointArn:
+      output.AccessPointArn !== undefined && output.AccessPointArn !== null
+        ? output.AccessPointArn
+        : undefined,
+    AccessPointId:
+      output.AccessPointId !== undefined && output.AccessPointId !== null
+        ? output.AccessPointId
+        : undefined,
+    ClientToken:
+      output.ClientToken !== undefined && output.ClientToken !== null
+        ? output.ClientToken
+        : undefined,
+    FileSystemId:
+      output.FileSystemId !== undefined && output.FileSystemId !== null
+        ? output.FileSystemId
+        : undefined,
+    LifeCycleState:
+      output.LifeCycleState !== undefined && output.LifeCycleState !== null
+        ? output.LifeCycleState
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    OwnerId:
+      output.OwnerId !== undefined && output.OwnerId !== null
+        ? output.OwnerId
+        : undefined,
+    PosixUser:
+      output.PosixUser !== undefined && output.PosixUser !== null
+        ? deserializeAws_restJson1_1PosixUser(output.PosixUser, context)
+        : undefined,
+    RootDirectory:
+      output.RootDirectory !== undefined && output.RootDirectory !== null
+        ? deserializeAws_restJson1_1RootDirectory(output.RootDirectory, context)
+        : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_restJson1_1Tags(output.Tags, context)
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1AccessPointDescriptions = (
@@ -4222,97 +4215,88 @@ const deserializeAws_restJson1_1CreationInfo = (
   output: any,
   context: __SerdeContext
 ): CreationInfo => {
-  let contents: any = {
+  return {
     __type: "CreationInfo",
-    OwnerGid: undefined,
-    OwnerUid: undefined,
-    Permissions: undefined
-  };
-  if (output.OwnerGid !== undefined && output.OwnerGid !== null) {
-    contents.OwnerGid = output.OwnerGid;
-  }
-  if (output.OwnerUid !== undefined && output.OwnerUid !== null) {
-    contents.OwnerUid = output.OwnerUid;
-  }
-  if (output.Permissions !== undefined && output.Permissions !== null) {
-    contents.Permissions = output.Permissions;
-  }
-  return contents;
+    OwnerGid:
+      output.OwnerGid !== undefined && output.OwnerGid !== null
+        ? output.OwnerGid
+        : undefined,
+    OwnerUid:
+      output.OwnerUid !== undefined && output.OwnerUid !== null
+        ? output.OwnerUid
+        : undefined,
+    Permissions:
+      output.Permissions !== undefined && output.Permissions !== null
+        ? output.Permissions
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1FileSystemDescription = (
   output: any,
   context: __SerdeContext
 ): FileSystemDescription => {
-  let contents: any = {
+  return {
     __type: "FileSystemDescription",
-    CreationTime: undefined,
-    CreationToken: undefined,
-    Encrypted: undefined,
-    FileSystemId: undefined,
-    KmsKeyId: undefined,
-    LifeCycleState: undefined,
-    Name: undefined,
-    NumberOfMountTargets: undefined,
-    OwnerId: undefined,
-    PerformanceMode: undefined,
-    ProvisionedThroughputInMibps: undefined,
-    SizeInBytes: undefined,
-    Tags: undefined,
-    ThroughputMode: undefined
-  };
-  if (output.CreationTime !== undefined && output.CreationTime !== null) {
-    contents.CreationTime = new Date(Math.round(output.CreationTime * 1000));
-  }
-  if (output.CreationToken !== undefined && output.CreationToken !== null) {
-    contents.CreationToken = output.CreationToken;
-  }
-  if (output.Encrypted !== undefined && output.Encrypted !== null) {
-    contents.Encrypted = output.Encrypted;
-  }
-  if (output.FileSystemId !== undefined && output.FileSystemId !== null) {
-    contents.FileSystemId = output.FileSystemId;
-  }
-  if (output.KmsKeyId !== undefined && output.KmsKeyId !== null) {
-    contents.KmsKeyId = output.KmsKeyId;
-  }
-  if (output.LifeCycleState !== undefined && output.LifeCycleState !== null) {
-    contents.LifeCycleState = output.LifeCycleState;
-  }
-  if (output.Name !== undefined && output.Name !== null) {
-    contents.Name = output.Name;
-  }
-  if (
-    output.NumberOfMountTargets !== undefined &&
-    output.NumberOfMountTargets !== null
-  ) {
-    contents.NumberOfMountTargets = output.NumberOfMountTargets;
-  }
-  if (output.OwnerId !== undefined && output.OwnerId !== null) {
-    contents.OwnerId = output.OwnerId;
-  }
-  if (output.PerformanceMode !== undefined && output.PerformanceMode !== null) {
-    contents.PerformanceMode = output.PerformanceMode;
-  }
-  if (
-    output.ProvisionedThroughputInMibps !== undefined &&
-    output.ProvisionedThroughputInMibps !== null
-  ) {
-    contents.ProvisionedThroughputInMibps = output.ProvisionedThroughputInMibps;
-  }
-  if (output.SizeInBytes !== undefined && output.SizeInBytes !== null) {
-    contents.SizeInBytes = deserializeAws_restJson1_1FileSystemSize(
-      output.SizeInBytes,
-      context
-    );
-  }
-  if (output.Tags !== undefined && output.Tags !== null) {
-    contents.Tags = deserializeAws_restJson1_1Tags(output.Tags, context);
-  }
-  if (output.ThroughputMode !== undefined && output.ThroughputMode !== null) {
-    contents.ThroughputMode = output.ThroughputMode;
-  }
-  return contents;
+    CreationTime:
+      output.CreationTime !== undefined && output.CreationTime !== null
+        ? new Date(Math.round(output.CreationTime * 1000))
+        : undefined,
+    CreationToken:
+      output.CreationToken !== undefined && output.CreationToken !== null
+        ? output.CreationToken
+        : undefined,
+    Encrypted:
+      output.Encrypted !== undefined && output.Encrypted !== null
+        ? output.Encrypted
+        : undefined,
+    FileSystemId:
+      output.FileSystemId !== undefined && output.FileSystemId !== null
+        ? output.FileSystemId
+        : undefined,
+    KmsKeyId:
+      output.KmsKeyId !== undefined && output.KmsKeyId !== null
+        ? output.KmsKeyId
+        : undefined,
+    LifeCycleState:
+      output.LifeCycleState !== undefined && output.LifeCycleState !== null
+        ? output.LifeCycleState
+        : undefined,
+    Name:
+      output.Name !== undefined && output.Name !== null
+        ? output.Name
+        : undefined,
+    NumberOfMountTargets:
+      output.NumberOfMountTargets !== undefined &&
+      output.NumberOfMountTargets !== null
+        ? output.NumberOfMountTargets
+        : undefined,
+    OwnerId:
+      output.OwnerId !== undefined && output.OwnerId !== null
+        ? output.OwnerId
+        : undefined,
+    PerformanceMode:
+      output.PerformanceMode !== undefined && output.PerformanceMode !== null
+        ? output.PerformanceMode
+        : undefined,
+    ProvisionedThroughputInMibps:
+      output.ProvisionedThroughputInMibps !== undefined &&
+      output.ProvisionedThroughputInMibps !== null
+        ? output.ProvisionedThroughputInMibps
+        : undefined,
+    SizeInBytes:
+      output.SizeInBytes !== undefined && output.SizeInBytes !== null
+        ? deserializeAws_restJson1_1FileSystemSize(output.SizeInBytes, context)
+        : undefined,
+    Tags:
+      output.Tags !== undefined && output.Tags !== null
+        ? deserializeAws_restJson1_1Tags(output.Tags, context)
+        : undefined,
+    ThroughputMode:
+      output.ThroughputMode !== undefined && output.ThroughputMode !== null
+        ? output.ThroughputMode
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1FileSystemDescriptions = (
@@ -4328,26 +4312,25 @@ const deserializeAws_restJson1_1FileSystemSize = (
   output: any,
   context: __SerdeContext
 ): FileSystemSize => {
-  let contents: any = {
+  return {
     __type: "FileSystemSize",
-    Timestamp: undefined,
-    Value: undefined,
-    ValueInIA: undefined,
-    ValueInStandard: undefined
-  };
-  if (output.Timestamp !== undefined && output.Timestamp !== null) {
-    contents.Timestamp = new Date(Math.round(output.Timestamp * 1000));
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  if (output.ValueInIA !== undefined && output.ValueInIA !== null) {
-    contents.ValueInIA = output.ValueInIA;
-  }
-  if (output.ValueInStandard !== undefined && output.ValueInStandard !== null) {
-    contents.ValueInStandard = output.ValueInStandard;
-  }
-  return contents;
+    Timestamp:
+      output.Timestamp !== undefined && output.Timestamp !== null
+        ? new Date(Math.round(output.Timestamp * 1000))
+        : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined,
+    ValueInIA:
+      output.ValueInIA !== undefined && output.ValueInIA !== null
+        ? output.ValueInIA
+        : undefined,
+    ValueInStandard:
+      output.ValueInStandard !== undefined && output.ValueInStandard !== null
+        ? output.ValueInStandard
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1LifecyclePolicies = (
@@ -4363,69 +4346,61 @@ const deserializeAws_restJson1_1LifecyclePolicy = (
   output: any,
   context: __SerdeContext
 ): LifecyclePolicy => {
-  let contents: any = {
+  return {
     __type: "LifecyclePolicy",
-    TransitionToIA: undefined
-  };
-  if (output.TransitionToIA !== undefined && output.TransitionToIA !== null) {
-    contents.TransitionToIA = output.TransitionToIA;
-  }
-  return contents;
+    TransitionToIA:
+      output.TransitionToIA !== undefined && output.TransitionToIA !== null
+        ? output.TransitionToIA
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1MountTargetDescription = (
   output: any,
   context: __SerdeContext
 ): MountTargetDescription => {
-  let contents: any = {
+  return {
     __type: "MountTargetDescription",
-    AvailabilityZoneId: undefined,
-    AvailabilityZoneName: undefined,
-    FileSystemId: undefined,
-    IpAddress: undefined,
-    LifeCycleState: undefined,
-    MountTargetId: undefined,
-    NetworkInterfaceId: undefined,
-    OwnerId: undefined,
-    SubnetId: undefined
-  };
-  if (
-    output.AvailabilityZoneId !== undefined &&
-    output.AvailabilityZoneId !== null
-  ) {
-    contents.AvailabilityZoneId = output.AvailabilityZoneId;
-  }
-  if (
-    output.AvailabilityZoneName !== undefined &&
-    output.AvailabilityZoneName !== null
-  ) {
-    contents.AvailabilityZoneName = output.AvailabilityZoneName;
-  }
-  if (output.FileSystemId !== undefined && output.FileSystemId !== null) {
-    contents.FileSystemId = output.FileSystemId;
-  }
-  if (output.IpAddress !== undefined && output.IpAddress !== null) {
-    contents.IpAddress = output.IpAddress;
-  }
-  if (output.LifeCycleState !== undefined && output.LifeCycleState !== null) {
-    contents.LifeCycleState = output.LifeCycleState;
-  }
-  if (output.MountTargetId !== undefined && output.MountTargetId !== null) {
-    contents.MountTargetId = output.MountTargetId;
-  }
-  if (
-    output.NetworkInterfaceId !== undefined &&
-    output.NetworkInterfaceId !== null
-  ) {
-    contents.NetworkInterfaceId = output.NetworkInterfaceId;
-  }
-  if (output.OwnerId !== undefined && output.OwnerId !== null) {
-    contents.OwnerId = output.OwnerId;
-  }
-  if (output.SubnetId !== undefined && output.SubnetId !== null) {
-    contents.SubnetId = output.SubnetId;
-  }
-  return contents;
+    AvailabilityZoneId:
+      output.AvailabilityZoneId !== undefined &&
+      output.AvailabilityZoneId !== null
+        ? output.AvailabilityZoneId
+        : undefined,
+    AvailabilityZoneName:
+      output.AvailabilityZoneName !== undefined &&
+      output.AvailabilityZoneName !== null
+        ? output.AvailabilityZoneName
+        : undefined,
+    FileSystemId:
+      output.FileSystemId !== undefined && output.FileSystemId !== null
+        ? output.FileSystemId
+        : undefined,
+    IpAddress:
+      output.IpAddress !== undefined && output.IpAddress !== null
+        ? output.IpAddress
+        : undefined,
+    LifeCycleState:
+      output.LifeCycleState !== undefined && output.LifeCycleState !== null
+        ? output.LifeCycleState
+        : undefined,
+    MountTargetId:
+      output.MountTargetId !== undefined && output.MountTargetId !== null
+        ? output.MountTargetId
+        : undefined,
+    NetworkInterfaceId:
+      output.NetworkInterfaceId !== undefined &&
+      output.NetworkInterfaceId !== null
+        ? output.NetworkInterfaceId
+        : undefined,
+    OwnerId:
+      output.OwnerId !== undefined && output.OwnerId !== null
+        ? output.OwnerId
+        : undefined,
+    SubnetId:
+      output.SubnetId !== undefined && output.SubnetId !== null
+        ? output.SubnetId
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1MountTargetDescriptions = (
@@ -4441,46 +4416,34 @@ const deserializeAws_restJson1_1PosixUser = (
   output: any,
   context: __SerdeContext
 ): PosixUser => {
-  let contents: any = {
+  return {
     __type: "PosixUser",
-    Gid: undefined,
-    SecondaryGids: undefined,
-    Uid: undefined
-  };
-  if (output.Gid !== undefined && output.Gid !== null) {
-    contents.Gid = output.Gid;
-  }
-  if (output.SecondaryGids !== undefined && output.SecondaryGids !== null) {
-    contents.SecondaryGids = deserializeAws_restJson1_1SecondaryGids(
-      output.SecondaryGids,
-      context
-    );
-  }
-  if (output.Uid !== undefined && output.Uid !== null) {
-    contents.Uid = output.Uid;
-  }
-  return contents;
+    Gid:
+      output.Gid !== undefined && output.Gid !== null ? output.Gid : undefined,
+    SecondaryGids:
+      output.SecondaryGids !== undefined && output.SecondaryGids !== null
+        ? deserializeAws_restJson1_1SecondaryGids(output.SecondaryGids, context)
+        : undefined,
+    Uid:
+      output.Uid !== undefined && output.Uid !== null ? output.Uid : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1RootDirectory = (
   output: any,
   context: __SerdeContext
 ): RootDirectory => {
-  let contents: any = {
+  return {
     __type: "RootDirectory",
-    CreationInfo: undefined,
-    Path: undefined
-  };
-  if (output.CreationInfo !== undefined && output.CreationInfo !== null) {
-    contents.CreationInfo = deserializeAws_restJson1_1CreationInfo(
-      output.CreationInfo,
-      context
-    );
-  }
-  if (output.Path !== undefined && output.Path !== null) {
-    contents.Path = output.Path;
-  }
-  return contents;
+    CreationInfo:
+      output.CreationInfo !== undefined && output.CreationInfo !== null
+        ? deserializeAws_restJson1_1CreationInfo(output.CreationInfo, context)
+        : undefined,
+    Path:
+      output.Path !== undefined && output.Path !== null
+        ? output.Path
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1SecondaryGids = (
@@ -4501,18 +4464,15 @@ const deserializeAws_restJson1_1Tag = (
   output: any,
   context: __SerdeContext
 ): Tag => {
-  let contents: any = {
+  return {
     __type: "Tag",
-    Key: undefined,
-    Value: undefined
-  };
-  if (output.Key !== undefined && output.Key !== null) {
-    contents.Key = output.Key;
-  }
-  if (output.Value !== undefined && output.Value !== null) {
-    contents.Value = output.Value;
-  }
-  return contents;
+    Key:
+      output.Key !== undefined && output.Key !== null ? output.Key : undefined,
+    Value:
+      output.Value !== undefined && output.Value !== null
+        ? output.Value
+        : undefined
+  } as any;
 };
 
 const deserializeAws_restJson1_1Tags = (
