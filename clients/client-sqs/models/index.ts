@@ -1171,10 +1171,10 @@ export namespace Message {
     ...obj,
     ...(obj.MessageAttributes && {
       MessageAttributes: Object.entries(obj.MessageAttributes).reduce(
-        (acc: any, [key, value]: [string, MessageAttributeValue]) => {
-          acc[key] = MessageAttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, MessageAttributeValue]) => ({
+          ...acc,
+          [key]: MessageAttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -1838,10 +1838,10 @@ export namespace SendMessageBatchRequestEntry {
     ...obj,
     ...(obj.MessageAttributes && {
       MessageAttributes: Object.entries(obj.MessageAttributes).reduce(
-        (acc: any, [key, value]: [string, MessageAttributeValue]) => {
-          acc[key] = MessageAttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, MessageAttributeValue]) => ({
+          ...acc,
+          [key]: MessageAttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
@@ -1849,10 +1849,10 @@ export namespace SendMessageBatchRequestEntry {
       MessageSystemAttributes: Object.entries(
         obj.MessageSystemAttributes
       ).reduce(
-        (acc: any, [key, value]: [string, MessageSystemAttributeValue]) => {
-          acc[key] = MessageSystemAttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, MessageSystemAttributeValue]) => ({
+          ...acc,
+          [key]: MessageSystemAttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -2094,10 +2094,10 @@ export namespace SendMessageRequest {
     ...obj,
     ...(obj.MessageAttributes && {
       MessageAttributes: Object.entries(obj.MessageAttributes).reduce(
-        (acc: any, [key, value]: [string, MessageAttributeValue]) => {
-          acc[key] = MessageAttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, MessageAttributeValue]) => ({
+          ...acc,
+          [key]: MessageAttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
@@ -2105,10 +2105,10 @@ export namespace SendMessageRequest {
       MessageSystemAttributes: Object.entries(
         obj.MessageSystemAttributes
       ).reduce(
-        (acc: any, [key, value]: [string, MessageSystemAttributeValue]) => {
-          acc[key] = MessageSystemAttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, MessageSystemAttributeValue]) => ({
+          ...acc,
+          [key]: MessageSystemAttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     })

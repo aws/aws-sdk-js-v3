@@ -2870,10 +2870,10 @@ export namespace Group {
     ...obj,
     ...(obj.Metrics && {
       Metrics: Object.entries(obj.Metrics).reduce(
-        (acc: any, [key, value]: [string, MetricValue]) => {
-          acc[key] = MetricValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, MetricValue]) => ({
+          ...acc,
+          [key]: MetricValue.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -3801,10 +3801,10 @@ export namespace ResultByTime {
     }),
     ...(obj.Total && {
       Total: Object.entries(obj.Total).reduce(
-        (acc: any, [key, value]: [string, MetricValue]) => {
-          acc[key] = MetricValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, MetricValue]) => ({
+          ...acc,
+          [key]: MetricValue.filterSensitiveLog(value)
+        }),
         {}
       )
     })

@@ -1475,10 +1475,10 @@ export namespace TaskObject {
     ...obj,
     ...(obj.objects && {
       objects: Object.entries(obj.objects).reduce(
-        (acc: any, [key, value]: [string, PipelineObject]) => {
-          acc[key] = PipelineObject.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, PipelineObject]) => ({
+          ...acc,
+          [key]: PipelineObject.filterSensitiveLog(value)
+        }),
         {}
       )
     })

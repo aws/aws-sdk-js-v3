@@ -532,10 +532,10 @@ export namespace GetIdentityPoolRolesResponse {
     ...obj,
     ...(obj.RoleMappings && {
       RoleMappings: Object.entries(obj.RoleMappings).reduce(
-        (acc: any, [key, value]: [string, RoleMapping]) => {
-          acc[key] = RoleMapping.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, RoleMapping]) => ({
+          ...acc,
+          [key]: RoleMapping.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -1418,10 +1418,10 @@ export namespace SetIdentityPoolRolesInput {
     ...obj,
     ...(obj.RoleMappings && {
       RoleMappings: Object.entries(obj.RoleMappings).reduce(
-        (acc: any, [key, value]: [string, RoleMapping]) => {
-          acc[key] = RoleMapping.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, RoleMapping]) => ({
+          ...acc,
+          [key]: RoleMapping.filterSensitiveLog(value)
+        }),
         {}
       )
     })

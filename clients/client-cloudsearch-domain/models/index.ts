@@ -565,20 +565,20 @@ export namespace SearchResponse {
     ...obj,
     ...(obj.facets && {
       facets: Object.entries(obj.facets).reduce(
-        (acc: any, [key, value]: [string, BucketInfo]) => {
-          acc[key] = BucketInfo.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, BucketInfo]) => ({
+          ...acc,
+          [key]: BucketInfo.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
     ...(obj.hits && { hits: Hits.filterSensitiveLog(obj.hits) }),
     ...(obj.stats && {
       stats: Object.entries(obj.stats).reduce(
-        (acc: any, [key, value]: [string, FieldStats]) => {
-          acc[key] = FieldStats.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, FieldStats]) => ({
+          ...acc,
+          [key]: FieldStats.filterSensitiveLog(value)
+        }),
         {}
       )
     }),

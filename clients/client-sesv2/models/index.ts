@@ -1876,10 +1876,10 @@ export namespace GetBlacklistReportsResponse {
     ...obj,
     ...(obj.BlacklistReport && {
       BlacklistReport: Object.entries(obj.BlacklistReport).reduce(
-        (acc: any, [key, value]: [string, BlacklistEntry[]]) => {
-          acc[key] = value.map(BlacklistEntry.filterSensitiveLog);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, BlacklistEntry[]]) => ({
+          ...acc,
+          [key]: value.map(BlacklistEntry.filterSensitiveLog)
+        }),
         {}
       )
     })

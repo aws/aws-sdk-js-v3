@@ -1702,10 +1702,10 @@ export namespace PublishInput {
     ...obj,
     ...(obj.MessageAttributes && {
       MessageAttributes: Object.entries(obj.MessageAttributes).reduce(
-        (acc: any, [key, value]: [string, MessageAttributeValue]) => {
-          acc[key] = MessageAttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, MessageAttributeValue]) => ({
+          ...acc,
+          [key]: MessageAttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     })

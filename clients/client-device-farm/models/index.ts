@@ -2685,19 +2685,19 @@ export namespace GetOfferingStatusResult {
     ...obj,
     ...(obj.current && {
       current: Object.entries(obj.current).reduce(
-        (acc: any, [key, value]: [string, OfferingStatus]) => {
-          acc[key] = OfferingStatus.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, OfferingStatus]) => ({
+          ...acc,
+          [key]: OfferingStatus.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
     ...(obj.nextPeriod && {
       nextPeriod: Object.entries(obj.nextPeriod).reduce(
-        (acc: any, [key, value]: [string, OfferingStatus]) => {
-          acc[key] = OfferingStatus.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, OfferingStatus]) => ({
+          ...acc,
+          [key]: OfferingStatus.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -4852,10 +4852,10 @@ export namespace ListUniqueProblemsResult {
     ...obj,
     ...(obj.uniqueProblems && {
       uniqueProblems: Object.entries(obj.uniqueProblems).reduce(
-        (acc: any, [key, value]: [string, UniqueProblem[]]) => {
-          acc[key] = value.map(UniqueProblem.filterSensitiveLog);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, UniqueProblem[]]) => ({
+          ...acc,
+          [key]: value.map(UniqueProblem.filterSensitiveLog)
+        }),
         {}
       )
     })

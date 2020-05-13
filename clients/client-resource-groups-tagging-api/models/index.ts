@@ -857,10 +857,10 @@ export namespace TagResourcesOutput {
     ...obj,
     ...(obj.FailedResourcesMap && {
       FailedResourcesMap: Object.entries(obj.FailedResourcesMap).reduce(
-        (acc: any, [key, value]: [string, FailureInfo]) => {
-          acc[key] = FailureInfo.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, FailureInfo]) => ({
+          ...acc,
+          [key]: FailureInfo.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -931,10 +931,10 @@ export namespace UntagResourcesOutput {
     ...obj,
     ...(obj.FailedResourcesMap && {
       FailedResourcesMap: Object.entries(obj.FailedResourcesMap).reduce(
-        (acc: any, [key, value]: [string, FailureInfo]) => {
-          acc[key] = FailureInfo.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, FailureInfo]) => ({
+          ...acc,
+          [key]: FailureInfo.filterSensitiveLog(value)
+        }),
         {}
       )
     })

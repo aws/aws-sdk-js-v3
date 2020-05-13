@@ -394,10 +394,10 @@ export namespace CreateElasticsearchDomainRequest {
     }),
     ...(obj.LogPublishingOptions && {
       LogPublishingOptions: Object.entries(obj.LogPublishingOptions).reduce(
-        (acc: any, [key, value]: [string, LogPublishingOption]) => {
-          acc[key] = LogPublishingOption.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, LogPublishingOption]) => ({
+          ...acc,
+          [key]: LogPublishingOption.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
@@ -730,10 +730,10 @@ export namespace DescribeElasticsearchInstanceTypeLimitsResponse {
     ...obj,
     ...(obj.LimitsByRole && {
       LimitsByRole: Object.entries(obj.LimitsByRole).reduce(
-        (acc: any, [key, value]: [string, Limits]) => {
-          acc[key] = Limits.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, Limits]) => ({
+          ...acc,
+          [key]: Limits.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -1443,10 +1443,10 @@ export namespace ElasticsearchDomainStatus {
     }),
     ...(obj.LogPublishingOptions && {
       LogPublishingOptions: Object.entries(obj.LogPublishingOptions).reduce(
-        (acc: any, [key, value]: [string, LogPublishingOption]) => {
-          acc[key] = LogPublishingOption.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, LogPublishingOption]) => ({
+          ...acc,
+          [key]: LogPublishingOption.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
@@ -2196,10 +2196,10 @@ export namespace LogPublishingOptionsStatus {
     ...obj,
     ...(obj.Options && {
       Options: Object.entries(obj.Options).reduce(
-        (acc: any, [key, value]: [string, LogPublishingOption]) => {
-          acc[key] = LogPublishingOption.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, LogPublishingOption]) => ({
+          ...acc,
+          [key]: LogPublishingOption.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
@@ -2924,10 +2924,10 @@ export namespace UpdateElasticsearchDomainConfigRequest {
     }),
     ...(obj.LogPublishingOptions && {
       LogPublishingOptions: Object.entries(obj.LogPublishingOptions).reduce(
-        (acc: any, [key, value]: [string, LogPublishingOption]) => {
-          acc[key] = LogPublishingOption.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, LogPublishingOption]) => ({
+          ...acc,
+          [key]: LogPublishingOption.filterSensitiveLog(value)
+        }),
         {}
       )
     }),

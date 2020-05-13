@@ -5937,10 +5937,10 @@ export namespace Player {
     ...obj,
     ...(obj.PlayerAttributes && {
       PlayerAttributes: Object.entries(obj.PlayerAttributes).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => {
-          acc[key] = AttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     })

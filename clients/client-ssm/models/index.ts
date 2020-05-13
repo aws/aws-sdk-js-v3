@@ -3317,10 +3317,10 @@ export namespace CreateOpsItemRequest {
     }),
     ...(obj.OperationalData && {
       OperationalData: Object.entries(obj.OperationalData).reduce(
-        (acc: any, [key, value]: [string, OpsItemDataValue]) => {
-          acc[key] = OpsItemDataValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, OpsItemDataValue]) => ({
+          ...acc,
+          [key]: OpsItemDataValue.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
@@ -10849,10 +10849,10 @@ export namespace InventoryResultEntity {
     ...obj,
     ...(obj.Data && {
       Data: Object.entries(obj.Data).reduce(
-        (acc: any, [key, value]: [string, InventoryResultItem]) => {
-          acc[key] = InventoryResultItem.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, InventoryResultItem]) => ({
+          ...acc,
+          [key]: InventoryResultItem.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -12895,10 +12895,10 @@ export namespace OpsEntity {
     ...obj,
     ...(obj.Data && {
       Data: Object.entries(obj.Data).reduce(
-        (acc: any, [key, value]: [string, OpsEntityItem]) => {
-          acc[key] = OpsEntityItem.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, OpsEntityItem]) => ({
+          ...acc,
+          [key]: OpsEntityItem.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -13090,10 +13090,10 @@ export namespace OpsItem {
     }),
     ...(obj.OperationalData && {
       OperationalData: Object.entries(obj.OperationalData).reduce(
-        (acc: any, [key, value]: [string, OpsItemDataValue]) => {
-          acc[key] = OpsItemDataValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, OpsItemDataValue]) => ({
+          ...acc,
+          [key]: OpsItemDataValue.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
@@ -13378,10 +13378,10 @@ export namespace OpsItemSummary {
     ...obj,
     ...(obj.OperationalData && {
       OperationalData: Object.entries(obj.OperationalData).reduce(
-        (acc: any, [key, value]: [string, OpsItemDataValue]) => {
-          acc[key] = OpsItemDataValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, OpsItemDataValue]) => ({
+          ...acc,
+          [key]: OpsItemDataValue.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -18457,10 +18457,10 @@ export namespace UpdateOpsItemRequest {
     }),
     ...(obj.OperationalData && {
       OperationalData: Object.entries(obj.OperationalData).reduce(
-        (acc: any, [key, value]: [string, OpsItemDataValue]) => {
-          acc[key] = OpsItemDataValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, OpsItemDataValue]) => ({
+          ...acc,
+          [key]: OpsItemDataValue.filterSensitiveLog(value)
+        }),
         {}
       )
     }),

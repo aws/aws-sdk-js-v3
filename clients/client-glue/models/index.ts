@@ -577,10 +577,10 @@ export namespace BatchDeleteConnectionResponse {
     ...obj,
     ...(obj.Errors && {
       Errors: Object.entries(obj.Errors).reduce(
-        (acc: any, [key, value]: [string, ErrorDetail]) => {
-          acc[key] = ErrorDetail.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, ErrorDetail]) => ({
+          ...acc,
+          [key]: ErrorDetail.filterSensitiveLog(value)
+        }),
         {}
       )
     })

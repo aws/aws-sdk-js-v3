@@ -1263,10 +1263,10 @@ export namespace CreateRouteRequest {
     ...obj,
     ...(obj.RequestParameters && {
       RequestParameters: Object.entries(obj.RequestParameters).reduce(
-        (acc: any, [key, value]: [string, ParameterConstraints]) => {
-          acc[key] = ParameterConstraints.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, ParameterConstraints]) => ({
+          ...acc,
+          [key]: ParameterConstraints.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -1316,10 +1316,10 @@ export namespace CreateRouteResponseRequest {
     ...obj,
     ...(obj.ResponseParameters && {
       ResponseParameters: Object.entries(obj.ResponseParameters).reduce(
-        (acc: any, [key, value]: [string, ParameterConstraints]) => {
-          acc[key] = ParameterConstraints.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, ParameterConstraints]) => ({
+          ...acc,
+          [key]: ParameterConstraints.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -1363,10 +1363,10 @@ export namespace CreateRouteResponseResponse {
     ...obj,
     ...(obj.ResponseParameters && {
       ResponseParameters: Object.entries(obj.ResponseParameters).reduce(
-        (acc: any, [key, value]: [string, ParameterConstraints]) => {
-          acc[key] = ParameterConstraints.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, ParameterConstraints]) => ({
+          ...acc,
+          [key]: ParameterConstraints.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -1448,10 +1448,10 @@ export namespace CreateRouteResult {
     ...obj,
     ...(obj.RequestParameters && {
       RequestParameters: Object.entries(obj.RequestParameters).reduce(
-        (acc: any, [key, value]: [string, ParameterConstraints]) => {
-          acc[key] = ParameterConstraints.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, ParameterConstraints]) => ({
+          ...acc,
+          [key]: ParameterConstraints.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -1536,10 +1536,10 @@ export namespace CreateStageRequest {
     }),
     ...(obj.RouteSettings && {
       RouteSettings: Object.entries(obj.RouteSettings).reduce(
-        (acc: any, [key, value]: [string, RouteSettings]) => {
-          acc[key] = RouteSettings.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, RouteSettings]) => ({
+          ...acc,
+          [key]: RouteSettings.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -1636,10 +1636,10 @@ export namespace CreateStageResponse {
     }),
     ...(obj.RouteSettings && {
       RouteSettings: Object.entries(obj.RouteSettings).reduce(
-        (acc: any, [key, value]: [string, RouteSettings]) => {
-          acc[key] = RouteSettings.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, RouteSettings]) => ({
+          ...acc,
+          [key]: RouteSettings.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -3181,10 +3181,10 @@ export namespace GetRouteResponseResponse {
     ...obj,
     ...(obj.ResponseParameters && {
       ResponseParameters: Object.entries(obj.ResponseParameters).reduce(
-        (acc: any, [key, value]: [string, ParameterConstraints]) => {
-          acc[key] = ParameterConstraints.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, ParameterConstraints]) => ({
+          ...acc,
+          [key]: ParameterConstraints.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -3319,10 +3319,10 @@ export namespace GetRouteResult {
     ...obj,
     ...(obj.RequestParameters && {
       RequestParameters: Object.entries(obj.RequestParameters).reduce(
-        (acc: any, [key, value]: [string, ParameterConstraints]) => {
-          acc[key] = ParameterConstraints.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, ParameterConstraints]) => ({
+          ...acc,
+          [key]: ParameterConstraints.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -3488,10 +3488,10 @@ export namespace GetStageResponse {
     }),
     ...(obj.RouteSettings && {
       RouteSettings: Object.entries(obj.RouteSettings).reduce(
-        (acc: any, [key, value]: [string, RouteSettings]) => {
-          acc[key] = RouteSettings.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, RouteSettings]) => ({
+          ...acc,
+          [key]: RouteSettings.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -4166,10 +4166,10 @@ export namespace Route {
     ...obj,
     ...(obj.RequestParameters && {
       RequestParameters: Object.entries(obj.RequestParameters).reduce(
-        (acc: any, [key, value]: [string, ParameterConstraints]) => {
-          acc[key] = ParameterConstraints.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, ParameterConstraints]) => ({
+          ...acc,
+          [key]: ParameterConstraints.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -4213,10 +4213,10 @@ export namespace RouteResponse {
     ...obj,
     ...(obj.ResponseParameters && {
       ResponseParameters: Object.entries(obj.ResponseParameters).reduce(
-        (acc: any, [key, value]: [string, ParameterConstraints]) => {
-          acc[key] = ParameterConstraints.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, ParameterConstraints]) => ({
+          ...acc,
+          [key]: ParameterConstraints.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -4358,10 +4358,10 @@ export namespace Stage {
     }),
     ...(obj.RouteSettings && {
       RouteSettings: Object.entries(obj.RouteSettings).reduce(
-        (acc: any, [key, value]: [string, RouteSettings]) => {
-          acc[key] = RouteSettings.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, RouteSettings]) => ({
+          ...acc,
+          [key]: RouteSettings.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -5408,10 +5408,10 @@ export namespace UpdateRouteRequest {
     ...obj,
     ...(obj.RequestParameters && {
       RequestParameters: Object.entries(obj.RequestParameters).reduce(
-        (acc: any, [key, value]: [string, ParameterConstraints]) => {
-          acc[key] = ParameterConstraints.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, ParameterConstraints]) => ({
+          ...acc,
+          [key]: ParameterConstraints.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -5466,10 +5466,10 @@ export namespace UpdateRouteResponseRequest {
     ...obj,
     ...(obj.ResponseParameters && {
       ResponseParameters: Object.entries(obj.ResponseParameters).reduce(
-        (acc: any, [key, value]: [string, ParameterConstraints]) => {
-          acc[key] = ParameterConstraints.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, ParameterConstraints]) => ({
+          ...acc,
+          [key]: ParameterConstraints.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -5513,10 +5513,10 @@ export namespace UpdateRouteResponseResponse {
     ...obj,
     ...(obj.ResponseParameters && {
       ResponseParameters: Object.entries(obj.ResponseParameters).reduce(
-        (acc: any, [key, value]: [string, ParameterConstraints]) => {
-          acc[key] = ParameterConstraints.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, ParameterConstraints]) => ({
+          ...acc,
+          [key]: ParameterConstraints.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -5598,10 +5598,10 @@ export namespace UpdateRouteResult {
     ...obj,
     ...(obj.RequestParameters && {
       RequestParameters: Object.entries(obj.RequestParameters).reduce(
-        (acc: any, [key, value]: [string, ParameterConstraints]) => {
-          acc[key] = ParameterConstraints.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, ParameterConstraints]) => ({
+          ...acc,
+          [key]: ParameterConstraints.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -5681,10 +5681,10 @@ export namespace UpdateStageRequest {
     }),
     ...(obj.RouteSettings && {
       RouteSettings: Object.entries(obj.RouteSettings).reduce(
-        (acc: any, [key, value]: [string, RouteSettings]) => {
-          acc[key] = RouteSettings.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, RouteSettings]) => ({
+          ...acc,
+          [key]: RouteSettings.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -5781,10 +5781,10 @@ export namespace UpdateStageResponse {
     }),
     ...(obj.RouteSettings && {
       RouteSettings: Object.entries(obj.RouteSettings).reduce(
-        (acc: any, [key, value]: [string, RouteSettings]) => {
-          acc[key] = RouteSettings.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, RouteSettings]) => ({
+          ...acc,
+          [key]: RouteSettings.filterSensitiveLog(value)
+        }),
         {}
       )
     })

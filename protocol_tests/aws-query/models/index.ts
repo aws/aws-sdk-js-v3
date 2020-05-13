@@ -216,10 +216,10 @@ export namespace QueryMapsInput {
     ...obj,
     ...(obj.ComplexMapArg && {
       ComplexMapArg: Object.entries(obj.ComplexMapArg).reduce(
-        (acc: any, [key, value]: [string, GreetingStruct]) => {
-          acc[key] = GreetingStruct.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, GreetingStruct]) => ({
+          ...acc,
+          [key]: GreetingStruct.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -446,10 +446,10 @@ export namespace XmlMapsOutput {
     ...obj,
     ...(obj.myMap && {
       myMap: Object.entries(obj.myMap).reduce(
-        (acc: any, [key, value]: [string, GreetingStruct]) => {
-          acc[key] = GreetingStruct.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, GreetingStruct]) => ({
+          ...acc,
+          [key]: GreetingStruct.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -467,10 +467,10 @@ export namespace XmlMapsXmlNameOutput {
     ...obj,
     ...(obj.myMap && {
       myMap: Object.entries(obj.myMap).reduce(
-        (acc: any, [key, value]: [string, GreetingStruct]) => {
-          acc[key] = GreetingStruct.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, GreetingStruct]) => ({
+          ...acc,
+          [key]: GreetingStruct.filterSensitiveLog(value)
+        }),
         {}
       )
     })

@@ -656,10 +656,10 @@ export namespace CreateDataSetRequest {
     }),
     ...(obj.LogicalTableMap && {
       LogicalTableMap: Object.entries(obj.LogicalTableMap).reduce(
-        (acc: any, [key, value]: [string, LogicalTable]) => {
-          acc[key] = LogicalTable.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, LogicalTable]) => ({
+          ...acc,
+          [key]: LogicalTable.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
@@ -668,10 +668,10 @@ export namespace CreateDataSetRequest {
     }),
     ...(obj.PhysicalTableMap && {
       PhysicalTableMap: Object.entries(obj.PhysicalTableMap).reduce(
-        (acc: any, [key, value]: [string, PhysicalTable]) => {
-          acc[key] = PhysicalTable.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, PhysicalTable]) => ({
+          ...acc,
+          [key]: PhysicalTable.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
@@ -1769,10 +1769,10 @@ export namespace DataSet {
     }),
     ...(obj.LogicalTableMap && {
       LogicalTableMap: Object.entries(obj.LogicalTableMap).reduce(
-        (acc: any, [key, value]: [string, LogicalTable]) => {
-          acc[key] = LogicalTable.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, LogicalTable]) => ({
+          ...acc,
+          [key]: LogicalTable.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
@@ -1781,10 +1781,10 @@ export namespace DataSet {
     }),
     ...(obj.PhysicalTableMap && {
       PhysicalTableMap: Object.entries(obj.PhysicalTableMap).reduce(
-        (acc: any, [key, value]: [string, PhysicalTable]) => {
-          acc[key] = PhysicalTable.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, PhysicalTable]) => ({
+          ...acc,
+          [key]: PhysicalTable.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
@@ -7011,19 +7011,19 @@ export namespace UpdateDataSetRequest {
     }),
     ...(obj.LogicalTableMap && {
       LogicalTableMap: Object.entries(obj.LogicalTableMap).reduce(
-        (acc: any, [key, value]: [string, LogicalTable]) => {
-          acc[key] = LogicalTable.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, LogicalTable]) => ({
+          ...acc,
+          [key]: LogicalTable.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
     ...(obj.PhysicalTableMap && {
       PhysicalTableMap: Object.entries(obj.PhysicalTableMap).reduce(
-        (acc: any, [key, value]: [string, PhysicalTable]) => {
-          acc[key] = PhysicalTable.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, PhysicalTable]) => ({
+          ...acc,
+          [key]: PhysicalTable.filterSensitiveLog(value)
+        }),
         {}
       )
     }),

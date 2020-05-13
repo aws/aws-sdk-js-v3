@@ -90,10 +90,10 @@ export namespace AddAttributesToFindingsResponse {
     ...obj,
     ...(obj.failedItems && {
       failedItems: Object.entries(obj.failedItems).reduce(
-        (acc: any, [key, value]: [string, FailedItemDetails]) => {
-          acc[key] = FailedItemDetails.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, FailedItemDetails]) => ({
+          ...acc,
+          [key]: FailedItemDetails.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -1205,10 +1205,10 @@ export namespace DescribeAssessmentRunsResponse {
     }),
     ...(obj.failedItems && {
       failedItems: Object.entries(obj.failedItems).reduce(
-        (acc: any, [key, value]: [string, FailedItemDetails]) => {
-          acc[key] = FailedItemDetails.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, FailedItemDetails]) => ({
+          ...acc,
+          [key]: FailedItemDetails.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -1261,10 +1261,10 @@ export namespace DescribeAssessmentTargetsResponse {
     }),
     ...(obj.failedItems && {
       failedItems: Object.entries(obj.failedItems).reduce(
-        (acc: any, [key, value]: [string, FailedItemDetails]) => {
-          acc[key] = FailedItemDetails.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, FailedItemDetails]) => ({
+          ...acc,
+          [key]: FailedItemDetails.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -1314,10 +1314,10 @@ export namespace DescribeAssessmentTemplatesResponse {
     }),
     ...(obj.failedItems && {
       failedItems: Object.entries(obj.failedItems).reduce(
-        (acc: any, [key, value]: [string, FailedItemDetails]) => {
-          acc[key] = FailedItemDetails.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, FailedItemDetails]) => ({
+          ...acc,
+          [key]: FailedItemDetails.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -1397,19 +1397,19 @@ export namespace DescribeExclusionsResponse {
     ...obj,
     ...(obj.exclusions && {
       exclusions: Object.entries(obj.exclusions).reduce(
-        (acc: any, [key, value]: [string, Exclusion]) => {
-          acc[key] = Exclusion.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, Exclusion]) => ({
+          ...acc,
+          [key]: Exclusion.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
     ...(obj.failedItems && {
       failedItems: Object.entries(obj.failedItems).reduce(
-        (acc: any, [key, value]: [string, FailedItemDetails]) => {
-          acc[key] = FailedItemDetails.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, FailedItemDetails]) => ({
+          ...acc,
+          [key]: FailedItemDetails.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -1459,10 +1459,10 @@ export namespace DescribeFindingsResponse {
     ...obj,
     ...(obj.failedItems && {
       failedItems: Object.entries(obj.failedItems).reduce(
-        (acc: any, [key, value]: [string, FailedItemDetails]) => {
-          acc[key] = FailedItemDetails.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, FailedItemDetails]) => ({
+          ...acc,
+          [key]: FailedItemDetails.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
@@ -1513,10 +1513,10 @@ export namespace DescribeResourceGroupsResponse {
     ...obj,
     ...(obj.failedItems && {
       failedItems: Object.entries(obj.failedItems).reduce(
-        (acc: any, [key, value]: [string, FailedItemDetails]) => {
-          acc[key] = FailedItemDetails.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, FailedItemDetails]) => ({
+          ...acc,
+          [key]: FailedItemDetails.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
@@ -1572,10 +1572,10 @@ export namespace DescribeRulesPackagesResponse {
     ...obj,
     ...(obj.failedItems && {
       failedItems: Object.entries(obj.failedItems).reduce(
-        (acc: any, [key, value]: [string, FailedItemDetails]) => {
-          acc[key] = FailedItemDetails.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, FailedItemDetails]) => ({
+          ...acc,
+          [key]: FailedItemDetails.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
@@ -3202,10 +3202,10 @@ export namespace RemoveAttributesFromFindingsResponse {
     ...obj,
     ...(obj.failedItems && {
       failedItems: Object.entries(obj.failedItems).reduce(
-        (acc: any, [key, value]: [string, FailedItemDetails]) => {
-          acc[key] = FailedItemDetails.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, FailedItemDetails]) => ({
+          ...acc,
+          [key]: FailedItemDetails.filterSensitiveLog(value)
+        }),
         {}
       )
     })

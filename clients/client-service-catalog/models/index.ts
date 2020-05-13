@@ -7137,10 +7137,10 @@ export namespace SearchProductsOutput {
       ProductViewAggregations: Object.entries(
         obj.ProductViewAggregations
       ).reduce(
-        (acc: any, [key, value]: [string, ProductViewAggregationValue[]]) => {
-          acc[key] = value.map(ProductViewAggregationValue.filterSensitiveLog);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, ProductViewAggregationValue[]]) => ({
+          ...acc,
+          [key]: value.map(ProductViewAggregationValue.filterSensitiveLog)
+        }),
         {}
       )
     }),

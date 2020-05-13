@@ -99,10 +99,10 @@ export namespace KitchenSink {
     }),
     ...(obj.MapOfStructs && {
       MapOfStructs: Object.entries(obj.MapOfStructs).reduce(
-        (acc: any, [key, value]: [string, SimpleStruct]) => {
-          acc[key] = SimpleStruct.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, SimpleStruct]) => ({
+          ...acc,
+          [key]: SimpleStruct.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
@@ -111,10 +111,10 @@ export namespace KitchenSink {
     }),
     ...(obj.RecursiveMap && {
       RecursiveMap: Object.entries(obj.RecursiveMap).reduce(
-        (acc: any, [key, value]: [string, KitchenSink]) => {
-          acc[key] = KitchenSink.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, KitchenSink]) => ({
+          ...acc,
+          [key]: KitchenSink.filterSensitiveLog(value)
+        }),
         {}
       )
     }),

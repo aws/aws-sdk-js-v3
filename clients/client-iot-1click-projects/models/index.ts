@@ -663,10 +663,10 @@ export namespace PlacementTemplate {
     ...obj,
     ...(obj.deviceTemplates && {
       deviceTemplates: Object.entries(obj.deviceTemplates).reduce(
-        (acc: any, [key, value]: [string, DeviceTemplate]) => {
-          acc[key] = DeviceTemplate.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, DeviceTemplate]) => ({
+          ...acc,
+          [key]: DeviceTemplate.filterSensitiveLog(value)
+        }),
         {}
       )
     })

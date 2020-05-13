@@ -1467,10 +1467,10 @@ export namespace FindingCriteria {
     ...obj,
     ...(obj.Criterion && {
       Criterion: Object.entries(obj.Criterion).reduce(
-        (acc: any, [key, value]: [string, Condition]) => {
-          acc[key] = Condition.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, Condition]) => ({
+          ...acc,
+          [key]: Condition.filterSensitiveLog(value)
+        }),
         {}
       )
     })

@@ -3996,10 +3996,10 @@ export namespace FacetAttributeDefinition {
     }),
     ...(obj.Rules && {
       Rules: Object.entries(obj.Rules).reduce(
-        (acc: any, [key, value]: [string, Rule]) => {
-          acc[key] = Rule.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, Rule]) => ({
+          ...acc,
+          [key]: Rule.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -7001,10 +7001,10 @@ export namespace TypedLinkAttributeDefinition {
     }),
     ...(obj.Rules && {
       Rules: Object.entries(obj.Rules).reduce(
-        (acc: any, [key, value]: [string, Rule]) => {
-          acc[key] = Rule.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, Rule]) => ({
+          ...acc,
+          [key]: Rule.filterSensitiveLog(value)
+        }),
         {}
       )
     })

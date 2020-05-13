@@ -1143,10 +1143,10 @@ export namespace DescribeDatasetImportJobResponse {
     }),
     ...(obj.FieldStatistics && {
       FieldStatistics: Object.entries(obj.FieldStatistics).reduce(
-        (acc: any, [key, value]: [string, Statistics]) => {
-          acc[key] = Statistics.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, Statistics]) => ({
+          ...acc,
+          [key]: Statistics.filterSensitiveLog(value)
+        }),
         {}
       )
     })

@@ -2365,10 +2365,10 @@ export namespace GetIdentityDkimAttributesResponse {
     ...obj,
     ...(obj.DkimAttributes && {
       DkimAttributes: Object.entries(obj.DkimAttributes).reduce(
-        (acc: any, [key, value]: [string, IdentityDkimAttributes]) => {
-          acc[key] = IdentityDkimAttributes.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, IdentityDkimAttributes]) => ({
+          ...acc,
+          [key]: IdentityDkimAttributes.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -2427,10 +2427,10 @@ export namespace GetIdentityMailFromDomainAttributesResponse {
         (
           acc: any,
           [key, value]: [string, IdentityMailFromDomainAttributes]
-        ) => {
-          acc[key] = IdentityMailFromDomainAttributes.filterSensitiveLog(value);
-          return acc;
-        },
+        ) => ({
+          ...acc,
+          [key]: IdentityMailFromDomainAttributes.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -2487,10 +2487,10 @@ export namespace GetIdentityNotificationAttributesResponse {
     ...obj,
     ...(obj.NotificationAttributes && {
       NotificationAttributes: Object.entries(obj.NotificationAttributes).reduce(
-        (acc: any, [key, value]: [string, IdentityNotificationAttributes]) => {
-          acc[key] = IdentityNotificationAttributes.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, IdentityNotificationAttributes]) => ({
+          ...acc,
+          [key]: IdentityNotificationAttributes.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -2598,10 +2598,10 @@ export namespace GetIdentityVerificationAttributesResponse {
     ...obj,
     ...(obj.VerificationAttributes && {
       VerificationAttributes: Object.entries(obj.VerificationAttributes).reduce(
-        (acc: any, [key, value]: [string, IdentityVerificationAttributes]) => {
-          acc[key] = IdentityVerificationAttributes.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, IdentityVerificationAttributes]) => ({
+          ...acc,
+          [key]: IdentityVerificationAttributes.filterSensitiveLog(value)
+        }),
         {}
       )
     })

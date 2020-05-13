@@ -2091,10 +2091,10 @@ export namespace ChannelsResponse {
     ...obj,
     ...(obj.Channels && {
       Channels: Object.entries(obj.Channels).reduce(
-        (acc: any, [key, value]: [string, ChannelResponse]) => {
-          acc[key] = ChannelResponse.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, ChannelResponse]) => ({
+          ...acc,
+          [key]: ChannelResponse.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -4716,10 +4716,10 @@ export namespace EventDimensions {
     ...obj,
     ...(obj.Attributes && {
       Attributes: Object.entries(obj.Attributes).reduce(
-        (acc: any, [key, value]: [string, AttributeDimension]) => {
-          acc[key] = AttributeDimension.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AttributeDimension]) => ({
+          ...acc,
+          [key]: AttributeDimension.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
@@ -4728,10 +4728,10 @@ export namespace EventDimensions {
     }),
     ...(obj.Metrics && {
       Metrics: Object.entries(obj.Metrics).reduce(
-        (acc: any, [key, value]: [string, MetricDimension]) => {
-          acc[key] = MetricDimension.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, MetricDimension]) => ({
+          ...acc,
+          [key]: MetricDimension.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -4833,10 +4833,10 @@ export namespace EventsBatch {
     }),
     ...(obj.Events && {
       Events: Object.entries(obj.Events).reduce(
-        (acc: any, [key, value]: [string, Event]) => {
-          acc[key] = Event.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, Event]) => ({
+          ...acc,
+          [key]: Event.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -4860,10 +4860,10 @@ export namespace EventsRequest {
     ...obj,
     ...(obj.BatchItem && {
       BatchItem: Object.entries(obj.BatchItem).reduce(
-        (acc: any, [key, value]: [string, EventsBatch]) => {
-          acc[key] = EventsBatch.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, EventsBatch]) => ({
+          ...acc,
+          [key]: EventsBatch.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -4887,10 +4887,10 @@ export namespace EventsResponse {
     ...obj,
     ...(obj.Results && {
       Results: Object.entries(obj.Results).reduce(
-        (acc: any, [key, value]: [string, ItemResponse]) => {
-          acc[key] = ItemResponse.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, ItemResponse]) => ({
+          ...acc,
+          [key]: ItemResponse.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -7576,10 +7576,10 @@ export namespace ItemResponse {
     }),
     ...(obj.EventsItemResponse && {
       EventsItemResponse: Object.entries(obj.EventsItemResponse).reduce(
-        (acc: any, [key, value]: [string, EventItemResponse]) => {
-          acc[key] = EventItemResponse.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, EventItemResponse]) => ({
+          ...acc,
+          [key]: EventItemResponse.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -7868,10 +7868,10 @@ export namespace JourneyResponse {
     ...obj,
     ...(obj.Activities && {
       Activities: Object.entries(obj.Activities).reduce(
-        (acc: any, [key, value]: [string, Activity]) => {
-          acc[key] = Activity.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, Activity]) => ({
+          ...acc,
+          [key]: Activity.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
@@ -8367,19 +8367,19 @@ export namespace MessageRequest {
     ...obj,
     ...(obj.Addresses && {
       Addresses: Object.entries(obj.Addresses).reduce(
-        (acc: any, [key, value]: [string, AddressConfiguration]) => {
-          acc[key] = AddressConfiguration.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AddressConfiguration]) => ({
+          ...acc,
+          [key]: AddressConfiguration.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
     ...(obj.Endpoints && {
       Endpoints: Object.entries(obj.Endpoints).reduce(
-        (acc: any, [key, value]: [string, EndpointSendConfiguration]) => {
-          acc[key] = EndpointSendConfiguration.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, EndpointSendConfiguration]) => ({
+          ...acc,
+          [key]: EndpointSendConfiguration.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
@@ -8429,19 +8429,19 @@ export namespace MessageResponse {
     ...obj,
     ...(obj.EndpointResult && {
       EndpointResult: Object.entries(obj.EndpointResult).reduce(
-        (acc: any, [key, value]: [string, EndpointMessageResult]) => {
-          acc[key] = EndpointMessageResult.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, EndpointMessageResult]) => ({
+          ...acc,
+          [key]: EndpointMessageResult.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
     ...(obj.Result && {
       Result: Object.entries(obj.Result).reduce(
-        (acc: any, [key, value]: [string, MessageResult]) => {
-          acc[key] = MessageResult.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, MessageResult]) => ({
+          ...acc,
+          [key]: MessageResult.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -9809,10 +9809,10 @@ export namespace SegmentDimensions {
     ...obj,
     ...(obj.Attributes && {
       Attributes: Object.entries(obj.Attributes).reduce(
-        (acc: any, [key, value]: [string, AttributeDimension]) => {
-          acc[key] = AttributeDimension.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AttributeDimension]) => ({
+          ...acc,
+          [key]: AttributeDimension.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
@@ -9827,19 +9827,19 @@ export namespace SegmentDimensions {
     }),
     ...(obj.Metrics && {
       Metrics: Object.entries(obj.Metrics).reduce(
-        (acc: any, [key, value]: [string, MetricDimension]) => {
-          acc[key] = MetricDimension.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, MetricDimension]) => ({
+          ...acc,
+          [key]: MetricDimension.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
     ...(obj.UserAttributes && {
       UserAttributes: Object.entries(obj.UserAttributes).reduce(
-        (acc: any, [key, value]: [string, AttributeDimension]) => {
-          acc[key] = AttributeDimension.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AttributeDimension]) => ({
+          ...acc,
+          [key]: AttributeDimension.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -10218,10 +10218,10 @@ export namespace SendUsersMessageRequest {
     }),
     ...(obj.Users && {
       Users: Object.entries(obj.Users).reduce(
-        (acc: any, [key, value]: [string, EndpointSendConfiguration]) => {
-          acc[key] = EndpointSendConfiguration.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, EndpointSendConfiguration]) => ({
+          ...acc,
+          [key]: EndpointSendConfiguration.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -10259,16 +10259,16 @@ export namespace SendUsersMessageResponse {
         (
           acc: any,
           [key, value]: [string, { [key: string]: EndpointMessageResult }]
-        ) => {
-          acc[key] = Object.entries(value).reduce(
-            (acc: any, [key, value]: [string, EndpointMessageResult]) => {
-              acc[key] = EndpointMessageResult.filterSensitiveLog(value);
-              return acc;
-            },
+        ) => ({
+          ...acc,
+          [key]: Object.entries(value).reduce(
+            (acc: any, [key, value]: [string, EndpointMessageResult]) => ({
+              ...acc,
+              [key]: EndpointMessageResult.filterSensitiveLog(value)
+            }),
             {}
-          );
-          return acc;
-        },
+          )
+        }),
         {}
       )
     })
@@ -12625,10 +12625,10 @@ export namespace WriteJourneyRequest {
     ...obj,
     ...(obj.Activities && {
       Activities: Object.entries(obj.Activities).reduce(
-        (acc: any, [key, value]: [string, Activity]) => {
-          acc[key] = Activity.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, Activity]) => ({
+          ...acc,
+          [key]: Activity.filterSensitiveLog(value)
+        }),
         {}
       )
     }),

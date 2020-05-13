@@ -4979,28 +4979,28 @@ export namespace Input {
     ...obj,
     ...(obj.AudioSelectorGroups && {
       AudioSelectorGroups: Object.entries(obj.AudioSelectorGroups).reduce(
-        (acc: any, [key, value]: [string, AudioSelectorGroup]) => {
-          acc[key] = AudioSelectorGroup.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AudioSelectorGroup]) => ({
+          ...acc,
+          [key]: AudioSelectorGroup.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
     ...(obj.AudioSelectors && {
       AudioSelectors: Object.entries(obj.AudioSelectors).reduce(
-        (acc: any, [key, value]: [string, AudioSelector]) => {
-          acc[key] = AudioSelector.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AudioSelector]) => ({
+          ...acc,
+          [key]: AudioSelector.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
     ...(obj.CaptionSelectors && {
       CaptionSelectors: Object.entries(obj.CaptionSelectors).reduce(
-        (acc: any, [key, value]: [string, CaptionSelector]) => {
-          acc[key] = CaptionSelector.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, CaptionSelector]) => ({
+          ...acc,
+          [key]: CaptionSelector.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
@@ -5203,28 +5203,28 @@ export namespace InputTemplate {
     ...obj,
     ...(obj.AudioSelectorGroups && {
       AudioSelectorGroups: Object.entries(obj.AudioSelectorGroups).reduce(
-        (acc: any, [key, value]: [string, AudioSelectorGroup]) => {
-          acc[key] = AudioSelectorGroup.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AudioSelectorGroup]) => ({
+          ...acc,
+          [key]: AudioSelectorGroup.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
     ...(obj.AudioSelectors && {
       AudioSelectors: Object.entries(obj.AudioSelectors).reduce(
-        (acc: any, [key, value]: [string, AudioSelector]) => {
-          acc[key] = AudioSelector.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AudioSelector]) => ({
+          ...acc,
+          [key]: AudioSelector.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
     ...(obj.CaptionSelectors && {
       CaptionSelectors: Object.entries(obj.CaptionSelectors).reduce(
-        (acc: any, [key, value]: [string, CaptionSelector]) => {
-          acc[key] = CaptionSelector.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, CaptionSelector]) => ({
+          ...acc,
+          [key]: CaptionSelector.filterSensitiveLog(value)
+        }),
         {}
       )
     }),

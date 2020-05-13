@@ -135,10 +135,10 @@ export namespace Budget {
     }),
     ...(obj.PlannedBudgetLimits && {
       PlannedBudgetLimits: Object.entries(obj.PlannedBudgetLimits).reduce(
-        (acc: any, [key, value]: [string, Spend]) => {
-          acc[key] = Spend.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, Spend]) => ({
+          ...acc,
+          [key]: Spend.filterSensitiveLog(value)
+        }),
         {}
       )
     }),

@@ -271,10 +271,10 @@ export namespace ApiStage {
     ...obj,
     ...(obj.throttle && {
       throttle: Object.entries(obj.throttle).reduce(
-        (acc: any, [key, value]: [string, ThrottleSettings]) => {
-          acc[key] = ThrottleSettings.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, ThrottleSettings]) => ({
+          ...acc,
+          [key]: ThrottleSettings.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -2039,16 +2039,16 @@ export namespace Deployment {
         (
           acc: any,
           [key, value]: [string, { [key: string]: MethodSnapshot }]
-        ) => {
-          acc[key] = Object.entries(value).reduce(
-            (acc: any, [key, value]: [string, MethodSnapshot]) => {
-              acc[key] = MethodSnapshot.filterSensitiveLog(value);
-              return acc;
-            },
+        ) => ({
+          ...acc,
+          [key]: Object.entries(value).reduce(
+            (acc: any, [key, value]: [string, MethodSnapshot]) => ({
+              ...acc,
+              [key]: MethodSnapshot.filterSensitiveLog(value)
+            }),
             {}
-          );
-          return acc;
-        },
+          )
+        }),
         {}
       )
     })
@@ -5046,10 +5046,10 @@ export namespace Integration {
     ...obj,
     ...(obj.integrationResponses && {
       integrationResponses: Object.entries(obj.integrationResponses).reduce(
-        (acc: any, [key, value]: [string, IntegrationResponse]) => {
-          acc[key] = IntegrationResponse.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, IntegrationResponse]) => ({
+          ...acc,
+          [key]: IntegrationResponse.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -5485,10 +5485,10 @@ export namespace Method {
     }),
     ...(obj.methodResponses && {
       methodResponses: Object.entries(obj.methodResponses).reduce(
-        (acc: any, [key, value]: [string, MethodResponse]) => {
-          acc[key] = MethodResponse.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, MethodResponse]) => ({
+          ...acc,
+          [key]: MethodResponse.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -6418,10 +6418,10 @@ export namespace Resource {
     ...obj,
     ...(obj.resourceMethods && {
       resourceMethods: Object.entries(obj.resourceMethods).reduce(
-        (acc: any, [key, value]: [string, Method]) => {
-          acc[key] = Method.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, Method]) => ({
+          ...acc,
+          [key]: Method.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -6798,10 +6798,10 @@ export namespace Stage {
     }),
     ...(obj.methodSettings && {
       methodSettings: Object.entries(obj.methodSettings).reduce(
-        (acc: any, [key, value]: [string, MethodSetting]) => {
-          acc[key] = MethodSetting.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, MethodSetting]) => ({
+          ...acc,
+          [key]: MethodSetting.filterSensitiveLog(value)
+        }),
         {}
       )
     })

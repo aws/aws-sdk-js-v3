@@ -195,10 +195,10 @@ export namespace ArchiveRuleSummary {
     ...obj,
     ...(obj.filter && {
       filter: Object.entries(obj.filter).reduce(
-        (acc: any, [key, value]: [string, Criterion]) => {
-          acc[key] = Criterion.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, Criterion]) => ({
+          ...acc,
+          [key]: Criterion.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -326,10 +326,10 @@ export namespace CreateArchiveRuleRequest {
     ...obj,
     ...(obj.filter && {
       filter: Object.entries(obj.filter).reduce(
-        (acc: any, [key, value]: [string, Criterion]) => {
-          acc[key] = Criterion.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, Criterion]) => ({
+          ...acc,
+          [key]: Criterion.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -783,10 +783,10 @@ export namespace InlineArchiveRule {
     ...obj,
     ...(obj.filter && {
       filter: Object.entries(obj.filter).reduce(
-        (acc: any, [key, value]: [string, Criterion]) => {
-          acc[key] = Criterion.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, Criterion]) => ({
+          ...acc,
+          [key]: Criterion.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -1033,10 +1033,10 @@ export namespace ListFindingsRequest {
     ...obj,
     ...(obj.filter && {
       filter: Object.entries(obj.filter).reduce(
-        (acc: any, [key, value]: [string, Criterion]) => {
-          acc[key] = Criterion.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, Criterion]) => ({
+          ...acc,
+          [key]: Criterion.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
@@ -1365,10 +1365,10 @@ export namespace UpdateArchiveRuleRequest {
     ...obj,
     ...(obj.filter && {
       filter: Object.entries(obj.filter).reduce(
-        (acc: any, [key, value]: [string, Criterion]) => {
-          acc[key] = Criterion.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, Criterion]) => ({
+          ...acc,
+          [key]: Criterion.filterSensitiveLog(value)
+        }),
         {}
       )
     })

@@ -2614,10 +2614,10 @@ export namespace TraceSummary {
     ...obj,
     ...(obj.Annotations && {
       Annotations: Object.entries(obj.Annotations).reduce(
-        (acc: any, [key, value]: [string, ValueWithServiceIds[]]) => {
-          acc[key] = value.map(ValueWithServiceIds.filterSensitiveLog);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, ValueWithServiceIds[]]) => ({
+          ...acc,
+          [key]: value.map(ValueWithServiceIds.filterSensitiveLog)
+        }),
         {}
       )
     }),

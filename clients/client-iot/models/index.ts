@@ -11296,10 +11296,10 @@ export namespace DescribeEventConfigurationsResponse {
     ...obj,
     ...(obj.eventConfigurations && {
       eventConfigurations: Object.entries(obj.eventConfigurations).reduce(
-        (acc: any, [key, value]: [string, Configuration]) => {
-          acc[key] = Configuration.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, Configuration]) => ({
+          ...acc,
+          [key]: Configuration.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -12711,10 +12711,10 @@ export namespace UpdateEventConfigurationsRequest {
     ...obj,
     ...(obj.eventConfigurations && {
       eventConfigurations: Object.entries(obj.eventConfigurations).reduce(
-        (acc: any, [key, value]: [string, Configuration]) => {
-          acc[key] = Configuration.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, Configuration]) => ({
+          ...acc,
+          [key]: Configuration.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -13495,10 +13495,10 @@ export namespace CreateSecurityProfileRequest {
     ...obj,
     ...(obj.alertTargets && {
       alertTargets: Object.entries(obj.alertTargets).reduce(
-        (acc: any, [key, value]: [string, AlertTarget]) => {
-          acc[key] = AlertTarget.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AlertTarget]) => ({
+          ...acc,
+          [key]: AlertTarget.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
@@ -13716,18 +13716,24 @@ export namespace DescribeAccountAuditConfigurationResponse {
     ...(obj.auditCheckConfigurations && {
       auditCheckConfigurations: Object.entries(
         obj.auditCheckConfigurations
-      ).reduce((acc: any, [key, value]: [string, AuditCheckConfiguration]) => {
-        acc[key] = AuditCheckConfiguration.filterSensitiveLog(value);
-        return acc;
-      }, {})
+      ).reduce(
+        (acc: any, [key, value]: [string, AuditCheckConfiguration]) => ({
+          ...acc,
+          [key]: AuditCheckConfiguration.filterSensitiveLog(value)
+        }),
+        {}
+      )
     }),
     ...(obj.auditNotificationTargetConfigurations && {
       auditNotificationTargetConfigurations: Object.entries(
         obj.auditNotificationTargetConfigurations
-      ).reduce((acc: any, [key, value]: [string, AuditNotificationTarget]) => {
-        acc[key] = AuditNotificationTarget.filterSensitiveLog(value);
-        return acc;
-      }, {})
+      ).reduce(
+        (acc: any, [key, value]: [string, AuditNotificationTarget]) => ({
+          ...acc,
+          [key]: AuditNotificationTarget.filterSensitiveLog(value)
+        }),
+        {}
+      )
     })
   });
   export const isa = (o: any): o is DescribeAccountAuditConfigurationResponse =>
@@ -13844,10 +13850,10 @@ export namespace DescribeAuditMitigationActionsTaskResponse {
     }),
     ...(obj.taskStatistics && {
       taskStatistics: Object.entries(obj.taskStatistics).reduce(
-        (acc: any, [key, value]: [string, TaskStatisticsForAuditCheck]) => {
-          acc[key] = TaskStatisticsForAuditCheck.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, TaskStatisticsForAuditCheck]) => ({
+          ...acc,
+          [key]: TaskStatisticsForAuditCheck.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -13913,10 +13919,10 @@ export namespace DescribeAuditTaskResponse {
     ...obj,
     ...(obj.auditDetails && {
       auditDetails: Object.entries(obj.auditDetails).reduce(
-        (acc: any, [key, value]: [string, AuditCheckDetails]) => {
-          acc[key] = AuditCheckDetails.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AuditCheckDetails]) => ({
+          ...acc,
+          [key]: AuditCheckDetails.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
@@ -14148,10 +14154,10 @@ export namespace DescribeSecurityProfileResponse {
     ...obj,
     ...(obj.alertTargets && {
       alertTargets: Object.entries(obj.alertTargets).reduce(
-        (acc: any, [key, value]: [string, AlertTarget]) => {
-          acc[key] = AlertTarget.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AlertTarget]) => ({
+          ...acc,
+          [key]: AlertTarget.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
@@ -15036,18 +15042,24 @@ export namespace UpdateAccountAuditConfigurationRequest {
     ...(obj.auditCheckConfigurations && {
       auditCheckConfigurations: Object.entries(
         obj.auditCheckConfigurations
-      ).reduce((acc: any, [key, value]: [string, AuditCheckConfiguration]) => {
-        acc[key] = AuditCheckConfiguration.filterSensitiveLog(value);
-        return acc;
-      }, {})
+      ).reduce(
+        (acc: any, [key, value]: [string, AuditCheckConfiguration]) => ({
+          ...acc,
+          [key]: AuditCheckConfiguration.filterSensitiveLog(value)
+        }),
+        {}
+      )
     }),
     ...(obj.auditNotificationTargetConfigurations && {
       auditNotificationTargetConfigurations: Object.entries(
         obj.auditNotificationTargetConfigurations
-      ).reduce((acc: any, [key, value]: [string, AuditNotificationTarget]) => {
-        acc[key] = AuditNotificationTarget.filterSensitiveLog(value);
-        return acc;
-      }, {})
+      ).reduce(
+        (acc: any, [key, value]: [string, AuditNotificationTarget]) => ({
+          ...acc,
+          [key]: AuditNotificationTarget.filterSensitiveLog(value)
+        }),
+        {}
+      )
     })
   });
   export const isa = (o: any): o is UpdateAccountAuditConfigurationRequest =>
@@ -15251,10 +15263,10 @@ export namespace UpdateSecurityProfileRequest {
     ...obj,
     ...(obj.alertTargets && {
       alertTargets: Object.entries(obj.alertTargets).reduce(
-        (acc: any, [key, value]: [string, AlertTarget]) => {
-          acc[key] = AlertTarget.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AlertTarget]) => ({
+          ...acc,
+          [key]: AlertTarget.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
@@ -15323,10 +15335,10 @@ export namespace UpdateSecurityProfileResponse {
     ...obj,
     ...(obj.alertTargets && {
       alertTargets: Object.entries(obj.alertTargets).reduce(
-        (acc: any, [key, value]: [string, AlertTarget]) => {
-          acc[key] = AlertTarget.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AlertTarget]) => ({
+          ...acc,
+          [key]: AlertTarget.filterSensitiveLog(value)
+        }),
         {}
       )
     }),

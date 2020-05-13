@@ -417,10 +417,10 @@ export namespace JsonMapsInputOutput {
     ...obj,
     ...(obj.myMap && {
       myMap: Object.entries(obj.myMap).reduce(
-        (acc: any, [key, value]: [string, GreetingStruct]) => {
-          acc[key] = GreetingStruct.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, GreetingStruct]) => ({
+          ...acc,
+          [key]: GreetingStruct.filterSensitiveLog(value)
+        }),
         {}
       )
     })

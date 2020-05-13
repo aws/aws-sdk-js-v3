@@ -4284,28 +4284,28 @@ export namespace CreateTrialComponentRequest {
     ...obj,
     ...(obj.InputArtifacts && {
       InputArtifacts: Object.entries(obj.InputArtifacts).reduce(
-        (acc: any, [key, value]: [string, TrialComponentArtifact]) => {
-          acc[key] = TrialComponentArtifact.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, TrialComponentArtifact]) => ({
+          ...acc,
+          [key]: TrialComponentArtifact.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
     ...(obj.OutputArtifacts && {
       OutputArtifacts: Object.entries(obj.OutputArtifacts).reduce(
-        (acc: any, [key, value]: [string, TrialComponentArtifact]) => {
-          acc[key] = TrialComponentArtifact.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, TrialComponentArtifact]) => ({
+          ...acc,
+          [key]: TrialComponentArtifact.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
     ...(obj.Parameters && {
       Parameters: Object.entries(obj.Parameters).reduce(
-        (acc: any, [key, value]: [string, TrialComponentParameterValue]) => {
-          acc[key] = TrialComponentParameterValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, TrialComponentParameterValue]) => ({
+          ...acc,
+          [key]: TrialComponentParameterValue.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
@@ -8229,10 +8229,10 @@ export namespace DescribeTrialComponentResponse {
     }),
     ...(obj.InputArtifacts && {
       InputArtifacts: Object.entries(obj.InputArtifacts).reduce(
-        (acc: any, [key, value]: [string, TrialComponentArtifact]) => {
-          acc[key] = TrialComponentArtifact.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, TrialComponentArtifact]) => ({
+          ...acc,
+          [key]: TrialComponentArtifact.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
@@ -8244,19 +8244,19 @@ export namespace DescribeTrialComponentResponse {
     }),
     ...(obj.OutputArtifacts && {
       OutputArtifacts: Object.entries(obj.OutputArtifacts).reduce(
-        (acc: any, [key, value]: [string, TrialComponentArtifact]) => {
-          acc[key] = TrialComponentArtifact.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, TrialComponentArtifact]) => ({
+          ...acc,
+          [key]: TrialComponentArtifact.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
     ...(obj.Parameters && {
       Parameters: Object.entries(obj.Parameters).reduce(
-        (acc: any, [key, value]: [string, TrialComponentParameterValue]) => {
-          acc[key] = TrialComponentParameterValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, TrialComponentParameterValue]) => ({
+          ...acc,
+          [key]: TrialComponentParameterValue.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
@@ -20443,10 +20443,10 @@ export namespace TrialComponent {
     }),
     ...(obj.InputArtifacts && {
       InputArtifacts: Object.entries(obj.InputArtifacts).reduce(
-        (acc: any, [key, value]: [string, TrialComponentArtifact]) => {
-          acc[key] = TrialComponentArtifact.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, TrialComponentArtifact]) => ({
+          ...acc,
+          [key]: TrialComponentArtifact.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
@@ -20458,19 +20458,19 @@ export namespace TrialComponent {
     }),
     ...(obj.OutputArtifacts && {
       OutputArtifacts: Object.entries(obj.OutputArtifacts).reduce(
-        (acc: any, [key, value]: [string, TrialComponentArtifact]) => {
-          acc[key] = TrialComponentArtifact.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, TrialComponentArtifact]) => ({
+          ...acc,
+          [key]: TrialComponentArtifact.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
     ...(obj.Parameters && {
       Parameters: Object.entries(obj.Parameters).reduce(
-        (acc: any, [key, value]: [string, TrialComponentParameterValue]) => {
-          acc[key] = TrialComponentParameterValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, TrialComponentParameterValue]) => ({
+          ...acc,
+          [key]: TrialComponentParameterValue.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
@@ -21547,28 +21547,28 @@ export namespace UpdateTrialComponentRequest {
     ...obj,
     ...(obj.InputArtifacts && {
       InputArtifacts: Object.entries(obj.InputArtifacts).reduce(
-        (acc: any, [key, value]: [string, TrialComponentArtifact]) => {
-          acc[key] = TrialComponentArtifact.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, TrialComponentArtifact]) => ({
+          ...acc,
+          [key]: TrialComponentArtifact.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
     ...(obj.OutputArtifacts && {
       OutputArtifacts: Object.entries(obj.OutputArtifacts).reduce(
-        (acc: any, [key, value]: [string, TrialComponentArtifact]) => {
-          acc[key] = TrialComponentArtifact.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, TrialComponentArtifact]) => ({
+          ...acc,
+          [key]: TrialComponentArtifact.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
     ...(obj.Parameters && {
       Parameters: Object.entries(obj.Parameters).reduce(
-        (acc: any, [key, value]: [string, TrialComponentParameterValue]) => {
-          acc[key] = TrialComponentParameterValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, TrialComponentParameterValue]) => ({
+          ...acc,
+          [key]: TrialComponentParameterValue.filterSensitiveLog(value)
+        }),
         {}
       )
     }),

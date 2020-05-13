@@ -8343,10 +8343,10 @@ export namespace RemediationConfiguration {
     }),
     ...(obj.Parameters && {
       Parameters: Object.entries(obj.Parameters).reduce(
-        (acc: any, [key, value]: [string, RemediationParameterValue]) => {
-          acc[key] = RemediationParameterValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, RemediationParameterValue]) => ({
+          ...acc,
+          [key]: RemediationParameterValue.filterSensitiveLog(value)
+        }),
         {}
       )
     })

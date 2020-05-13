@@ -668,28 +668,28 @@ export namespace StreamRecord {
     ...obj,
     ...(obj.Keys && {
       Keys: Object.entries(obj.Keys).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => {
-          acc[key] = AttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
     ...(obj.NewImage && {
       NewImage: Object.entries(obj.NewImage).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => {
-          acc[key] = AttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
     ...(obj.OldImage && {
       OldImage: Object.entries(obj.OldImage).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => {
-          acc[key] = AttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -795,10 +795,10 @@ export namespace AttributeValue {
     ...(obj.L && { L: obj.L.map(AttributeValue.filterSensitiveLog) }),
     ...(obj.M && {
       M: Object.entries(obj.M).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => {
-          acc[key] = AttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     })

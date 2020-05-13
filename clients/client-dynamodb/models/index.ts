@@ -256,10 +256,10 @@ export namespace AttributeValue {
     ...(obj.L && { L: obj.L.map(AttributeValue.filterSensitiveLog) }),
     ...(obj.M && {
       M: Object.entries(obj.M).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => {
-          acc[key] = AttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -1003,10 +1003,10 @@ export namespace BatchGetItemInput {
     ...obj,
     ...(obj.RequestItems && {
       RequestItems: Object.entries(obj.RequestItems).reduce(
-        (acc: any, [key, value]: [string, KeysAndAttributes]) => {
-          acc[key] = KeysAndAttributes.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, KeysAndAttributes]) => ({
+          ...acc,
+          [key]: KeysAndAttributes.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -1086,27 +1086,27 @@ export namespace BatchGetItemOutput {
         (
           acc: any,
           [key, value]: [string, { [key: string]: AttributeValue }[]]
-        ) => {
-          acc[key] = value.map(item =>
+        ) => ({
+          ...acc,
+          [key]: value.map(item =>
             Object.entries(item).reduce(
-              (acc: any, [key, value]: [string, AttributeValue]) => {
-                acc[key] = AttributeValue.filterSensitiveLog(value);
-                return acc;
-              },
+              (acc: any, [key, value]: [string, AttributeValue]) => ({
+                ...acc,
+                [key]: AttributeValue.filterSensitiveLog(value)
+              }),
               {}
             )
-          );
-          return acc;
-        },
+          )
+        }),
         {}
       )
     }),
     ...(obj.UnprocessedKeys && {
       UnprocessedKeys: Object.entries(obj.UnprocessedKeys).reduce(
-        (acc: any, [key, value]: [string, KeysAndAttributes]) => {
-          acc[key] = KeysAndAttributes.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, KeysAndAttributes]) => ({
+          ...acc,
+          [key]: KeysAndAttributes.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -1193,10 +1193,10 @@ export namespace BatchWriteItemInput {
     ...obj,
     ...(obj.RequestItems && {
       RequestItems: Object.entries(obj.RequestItems).reduce(
-        (acc: any, [key, value]: [string, WriteRequest[]]) => {
-          acc[key] = value.map(WriteRequest.filterSensitiveLog);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, WriteRequest[]]) => ({
+          ...acc,
+          [key]: value.map(WriteRequest.filterSensitiveLog)
+        }),
         {}
       )
     })
@@ -1303,19 +1303,19 @@ export namespace BatchWriteItemOutput {
     }),
     ...(obj.ItemCollectionMetrics && {
       ItemCollectionMetrics: Object.entries(obj.ItemCollectionMetrics).reduce(
-        (acc: any, [key, value]: [string, ItemCollectionMetrics[]]) => {
-          acc[key] = value.map(ItemCollectionMetrics.filterSensitiveLog);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, ItemCollectionMetrics[]]) => ({
+          ...acc,
+          [key]: value.map(ItemCollectionMetrics.filterSensitiveLog)
+        }),
         {}
       )
     }),
     ...(obj.UnprocessedItems && {
       UnprocessedItems: Object.entries(obj.UnprocessedItems).reduce(
-        (acc: any, [key, value]: [string, WriteRequest[]]) => {
-          acc[key] = value.map(WriteRequest.filterSensitiveLog);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, WriteRequest[]]) => ({
+          ...acc,
+          [key]: value.map(WriteRequest.filterSensitiveLog)
+        }),
         {}
       )
     })
@@ -1391,10 +1391,10 @@ export namespace CancellationReason {
     ...obj,
     ...(obj.Item && {
       Item: Object.entries(obj.Item).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => {
-          acc[key] = AttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -1693,17 +1693,20 @@ export namespace ConditionCheck {
     ...(obj.ExpressionAttributeValues && {
       ExpressionAttributeValues: Object.entries(
         obj.ExpressionAttributeValues
-      ).reduce((acc: any, [key, value]: [string, AttributeValue]) => {
-        acc[key] = AttributeValue.filterSensitiveLog(value);
-        return acc;
-      }, {})
+      ).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
+        {}
+      )
     }),
     ...(obj.Key && {
       Key: Object.entries(obj.Key).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => {
-          acc[key] = AttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -1788,19 +1791,19 @@ export namespace ConsumedCapacity {
     ...obj,
     ...(obj.GlobalSecondaryIndexes && {
       GlobalSecondaryIndexes: Object.entries(obj.GlobalSecondaryIndexes).reduce(
-        (acc: any, [key, value]: [string, Capacity]) => {
-          acc[key] = Capacity.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, Capacity]) => ({
+          ...acc,
+          [key]: Capacity.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
     ...(obj.LocalSecondaryIndexes && {
       LocalSecondaryIndexes: Object.entries(obj.LocalSecondaryIndexes).reduce(
-        (acc: any, [key, value]: [string, Capacity]) => {
-          acc[key] = Capacity.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, Capacity]) => ({
+          ...acc,
+          [key]: Capacity.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
@@ -2481,17 +2484,20 @@ export namespace Delete {
     ...(obj.ExpressionAttributeValues && {
       ExpressionAttributeValues: Object.entries(
         obj.ExpressionAttributeValues
-      ).reduce((acc: any, [key, value]: [string, AttributeValue]) => {
-        acc[key] = AttributeValue.filterSensitiveLog(value);
-        return acc;
-      }, {})
+      ).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
+        {}
+      )
     }),
     ...(obj.Key && {
       Key: Object.entries(obj.Key).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => {
-          acc[key] = AttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -2731,27 +2737,30 @@ export namespace DeleteItemInput {
     ...obj,
     ...(obj.Expected && {
       Expected: Object.entries(obj.Expected).reduce(
-        (acc: any, [key, value]: [string, ExpectedAttributeValue]) => {
-          acc[key] = ExpectedAttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, ExpectedAttributeValue]) => ({
+          ...acc,
+          [key]: ExpectedAttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
     ...(obj.ExpressionAttributeValues && {
       ExpressionAttributeValues: Object.entries(
         obj.ExpressionAttributeValues
-      ).reduce((acc: any, [key, value]: [string, AttributeValue]) => {
-        acc[key] = AttributeValue.filterSensitiveLog(value);
-        return acc;
-      }, {})
+      ).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
+        {}
+      )
     }),
     ...(obj.Key && {
       Key: Object.entries(obj.Key).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => {
-          acc[key] = AttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -2818,10 +2827,10 @@ export namespace DeleteItemOutput {
     ...obj,
     ...(obj.Attributes && {
       Attributes: Object.entries(obj.Attributes).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => {
-          acc[key] = AttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
@@ -2896,10 +2905,10 @@ export namespace DeleteRequest {
     ...obj,
     ...(obj.Key && {
       Key: Object.entries(obj.Key).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => {
-          acc[key] = AttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -3679,10 +3688,10 @@ export namespace Get {
     ...obj,
     ...(obj.Key && {
       Key: Object.entries(obj.Key).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => {
-          acc[key] = AttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -3798,10 +3807,10 @@ export namespace GetItemInput {
     ...obj,
     ...(obj.Key && {
       Key: Object.entries(obj.Key).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => {
-          acc[key] = AttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -3841,10 +3850,10 @@ export namespace GetItemOutput {
     }),
     ...(obj.Item && {
       Item: Object.entries(obj.Item).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => {
-          acc[key] = AttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -4497,10 +4506,10 @@ export namespace ItemCollectionMetrics {
     ...obj,
     ...(obj.ItemCollectionKey && {
       ItemCollectionKey: Object.entries(obj.ItemCollectionKey).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => {
-          acc[key] = AttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -4549,10 +4558,10 @@ export namespace ItemResponse {
     ...obj,
     ...(obj.Item && {
       Item: Object.entries(obj.Item).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => {
-          acc[key] = AttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -4695,10 +4704,10 @@ export namespace KeysAndAttributes {
     ...(obj.Keys && {
       Keys: obj.Keys.map(item =>
         Object.entries(item).reduce(
-          (acc: any, [key, value]: [string, AttributeValue]) => {
-            acc[key] = AttributeValue.filterSensitiveLog(value);
-            return acc;
-          },
+          (acc: any, [key, value]: [string, AttributeValue]) => ({
+            ...acc,
+            [key]: AttributeValue.filterSensitiveLog(value)
+          }),
           {}
         )
       )
@@ -5539,17 +5548,20 @@ export namespace Put {
     ...(obj.ExpressionAttributeValues && {
       ExpressionAttributeValues: Object.entries(
         obj.ExpressionAttributeValues
-      ).reduce((acc: any, [key, value]: [string, AttributeValue]) => {
-        acc[key] = AttributeValue.filterSensitiveLog(value);
-        return acc;
-      }, {})
+      ).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
+        {}
+      )
     }),
     ...(obj.Item && {
       Item: Object.entries(obj.Item).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => {
-          acc[key] = AttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -5735,27 +5747,30 @@ export namespace PutItemInput {
     ...obj,
     ...(obj.Expected && {
       Expected: Object.entries(obj.Expected).reduce(
-        (acc: any, [key, value]: [string, ExpectedAttributeValue]) => {
-          acc[key] = ExpectedAttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, ExpectedAttributeValue]) => ({
+          ...acc,
+          [key]: ExpectedAttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
     ...(obj.ExpressionAttributeValues && {
       ExpressionAttributeValues: Object.entries(
         obj.ExpressionAttributeValues
-      ).reduce((acc: any, [key, value]: [string, AttributeValue]) => {
-        acc[key] = AttributeValue.filterSensitiveLog(value);
-        return acc;
-      }, {})
+      ).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
+        {}
+      )
     }),
     ...(obj.Item && {
       Item: Object.entries(obj.Item).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => {
-          acc[key] = AttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -5819,10 +5834,10 @@ export namespace PutItemOutput {
     ...obj,
     ...(obj.Attributes && {
       Attributes: Object.entries(obj.Attributes).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => {
-          acc[key] = AttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
@@ -5860,10 +5875,10 @@ export namespace PutRequest {
     ...obj,
     ...(obj.Item && {
       Item: Object.entries(obj.Item).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => {
-          acc[key] = AttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -6237,36 +6252,39 @@ export namespace QueryInput {
     ...obj,
     ...(obj.ExclusiveStartKey && {
       ExclusiveStartKey: Object.entries(obj.ExclusiveStartKey).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => {
-          acc[key] = AttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
     ...(obj.ExpressionAttributeValues && {
       ExpressionAttributeValues: Object.entries(
         obj.ExpressionAttributeValues
-      ).reduce((acc: any, [key, value]: [string, AttributeValue]) => {
-        acc[key] = AttributeValue.filterSensitiveLog(value);
-        return acc;
-      }, {})
+      ).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
+        {}
+      )
     }),
     ...(obj.KeyConditions && {
       KeyConditions: Object.entries(obj.KeyConditions).reduce(
-        (acc: any, [key, value]: [string, Condition]) => {
-          acc[key] = Condition.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, Condition]) => ({
+          ...acc,
+          [key]: Condition.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
     ...(obj.QueryFilter && {
       QueryFilter: Object.entries(obj.QueryFilter).reduce(
-        (acc: any, [key, value]: [string, Condition]) => {
-          acc[key] = Condition.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, Condition]) => ({
+          ...acc,
+          [key]: Condition.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -6333,20 +6351,20 @@ export namespace QueryOutput {
     ...(obj.Items && {
       Items: obj.Items.map(item =>
         Object.entries(item).reduce(
-          (acc: any, [key, value]: [string, AttributeValue]) => {
-            acc[key] = AttributeValue.filterSensitiveLog(value);
-            return acc;
-          },
+          (acc: any, [key, value]: [string, AttributeValue]) => ({
+            ...acc,
+            [key]: AttributeValue.filterSensitiveLog(value)
+          }),
           {}
         )
       )
     }),
     ...(obj.LastEvaluatedKey && {
       LastEvaluatedKey: Object.entries(obj.LastEvaluatedKey).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => {
-          acc[key] = AttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -7813,27 +7831,30 @@ export namespace ScanInput {
     ...obj,
     ...(obj.ExclusiveStartKey && {
       ExclusiveStartKey: Object.entries(obj.ExclusiveStartKey).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => {
-          acc[key] = AttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
     ...(obj.ExpressionAttributeValues && {
       ExpressionAttributeValues: Object.entries(
         obj.ExpressionAttributeValues
-      ).reduce((acc: any, [key, value]: [string, AttributeValue]) => {
-        acc[key] = AttributeValue.filterSensitiveLog(value);
-        return acc;
-      }, {})
+      ).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
+        {}
+      )
     }),
     ...(obj.ScanFilter && {
       ScanFilter: Object.entries(obj.ScanFilter).reduce(
-        (acc: any, [key, value]: [string, Condition]) => {
-          acc[key] = Condition.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, Condition]) => ({
+          ...acc,
+          [key]: Condition.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -7905,20 +7926,20 @@ export namespace ScanOutput {
     ...(obj.Items && {
       Items: obj.Items.map(item =>
         Object.entries(item).reduce(
-          (acc: any, [key, value]: [string, AttributeValue]) => {
-            acc[key] = AttributeValue.filterSensitiveLog(value);
-            return acc;
-          },
+          (acc: any, [key, value]: [string, AttributeValue]) => ({
+            ...acc,
+            [key]: AttributeValue.filterSensitiveLog(value)
+          }),
           {}
         )
       )
     }),
     ...(obj.LastEvaluatedKey && {
       LastEvaluatedKey: Object.entries(obj.LastEvaluatedKey).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => {
-          acc[key] = AttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -9021,10 +9042,10 @@ export namespace TransactWriteItemsOutput {
     }),
     ...(obj.ItemCollectionMetrics && {
       ItemCollectionMetrics: Object.entries(obj.ItemCollectionMetrics).reduce(
-        (acc: any, [key, value]: [string, ItemCollectionMetrics[]]) => {
-          acc[key] = value.map(ItemCollectionMetrics.filterSensitiveLog);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, ItemCollectionMetrics[]]) => ({
+          ...acc,
+          [key]: value.map(ItemCollectionMetrics.filterSensitiveLog)
+        }),
         {}
       )
     })
@@ -9386,17 +9407,20 @@ export namespace Update {
     ...(obj.ExpressionAttributeValues && {
       ExpressionAttributeValues: Object.entries(
         obj.ExpressionAttributeValues
-      ).reduce((acc: any, [key, value]: [string, AttributeValue]) => {
-        acc[key] = AttributeValue.filterSensitiveLog(value);
-        return acc;
-      }, {})
+      ).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
+        {}
+      )
     }),
     ...(obj.Key && {
       Key: Object.entries(obj.Key).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => {
-          acc[key] = AttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -9977,36 +10001,39 @@ export namespace UpdateItemInput {
     ...obj,
     ...(obj.AttributeUpdates && {
       AttributeUpdates: Object.entries(obj.AttributeUpdates).reduce(
-        (acc: any, [key, value]: [string, AttributeValueUpdate]) => {
-          acc[key] = AttributeValueUpdate.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AttributeValueUpdate]) => ({
+          ...acc,
+          [key]: AttributeValueUpdate.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
     ...(obj.Expected && {
       Expected: Object.entries(obj.Expected).reduce(
-        (acc: any, [key, value]: [string, ExpectedAttributeValue]) => {
-          acc[key] = ExpectedAttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, ExpectedAttributeValue]) => ({
+          ...acc,
+          [key]: ExpectedAttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
     ...(obj.ExpressionAttributeValues && {
       ExpressionAttributeValues: Object.entries(
         obj.ExpressionAttributeValues
-      ).reduce((acc: any, [key, value]: [string, AttributeValue]) => {
-        acc[key] = AttributeValue.filterSensitiveLog(value);
-        return acc;
-      }, {})
+      ).reduce(
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
+        {}
+      )
     }),
     ...(obj.Key && {
       Key: Object.entries(obj.Key).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => {
-          acc[key] = AttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     })
@@ -10073,10 +10100,10 @@ export namespace UpdateItemOutput {
     ...obj,
     ...(obj.Attributes && {
       Attributes: Object.entries(obj.Attributes).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => {
-          acc[key] = AttributeValue.filterSensitiveLog(value);
-          return acc;
-        },
+        (acc: any, [key, value]: [string, AttributeValue]) => ({
+          ...acc,
+          [key]: AttributeValue.filterSensitiveLog(value)
+        }),
         {}
       )
     }),
