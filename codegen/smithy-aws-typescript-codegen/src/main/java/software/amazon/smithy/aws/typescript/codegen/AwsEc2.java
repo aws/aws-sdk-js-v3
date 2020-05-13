@@ -121,13 +121,11 @@ final class AwsEc2 extends HttpRpcProtocolGenerator {
     ) {
         TypeScriptWriter writer = context.getWriter();
 
-        // Gather all the explicit input entries.
-        writer.write("const entries = $L;",
-                inputStructure.accept(new QueryMemberSerVisitor(context, "input", Format.DATE_TIME)));
-
         // Set the form encoded string.
         writer.openBlock("body = buildFormUrlencodedString({", "});", () -> {
-            writer.write("...entries,");
+            // Gather all the explicit input entries.
+            writer.write("...$L,",
+                    inputStructure.accept(new QueryMemberSerVisitor(context, "input", Format.DATE_TIME)));
             // Set the protocol required values.
             writer.write("Action: $S,", operation.getId().getName());
             writer.write("Version: $S,", context.getService().getVersion());
