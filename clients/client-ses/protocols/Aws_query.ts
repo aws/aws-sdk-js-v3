@@ -518,9 +518,8 @@ export const serializeAws_queryCloneReceiptRuleSetCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCloneReceiptRuleSetRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCloneReceiptRuleSetRequest(input, context),
     Action: "CloneReceiptRuleSet",
     Version: "2010-12-01"
   });
@@ -535,12 +534,8 @@ export const serializeAws_queryCreateConfigurationSetCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateConfigurationSetRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateConfigurationSetRequest(input, context),
     Action: "CreateConfigurationSet",
     Version: "2010-12-01"
   });
@@ -555,12 +550,11 @@ export const serializeAws_queryCreateConfigurationSetEventDestinationCommand = a
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateConfigurationSetEventDestinationRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateConfigurationSetEventDestinationRequest(
+      input,
+      context
+    ),
     Action: "CreateConfigurationSetEventDestination",
     Version: "2010-12-01"
   });
@@ -575,12 +569,11 @@ export const serializeAws_queryCreateConfigurationSetTrackingOptionsCommand = as
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateConfigurationSetTrackingOptionsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateConfigurationSetTrackingOptionsRequest(
+      input,
+      context
+    ),
     Action: "CreateConfigurationSetTrackingOptions",
     Version: "2010-12-01"
   });
@@ -595,12 +588,11 @@ export const serializeAws_queryCreateCustomVerificationEmailTemplateCommand = as
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateCustomVerificationEmailTemplateRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateCustomVerificationEmailTemplateRequest(
+      input,
+      context
+    ),
     Action: "CreateCustomVerificationEmailTemplate",
     Version: "2010-12-01"
   });
@@ -615,9 +607,8 @@ export const serializeAws_queryCreateReceiptFilterCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateReceiptFilterRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateReceiptFilterRequest(input, context),
     Action: "CreateReceiptFilter",
     Version: "2010-12-01"
   });
@@ -632,9 +623,8 @@ export const serializeAws_queryCreateReceiptRuleCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateReceiptRuleRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateReceiptRuleRequest(input, context),
     Action: "CreateReceiptRule",
     Version: "2010-12-01"
   });
@@ -649,9 +639,8 @@ export const serializeAws_queryCreateReceiptRuleSetCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateReceiptRuleSetRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateReceiptRuleSetRequest(input, context),
     Action: "CreateReceiptRuleSet",
     Version: "2010-12-01"
   });
@@ -666,9 +655,8 @@ export const serializeAws_queryCreateTemplateCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateTemplateRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateTemplateRequest(input, context),
     Action: "CreateTemplate",
     Version: "2010-12-01"
   });
@@ -683,12 +671,8 @@ export const serializeAws_queryDeleteConfigurationSetCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteConfigurationSetRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteConfigurationSetRequest(input, context),
     Action: "DeleteConfigurationSet",
     Version: "2010-12-01"
   });
@@ -703,12 +687,11 @@ export const serializeAws_queryDeleteConfigurationSetEventDestinationCommand = a
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteConfigurationSetEventDestinationRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteConfigurationSetEventDestinationRequest(
+      input,
+      context
+    ),
     Action: "DeleteConfigurationSetEventDestination",
     Version: "2010-12-01"
   });
@@ -723,12 +706,11 @@ export const serializeAws_queryDeleteConfigurationSetTrackingOptionsCommand = as
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteConfigurationSetTrackingOptionsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteConfigurationSetTrackingOptionsRequest(
+      input,
+      context
+    ),
     Action: "DeleteConfigurationSetTrackingOptions",
     Version: "2010-12-01"
   });
@@ -743,12 +725,11 @@ export const serializeAws_queryDeleteCustomVerificationEmailTemplateCommand = as
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteCustomVerificationEmailTemplateRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteCustomVerificationEmailTemplateRequest(
+      input,
+      context
+    ),
     Action: "DeleteCustomVerificationEmailTemplate",
     Version: "2010-12-01"
   });
@@ -763,9 +744,8 @@ export const serializeAws_queryDeleteIdentityCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteIdentityRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteIdentityRequest(input, context),
     Action: "DeleteIdentity",
     Version: "2010-12-01"
   });
@@ -780,9 +760,8 @@ export const serializeAws_queryDeleteIdentityPolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteIdentityPolicyRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteIdentityPolicyRequest(input, context),
     Action: "DeleteIdentityPolicy",
     Version: "2010-12-01"
   });
@@ -797,9 +776,8 @@ export const serializeAws_queryDeleteReceiptFilterCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteReceiptFilterRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteReceiptFilterRequest(input, context),
     Action: "DeleteReceiptFilter",
     Version: "2010-12-01"
   });
@@ -814,9 +792,8 @@ export const serializeAws_queryDeleteReceiptRuleCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteReceiptRuleRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteReceiptRuleRequest(input, context),
     Action: "DeleteReceiptRule",
     Version: "2010-12-01"
   });
@@ -831,9 +808,8 @@ export const serializeAws_queryDeleteReceiptRuleSetCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteReceiptRuleSetRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteReceiptRuleSetRequest(input, context),
     Action: "DeleteReceiptRuleSet",
     Version: "2010-12-01"
   });
@@ -848,9 +824,8 @@ export const serializeAws_queryDeleteTemplateCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteTemplateRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteTemplateRequest(input, context),
     Action: "DeleteTemplate",
     Version: "2010-12-01"
   });
@@ -865,12 +840,8 @@ export const serializeAws_queryDeleteVerifiedEmailAddressCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteVerifiedEmailAddressRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteVerifiedEmailAddressRequest(input, context),
     Action: "DeleteVerifiedEmailAddress",
     Version: "2010-12-01"
   });
@@ -885,12 +856,8 @@ export const serializeAws_queryDescribeActiveReceiptRuleSetCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeActiveReceiptRuleSetRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeActiveReceiptRuleSetRequest(input, context),
     Action: "DescribeActiveReceiptRuleSet",
     Version: "2010-12-01"
   });
@@ -905,12 +872,8 @@ export const serializeAws_queryDescribeConfigurationSetCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeConfigurationSetRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeConfigurationSetRequest(input, context),
     Action: "DescribeConfigurationSet",
     Version: "2010-12-01"
   });
@@ -925,9 +888,8 @@ export const serializeAws_queryDescribeReceiptRuleCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeReceiptRuleRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeReceiptRuleRequest(input, context),
     Action: "DescribeReceiptRule",
     Version: "2010-12-01"
   });
@@ -942,12 +904,8 @@ export const serializeAws_queryDescribeReceiptRuleSetCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeReceiptRuleSetRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeReceiptRuleSetRequest(input, context),
     Action: "DescribeReceiptRuleSet",
     Version: "2010-12-01"
   });
@@ -976,12 +934,11 @@ export const serializeAws_queryGetCustomVerificationEmailTemplateCommand = async
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetCustomVerificationEmailTemplateRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetCustomVerificationEmailTemplateRequest(
+      input,
+      context
+    ),
     Action: "GetCustomVerificationEmailTemplate",
     Version: "2010-12-01"
   });
@@ -996,12 +953,8 @@ export const serializeAws_queryGetIdentityDkimAttributesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetIdentityDkimAttributesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetIdentityDkimAttributesRequest(input, context),
     Action: "GetIdentityDkimAttributes",
     Version: "2010-12-01"
   });
@@ -1016,12 +969,11 @@ export const serializeAws_queryGetIdentityMailFromDomainAttributesCommand = asyn
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetIdentityMailFromDomainAttributesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetIdentityMailFromDomainAttributesRequest(
+      input,
+      context
+    ),
     Action: "GetIdentityMailFromDomainAttributes",
     Version: "2010-12-01"
   });
@@ -1036,12 +988,11 @@ export const serializeAws_queryGetIdentityNotificationAttributesCommand = async 
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetIdentityNotificationAttributesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetIdentityNotificationAttributesRequest(
+      input,
+      context
+    ),
     Action: "GetIdentityNotificationAttributes",
     Version: "2010-12-01"
   });
@@ -1056,9 +1007,8 @@ export const serializeAws_queryGetIdentityPoliciesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetIdentityPoliciesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetIdentityPoliciesRequest(input, context),
     Action: "GetIdentityPolicies",
     Version: "2010-12-01"
   });
@@ -1073,12 +1023,11 @@ export const serializeAws_queryGetIdentityVerificationAttributesCommand = async 
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetIdentityVerificationAttributesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetIdentityVerificationAttributesRequest(
+      input,
+      context
+    ),
     Action: "GetIdentityVerificationAttributes",
     Version: "2010-12-01"
   });
@@ -1121,9 +1070,8 @@ export const serializeAws_queryGetTemplateCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetTemplateRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetTemplateRequest(input, context),
     Action: "GetTemplate",
     Version: "2010-12-01"
   });
@@ -1138,12 +1086,8 @@ export const serializeAws_queryListConfigurationSetsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListConfigurationSetsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListConfigurationSetsRequest(input, context),
     Action: "ListConfigurationSets",
     Version: "2010-12-01"
   });
@@ -1158,12 +1102,11 @@ export const serializeAws_queryListCustomVerificationEmailTemplatesCommand = asy
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListCustomVerificationEmailTemplatesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListCustomVerificationEmailTemplatesRequest(
+      input,
+      context
+    ),
     Action: "ListCustomVerificationEmailTemplates",
     Version: "2010-12-01"
   });
@@ -1178,9 +1121,8 @@ export const serializeAws_queryListIdentitiesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListIdentitiesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListIdentitiesRequest(input, context),
     Action: "ListIdentities",
     Version: "2010-12-01"
   });
@@ -1195,9 +1137,8 @@ export const serializeAws_queryListIdentityPoliciesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListIdentityPoliciesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListIdentityPoliciesRequest(input, context),
     Action: "ListIdentityPolicies",
     Version: "2010-12-01"
   });
@@ -1212,9 +1153,8 @@ export const serializeAws_queryListReceiptFiltersCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListReceiptFiltersRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListReceiptFiltersRequest(input, context),
     Action: "ListReceiptFilters",
     Version: "2010-12-01"
   });
@@ -1229,9 +1169,8 @@ export const serializeAws_queryListReceiptRuleSetsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListReceiptRuleSetsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListReceiptRuleSetsRequest(input, context),
     Action: "ListReceiptRuleSets",
     Version: "2010-12-01"
   });
@@ -1246,9 +1185,8 @@ export const serializeAws_queryListTemplatesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListTemplatesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListTemplatesRequest(input, context),
     Action: "ListTemplates",
     Version: "2010-12-01"
   });
@@ -1277,12 +1215,11 @@ export const serializeAws_queryPutConfigurationSetDeliveryOptionsCommand = async
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryPutConfigurationSetDeliveryOptionsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryPutConfigurationSetDeliveryOptionsRequest(
+      input,
+      context
+    ),
     Action: "PutConfigurationSetDeliveryOptions",
     Version: "2010-12-01"
   });
@@ -1297,9 +1234,8 @@ export const serializeAws_queryPutIdentityPolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryPutIdentityPolicyRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryPutIdentityPolicyRequest(input, context),
     Action: "PutIdentityPolicy",
     Version: "2010-12-01"
   });
@@ -1314,12 +1250,8 @@ export const serializeAws_queryReorderReceiptRuleSetCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryReorderReceiptRuleSetRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryReorderReceiptRuleSetRequest(input, context),
     Action: "ReorderReceiptRuleSet",
     Version: "2010-12-01"
   });
@@ -1334,9 +1266,8 @@ export const serializeAws_querySendBounceCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySendBounceRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySendBounceRequest(input, context),
     Action: "SendBounce",
     Version: "2010-12-01"
   });
@@ -1351,12 +1282,8 @@ export const serializeAws_querySendBulkTemplatedEmailCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySendBulkTemplatedEmailRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySendBulkTemplatedEmailRequest(input, context),
     Action: "SendBulkTemplatedEmail",
     Version: "2010-12-01"
   });
@@ -1371,12 +1298,8 @@ export const serializeAws_querySendCustomVerificationEmailCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySendCustomVerificationEmailRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySendCustomVerificationEmailRequest(input, context),
     Action: "SendCustomVerificationEmail",
     Version: "2010-12-01"
   });
@@ -1391,9 +1314,8 @@ export const serializeAws_querySendEmailCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySendEmailRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySendEmailRequest(input, context),
     Action: "SendEmail",
     Version: "2010-12-01"
   });
@@ -1408,9 +1330,8 @@ export const serializeAws_querySendRawEmailCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySendRawEmailRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySendRawEmailRequest(input, context),
     Action: "SendRawEmail",
     Version: "2010-12-01"
   });
@@ -1425,9 +1346,8 @@ export const serializeAws_querySendTemplatedEmailCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySendTemplatedEmailRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySendTemplatedEmailRequest(input, context),
     Action: "SendTemplatedEmail",
     Version: "2010-12-01"
   });
@@ -1442,12 +1362,8 @@ export const serializeAws_querySetActiveReceiptRuleSetCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySetActiveReceiptRuleSetRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySetActiveReceiptRuleSetRequest(input, context),
     Action: "SetActiveReceiptRuleSet",
     Version: "2010-12-01"
   });
@@ -1462,12 +1378,8 @@ export const serializeAws_querySetIdentityDkimEnabledCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySetIdentityDkimEnabledRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySetIdentityDkimEnabledRequest(input, context),
     Action: "SetIdentityDkimEnabled",
     Version: "2010-12-01"
   });
@@ -1482,12 +1394,11 @@ export const serializeAws_querySetIdentityFeedbackForwardingEnabledCommand = asy
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySetIdentityFeedbackForwardingEnabledRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySetIdentityFeedbackForwardingEnabledRequest(
+      input,
+      context
+    ),
     Action: "SetIdentityFeedbackForwardingEnabled",
     Version: "2010-12-01"
   });
@@ -1502,12 +1413,11 @@ export const serializeAws_querySetIdentityHeadersInNotificationsEnabledCommand =
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySetIdentityHeadersInNotificationsEnabledRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySetIdentityHeadersInNotificationsEnabledRequest(
+      input,
+      context
+    ),
     Action: "SetIdentityHeadersInNotificationsEnabled",
     Version: "2010-12-01"
   });
@@ -1522,12 +1432,8 @@ export const serializeAws_querySetIdentityMailFromDomainCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySetIdentityMailFromDomainRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySetIdentityMailFromDomainRequest(input, context),
     Action: "SetIdentityMailFromDomain",
     Version: "2010-12-01"
   });
@@ -1542,12 +1448,8 @@ export const serializeAws_querySetIdentityNotificationTopicCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySetIdentityNotificationTopicRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySetIdentityNotificationTopicRequest(input, context),
     Action: "SetIdentityNotificationTopic",
     Version: "2010-12-01"
   });
@@ -1562,12 +1464,8 @@ export const serializeAws_querySetReceiptRulePositionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySetReceiptRulePositionRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySetReceiptRulePositionRequest(input, context),
     Action: "SetReceiptRulePosition",
     Version: "2010-12-01"
   });
@@ -1582,9 +1480,8 @@ export const serializeAws_queryTestRenderTemplateCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryTestRenderTemplateRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryTestRenderTemplateRequest(input, context),
     Action: "TestRenderTemplate",
     Version: "2010-12-01"
   });
@@ -1599,12 +1496,8 @@ export const serializeAws_queryUpdateAccountSendingEnabledCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateAccountSendingEnabledRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateAccountSendingEnabledRequest(input, context),
     Action: "UpdateAccountSendingEnabled",
     Version: "2010-12-01"
   });
@@ -1619,12 +1512,11 @@ export const serializeAws_queryUpdateConfigurationSetEventDestinationCommand = a
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateConfigurationSetEventDestinationRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateConfigurationSetEventDestinationRequest(
+      input,
+      context
+    ),
     Action: "UpdateConfigurationSetEventDestination",
     Version: "2010-12-01"
   });
@@ -1639,12 +1531,11 @@ export const serializeAws_queryUpdateConfigurationSetReputationMetricsEnabledCom
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateConfigurationSetReputationMetricsEnabledRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateConfigurationSetReputationMetricsEnabledRequest(
+      input,
+      context
+    ),
     Action: "UpdateConfigurationSetReputationMetricsEnabled",
     Version: "2010-12-01"
   });
@@ -1659,12 +1550,11 @@ export const serializeAws_queryUpdateConfigurationSetSendingEnabledCommand = asy
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateConfigurationSetSendingEnabledRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateConfigurationSetSendingEnabledRequest(
+      input,
+      context
+    ),
     Action: "UpdateConfigurationSetSendingEnabled",
     Version: "2010-12-01"
   });
@@ -1679,12 +1569,11 @@ export const serializeAws_queryUpdateConfigurationSetTrackingOptionsCommand = as
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateConfigurationSetTrackingOptionsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateConfigurationSetTrackingOptionsRequest(
+      input,
+      context
+    ),
     Action: "UpdateConfigurationSetTrackingOptions",
     Version: "2010-12-01"
   });
@@ -1699,12 +1588,11 @@ export const serializeAws_queryUpdateCustomVerificationEmailTemplateCommand = as
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateCustomVerificationEmailTemplateRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateCustomVerificationEmailTemplateRequest(
+      input,
+      context
+    ),
     Action: "UpdateCustomVerificationEmailTemplate",
     Version: "2010-12-01"
   });
@@ -1719,9 +1607,8 @@ export const serializeAws_queryUpdateReceiptRuleCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateReceiptRuleRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateReceiptRuleRequest(input, context),
     Action: "UpdateReceiptRule",
     Version: "2010-12-01"
   });
@@ -1736,9 +1623,8 @@ export const serializeAws_queryUpdateTemplateCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateTemplateRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateTemplateRequest(input, context),
     Action: "UpdateTemplate",
     Version: "2010-12-01"
   });
@@ -1753,9 +1639,8 @@ export const serializeAws_queryVerifyDomainDkimCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryVerifyDomainDkimRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryVerifyDomainDkimRequest(input, context),
     Action: "VerifyDomainDkim",
     Version: "2010-12-01"
   });
@@ -1770,9 +1655,8 @@ export const serializeAws_queryVerifyDomainIdentityCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryVerifyDomainIdentityRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryVerifyDomainIdentityRequest(input, context),
     Action: "VerifyDomainIdentity",
     Version: "2010-12-01"
   });
@@ -1787,9 +1671,8 @@ export const serializeAws_queryVerifyEmailAddressCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryVerifyEmailAddressRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryVerifyEmailAddressRequest(input, context),
     Action: "VerifyEmailAddress",
     Version: "2010-12-01"
   });
@@ -1804,9 +1687,8 @@ export const serializeAws_queryVerifyEmailIdentityCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryVerifyEmailIdentityRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryVerifyEmailIdentityRequest(input, context),
     Action: "VerifyEmailIdentity",
     Version: "2010-12-01"
   });

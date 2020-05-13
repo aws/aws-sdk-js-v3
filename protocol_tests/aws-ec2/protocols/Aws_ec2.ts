@@ -119,9 +119,8 @@ export const serializeAws_ec2EmptyInputAndEmptyOutputCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2EmptyInputAndEmptyOutputInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2EmptyInputAndEmptyOutputInput(input, context),
     Action: "EmptyInputAndEmptyOutput",
     Version: "2020-01-08"
   });
@@ -164,9 +163,8 @@ export const serializeAws_ec2NestedStructuresCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2NestedStructuresInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2NestedStructuresInput(input, context),
     Action: "NestedStructures",
     Version: "2020-01-08"
   });
@@ -195,12 +193,8 @@ export const serializeAws_ec2QueryIdempotencyTokenAutoFillCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2QueryIdempotencyTokenAutoFillInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2QueryIdempotencyTokenAutoFillInput(input, context),
     Action: "QueryIdempotencyTokenAutoFill",
     Version: "2020-01-08"
   });
@@ -215,9 +209,8 @@ export const serializeAws_ec2QueryListsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2QueryListsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2QueryListsInput(input, context),
     Action: "QueryLists",
     Version: "2020-01-08"
   });
@@ -232,9 +225,8 @@ export const serializeAws_ec2QueryTimestampsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2QueryTimestampsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2QueryTimestampsInput(input, context),
     Action: "QueryTimestamps",
     Version: "2020-01-08"
   });
@@ -263,9 +255,8 @@ export const serializeAws_ec2SimpleInputParamsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_ec2SimpleInputParamsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_ec2SimpleInputParamsInput(input, context),
     Action: "SimpleInputParams",
     Version: "2020-01-08"
   });

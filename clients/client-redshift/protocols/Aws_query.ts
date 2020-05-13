@@ -685,12 +685,8 @@ export const serializeAws_queryAcceptReservedNodeExchangeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryAcceptReservedNodeExchangeInputMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryAcceptReservedNodeExchangeInputMessage(input, context),
     Action: "AcceptReservedNodeExchange",
     Version: "2012-12-01"
   });
@@ -705,12 +701,11 @@ export const serializeAws_queryAuthorizeClusterSecurityGroupIngressCommand = asy
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryAuthorizeClusterSecurityGroupIngressMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryAuthorizeClusterSecurityGroupIngressMessage(
+      input,
+      context
+    ),
     Action: "AuthorizeClusterSecurityGroupIngress",
     Version: "2012-12-01"
   });
@@ -725,12 +720,8 @@ export const serializeAws_queryAuthorizeSnapshotAccessCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryAuthorizeSnapshotAccessMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryAuthorizeSnapshotAccessMessage(input, context),
     Action: "AuthorizeSnapshotAccess",
     Version: "2012-12-01"
   });
@@ -745,12 +736,8 @@ export const serializeAws_queryBatchDeleteClusterSnapshotsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryBatchDeleteClusterSnapshotsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryBatchDeleteClusterSnapshotsRequest(input, context),
     Action: "BatchDeleteClusterSnapshots",
     Version: "2012-12-01"
   });
@@ -765,12 +752,8 @@ export const serializeAws_queryBatchModifyClusterSnapshotsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryBatchModifyClusterSnapshotsMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryBatchModifyClusterSnapshotsMessage(input, context),
     Action: "BatchModifyClusterSnapshots",
     Version: "2012-12-01"
   });
@@ -785,9 +768,8 @@ export const serializeAws_queryCancelResizeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCancelResizeMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCancelResizeMessage(input, context),
     Action: "CancelResize",
     Version: "2012-12-01"
   });
@@ -802,9 +784,8 @@ export const serializeAws_queryCopyClusterSnapshotCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCopyClusterSnapshotMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCopyClusterSnapshotMessage(input, context),
     Action: "CopyClusterSnapshot",
     Version: "2012-12-01"
   });
@@ -819,9 +800,8 @@ export const serializeAws_queryCreateClusterCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateClusterMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateClusterMessage(input, context),
     Action: "CreateCluster",
     Version: "2012-12-01"
   });
@@ -836,12 +816,8 @@ export const serializeAws_queryCreateClusterParameterGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateClusterParameterGroupMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateClusterParameterGroupMessage(input, context),
     Action: "CreateClusterParameterGroup",
     Version: "2012-12-01"
   });
@@ -856,12 +832,8 @@ export const serializeAws_queryCreateClusterSecurityGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateClusterSecurityGroupMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateClusterSecurityGroupMessage(input, context),
     Action: "CreateClusterSecurityGroup",
     Version: "2012-12-01"
   });
@@ -876,12 +848,8 @@ export const serializeAws_queryCreateClusterSnapshotCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateClusterSnapshotMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateClusterSnapshotMessage(input, context),
     Action: "CreateClusterSnapshot",
     Version: "2012-12-01"
   });
@@ -896,12 +864,8 @@ export const serializeAws_queryCreateClusterSubnetGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateClusterSubnetGroupMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateClusterSubnetGroupMessage(input, context),
     Action: "CreateClusterSubnetGroup",
     Version: "2012-12-01"
   });
@@ -916,12 +880,8 @@ export const serializeAws_queryCreateEventSubscriptionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateEventSubscriptionMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateEventSubscriptionMessage(input, context),
     Action: "CreateEventSubscription",
     Version: "2012-12-01"
   });
@@ -936,12 +896,8 @@ export const serializeAws_queryCreateHsmClientCertificateCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateHsmClientCertificateMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateHsmClientCertificateMessage(input, context),
     Action: "CreateHsmClientCertificate",
     Version: "2012-12-01"
   });
@@ -956,12 +912,8 @@ export const serializeAws_queryCreateHsmConfigurationCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateHsmConfigurationMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateHsmConfigurationMessage(input, context),
     Action: "CreateHsmConfiguration",
     Version: "2012-12-01"
   });
@@ -976,12 +928,8 @@ export const serializeAws_queryCreateScheduledActionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateScheduledActionMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateScheduledActionMessage(input, context),
     Action: "CreateScheduledAction",
     Version: "2012-12-01"
   });
@@ -996,12 +944,8 @@ export const serializeAws_queryCreateSnapshotCopyGrantCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateSnapshotCopyGrantMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateSnapshotCopyGrantMessage(input, context),
     Action: "CreateSnapshotCopyGrant",
     Version: "2012-12-01"
   });
@@ -1016,12 +960,8 @@ export const serializeAws_queryCreateSnapshotScheduleCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateSnapshotScheduleMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateSnapshotScheduleMessage(input, context),
     Action: "CreateSnapshotSchedule",
     Version: "2012-12-01"
   });
@@ -1036,9 +976,8 @@ export const serializeAws_queryCreateTagsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateTagsMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateTagsMessage(input, context),
     Action: "CreateTags",
     Version: "2012-12-01"
   });
@@ -1053,9 +992,8 @@ export const serializeAws_queryDeleteClusterCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteClusterMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteClusterMessage(input, context),
     Action: "DeleteCluster",
     Version: "2012-12-01"
   });
@@ -1070,12 +1008,8 @@ export const serializeAws_queryDeleteClusterParameterGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteClusterParameterGroupMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteClusterParameterGroupMessage(input, context),
     Action: "DeleteClusterParameterGroup",
     Version: "2012-12-01"
   });
@@ -1090,12 +1024,8 @@ export const serializeAws_queryDeleteClusterSecurityGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteClusterSecurityGroupMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteClusterSecurityGroupMessage(input, context),
     Action: "DeleteClusterSecurityGroup",
     Version: "2012-12-01"
   });
@@ -1110,12 +1040,8 @@ export const serializeAws_queryDeleteClusterSnapshotCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteClusterSnapshotMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteClusterSnapshotMessage(input, context),
     Action: "DeleteClusterSnapshot",
     Version: "2012-12-01"
   });
@@ -1130,12 +1056,8 @@ export const serializeAws_queryDeleteClusterSubnetGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteClusterSubnetGroupMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteClusterSubnetGroupMessage(input, context),
     Action: "DeleteClusterSubnetGroup",
     Version: "2012-12-01"
   });
@@ -1150,12 +1072,8 @@ export const serializeAws_queryDeleteEventSubscriptionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteEventSubscriptionMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteEventSubscriptionMessage(input, context),
     Action: "DeleteEventSubscription",
     Version: "2012-12-01"
   });
@@ -1170,12 +1088,8 @@ export const serializeAws_queryDeleteHsmClientCertificateCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteHsmClientCertificateMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteHsmClientCertificateMessage(input, context),
     Action: "DeleteHsmClientCertificate",
     Version: "2012-12-01"
   });
@@ -1190,12 +1104,8 @@ export const serializeAws_queryDeleteHsmConfigurationCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteHsmConfigurationMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteHsmConfigurationMessage(input, context),
     Action: "DeleteHsmConfiguration",
     Version: "2012-12-01"
   });
@@ -1210,12 +1120,8 @@ export const serializeAws_queryDeleteScheduledActionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteScheduledActionMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteScheduledActionMessage(input, context),
     Action: "DeleteScheduledAction",
     Version: "2012-12-01"
   });
@@ -1230,12 +1136,8 @@ export const serializeAws_queryDeleteSnapshotCopyGrantCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteSnapshotCopyGrantMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteSnapshotCopyGrantMessage(input, context),
     Action: "DeleteSnapshotCopyGrant",
     Version: "2012-12-01"
   });
@@ -1250,12 +1152,8 @@ export const serializeAws_queryDeleteSnapshotScheduleCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteSnapshotScheduleMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteSnapshotScheduleMessage(input, context),
     Action: "DeleteSnapshotSchedule",
     Version: "2012-12-01"
   });
@@ -1270,9 +1168,8 @@ export const serializeAws_queryDeleteTagsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteTagsMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteTagsMessage(input, context),
     Action: "DeleteTags",
     Version: "2012-12-01"
   });
@@ -1287,12 +1184,8 @@ export const serializeAws_queryDescribeAccountAttributesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeAccountAttributesMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeAccountAttributesMessage(input, context),
     Action: "DescribeAccountAttributes",
     Version: "2012-12-01"
   });
@@ -1307,12 +1200,8 @@ export const serializeAws_queryDescribeClusterDbRevisionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeClusterDbRevisionsMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeClusterDbRevisionsMessage(input, context),
     Action: "DescribeClusterDbRevisions",
     Version: "2012-12-01"
   });
@@ -1327,12 +1216,8 @@ export const serializeAws_queryDescribeClusterParameterGroupsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeClusterParameterGroupsMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeClusterParameterGroupsMessage(input, context),
     Action: "DescribeClusterParameterGroups",
     Version: "2012-12-01"
   });
@@ -1347,12 +1232,8 @@ export const serializeAws_queryDescribeClusterParametersCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeClusterParametersMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeClusterParametersMessage(input, context),
     Action: "DescribeClusterParameters",
     Version: "2012-12-01"
   });
@@ -1367,12 +1248,8 @@ export const serializeAws_queryDescribeClusterSecurityGroupsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeClusterSecurityGroupsMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeClusterSecurityGroupsMessage(input, context),
     Action: "DescribeClusterSecurityGroups",
     Version: "2012-12-01"
   });
@@ -1387,12 +1264,8 @@ export const serializeAws_queryDescribeClusterSnapshotsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeClusterSnapshotsMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeClusterSnapshotsMessage(input, context),
     Action: "DescribeClusterSnapshots",
     Version: "2012-12-01"
   });
@@ -1407,12 +1280,8 @@ export const serializeAws_queryDescribeClusterSubnetGroupsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeClusterSubnetGroupsMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeClusterSubnetGroupsMessage(input, context),
     Action: "DescribeClusterSubnetGroups",
     Version: "2012-12-01"
   });
@@ -1427,12 +1296,8 @@ export const serializeAws_queryDescribeClusterTracksCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeClusterTracksMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeClusterTracksMessage(input, context),
     Action: "DescribeClusterTracks",
     Version: "2012-12-01"
   });
@@ -1447,12 +1312,8 @@ export const serializeAws_queryDescribeClusterVersionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeClusterVersionsMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeClusterVersionsMessage(input, context),
     Action: "DescribeClusterVersions",
     Version: "2012-12-01"
   });
@@ -1467,9 +1328,8 @@ export const serializeAws_queryDescribeClustersCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeClustersMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeClustersMessage(input, context),
     Action: "DescribeClusters",
     Version: "2012-12-01"
   });
@@ -1484,12 +1344,11 @@ export const serializeAws_queryDescribeDefaultClusterParametersCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeDefaultClusterParametersMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeDefaultClusterParametersMessage(
+      input,
+      context
+    ),
     Action: "DescribeDefaultClusterParameters",
     Version: "2012-12-01"
   });
@@ -1504,12 +1363,8 @@ export const serializeAws_queryDescribeEventCategoriesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeEventCategoriesMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeEventCategoriesMessage(input, context),
     Action: "DescribeEventCategories",
     Version: "2012-12-01"
   });
@@ -1524,12 +1379,8 @@ export const serializeAws_queryDescribeEventSubscriptionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeEventSubscriptionsMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeEventSubscriptionsMessage(input, context),
     Action: "DescribeEventSubscriptions",
     Version: "2012-12-01"
   });
@@ -1544,9 +1395,8 @@ export const serializeAws_queryDescribeEventsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeEventsMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeEventsMessage(input, context),
     Action: "DescribeEvents",
     Version: "2012-12-01"
   });
@@ -1561,12 +1411,8 @@ export const serializeAws_queryDescribeHsmClientCertificatesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeHsmClientCertificatesMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeHsmClientCertificatesMessage(input, context),
     Action: "DescribeHsmClientCertificates",
     Version: "2012-12-01"
   });
@@ -1581,12 +1427,8 @@ export const serializeAws_queryDescribeHsmConfigurationsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeHsmConfigurationsMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeHsmConfigurationsMessage(input, context),
     Action: "DescribeHsmConfigurations",
     Version: "2012-12-01"
   });
@@ -1601,12 +1443,8 @@ export const serializeAws_queryDescribeLoggingStatusCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeLoggingStatusMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeLoggingStatusMessage(input, context),
     Action: "DescribeLoggingStatus",
     Version: "2012-12-01"
   });
@@ -1621,12 +1459,11 @@ export const serializeAws_queryDescribeNodeConfigurationOptionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeNodeConfigurationOptionsMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeNodeConfigurationOptionsMessage(
+      input,
+      context
+    ),
     Action: "DescribeNodeConfigurationOptions",
     Version: "2012-12-01"
   });
@@ -1641,12 +1478,8 @@ export const serializeAws_queryDescribeOrderableClusterOptionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeOrderableClusterOptionsMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeOrderableClusterOptionsMessage(input, context),
     Action: "DescribeOrderableClusterOptions",
     Version: "2012-12-01"
   });
@@ -1661,12 +1494,8 @@ export const serializeAws_queryDescribeReservedNodeOfferingsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeReservedNodeOfferingsMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeReservedNodeOfferingsMessage(input, context),
     Action: "DescribeReservedNodeOfferings",
     Version: "2012-12-01"
   });
@@ -1681,12 +1510,8 @@ export const serializeAws_queryDescribeReservedNodesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeReservedNodesMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeReservedNodesMessage(input, context),
     Action: "DescribeReservedNodes",
     Version: "2012-12-01"
   });
@@ -1701,9 +1526,8 @@ export const serializeAws_queryDescribeResizeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeResizeMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeResizeMessage(input, context),
     Action: "DescribeResize",
     Version: "2012-12-01"
   });
@@ -1718,12 +1542,8 @@ export const serializeAws_queryDescribeScheduledActionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeScheduledActionsMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeScheduledActionsMessage(input, context),
     Action: "DescribeScheduledActions",
     Version: "2012-12-01"
   });
@@ -1738,12 +1558,8 @@ export const serializeAws_queryDescribeSnapshotCopyGrantsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeSnapshotCopyGrantsMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeSnapshotCopyGrantsMessage(input, context),
     Action: "DescribeSnapshotCopyGrants",
     Version: "2012-12-01"
   });
@@ -1758,12 +1574,8 @@ export const serializeAws_queryDescribeSnapshotSchedulesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeSnapshotSchedulesMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeSnapshotSchedulesMessage(input, context),
     Action: "DescribeSnapshotSchedules",
     Version: "2012-12-01"
   });
@@ -1792,12 +1604,8 @@ export const serializeAws_queryDescribeTableRestoreStatusCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeTableRestoreStatusMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeTableRestoreStatusMessage(input, context),
     Action: "DescribeTableRestoreStatus",
     Version: "2012-12-01"
   });
@@ -1812,9 +1620,8 @@ export const serializeAws_queryDescribeTagsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeTagsMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeTagsMessage(input, context),
     Action: "DescribeTags",
     Version: "2012-12-01"
   });
@@ -1829,9 +1636,8 @@ export const serializeAws_queryDisableLoggingCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDisableLoggingMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDisableLoggingMessage(input, context),
     Action: "DisableLogging",
     Version: "2012-12-01"
   });
@@ -1846,9 +1652,8 @@ export const serializeAws_queryDisableSnapshotCopyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDisableSnapshotCopyMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDisableSnapshotCopyMessage(input, context),
     Action: "DisableSnapshotCopy",
     Version: "2012-12-01"
   });
@@ -1863,9 +1668,8 @@ export const serializeAws_queryEnableLoggingCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryEnableLoggingMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryEnableLoggingMessage(input, context),
     Action: "EnableLogging",
     Version: "2012-12-01"
   });
@@ -1880,9 +1684,8 @@ export const serializeAws_queryEnableSnapshotCopyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryEnableSnapshotCopyMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryEnableSnapshotCopyMessage(input, context),
     Action: "EnableSnapshotCopy",
     Version: "2012-12-01"
   });
@@ -1897,12 +1700,8 @@ export const serializeAws_queryGetClusterCredentialsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetClusterCredentialsMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetClusterCredentialsMessage(input, context),
     Action: "GetClusterCredentials",
     Version: "2012-12-01"
   });
@@ -1917,12 +1716,11 @@ export const serializeAws_queryGetReservedNodeExchangeOfferingsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetReservedNodeExchangeOfferingsInputMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetReservedNodeExchangeOfferingsInputMessage(
+      input,
+      context
+    ),
     Action: "GetReservedNodeExchangeOfferings",
     Version: "2012-12-01"
   });
@@ -1937,9 +1735,8 @@ export const serializeAws_queryModifyClusterCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryModifyClusterMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryModifyClusterMessage(input, context),
     Action: "ModifyCluster",
     Version: "2012-12-01"
   });
@@ -1954,12 +1751,8 @@ export const serializeAws_queryModifyClusterDbRevisionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryModifyClusterDbRevisionMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryModifyClusterDbRevisionMessage(input, context),
     Action: "ModifyClusterDbRevision",
     Version: "2012-12-01"
   });
@@ -1974,12 +1767,8 @@ export const serializeAws_queryModifyClusterIamRolesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryModifyClusterIamRolesMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryModifyClusterIamRolesMessage(input, context),
     Action: "ModifyClusterIamRoles",
     Version: "2012-12-01"
   });
@@ -1994,12 +1783,8 @@ export const serializeAws_queryModifyClusterMaintenanceCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryModifyClusterMaintenanceMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryModifyClusterMaintenanceMessage(input, context),
     Action: "ModifyClusterMaintenance",
     Version: "2012-12-01"
   });
@@ -2014,12 +1799,8 @@ export const serializeAws_queryModifyClusterParameterGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryModifyClusterParameterGroupMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryModifyClusterParameterGroupMessage(input, context),
     Action: "ModifyClusterParameterGroup",
     Version: "2012-12-01"
   });
@@ -2034,12 +1815,8 @@ export const serializeAws_queryModifyClusterSnapshotCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryModifyClusterSnapshotMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryModifyClusterSnapshotMessage(input, context),
     Action: "ModifyClusterSnapshot",
     Version: "2012-12-01"
   });
@@ -2054,12 +1831,8 @@ export const serializeAws_queryModifyClusterSnapshotScheduleCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryModifyClusterSnapshotScheduleMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryModifyClusterSnapshotScheduleMessage(input, context),
     Action: "ModifyClusterSnapshotSchedule",
     Version: "2012-12-01"
   });
@@ -2074,12 +1847,8 @@ export const serializeAws_queryModifyClusterSubnetGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryModifyClusterSubnetGroupMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryModifyClusterSubnetGroupMessage(input, context),
     Action: "ModifyClusterSubnetGroup",
     Version: "2012-12-01"
   });
@@ -2094,12 +1863,8 @@ export const serializeAws_queryModifyEventSubscriptionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryModifyEventSubscriptionMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryModifyEventSubscriptionMessage(input, context),
     Action: "ModifyEventSubscription",
     Version: "2012-12-01"
   });
@@ -2114,12 +1879,8 @@ export const serializeAws_queryModifyScheduledActionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryModifyScheduledActionMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryModifyScheduledActionMessage(input, context),
     Action: "ModifyScheduledAction",
     Version: "2012-12-01"
   });
@@ -2134,12 +1895,11 @@ export const serializeAws_queryModifySnapshotCopyRetentionPeriodCommand = async 
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryModifySnapshotCopyRetentionPeriodMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryModifySnapshotCopyRetentionPeriodMessage(
+      input,
+      context
+    ),
     Action: "ModifySnapshotCopyRetentionPeriod",
     Version: "2012-12-01"
   });
@@ -2154,12 +1914,8 @@ export const serializeAws_queryModifySnapshotScheduleCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryModifySnapshotScheduleMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryModifySnapshotScheduleMessage(input, context),
     Action: "ModifySnapshotSchedule",
     Version: "2012-12-01"
   });
@@ -2174,12 +1930,8 @@ export const serializeAws_queryPurchaseReservedNodeOfferingCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryPurchaseReservedNodeOfferingMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryPurchaseReservedNodeOfferingMessage(input, context),
     Action: "PurchaseReservedNodeOffering",
     Version: "2012-12-01"
   });
@@ -2194,9 +1946,8 @@ export const serializeAws_queryRebootClusterCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryRebootClusterMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryRebootClusterMessage(input, context),
     Action: "RebootCluster",
     Version: "2012-12-01"
   });
@@ -2211,12 +1962,8 @@ export const serializeAws_queryResetClusterParameterGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryResetClusterParameterGroupMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryResetClusterParameterGroupMessage(input, context),
     Action: "ResetClusterParameterGroup",
     Version: "2012-12-01"
   });
@@ -2231,9 +1978,8 @@ export const serializeAws_queryResizeClusterCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryResizeClusterMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryResizeClusterMessage(input, context),
     Action: "ResizeCluster",
     Version: "2012-12-01"
   });
@@ -2248,12 +1994,8 @@ export const serializeAws_queryRestoreFromClusterSnapshotCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryRestoreFromClusterSnapshotMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryRestoreFromClusterSnapshotMessage(input, context),
     Action: "RestoreFromClusterSnapshot",
     Version: "2012-12-01"
   });
@@ -2268,12 +2010,8 @@ export const serializeAws_queryRestoreTableFromClusterSnapshotCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryRestoreTableFromClusterSnapshotMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryRestoreTableFromClusterSnapshotMessage(input, context),
     Action: "RestoreTableFromClusterSnapshot",
     Version: "2012-12-01"
   });
@@ -2288,12 +2026,11 @@ export const serializeAws_queryRevokeClusterSecurityGroupIngressCommand = async 
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryRevokeClusterSecurityGroupIngressMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryRevokeClusterSecurityGroupIngressMessage(
+      input,
+      context
+    ),
     Action: "RevokeClusterSecurityGroupIngress",
     Version: "2012-12-01"
   });
@@ -2308,9 +2045,8 @@ export const serializeAws_queryRevokeSnapshotAccessCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryRevokeSnapshotAccessMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryRevokeSnapshotAccessMessage(input, context),
     Action: "RevokeSnapshotAccess",
     Version: "2012-12-01"
   });
@@ -2325,9 +2061,8 @@ export const serializeAws_queryRotateEncryptionKeyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryRotateEncryptionKeyMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryRotateEncryptionKeyMessage(input, context),
     Action: "RotateEncryptionKey",
     Version: "2012-12-01"
   });

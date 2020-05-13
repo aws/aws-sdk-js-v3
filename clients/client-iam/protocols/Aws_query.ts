@@ -877,12 +877,11 @@ export const serializeAws_queryAddClientIDToOpenIDConnectProviderCommand = async
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryAddClientIDToOpenIDConnectProviderRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryAddClientIDToOpenIDConnectProviderRequest(
+      input,
+      context
+    ),
     Action: "AddClientIDToOpenIDConnectProvider",
     Version: "2010-05-08"
   });
@@ -897,12 +896,8 @@ export const serializeAws_queryAddRoleToInstanceProfileCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryAddRoleToInstanceProfileRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryAddRoleToInstanceProfileRequest(input, context),
     Action: "AddRoleToInstanceProfile",
     Version: "2010-05-08"
   });
@@ -917,9 +912,8 @@ export const serializeAws_queryAddUserToGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryAddUserToGroupRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryAddUserToGroupRequest(input, context),
     Action: "AddUserToGroup",
     Version: "2010-05-08"
   });
@@ -934,9 +928,8 @@ export const serializeAws_queryAttachGroupPolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryAttachGroupPolicyRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryAttachGroupPolicyRequest(input, context),
     Action: "AttachGroupPolicy",
     Version: "2010-05-08"
   });
@@ -951,9 +944,8 @@ export const serializeAws_queryAttachRolePolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryAttachRolePolicyRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryAttachRolePolicyRequest(input, context),
     Action: "AttachRolePolicy",
     Version: "2010-05-08"
   });
@@ -968,9 +960,8 @@ export const serializeAws_queryAttachUserPolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryAttachUserPolicyRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryAttachUserPolicyRequest(input, context),
     Action: "AttachUserPolicy",
     Version: "2010-05-08"
   });
@@ -985,9 +976,8 @@ export const serializeAws_queryChangePasswordCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryChangePasswordRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryChangePasswordRequest(input, context),
     Action: "ChangePassword",
     Version: "2010-05-08"
   });
@@ -1002,9 +992,8 @@ export const serializeAws_queryCreateAccessKeyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateAccessKeyRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateAccessKeyRequest(input, context),
     Action: "CreateAccessKey",
     Version: "2010-05-08"
   });
@@ -1019,9 +1008,8 @@ export const serializeAws_queryCreateAccountAliasCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateAccountAliasRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateAccountAliasRequest(input, context),
     Action: "CreateAccountAlias",
     Version: "2010-05-08"
   });
@@ -1036,9 +1024,8 @@ export const serializeAws_queryCreateGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateGroupRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateGroupRequest(input, context),
     Action: "CreateGroup",
     Version: "2010-05-08"
   });
@@ -1053,12 +1040,8 @@ export const serializeAws_queryCreateInstanceProfileCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateInstanceProfileRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateInstanceProfileRequest(input, context),
     Action: "CreateInstanceProfile",
     Version: "2010-05-08"
   });
@@ -1073,9 +1056,8 @@ export const serializeAws_queryCreateLoginProfileCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateLoginProfileRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateLoginProfileRequest(input, context),
     Action: "CreateLoginProfile",
     Version: "2010-05-08"
   });
@@ -1090,12 +1072,8 @@ export const serializeAws_queryCreateOpenIDConnectProviderCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateOpenIDConnectProviderRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateOpenIDConnectProviderRequest(input, context),
     Action: "CreateOpenIDConnectProvider",
     Version: "2010-05-08"
   });
@@ -1110,9 +1088,8 @@ export const serializeAws_queryCreatePolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreatePolicyRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreatePolicyRequest(input, context),
     Action: "CreatePolicy",
     Version: "2010-05-08"
   });
@@ -1127,9 +1104,8 @@ export const serializeAws_queryCreatePolicyVersionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreatePolicyVersionRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreatePolicyVersionRequest(input, context),
     Action: "CreatePolicyVersion",
     Version: "2010-05-08"
   });
@@ -1144,9 +1120,8 @@ export const serializeAws_queryCreateRoleCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateRoleRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateRoleRequest(input, context),
     Action: "CreateRole",
     Version: "2010-05-08"
   });
@@ -1161,9 +1136,8 @@ export const serializeAws_queryCreateSAMLProviderCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateSAMLProviderRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateSAMLProviderRequest(input, context),
     Action: "CreateSAMLProvider",
     Version: "2010-05-08"
   });
@@ -1178,12 +1152,8 @@ export const serializeAws_queryCreateServiceLinkedRoleCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateServiceLinkedRoleRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateServiceLinkedRoleRequest(input, context),
     Action: "CreateServiceLinkedRole",
     Version: "2010-05-08"
   });
@@ -1198,12 +1168,8 @@ export const serializeAws_queryCreateServiceSpecificCredentialCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateServiceSpecificCredentialRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateServiceSpecificCredentialRequest(input, context),
     Action: "CreateServiceSpecificCredential",
     Version: "2010-05-08"
   });
@@ -1218,9 +1184,8 @@ export const serializeAws_queryCreateUserCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateUserRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateUserRequest(input, context),
     Action: "CreateUser",
     Version: "2010-05-08"
   });
@@ -1235,12 +1200,8 @@ export const serializeAws_queryCreateVirtualMFADeviceCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateVirtualMFADeviceRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateVirtualMFADeviceRequest(input, context),
     Action: "CreateVirtualMFADevice",
     Version: "2010-05-08"
   });
@@ -1255,9 +1216,8 @@ export const serializeAws_queryDeactivateMFADeviceCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeactivateMFADeviceRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeactivateMFADeviceRequest(input, context),
     Action: "DeactivateMFADevice",
     Version: "2010-05-08"
   });
@@ -1272,9 +1232,8 @@ export const serializeAws_queryDeleteAccessKeyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteAccessKeyRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteAccessKeyRequest(input, context),
     Action: "DeleteAccessKey",
     Version: "2010-05-08"
   });
@@ -1289,9 +1248,8 @@ export const serializeAws_queryDeleteAccountAliasCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteAccountAliasRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteAccountAliasRequest(input, context),
     Action: "DeleteAccountAlias",
     Version: "2010-05-08"
   });
@@ -1320,9 +1278,8 @@ export const serializeAws_queryDeleteGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteGroupRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteGroupRequest(input, context),
     Action: "DeleteGroup",
     Version: "2010-05-08"
   });
@@ -1337,9 +1294,8 @@ export const serializeAws_queryDeleteGroupPolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteGroupPolicyRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteGroupPolicyRequest(input, context),
     Action: "DeleteGroupPolicy",
     Version: "2010-05-08"
   });
@@ -1354,12 +1310,8 @@ export const serializeAws_queryDeleteInstanceProfileCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteInstanceProfileRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteInstanceProfileRequest(input, context),
     Action: "DeleteInstanceProfile",
     Version: "2010-05-08"
   });
@@ -1374,9 +1326,8 @@ export const serializeAws_queryDeleteLoginProfileCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteLoginProfileRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteLoginProfileRequest(input, context),
     Action: "DeleteLoginProfile",
     Version: "2010-05-08"
   });
@@ -1391,12 +1342,8 @@ export const serializeAws_queryDeleteOpenIDConnectProviderCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteOpenIDConnectProviderRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteOpenIDConnectProviderRequest(input, context),
     Action: "DeleteOpenIDConnectProvider",
     Version: "2010-05-08"
   });
@@ -1411,9 +1358,8 @@ export const serializeAws_queryDeletePolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeletePolicyRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeletePolicyRequest(input, context),
     Action: "DeletePolicy",
     Version: "2010-05-08"
   });
@@ -1428,9 +1374,8 @@ export const serializeAws_queryDeletePolicyVersionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeletePolicyVersionRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeletePolicyVersionRequest(input, context),
     Action: "DeletePolicyVersion",
     Version: "2010-05-08"
   });
@@ -1445,9 +1390,8 @@ export const serializeAws_queryDeleteRoleCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteRoleRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteRoleRequest(input, context),
     Action: "DeleteRole",
     Version: "2010-05-08"
   });
@@ -1462,12 +1406,8 @@ export const serializeAws_queryDeleteRolePermissionsBoundaryCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteRolePermissionsBoundaryRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteRolePermissionsBoundaryRequest(input, context),
     Action: "DeleteRolePermissionsBoundary",
     Version: "2010-05-08"
   });
@@ -1482,9 +1422,8 @@ export const serializeAws_queryDeleteRolePolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteRolePolicyRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteRolePolicyRequest(input, context),
     Action: "DeleteRolePolicy",
     Version: "2010-05-08"
   });
@@ -1499,9 +1438,8 @@ export const serializeAws_queryDeleteSAMLProviderCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteSAMLProviderRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteSAMLProviderRequest(input, context),
     Action: "DeleteSAMLProvider",
     Version: "2010-05-08"
   });
@@ -1516,9 +1454,8 @@ export const serializeAws_queryDeleteSSHPublicKeyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteSSHPublicKeyRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteSSHPublicKeyRequest(input, context),
     Action: "DeleteSSHPublicKey",
     Version: "2010-05-08"
   });
@@ -1533,12 +1470,8 @@ export const serializeAws_queryDeleteServerCertificateCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteServerCertificateRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteServerCertificateRequest(input, context),
     Action: "DeleteServerCertificate",
     Version: "2010-05-08"
   });
@@ -1553,12 +1486,8 @@ export const serializeAws_queryDeleteServiceLinkedRoleCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteServiceLinkedRoleRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteServiceLinkedRoleRequest(input, context),
     Action: "DeleteServiceLinkedRole",
     Version: "2010-05-08"
   });
@@ -1573,12 +1502,8 @@ export const serializeAws_queryDeleteServiceSpecificCredentialCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteServiceSpecificCredentialRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteServiceSpecificCredentialRequest(input, context),
     Action: "DeleteServiceSpecificCredential",
     Version: "2010-05-08"
   });
@@ -1593,12 +1518,8 @@ export const serializeAws_queryDeleteSigningCertificateCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteSigningCertificateRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteSigningCertificateRequest(input, context),
     Action: "DeleteSigningCertificate",
     Version: "2010-05-08"
   });
@@ -1613,9 +1534,8 @@ export const serializeAws_queryDeleteUserCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteUserRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteUserRequest(input, context),
     Action: "DeleteUser",
     Version: "2010-05-08"
   });
@@ -1630,12 +1550,8 @@ export const serializeAws_queryDeleteUserPermissionsBoundaryCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteUserPermissionsBoundaryRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteUserPermissionsBoundaryRequest(input, context),
     Action: "DeleteUserPermissionsBoundary",
     Version: "2010-05-08"
   });
@@ -1650,9 +1566,8 @@ export const serializeAws_queryDeleteUserPolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteUserPolicyRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteUserPolicyRequest(input, context),
     Action: "DeleteUserPolicy",
     Version: "2010-05-08"
   });
@@ -1667,12 +1582,8 @@ export const serializeAws_queryDeleteVirtualMFADeviceCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteVirtualMFADeviceRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteVirtualMFADeviceRequest(input, context),
     Action: "DeleteVirtualMFADevice",
     Version: "2010-05-08"
   });
@@ -1687,9 +1598,8 @@ export const serializeAws_queryDetachGroupPolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDetachGroupPolicyRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDetachGroupPolicyRequest(input, context),
     Action: "DetachGroupPolicy",
     Version: "2010-05-08"
   });
@@ -1704,9 +1614,8 @@ export const serializeAws_queryDetachRolePolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDetachRolePolicyRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDetachRolePolicyRequest(input, context),
     Action: "DetachRolePolicy",
     Version: "2010-05-08"
   });
@@ -1721,9 +1630,8 @@ export const serializeAws_queryDetachUserPolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDetachUserPolicyRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDetachUserPolicyRequest(input, context),
     Action: "DetachUserPolicy",
     Version: "2010-05-08"
   });
@@ -1738,9 +1646,8 @@ export const serializeAws_queryEnableMFADeviceCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryEnableMFADeviceRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryEnableMFADeviceRequest(input, context),
     Action: "EnableMFADevice",
     Version: "2010-05-08"
   });
@@ -1769,12 +1676,11 @@ export const serializeAws_queryGenerateOrganizationsAccessReportCommand = async 
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGenerateOrganizationsAccessReportRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGenerateOrganizationsAccessReportRequest(
+      input,
+      context
+    ),
     Action: "GenerateOrganizationsAccessReport",
     Version: "2010-05-08"
   });
@@ -1789,12 +1695,11 @@ export const serializeAws_queryGenerateServiceLastAccessedDetailsCommand = async
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGenerateServiceLastAccessedDetailsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGenerateServiceLastAccessedDetailsRequest(
+      input,
+      context
+    ),
     Action: "GenerateServiceLastAccessedDetails",
     Version: "2010-05-08"
   });
@@ -1809,9 +1714,8 @@ export const serializeAws_queryGetAccessKeyLastUsedCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetAccessKeyLastUsedRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetAccessKeyLastUsedRequest(input, context),
     Action: "GetAccessKeyLastUsed",
     Version: "2010-05-08"
   });
@@ -1826,12 +1730,8 @@ export const serializeAws_queryGetAccountAuthorizationDetailsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetAccountAuthorizationDetailsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetAccountAuthorizationDetailsRequest(input, context),
     Action: "GetAccountAuthorizationDetails",
     Version: "2010-05-08"
   });
@@ -1874,12 +1774,8 @@ export const serializeAws_queryGetContextKeysForCustomPolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetContextKeysForCustomPolicyRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetContextKeysForCustomPolicyRequest(input, context),
     Action: "GetContextKeysForCustomPolicy",
     Version: "2010-05-08"
   });
@@ -1894,12 +1790,11 @@ export const serializeAws_queryGetContextKeysForPrincipalPolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetContextKeysForPrincipalPolicyRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetContextKeysForPrincipalPolicyRequest(
+      input,
+      context
+    ),
     Action: "GetContextKeysForPrincipalPolicy",
     Version: "2010-05-08"
   });
@@ -1928,9 +1823,8 @@ export const serializeAws_queryGetGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetGroupRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetGroupRequest(input, context),
     Action: "GetGroup",
     Version: "2010-05-08"
   });
@@ -1945,9 +1839,8 @@ export const serializeAws_queryGetGroupPolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetGroupPolicyRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetGroupPolicyRequest(input, context),
     Action: "GetGroupPolicy",
     Version: "2010-05-08"
   });
@@ -1962,9 +1855,8 @@ export const serializeAws_queryGetInstanceProfileCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetInstanceProfileRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetInstanceProfileRequest(input, context),
     Action: "GetInstanceProfile",
     Version: "2010-05-08"
   });
@@ -1979,9 +1871,8 @@ export const serializeAws_queryGetLoginProfileCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetLoginProfileRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetLoginProfileRequest(input, context),
     Action: "GetLoginProfile",
     Version: "2010-05-08"
   });
@@ -1996,12 +1887,8 @@ export const serializeAws_queryGetOpenIDConnectProviderCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetOpenIDConnectProviderRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetOpenIDConnectProviderRequest(input, context),
     Action: "GetOpenIDConnectProvider",
     Version: "2010-05-08"
   });
@@ -2016,12 +1903,8 @@ export const serializeAws_queryGetOrganizationsAccessReportCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetOrganizationsAccessReportRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetOrganizationsAccessReportRequest(input, context),
     Action: "GetOrganizationsAccessReport",
     Version: "2010-05-08"
   });
@@ -2036,9 +1919,8 @@ export const serializeAws_queryGetPolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetPolicyRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetPolicyRequest(input, context),
     Action: "GetPolicy",
     Version: "2010-05-08"
   });
@@ -2053,9 +1935,8 @@ export const serializeAws_queryGetPolicyVersionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetPolicyVersionRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetPolicyVersionRequest(input, context),
     Action: "GetPolicyVersion",
     Version: "2010-05-08"
   });
@@ -2070,9 +1951,8 @@ export const serializeAws_queryGetRoleCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetRoleRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetRoleRequest(input, context),
     Action: "GetRole",
     Version: "2010-05-08"
   });
@@ -2087,9 +1967,8 @@ export const serializeAws_queryGetRolePolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetRolePolicyRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetRolePolicyRequest(input, context),
     Action: "GetRolePolicy",
     Version: "2010-05-08"
   });
@@ -2104,9 +1983,8 @@ export const serializeAws_queryGetSAMLProviderCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetSAMLProviderRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetSAMLProviderRequest(input, context),
     Action: "GetSAMLProvider",
     Version: "2010-05-08"
   });
@@ -2121,9 +1999,8 @@ export const serializeAws_queryGetSSHPublicKeyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetSSHPublicKeyRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetSSHPublicKeyRequest(input, context),
     Action: "GetSSHPublicKey",
     Version: "2010-05-08"
   });
@@ -2138,9 +2015,8 @@ export const serializeAws_queryGetServerCertificateCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetServerCertificateRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetServerCertificateRequest(input, context),
     Action: "GetServerCertificate",
     Version: "2010-05-08"
   });
@@ -2155,12 +2031,8 @@ export const serializeAws_queryGetServiceLastAccessedDetailsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetServiceLastAccessedDetailsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetServiceLastAccessedDetailsRequest(input, context),
     Action: "GetServiceLastAccessedDetails",
     Version: "2010-05-08"
   });
@@ -2175,12 +2047,11 @@ export const serializeAws_queryGetServiceLastAccessedDetailsWithEntitiesCommand 
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetServiceLastAccessedDetailsWithEntitiesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetServiceLastAccessedDetailsWithEntitiesRequest(
+      input,
+      context
+    ),
     Action: "GetServiceLastAccessedDetailsWithEntities",
     Version: "2010-05-08"
   });
@@ -2195,12 +2066,11 @@ export const serializeAws_queryGetServiceLinkedRoleDeletionStatusCommand = async
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetServiceLinkedRoleDeletionStatusRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetServiceLinkedRoleDeletionStatusRequest(
+      input,
+      context
+    ),
     Action: "GetServiceLinkedRoleDeletionStatus",
     Version: "2010-05-08"
   });
@@ -2215,9 +2085,8 @@ export const serializeAws_queryGetUserCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetUserRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetUserRequest(input, context),
     Action: "GetUser",
     Version: "2010-05-08"
   });
@@ -2232,9 +2101,8 @@ export const serializeAws_queryGetUserPolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetUserPolicyRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetUserPolicyRequest(input, context),
     Action: "GetUserPolicy",
     Version: "2010-05-08"
   });
@@ -2249,9 +2117,8 @@ export const serializeAws_queryListAccessKeysCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListAccessKeysRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListAccessKeysRequest(input, context),
     Action: "ListAccessKeys",
     Version: "2010-05-08"
   });
@@ -2266,9 +2133,8 @@ export const serializeAws_queryListAccountAliasesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListAccountAliasesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListAccountAliasesRequest(input, context),
     Action: "ListAccountAliases",
     Version: "2010-05-08"
   });
@@ -2283,12 +2149,8 @@ export const serializeAws_queryListAttachedGroupPoliciesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListAttachedGroupPoliciesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListAttachedGroupPoliciesRequest(input, context),
     Action: "ListAttachedGroupPolicies",
     Version: "2010-05-08"
   });
@@ -2303,12 +2165,8 @@ export const serializeAws_queryListAttachedRolePoliciesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListAttachedRolePoliciesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListAttachedRolePoliciesRequest(input, context),
     Action: "ListAttachedRolePolicies",
     Version: "2010-05-08"
   });
@@ -2323,12 +2181,8 @@ export const serializeAws_queryListAttachedUserPoliciesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListAttachedUserPoliciesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListAttachedUserPoliciesRequest(input, context),
     Action: "ListAttachedUserPolicies",
     Version: "2010-05-08"
   });
@@ -2343,12 +2197,8 @@ export const serializeAws_queryListEntitiesForPolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListEntitiesForPolicyRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListEntitiesForPolicyRequest(input, context),
     Action: "ListEntitiesForPolicy",
     Version: "2010-05-08"
   });
@@ -2363,9 +2213,8 @@ export const serializeAws_queryListGroupPoliciesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListGroupPoliciesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListGroupPoliciesRequest(input, context),
     Action: "ListGroupPolicies",
     Version: "2010-05-08"
   });
@@ -2380,9 +2229,8 @@ export const serializeAws_queryListGroupsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListGroupsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListGroupsRequest(input, context),
     Action: "ListGroups",
     Version: "2010-05-08"
   });
@@ -2397,9 +2245,8 @@ export const serializeAws_queryListGroupsForUserCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListGroupsForUserRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListGroupsForUserRequest(input, context),
     Action: "ListGroupsForUser",
     Version: "2010-05-08"
   });
@@ -2414,9 +2261,8 @@ export const serializeAws_queryListInstanceProfilesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListInstanceProfilesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListInstanceProfilesRequest(input, context),
     Action: "ListInstanceProfiles",
     Version: "2010-05-08"
   });
@@ -2431,12 +2277,8 @@ export const serializeAws_queryListInstanceProfilesForRoleCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListInstanceProfilesForRoleRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListInstanceProfilesForRoleRequest(input, context),
     Action: "ListInstanceProfilesForRole",
     Version: "2010-05-08"
   });
@@ -2451,9 +2293,8 @@ export const serializeAws_queryListMFADevicesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListMFADevicesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListMFADevicesRequest(input, context),
     Action: "ListMFADevices",
     Version: "2010-05-08"
   });
@@ -2468,12 +2309,8 @@ export const serializeAws_queryListOpenIDConnectProvidersCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListOpenIDConnectProvidersRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListOpenIDConnectProvidersRequest(input, context),
     Action: "ListOpenIDConnectProviders",
     Version: "2010-05-08"
   });
@@ -2488,9 +2325,8 @@ export const serializeAws_queryListPoliciesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListPoliciesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListPoliciesRequest(input, context),
     Action: "ListPolicies",
     Version: "2010-05-08"
   });
@@ -2505,12 +2341,11 @@ export const serializeAws_queryListPoliciesGrantingServiceAccessCommand = async 
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListPoliciesGrantingServiceAccessRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListPoliciesGrantingServiceAccessRequest(
+      input,
+      context
+    ),
     Action: "ListPoliciesGrantingServiceAccess",
     Version: "2010-05-08"
   });
@@ -2525,9 +2360,8 @@ export const serializeAws_queryListPolicyVersionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListPolicyVersionsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListPolicyVersionsRequest(input, context),
     Action: "ListPolicyVersions",
     Version: "2010-05-08"
   });
@@ -2542,9 +2376,8 @@ export const serializeAws_queryListRolePoliciesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListRolePoliciesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListRolePoliciesRequest(input, context),
     Action: "ListRolePolicies",
     Version: "2010-05-08"
   });
@@ -2559,9 +2392,8 @@ export const serializeAws_queryListRoleTagsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListRoleTagsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListRoleTagsRequest(input, context),
     Action: "ListRoleTags",
     Version: "2010-05-08"
   });
@@ -2576,9 +2408,8 @@ export const serializeAws_queryListRolesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListRolesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListRolesRequest(input, context),
     Action: "ListRoles",
     Version: "2010-05-08"
   });
@@ -2593,9 +2424,8 @@ export const serializeAws_queryListSAMLProvidersCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListSAMLProvidersRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListSAMLProvidersRequest(input, context),
     Action: "ListSAMLProviders",
     Version: "2010-05-08"
   });
@@ -2610,9 +2440,8 @@ export const serializeAws_queryListSSHPublicKeysCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListSSHPublicKeysRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListSSHPublicKeysRequest(input, context),
     Action: "ListSSHPublicKeys",
     Version: "2010-05-08"
   });
@@ -2627,12 +2456,8 @@ export const serializeAws_queryListServerCertificatesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListServerCertificatesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListServerCertificatesRequest(input, context),
     Action: "ListServerCertificates",
     Version: "2010-05-08"
   });
@@ -2647,12 +2472,8 @@ export const serializeAws_queryListServiceSpecificCredentialsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListServiceSpecificCredentialsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListServiceSpecificCredentialsRequest(input, context),
     Action: "ListServiceSpecificCredentials",
     Version: "2010-05-08"
   });
@@ -2667,12 +2488,8 @@ export const serializeAws_queryListSigningCertificatesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListSigningCertificatesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListSigningCertificatesRequest(input, context),
     Action: "ListSigningCertificates",
     Version: "2010-05-08"
   });
@@ -2687,9 +2504,8 @@ export const serializeAws_queryListUserPoliciesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListUserPoliciesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListUserPoliciesRequest(input, context),
     Action: "ListUserPolicies",
     Version: "2010-05-08"
   });
@@ -2704,9 +2520,8 @@ export const serializeAws_queryListUserTagsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListUserTagsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListUserTagsRequest(input, context),
     Action: "ListUserTags",
     Version: "2010-05-08"
   });
@@ -2721,9 +2536,8 @@ export const serializeAws_queryListUsersCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListUsersRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListUsersRequest(input, context),
     Action: "ListUsers",
     Version: "2010-05-08"
   });
@@ -2738,12 +2552,8 @@ export const serializeAws_queryListVirtualMFADevicesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListVirtualMFADevicesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListVirtualMFADevicesRequest(input, context),
     Action: "ListVirtualMFADevices",
     Version: "2010-05-08"
   });
@@ -2758,9 +2568,8 @@ export const serializeAws_queryPutGroupPolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryPutGroupPolicyRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryPutGroupPolicyRequest(input, context),
     Action: "PutGroupPolicy",
     Version: "2010-05-08"
   });
@@ -2775,12 +2584,8 @@ export const serializeAws_queryPutRolePermissionsBoundaryCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryPutRolePermissionsBoundaryRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryPutRolePermissionsBoundaryRequest(input, context),
     Action: "PutRolePermissionsBoundary",
     Version: "2010-05-08"
   });
@@ -2795,9 +2600,8 @@ export const serializeAws_queryPutRolePolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryPutRolePolicyRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryPutRolePolicyRequest(input, context),
     Action: "PutRolePolicy",
     Version: "2010-05-08"
   });
@@ -2812,12 +2616,8 @@ export const serializeAws_queryPutUserPermissionsBoundaryCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryPutUserPermissionsBoundaryRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryPutUserPermissionsBoundaryRequest(input, context),
     Action: "PutUserPermissionsBoundary",
     Version: "2010-05-08"
   });
@@ -2832,9 +2632,8 @@ export const serializeAws_queryPutUserPolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryPutUserPolicyRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryPutUserPolicyRequest(input, context),
     Action: "PutUserPolicy",
     Version: "2010-05-08"
   });
@@ -2849,12 +2648,11 @@ export const serializeAws_queryRemoveClientIDFromOpenIDConnectProviderCommand = 
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryRemoveClientIDFromOpenIDConnectProviderRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryRemoveClientIDFromOpenIDConnectProviderRequest(
+      input,
+      context
+    ),
     Action: "RemoveClientIDFromOpenIDConnectProvider",
     Version: "2010-05-08"
   });
@@ -2869,12 +2667,8 @@ export const serializeAws_queryRemoveRoleFromInstanceProfileCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryRemoveRoleFromInstanceProfileRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryRemoveRoleFromInstanceProfileRequest(input, context),
     Action: "RemoveRoleFromInstanceProfile",
     Version: "2010-05-08"
   });
@@ -2889,9 +2683,8 @@ export const serializeAws_queryRemoveUserFromGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryRemoveUserFromGroupRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryRemoveUserFromGroupRequest(input, context),
     Action: "RemoveUserFromGroup",
     Version: "2010-05-08"
   });
@@ -2906,12 +2699,8 @@ export const serializeAws_queryResetServiceSpecificCredentialCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryResetServiceSpecificCredentialRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryResetServiceSpecificCredentialRequest(input, context),
     Action: "ResetServiceSpecificCredential",
     Version: "2010-05-08"
   });
@@ -2926,9 +2715,8 @@ export const serializeAws_queryResyncMFADeviceCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryResyncMFADeviceRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryResyncMFADeviceRequest(input, context),
     Action: "ResyncMFADevice",
     Version: "2010-05-08"
   });
@@ -2943,12 +2731,8 @@ export const serializeAws_querySetDefaultPolicyVersionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySetDefaultPolicyVersionRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySetDefaultPolicyVersionRequest(input, context),
     Action: "SetDefaultPolicyVersion",
     Version: "2010-05-08"
   });
@@ -2963,12 +2747,11 @@ export const serializeAws_querySetSecurityTokenServicePreferencesCommand = async
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySetSecurityTokenServicePreferencesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySetSecurityTokenServicePreferencesRequest(
+      input,
+      context
+    ),
     Action: "SetSecurityTokenServicePreferences",
     Version: "2010-05-08"
   });
@@ -2983,9 +2766,8 @@ export const serializeAws_querySimulateCustomPolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySimulateCustomPolicyRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySimulateCustomPolicyRequest(input, context),
     Action: "SimulateCustomPolicy",
     Version: "2010-05-08"
   });
@@ -3000,12 +2782,8 @@ export const serializeAws_querySimulatePrincipalPolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySimulatePrincipalPolicyRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySimulatePrincipalPolicyRequest(input, context),
     Action: "SimulatePrincipalPolicy",
     Version: "2010-05-08"
   });
@@ -3020,9 +2798,8 @@ export const serializeAws_queryTagRoleCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryTagRoleRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryTagRoleRequest(input, context),
     Action: "TagRole",
     Version: "2010-05-08"
   });
@@ -3037,9 +2814,8 @@ export const serializeAws_queryTagUserCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryTagUserRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryTagUserRequest(input, context),
     Action: "TagUser",
     Version: "2010-05-08"
   });
@@ -3054,9 +2830,8 @@ export const serializeAws_queryUntagRoleCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUntagRoleRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUntagRoleRequest(input, context),
     Action: "UntagRole",
     Version: "2010-05-08"
   });
@@ -3071,9 +2846,8 @@ export const serializeAws_queryUntagUserCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUntagUserRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUntagUserRequest(input, context),
     Action: "UntagUser",
     Version: "2010-05-08"
   });
@@ -3088,9 +2862,8 @@ export const serializeAws_queryUpdateAccessKeyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateAccessKeyRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateAccessKeyRequest(input, context),
     Action: "UpdateAccessKey",
     Version: "2010-05-08"
   });
@@ -3105,12 +2878,8 @@ export const serializeAws_queryUpdateAccountPasswordPolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateAccountPasswordPolicyRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateAccountPasswordPolicyRequest(input, context),
     Action: "UpdateAccountPasswordPolicy",
     Version: "2010-05-08"
   });
@@ -3125,12 +2894,8 @@ export const serializeAws_queryUpdateAssumeRolePolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateAssumeRolePolicyRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateAssumeRolePolicyRequest(input, context),
     Action: "UpdateAssumeRolePolicy",
     Version: "2010-05-08"
   });
@@ -3145,9 +2910,8 @@ export const serializeAws_queryUpdateGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateGroupRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateGroupRequest(input, context),
     Action: "UpdateGroup",
     Version: "2010-05-08"
   });
@@ -3162,9 +2926,8 @@ export const serializeAws_queryUpdateLoginProfileCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateLoginProfileRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateLoginProfileRequest(input, context),
     Action: "UpdateLoginProfile",
     Version: "2010-05-08"
   });
@@ -3179,12 +2942,11 @@ export const serializeAws_queryUpdateOpenIDConnectProviderThumbprintCommand = as
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateOpenIDConnectProviderThumbprintRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateOpenIDConnectProviderThumbprintRequest(
+      input,
+      context
+    ),
     Action: "UpdateOpenIDConnectProviderThumbprint",
     Version: "2010-05-08"
   });
@@ -3199,9 +2961,8 @@ export const serializeAws_queryUpdateRoleCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateRoleRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateRoleRequest(input, context),
     Action: "UpdateRole",
     Version: "2010-05-08"
   });
@@ -3216,12 +2977,8 @@ export const serializeAws_queryUpdateRoleDescriptionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateRoleDescriptionRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateRoleDescriptionRequest(input, context),
     Action: "UpdateRoleDescription",
     Version: "2010-05-08"
   });
@@ -3236,9 +2993,8 @@ export const serializeAws_queryUpdateSAMLProviderCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateSAMLProviderRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateSAMLProviderRequest(input, context),
     Action: "UpdateSAMLProvider",
     Version: "2010-05-08"
   });
@@ -3253,9 +3009,8 @@ export const serializeAws_queryUpdateSSHPublicKeyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateSSHPublicKeyRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateSSHPublicKeyRequest(input, context),
     Action: "UpdateSSHPublicKey",
     Version: "2010-05-08"
   });
@@ -3270,12 +3025,8 @@ export const serializeAws_queryUpdateServerCertificateCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateServerCertificateRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateServerCertificateRequest(input, context),
     Action: "UpdateServerCertificate",
     Version: "2010-05-08"
   });
@@ -3290,12 +3041,8 @@ export const serializeAws_queryUpdateServiceSpecificCredentialCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateServiceSpecificCredentialRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateServiceSpecificCredentialRequest(input, context),
     Action: "UpdateServiceSpecificCredential",
     Version: "2010-05-08"
   });
@@ -3310,12 +3057,8 @@ export const serializeAws_queryUpdateSigningCertificateCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateSigningCertificateRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateSigningCertificateRequest(input, context),
     Action: "UpdateSigningCertificate",
     Version: "2010-05-08"
   });
@@ -3330,9 +3073,8 @@ export const serializeAws_queryUpdateUserCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateUserRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateUserRequest(input, context),
     Action: "UpdateUser",
     Version: "2010-05-08"
   });
@@ -3347,9 +3089,8 @@ export const serializeAws_queryUploadSSHPublicKeyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUploadSSHPublicKeyRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUploadSSHPublicKeyRequest(input, context),
     Action: "UploadSSHPublicKey",
     Version: "2010-05-08"
   });
@@ -3364,12 +3105,8 @@ export const serializeAws_queryUploadServerCertificateCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUploadServerCertificateRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUploadServerCertificateRequest(input, context),
     Action: "UploadServerCertificate",
     Version: "2010-05-08"
   });
@@ -3384,12 +3121,8 @@ export const serializeAws_queryUploadSigningCertificateCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUploadSigningCertificateRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUploadSigningCertificateRequest(input, context),
     Action: "UploadSigningCertificate",
     Version: "2010-05-08"
   });

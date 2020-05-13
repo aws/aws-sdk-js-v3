@@ -304,12 +304,8 @@ export const serializeAws_queryAddListenerCertificatesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryAddListenerCertificatesInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryAddListenerCertificatesInput(input, context),
     Action: "AddListenerCertificates",
     Version: "2015-12-01"
   });
@@ -324,9 +320,8 @@ export const serializeAws_queryAddTagsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryAddTagsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryAddTagsInput(input, context),
     Action: "AddTags",
     Version: "2015-12-01"
   });
@@ -341,9 +336,8 @@ export const serializeAws_queryCreateListenerCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateListenerInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateListenerInput(input, context),
     Action: "CreateListener",
     Version: "2015-12-01"
   });
@@ -358,9 +352,8 @@ export const serializeAws_queryCreateLoadBalancerCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateLoadBalancerInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateLoadBalancerInput(input, context),
     Action: "CreateLoadBalancer",
     Version: "2015-12-01"
   });
@@ -375,9 +368,8 @@ export const serializeAws_queryCreateRuleCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateRuleInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateRuleInput(input, context),
     Action: "CreateRule",
     Version: "2015-12-01"
   });
@@ -392,9 +384,8 @@ export const serializeAws_queryCreateTargetGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateTargetGroupInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateTargetGroupInput(input, context),
     Action: "CreateTargetGroup",
     Version: "2015-12-01"
   });
@@ -409,9 +400,8 @@ export const serializeAws_queryDeleteListenerCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteListenerInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteListenerInput(input, context),
     Action: "DeleteListener",
     Version: "2015-12-01"
   });
@@ -426,9 +416,8 @@ export const serializeAws_queryDeleteLoadBalancerCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteLoadBalancerInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteLoadBalancerInput(input, context),
     Action: "DeleteLoadBalancer",
     Version: "2015-12-01"
   });
@@ -443,9 +432,8 @@ export const serializeAws_queryDeleteRuleCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteRuleInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteRuleInput(input, context),
     Action: "DeleteRule",
     Version: "2015-12-01"
   });
@@ -460,9 +448,8 @@ export const serializeAws_queryDeleteTargetGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteTargetGroupInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteTargetGroupInput(input, context),
     Action: "DeleteTargetGroup",
     Version: "2015-12-01"
   });
@@ -477,9 +464,8 @@ export const serializeAws_queryDeregisterTargetsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeregisterTargetsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeregisterTargetsInput(input, context),
     Action: "DeregisterTargets",
     Version: "2015-12-01"
   });
@@ -494,9 +480,8 @@ export const serializeAws_queryDescribeAccountLimitsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeAccountLimitsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeAccountLimitsInput(input, context),
     Action: "DescribeAccountLimits",
     Version: "2015-12-01"
   });
@@ -511,12 +496,8 @@ export const serializeAws_queryDescribeListenerCertificatesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeListenerCertificatesInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeListenerCertificatesInput(input, context),
     Action: "DescribeListenerCertificates",
     Version: "2015-12-01"
   });
@@ -531,9 +512,8 @@ export const serializeAws_queryDescribeListenersCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeListenersInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeListenersInput(input, context),
     Action: "DescribeListeners",
     Version: "2015-12-01"
   });
@@ -548,12 +528,8 @@ export const serializeAws_queryDescribeLoadBalancerAttributesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeLoadBalancerAttributesInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeLoadBalancerAttributesInput(input, context),
     Action: "DescribeLoadBalancerAttributes",
     Version: "2015-12-01"
   });
@@ -568,9 +544,8 @@ export const serializeAws_queryDescribeLoadBalancersCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeLoadBalancersInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeLoadBalancersInput(input, context),
     Action: "DescribeLoadBalancers",
     Version: "2015-12-01"
   });
@@ -585,9 +560,8 @@ export const serializeAws_queryDescribeRulesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeRulesInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeRulesInput(input, context),
     Action: "DescribeRules",
     Version: "2015-12-01"
   });
@@ -602,9 +576,8 @@ export const serializeAws_queryDescribeSSLPoliciesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeSSLPoliciesInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeSSLPoliciesInput(input, context),
     Action: "DescribeSSLPolicies",
     Version: "2015-12-01"
   });
@@ -619,9 +592,8 @@ export const serializeAws_queryDescribeTagsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeTagsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeTagsInput(input, context),
     Action: "DescribeTags",
     Version: "2015-12-01"
   });
@@ -636,12 +608,8 @@ export const serializeAws_queryDescribeTargetGroupAttributesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeTargetGroupAttributesInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeTargetGroupAttributesInput(input, context),
     Action: "DescribeTargetGroupAttributes",
     Version: "2015-12-01"
   });
@@ -656,9 +624,8 @@ export const serializeAws_queryDescribeTargetGroupsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeTargetGroupsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeTargetGroupsInput(input, context),
     Action: "DescribeTargetGroups",
     Version: "2015-12-01"
   });
@@ -673,9 +640,8 @@ export const serializeAws_queryDescribeTargetHealthCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeTargetHealthInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeTargetHealthInput(input, context),
     Action: "DescribeTargetHealth",
     Version: "2015-12-01"
   });
@@ -690,9 +656,8 @@ export const serializeAws_queryModifyListenerCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryModifyListenerInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryModifyListenerInput(input, context),
     Action: "ModifyListener",
     Version: "2015-12-01"
   });
@@ -707,12 +672,8 @@ export const serializeAws_queryModifyLoadBalancerAttributesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryModifyLoadBalancerAttributesInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryModifyLoadBalancerAttributesInput(input, context),
     Action: "ModifyLoadBalancerAttributes",
     Version: "2015-12-01"
   });
@@ -727,9 +688,8 @@ export const serializeAws_queryModifyRuleCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryModifyRuleInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryModifyRuleInput(input, context),
     Action: "ModifyRule",
     Version: "2015-12-01"
   });
@@ -744,9 +704,8 @@ export const serializeAws_queryModifyTargetGroupCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryModifyTargetGroupInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryModifyTargetGroupInput(input, context),
     Action: "ModifyTargetGroup",
     Version: "2015-12-01"
   });
@@ -761,12 +720,8 @@ export const serializeAws_queryModifyTargetGroupAttributesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryModifyTargetGroupAttributesInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryModifyTargetGroupAttributesInput(input, context),
     Action: "ModifyTargetGroupAttributes",
     Version: "2015-12-01"
   });
@@ -781,9 +736,8 @@ export const serializeAws_queryRegisterTargetsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryRegisterTargetsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryRegisterTargetsInput(input, context),
     Action: "RegisterTargets",
     Version: "2015-12-01"
   });
@@ -798,12 +752,8 @@ export const serializeAws_queryRemoveListenerCertificatesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryRemoveListenerCertificatesInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryRemoveListenerCertificatesInput(input, context),
     Action: "RemoveListenerCertificates",
     Version: "2015-12-01"
   });
@@ -818,9 +768,8 @@ export const serializeAws_queryRemoveTagsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryRemoveTagsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryRemoveTagsInput(input, context),
     Action: "RemoveTags",
     Version: "2015-12-01"
   });
@@ -835,9 +784,8 @@ export const serializeAws_querySetIpAddressTypeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySetIpAddressTypeInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySetIpAddressTypeInput(input, context),
     Action: "SetIpAddressType",
     Version: "2015-12-01"
   });
@@ -852,9 +800,8 @@ export const serializeAws_querySetRulePrioritiesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySetRulePrioritiesInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySetRulePrioritiesInput(input, context),
     Action: "SetRulePriorities",
     Version: "2015-12-01"
   });
@@ -869,9 +816,8 @@ export const serializeAws_querySetSecurityGroupsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySetSecurityGroupsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySetSecurityGroupsInput(input, context),
     Action: "SetSecurityGroups",
     Version: "2015-12-01"
   });
@@ -886,9 +832,8 @@ export const serializeAws_querySetSubnetsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySetSubnetsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySetSubnetsInput(input, context),
     Action: "SetSubnets",
     Version: "2015-12-01"
   });

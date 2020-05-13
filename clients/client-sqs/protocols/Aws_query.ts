@@ -165,9 +165,8 @@ export const serializeAws_queryAddPermissionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryAddPermissionRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryAddPermissionRequest(input, context),
     Action: "AddPermission",
     Version: "2012-11-05"
   });
@@ -182,12 +181,8 @@ export const serializeAws_queryChangeMessageVisibilityCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryChangeMessageVisibilityRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryChangeMessageVisibilityRequest(input, context),
     Action: "ChangeMessageVisibility",
     Version: "2012-11-05"
   });
@@ -202,12 +197,8 @@ export const serializeAws_queryChangeMessageVisibilityBatchCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryChangeMessageVisibilityBatchRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryChangeMessageVisibilityBatchRequest(input, context),
     Action: "ChangeMessageVisibilityBatch",
     Version: "2012-11-05"
   });
@@ -222,9 +213,8 @@ export const serializeAws_queryCreateQueueCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateQueueRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateQueueRequest(input, context),
     Action: "CreateQueue",
     Version: "2012-11-05"
   });
@@ -239,9 +229,8 @@ export const serializeAws_queryDeleteMessageCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteMessageRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteMessageRequest(input, context),
     Action: "DeleteMessage",
     Version: "2012-11-05"
   });
@@ -256,9 +245,8 @@ export const serializeAws_queryDeleteMessageBatchCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteMessageBatchRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteMessageBatchRequest(input, context),
     Action: "DeleteMessageBatch",
     Version: "2012-11-05"
   });
@@ -273,9 +261,8 @@ export const serializeAws_queryDeleteQueueCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteQueueRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteQueueRequest(input, context),
     Action: "DeleteQueue",
     Version: "2012-11-05"
   });
@@ -290,9 +277,8 @@ export const serializeAws_queryGetQueueAttributesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetQueueAttributesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetQueueAttributesRequest(input, context),
     Action: "GetQueueAttributes",
     Version: "2012-11-05"
   });
@@ -307,9 +293,8 @@ export const serializeAws_queryGetQueueUrlCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetQueueUrlRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetQueueUrlRequest(input, context),
     Action: "GetQueueUrl",
     Version: "2012-11-05"
   });
@@ -324,12 +309,8 @@ export const serializeAws_queryListDeadLetterSourceQueuesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListDeadLetterSourceQueuesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListDeadLetterSourceQueuesRequest(input, context),
     Action: "ListDeadLetterSourceQueues",
     Version: "2012-11-05"
   });
@@ -344,9 +325,8 @@ export const serializeAws_queryListQueueTagsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListQueueTagsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListQueueTagsRequest(input, context),
     Action: "ListQueueTags",
     Version: "2012-11-05"
   });
@@ -361,9 +341,8 @@ export const serializeAws_queryListQueuesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListQueuesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListQueuesRequest(input, context),
     Action: "ListQueues",
     Version: "2012-11-05"
   });
@@ -378,9 +357,8 @@ export const serializeAws_queryPurgeQueueCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryPurgeQueueRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryPurgeQueueRequest(input, context),
     Action: "PurgeQueue",
     Version: "2012-11-05"
   });
@@ -395,9 +373,8 @@ export const serializeAws_queryReceiveMessageCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryReceiveMessageRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryReceiveMessageRequest(input, context),
     Action: "ReceiveMessage",
     Version: "2012-11-05"
   });
@@ -412,9 +389,8 @@ export const serializeAws_queryRemovePermissionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryRemovePermissionRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryRemovePermissionRequest(input, context),
     Action: "RemovePermission",
     Version: "2012-11-05"
   });
@@ -429,9 +405,8 @@ export const serializeAws_querySendMessageCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySendMessageRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySendMessageRequest(input, context),
     Action: "SendMessage",
     Version: "2012-11-05"
   });
@@ -446,9 +421,8 @@ export const serializeAws_querySendMessageBatchCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySendMessageBatchRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySendMessageBatchRequest(input, context),
     Action: "SendMessageBatch",
     Version: "2012-11-05"
   });
@@ -463,9 +437,8 @@ export const serializeAws_querySetQueueAttributesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySetQueueAttributesRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySetQueueAttributesRequest(input, context),
     Action: "SetQueueAttributes",
     Version: "2012-11-05"
   });
@@ -480,9 +453,8 @@ export const serializeAws_queryTagQueueCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryTagQueueRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryTagQueueRequest(input, context),
     Action: "TagQueue",
     Version: "2012-11-05"
   });
@@ -497,9 +469,8 @@ export const serializeAws_queryUntagQueueCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUntagQueueRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUntagQueueRequest(input, context),
     Action: "UntagQueue",
     Version: "2012-11-05"
   });

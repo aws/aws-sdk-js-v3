@@ -422,9 +422,8 @@ export const serializeAws_queryCancelUpdateStackCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCancelUpdateStackInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCancelUpdateStackInput(input, context),
     Action: "CancelUpdateStack",
     Version: "2010-05-15"
   });
@@ -439,9 +438,8 @@ export const serializeAws_queryContinueUpdateRollbackCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryContinueUpdateRollbackInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryContinueUpdateRollbackInput(input, context),
     Action: "ContinueUpdateRollback",
     Version: "2010-05-15"
   });
@@ -456,9 +454,8 @@ export const serializeAws_queryCreateChangeSetCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateChangeSetInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateChangeSetInput(input, context),
     Action: "CreateChangeSet",
     Version: "2010-05-15"
   });
@@ -473,9 +470,8 @@ export const serializeAws_queryCreateStackCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateStackInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateStackInput(input, context),
     Action: "CreateStack",
     Version: "2010-05-15"
   });
@@ -490,9 +486,8 @@ export const serializeAws_queryDeleteChangeSetCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteChangeSetInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteChangeSetInput(input, context),
     Action: "DeleteChangeSet",
     Version: "2010-05-15"
   });
@@ -507,9 +502,8 @@ export const serializeAws_queryDeleteStackCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteStackInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteStackInput(input, context),
     Action: "DeleteStack",
     Version: "2010-05-15"
   });
@@ -524,9 +518,8 @@ export const serializeAws_queryDeregisterTypeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeregisterTypeInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeregisterTypeInput(input, context),
     Action: "DeregisterType",
     Version: "2010-05-15"
   });
@@ -541,9 +534,8 @@ export const serializeAws_queryDescribeAccountLimitsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeAccountLimitsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeAccountLimitsInput(input, context),
     Action: "DescribeAccountLimits",
     Version: "2010-05-15"
   });
@@ -558,9 +550,8 @@ export const serializeAws_queryDescribeChangeSetCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeChangeSetInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeChangeSetInput(input, context),
     Action: "DescribeChangeSet",
     Version: "2010-05-15"
   });
@@ -575,12 +566,8 @@ export const serializeAws_queryDescribeStackDriftDetectionStatusCommand = async 
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeStackDriftDetectionStatusInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeStackDriftDetectionStatusInput(input, context),
     Action: "DescribeStackDriftDetectionStatus",
     Version: "2010-05-15"
   });
@@ -595,9 +582,8 @@ export const serializeAws_queryDescribeStackEventsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeStackEventsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeStackEventsInput(input, context),
     Action: "DescribeStackEvents",
     Version: "2010-05-15"
   });
@@ -612,9 +598,8 @@ export const serializeAws_queryDescribeStackResourceCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeStackResourceInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeStackResourceInput(input, context),
     Action: "DescribeStackResource",
     Version: "2010-05-15"
   });
@@ -629,12 +614,8 @@ export const serializeAws_queryDescribeStackResourceDriftsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeStackResourceDriftsInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeStackResourceDriftsInput(input, context),
     Action: "DescribeStackResourceDrifts",
     Version: "2010-05-15"
   });
@@ -649,9 +630,8 @@ export const serializeAws_queryDescribeStackResourcesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeStackResourcesInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeStackResourcesInput(input, context),
     Action: "DescribeStackResources",
     Version: "2010-05-15"
   });
@@ -666,9 +646,8 @@ export const serializeAws_queryDescribeStacksCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeStacksInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeStacksInput(input, context),
     Action: "DescribeStacks",
     Version: "2010-05-15"
   });
@@ -683,9 +662,8 @@ export const serializeAws_queryDescribeTypeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeTypeInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeTypeInput(input, context),
     Action: "DescribeType",
     Version: "2010-05-15"
   });
@@ -700,12 +678,8 @@ export const serializeAws_queryDescribeTypeRegistrationCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeTypeRegistrationInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeTypeRegistrationInput(input, context),
     Action: "DescribeTypeRegistration",
     Version: "2010-05-15"
   });
@@ -720,9 +694,8 @@ export const serializeAws_queryDetectStackDriftCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDetectStackDriftInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDetectStackDriftInput(input, context),
     Action: "DetectStackDrift",
     Version: "2010-05-15"
   });
@@ -737,12 +710,8 @@ export const serializeAws_queryDetectStackResourceDriftCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDetectStackResourceDriftInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDetectStackResourceDriftInput(input, context),
     Action: "DetectStackResourceDrift",
     Version: "2010-05-15"
   });
@@ -757,9 +726,8 @@ export const serializeAws_queryEstimateTemplateCostCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryEstimateTemplateCostInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryEstimateTemplateCostInput(input, context),
     Action: "EstimateTemplateCost",
     Version: "2010-05-15"
   });
@@ -774,9 +742,8 @@ export const serializeAws_queryExecuteChangeSetCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryExecuteChangeSetInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryExecuteChangeSetInput(input, context),
     Action: "ExecuteChangeSet",
     Version: "2010-05-15"
   });
@@ -791,9 +758,8 @@ export const serializeAws_queryGetStackPolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetStackPolicyInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetStackPolicyInput(input, context),
     Action: "GetStackPolicy",
     Version: "2010-05-15"
   });
@@ -808,9 +774,8 @@ export const serializeAws_queryGetTemplateCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetTemplateInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetTemplateInput(input, context),
     Action: "GetTemplate",
     Version: "2010-05-15"
   });
@@ -825,9 +790,8 @@ export const serializeAws_queryGetTemplateSummaryCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryGetTemplateSummaryInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryGetTemplateSummaryInput(input, context),
     Action: "GetTemplateSummary",
     Version: "2010-05-15"
   });
@@ -842,9 +806,8 @@ export const serializeAws_queryListChangeSetsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListChangeSetsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListChangeSetsInput(input, context),
     Action: "ListChangeSets",
     Version: "2010-05-15"
   });
@@ -859,9 +822,8 @@ export const serializeAws_queryListExportsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListExportsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListExportsInput(input, context),
     Action: "ListExports",
     Version: "2010-05-15"
   });
@@ -876,9 +838,8 @@ export const serializeAws_queryListImportsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListImportsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListImportsInput(input, context),
     Action: "ListImports",
     Version: "2010-05-15"
   });
@@ -893,9 +854,8 @@ export const serializeAws_queryListStackResourcesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListStackResourcesInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListStackResourcesInput(input, context),
     Action: "ListStackResources",
     Version: "2010-05-15"
   });
@@ -910,9 +870,8 @@ export const serializeAws_queryListStacksCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListStacksInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListStacksInput(input, context),
     Action: "ListStacks",
     Version: "2010-05-15"
   });
@@ -927,9 +886,8 @@ export const serializeAws_queryListTypeRegistrationsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListTypeRegistrationsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListTypeRegistrationsInput(input, context),
     Action: "ListTypeRegistrations",
     Version: "2010-05-15"
   });
@@ -944,9 +902,8 @@ export const serializeAws_queryListTypeVersionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListTypeVersionsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListTypeVersionsInput(input, context),
     Action: "ListTypeVersions",
     Version: "2010-05-15"
   });
@@ -961,9 +918,8 @@ export const serializeAws_queryListTypesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListTypesInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListTypesInput(input, context),
     Action: "ListTypes",
     Version: "2010-05-15"
   });
@@ -978,9 +934,8 @@ export const serializeAws_queryRecordHandlerProgressCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryRecordHandlerProgressInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryRecordHandlerProgressInput(input, context),
     Action: "RecordHandlerProgress",
     Version: "2010-05-15"
   });
@@ -995,9 +950,8 @@ export const serializeAws_queryRegisterTypeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryRegisterTypeInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryRegisterTypeInput(input, context),
     Action: "RegisterType",
     Version: "2010-05-15"
   });
@@ -1012,9 +966,8 @@ export const serializeAws_querySetStackPolicyCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySetStackPolicyInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySetStackPolicyInput(input, context),
     Action: "SetStackPolicy",
     Version: "2010-05-15"
   });
@@ -1029,9 +982,8 @@ export const serializeAws_querySetTypeDefaultVersionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySetTypeDefaultVersionInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySetTypeDefaultVersionInput(input, context),
     Action: "SetTypeDefaultVersion",
     Version: "2010-05-15"
   });
@@ -1046,9 +998,8 @@ export const serializeAws_querySignalResourceCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySignalResourceInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySignalResourceInput(input, context),
     Action: "SignalResource",
     Version: "2010-05-15"
   });
@@ -1063,9 +1014,8 @@ export const serializeAws_queryUpdateStackCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateStackInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateStackInput(input, context),
     Action: "UpdateStack",
     Version: "2010-05-15"
   });
@@ -1080,12 +1030,8 @@ export const serializeAws_queryUpdateTerminationProtectionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateTerminationProtectionInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateTerminationProtectionInput(input, context),
     Action: "UpdateTerminationProtection",
     Version: "2010-05-15"
   });
@@ -1100,9 +1046,8 @@ export const serializeAws_queryValidateTemplateCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryValidateTemplateInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryValidateTemplateInput(input, context),
     Action: "ValidateTemplate",
     Version: "2010-05-15"
   });
@@ -1117,9 +1062,8 @@ export const serializeAws_queryCreateStackInstancesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateStackInstancesInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateStackInstancesInput(input, context),
     Action: "CreateStackInstances",
     Version: "2010-05-15"
   });
@@ -1134,9 +1078,8 @@ export const serializeAws_queryCreateStackSetCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateStackSetInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateStackSetInput(input, context),
     Action: "CreateStackSet",
     Version: "2010-05-15"
   });
@@ -1151,9 +1094,8 @@ export const serializeAws_queryDeleteStackInstancesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteStackInstancesInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteStackInstancesInput(input, context),
     Action: "DeleteStackInstances",
     Version: "2010-05-15"
   });
@@ -1168,9 +1110,8 @@ export const serializeAws_queryDeleteStackSetCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteStackSetInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteStackSetInput(input, context),
     Action: "DeleteStackSet",
     Version: "2010-05-15"
   });
@@ -1185,9 +1126,8 @@ export const serializeAws_queryDescribeStackInstanceCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeStackInstanceInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeStackInstanceInput(input, context),
     Action: "DescribeStackInstance",
     Version: "2010-05-15"
   });
@@ -1202,9 +1142,8 @@ export const serializeAws_queryDescribeStackSetCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeStackSetInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeStackSetInput(input, context),
     Action: "DescribeStackSet",
     Version: "2010-05-15"
   });
@@ -1219,12 +1158,8 @@ export const serializeAws_queryDescribeStackSetOperationCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeStackSetOperationInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeStackSetOperationInput(input, context),
     Action: "DescribeStackSetOperation",
     Version: "2010-05-15"
   });
@@ -1239,9 +1174,8 @@ export const serializeAws_queryDetectStackSetDriftCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDetectStackSetDriftInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDetectStackSetDriftInput(input, context),
     Action: "DetectStackSetDrift",
     Version: "2010-05-15"
   });
@@ -1256,9 +1190,8 @@ export const serializeAws_queryListStackInstancesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListStackInstancesInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListStackInstancesInput(input, context),
     Action: "ListStackInstances",
     Version: "2010-05-15"
   });
@@ -1273,12 +1206,8 @@ export const serializeAws_queryListStackSetOperationResultsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListStackSetOperationResultsInput(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListStackSetOperationResultsInput(input, context),
     Action: "ListStackSetOperationResults",
     Version: "2010-05-15"
   });
@@ -1293,9 +1222,8 @@ export const serializeAws_queryListStackSetOperationsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListStackSetOperationsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListStackSetOperationsInput(input, context),
     Action: "ListStackSetOperations",
     Version: "2010-05-15"
   });
@@ -1310,9 +1238,8 @@ export const serializeAws_queryListStackSetsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListStackSetsInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListStackSetsInput(input, context),
     Action: "ListStackSets",
     Version: "2010-05-15"
   });
@@ -1327,9 +1254,8 @@ export const serializeAws_queryStopStackSetOperationCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryStopStackSetOperationInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryStopStackSetOperationInput(input, context),
     Action: "StopStackSetOperation",
     Version: "2010-05-15"
   });
@@ -1344,9 +1270,8 @@ export const serializeAws_queryUpdateStackInstancesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateStackInstancesInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateStackInstancesInput(input, context),
     Action: "UpdateStackInstances",
     Version: "2010-05-15"
   });
@@ -1361,9 +1286,8 @@ export const serializeAws_queryUpdateStackSetCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateStackSetInput(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateStackSetInput(input, context),
     Action: "UpdateStackSet",
     Version: "2010-05-15"
   });

@@ -344,12 +344,8 @@ export const serializeAws_queryAbortEnvironmentUpdateCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryAbortEnvironmentUpdateMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryAbortEnvironmentUpdateMessage(input, context),
     Action: "AbortEnvironmentUpdate",
     Version: "2010-12-01"
   });
@@ -364,12 +360,8 @@ export const serializeAws_queryApplyEnvironmentManagedActionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryApplyEnvironmentManagedActionRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryApplyEnvironmentManagedActionRequest(input, context),
     Action: "ApplyEnvironmentManagedAction",
     Version: "2010-12-01"
   });
@@ -384,9 +376,8 @@ export const serializeAws_queryCheckDNSAvailabilityCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCheckDNSAvailabilityMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCheckDNSAvailabilityMessage(input, context),
     Action: "CheckDNSAvailability",
     Version: "2010-12-01"
   });
@@ -401,9 +392,8 @@ export const serializeAws_queryComposeEnvironmentsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryComposeEnvironmentsMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryComposeEnvironmentsMessage(input, context),
     Action: "ComposeEnvironments",
     Version: "2010-12-01"
   });
@@ -418,9 +408,8 @@ export const serializeAws_queryCreateApplicationCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateApplicationMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateApplicationMessage(input, context),
     Action: "CreateApplication",
     Version: "2010-12-01"
   });
@@ -435,12 +424,8 @@ export const serializeAws_queryCreateApplicationVersionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateApplicationVersionMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateApplicationVersionMessage(input, context),
     Action: "CreateApplicationVersion",
     Version: "2010-12-01"
   });
@@ -455,12 +440,8 @@ export const serializeAws_queryCreateConfigurationTemplateCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateConfigurationTemplateMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateConfigurationTemplateMessage(input, context),
     Action: "CreateConfigurationTemplate",
     Version: "2010-12-01"
   });
@@ -475,9 +456,8 @@ export const serializeAws_queryCreateEnvironmentCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateEnvironmentMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateEnvironmentMessage(input, context),
     Action: "CreateEnvironment",
     Version: "2010-12-01"
   });
@@ -492,12 +472,8 @@ export const serializeAws_queryCreatePlatformVersionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreatePlatformVersionRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreatePlatformVersionRequest(input, context),
     Action: "CreatePlatformVersion",
     Version: "2010-12-01"
   });
@@ -526,9 +502,8 @@ export const serializeAws_queryDeleteApplicationCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteApplicationMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteApplicationMessage(input, context),
     Action: "DeleteApplication",
     Version: "2010-12-01"
   });
@@ -543,12 +518,8 @@ export const serializeAws_queryDeleteApplicationVersionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteApplicationVersionMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteApplicationVersionMessage(input, context),
     Action: "DeleteApplicationVersion",
     Version: "2010-12-01"
   });
@@ -563,12 +534,8 @@ export const serializeAws_queryDeleteConfigurationTemplateCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteConfigurationTemplateMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteConfigurationTemplateMessage(input, context),
     Action: "DeleteConfigurationTemplate",
     Version: "2010-12-01"
   });
@@ -583,12 +550,8 @@ export const serializeAws_queryDeleteEnvironmentConfigurationCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteEnvironmentConfigurationMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteEnvironmentConfigurationMessage(input, context),
     Action: "DeleteEnvironmentConfiguration",
     Version: "2010-12-01"
   });
@@ -603,12 +566,8 @@ export const serializeAws_queryDeletePlatformVersionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeletePlatformVersionRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeletePlatformVersionRequest(input, context),
     Action: "DeletePlatformVersion",
     Version: "2010-12-01"
   });
@@ -637,12 +596,8 @@ export const serializeAws_queryDescribeApplicationVersionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeApplicationVersionsMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeApplicationVersionsMessage(input, context),
     Action: "DescribeApplicationVersions",
     Version: "2010-12-01"
   });
@@ -657,9 +612,8 @@ export const serializeAws_queryDescribeApplicationsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeApplicationsMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeApplicationsMessage(input, context),
     Action: "DescribeApplications",
     Version: "2010-12-01"
   });
@@ -674,12 +628,8 @@ export const serializeAws_queryDescribeConfigurationOptionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeConfigurationOptionsMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeConfigurationOptionsMessage(input, context),
     Action: "DescribeConfigurationOptions",
     Version: "2010-12-01"
   });
@@ -694,12 +644,8 @@ export const serializeAws_queryDescribeConfigurationSettingsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeConfigurationSettingsMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeConfigurationSettingsMessage(input, context),
     Action: "DescribeConfigurationSettings",
     Version: "2010-12-01"
   });
@@ -714,12 +660,8 @@ export const serializeAws_queryDescribeEnvironmentHealthCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeEnvironmentHealthRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeEnvironmentHealthRequest(input, context),
     Action: "DescribeEnvironmentHealth",
     Version: "2010-12-01"
   });
@@ -734,12 +676,11 @@ export const serializeAws_queryDescribeEnvironmentManagedActionHistoryCommand = 
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeEnvironmentManagedActionHistoryRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeEnvironmentManagedActionHistoryRequest(
+      input,
+      context
+    ),
     Action: "DescribeEnvironmentManagedActionHistory",
     Version: "2010-12-01"
   });
@@ -754,12 +695,11 @@ export const serializeAws_queryDescribeEnvironmentManagedActionsCommand = async 
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeEnvironmentManagedActionsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeEnvironmentManagedActionsRequest(
+      input,
+      context
+    ),
     Action: "DescribeEnvironmentManagedActions",
     Version: "2010-12-01"
   });
@@ -774,12 +714,8 @@ export const serializeAws_queryDescribeEnvironmentResourcesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeEnvironmentResourcesMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeEnvironmentResourcesMessage(input, context),
     Action: "DescribeEnvironmentResources",
     Version: "2010-12-01"
   });
@@ -794,9 +730,8 @@ export const serializeAws_queryDescribeEnvironmentsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeEnvironmentsMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeEnvironmentsMessage(input, context),
     Action: "DescribeEnvironments",
     Version: "2010-12-01"
   });
@@ -811,9 +746,8 @@ export const serializeAws_queryDescribeEventsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeEventsMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeEventsMessage(input, context),
     Action: "DescribeEvents",
     Version: "2010-12-01"
   });
@@ -828,12 +762,8 @@ export const serializeAws_queryDescribeInstancesHealthCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeInstancesHealthRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeInstancesHealthRequest(input, context),
     Action: "DescribeInstancesHealth",
     Version: "2010-12-01"
   });
@@ -848,12 +778,8 @@ export const serializeAws_queryDescribePlatformVersionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribePlatformVersionRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribePlatformVersionRequest(input, context),
     Action: "DescribePlatformVersion",
     Version: "2010-12-01"
   });
@@ -882,9 +808,8 @@ export const serializeAws_queryListPlatformVersionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListPlatformVersionsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListPlatformVersionsRequest(input, context),
     Action: "ListPlatformVersions",
     Version: "2010-12-01"
   });
@@ -899,9 +824,8 @@ export const serializeAws_queryListTagsForResourceCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryListTagsForResourceMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryListTagsForResourceMessage(input, context),
     Action: "ListTagsForResource",
     Version: "2010-12-01"
   });
@@ -916,9 +840,8 @@ export const serializeAws_queryRebuildEnvironmentCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryRebuildEnvironmentMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryRebuildEnvironmentMessage(input, context),
     Action: "RebuildEnvironment",
     Version: "2010-12-01"
   });
@@ -933,12 +856,8 @@ export const serializeAws_queryRequestEnvironmentInfoCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryRequestEnvironmentInfoMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryRequestEnvironmentInfoMessage(input, context),
     Action: "RequestEnvironmentInfo",
     Version: "2010-12-01"
   });
@@ -953,9 +872,8 @@ export const serializeAws_queryRestartAppServerCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryRestartAppServerMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryRestartAppServerMessage(input, context),
     Action: "RestartAppServer",
     Version: "2010-12-01"
   });
@@ -970,12 +888,8 @@ export const serializeAws_queryRetrieveEnvironmentInfoCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryRetrieveEnvironmentInfoMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryRetrieveEnvironmentInfoMessage(input, context),
     Action: "RetrieveEnvironmentInfo",
     Version: "2010-12-01"
   });
@@ -990,12 +904,8 @@ export const serializeAws_querySwapEnvironmentCNAMEsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_querySwapEnvironmentCNAMEsMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_querySwapEnvironmentCNAMEsMessage(input, context),
     Action: "SwapEnvironmentCNAMEs",
     Version: "2010-12-01"
   });
@@ -1010,9 +920,8 @@ export const serializeAws_queryTerminateEnvironmentCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryTerminateEnvironmentMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryTerminateEnvironmentMessage(input, context),
     Action: "TerminateEnvironment",
     Version: "2010-12-01"
   });
@@ -1027,9 +936,8 @@ export const serializeAws_queryUpdateApplicationCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateApplicationMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateApplicationMessage(input, context),
     Action: "UpdateApplication",
     Version: "2010-12-01"
   });
@@ -1044,12 +952,11 @@ export const serializeAws_queryUpdateApplicationResourceLifecycleCommand = async
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateApplicationResourceLifecycleMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateApplicationResourceLifecycleMessage(
+      input,
+      context
+    ),
     Action: "UpdateApplicationResourceLifecycle",
     Version: "2010-12-01"
   });
@@ -1064,12 +971,8 @@ export const serializeAws_queryUpdateApplicationVersionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateApplicationVersionMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateApplicationVersionMessage(input, context),
     Action: "UpdateApplicationVersion",
     Version: "2010-12-01"
   });
@@ -1084,12 +987,8 @@ export const serializeAws_queryUpdateConfigurationTemplateCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateConfigurationTemplateMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateConfigurationTemplateMessage(input, context),
     Action: "UpdateConfigurationTemplate",
     Version: "2010-12-01"
   });
@@ -1104,9 +1003,8 @@ export const serializeAws_queryUpdateEnvironmentCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateEnvironmentMessage(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateEnvironmentMessage(input, context),
     Action: "UpdateEnvironment",
     Version: "2010-12-01"
   });
@@ -1121,12 +1019,8 @@ export const serializeAws_queryUpdateTagsForResourceCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateTagsForResourceMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateTagsForResourceMessage(input, context),
     Action: "UpdateTagsForResource",
     Version: "2010-12-01"
   });
@@ -1141,12 +1035,8 @@ export const serializeAws_queryValidateConfigurationSettingsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryValidateConfigurationSettingsMessage(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryValidateConfigurationSettingsMessage(input, context),
     Action: "ValidateConfigurationSettings",
     Version: "2010-12-01"
   });

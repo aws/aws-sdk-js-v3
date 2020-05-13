@@ -220,9 +220,8 @@ export const serializeAws_queryBuildSuggestersCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryBuildSuggestersRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryBuildSuggestersRequest(input, context),
     Action: "BuildSuggesters",
     Version: "2013-01-01"
   });
@@ -237,9 +236,8 @@ export const serializeAws_queryCreateDomainCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryCreateDomainRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryCreateDomainRequest(input, context),
     Action: "CreateDomain",
     Version: "2013-01-01"
   });
@@ -254,9 +252,8 @@ export const serializeAws_queryDefineAnalysisSchemeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDefineAnalysisSchemeRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDefineAnalysisSchemeRequest(input, context),
     Action: "DefineAnalysisScheme",
     Version: "2013-01-01"
   });
@@ -271,9 +268,8 @@ export const serializeAws_queryDefineExpressionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDefineExpressionRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDefineExpressionRequest(input, context),
     Action: "DefineExpression",
     Version: "2013-01-01"
   });
@@ -288,9 +284,8 @@ export const serializeAws_queryDefineIndexFieldCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDefineIndexFieldRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDefineIndexFieldRequest(input, context),
     Action: "DefineIndexField",
     Version: "2013-01-01"
   });
@@ -305,9 +300,8 @@ export const serializeAws_queryDefineSuggesterCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDefineSuggesterRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDefineSuggesterRequest(input, context),
     Action: "DefineSuggester",
     Version: "2013-01-01"
   });
@@ -322,9 +316,8 @@ export const serializeAws_queryDeleteAnalysisSchemeCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteAnalysisSchemeRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteAnalysisSchemeRequest(input, context),
     Action: "DeleteAnalysisScheme",
     Version: "2013-01-01"
   });
@@ -339,9 +332,8 @@ export const serializeAws_queryDeleteDomainCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteDomainRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteDomainRequest(input, context),
     Action: "DeleteDomain",
     Version: "2013-01-01"
   });
@@ -356,9 +348,8 @@ export const serializeAws_queryDeleteExpressionCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteExpressionRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteExpressionRequest(input, context),
     Action: "DeleteExpression",
     Version: "2013-01-01"
   });
@@ -373,9 +364,8 @@ export const serializeAws_queryDeleteIndexFieldCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteIndexFieldRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteIndexFieldRequest(input, context),
     Action: "DeleteIndexField",
     Version: "2013-01-01"
   });
@@ -390,9 +380,8 @@ export const serializeAws_queryDeleteSuggesterCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDeleteSuggesterRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDeleteSuggesterRequest(input, context),
     Action: "DeleteSuggester",
     Version: "2013-01-01"
   });
@@ -407,12 +396,8 @@ export const serializeAws_queryDescribeAnalysisSchemesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeAnalysisSchemesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeAnalysisSchemesRequest(input, context),
     Action: "DescribeAnalysisSchemes",
     Version: "2013-01-01"
   });
@@ -427,12 +412,8 @@ export const serializeAws_queryDescribeAvailabilityOptionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeAvailabilityOptionsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeAvailabilityOptionsRequest(input, context),
     Action: "DescribeAvailabilityOptions",
     Version: "2013-01-01"
   });
@@ -447,12 +428,8 @@ export const serializeAws_queryDescribeDomainEndpointOptionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeDomainEndpointOptionsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeDomainEndpointOptionsRequest(input, context),
     Action: "DescribeDomainEndpointOptions",
     Version: "2013-01-01"
   });
@@ -467,9 +444,8 @@ export const serializeAws_queryDescribeDomainsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeDomainsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeDomainsRequest(input, context),
     Action: "DescribeDomains",
     Version: "2013-01-01"
   });
@@ -484,9 +460,8 @@ export const serializeAws_queryDescribeExpressionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeExpressionsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeExpressionsRequest(input, context),
     Action: "DescribeExpressions",
     Version: "2013-01-01"
   });
@@ -501,9 +476,8 @@ export const serializeAws_queryDescribeIndexFieldsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeIndexFieldsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeIndexFieldsRequest(input, context),
     Action: "DescribeIndexFields",
     Version: "2013-01-01"
   });
@@ -518,12 +492,8 @@ export const serializeAws_queryDescribeScalingParametersCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeScalingParametersRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeScalingParametersRequest(input, context),
     Action: "DescribeScalingParameters",
     Version: "2013-01-01"
   });
@@ -538,12 +508,8 @@ export const serializeAws_queryDescribeServiceAccessPoliciesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeServiceAccessPoliciesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeServiceAccessPoliciesRequest(input, context),
     Action: "DescribeServiceAccessPolicies",
     Version: "2013-01-01"
   });
@@ -558,9 +524,8 @@ export const serializeAws_queryDescribeSuggestersCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryDescribeSuggestersRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryDescribeSuggestersRequest(input, context),
     Action: "DescribeSuggesters",
     Version: "2013-01-01"
   });
@@ -575,9 +540,8 @@ export const serializeAws_queryIndexDocumentsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryIndexDocumentsRequest(input, context);
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryIndexDocumentsRequest(input, context),
     Action: "IndexDocuments",
     Version: "2013-01-01"
   });
@@ -606,12 +570,8 @@ export const serializeAws_queryUpdateAvailabilityOptionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateAvailabilityOptionsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateAvailabilityOptionsRequest(input, context),
     Action: "UpdateAvailabilityOptions",
     Version: "2013-01-01"
   });
@@ -626,12 +586,8 @@ export const serializeAws_queryUpdateDomainEndpointOptionsCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateDomainEndpointOptionsRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateDomainEndpointOptionsRequest(input, context),
     Action: "UpdateDomainEndpointOptions",
     Version: "2013-01-01"
   });
@@ -646,12 +602,8 @@ export const serializeAws_queryUpdateScalingParametersCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateScalingParametersRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateScalingParametersRequest(input, context),
     Action: "UpdateScalingParameters",
     Version: "2013-01-01"
   });
@@ -666,12 +618,8 @@ export const serializeAws_queryUpdateServiceAccessPoliciesCommand = async (
     "Content-Type": "application/x-www-form-urlencoded"
   };
   let body: any;
-  const entries = serializeAws_queryUpdateServiceAccessPoliciesRequest(
-    input,
-    context
-  );
   body = buildFormUrlencodedString({
-    ...entries,
+    ...serializeAws_queryUpdateServiceAccessPoliciesRequest(input, context),
     Action: "UpdateServiceAccessPolicies",
     Version: "2013-01-01"
   });
