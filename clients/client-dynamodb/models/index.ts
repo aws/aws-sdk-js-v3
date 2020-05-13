@@ -1085,7 +1085,7 @@ export namespace BatchGetItemOutput {
       Responses: Object.entries(obj.Responses).reduce(
         (
           acc: any,
-          [key, value]: [string, Array<{ [key: string]: AttributeValue }>]
+          [key, value]: [string, { [key: string]: AttributeValue }[]]
         ) => {
           acc[key] = value.map(item =>
             Object.entries(item).reduce(
@@ -1193,7 +1193,7 @@ export namespace BatchWriteItemInput {
     ...obj,
     ...(obj.RequestItems && {
       RequestItems: Object.entries(obj.RequestItems).reduce(
-        (acc: any, [key, value]: [string, Array<WriteRequest>]) => {
+        (acc: any, [key, value]: [string, WriteRequest[]]) => {
           acc[key] = value.map(WriteRequest.filterSensitiveLog);
           return acc;
         },
@@ -1303,7 +1303,7 @@ export namespace BatchWriteItemOutput {
     }),
     ...(obj.ItemCollectionMetrics && {
       ItemCollectionMetrics: Object.entries(obj.ItemCollectionMetrics).reduce(
-        (acc: any, [key, value]: [string, Array<ItemCollectionMetrics>]) => {
+        (acc: any, [key, value]: [string, ItemCollectionMetrics[]]) => {
           acc[key] = value.map(ItemCollectionMetrics.filterSensitiveLog);
           return acc;
         },
@@ -1312,7 +1312,7 @@ export namespace BatchWriteItemOutput {
     }),
     ...(obj.UnprocessedItems && {
       UnprocessedItems: Object.entries(obj.UnprocessedItems).reduce(
-        (acc: any, [key, value]: [string, Array<WriteRequest>]) => {
+        (acc: any, [key, value]: [string, WriteRequest[]]) => {
           acc[key] = value.map(WriteRequest.filterSensitiveLog);
           return acc;
         },
@@ -9021,7 +9021,7 @@ export namespace TransactWriteItemsOutput {
     }),
     ...(obj.ItemCollectionMetrics && {
       ItemCollectionMetrics: Object.entries(obj.ItemCollectionMetrics).reduce(
-        (acc: any, [key, value]: [string, Array<ItemCollectionMetrics>]) => {
+        (acc: any, [key, value]: [string, ItemCollectionMetrics[]]) => {
           acc[key] = value.map(ItemCollectionMetrics.filterSensitiveLog);
           return acc;
         },

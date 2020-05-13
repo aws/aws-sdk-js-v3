@@ -4852,7 +4852,7 @@ export namespace ListUniqueProblemsResult {
     ...obj,
     ...(obj.uniqueProblems && {
       uniqueProblems: Object.entries(obj.uniqueProblems).reduce(
-        (acc: any, [key, value]: [string, Array<UniqueProblem>]) => {
+        (acc: any, [key, value]: [string, UniqueProblem[]]) => {
           acc[key] = value.map(UniqueProblem.filterSensitiveLog);
           return acc;
         },

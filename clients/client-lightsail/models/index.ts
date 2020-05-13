@@ -1538,7 +1538,7 @@ export namespace CreateInstancesFromSnapshotRequest {
     }),
     ...(obj.attachedDiskMapping && {
       attachedDiskMapping: Object.entries(obj.attachedDiskMapping).reduce(
-        (acc: any, [key, value]: [string, Array<DiskMap>]) => {
+        (acc: any, [key, value]: [string, DiskMap[]]) => {
           acc[key] = value.map(DiskMap.filterSensitiveLog);
           return acc;
         },
