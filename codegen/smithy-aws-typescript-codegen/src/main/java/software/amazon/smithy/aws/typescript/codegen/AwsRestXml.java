@@ -17,7 +17,7 @@ package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.List;
 import java.util.Set;
-import software.amazon.smithy.aws.traits.ServiceTrait;
+import software.amazon.smithy.aws.traits.protocols.RestXmlTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.codegen.core.SymbolReference;
 import software.amazon.smithy.model.knowledge.HttpBinding;
@@ -28,7 +28,7 @@ import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.ShapeId;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
-import software.amazon.smithy.model.traits.EventStreamTrait;
+import software.amazon.smithy.model.traits.StreamingTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait.Format;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.HttpBindingProtocolGenerator;
@@ -68,6 +68,11 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
     @Override
     protected Format getDocumentTimestampFormat() {
         return Format.DATE_TIME;
+    }
+
+    @Override
+    public ShapeId getProtocol() {
+        return RestXmlTrait.ID;
     }
 
     @Override
@@ -126,9 +131,7 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
     }
 
     private boolean usesWrappedErrorResponse(GenerationContext context) {
-        return context.getService().getTrait(ServiceTrait.class)
-                .map(trait -> !trait.getSdkId().equals("S3"))
-                .orElse(true);
+        return !context.getService().expectTrait(RestXmlTrait.class).isNoErrorWrapping();
     }
 
     @Override
@@ -207,9 +210,10 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
             writer.write("contents = $L;",
                     getInputValue(context, Location.PAYLOAD, "input." + memberName, member, target));
 
-            // XmlNode will serialize non-eventstream Structure and Union payloads as XML documents.
-            if ((target instanceof StructureShape || target instanceof UnionShape)
-                    && !member.hasTrait(EventStreamTrait.class)) {
+            // XmlNode will serialize Structure and non-streaming Union payloads as XML documents.
+            if (target instanceof StructureShape
+                    || (target instanceof UnionShape && !target.hasTrait(StreamingTrait.class))
+            ) {
                 // Start with the XML declaration.
                 writer.write("body = \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>\";");
 

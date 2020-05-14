@@ -21,7 +21,7 @@ plugins {
 }
 
 group = "software.amazon.smithy"
-version = "0.1.0"
+version = "0.2.0"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
@@ -33,8 +33,8 @@ tasks.withType<Test> {
 }
 
 dependencies {
-    api("software.amazon.smithy:smithy-aws-traits:0.9.8")
-    api("software.amazon.smithy:smithy-typescript-codegen:0.1.0")
+    api("software.amazon.smithy:smithy-aws-traits:1.0.5")
+    api("software.amazon.smithy:smithy-typescript-codegen:0.2.0")
     testCompile("org.junit.jupiter:junit-jupiter-api:5.4.0")
     testRuntime("org.junit.jupiter:junit-jupiter-engine:5.4.0")
     testCompile("org.junit.jupiter:junit-jupiter-params:5.4.0")
@@ -60,6 +60,13 @@ tasks.withType<JacocoReport> {
 // == Spotbugs ==
 // We don't need to lint tests.
 tasks["spotbugsTest"].enabled = false
+
+// Log on passed, skipped, and failed test events if the `-Plog-tests` property is set.
+if (project.hasProperty("log-tests")) {
+    tasks.test {
+        testLogging.events("passed", "skipped", "failed")
+    }
+}
 
 // Configure the bug filter for spotbugs.
 tasks.withType<com.github.spotbugs.SpotBugsTask> {

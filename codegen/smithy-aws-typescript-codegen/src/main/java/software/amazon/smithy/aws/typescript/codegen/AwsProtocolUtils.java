@@ -20,7 +20,7 @@ import static software.amazon.smithy.model.knowledge.HttpBinding.Location.DOCUME
 import java.util.Optional;
 import java.util.Set;
 import java.util.TreeSet;
-import software.amazon.smithy.aws.traits.UnsignedPayloadTrait;
+import software.amazon.smithy.aws.traits.auth.UnsignedPayloadTrait;
 import software.amazon.smithy.model.knowledge.HttpBindingIndex;
 import software.amazon.smithy.model.knowledge.NeighborProviderIndex;
 import software.amazon.smithy.model.neighbor.Walker;
@@ -57,7 +57,6 @@ final class AwsProtocolUtils {
         TypeScriptWriter writer = context.getWriter();
 
         operation.getTrait(UnsignedPayloadTrait.class)
-                .filter(trait -> trait.getValues().contains("aws.v4"))
                 .ifPresent(trait -> {
                     writer.write("'x-amz-content-sha256': 'UNSIGNED_PAYLOAD',");
                 });
@@ -98,15 +97,13 @@ final class AwsProtocolUtils {
 
         // Include a JSON body parser used to deserialize documents from HTTP responses.
         writer.addImport("SerdeContext", "__SerdeContext", "@aws-sdk/types");
-        writer.openBlock("const parseBody = (streamBody: any, context: __SerdeContext): any => collectBodyString(streamBody, context).then(encoded => {",
-            "});",
-            () -> {
-                writer.openBlock("if (encoded.length) {", "}", () -> {
-                    writer.write("return JSON.parse(encoded);");
+        writer.openBlock("const parseBody = (streamBody: any, context: __SerdeContext): "
+                + "any => collectBodyString(streamBody, context).then(encoded => {", "});", () -> {
+                    writer.openBlock("if (encoded.length) {", "}", () -> {
+                        writer.write("return JSON.parse(encoded);");
+                    });
+                    writer.write("return {};");
                 });
-                writer.write("return {};");
-            }
-        );
 
         writer.write("");
     }
@@ -128,25 +125,23 @@ final class AwsProtocolUtils {
         writer.addImport("getValueFromTextNode", "__getValueFromTextNode", "@aws-sdk/smithy-client");
         writer.addDependency(AwsDependency.XML_PARSER);
         writer.addImport("parse", "xmlParse", "fast-xml-parser");
-        writer.openBlock("const parseBody = (streamBody: any, context: __SerdeContext): any => collectBodyString(streamBody, context).then(encoded => {",
-            "});",
-            () -> {
-                writer.openBlock("if (encoded.length) {", "}", () -> {
-                    writer.write("const parsedObj = xmlParse(encoded, { attributeNamePrefix: '', "
-                            + "ignoreAttributes: false, parseNodeValue: false, tagValueProcessor: (val, tagName) "
-                            + "=> decodeEscapedXML(val) });");
-                    writer.write("const textNodeName = '#text';");
-                    writer.write("const key = Object.keys(parsedObj)[0];");
-                    writer.write("const parsedObjToReturn = parsedObj[key];");
-                    writer.openBlock("if (parsedObjToReturn[textNodeName]) {", "}", () -> {
-                        writer.write("parsedObjToReturn[key] = parsedObjToReturn[textNodeName];");
-                        writer.write("delete parsedObjToReturn[textNodeName];");
+        writer.openBlock("const parseBody = (streamBody: any, context: __SerdeContext): "
+                + "any => collectBodyString(streamBody, context).then(encoded => {", "});", () -> {
+                    writer.openBlock("if (encoded.length) {", "}", () -> {
+                        writer.write("const parsedObj = xmlParse(encoded, { attributeNamePrefix: '', "
+                                + "ignoreAttributes: false, parseNodeValue: false, tagValueProcessor: (val, tagName) "
+                                + "=> decodeEscapedXML(val) });");
+                        writer.write("const textNodeName = '#text';");
+                        writer.write("const key = Object.keys(parsedObj)[0];");
+                        writer.write("const parsedObjToReturn = parsedObj[key];");
+                        writer.openBlock("if (parsedObjToReturn[textNodeName]) {", "}", () -> {
+                            writer.write("parsedObjToReturn[key] = parsedObjToReturn[textNodeName];");
+                            writer.write("delete parsedObjToReturn[textNodeName];");
+                        });
+                        writer.write("return __getValueFromTextNode(parsedObjToReturn);");
                     });
-                    writer.write("return __getValueFromTextNode(parsedObjToReturn);");
+                    writer.write("return {};");
                 });
-                writer.write("return {};");
-            }
-        );
         writer.write("");
     }
 
@@ -162,12 +157,10 @@ final class AwsProtocolUtils {
 
         // Write a single function to handle combining a map in to a valid query string.
         writer.addImport("extendedEncodeURIComponent", "__extendedEncodeURIComponent", "@aws-sdk/smithy-client");
-        writer.openBlock("const buildFormUrlencodedString = (formEntries: { [key: string]: string }): string => Object.entries(formEntries).map(",
-            ").join(\"&\");",
-            () -> 
-                writer.write("([key, value]) => __extendedEncodeURIComponent(key) + '=' + "
-                    + "__extendedEncodeURIComponent(value)")
-        );
+        writer.openBlock("const buildFormUrlencodedString = (formEntries: { [key: string]: string }): "
+                + "string => Object.entries(formEntries).map(", ").join(\"&\");",
+                () -> writer.write("([key, value]) => __extendedEncodeURIComponent(key) + '=' + "
+                    + "__extendedEncodeURIComponent(value)"));
         writer.write("");
     }
 

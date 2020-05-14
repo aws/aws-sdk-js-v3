@@ -5,7 +5,9 @@
       "transforms": [
         {
           "name": "includeServices",
-          "args": ["aws.protocols.tests.ec2#AwsEc2"]
+          "args": {
+            "services": ["aws.protocoltests.ec2#AwsEc2"]
+          }
         }
       ],
       "plugins": {
@@ -19,7 +21,6 @@
             },
             "license": "Apache-2.0"
           },
-          "protocol": "aws.ec2",
           "private": true
         }
       }
@@ -28,7 +29,9 @@
       "transforms": [
         {
           "name": "includeServices",
-          "args": ["aws.protocols.tests.json#JsonProtocol"]
+          "args": {
+            "services": ["aws.protocoltests.json#JsonProtocol"]
+          }
         }
       ],
       "plugins": {
@@ -42,7 +45,6 @@
             },
             "license": "Apache-2.0"
           },
-          "protocol": "aws.json-1.1",
           "private": true
         }
       }
@@ -51,7 +53,9 @@
       "transforms": [
         {
           "name": "includeServices",
-          "args": ["aws.protocols.tests.query#AwsQuery"]
+          "args": {
+            "services": ["aws.protocoltests.query#AwsQuery"]
+          }
         }
       ],
       "plugins": {
@@ -65,7 +69,6 @@
             },
             "license": "Apache-2.0"
           },
-          "protocol": "aws.query",
           "private": true
         }
       }
@@ -74,7 +77,9 @@
       "transforms": [
         {
           "name": "includeServices",
-          "args": ["aws.protocols.tests.restjson#RestJson"]
+          "args": {
+            "services": ["aws.protocoltests.restjson#RestJson"]
+          }
         }
       ],
       "plugins": {
@@ -88,7 +93,6 @@
             },
             "license": "Apache-2.0"
           },
-          "protocol": "aws.rest-json-1.1",
           "private": true
         }
       }
@@ -97,7 +101,9 @@
       "transforms": [
         {
           "name": "includeServices",
-          "args": ["aws.protocols.tests.restxml#RestXml"]
+          "args": {
+            "services": ["aws.protocoltests.restxml#RestXml"]
+          }
         }
       ],
       "plugins": {
@@ -111,7 +117,6 @@
             },
             "license": "Apache-2.0"
           },
-          "protocol": "aws.rest-xml",
           "private": true
         }
       }
