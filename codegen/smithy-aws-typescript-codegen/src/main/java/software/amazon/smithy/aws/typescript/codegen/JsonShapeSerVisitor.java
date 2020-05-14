@@ -112,7 +112,7 @@ final class JsonShapeSerVisitor extends DocumentShapeSerVisitor {
                         ? AwsProtocolUtils.getInputTimestampValueProvider(context, memberShape,
                                 TIMESTAMP_FORMAT, inputLocation)
                         : target.accept(getMemberVisitor(inputLocation));
-    
+
                 if (memberShape.hasTrait(IdempotencyTokenTrait.class)) {
                     writer.write("'$L': $L ?? generateIdempotencyToken(),", locationName, valueProvider);
                 } else {

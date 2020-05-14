@@ -1,7 +1,9 @@
 namespace smithy.example
 
+use aws.protocols#restJson1
+
 @aws.api#service(sdkId: "Not Same")
-@protocols([{name: "aws.rest-json-1.1"}])
+@restJson1
 service OriginalName {
     version: "2019-10-15",
 }

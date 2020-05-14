@@ -16,7 +16,7 @@
 package software.amazon.smithy.aws.typescript.codegen;
 
 import java.util.Optional;
-import software.amazon.smithy.aws.traits.Ec2QueryNameTrait;
+import software.amazon.smithy.aws.traits.protocols.Ec2QueryNameTrait;
 import software.amazon.smithy.codegen.core.CodegenException;
 import software.amazon.smithy.model.shapes.DocumentShape;
 import software.amazon.smithy.model.shapes.MemberShape;

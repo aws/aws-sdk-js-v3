@@ -25,8 +25,8 @@ import software.amazon.smithy.model.shapes.Shape;
 import software.amazon.smithy.model.shapes.StructureShape;
 import software.amazon.smithy.model.shapes.UnionShape;
 import software.amazon.smithy.model.traits.IdempotencyTokenTrait;
-import software.amazon.smithy.model.traits.EventStreamTrait;
 import software.amazon.smithy.model.traits.JsonNameTrait;
+import software.amazon.smithy.model.traits.StreamingTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.DocumentMemberDeserVisitor;
@@ -115,7 +115,7 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
                         .map(JsonNameTrait::getValue)
                         .orElseGet(binding::getLocationName);
                 Shape target = context.getModel().expectShape(memberShape.getTarget());
-    
+
                 // Handle @timestampFormat on members not just the targeted shape.
                 String valueProvider = memberShape.hasTrait(TimestampFormatTrait.class)
                         ? AwsProtocolUtils.getInputTimestampValueProvider(context, memberShape,
@@ -144,11 +144,12 @@ abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {
         MemberShape payloadMember = payloadBinding.getMember();
         Shape target = context.getModel().expectShape(payloadMember.getTarget());
 
-        // When payload target is a structure or union but payload is not an event stream, default
+        // When payload target is a structure or union but payload is not a stream, default
         // to an empty JSON body instead of an undefined body and make sure any structure or union
         // content ends up as a JSON string.
-        if ((target instanceof StructureShape || target instanceof UnionShape)
-                && !payloadMember.hasTrait(EventStreamTrait.class)) {
+        if (target instanceof StructureShape
+                || (target instanceof UnionShape && !target.hasTrait(StreamingTrait.class))
+        ) {
             writer.openBlock("if (body === undefined) {", "}", () -> writer.write("body = {};"));
             writer.write("body = JSON.stringify(body);");
         }

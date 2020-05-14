@@ -15,6 +15,9 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import software.amazon.smithy.aws.traits.protocols.AwsJson1_1Trait;
+import software.amazon.smithy.model.shapes.ShapeId;
+
 /**
  * Handles generating the aws.json-1.1 protocol for services.
  *
@@ -27,6 +30,11 @@ final class AwsJsonRpc1_1 extends JsonRpcProtocolGenerator {
     @Override
     protected String getDocumentContentType() {
         return "application/x-amz-json-1.1";
+    }
+
+    @Override
+    public ShapeId getProtocol() {
+        return AwsJson1_1Trait.ID;
     }
 
     @Override
