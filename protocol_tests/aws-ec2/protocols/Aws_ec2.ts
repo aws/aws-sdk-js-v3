@@ -2019,10 +2019,13 @@ const deserializeAws_ec2FooEnumMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: FooEnum | string } => {
-  return output.reduce((acc: any, pair: any) => {
-    acc[pair["key"]] = pair["value"];
-    return acc;
-  }, {});
+  return output.reduce(
+    (acc: any, pair: any) => ({
+      ...acc,
+      [pair["key"]]: pair["value"]
+    }),
+    {}
+  );
 };
 
 const deserializeAws_ec2FooEnumSet = (

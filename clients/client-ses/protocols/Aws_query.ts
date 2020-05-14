@@ -9918,13 +9918,16 @@ const deserializeAws_queryDkimAttributes = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: IdentityDkimAttributes } => {
-  return output.reduce((acc: any, pair: any) => {
-    acc[pair["key"]] = deserializeAws_queryIdentityDkimAttributes(
-      pair["value"],
-      context
-    );
-    return acc;
-  }, {});
+  return output.reduce(
+    (acc: any, pair: any) => ({
+      ...acc,
+      [pair["key"]]: deserializeAws_queryIdentityDkimAttributes(
+        pair["value"],
+        context
+      )
+    }),
+    {}
+  );
 };
 
 const deserializeAws_queryEventDestination = (
@@ -10877,13 +10880,16 @@ const deserializeAws_queryMailFromDomainAttributes = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: IdentityMailFromDomainAttributes } => {
-  return output.reduce((acc: any, pair: any) => {
-    acc[pair["key"]] = deserializeAws_queryIdentityMailFromDomainAttributes(
-      pair["value"],
-      context
-    );
-    return acc;
-  }, {});
+  return output.reduce(
+    (acc: any, pair: any) => ({
+      ...acc,
+      [pair["key"]]: deserializeAws_queryIdentityMailFromDomainAttributes(
+        pair["value"],
+        context
+      )
+    }),
+    {}
+  );
 };
 
 const deserializeAws_queryMailFromDomainNotVerifiedException = (
@@ -10936,23 +10942,29 @@ const deserializeAws_queryNotificationAttributes = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: IdentityNotificationAttributes } => {
-  return output.reduce((acc: any, pair: any) => {
-    acc[pair["key"]] = deserializeAws_queryIdentityNotificationAttributes(
-      pair["value"],
-      context
-    );
-    return acc;
-  }, {});
+  return output.reduce(
+    (acc: any, pair: any) => ({
+      ...acc,
+      [pair["key"]]: deserializeAws_queryIdentityNotificationAttributes(
+        pair["value"],
+        context
+      )
+    }),
+    {}
+  );
 };
 
 const deserializeAws_queryPolicyMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return output.reduce((acc: any, pair: any) => {
-    acc[pair["key"]] = pair["value"];
-    return acc;
-  }, {});
+  return output.reduce(
+    (acc: any, pair: any) => ({
+      ...acc,
+      [pair["key"]]: pair["value"]
+    }),
+    {}
+  );
 };
 
 const deserializeAws_queryPolicyNameList = (
@@ -11733,13 +11745,16 @@ const deserializeAws_queryVerificationAttributes = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: IdentityVerificationAttributes } => {
-  return output.reduce((acc: any, pair: any) => {
-    acc[pair["key"]] = deserializeAws_queryIdentityVerificationAttributes(
-      pair["value"],
-      context
-    );
-    return acc;
-  }, {});
+  return output.reduce(
+    (acc: any, pair: any) => ({
+      ...acc,
+      [pair["key"]]: deserializeAws_queryIdentityVerificationAttributes(
+        pair["value"],
+        context
+      )
+    }),
+    {}
+  );
 };
 
 const deserializeAws_queryVerificationTokenList = (

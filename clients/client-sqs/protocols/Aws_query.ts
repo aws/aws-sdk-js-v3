@@ -3251,13 +3251,16 @@ const deserializeAws_queryMessageBodyAttributeMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: MessageAttributeValue } => {
-  return output.reduce((acc: any, pair: any) => {
-    acc[pair["Name"]] = deserializeAws_queryMessageAttributeValue(
-      pair["Value"],
-      context
-    );
-    return acc;
-  }, {});
+  return output.reduce(
+    (acc: any, pair: any) => ({
+      ...acc,
+      [pair["Name"]]: deserializeAws_queryMessageAttributeValue(
+        pair["Value"],
+        context
+      )
+    }),
+    {}
+  );
 };
 
 const deserializeAws_queryMessageList = (
@@ -3283,10 +3286,13 @@ const deserializeAws_queryMessageSystemAttributeMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return output.reduce((acc: any, pair: any) => {
-    acc[pair["Name"]] = pair["Value"];
-    return acc;
-  }, {});
+  return output.reduce(
+    (acc: any, pair: any) => ({
+      ...acc,
+      [pair["Name"]]: pair["Value"]
+    }),
+    {}
+  );
 };
 
 const deserializeAws_queryOverLimit = (
@@ -3313,10 +3319,13 @@ const deserializeAws_queryQueueAttributeMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return output.reduce((acc: any, pair: any) => {
-    acc[pair["Name"]] = pair["Value"];
-    return acc;
-  }, {});
+  return output.reduce(
+    (acc: any, pair: any) => ({
+      ...acc,
+      [pair["Name"]]: pair["Value"]
+    }),
+    {}
+  );
 };
 
 const deserializeAws_queryQueueDeletedRecently = (
@@ -3502,10 +3511,13 @@ const deserializeAws_queryTagMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return output.reduce((acc: any, pair: any) => {
-    acc[pair["Key"]] = pair["Value"];
-    return acc;
-  }, {});
+  return output.reduce(
+    (acc: any, pair: any) => ({
+      ...acc,
+      [pair["Key"]]: pair["Value"]
+    }),
+    {}
+  );
 };
 
 const deserializeAws_queryTooManyEntriesInBatchRequest = (

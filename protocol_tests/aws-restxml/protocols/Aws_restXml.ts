@@ -4496,10 +4496,13 @@ const deserializeAws_restXmlFlattenedXmlMapWithXmlNameInputOutputMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: string } => {
-  return output.reduce((acc: any, pair: any) => {
-    acc[pair["K"]] = pair["V"];
-    return acc;
-  }, {});
+  return output.reduce(
+    (acc: any, pair: any) => ({
+      ...acc,
+      [pair["K"]]: pair["V"]
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restXmlNestedPayload = (
@@ -4660,26 +4663,32 @@ const deserializeAws_restXmlXmlMapsInputOutputMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: GreetingStruct } => {
-  return output.reduce((acc: any, pair: any) => {
-    acc[pair["key"]] = deserializeAws_restXmlGreetingStruct(
-      pair["value"],
-      context
-    );
-    return acc;
-  }, {});
+  return output.reduce(
+    (acc: any, pair: any) => ({
+      ...acc,
+      [pair["key"]]: deserializeAws_restXmlGreetingStruct(
+        pair["value"],
+        context
+      )
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restXmlXmlMapsXmlNameInputOutputMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: GreetingStruct } => {
-  return output.reduce((acc: any, pair: any) => {
-    acc[pair["Attribute"]] = deserializeAws_restXmlGreetingStruct(
-      pair["Setting"],
-      context
-    );
-    return acc;
-  }, {});
+  return output.reduce(
+    (acc: any, pair: any) => ({
+      ...acc,
+      [pair["Attribute"]]: deserializeAws_restXmlGreetingStruct(
+        pair["Setting"],
+        context
+      )
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restXmlXmlNamespaceNested = (
@@ -4734,10 +4743,13 @@ const deserializeAws_restXmlFooEnumMap = (
   output: any,
   context: __SerdeContext
 ): { [key: string]: FooEnum | string } => {
-  return output.reduce((acc: any, pair: any) => {
-    acc[pair["key"]] = pair["value"];
-    return acc;
-  }, {});
+  return output.reduce(
+    (acc: any, pair: any) => ({
+      ...acc,
+      [pair["key"]]: pair["value"]
+    }),
+    {}
+  );
 };
 
 const deserializeAws_restXmlFooEnumSet = (
