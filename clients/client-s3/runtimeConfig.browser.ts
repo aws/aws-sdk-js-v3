@@ -1,11 +1,10 @@
 import { name, version } from "./package.json";
 import { Sha256 } from "@aws-crypto/sha256-browser";
 import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-browser";
-import { FetchHttpHandler } from "@aws-sdk/fetch-http-handler";
+import { FetchHttpHandler, streamCollector } from "@aws-sdk/fetch-http-handler";
 import { blobHasher as streamHasher } from "@aws-sdk/hash-blob-browser";
 import { invalidFunction } from "@aws-sdk/invalid-dependency";
 import { Md5 } from "@aws-sdk/md5-js";
-import { streamCollector } from "@aws-sdk/stream-collector-browser";
 import { parseUrl } from "@aws-sdk/url-parser-browser";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64-browser";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-browser";
